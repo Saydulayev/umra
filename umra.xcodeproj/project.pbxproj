@@ -7,18 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C008900329E1B09400031176 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C008900229E1B09400031176 /* SettingsView.swift */; };
+		C00A1AC22991335B0077D2B7 /* PayPalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A1AC12991335B0077D2B7 /* PayPalView.swift */; };
+		C036BC852997A8E40000FD8E /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC842997A8E40000FD8E /* Lato-Italic.ttf */; };
+		C036BC872997AAFA0000FD8E /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */; };
+		C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC882997AD040000FD8E /* Lato-Bold.ttf */; };
+		C036BC8B2997AD350000FD8E /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC8A2997AD350000FD8E /* Lato-Black.ttf */; };
+		C0514F342998F3C000AA1776 /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0514F332998F3C000AA1776 /* PDFView.swift */; };
+		C063ADE329DF2E5B00746D2E /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063ADE229DF2E5B00746D2E /* PlayerView.swift */; };
+		C063ADF229DF2FC700746D2E /* 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE529DF2FC400746D2E /* 5.mp3 */; };
+		C063ADF329DF2FC700746D2E /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE629DF2FC500746D2E /* 2.mp3 */; };
+		C063ADF429DF2FC700746D2E /* 12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE729DF2FC500746D2E /* 12.mp3 */; };
+		C063ADF529DF2FC700746D2E /* 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE829DF2FC500746D2E /* 4.mp3 */; };
+		C063ADF629DF2FC700746D2E /* 10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE929DF2FC500746D2E /* 10.mp3 */; };
+		C063ADF729DF2FC700746D2E /* 7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADEA29DF2FC500746D2E /* 7.mp3 */; };
+		C063ADF829DF2FC700746D2E /* 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADEB29DF2FC600746D2E /* 6.mp3 */; };
+		C063ADF929DF2FC700746D2E /* 11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADEC29DF2FC600746D2E /* 11.mp3 */; };
+		C063ADFA29DF2FC700746D2E /* 13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADED29DF2FC600746D2E /* 13.mp3 */; };
+		C063ADFB29DF2FC700746D2E /* 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADEE29DF2FC600746D2E /* 9.mp3 */; };
+		C063ADFC29DF2FC700746D2E /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADEF29DF2FC600746D2E /* 3.mp3 */; };
+		C063ADFD29DF2FC700746D2E /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADF029DF2FC600746D2E /* 1.mp3 */; };
+		C063ADFE29DF2FC700746D2E /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADF129DF2FC700746D2E /* 8.mp3 */; };
+		C08D2D21298BFE400050B216 /* DonationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D2D20298BFE400050B216 /* DonationButton.swift */; };
 		C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDB29829F8A00458ACB /* umraApp.swift */; };
 		C0908DDE29829F8A00458ACB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDD29829F8A00458ACB /* ContentView.swift */; };
 		C0908DE029829F8A00458ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DDF29829F8A00458ACB /* Assets.xcassets */; };
 		C0908DE329829F8A00458ACB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DE229829F8A00458ACB /* Preview Assets.xcassets */; };
+		C0908DEC2982A02E00458ACB /* CustomMidifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEB2982A02E00458ACB /* CustomMidifier.swift */; };
+		C0908DEF2982A07900458ACB /* Step 1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEE2982A07900458ACB /* Step 1.swift */; };
+		C0908DF12982A08B00458ACB /* Step 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF02982A08B00458ACB /* Step 2.swift */; };
+		C0908DF32982A09400458ACB /* Step 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF22982A09400458ACB /* Step 3.swift */; };
+		C0908DF52982A09E00458ACB /* Step 4.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF42982A09D00458ACB /* Step 4.swift */; };
+		C0908DF72982A0AA00458ACB /* Step 5.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF62982A0AA00458ACB /* Step 5.swift */; };
+		C0908DF92982A0B300458ACB /* Step 6.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF82982A0B300458ACB /* Step 6.swift */; };
+		C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DFA2982A0BC00458ACB /* Step 7.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C008900229E1B09400031176 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C00A1AC12991335B0077D2B7 /* PayPalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPalView.swift; sourceTree = "<group>"; };
+		C036BC842997A8E40000FD8E /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C036BC882997AD040000FD8E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		C036BC8A2997AD350000FD8E /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		C0514F332998F3C000AA1776 /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
+		C063ADE229DF2E5B00746D2E /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		C063ADE529DF2FC400746D2E /* 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5.mp3; sourceTree = "<group>"; };
+		C063ADE629DF2FC500746D2E /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
+		C063ADE729DF2FC500746D2E /* 12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 12.mp3; sourceTree = "<group>"; };
+		C063ADE829DF2FC500746D2E /* 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4.mp3; sourceTree = "<group>"; };
+		C063ADE929DF2FC500746D2E /* 10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10.mp3; sourceTree = "<group>"; };
+		C063ADEA29DF2FC500746D2E /* 7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 7.mp3; sourceTree = "<group>"; };
+		C063ADEB29DF2FC600746D2E /* 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 6.mp3; sourceTree = "<group>"; };
+		C063ADEC29DF2FC600746D2E /* 11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 11.mp3; sourceTree = "<group>"; };
+		C063ADED29DF2FC600746D2E /* 13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 13.mp3; sourceTree = "<group>"; };
+		C063ADEE29DF2FC600746D2E /* 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 9.mp3; sourceTree = "<group>"; };
+		C063ADEF29DF2FC600746D2E /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
+		C063ADF029DF2FC600746D2E /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
+		C063ADF129DF2FC700746D2E /* 8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8.mp3; sourceTree = "<group>"; };
+		C08D2D20298BFE400050B216 /* DonationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationButton.swift; sourceTree = "<group>"; };
 		C0908DD829829F8A00458ACB /* umra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0908DDB29829F8A00458ACB /* umraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = umraApp.swift; sourceTree = "<group>"; };
 		C0908DDD29829F8A00458ACB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0908DDF29829F8A00458ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0908DE229829F8A00458ACB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C0908DEB2982A02E00458ACB /* CustomMidifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMidifier.swift; sourceTree = "<group>"; };
+		C0908DEE2982A07900458ACB /* Step 1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 1.swift"; sourceTree = "<group>"; };
+		C0908DF02982A08B00458ACB /* Step 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 2.swift"; sourceTree = "<group>"; };
+		C0908DF22982A09400458ACB /* Step 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 3.swift"; sourceTree = "<group>"; };
+		C0908DF42982A09D00458ACB /* Step 4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 4.swift"; sourceTree = "<group>"; };
+		C0908DF62982A0AA00458ACB /* Step 5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 5.swift"; sourceTree = "<group>"; };
+		C0908DF82982A0B300458ACB /* Step 6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 6.swift"; sourceTree = "<group>"; };
+		C0908DFA2982A0BC00458ACB /* Step 7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 7.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +92,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C008900129E1AE0C00031176 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0908DDD29829F8A00458ACB /* ContentView.swift */,
+				C00A1AC12991335B0077D2B7 /* PayPalView.swift */,
+				C063ADE229DF2E5B00746D2E /* PlayerView.swift */,
+				C0514F332998F3C000AA1776 /* PDFView.swift */,
+				C008900229E1B09400031176 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C036BC802997A5190000FD8E /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C036BC8A2997AD350000FD8E /* Lato-Black.ttf */,
+				C036BC842997A8E40000FD8E /* Lato-Italic.ttf */,
+				C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */,
+				C036BC882997AD040000FD8E /* Lato-Bold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		C063ADE429DF2ED500746D2E /* MP3Voice */ = {
+			isa = PBXGroup;
+			children = (
+				C063ADF029DF2FC600746D2E /* 1.mp3 */,
+				C063ADE629DF2FC500746D2E /* 2.mp3 */,
+				C063ADEF29DF2FC600746D2E /* 3.mp3 */,
+				C063ADE829DF2FC500746D2E /* 4.mp3 */,
+				C063ADE529DF2FC400746D2E /* 5.mp3 */,
+				C063ADEB29DF2FC600746D2E /* 6.mp3 */,
+				C063ADEA29DF2FC500746D2E /* 7.mp3 */,
+				C063ADF129DF2FC700746D2E /* 8.mp3 */,
+				C063ADEE29DF2FC600746D2E /* 9.mp3 */,
+				C063ADE929DF2FC500746D2E /* 10.mp3 */,
+				C063ADEC29DF2FC600746D2E /* 11.mp3 */,
+				C063ADE729DF2FC500746D2E /* 12.mp3 */,
+				C063ADED29DF2FC600746D2E /* 13.mp3 */,
+			);
+			path = MP3Voice;
+			sourceTree = "<group>";
+		};
 		C0908DCF29829F8A00458ACB = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +155,12 @@
 			isa = PBXGroup;
 			children = (
 				C0908DDB29829F8A00458ACB /* umraApp.swift */,
-				C0908DDD29829F8A00458ACB /* ContentView.swift */,
+				C008900129E1AE0C00031176 /* View */,
+				C08D2D20298BFE400050B216 /* DonationButton.swift */,
+				C0908DEB2982A02E00458ACB /* CustomMidifier.swift */,
+				C036BC802997A5190000FD8E /* Font */,
+				C0908DED2982A05B00458ACB /* All Step´s */,
+				C063ADE429DF2ED500746D2E /* MP3Voice */,
 				C0908DDF29829F8A00458ACB /* Assets.xcassets */,
 				C0908DE129829F8A00458ACB /* Preview Content */,
 			);
@@ -65,6 +173,20 @@
 				C0908DE229829F8A00458ACB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C0908DED2982A05B00458ACB /* All Step´s */ = {
+			isa = PBXGroup;
+			children = (
+				C0908DEE2982A07900458ACB /* Step 1.swift */,
+				C0908DF02982A08B00458ACB /* Step 2.swift */,
+				C0908DF22982A09400458ACB /* Step 3.swift */,
+				C0908DF42982A09D00458ACB /* Step 4.swift */,
+				C0908DF62982A0AA00458ACB /* Step 5.swift */,
+				C0908DF82982A0B300458ACB /* Step 6.swift */,
+				C0908DFA2982A0BC00458ACB /* Step 7.swift */,
+			);
+			path = "All Step´s";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +247,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C063ADFD29DF2FC700746D2E /* 1.mp3 in Resources */,
+				C063ADF229DF2FC700746D2E /* 5.mp3 in Resources */,
+				C036BC8B2997AD350000FD8E /* Lato-Black.ttf in Resources */,
+				C063ADF929DF2FC700746D2E /* 11.mp3 in Resources */,
 				C0908DE329829F8A00458ACB /* Preview Assets.xcassets in Resources */,
+				C063ADF529DF2FC700746D2E /* 4.mp3 in Resources */,
+				C063ADFA29DF2FC700746D2E /* 13.mp3 in Resources */,
+				C063ADF429DF2FC700746D2E /* 12.mp3 in Resources */,
+				C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */,
+				C063ADF729DF2FC700746D2E /* 7.mp3 in Resources */,
+				C036BC872997AAFA0000FD8E /* Lato-BlackItalic.ttf in Resources */,
+				C063ADF629DF2FC700746D2E /* 10.mp3 in Resources */,
+				C063ADF829DF2FC700746D2E /* 6.mp3 in Resources */,
+				C063ADFC29DF2FC700746D2E /* 3.mp3 in Resources */,
+				C063ADFE29DF2FC700746D2E /* 8.mp3 in Resources */,
+				C063ADFB29DF2FC700746D2E /* 9.mp3 in Resources */,
+				C063ADF329DF2FC700746D2E /* 2.mp3 in Resources */,
+				C036BC852997A8E40000FD8E /* Lato-Italic.ttf in Resources */,
 				C0908DE029829F8A00458ACB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +276,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C008900329E1B09400031176 /* SettingsView.swift in Sources */,
 				C0908DDE29829F8A00458ACB /* ContentView.swift in Sources */,
+				C0908DF92982A0B300458ACB /* Step 6.swift in Sources */,
+				C0514F342998F3C000AA1776 /* PDFView.swift in Sources */,
+				C00A1AC22991335B0077D2B7 /* PayPalView.swift in Sources */,
+				C0908DF72982A0AA00458ACB /* Step 5.swift in Sources */,
+				C0908DF12982A08B00458ACB /* Step 2.swift in Sources */,
+				C0908DF32982A09400458ACB /* Step 3.swift in Sources */,
+				C0908DEF2982A07900458ACB /* Step 1.swift in Sources */,
+				C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */,
+				C063ADE329DF2E5B00746D2E /* PlayerView.swift in Sources */,
+				C08D2D21298BFE400050B216 /* DonationButton.swift in Sources */,
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
+				C0908DEC2982A02E00458ACB /* CustomMidifier.swift in Sources */,
+				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +330,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -195,13 +348,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "";
 			};
 			name = Debug;
 		};
@@ -238,6 +392,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -249,13 +404,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "";
 			};
 			name = Release;
 		};
@@ -267,21 +423,25 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"umra/Preview Content\"";
-				DEVELOPMENT_TEAM = 525DJ2CU44;
+				DEVELOPMENT_TEAM = 93NA5FP2X8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = umra/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = UMRA;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "marsho13-gmail.com.umra";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "saydulayev.wien-gmail.com.umra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -293,24 +453,30 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"umra/Preview Content\"";
-				DEVELOPMENT_TEAM = 525DJ2CU44;
+				DEVELOPMENT_TEAM = 93NA5FP2X8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = umra/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = UMRA;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "marsho13-gmail.com.umra";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "saydulayev.wien-gmail.com.umra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
