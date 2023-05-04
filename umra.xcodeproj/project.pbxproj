@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C008900329E1B09400031176 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C008900229E1B09400031176 /* SettingsView.swift */; };
 		C00A1AC22991335B0077D2B7 /* PayPalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A1AC12991335B0077D2B7 /* PayPalView.swift */; };
+		C025CE992A03E4300052188D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C025CE9B2A03E4300052188D /* Localizable.strings */; };
 		C036BC852997A8E40000FD8E /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC842997A8E40000FD8E /* Lato-Italic.ttf */; };
 		C036BC872997AAFA0000FD8E /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */; };
 		C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC882997AD040000FD8E /* Lato-Bold.ttf */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		C008900229E1B09400031176 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C00A1AC12991335B0077D2B7 /* PayPalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPalView.swift; sourceTree = "<group>"; };
+		C025CE9A2A03E4300052188D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C036BC842997A8E40000FD8E /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		C036BC882997AD040000FD8E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				C008900129E1AE0C00031176 /* View */,
 				C08D2D20298BFE400050B216 /* DonationButton.swift */,
 				C0908DEB2982A02E00458ACB /* CustomMidifier.swift */,
+				C025CE9B2A03E4300052188D /* Localizable.strings */,
 				C036BC802997A5190000FD8E /* Font */,
 				C0908DED2982A05B00458ACB /* All Step´s */,
 				C063ADE429DF2ED500746D2E /* MP3Voice */,
@@ -229,8 +232,8 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
 			mainGroup = C0908DCF29829F8A00458ACB;
 			productRefGroup = C0908DD929829F8A00458ACB /* Products */;
@@ -252,6 +255,7 @@
 				C036BC8B2997AD350000FD8E /* Lato-Black.ttf in Resources */,
 				C063ADF929DF2FC700746D2E /* 11.mp3 in Resources */,
 				C0908DE329829F8A00458ACB /* Preview Assets.xcassets in Resources */,
+				C025CE992A03E4300052188D /* Localizable.strings in Resources */,
 				C063ADF529DF2FC700746D2E /* 4.mp3 in Resources */,
 				C063ADFA29DF2FC700746D2E /* 13.mp3 in Resources */,
 				C063ADF429DF2FC700746D2E /* 12.mp3 in Resources */,
@@ -295,6 +299,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C025CE9B2A03E4300052188D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C025CE9A2A03E4300052188D /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C0908DE429829F8A00458ACB /* Debug */ = {
