@@ -10,10 +10,8 @@ import SafariServices
 
 struct SettingsView: View {
     @State private var showSafariView = false
-    @State private var selectedLanguage = "English"
     @State private var showPicker = false
     
-    let languages = ["Russian", "English", "Deutsch",  "French"]
     
     var body: some View {
         NavigationView {
@@ -50,43 +48,15 @@ struct SettingsView: View {
                         DonationButton()
                     }
                 }
-                Section(header: Text("LANGUAGE SELECTION")) {
-                        Image(systemName: "globe")
-                            .foregroundColor(.blue)
-                    VStack(alignment: .leading) {
-                        Text("Выбрать язык")
-                            .foregroundColor(.blue)
-                            .onTapGesture {
-                                showPicker.toggle()
-                            }
-
-                        if showPicker {
-                            Picker("Язык", selection: $selectedLanguage) {
-                                ForEach(languages, id: \.self) {
-                                    Text($0)
-                                }
-                            }
-                            .pickerStyle(.wheel)
-                            .frame(height: 150)
-                            .onChange(of: selectedLanguage) { _ in
-                                showPicker.toggle() // close the window when the language is selected
-                            }
-                        }
-
-                        Text("\(selectedLanguage)")
-                            .padding()
-                    }
-
-                }
-                
             }
-            .navigationBarTitle("Настройки", displayMode: .inline)
-            .sheet(isPresented: $showSafariView) {
-                SafariView(url: URL(string: "https://apps.apple.com/app/id1673683355")!)
-            }
+        }
+        .navigationBarTitle("Настройки", displayMode: .inline)
+        .sheet(isPresented: $showSafariView) {
+            SafariView(url: URL(string: "https://apps.apple.com/app/id1673683355")!)
         }
     }
 }
+
 
 struct SafariView: UIViewControllerRepresentable {
     let url: URL
