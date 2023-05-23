@@ -29,6 +29,7 @@
 		C063ADFC29DF2FC700746D2E /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADEF29DF2FC600746D2E /* 3.mp3 */; };
 		C063ADFD29DF2FC700746D2E /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADF029DF2FC600746D2E /* 1.mp3 */; };
 		C063ADFE29DF2FC700746D2E /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADF129DF2FC700746D2E /* 8.mp3 */; };
+		C075CB1E2A13857E00D4C842 /* hadj_i_umra.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C075CB1D2A13857E00D4C842 /* hadj_i_umra.pdf */; };
 		C08D2D21298BFE400050B216 /* DonationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D2D20298BFE400050B216 /* DonationButton.swift */; };
 		C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDB29829F8A00458ACB /* umraApp.swift */; };
 		C0908DDE29829F8A00458ACB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDD29829F8A00458ACB /* ContentView.swift */; };
@@ -42,12 +43,12 @@
 		C0908DF72982A0AA00458ACB /* Step 5.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF62982A0AA00458ACB /* Step 5.swift */; };
 		C0908DF92982A0B300458ACB /* Step 6.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF82982A0B300458ACB /* Step 6.swift */; };
 		C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DFA2982A0BC00458ACB /* Step 7.swift */; };
+		C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DC35DF2A0686A2002527D7 /* LanguageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C008900229E1B09400031176 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C00A1AC12991335B0077D2B7 /* PayPalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPalView.swift; sourceTree = "<group>"; };
-		C025CE9A2A03E4300052188D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C036BC842997A8E40000FD8E /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		C036BC882997AD040000FD8E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -67,6 +68,9 @@
 		C063ADEF29DF2FC600746D2E /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
 		C063ADF029DF2FC600746D2E /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 		C063ADF129DF2FC700746D2E /* 8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8.mp3; sourceTree = "<group>"; };
+		C06B9C562A08F4A000549748 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C06B9C572A08F4AE00549748 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C075CB1D2A13857E00D4C842 /* hadj_i_umra.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = hadj_i_umra.pdf; path = ../../../hadj_i_umra.pdf; sourceTree = "<group>"; };
 		C08D2D20298BFE400050B216 /* DonationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationButton.swift; sourceTree = "<group>"; };
 		C0908DD829829F8A00458ACB /* umra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0908DDB29829F8A00458ACB /* umraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = umraApp.swift; sourceTree = "<group>"; };
@@ -81,6 +85,9 @@
 		C0908DF62982A0AA00458ACB /* Step 5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 5.swift"; sourceTree = "<group>"; };
 		C0908DF82982A0B300458ACB /* Step 6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 6.swift"; sourceTree = "<group>"; };
 		C0908DFA2982A0BC00458ACB /* Step 7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 7.swift"; sourceTree = "<group>"; };
+		C0DC35DF2A0686A2002527D7 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
+		C0DC35E12A0687DF002527D7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C0DC35E22A068F21002527D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +109,7 @@
 				C063ADE229DF2E5B00746D2E /* PlayerView.swift */,
 				C0514F332998F3C000AA1776 /* PDFView.swift */,
 				C008900229E1B09400031176 /* SettingsView.swift */,
+				C0DC35DF2A0686A2002527D7 /* LanguageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,6 +145,14 @@
 			path = MP3Voice;
 			sourceTree = "<group>";
 		};
+		C075CB1B2A137ED600D4C842 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				C075CB1D2A13857E00D4C842 /* hadj_i_umra.pdf */,
+			);
+			path = PDF;
+			sourceTree = "<group>";
+		};
 		C0908DCF29829F8A00458ACB = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +180,7 @@
 				C036BC802997A5190000FD8E /* Font */,
 				C0908DED2982A05B00458ACB /* All Step´s */,
 				C063ADE429DF2ED500746D2E /* MP3Voice */,
+				C075CB1B2A137ED600D4C842 /* PDF */,
 				C0908DDF29829F8A00458ACB /* Assets.xcassets */,
 				C0908DE129829F8A00458ACB /* Preview Content */,
 			);
@@ -229,11 +246,14 @@
 			};
 			buildConfigurationList = C0908DD329829F8A00458ACB /* Build configuration list for PBXProject "umra" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				Base,
 				en,
+				ru,
+				Base,
+				de,
+				fr,
 			);
 			mainGroup = C0908DCF29829F8A00458ACB;
 			productRefGroup = C0908DD929829F8A00458ACB /* Products */;
@@ -258,6 +278,7 @@
 				C025CE992A03E4300052188D /* Localizable.strings in Resources */,
 				C063ADF529DF2FC700746D2E /* 4.mp3 in Resources */,
 				C063ADFA29DF2FC700746D2E /* 13.mp3 in Resources */,
+				C075CB1E2A13857E00D4C842 /* hadj_i_umra.pdf in Resources */,
 				C063ADF429DF2FC700746D2E /* 12.mp3 in Resources */,
 				C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */,
 				C063ADF729DF2FC700746D2E /* 7.mp3 in Resources */,
@@ -292,6 +313,7 @@
 				C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */,
 				C063ADE329DF2E5B00746D2E /* PlayerView.swift in Sources */,
 				C08D2D21298BFE400050B216 /* DonationButton.swift in Sources */,
+				C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */,
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
 				C0908DEC2982A02E00458ACB /* CustomMidifier.swift in Sources */,
 				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,
@@ -304,7 +326,10 @@
 		C025CE9B2A03E4300052188D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C025CE9A2A03E4300052188D /* en */,
+				C0DC35E12A0687DF002527D7 /* ru */,
+				C0DC35E22A068F21002527D7 /* en */,
+				C06B9C562A08F4A000549748 /* de */,
+				C06B9C572A08F4AE00549748 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -316,6 +341,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -378,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

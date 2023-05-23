@@ -9,25 +9,22 @@ import SwiftUI
 
 
 struct Step1: View {
+    @EnvironmentObject var settings: UserSettings
+
+
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.98108989, green: 0.9316333532, blue: 0.8719255924, alpha: 1))
                 .edgesIgnoringSafeArea(.bottom)
         ScrollView {
                 VStack {
-                    Text("""
+                    Text("into the state of Ihram", bundle: settings.bundle)
                     
-                    
-                    Войдите в состояние
-                    ихрама в предназначенном
-                    для этого месте (микат).
-                    
-                    """)
                     .font(.custom("Lato-Black", size: 26))
                     .foregroundColor(.black)
                     Group {
                         
-                      Text("При вхождении в состоянии ихрама произнесите:")
+                      Text("When entering the state of Ihram, say:", bundle: settings.bundle)
                         
                         
                         Text("""
@@ -38,15 +35,7 @@ struct Step1: View {
                         PlayerView(fileName: "1")
                             .padding()
                         
-                        Text("""
-                
-                Ляббайка Аллаhумма би-1умра.
-                                 
-                Обратитесь лицом к кибле и скажите:
-                
-                """)
-                        
-                        
+                        Text("Turn your face towards the Qiblah and say:", bundle: settings.bundle)
                         
                         
                         Text("""
@@ -58,18 +47,7 @@ struct Step1: View {
                         PlayerView(fileName: "2")
                             .padding()
                         
-                        Text("""
-    
-    Аллаhумма hазиhи 1умра
-    ля рийа’ фи-hа ва ля сум1аh
-    
-    О Аллах, эта Умра — нет
-    в ней показухи и стремления к славе!
-    
-    
-    Затем начните громко произносить тальбию:
-    
-    """)
+                        Text("O Allah, this Umrah is without any ostentation or fame", bundle: settings.bundle)
                         
                     }
                     .font(.system(size: 20, weight: .light, design: .serif))
@@ -87,25 +65,10 @@ struct Step1: View {
                         PlayerView(fileName: "3")
                             .padding()
                         
-                        Text("""
-    
-    “Ляббайка Ллаhумма ляббайка! Ляббайка ляя шариика ляка ляббайка! Инналь хьамда ван ни1мата ляка валь мульк, ляя шариика ляк”
-    
-    («Вот я перед Тобой, о, Аллаh! Вот я перед Тобой! Вот я перед Тобой, и нет у Тебя сотоварища! Вот я перед Тобой! Поистине, Тебе надлежит хвала, и Тебе принадлежит милость и владычество! Нет у Тебя сотоварища!»).
-    
-    
-    
-    Достигнув заповедной территории Мекки и увидев дома Мекки, следует прекратить произносить тальбию.
-                    
-    """)
+                        Text("Labbayka Allahumma labbayk", bundle: settings.bundle)
                         
                         
-                        Text("""
-    
-    Войдя в Заповедную мечеть
-    с правой ноги, скажите:
-    
-    """)
+                        Text("Entering the Sacred Mosque from the right foot", bundle: settings.bundle)
                         Group {
                             Text("""
     اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَ سَلِّمْ،اَللَّهُمَّ افْتَحْ لِي اَبْوَابَ رَحْمَتِكَ
@@ -118,27 +81,12 @@ struct Step1: View {
                             
                             
                             
-                            Text("""
-    
-    Аллаhумма, солли 1аля Мухьаммадин ва саллим!
-    Аллаhумма - фтахь ли абваба рохьмати-ка!
-    
-    О Аллах, благослови Мухаммада и ниспошли ему мир!
-    О Аллах, открой для меня
-    врата Своего милосердия!
-    
-    
-    
-    """)
-                            Text("Обусловливание Хаджа или Умры.")
+                            Text("entering the Sacred Mosque", bundle: settings.bundle)
+                            Text("Conditioning for Hajj or Umrah.", bundle: settings.bundle)
                                 .font(.custom("Lato-Black", size: 26))
                                 .foregroundColor(.black)
                             
-                            Text("""
-    
-    Если паломник опасается, что какая-либо причина может помешать ему совершить хадж до конца – будь то болезнь или страх, то до произнесении тальбии он может обусловить свой хадж пред Всевышним Господом, сказав то, чему научил посланник, да пребудет над Ним мир и благословение Аллаха:
-    
-    """)
+                            Text("If a pilgrim fears that some reason may prevent them from completing the Hajj", bundle: settings.bundle)
                             Text("""
                          اَللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي
                          """)
@@ -148,22 +96,16 @@ struct Step1: View {
                                 .padding()
                         }
 
-                        Text("""
-
-«Аллаhумма махьилли хьайсу хьабастани»
-
-«О Аллах, мое место вхождения в ихрам там, где Ты меня задержал».
-
-Этот хадис является согласованным. См. также «Сахих Аби Дауд» (1776).
-
-Поэтому, если паломник поступит так, и его что-то задержит или он заболеет, то ему разрешено выйти из состояния ихрама при совершении хаджа или умры, и ему не надо будет приносить в жертву животное в качестве искупления и снова повторять хадж, если только это не был его первый хадж, являющийся обязательным, который в таком случае следует совершить заново.
-""")
+                        Text("Ihram text1", bundle: settings.bundle)
                         
                     }
                     .font(.system(size: 20, weight: .light, design: .serif))
                     .italic()
                     .foregroundColor(.black)
                 } .padding(.horizontal, 10)
+//                .environmentObject(settings)
+            LanguageView(settings: settings)
+                .hidden()
             }
         }
     }
