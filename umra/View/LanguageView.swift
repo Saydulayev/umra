@@ -32,10 +32,10 @@ struct LanguageView: View {
                                 settings.lang = "de"
                                 UserDefaults.standard.set(settings.lang, forKey: "selectedLanguage")
                             },
-                            .default(Text("Français")) {
-                                settings.lang = "fr"
-                                UserDefaults.standard.set(settings.lang, forKey: "selectedLanguage")
-                            },
+//                            .default(Text("Français")) {
+//                                settings.lang = "fr"
+//                                UserDefaults.standard.set(settings.lang, forKey: "selectedLanguage")
+//                            },
                             .cancel()
                         ])
                     }
