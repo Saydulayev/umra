@@ -1,3 +1,13 @@
+#### Preview
+
+<table border=0>
+    <tr>
+        <td>
+            <image src=https://github.com/Saydulayev/umra/blob/main/umra/Gif/Final1693649288.gif width=230 align=center>
+        </td>
+    </tr>
+</table>
+
 # Umra Guide: Simplify Your Pilgrimage Experience
 
 ![Umra Guide]  https://apps.apple.com/app/id1673683355
