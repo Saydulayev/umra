@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CounterTapView: View {
     @EnvironmentObject var settings: UserSettings
-    @State private var counter = 0
+    @AppStorage("add_string") private var counter = 0
     
     var body: some View {
         VStack {
