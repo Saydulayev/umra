@@ -60,8 +60,11 @@ class UserSettings: ObservableObject {
     @Published var lang: String = "ru"
     
     var bundle: Bundle? {
-        let b = Bundle.main.path(forResource: lang, ofType: "lproj")!
-        return Bundle(path: b)
+        guard let path = Bundle.main.path(forResource: lang, ofType: "lproj"),
+              let resultBundle = Bundle(path: path) else {
+            return nil
+        }
+        return resultBundle
     }
 }
 

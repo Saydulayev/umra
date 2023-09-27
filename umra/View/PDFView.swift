@@ -14,18 +14,10 @@ import PDFKit
 
 struct PDFViewWrapper: View {
     var body: some View {
-        ZStack {
-            Color.white
-                .edgesIgnoringSafeArea(.bottom)
-            
-            VStack {
-                PDFViewRepresented()
-            }
-        }
+        PDFViewRepresented()
+            .background(Color.white.edgesIgnoringSafeArea(.bottom))
     }
 }
-
-
 
 
 
@@ -35,10 +27,11 @@ struct PDFViewRepresented: UIViewRepresentable {
         if let url = Bundle.main.url(forResource: "hadj_i_umra", withExtension: "pdf") {
             pdfView.document = PDFDocument(url: url)
         }
-                pdfView.autoScales = true // Adjusts the PDF view's scale to fit the window
-                pdfView.displayMode = .singlePageContinuous // Displays one page at a time
-                pdfView.usePageViewController(true, withViewOptions: nil) // Enables page swiping
-                pdfView.backgroundColor = UIColor.white // Sets the background color to black
+                pdfView.autoScales = true
+                pdfView.minScaleFactor = 0.5
+                pdfView.displayMode = .singlePageContinuous
+                pdfView.usePageViewController(true, withViewOptions: nil)
+                pdfView.backgroundColor = UIColor.white
                 return pdfView
     }
 
