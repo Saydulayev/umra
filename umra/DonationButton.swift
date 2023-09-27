@@ -55,7 +55,7 @@ struct DonationButton: View {
             .sheet(isPresented: $showDestinationView) {
                 CloseButton(showDestinationView: $showDestinationView)
             }
-            LanguageView(settings: settings)
+            LanguageView()
                 .hidden()
         }
     }

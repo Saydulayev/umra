@@ -35,7 +35,7 @@ struct Step7: View {
                     .italic()
                     .foregroundColor(.black)
                 } .padding(10)
-            LanguageView(settings: settings)
+            LanguageView()
                 .hidden()
             }
         } 

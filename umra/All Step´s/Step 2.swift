@@ -51,7 +51,7 @@ struct Step2: View {
                         .italic()
                         .foregroundColor(.black)
                     } .padding(.horizontal, 10)
-            LanguageView(settings: settings)
+            LanguageView()
                 .hidden()
                 }
             }

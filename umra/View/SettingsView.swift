@@ -63,7 +63,7 @@ struct SettingsView: View {
                             .foregroundColor(.blue)
                         
                     }
-                    LanguageView(settings: settings)
+                    LanguageView()
                 }
                 
             }

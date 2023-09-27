@@ -57,7 +57,7 @@ struct ContentView: View {
                                 .foregroundColor(.blue)
                         }
                     )
-                    LanguageView(settings: settings).hidden()
+                    LanguageView().hidden()
                 }
             }
         }
