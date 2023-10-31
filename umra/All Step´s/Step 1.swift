@@ -9,19 +9,22 @@ import SwiftUI
 
 
 struct Step1: View {
+    
     @EnvironmentObject var settings: UserSettings
+    @StateObject var colorManager = ColorManager()
 
 
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.98108989, green: 0.9316333532, blue: 0.8719255924, alpha: 1))
-                .edgesIgnoringSafeArea(.bottom)
+            RoundedRectangle(cornerRadius: 20)
+                .fill(colorManager.backgroundColor)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .edgesIgnoringSafeArea(.all)
         ScrollView {
                 VStack {
                     Text("into the state of Ihram", bundle: settings.bundle)
                     
                     .font(.custom("Lato-Black", size: 26))
-                    .foregroundColor(.black)
                     Group {
                         
                       Text("When entering the state of Ihram, say:", bundle: settings.bundle)
@@ -52,7 +55,6 @@ struct Step1: View {
                     }
                     .font(.system(size: 20, weight: .light, design: .serif))
                     .italic()
-                    .foregroundColor(.black)
                     
                     
                     Group {
@@ -84,7 +86,6 @@ struct Step1: View {
                             Text("entering the Sacred Mosque", bundle: settings.bundle)
                             Text("Conditioning for Hajj or Umrah.", bundle: settings.bundle)
                                 .font(.custom("Lato-Black", size: 26))
-                                .foregroundColor(.black)
                             
                             Text("If a pilgrim fears that some reason may prevent them from completing the Hajj", bundle: settings.bundle)
                             Text("""
@@ -101,11 +102,19 @@ struct Step1: View {
                     }
                     .font(.system(size: 20, weight: .light, design: .serif))
                     .italic()
-                    .foregroundColor(.black)
-                } .padding(.horizontal, 10)
+                } 
+                .foregroundColor(colorManager.textColor)
+                .padding(.horizontal, 10)
 //                .environmentObject(settings)
             LanguageView()
                 .hidden()
+        } 
+        .toolbar {
+            HStack {
+                ColorPicker("", selection: $colorManager.backgroundColor)
+                ColorPicker("", selection: $colorManager.textColor)
+                
+                }
             }
         }
     }

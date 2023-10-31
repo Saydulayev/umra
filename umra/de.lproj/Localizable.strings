@@ -243,3 +243,8 @@ Abschließend bitte ich den Allmächtigen Allah, unsere guten Taten anzunehmen u
 "reset_string" = "Zurücksetzen";
 "Sa´y finished_string" = "Sa´y ist fertig";
 "circle_string" = "Komplettlösung:";
+
+
+
+"background_color" = "Hintergrundfarbe";
+"text_color" = "Textfarbe";

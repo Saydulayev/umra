@@ -43,6 +43,7 @@ struct CustomTextforSteps: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding()
+            .foregroundColor(.black)
             .background(LinearGradient(gradient: Gradient(colors: [Color.green, Color.gray]), startPoint: .top, endPoint: .bottom))
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .font(.custom("Lato-Black", size: 34))

@@ -13,6 +13,8 @@ struct SettingsView: View {
     @State private var selectedLanguage = "English"
     @State private var showPicker = false
     @EnvironmentObject var settings: UserSettings
+    @StateObject var colorManager = ColorManager()
+
 
 
 
@@ -23,7 +25,7 @@ struct SettingsView: View {
             Form {
                 Section(header: Text("Feedback")) {
                     Image(systemName: "message")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.purple)
                     Button(action: {
                         if let url = URL(string: "mailto:saydulayev.wien@gmail.com") {
                             UIApplication.shared.open(url)
@@ -66,6 +68,20 @@ struct SettingsView: View {
                     LanguageView()
                 }
                 
+                Section(header: Text("Color")) {
+                    Image(systemName: "paintbrush")
+                        .foregroundColor(.green)
+                    VStack {
+                        HStack {
+                            Text("background_color", bundle: settings.bundle)
+                            ColorPicker("", selection: $colorManager.backgroundColor)
+                        }
+                        HStack {
+                            Text("text_color", bundle: settings.bundle)
+                            ColorPicker("", selection: $colorManager.textColor)
+                        }
+                    } .foregroundStyle(.blue)
+                }
             }
             .navigationBarTitle(Text("settings_string", bundle: settings.bundle), displayMode: .inline)
             .sheet(isPresented: $showSafariView) {

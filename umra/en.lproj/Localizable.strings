@@ -220,3 +220,6 @@ In conclusion, I ask the Most High Allah to accept our good deeds and to preserv
 "reset_string" = "Reset";
 "Sa´y finished_string" = "Sa´y finished";
 "circle_string" = "Walkthrough:";
+
+"background_color" = "Background color";
+"text_color" = "Text color";

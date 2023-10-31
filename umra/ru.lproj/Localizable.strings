@@ -285,3 +285,6 @@
 "reset_string" = "Сбросить";
 "Sa´y finished_string" = "Cа´й закончено";
 "circle_string" = "Прохождение:";
+
+"background_color" = "Цвет фона";
+"text_color" = "Цвет текста";

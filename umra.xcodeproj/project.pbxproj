@@ -45,6 +45,7 @@
 		C0908DF72982A0AA00458ACB /* Step 5.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF62982A0AA00458ACB /* Step 5.swift */; };
 		C0908DF92982A0B300458ACB /* Step 6.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF82982A0B300458ACB /* Step 6.swift */; };
 		C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DFA2982A0BC00458ACB /* Step 7.swift */; };
+		C0A5B38C2AF11F0300ACE4B7 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */; };
 		C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DC35DF2A0686A2002527D7 /* LanguageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		C0908DF62982A0AA00458ACB /* Step 5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 5.swift"; sourceTree = "<group>"; };
 		C0908DF82982A0B300458ACB /* Step 6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 6.swift"; sourceTree = "<group>"; };
 		C0908DFA2982A0BC00458ACB /* Step 7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 7.swift"; sourceTree = "<group>"; };
+		C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		C0DC35DF2A0686A2002527D7 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
 		C0DC35E12A0687DF002527D7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0DC35E22A068F21002527D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				C008900129E1AE0C00031176 /* View */,
 				C08D2D20298BFE400050B216 /* DonationButton.swift */,
 				C0908DEB2982A02E00458ACB /* CustomMidifier.swift */,
+				C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */,
 				C025CE9B2A03E4300052188D /* Localizable.strings */,
 				C036BC802997A5190000FD8E /* Font */,
 				C0908DED2982A05B00458ACB /* All Step´s */,
@@ -331,6 +334,7 @@
 				C08D2D21298BFE400050B216 /* DonationButton.swift in Sources */,
 				C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */,
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
+				C0A5B38C2AF11F0300ACE4B7 /* ColorManager.swift in Sources */,
 				C0908DEC2982A02E00458ACB /* CustomMidifier.swift in Sources */,
 				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,
 			);
