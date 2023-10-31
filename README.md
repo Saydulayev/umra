@@ -22,6 +22,10 @@ Umra Guide is a comprehensive mobile application available on the App Store, des
 - **Multilingual Support**: Umra Guide is available in three languages: English, German, and Russian. Users can choose their preferred language for a personalized experience.
 - **Built-in Audio Player**: The app includes a built-in audio player that not only allows users to read the supplications but also listen to them with clear and articulate recitation. This feature enhances the user's understanding and pronunciation of the prayers.
 
+## License
+
+This project is licensed under the MIT License - see the [MIT-LICENSE.txt](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt) file for details.
+
 ## Technology Stack
 Umra Guide is built using the SwiftUI framework, taking advantage of its declarative syntax and powerful features. SwiftUI offers a modern and efficient approach to building robust and scalable user interfaces for iOS devices.
 
@@ -30,4 +34,6 @@ Umra Guide is built using the SwiftUI framework, taking advantage of its declara
 Umra Guide is available for download on the App Store. Experience the convenience and guidance it provides to make your Umra pilgrimage a memorable and spiritually fulfilling journey.
 
 ## Contact
-For any inquiries, suggestions, or collaboration opportunities, please feel free to reach out to me at [saydulayev.wien@gmail.com]. Let's connect and contribute to making the Umra pilgrimage a seamless and enriching experience for everyone.
+- **GitHub**: [Akhmed's Repositories](https://github.com/Saydulayev)
+- **LinkedIn**: [Connect with me!](https://www.linkedin.com/in/akhmed-saydulayev-0b7582270/)
+- **Email**: [saydulayev.wien@gmail.com](mailto:saydulayev.wien@gmail.com)
