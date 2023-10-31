@@ -9,16 +9,19 @@ import SwiftUI
 
 struct Step3: View {
     @EnvironmentObject var settings: UserSettings
+    @StateObject var colorManager = ColorManager()
+
 
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.98108989, green: 0.9316333532, blue: 0.8719255924, alpha: 1))
+            RoundedRectangle(cornerRadius: 0)
+                .fill(colorManager.backgroundColor)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .edgesIgnoringSafeArea(.bottom)
         ScrollView {
                 VStack {
                     Text("Prayer after Tawaf of Kaaba.", bundle: settings.bundle)
                     .font(.custom("Lato-Black", size: 26))
-                    .foregroundColor(.black)
                     Group {
                         
                         Text("Having completed seven circuits around the Kaaba", bundle: settings.bundle)
@@ -34,7 +37,6 @@ struct Step3: View {
                     }
                     .font(.system(size: 20, weight: .light, design: .serif))
                     .italic()
-                    .foregroundColor(.black)
                     
                     Group {
                         Text("Place of standing of Ibrahim", bundle: settings.bundle)
@@ -42,8 +44,9 @@ struct Step3: View {
                     }
                     .font(.system(size: 20, weight: .light, design: .serif))
                     .italic()
-                    .foregroundColor(.black)
-                } .padding(.horizontal, 10)
+                }
+                .foregroundColor(colorManager.textColor)
+                .padding(.horizontal, 10)
             LanguageView()
                 .hidden()
             }

@@ -9,16 +9,19 @@ import SwiftUI
 
 struct Step7: View {
     @EnvironmentObject var settings: UserSettings
+    @StateObject var colorManager = ColorManager()
+
 
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.98108989, green: 0.9316333532, blue: 0.8719255924, alpha: 1))
+            RoundedRectangle(cornerRadius: 0)
+                .fill(colorManager.backgroundColor)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .edgesIgnoringSafeArea(.bottom)
         ScrollView {
                 VStack {
                     Text("Shaving the head string", bundle: settings.bundle)
                     .font(.custom("Lato-Black", size: 26))
-                    .foregroundColor(.black)
                     Group {
                         
                         Text("Men shorten or shave their hair.", bundle: settings.bundle)
@@ -33,8 +36,9 @@ struct Step7: View {
                     }
                     .font(.system(size: 20, weight: .light, design: .serif))
                     .italic()
-                    .foregroundColor(.black)
-                } .padding(10)
+                }
+                .foregroundColor(colorManager.textColor)
+                .padding(10)
             LanguageView()
                 .hidden()
             }

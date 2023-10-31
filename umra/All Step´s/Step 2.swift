@@ -14,10 +14,10 @@ struct Step2: View {
 
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: 0)
                 .fill(colorManager.backgroundColor)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(.bottom)
         ScrollView {
                 VStack {
                         Text("Kaaba text1", bundle: settings.bundle)
