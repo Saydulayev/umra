@@ -76,10 +76,12 @@ struct SettingsView: View {
                             Text("background_color", bundle: settings.bundle)
                             ColorPicker("", selection: $colorManager.backgroundColor)
                         }
+                        Divider()
                         HStack {
                             Text("text_color", bundle: settings.bundle)
                             ColorPicker("", selection: $colorManager.textColor)
                         }
+                        Divider()
                     } .foregroundStyle(.blue)
                 }
             }
