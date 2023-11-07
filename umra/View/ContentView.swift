@@ -12,6 +12,8 @@ struct StepView: View {
     let destinationView: AnyView
     let titleKey: LocalizedStringKey
     @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var colorManager: ColorManager
+    @EnvironmentObject var fontManager: FontManager
 
     var body: some View {
         VStack {
@@ -33,6 +35,8 @@ struct StepView: View {
 struct ContentView: View {
     
     @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var colorManager: ColorManager
+    @EnvironmentObject var fontManager: FontManager
 
     var body: some View {
         NavigationView {
@@ -69,9 +73,13 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(UserSettings())
+        ContentView()
+            .environmentObject(UserSettings())
+            .environmentObject(FontManager())
+            .environmentObject(ColorManager()) 
     }
 }
+
 
 
 

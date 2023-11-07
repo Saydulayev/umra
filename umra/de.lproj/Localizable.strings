@@ -48,8 +48,7 @@ Dann beginnen Sie laut die Talbiyah auszusprechen:
 Nachdem man das heilige Gebiet von Mekka erreicht hat und die Häuser von Mekka sieht, sollte man aufhören, die Tahlbiyah auszusprechen.";
 "Entering the Sacred Mosque from the right foot" = "
     
-    Beim Betreten der Heiligen Moschee mit
-    dem rechten Fuß sagen Sie:
+Beim Betreten der Heiligen Moschee mit dem rechten Fuß sagen Sie:
 ";
 "entering the Sacred Mosque" = "Allahumma, solli ´ala Muhammadin wa sallim!
 Allahumma - ftah li abwaba rohmati-ka!
@@ -119,8 +118,7 @@ Nach dem Gebet begebe dich zur Quelle des Zamzam-Wassers.";
 "Drinking Zamzam water." = "
 Trinken des Zamzam-Wassers.";
 "Zamzam text" = "
-    Trinke das Wasser und gieße es dir
-    auf den Kopf.
+Trinke das Wasser und gieße es dir auf den Kopf.
     
 Djabir (möge Allah mit ihm zufrieden sein) berichtete: «Der Prophet (Friede und Segen Allahs seien auf ihm) begab sich zum Brunnen von Zamzam, trank daraus und goss sich das Wasser über den Kopf.» Überliefert von Ahmad (3/394) und Ibn Huzayma (4/305). Die Authentizität dieses Hadiths wurde von Az-Zarkashi, Badrud-Din al-'Ayni und Shu'aib al-Arna'ut bestätigt. Siehe 'Umdatul-Qari (9/227), Hashiya 'ala al-Manasik (S. 263) und Tahdhib al-Musnad (15243)
     
@@ -141,17 +139,14 @@ Allahu Akbar.
 "Safa and Marwa" = "
 Safa und Marwa";
 "Head towards the hill of Safa" = "
-Gehen Sie zum Hügel von Safa, um die
-sieben Runden zwischen den Hügeln von
-Safa und Marwa (Sa'y) zu absolvieren.
+Gehen Sie zum Hügel von Safa, um die sieben Runden zwischen den Hügeln von Safa und Marwa (Sa'y) zu absolvieren.
 Beginnen Sie den Sa'y am Hügel von Safa.
     
     
-    Beim Annähern an Safa, liest folgendes:
+Beim Annähern an Safa, liest folgendes:
 ";
 "Surah Al-Baqarah, verse 158." =
-"Inna Ssofaa wal-Marwata min sha’aaa’iril
-laah, faman hajjal Baita awi’tamaro falaa junaaha ‘alaihi ayyatt´owwafa bihimaa,
+"Inna Ssofaa wal-Marwata min sha’aaa’iril laah, faman hajjal Baita awi’tamaro falaa junaaha ‘alaihi ayyatt´owwafa bihimaa,
 wa man tat´owwa’a hoyron fa-inna-LLAha Shakirun ´alim.
     
 «Wahrlich, As Safa und Al-Marwa gehören zu den Kultstätten Allahs; und wer zu dem Hause pilgert oder die `Umra vollzieht, für den ist es kein Vergehen, wenn er zwischen beiden hin- und herschreitet. Und wenn einer freiwillig Gutes tut, so ist Allah Erkenntlich, Allwissend.» (Surah Al-Baqarah, verse 158.)
@@ -248,3 +243,6 @@ Abschließend bitte ich den Allmächtigen Allah, unsere guten Taten anzunehmen u
 
 "background_color" = "Hintergrundfarbe";
 "text_color" = "Textfarbe";
+
+"_size_" = "Größe";
+"_font_" = "Schriftart";

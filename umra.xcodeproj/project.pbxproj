@@ -33,6 +33,7 @@
 		C07BE90A2AA347AD00BA3A15 /* Final1693649288.gif in Resources */ = {isa = PBXBuildFile; fileRef = C07BE9092AA347AD00BA3A15 /* Final1693649288.gif */; };
 		C07BE9262AA34B8900BA3A15 /* CounterTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */; };
 		C08D2D21298BFE400050B216 /* DonationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D2D20298BFE400050B216 /* DonationButton.swift */; };
+		C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08EAFD22AF91CFB00C847AC /* textFont.swift */; };
 		C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDB29829F8A00458ACB /* umraApp.swift */; };
 		C0908DDE29829F8A00458ACB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDD29829F8A00458ACB /* ContentView.swift */; };
 		C0908DE029829F8A00458ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DDF29829F8A00458ACB /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		C0908DF92982A0B300458ACB /* Step 6.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF82982A0B300458ACB /* Step 6.swift */; };
 		C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DFA2982A0BC00458ACB /* Step 7.swift */; };
 		C0A5B38C2AF11F0300ACE4B7 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */; };
+		C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */; };
 		C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DC35DF2A0686A2002527D7 /* LanguageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,7 @@
 		C07BE9092AA347AD00BA3A15 /* Final1693649288.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Final1693649288.gif; sourceTree = "<group>"; };
 		C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTapView.swift; sourceTree = "<group>"; };
 		C08D2D20298BFE400050B216 /* DonationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationButton.swift; sourceTree = "<group>"; };
+		C08EAFD22AF91CFB00C847AC /* textFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFont.swift; sourceTree = "<group>"; };
 		C0908DD829829F8A00458ACB /* umra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0908DDB29829F8A00458ACB /* umraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = umraApp.swift; sourceTree = "<group>"; };
 		C0908DDD29829F8A00458ACB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		C0908DF82982A0B300458ACB /* Step 6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 6.swift"; sourceTree = "<group>"; };
 		C0908DFA2982A0BC00458ACB /* Step 7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 7.swift"; sourceTree = "<group>"; };
 		C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolbar.swift; sourceTree = "<group>"; };
 		C0DC35DF2A0686A2002527D7 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
 		C0DC35E12A0687DF002527D7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0DC35E22A068F21002527D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 				C08D2D20298BFE400050B216 /* DonationButton.swift */,
 				C0908DEB2982A02E00458ACB /* CustomMidifier.swift */,
 				C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */,
+				C08EAFD22AF91CFB00C847AC /* textFont.swift */,
+				C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */,
 				C025CE9B2A03E4300052188D /* Localizable.strings */,
 				C036BC802997A5190000FD8E /* Font */,
 				C0908DED2982A05B00458ACB /* All Step´s */,
@@ -331,11 +337,13 @@
 				C0908DEF2982A07900458ACB /* Step 1.swift in Sources */,
 				C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */,
 				C063ADE329DF2E5B00746D2E /* PlayerView.swift in Sources */,
+				C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */,
 				C08D2D21298BFE400050B216 /* DonationButton.swift in Sources */,
 				C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */,
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
 				C0A5B38C2AF11F0300ACE4B7 /* ColorManager.swift in Sources */,
 				C0908DEC2982A02E00458ACB /* CustomMidifier.swift in Sources */,
+				C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */,
 				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

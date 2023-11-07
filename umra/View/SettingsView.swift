@@ -13,7 +13,8 @@ struct SettingsView: View {
     @State private var selectedLanguage = "English"
     @State private var showPicker = false
     @EnvironmentObject var settings: UserSettings
-    @StateObject var colorManager = ColorManager()
+//    @EnvironmentObject var fontManager: FontManager
+//    @StateObject var colorManager = ColorManager()
 
 
 
@@ -62,28 +63,50 @@ struct SettingsView: View {
                 Section(header: Text("LANGUAGE SELECTION")) {
                     VStack {
                         Image(systemName: "globe")
-                            .foregroundColor(.blue)
+                            .foregroundColor(.green)
                         
                     }
                     LanguageView()
                 }
-                
-                Section(header: Text("Color")) {
-                    Image(systemName: "paintbrush")
-                        .foregroundColor(.green)
-                    VStack {
-                        HStack {
-                            Text("background_color", bundle: settings.bundle)
-                            ColorPicker("", selection: $colorManager.backgroundColor)
-                        }
-                        Divider()
-                        HStack {
-                            Text("text_color", bundle: settings.bundle)
-                            ColorPicker("", selection: $colorManager.textColor)
-                        }
-                        Divider()
-                    } .foregroundStyle(.blue)
-                }
+//                Section(header: Text("Color")) {
+//                    Image(systemName: "paintbrush")
+//                        .foregroundColor(.orange)
+//                    
+//                        HStack {
+//                            Text("background_color", bundle: settings.bundle)
+//                                .foregroundStyle(.blue)
+//                            ColorPicker("", selection: $colorManager.backgroundColor)
+//                        }
+//                        HStack {
+//                            Text("text_color", bundle: settings.bundle)
+//                                .foregroundStyle(.blue)
+//                            ColorPicker("", selection: $colorManager.textColor)
+//                        }
+//                }
+//                
+//                Section(header: Text("Text")) {
+//                    Image(systemName: "textformat")
+//                        .foregroundColor(.green)
+//                    HStack {
+//                        Text("_font_", bundle: settings.bundle)
+//                            .foregroundStyle(.blue)
+//                        Picker("", selection: $fontManager.selectedFont) {
+//                            ForEach(fontManager.fonts, id: \.self) { font in
+//                                Text(font).tag(font)
+//                                
+//                            }
+//                        }
+//                    }
+//                    HStack {
+//                        Text("_size_", bundle: settings.bundle)
+//                            .foregroundStyle(.blue)
+//                        Picker("", selection: $fontManager.selectedFontSize) {
+//                            ForEach([14, 16, 18, 20, 22, 24, 26], id: \.self) { size in
+//                                Text("\(size) pt").tag(CGFloat(size))
+//                            }
+//                        }
+//                    }
+//                }
             }
             .navigationBarTitle(Text("settings_string", bundle: settings.bundle), displayMode: .inline)
             .sheet(isPresented: $showSafariView) {

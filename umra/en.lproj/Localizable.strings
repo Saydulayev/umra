@@ -112,7 +112,7 @@ In the first rak'ah after reciting Surah 1 «Al-Fatihah = The Opening», recite 
 "Drinking Zamzam water." = "
 Drinking Zamzam water.";
 "Zamzam text" = "
-    Drink water and pour it over your head.
+Drink water and pour it over your head.
     
 Jabir (may Allah be pleased with him) narrated: «The Prophet (peace be upon him) went to the well of Zamzam, drank from it and poured it over his head.» This hadith is authentic, and it is reported in Ahmad (3/394), Ibn Khuzaymah (4/305). The authenticity of the hadith is confirmed by az-Zarkashi, Badr al-Din al-Ayni, and Shu'ayb al-Arnaut. See «Umdat al-Qari» (9/227), «Hashiya 'ala al-Manasik» (p. 263), «Tahridj al-Musnad» (15243).
     
@@ -223,3 +223,6 @@ In conclusion, I ask the Most High Allah to accept our good deeds and to preserv
 
 "background_color" = "Background color";
 "text_color" = "Text color";
+
+"_size_" = "Size";
+"_font_" = "Font";

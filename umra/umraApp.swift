@@ -19,11 +19,18 @@ import WebKit
 @main
 struct umraApp: App {
     let userSettings = UserSettings()
+    let fontManager = FontManager()
+    let colorManager = ColorManager()
+    
+
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(userSettings)
+                .environmentObject(fontManager)
+                .environmentObject(colorManager)
+
         }
     }
 }
