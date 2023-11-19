@@ -34,7 +34,6 @@ class FontManager: ObservableObject {
         "Didot",
         "Savoye LET",
         "Bodoni 72",
-        "Zapfino",
         "Lato-Black",
         "Lato-Italic",
         "Lato-Blackitalic",

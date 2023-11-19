@@ -92,7 +92,6 @@ struct Step6: View {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     CustomToolbar(
                         selectedFont: $fontManager.selectedFont,
-                        selectedFontSize: $fontManager.selectedFontSize,
                         backgroundColor: $colorManager.backgroundColor,
                         textColor: $colorManager.textColor,
                         fonts: fontManager.fonts
