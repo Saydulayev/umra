@@ -127,7 +127,7 @@ struct PlayerView: View {
         }
 
         
-        .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
+        .onReceive(Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()) { _ in
             self.currentTime = self.audioPlayer.currentTime
             if !self.audioPlayer.isPlaying {
                 self.isPlaying = false

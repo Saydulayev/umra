@@ -25,68 +25,60 @@ struct StepView: View {
                     .imageCustomMidifier()
             }
             Text(titleKey, bundle: settings.bundle)
-                
         }
     }
 }
 
-
 struct ContentView: View {
-
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var colorManager: ColorManager
     @EnvironmentObject var fontManager: FontManager
 
-    @State private var isGridView = false // Добавляем переменную состояния для переключения между видами
+    @State private var isGridView = false
+
+    let steps = [
+        ("image 1", AnyView(Step1()), "title_ihram_screen"),
+        ("image 2", AnyView(Step2()), "title_round_kaaba_screen"),
+        ("image 3", AnyView(Step3()), "title_place_ibrohim_stand_screen"),
+        ("image 4", AnyView(Step4()), "title_water_zamzam_screen"),
+        ("image 5", AnyView(Step5()), "title_black_stone_screen"),
+        ("image 6", AnyView(Step6()), "title_safa_and_marva_screen"),
+        ("image 7", AnyView(Step7()), "title_shave_head_screen"),
+        ("image 9", AnyView(PDFViewWrapper()), "title_link_book_screen")
+    ]
 
     var body: some View {
         NavigationView {
             ZStack {
-                Color.white.edgesIgnoringSafeArea(.bottom)
+                Color.white
+                    .ignoresSafeArea(edges: .bottom)
                 ScrollView {
                     if isGridView {
-                        // Реализация сетки
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))], spacing: 20) {
-                            StepView(imageName: "image 1", destinationView: AnyView(Step1()), titleKey: "title_ihram_screen")
-                            StepView(imageName: "image 2", destinationView: AnyView(Step2()), titleKey: "title_round_kaaba_screen")
-                            StepView(imageName: "image 3", destinationView: AnyView(Step3()), titleKey: "title_place_ibrohim_stand_screen")
-                            StepView(imageName: "image 4", destinationView: AnyView(Step4()), titleKey: "title_water_zamzam_screen")
-                            StepView(imageName: "image 5", destinationView: AnyView(Step5()), titleKey: "title_black_stone_screen")
-                            StepView(imageName: "image 6", destinationView: AnyView(Step6()), titleKey: "title_safa_and_marva_screen")
-                            StepView(imageName: "image 7", destinationView: AnyView(Step7()), titleKey: "title_shave_head_screen")
-                            StepView(imageName: "image 9", destinationView: AnyView(PDFViewWrapper()), titleKey: "title_link_book_screen")
+                            ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                                StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2))
+                                    .font(.custom("Lato-Black", size: 10))
+                                    .foregroundStyle(Color.init(#colorLiteral(red: 0.5188618898, green: 0.2738361061, blue: 0.2221542895, alpha: 1)))
+                            }
                         }
-                        .font(.custom("Lato-Black", size: 10))
-                        .foregroundStyle(Color.init(#colorLiteral(red: 0.5188618898, green: 0.2738361061, blue: 0.2221542895, alpha: 1)))
-                        
                     } else {
-                        // Реализация списка
                         VStack {
-                            StepView(imageName: "image 1", destinationView: AnyView(Step1()), titleKey: "title_ihram_screen")
-                            StepView(imageName: "image 2", destinationView: AnyView(Step2()), titleKey: "title_round_kaaba_screen")
-                            StepView(imageName: "image 3", destinationView: AnyView(Step3()), titleKey: "title_place_ibrohim_stand_screen")
-                            StepView(imageName: "image 4", destinationView: AnyView(Step4()), titleKey: "title_water_zamzam_screen")
-                            StepView(imageName: "image 5", destinationView: AnyView(Step5()), titleKey: "title_black_stone_screen")
-                            StepView(imageName: "image 6", destinationView: AnyView(Step6()), titleKey: "title_safa_and_marva_screen")
-                            StepView(imageName: "image 7", destinationView: AnyView(Step7()), titleKey: "title_shave_head_screen")
-                            StepView(imageName: "image 9", destinationView: AnyView(PDFViewWrapper()), titleKey: "title_link_book_screen")
+                            ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                                StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2))
+                                    .titleTextMidifier()
+                            }
                         }
-                        .titleTextMidifier()
                     }
                 }
-
                 .navigationBarTitle("UMRA", displayMode: .inline)
                 .navigationBarItems(
                     leading: Button(action: {
-                        isGridView.toggle() // Переключение между видами
+                        isGridView.toggle()
                     }) {
-                        Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2")
-                            .imageScale(.large)
+                        Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2").imageScale(.large)
                     },
                     trailing: NavigationLink(destination: SettingsView()) {
-                        Image(systemName: "gearshape")
-                            .imageScale(.large)
-                            .foregroundColor(.blue)
+                        Image(systemName: "gearshape").imageScale(.large).foregroundColor(.blue)
                     }
                 )
                 LanguageView().hidden()
@@ -95,6 +87,7 @@ struct ContentView: View {
         .accentColor(Color.green)
     }
 }
+
 
 
 
