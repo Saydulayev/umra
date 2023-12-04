@@ -44,7 +44,7 @@ struct ContentView: View {
         ("image 5", AnyView(Step5()), "title_black_stone_screen"),
         ("image 6", AnyView(Step6()), "title_safa_and_marva_screen"),
         ("image 7", AnyView(Step7()), "title_shave_head_screen"),
-        ("image 9", AnyView(PDFViewWrapper()), "title_link_book_screen")
+        ("image 8", AnyView(PDFViewWrapper()), "title_link_book_screen")
     ]
 
     var body: some View {
@@ -75,7 +75,7 @@ struct ContentView: View {
                     leading: Button(action: {
                         isGridView.toggle()
                     }) {
-                        Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2").imageScale(.large)
+                        Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2").imageScale(.large).foregroundStyle(.blue)
                     },
                     trailing: NavigationLink(destination: SettingsView()) {
                         Image(systemName: "gearshape").imageScale(.large).foregroundColor(.blue)
