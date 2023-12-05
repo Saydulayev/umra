@@ -9,7 +9,7 @@ import SwiftUI
 
 //MARK: ImageCustomMidifier
 
-struct ImageCustomMidifier: ViewModifier {
+struct ImageCustomModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -19,8 +19,8 @@ struct ImageCustomMidifier: ViewModifier {
 }
 
 extension View {
-    func imageCustomMidifier() -> some View {
-        self.modifier(ImageCustomMidifier())
+    func imageCustomModifier() -> some View {
+        self.modifier(ImageCustomModifier())
     }
 }
 
@@ -58,7 +58,7 @@ extension View {
 }
 
 
-struct TitleTextMidifier: ViewModifier {
+struct TitleTextModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom("Lato-Black", size: 38))
@@ -69,7 +69,7 @@ struct TitleTextMidifier: ViewModifier {
 }
 
 extension View {
-    func titleTextMidifier() -> some View {
-        self.modifier(TitleTextMidifier())
+    func titleTextModifier() -> some View {
+        self.modifier(TitleTextModifier())
     }
 }

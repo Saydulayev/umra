@@ -14,7 +14,7 @@ struct StepView: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var colorManager: ColorManager
     @EnvironmentObject var fontManager: FontManager
-
+    
     var body: some View {
         VStack {
             Divider()
@@ -22,7 +22,7 @@ struct StepView: View {
                 Image(imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .imageCustomMidifier()
+                    .imageCustomModifier()
             }
             Text(titleKey, bundle: settings.bundle)
         }
@@ -33,9 +33,10 @@ struct ContentView: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var colorManager: ColorManager
     @EnvironmentObject var fontManager: FontManager
-
+    
     @State private var isGridView = false
-
+    @State private var showSettings = false
+    
     let steps = [
         ("image 1", AnyView(Step1()), "title_ihram_screen"),
         ("image 2", AnyView(Step2()), "title_round_kaaba_screen"),
@@ -46,7 +47,7 @@ struct ContentView: View {
         ("image 7", AnyView(Step7()), "title_shave_head_screen"),
         ("image 8", AnyView(PDFViewWrapper()), "title_link_book_screen")
     ]
-
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -54,7 +55,7 @@ struct ContentView: View {
                     .ignoresSafeArea(edges: .bottom)
                 ScrollView {
                     if isGridView {
-                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))], spacing: 20) {
+                        LazyVGrid(columns: gridColumns, spacing: 20) {
                             ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
                                 StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2))
                                     .font(.custom("Lato-Black", size: 10))
@@ -65,7 +66,7 @@ struct ContentView: View {
                         VStack {
                             ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
                                 StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2))
-                                    .titleTextMidifier()
+                                    .titleTextModifier()
                             }
                         }
                     }
@@ -77,14 +78,30 @@ struct ContentView: View {
                     }) {
                         Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2").imageScale(.large).foregroundStyle(.blue)
                     },
-                    trailing: NavigationLink(destination: SettingsView()) {
+                    trailing: Button(action: {
+                        showSettings = true
+                    }) {
                         Image(systemName: "gearshape").imageScale(.large).foregroundColor(.blue)
                     }
                 )
+                .sheet(isPresented: $showSettings) {
+                    SettingsView()
+                }
+                //                    trailing: NavigationLink(destination: SettingsView()) {
+                //                        Image(systemName: "gearshape").imageScale(.large).foregroundColor(.blue)
+                //                    }
                 LanguageView().hidden()
             }
         }
         .accentColor(Color.green)
+        .navigationViewStyle(StackNavigationViewStyle())
+    }
+    private var gridColumns: [GridItem] {
+        // Расчет ширины колонки
+        let screenWidth = UIScreen.main.bounds.width
+        let columnWidth = screenWidth / 2 - 20 // Вычитаем отступы
+
+        return [GridItem(.fixed(columnWidth)), GridItem(.fixed(columnWidth))]
     }
 }
 
@@ -101,7 +118,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .environmentObject(UserSettings())
             .environmentObject(FontManager())
-            .environmentObject(ColorManager()) 
+            .environmentObject(ColorManager())
     }
 }
 

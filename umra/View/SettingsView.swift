@@ -13,6 +13,7 @@ struct SettingsView: View {
     @State private var selectedLanguage = "English"
     @State private var showPicker = false
     @EnvironmentObject var settings: UserSettings
+    @Environment(\.dismiss) var dismiss
 //    @EnvironmentObject var fontManager: FontManager
 //    @StateObject var colorManager = ColorManager()
 
@@ -109,6 +110,11 @@ struct SettingsView: View {
 //                }
             }
             .navigationBarTitle(Text("settings_string", bundle: settings.bundle), displayMode: .inline)
+            .navigationBarItems(trailing: Button(action: {
+                            dismiss()
+                        }) {
+                            Image(systemName: "xmark.circle")
+                        })
             .sheet(isPresented: $showSafariView) {
                 SafariView(url: URL(string: "https://apps.apple.com/app/id1673683355")!)
             }
