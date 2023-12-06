@@ -56,7 +56,7 @@ struct SettingsView: View {
                     Image(systemName: "heart")
                         .foregroundColor(.red)
                     
-                        DonationButton()
+                    PurchaseView()
 //                        .environmentObject(UserSettings())
 
                     
