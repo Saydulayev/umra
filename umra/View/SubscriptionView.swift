@@ -56,7 +56,7 @@ struct DonationSheetView: View {
                 ], center: .top, startRadius: 200, endRadius: 700)
                 .ignoresSafeArea()
                 VStack {
-                    Text("_donate_button", bundle: settings.bundle)
+                    Text("text_button_support_string", bundle: settings.bundle)
                         .font(.custom("Lato-Black", size: 38))
                         .foregroundColor(Color.black)
                         .multilineTextAlignment(.center)
