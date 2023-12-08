@@ -48,21 +48,30 @@ struct DonationSheetView: View {
     ]
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                RadialGradient(stops: [
-                    .init(color: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), location: 0.3),
-                    .init(color: Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)), location: 0.3),
-                ], center: .top, startRadius: 200, endRadius: 700)
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
+            
+            Text("Contribution to Application Development", bundle: settings.bundle)
+                .font(.system(size: 14))
+                .foregroundStyle(.primary)
+                .padding(10)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
+                .background(.regularMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .padding(10)
+
+            VStack(alignment: .trailing) {
+                Button(action: {
+                    isPresented = false
+                }, label: {
+                    Image(systemName: "xmark.circle")
+                        .font(.system(size: 22))
+                })
+                .padding()
                 VStack {
-                    Text("text_button_support_string", bundle: settings.bundle)
-                        .font(.custom("Lato-Black", size: 38))
-                        .foregroundColor(Color.black)
-                        .multilineTextAlignment(.center)
-                        .padding(10)
                     Spacer()
-                    
                     HStack {
                         Text("select_the_amount", bundle: settings.bundle)
                             .foregroundStyle(.white)
@@ -95,13 +104,6 @@ struct DonationSheetView: View {
                     }
                     .padding()
                     
-                }
-                .toolbar {
-                    Button(action: {
-                        isPresented = false
-                    }, label: {
-                        Image(systemName: "xmark.circle")
-                    })
                 }
             }
         }

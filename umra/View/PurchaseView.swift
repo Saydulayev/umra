@@ -5,7 +5,6 @@
 //  Created by Akhmed on 06.12.23.
 //
 
-import SwiftUI
 
 import SwiftUI
 import StoreKit
