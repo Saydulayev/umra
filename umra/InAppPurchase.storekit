@@ -1,5 +1,5 @@
 {
-  "identifier" : "44A248EA",
+  "identifier" : "BDB0E09C",
   "nonRenewingSubscriptions" : [
 
   ],
@@ -157,9 +157,10 @@
   ],
   "settings" : {
     "_applicationInternalID" : "1673683355",
+    "_askToBuyEnabled" : false,
     "_developerTeamID" : "93NA5FP2X8",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 723571959.93609595,
+    "_lastSynchronizedDate" : 723812355.56266701,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -169,7 +170,10 @@
         "name" : "Load Products"
       },
       {
-        "current" : null,
+        "current" : {
+          "index" : 1,
+          "type" : "purchase"
+        },
         "enabled" : false,
         "name" : "Purchase"
       },

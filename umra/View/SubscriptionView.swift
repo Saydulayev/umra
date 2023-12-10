@@ -37,6 +37,7 @@ struct DonationSheetView: View {
     @EnvironmentObject var settings: UserSettings
     @ObservedObject var storeVM: StoreVM
     @State private var selectedProductId = "UmrahSunnah1"
+    @State private var isLoading = false
     
     let productPrices: [String: String] = [
         "UmrahSunnah1": "$0,99",
@@ -78,36 +79,52 @@ struct DonationSheetView: View {
                         Picker("Выберите сумму", selection: $selectedProductId) {
                             ForEach(productPrices.keys.sorted(), id: \.self) { productId in
                                 Text(productPrices[productId, default: "Unknown"]).tag(productId)
-                                    .font(.title)
+                                    
                             }
                         }
+                        .font(.title)
+                        .padding(5)
+                        .background(.blue.opacity(0.7))
+                        .clipShape(Capsule())
                         
+                        .accentColor(.white)
                         .pickerStyle(MenuPickerStyle())
                     }
                     
                     
-                    Button {
-                        Task {
-                            await buy(productID: selectedProductId)
-                            isPresented = false
-                        }
-                    } label: {
-                        Text("_donate_button", bundle: settings.bundle)
-                            .font(.system(size: 18, weight: .medium, design: .default))
-                            .padding()
-                            .foregroundColor(.white)
+                    if isLoading {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
                             .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(Color.blue.opacity(0.2))
-                            .shadow(color: Color.black.opacity(0.5), radius: 10, x: 10, y: 10)
-                            .clipShape(Capsule())
-                        
+                            .padding()
+                    } else {
+                        donateButton
                     }
-                    .padding()
-                    
                 }
             }
         }
     }
+    
+    private var donateButton: some View {
+            Button {
+                Task {
+                    isLoading = true
+                    await buy(productID: selectedProductId)
+                    isLoading = false
+                    isPresented = false
+                }
+            } label: {
+                Text("_donate_button", bundle: settings.bundle)
+                    .font(.system(size: 18, weight: .medium, design: .default))
+                    .padding()
+                    .foregroundColor(.white)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .background(Color.blue.opacity(0.2))
+                    .shadow(color: Color.black.opacity(0.5), radius: 10, x: 10, y: 10)
+                    .clipShape(Capsule())
+            }
+            .padding()
+        }
     
     func buy(productID: String) async {
         do {
