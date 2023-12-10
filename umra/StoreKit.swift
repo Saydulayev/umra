@@ -11,9 +11,12 @@ import StoreKit
 
 
 class StoreVM: ObservableObject {
-    @Published var subscriptions: [Product] = []
-    @Published var purchasedSubscriptions: [Product] = []
-
+//    @Published var subscriptions: [Product] = []
+//    @Published var purchasedSubscriptions: [Product] = []
+    
+    @Published var availableDonations: [Product] = []
+    @Published var completedDonations: [Product] = []
+    
     private let productIds: [String] = ["UmrahSunnah1", "UmrahSunnah2", "UmrahSunnah3", "UmrahSunnah4", "UmrahSunnah5", "UmrahSunnah6"]
 
     var updateListenerTask: Task<Void, Error>? = nil
@@ -46,7 +49,7 @@ class StoreVM: ObservableObject {
     @MainActor
     func requestProducts() async {
         do {
-            subscriptions = try await Product.products(for: productIds)
+            availableDonations = try await Product.products(for: productIds)
         } catch {
             print("Failed product request from app store server: \(error)")
         }

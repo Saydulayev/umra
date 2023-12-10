@@ -14,8 +14,8 @@ struct PurchaseView: View {
 
     var body: some View {
         VStack {
-            if storeVM.purchasedSubscriptions.isEmpty {
-                SubscriptionView()
+            if storeVM.completedDonations.isEmpty {
+                DonationView()
             } else {
                 Text("Thank you for your support!")
             }

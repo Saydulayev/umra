@@ -9,7 +9,7 @@ import SwiftUI
 import StoreKit
 
 
-struct SubscriptionView: View {
+struct DonationView: View {
     @EnvironmentObject var storeVM: StoreVM
     @EnvironmentObject var settings: UserSettings
     @State var isPurchased = false
@@ -129,7 +129,7 @@ struct DonationSheetView: View {
     func buy(productID: String) async {
         do {
             // Найти продукт по ID
-            if let product = storeVM.subscriptions.first(where: { $0.id == productID }) {
+            if let product = storeVM.availableDonations.first(where: { $0.id == productID }) {
                 if try await storeVM.purchase(product) != nil {
                     isPurchased = true
                 }
@@ -141,5 +141,5 @@ struct DonationSheetView: View {
 }
 
 #Preview {
-    SubscriptionView().environmentObject( StoreVM())
+    DonationView().environmentObject( StoreVM())
 }

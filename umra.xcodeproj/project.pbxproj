@@ -31,7 +31,7 @@
 		C063ADFE29DF2FC700746D2E /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADF129DF2FC700746D2E /* 8.mp3 */; };
 		C077B4762B20D3EA00086594 /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077B4752B20D3EA00086594 /* PurchaseView.swift */; };
 		C077B4782B20D41D00086594 /* StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077B4772B20D41D00086594 /* StoreKit.swift */; };
-		C077B47A2B20D45600086594 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077B4792B20D45600086594 /* SubscriptionView.swift */; };
+		C077B47A2B20D45600086594 /* DonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077B4792B20D45600086594 /* DonationView.swift */; };
 		C079318C2B246BAE00B38D01 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C079318B2B246BAE00B38D01 /* StoreKit.framework */; };
 		C07BE9072AA3474600BA3A15 /* hadj_i_umra.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */; };
 		C07BE90A2AA347AD00BA3A15 /* Final1693649288.gif in Resources */ = {isa = PBXBuildFile; fileRef = C07BE9092AA347AD00BA3A15 /* Final1693649288.gif */; };
@@ -81,7 +81,7 @@
 		C06B9C572A08F4AE00549748 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C077B4752B20D3EA00086594 /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseView.swift; sourceTree = "<group>"; };
 		C077B4772B20D41D00086594 /* StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKit.swift; sourceTree = "<group>"; };
-		C077B4792B20D45600086594 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		C077B4792B20D45600086594 /* DonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationView.swift; sourceTree = "<group>"; };
 		C07931892B24627100B38D01 /* InAppPurchase.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = InAppPurchase.storekit; sourceTree = "<group>"; };
 		C079318B2B246BAE00B38D01 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hadj_i_umra.pdf; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				C0DC35DF2A0686A2002527D7 /* LanguageView.swift */,
 				C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */,
 				C077B4752B20D3EA00086594 /* PurchaseView.swift */,
-				C077B4792B20D45600086594 /* SubscriptionView.swift */,
+				C077B4792B20D45600086594 /* DonationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 				C0A5B38C2AF11F0300ACE4B7 /* ColorManager.swift in Sources */,
 				C0908DEC2982A02E00458ACB /* CustomMidifier.swift in Sources */,
 				C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */,
-				C077B47A2B20D45600086594 /* SubscriptionView.swift in Sources */,
+				C077B47A2B20D45600086594 /* DonationView.swift in Sources */,
 				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
