@@ -12,7 +12,7 @@
 "title_black_stone_screen" = "Return to the Black Stone";
 "title_ihram_screen" = "Ihram";
 "title_place_ibrohim_stand_screen" = "The place where Ibrahim stood";
-"title_round_kaaba_screen" = "Umrundung der Kaaba";
+"title_round_kaaba_screen" = "Tawaf";
 "title_safa_and_marva_screen" = "Safa and Marwa";
 "title_settings_screen" = "Settings";
 "title_shave_head_screen" = "Shave head or cut hair";
@@ -47,14 +47,11 @@ Then begin loudly reciting the Talbiyah:
 Upon reaching the sacred territory of Mecca and seeing the houses of Mecca, one should stop reciting the Talbiyah.";
 "Entering the Sacred Mosque from the right foot" = "
     
-Upon entering the Sacred Mosque
-with the right foot, say:
+Upon entering the Sacred Mosque with the right foot, say:
 ";
-"entering the Sacred Mosque" = "Allahumma, solli ´ala Muhammadin wa sallim!
-Allahumma - ftah li abwaba rohmati-ka!
+"entering the Sacred Mosque" = "Allahumma, solli ´ala Muhammadin wa sallim! Allahumma - ftah li abwaba rohmati-ka!
     
-O Allah, bless Muhammad and grant him peace!
-O Allah, open for me the gates of Your mercy!";
+O Allah, bless Muhammad and grant him peace! O Allah, open for me the gates of Your mercy!";
 "Conditioning for Hajj or Umrah." = "
 Conditions for performing Hajj or Umrah.
 ";
@@ -75,11 +72,9 @@ Circumambulation (Tawaf) around the Kaaba.";
 "Kaaba text2" = "
 Begin the sevenfold circumambulation (Tawaf) around the Kaaba
         
-After that, the pilgrim touches the
-Black Stone with their hand and kisses it.
+After that, the pilgrim touches the Black Stone with their hand and kisses it.
         
-If it's not possible to kiss the
-Black Stone, one should touch it with their hand.
+If it's not possible to kiss the Black Stone, one should touch it with their hand.
         
         
 If it is not possible to touch and kiss the Black Stone, then face it, point to it with your right hand and say «Allahu Akbar»  (Allah is Great). (All of this should be done during each round of circumambulation around the Kaaba.)
@@ -101,9 +96,9 @@ Having completed the seven rounds around the Kaaba, the man covers his right sho
 ";
 
 "Place of standing of Ibrahim" =
-    "Wa-ttahizu mim-maqomi Ibrohima musollya
+    "Wa-ttahizu mim-maqomi Ibrohima musollya.
     
-«And take, [O believers], from the standing place of Ibrahim a place of prayer» (Surah Al-Baqarah, verse 125).
+And take, [O believers], from the standing place of Ibrahim a place of prayer» (Surah Al-Baqarah, verse 125).
     
 If possible, at the Station of Ibrahim or any place in the Sacred Mosque, perform two rak'ahs of prayer. Remember to place a barrier in front of you so that no one passes between you and the barrier.
 In the first rak'ah after reciting Surah 1 «Al-Fatihah = The Opening», recite Surah 109 «Al-Kafirun = The Disbelievers», and in the second rak'ah after Surah «Al-Fatihah», recite Surah 112 «Al-Ikhlas = The Purity of Faith». After completing the prayer, head to the Zamzam water source.";
@@ -145,12 +140,9 @@ Go to the hill of Safa to perform the seven rounds of the ritual walk (sa‘y) b
     
     Then say:
 ";
-"We begin with that string" = "Nabdau bima badaa-Llahu bihi
-«We begin with that with which Allah began.»
+"We begin with that string" = "Nabdau bima badaa-Llahu bihi «We begin with that with which Allah began.»
     
-Ascend to the hill of Safa,
-turn your face towards the Kaaba,
-and say:
+Ascend to the hill of Safa, turn your face towards the Kaaba, and say:
 ";
 "Remembrance of Allah during the Sa'i of Safa and Marwa." =
 "Allahu Akbar! Allahu Akbar! Allahu Akbar!
@@ -166,18 +158,15 @@ On the hill of Marwa, you should repeat the same actions as on the hill of Safa:
 During the Sa'i ritual, you can supplicate to Allah with the following prayer
 ";
 "Du'a during the Sa'i ritual of Safa and Marwa." =
-    "Rabbi-ghfir wa rham, innaka anta
-a´azzul-akram
+    "Rabbi-ghfir wa rham, innaka anta a´azzul-akram
     
 «O Lord, forgive and have mercy, for You are the Most Great and Generous!»,
     
-There is nothing wrong with this, as this supplication is established
-by a whole group of righteous predecessors.
+There is nothing wrong with this, as this supplication is established by a whole group of righteous predecessors.
 
 After the seventh round, the pilgrim ceases to recite Zikr and Dua on the Marwa hill. This marks the completion of the Sa'i ritual.
 
-Prayer upon exiting the Sacred Mosque.
-After completing the seventh circuit on the hill of Marwa, exit the Sacred Mosque with your left foot, saying:
+Prayer upon exiting the Sacred Mosque. After completing the seventh circuit on the hill of Marwa, exit the Sacred Mosque with your left foot, saying:
 ";
 "Du'a upon exiting the Sacred Mosque." =
 "Allahumma solli 'ala Muhammadin wa sallim! Allahumma, inni as'aluka min fadlika!

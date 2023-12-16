@@ -12,7 +12,7 @@
 "title_black_stone_screen" = "Zurück zum schwarzen Stein";
 "title_ihram_screen" = "Ihram";
 "title_place_ibrohim_stand_screen" = "Ort des Propheten Ibrahims Stand.";
-"title_round_kaaba_screen" = "Die Kaaba umkreisen";
+"title_round_kaaba_screen" = "Tawaf";
 "title_safa_and_marva_screen" = "Safa und Marwa";
 "title_settings_screen" = "Einstellungen";
 "title_shave_head_screen" = "Kopf rasieren oder Haare kürzen";
@@ -50,12 +50,10 @@ Nachdem man das heilige Gebiet von Mekka erreicht hat und die Häuser von Mekka 
     
 Beim Betreten der Heiligen Moschee mit dem rechten Fuß sagen Sie:
 ";
-"entering the Sacred Mosque" = "Allahumma, solli ´ala Muhammadin wa sallim!
-Allahumma - ftah li abwaba rohmati-ka!
+"entering the Sacred Mosque" = "Allahumma, solli ´ala Muhammadin wa sallim! Allahumma - ftah li abwaba rohmati-ka!
 
     
-Oh Allah, segne Muhammad und schenke ihm Frieden!
-Oh Allah, öffne mir die Tore deiner Barmherzigkeit!";
+Oh Allah, segne Muhammad und schenke ihm Frieden! Oh Allah, öffne mir die Tore deiner Barmherzigkeit!";
 "Conditioning for Hajj or Umrah." = "
 
 Bedingungen für die Hajj oder Umrah.
@@ -73,7 +71,7 @@ Deshalb, wenn ein Pilger so handelt und etwas ihn aufhält oder er krank wird, i
 
 /* KAABA */
 "Kaaba text1" = "
-Die Kaaba umkreisen";
+Die Umrundung der Kaaba";
 "Kaaba text2" = "
 Beginnen Sie mit der siebenfachen Umrundung der Kaaba (Tawaf).
 
@@ -89,9 +87,7 @@ Wenn es nicht möglich ist, den Schwarzen Stein zu berühren oder zu küssen, da
 ";
 "Kaaba text4" = "Rabbana, atina fid-dunya hasanatan wa fil-akhiroti hasanatan wa qina azaba-n-nar
         
-(«Unser Herr! Gib uns Gutes in dieser Welt
-und Gutes im Jenseits und schütze
-uns vor der Pein des Feuers!
+Unser Herr! Gib uns Gutes in dieser Welt und Gutes im Jenseits und schütze uns vor der Pein des Feuers!
 (Surah Die Kuh, Vers 201).";
 "Prayer after Tawaf of Kaaba." = "Gebet nach der Umkreisung der Kaaba.";
 
@@ -139,22 +135,21 @@ Allahu Akbar.
 "Safa and Marwa" = "
 Safa und Marwa";
 "Head towards the hill of Safa" = "
-Gehen Sie zum Hügel von Safa, um die sieben Runden zwischen den Hügeln von Safa und Marwa (Sa'y) zu absolvieren.
-Beginnen Sie den Sa'y am Hügel von Safa.
+Gehen Sie zum Hügel von Safa, um die sieben Runden zwischen den Hügeln von Safa und Marwa (Sa'y) zu absolvieren. Beginnen Sie den Sa'y am Hügel von Safa.
     
     
 Beim Annähern an Safa, liest folgendes:
 ";
 "Surah Al-Baqarah, verse 158." =
-"Inna Ssofaa wal-Marwata min sha’aaa’iril laah, faman hajjal Baita awi’tamaro falaa junaaha ‘alaihi ayyatt´owwafa bihimaa,
-wa man tat´owwa’a hoyron fa-inna-LLAha Shakirun ´alim.
+"Inna Ssofaa wal-Marwata min sha’aaa’iril laah, faman hajjal Baita awi’tamaro falaa junaaha ‘alaihi ayyatt´owwafa bihimaa, wa man tat´owwa’a hoyron fa-inna-LLAha Shakirun ´alim.
     
 «Wahrlich, As Safa und Al-Marwa gehören zu den Kultstätten Allahs; und wer zu dem Hause pilgert oder die `Umra vollzieht, für den ist es kein Vergehen, wenn er zwischen beiden hin- und herschreitet. Und wenn einer freiwillig Gutes tut, so ist Allah Erkenntlich, Allwissend.» (Surah Al-Baqarah, verse 158.)
     
     Dann sagen Sie:
 ";
 "We begin with that string" =
-"Nabdau bima badaa-Llahu bihi
+"Nabdau bima badaa-Llahu bihi.
+
 «Wir beginnen mit dem, womit Allah begonnen hat.»
     
 Steigen Sie auf den Hügel von Safa und wenden Sie Ihr Gesicht zur Kaaba.
@@ -176,8 +171,7 @@ Auf dem Hügel Marwa sollten Sie dasselbe tun wie auf dem Hügel Safa: dem Kaaba
 Während des Sa'i-Rituals können Sie zu Allah mit folgendem Gebet sprechen:
 ";
 "Du'a during the Sa'i ritual of Safa and Marwa." =
-"Rabbi-ghfir wa rham, innaka anta
-a´azzul-akram
+"Rabbi-ghfir wa rham, innaka anta a´azzul-akram
     
 «Herr, vergib und erbarme dich, denn Вu bist der Allergrößte und Barmherzigste!»,
     
@@ -188,27 +182,20 @@ Nach dem siebten Rundgang hört der Pilger auf, Zikr und Dua auf dem Hügel Marw
 Das Gebet beim Verlassen der Heiligen Moschee. Nachdem du die siebte Runde auf dem Hügel von Marwa abgeschlossen hast, verlasse die Heilige Moschee mit dem linken Fuß und sage:
 ";
 "Du'a upon exiting the Sacred Mosque." =
-"Allahumma solli 'ala Muhammadin wa sallim!
-Allahumma, inni as'aluka min fadlika!
+"Allahumma solli 'ala Muhammadin wa sallim! Allahumma, inni as'aluka min fadlika!
     
-Oh Allah, segne Muhammad und schenke ihm Frieden!
-Oh Allah, wahrlich, ich bitte Dich um Deine Gnade!";
+Oh Allah, segne Muhammad und schenke ihm Frieden! Oh Allah, wahrlich, ich bitte Dich um Deine Gnade!";
 
 /* Shaving of the head or trimming of the hair. */
 "Shaving the head string" = "
 Das Rasieren des Kopfes oder das Kürzen der Haare.";
 "Men shorten or shave their hair." = "
-Dann schneidet der Mann seine Haare auf
-dem Kopf gleichmäßig ab oder rasiert sie ganz ab, während die Frau eine Haarsträhne abschneidet, die etwa so dick ist wie ein Daumen.
+Dann schneidet der Mann seine Haare auf dem Kopf gleichmäßig ab oder rasiert sie ganz ab, während die Frau eine Haarsträhne abschneidet, die etwa so dick ist wie ein Daumen.
 
 Anmerkung:
 Es ist besser für diejenigen, die zur Hadsch kommen, ihre Haare zu schneiden, wenn sie nicht genug Zeit haben, um sie zwischen der Umrah und der Hadsch wieder wachsen zu lassen, da das Schneiden der Haare während der Hadsch-Zeremonie erfolgt. Für diejenigen, die nur die Umrah (ohne Hadsch) machen, ist es besser, den Kopf zu rasieren.
     
-Vollständiges Beenden des Ihram-Zustands.
-Damit ist die Umrah abgeschlossen.
-Der Mann zieht die Ihram-Kleidung aus.
-Die Beschränkungen, die im Ihram-Zustand
-galten, sind aufgehoben.";
+Vollständiges Beenden des Ihram-Zustands. Damit ist die Umrah abgeschlossen. Der Mann zieht die Ihram-Kleidung aus. Die Beschränkungen, die im Ihram-Zustand galten, sind aufgehoben.";
 "Du'a at the end." =
 "
 
