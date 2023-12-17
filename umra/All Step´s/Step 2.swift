@@ -10,8 +10,8 @@ import SwiftUI
 struct Step2: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
-    @StateObject var colorManager = ColorManager()
-    
+    @EnvironmentObject var colorManager: ColorManager
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 0)

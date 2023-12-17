@@ -12,8 +12,10 @@ struct Step1: View {
     
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
-    @StateObject var colorManager = ColorManager()
-    
+    @EnvironmentObject var colorManager: ColorManager
+
+    //@StateObject var colorManager = ColorManager()
+
     
     var body: some View {
         ZStack {
