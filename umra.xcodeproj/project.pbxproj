@@ -14,6 +14,7 @@
 		C036BC872997AAFA0000FD8E /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */; };
 		C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC882997AD040000FD8E /* Lato-Bold.ttf */; };
 		C036BC8B2997AD350000FD8E /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC8A2997AD350000FD8E /* Lato-Black.ttf */; };
+		C041C7A02BB06739007381FB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C041C79F2BB06739007381FB /* .gitignore */; };
 		C0514F342998F3C000AA1776 /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0514F332998F3C000AA1776 /* PDFView.swift */; };
 		C063ADE329DF2E5B00746D2E /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063ADE229DF2E5B00746D2E /* PlayerView.swift */; };
 		C063ADF229DF2FC700746D2E /* 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE529DF2FC400746D2E /* 5.mp3 */; };
@@ -62,6 +63,7 @@
 		C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		C036BC882997AD040000FD8E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		C036BC8A2997AD350000FD8E /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		C041C79F2BB06739007381FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C0514F332998F3C000AA1776 /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
 		C063ADE229DF2E5B00746D2E /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C063ADE529DF2FC400746D2E /* 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5.mp3; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				C08EAFD22AF91CFB00C847AC /* textFont.swift */,
 				C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */,
 				C07931892B24627100B38D01 /* InAppPurchase.storekit */,
+				C041C79F2BB06739007381FB /* .gitignore */,
 				C025CE9B2A03E4300052188D /* Localizable.strings */,
 				C036BC802997A5190000FD8E /* Font */,
 				C0908DED2982A05B00458ACB /* All Step´s */,
@@ -321,6 +324,7 @@
 				C036BC8B2997AD350000FD8E /* Lato-Black.ttf in Resources */,
 				C063ADF929DF2FC700746D2E /* 11.mp3 in Resources */,
 				C0908DE329829F8A00458ACB /* Preview Assets.xcassets in Resources */,
+				C041C7A02BB06739007381FB /* .gitignore in Resources */,
 				C07BE90A2AA347AD00BA3A15 /* Final1693649288.gif in Resources */,
 				C025CE992A03E4300052188D /* Localizable.strings in Resources */,
 				C063ADF529DF2FC700746D2E /* 4.mp3 in Resources */,
