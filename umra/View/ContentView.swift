@@ -87,9 +87,6 @@ struct ContentView: View {
                 .sheet(isPresented: $showSettings) {
                     SettingsView()
                 }
-                //                    trailing: NavigationLink(destination: SettingsView()) {
-                //                        Image(systemName: "gearshape").imageScale(.large).foregroundColor(.blue)
-                //                    }
                 LanguageView().hidden()
             }
         }
@@ -100,7 +97,7 @@ struct ContentView: View {
         // Расчет ширины колонки
         let screenWidth = UIScreen.main.bounds.width
         let columnWidth = screenWidth / 2 - 20 // Вычитаем отступы
-
+        
         return [GridItem(.fixed(columnWidth)), GridItem(.fixed(columnWidth))]
     }
 }
@@ -130,45 +127,6 @@ struct ContentView_Previews: PreviewProvider {
 
 
 
-
-//Optimized old code. The code has become shorter and simpler.
-
-//struct ContentView: View {
-//
-//    @EnvironmentObject var settings: UserSettings
-//    @EnvironmentObject var colorManager: ColorManager
-//    @EnvironmentObject var fontManager: FontManager
-//
-//    var body: some View {
-//        NavigationView {
-//            ZStack {
-//                Color.white.edgesIgnoringSafeArea(.bottom)
-//                ScrollView {
-//                    VStack {
-//                        StepView(imageName: "image 1", destinationView: AnyView(Step1()), titleKey: "title_ihram_screen")
-//                        StepView(imageName: "image 2", destinationView: AnyView(Step2()), titleKey: "title_round_kaaba_screen")
-//                        StepView(imageName: "image 3", destinationView: AnyView(Step3()), titleKey: "title_place_ibrohim_stand_screen")
-//                        StepView(imageName: "image 4", destinationView: AnyView(Step4()), titleKey: "title_water_zamzam_screen")
-//                        StepView(imageName: "image 5", destinationView: AnyView(Step5()), titleKey: "title_black_stone_screen")
-//                        StepView(imageName: "image 6", destinationView: AnyView(Step6()), titleKey: "title_safa_and_marva_screen")
-//                        StepView(imageName: "image 7", destinationView: AnyView(Step7()), titleKey: "title_shave_head_screen")
-//                        StepView(imageName: "image 9", destinationView: AnyView(PDFViewWrapper()), titleKey: "title_link_book_screen")
-//                    }
-//                    .navigationBarTitle("UMRA", displayMode: .inline)
-//                    .navigationBarItems(trailing:
-//                        NavigationLink(destination: SettingsView()) {
-//                            Image(systemName: "gearshape")
-//                                .imageScale(.large)
-//                                .foregroundColor(.blue)
-//                        }
-//                    )
-//                    LanguageView().hidden()
-//                }
-//            }
-//        }
-//        .accentColor(Color.green)
-//    }
-//}
 
 
 
