@@ -16,6 +16,7 @@
 		C036BC8B2997AD350000FD8E /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC8A2997AD350000FD8E /* Lato-Black.ttf */; };
 		C041C7A02BB06739007381FB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C041C79F2BB06739007381FB /* .gitignore */; };
 		C0514F342998F3C000AA1776 /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0514F332998F3C000AA1776 /* PDFView.swift */; };
+		C05648EF2BB5AA8700E12230 /* hadj_proroka.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C05648EE2BB5AA8700E12230 /* hadj_proroka.pdf */; };
 		C063ADE329DF2E5B00746D2E /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063ADE229DF2E5B00746D2E /* PlayerView.swift */; };
 		C063ADF229DF2FC700746D2E /* 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE529DF2FC400746D2E /* 5.mp3 */; };
 		C063ADF329DF2FC700746D2E /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE629DF2FC500746D2E /* 2.mp3 */; };
@@ -64,6 +65,7 @@
 		C036BC8A2997AD350000FD8E /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		C041C79F2BB06739007381FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C0514F332998F3C000AA1776 /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
+		C05648EE2BB5AA8700E12230 /* hadj_proroka.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hadj_proroka.pdf; sourceTree = "<group>"; };
 		C063ADE229DF2E5B00746D2E /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C063ADE529DF2FC400746D2E /* 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5.mp3; sourceTree = "<group>"; };
 		C063ADE629DF2FC500746D2E /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */,
+				C05648EE2BB5AA8700E12230 /* hadj_proroka.pdf */,
 			);
 			path = PDF;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				C063ADFA29DF2FC700746D2E /* 13.mp3 in Resources */,
 				C063ADF429DF2FC700746D2E /* 12.mp3 in Resources */,
 				C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */,
+				C05648EF2BB5AA8700E12230 /* hadj_proroka.pdf in Resources */,
 				C063ADF729DF2FC700746D2E /* 7.mp3 in Resources */,
 				C07BE9072AA3474600BA3A15 /* hadj_i_umra.pdf in Resources */,
 				C036BC872997AAFA0000FD8E /* Lato-BlackItalic.ttf in Resources */,
@@ -536,7 +540,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MARKETING_VERSION = 3.3.1;
+				MARKETING_VERSION = 3.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "saydulayev.wien-gmail.com.umra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -571,7 +575,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MARKETING_VERSION = 3.3.1;
+				MARKETING_VERSION = 3.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "saydulayev.wien-gmail.com.umra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

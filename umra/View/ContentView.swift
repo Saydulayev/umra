@@ -90,7 +90,6 @@ struct ContentView: View {
                 LanguageView().hidden()
             }
         }
-        .accentColor(Color.green)
         .navigationViewStyle(StackNavigationViewStyle())
     }
     private var gridColumns: [GridItem] {
