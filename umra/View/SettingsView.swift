@@ -113,7 +113,7 @@ struct SettingsView: View {
             .navigationBarItems(trailing: Button(action: {
                             dismiss()
                         }) {
-                            Image(systemName: "xmark.circle")
+                            Image(systemName: "xmark.circle").imageScale(.large).foregroundColor(.primary)
                         })
             .sheet(isPresented: $showSafariView) {
                 SafariView(url: URL(string: "https://apps.apple.com/app/id1673683355")!)

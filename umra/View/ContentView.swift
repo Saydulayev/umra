@@ -15,6 +15,7 @@ struct StepView: View {
     @EnvironmentObject var colorManager: ColorManager
     @EnvironmentObject var fontManager: FontManager
     
+    
     var body: some View {
         VStack {
             Divider()
@@ -36,6 +37,7 @@ struct ContentView: View {
     
     @State private var isGridView = false
     @State private var showSettings = false
+    @State private var showPrayerTimes = false
     
     let steps = [
         ("image 1", AnyView(Step1()), "title_ihram_screen"),
@@ -76,16 +78,27 @@ struct ContentView: View {
                     leading: Button(action: {
                         isGridView.toggle()
                     }) {
-                        Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2").imageScale(.large).foregroundStyle(.blue)
+                        Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2").imageScale(.large).foregroundColor(.primary)
                     },
-                    trailing: Button(action: {
-                        showSettings = true
-                    }) {
-                        Image(systemName: "gearshape").imageScale(.large).foregroundColor(.blue)
+                    trailing: HStack {
+                        Button(action: {
+                            showPrayerTimes = true
+                        }) {
+                            Image(systemName: "clock").imageScale(.large).foregroundColor(.primary)
+                        }
+                        Button(action: {
+                            showSettings = true
+                        }) {
+                            Image(systemName: "gearshape").imageScale(.large).foregroundColor(.primary)
+                        }
                     }
                 )
                 .sheet(isPresented: $showSettings) {
+                    // Модальное окно с настройками
                     SettingsView()
+                }
+                .fullScreenCover(isPresented: $showPrayerTimes) {
+                    PrayerTimeModalView(isPresented: $showPrayerTimes)
                 }
                 LanguageView().hidden()
             }

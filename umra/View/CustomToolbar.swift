@@ -25,7 +25,7 @@ struct CustomToolbar: View {
                     }
                 }
             } label: {
-                Image(systemName: "textformat")
+                Image(systemName: "textformat").imageScale(.large).foregroundColor(.primary)
             }
 
             ColorPicker("", selection: $backgroundColor)
