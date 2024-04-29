@@ -52,7 +52,7 @@ struct CustomTextforSteps: ViewModifier {
 }
 
 extension View {
-    func customTextforSteps() -> some View {
+    func customTextforArabic() -> some View {
         self.modifier(CustomTextforSteps())
     }
 }

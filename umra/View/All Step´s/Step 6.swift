@@ -30,7 +30,7 @@ struct Step6: View {
                         Text("""
                         إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَنْ يَطَّوَّفَ بِهِمَا ۚ وَمَنْ تَطَوَّعَ خَيْرًا فَإِنَّ اللهَ شَاكِرٌ عَلِيمٌ
                         """)
-                        .customTextforSteps()
+                        .customTextforArabic()
                         
                         PlayerView(fileName: "8")
                             .padding()
@@ -40,7 +40,7 @@ struct Step6: View {
                         Text("""
 نَبْدَأُ بِمَا بَدَأَ اللهُ بِهِ
 """)
-                        .customTextforSteps()
+                        .customTextforArabic()
                         
                         PlayerView(fileName: "9")
                             .padding()
@@ -52,7 +52,7 @@ struct Step6: View {
                         Text("""
                         اَلله أَكْبَرُ الله أَكْبَرُ الله اَكْبَرُ، لٰا إِلَهَ إِلَّا اللهُ وَحْدَهُ لٰا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَ لَهُ الْحَمْدُ، يُحْيِي وَ يُمِيتُ ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، لَا إِلٰهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، أَنْجَزَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ.
                         """)
-                        .customTextforSteps()
+                        .customTextforArabic()
                         CounterTapView()
                         
                         PlayerView(fileName: "10")
@@ -63,7 +63,7 @@ struct Step6: View {
                         Text("""
                         رَبِّ اغْفِرْ وَ ارْحَمْ، إِنَّكَ أَنْتَ الْأَعَزُّ الْاَكْرَمُ.
                         """)
-                        .customTextforSteps()
+                        .customTextforArabic()
                         
                         PlayerView(fileName: "11")
                             .padding()
@@ -73,7 +73,7 @@ struct Step6: View {
                         Text("""
                         اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَ سَلِّمْ ، اَللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ.
                         """)
-                        .customTextforSteps()
+                        .customTextforArabic()
                         
                         PlayerView(fileName: "12")
                             .padding()

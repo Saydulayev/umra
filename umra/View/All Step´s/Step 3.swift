@@ -30,7 +30,7 @@ struct Step3: View {
                         Text("""
                         وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّ
                         """)
-                        .customTextforSteps()
+                        .customTextforArabic()
                         
                         PlayerView(fileName: "13")
                             .padding()

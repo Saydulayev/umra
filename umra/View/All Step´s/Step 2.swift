@@ -29,7 +29,7 @@ struct Step2: View {
                         
                         
                         Text("الله أكبر‎")
-                            .customTextforSteps()
+                            .customTextforArabic()
                         
                         PlayerView(fileName: "6")
                             .padding()
@@ -39,7 +39,7 @@ struct Step2: View {
                         Text("""
         رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ
         """)
-                        .customTextforSteps()
+                        .customTextforArabic()
                         
                         PlayerView(fileName: "7")
                             .padding()

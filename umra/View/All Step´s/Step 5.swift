@@ -30,7 +30,7 @@ struct Step5: View {
                         
                         Text("Allah is great.", bundle: settings.bundle)
                         Text("الله أكبر‎")
-                            .customTextforSteps()
+                            .customTextforArabic()
                         
                         PlayerView(fileName: "6")
                             .padding()

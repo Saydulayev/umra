@@ -36,7 +36,7 @@ struct Step1: View {
                         Text("""
    لَبَّيْكَ اللَّهُمَّ بِعُمْرَةَ
    """)
-                        .customTextforSteps()
+                        .customTextforArabic()
                         
                         PlayerView(fileName: "1")
                             .padding()
@@ -48,7 +48,7 @@ struct Step1: View {
 اَللُّهُمَّ هَذِهِ عُمْرَةً لاٰ رِيَاءَ فِيهَا وَلَا سُمْعَةَ
 """)
                         
-                        .customTextforSteps()
+                        .customTextforArabic()
                         
                         PlayerView(fileName: "2")
                             .padding()
@@ -65,7 +65,7 @@ struct Step1: View {
                         لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ،
                         إِنَّ الْحَمْدَ، وَالنِّعْمَةَ، لَكَ وَالْمُلْكَ، لاَ شَرِيكَ لَكَ
                         """)
-                        .customTextforSteps()
+                        .customTextforArabic()
                         
                         PlayerView(fileName: "3")
                             .padding()
@@ -78,7 +78,7 @@ struct Step1: View {
                             Text("""
     اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَ سَلِّمْ،اَللَّهُمَّ افْتَحْ لِي اَبْوَابَ رَحْمَتِكَ
     """)
-                            .customTextforSteps()
+                            .customTextforArabic()
                             
                             PlayerView(fileName: "4")
                                 .padding()
@@ -94,7 +94,7 @@ struct Step1: View {
                             Text("""
                          اَللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي
                          """)
-                            .customTextforSteps()
+                            .customTextforArabic()
                             
                             PlayerView(fileName: "5")
                                 .padding()
