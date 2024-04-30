@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C008900329E1B09400031176 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C008900229E1B09400031176 /* SettingsView.swift */; };
-		C00A1AC22991335B0077D2B7 /* PayPalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A1AC12991335B0077D2B7 /* PayPalView.swift */; };
 		C024683F2BDF972600CE5A6B /* PrayerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */; };
 		C02468422BDF979A00CE5A6B /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = C02468412BDF979A00CE5A6B /* Adhan */; };
 		C025CE992A03E4300052188D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C025CE9B2A03E4300052188D /* Localizable.strings */; };
@@ -60,7 +59,6 @@
 
 /* Begin PBXFileReference section */
 		C008900229E1B09400031176 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		C00A1AC12991335B0077D2B7 /* PayPalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPalView.swift; sourceTree = "<group>"; };
 		C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeView.swift; sourceTree = "<group>"; };
 		C036BC842997A8E40000FD8E /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				C0908DDD29829F8A00458ACB /* ContentView.swift */,
-				C00A1AC12991335B0077D2B7 /* PayPalView.swift */,
 				C063ADE229DF2E5B00746D2E /* PlayerView.swift */,
 				C0514F332998F3C000AA1776 /* PDFView.swift */,
 				C008900229E1B09400031176 /* SettingsView.swift */,
@@ -241,9 +238,9 @@
 			isa = PBXGroup;
 			children = (
 				C0908DDB29829F8A00458ACB /* umraApp.swift */,
+				C024683D2BDF961100CE5A6B /* Model */,
 				C008900129E1AE0C00031176 /* View */,
 				C024683C2BDF95A800CE5A6B /* ViewModel */,
-				C024683D2BDF961100CE5A6B /* Model */,
 				C07931892B24627100B38D01 /* InAppPurchase.storekit */,
 				C041C79F2BB06739007381FB /* .gitignore */,
 				C025CE9B2A03E4300052188D /* Localizable.strings */,
@@ -385,7 +382,6 @@
 				C0908DDE29829F8A00458ACB /* ContentView.swift in Sources */,
 				C0908DF92982A0B300458ACB /* Step 6.swift in Sources */,
 				C0514F342998F3C000AA1776 /* PDFView.swift in Sources */,
-				C00A1AC22991335B0077D2B7 /* PayPalView.swift in Sources */,
 				C0908DF72982A0AA00458ACB /* Step 5.swift in Sources */,
 				C024683F2BDF972600CE5A6B /* PrayerTimeView.swift in Sources */,
 				C0908DF12982A08B00458ACB /* Step 2.swift in Sources */,
