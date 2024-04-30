@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C008900329E1B09400031176 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C008900229E1B09400031176 /* SettingsView.swift */; };
+		C024683F2BDF972600CE5A6B /* PrayerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */; };
+		C02468422BDF979A00CE5A6B /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = C02468412BDF979A00CE5A6B /* Adhan */; };
 		C025CE992A03E4300052188D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C025CE9B2A03E4300052188D /* Localizable.strings */; };
 		C036BC852997A8E40000FD8E /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC842997A8E40000FD8E /* Lato-Italic.ttf */; };
 		C036BC872997AAFA0000FD8E /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */; };
@@ -42,7 +44,7 @@
 		C0908DDE29829F8A00458ACB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDD29829F8A00458ACB /* ContentView.swift */; };
 		C0908DE029829F8A00458ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DDF29829F8A00458ACB /* Assets.xcassets */; };
 		C0908DE329829F8A00458ACB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DE229829F8A00458ACB /* Preview Assets.xcassets */; };
-		C0908DEC2982A02E00458ACB /* CustomMidifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEB2982A02E00458ACB /* CustomMidifier.swift */; };
+		C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */; };
 		C0908DEF2982A07900458ACB /* Step 1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEE2982A07900458ACB /* Step 1.swift */; };
 		C0908DF12982A08B00458ACB /* Step 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF02982A08B00458ACB /* Step 2.swift */; };
 		C0908DF32982A09400458ACB /* Step 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF22982A09400458ACB /* Step 3.swift */; };
@@ -57,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		C008900229E1B09400031176 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeView.swift; sourceTree = "<group>"; };
 		C036BC842997A8E40000FD8E /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		C036BC882997AD040000FD8E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -94,7 +97,7 @@
 		C0908DDD29829F8A00458ACB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0908DDF29829F8A00458ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0908DE229829F8A00458ACB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C0908DEB2982A02E00458ACB /* CustomMidifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMidifier.swift; sourceTree = "<group>"; };
+		C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMidifierView.swift; sourceTree = "<group>"; };
 		C0908DEE2982A07900458ACB /* Step 1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 1.swift"; sourceTree = "<group>"; };
 		C0908DF02982A08B00458ACB /* Step 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 2.swift"; sourceTree = "<group>"; };
 		C0908DF22982A09400458ACB /* Step 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 3.swift"; sourceTree = "<group>"; };
@@ -115,6 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C079318C2B246BAE00B38D01 /* StoreKit.framework in Frameworks */,
+				C02468422BDF979A00CE5A6B /* Adhan in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +136,29 @@
 				C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */,
 				C077B4752B20D3EA00086594 /* PurchaseView.swift */,
 				C077B4792B20D45600086594 /* DonationView.swift */,
+				C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */,
+				C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */,
+				C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */,
+				C0908DED2982A05B00458ACB /* All Step´s */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C024683C2BDF95A800CE5A6B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C077B4772B20D41D00086594 /* StoreKit.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C024683D2BDF961100CE5A6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */,
+				C08EAFD22AF91CFB00C847AC /* textFont.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C036BC802997A5190000FD8E /* Font */ = {
@@ -213,17 +238,13 @@
 			isa = PBXGroup;
 			children = (
 				C0908DDB29829F8A00458ACB /* umraApp.swift */,
+				C024683D2BDF961100CE5A6B /* Model */,
 				C008900129E1AE0C00031176 /* View */,
-				C077B4772B20D41D00086594 /* StoreKit.swift */,
-				C0908DEB2982A02E00458ACB /* CustomMidifier.swift */,
-				C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */,
-				C08EAFD22AF91CFB00C847AC /* textFont.swift */,
-				C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */,
+				C024683C2BDF95A800CE5A6B /* ViewModel */,
 				C07931892B24627100B38D01 /* InAppPurchase.storekit */,
 				C041C79F2BB06739007381FB /* .gitignore */,
 				C025CE9B2A03E4300052188D /* Localizable.strings */,
 				C036BC802997A5190000FD8E /* Font */,
-				C0908DED2982A05B00458ACB /* All Step´s */,
 				C063ADE429DF2ED500746D2E /* MP3Voice */,
 				C075CB1B2A137ED600D4C842 /* PDF */,
 				C07BE9082AA3477E00BA3A15 /* Gif */,
@@ -271,6 +292,9 @@
 			dependencies = (
 			);
 			name = umra;
+			packageProductDependencies = (
+				C02468412BDF979A00CE5A6B /* Adhan */,
+			);
 			productName = umra;
 			productReference = C0908DD829829F8A00458ACB /* umra.app */;
 			productType = "com.apple.product-type.application";
@@ -302,6 +326,9 @@
 				fr,
 			);
 			mainGroup = C0908DCF29829F8A00458ACB;
+			packageReferences = (
+				C02468402BDF979A00CE5A6B /* XCRemoteSwiftPackageReference "adhan-swift" */,
+			);
 			productRefGroup = C0908DD929829F8A00458ACB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -356,6 +383,7 @@
 				C0908DF92982A0B300458ACB /* Step 6.swift in Sources */,
 				C0514F342998F3C000AA1776 /* PDFView.swift in Sources */,
 				C0908DF72982A0AA00458ACB /* Step 5.swift in Sources */,
+				C024683F2BDF972600CE5A6B /* PrayerTimeView.swift in Sources */,
 				C0908DF12982A08B00458ACB /* Step 2.swift in Sources */,
 				C0908DF32982A09400458ACB /* Step 3.swift in Sources */,
 				C07BE9262AA34B8900BA3A15 /* CounterTapView.swift in Sources */,
@@ -367,7 +395,7 @@
 				C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */,
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
 				C0A5B38C2AF11F0300ACE4B7 /* ColorManager.swift in Sources */,
-				C0908DEC2982A02E00458ACB /* CustomMidifier.swift in Sources */,
+				C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */,
 				C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */,
 				C077B47A2B20D45600086594 /* DonationView.swift in Sources */,
 				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,
@@ -606,6 +634,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C02468402BDF979A00CE5A6B /* XCRemoteSwiftPackageReference "adhan-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/batoulapps/adhan-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C02468412BDF979A00CE5A6B /* Adhan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C02468402BDF979A00CE5A6B /* XCRemoteSwiftPackageReference "adhan-swift" */;
+			productName = Adhan;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C0908DD029829F8A00458ACB /* Project object */;
 }

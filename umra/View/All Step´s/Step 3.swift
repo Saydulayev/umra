@@ -1,5 +1,5 @@
 //
-//  Step 5.swift
+//  Step 3.swift
 //  umra
 //
 //  Created by Akhmed on 26.01.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Step5: View {
+struct Step3: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
     @EnvironmentObject var colorManager: ColorManager
@@ -21,19 +21,25 @@ struct Step5: View {
                 .edgesIgnoringSafeArea(.bottom)
             ScrollView {
                 VStack {
-                    Text("Return to the Black Stone.", bundle: settings.bundle)
+                    Text("Prayer after Tawaf of Kaaba.", bundle: settings.bundle)
                         .font(.custom("Lato-Black", size: 26))
                     Group {
                         
-                        Text("Return to the Black Stone, recite the Takbir.", bundle: settings.bundle)
-                        Spacer()
+                        Text("Having completed seven circuits around the Kaaba", bundle: settings.bundle)
                         
-                        Text("Allah is great.", bundle: settings.bundle)
-                        Text("الله أكبر‎")
-                            .customTextforSteps()
+                        Text("""
+                        وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّ
+                        """)
+                        .customTextforArabic()
                         
-                        PlayerView(fileName: "6")
+                        PlayerView(fileName: "13")
                             .padding()
+                        
+                    }
+                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.selectedFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.selectedFontSize))
+                    
+                    Group {
+                        Text("Place of standing of Ibrahim", bundle: settings.bundle)
                         
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.selectedFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.selectedFontSize))
@@ -57,4 +63,3 @@ struct Step5: View {
         }
     }
 }
-
