@@ -3,7 +3,7 @@
 <table border=0>
     <tr>
         <td>
-            <image src=https://github.com/Saydulayev/umra/blob/main/umra/Gif/Final1693649288.gif width=230 align=center>
+            <image src=https://github.com/Saydulayev/umra/blob/main/umra/Gif/GIF.gif width=230 align=center>
         </td>
     </tr>
 </table>
