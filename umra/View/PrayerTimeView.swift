@@ -17,6 +17,8 @@ struct PrayerTimeView: View {
     @State private var maghribTime = ""
     @State private var ishaTime = ""
     @State private var tahajjudTime = ""
+    
+    @State private var timer: Timer?
 
     @State private var nextPrayerName = ""
     @State private var timeUntilNextPrayer = ""
@@ -64,6 +66,11 @@ struct PrayerTimeView: View {
             .onAppear {
                 setupPrayerTimes()
             }
+            .onDisappear {
+                self.timer?.invalidate()
+                self.timer = nil
+                print("Timer invalidated")
+            }
         }
     }
     
@@ -73,6 +80,7 @@ struct PrayerTimeView: View {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.updatePrayerTimes()
         }
+        print("Timer setup complete")
     }
     
     // Обновляет времена молитв для текущего и следующего дня, а также определяет время ночной молитвы Тахаджуд.

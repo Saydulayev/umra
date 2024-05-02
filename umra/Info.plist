@@ -2,18 +2,33 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Lato-Italic.ttf</string>
-		<string>Lato-Black.ttf</string>
-		<string>Lato-BlackItalic.ttf</string>
-		<string>Lato-Bold.ttf</string>
-	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>audio</string>
-	</array>
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
+    <key>UIAppFonts</key>
+    <array>
+        <string>Lato-Italic.ttf</string>
+        <string>Lato-Black.ttf</string>
+        <string>Lato-BlackItalic.ttf</string>
+        <string>Lato-Bold.ttf</string>
+    </array>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>audio</string>
+    </array>
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+        <dict>
+            <key>API</key>
+            <string>NSUserDefaults</string>
+            <key>Reason</key>
+            <string>This application uses user settings to enhance the user experience by remembering user preferences.</string>
+        </dict>
+        <dict>
+            <key>API</key>
+            <string>Adhan</string> <!-- Замените на фактическое имя API, если оно известно -->
+            <key>Reason</key>
+            <string>This application uses prayer times to display prayer times exclusively for Mecca, without utilizing geolocation.</string>
+        </dict>
+    </array>
 </dict>
 </plist>
