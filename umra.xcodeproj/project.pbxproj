@@ -11,6 +11,7 @@
 		C024683F2BDF972600CE5A6B /* PrayerTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */; };
 		C02468422BDF979A00CE5A6B /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = C02468412BDF979A00CE5A6B /* Adhan */; };
 		C025CE992A03E4300052188D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C025CE9B2A03E4300052188D /* Localizable.strings */; };
+		C02F48132BE371A00094AD1A /* IMG_7696.gif in Resources */ = {isa = PBXBuildFile; fileRef = C02F48122BE371A00094AD1A /* IMG_7696.gif */; };
 		C036BC852997A8E40000FD8E /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC842997A8E40000FD8E /* Lato-Italic.ttf */; };
 		C036BC872997AAFA0000FD8E /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */; };
 		C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC882997AD040000FD8E /* Lato-Bold.ttf */; };
@@ -60,7 +61,7 @@
 /* Begin PBXFileReference section */
 		C008900229E1B09400031176 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeView.swift; sourceTree = "<group>"; };
-		C02F480F2BE36D4C0094AD1A /* IMG_7695.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IMG_7695.MP4; sourceTree = "<group>"; };
+		C02F48122BE371A00094AD1A /* IMG_7696.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = IMG_7696.gif; sourceTree = "<group>"; };
 		C036BC842997A8E40000FD8E /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		C036BC882997AD040000FD8E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -213,7 +214,7 @@
 		C07BE9082AA3477E00BA3A15 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
-				C02F480F2BE36D4C0094AD1A /* IMG_7695.MP4 */,
+				C02F48122BE371A00094AD1A /* IMG_7696.gif */,
 				C07BE9092AA347AD00BA3A15 /* Final1693649288.gif */,
 			);
 			path = Gif;
@@ -345,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02F48132BE371A00094AD1A /* IMG_7696.gif in Resources */,
 				C063ADFD29DF2FC700746D2E /* 1.mp3 in Resources */,
 				C063ADF229DF2FC700746D2E /* 5.mp3 in Resources */,
 				C036BC8B2997AD350000FD8E /* Lato-Black.ttf in Resources */,
