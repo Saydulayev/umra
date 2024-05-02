@@ -60,6 +60,7 @@
 /* Begin PBXFileReference section */
 		C008900229E1B09400031176 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeView.swift; sourceTree = "<group>"; };
+		C02F480F2BE36D4C0094AD1A /* IMG_7695.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IMG_7695.MP4; sourceTree = "<group>"; };
 		C036BC842997A8E40000FD8E /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		C036BC882997AD040000FD8E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -212,6 +213,7 @@
 		C07BE9082AA3477E00BA3A15 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
+				C02F480F2BE36D4C0094AD1A /* IMG_7695.MP4 */,
 				C07BE9092AA347AD00BA3A15 /* Final1693649288.gif */,
 			);
 			path = Gif;
