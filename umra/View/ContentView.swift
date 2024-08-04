@@ -47,7 +47,7 @@ struct ContentView: View {
         ("image 5", AnyView(Step5()), "title_black_stone_screen"),
         ("image 6", AnyView(Step6()), "title_safa_and_marva_screen"),
         ("image 7", AnyView(Step7()), "title_shave_head_screen"),
-        ("image 8", AnyView(PDFViewWrapper()), "title_link_book_screen")
+        //("image 8", AnyView(PDFViewWrapper()), "title_link_book_screen")
     ]
     
     var body: some View {

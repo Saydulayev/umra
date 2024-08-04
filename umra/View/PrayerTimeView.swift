@@ -34,9 +34,12 @@ struct PrayerTimeView: View {
     
     var body: some View {
         ZStack {
+            Color(#colorLiteral(red: 0.9851517081, green: 0.9111369252, blue: 0.8213068843, alpha: 1))
+                .ignoresSafeArea()
             Image("image")
                 .resizable()
-                .ignoresSafeArea()
+                .scaledToFit()
+                .blur(radius: 3.0)
             VStack {
                 HStack {
                     Text("Mecca,")
