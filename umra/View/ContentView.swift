@@ -18,7 +18,6 @@ struct StepView: View {
     
     var body: some View {
         VStack {
-            Divider()
             NavigationLink(destination: destinationView) {
                 Image(imageName)
                     .resizable()
@@ -26,6 +25,7 @@ struct StepView: View {
                     .imageCustomModifier()
             }
             Text(titleKey, bundle: settings.bundle)
+            Divider()
         }
     }
 }
