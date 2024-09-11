@@ -55,22 +55,7 @@ struct ContentView: View {
                 Color.white
                     .ignoresSafeArea(edges: .bottom)
                 ScrollView {
-                    if isGridView {
-                        LazyVGrid(columns: gridColumns, spacing: 20) {
-                            ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-                                StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2))
-                                    .font(.custom("Lato-Black", size: 10))
-                                    .foregroundStyle(Color.init(#colorLiteral(red: 0.5188618898, green: 0.2738361061, blue: 0.2221542895, alpha: 1)))
-                            }
-                        }
-                    } else {
-                        VStack {
-                            ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-                                StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2))
-                                    .titleTextModifier()
-                            }
-                        }
-                    }
+                    content
                 }
                 .navigationBarTitle("UMRA", displayMode: .inline)
                 .navigationBarItems(
@@ -98,6 +83,27 @@ struct ContentView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
+    
+    @ViewBuilder
+    private var content: some View {
+        if isGridView {
+            LazyVGrid(columns: gridColumns, spacing: 20) {
+                ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                    StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2))
+                        .font(.custom("Lato-Black", size: 10))
+                        .foregroundStyle(Color.init(#colorLiteral(red: 0.5188618898, green: 0.2738361061, blue: 0.2221542895, alpha: 1)))
+                }
+            }
+        } else {
+            VStack {
+                ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                    StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2))
+                        .titleTextModifier()
+                }
+            }
+        }
+    }
+
     private var gridColumns: [GridItem] {
         // Расчет ширины колонки
         let screenWidth = UIScreen.main.bounds.width
@@ -106,6 +112,7 @@ struct ContentView: View {
         return [GridItem(.fixed(columnWidth)), GridItem(.fixed(columnWidth))]
     }
 }
+
 
 
 
