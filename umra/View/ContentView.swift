@@ -36,7 +36,6 @@ struct ContentView: View {
     @EnvironmentObject var fontManager: FontManager
     
     @State private var isGridView = false
-    @State private var showSettings = false
     @State private var showPrayerTimes = false
     
     let steps = [
@@ -47,11 +46,11 @@ struct ContentView: View {
         ("image 5", AnyView(Step5()), "title_black_stone_screen"),
         ("image 6", AnyView(Step6()), "title_safa_and_marva_screen"),
         ("image 7", AnyView(Step7()), "title_shave_head_screen"),
-        ("image 8", AnyView(PDFViewWrapper()), "title_link_book_screen")
+        //("image 8", AnyView(PDFViewWrapper()), "title_link_book_screen")
     ]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.white
                     .ignoresSafeArea(edges: .bottom)
@@ -86,17 +85,11 @@ struct ContentView: View {
                         }) {
                             Image(systemName: "clock").imageScale(.large).foregroundColor(.primary)
                         }
-                        Button(action: {
-                            showSettings = true
-                        }) {
+                        NavigationLink(destination: SettingsView()) {
                             Image(systemName: "gearshape").imageScale(.large).foregroundColor(.primary)
                         }
                     }
                 )
-                .sheet(isPresented: $showSettings) {
-                    // Модальное окно с настройками
-                    SettingsView()
-                }
                 .fullScreenCover(isPresented: $showPrayerTimes) {
                     PrayerTimeModalView(isPresented: $showPrayerTimes)
                 }

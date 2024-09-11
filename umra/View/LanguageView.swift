@@ -127,8 +127,8 @@ struct LanguageView: View {
 
 
 
-struct LanguageView_Previews: PreviewProvider {
-    static var previews: some View {
-        LanguageView()
-    }
-}
+//struct LanguageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LanguageView()
+//    }
+//}

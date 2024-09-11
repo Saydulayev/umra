@@ -17,7 +17,7 @@ struct PrayerTimeView: View {
     @State private var maghribTime = ""
     @State private var ishaTime = ""
     @State private var tahajjudTime = ""
-
+    
     @State private var nextPrayerName = ""
     @State private var timeUntilNextPrayer = ""
     
@@ -26,23 +26,33 @@ struct PrayerTimeView: View {
         dateFormatter.calendar = Calendar(identifier: .islamicUmmAlQura)
         dateFormatter.locale = Locale(identifier: "en_EN")
         dateFormatter.dateFormat = "d MMMM yyyy"
-
+        
         return dateFormatter.string(from: Date())
     }
     
     var body: some View {
         ZStack {
-            Image("image")
-                .resizable()
+            Rectangle()
+                .fill(
+                    LinearGradient(
+                        gradient: Gradient(colors: [
+                            Color(#colorLiteral(red: 0.9833441377, green: 0.909168005, blue: 0.8199952841, alpha: 1)),
+                            Color(#colorLiteral(red: 0.800, green: 0.600, blue: 0.400, alpha: 1)),
+                            Color(#colorLiteral(red: 0.882, green: 0.690, blue: 0.235, alpha: 1))
+                        ]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
                 .ignoresSafeArea()
             VStack {
                 HStack {
                     Text("Mecca,")
                     Text(currentIslamicDate)
                 }
-                    .font(.custom("Savoye LET", size: 30))
-                    .foregroundStyle(.black)
-                    .padding(-5)
+                .font(.custom("Savoye LET", size: 36))
+                .foregroundStyle(.black)
+                .padding(-5)
                 Divider()
                 Text("\(nextPrayerName) in \(timeUntilNextPrayer)")
                     .cardStyled()
@@ -59,6 +69,7 @@ struct PrayerTimeView: View {
                         .capsuleStyled()
                 }
                 .foregroundStyle(.black)
+                .padding(.horizontal)
             }
             .transparentStyled()
             .onAppear {
@@ -177,8 +188,9 @@ struct PrayerTimeRow: View {
 extension View {
     func capsuleStyled() -> some View {
         self.foregroundStyle(.white)
+            .frame(maxWidth: .infinity)
             .background(Color.black.opacity(0.1))
-            .clipShape(Capsule())
+            .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
 
@@ -189,7 +201,6 @@ extension View {
         .padding()
         .frame(maxWidth: .infinity)
         .background(Color.white.opacity(0.5))
-        .clipShape(RoundedRectangle(cornerRadius: 10))
         .padding(.vertical, 85)
     }
 }
@@ -199,7 +210,7 @@ extension View {
         self.padding(.vertical)
         .background(Color.black.opacity(0.3))
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .padding(5)
+        .padding(15)
     }
 }
 
