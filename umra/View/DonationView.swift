@@ -50,7 +50,18 @@ struct DonationSheetView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
+            Rectangle()
+                .fill(
+                    LinearGradient(
+                        gradient: Gradient(colors: [
+                            Color(#colorLiteral(red: 0.8956587315, green: 0.9328896403, blue: 1, alpha: 1)), // базовый цвет
+                            Color(#colorLiteral(red: 0.8956587315, green: 0.9328896403, blue: 1, alpha: 1)), // чуть затемненный вариант базового цвета
+                            Color(#colorLiteral(red: 0.8956587315, green: 0.9328896403, blue: 1, alpha: 0))  // еще более затемненный вариант базового цвета
+                        ]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
                 .ignoresSafeArea()
             
             Text("Contribution to Application Development", bundle: settings.bundle)
@@ -69,13 +80,14 @@ struct DonationSheetView: View {
                 }, label: {
                     Image(systemName: "xmark.circle")
                         .font(.system(size: 22))
+                        .foregroundStyle(.black)
                 })
                 .padding()
                 VStack {
                     Spacer()
                     HStack {
                         Text("select_the_amount", bundle: settings.bundle)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black)
                         Picker("Выберите сумму", selection: $selectedProductId) {
                             ForEach(productPrices.keys.sorted(), id: \.self) { productId in
                                 Text(productPrices[productId, default: "Unknown"]).tag(productId)
@@ -119,8 +131,7 @@ struct DonationSheetView: View {
                     .padding()
                     .foregroundColor(.white)
                     .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(Color.blue.opacity(0.2))
-                    .shadow(color: Color.black.opacity(0.5), radius: 10, x: 10, y: 10)
+                    .background(Color.blue)
                     .clipShape(Capsule())
             }
             .padding()
@@ -140,6 +151,6 @@ struct DonationSheetView: View {
     }
 }
 
-#Preview {
-    DonationView().environmentObject( StoreVM())
-}
+//#Preview {
+//    DonationView().environmentObject( StoreVM())
+//}

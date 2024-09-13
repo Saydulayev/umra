@@ -35,15 +35,11 @@ struct CounterTapView: View {
                         .foregroundColor(.black)
                         .font(.system(size: 25))
                         .padding(20)
-                        .background(
-                            LinearGradient(
-                                gradient: Gradient(colors: [.green, .gray]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .cornerRadius(20)
-                        .shadow(color: Color.gray.opacity(0.4), radius: 10, x: 0, y: 10)
+                        .background(Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .shadow(color: Color.black.opacity(0.35), radius: 8, x: 8, y: 8)
+                        .padding(.horizontal, 10)
+
                 }
                 
                 Button(action: {
@@ -53,15 +49,11 @@ struct CounterTapView: View {
                         .foregroundColor(.black)
                         .font(.system(size: 25))
                         .padding(20)
-                        .background(
-                            LinearGradient(
-                                gradient: Gradient(colors: [.red, .gray]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .cornerRadius(20)
-                        .shadow(color: Color.gray.opacity(0.4), radius: 10, x: 0, y: 10)
+                        .background(Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .shadow(color: Color.black.opacity(0.35), radius: 8, x: 8, y: 8)
+                        .padding(.horizontal, 10)
+
                 }
             }
             LanguageView()

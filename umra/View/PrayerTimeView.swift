@@ -10,24 +10,22 @@ import SwiftUI
 
 
 struct PrayerTimeView: View {
-    @State private var fajrTime = ""
-    @State private var sunriseTime = ""
-    @State private var dhuhrTime = ""
-    @State private var asrTime = ""
-    @State private var maghribTime = ""
-    @State private var ishaTime = ""
-    @State private var tahajjudTime = ""
-    
+    @State private var prayerTimes: [String: String] = [:]
     @State private var nextPrayerName = ""
     @State private var timeUntilNextPrayer = ""
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    // Ленивая инициализация форматтера
+    private var islamicDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .islamicUmmAlQura)
+        formatter.locale = Locale(identifier: "en_EN")
+        formatter.dateFormat = "d MMMM yyyy"
+        return formatter
+    }()
     
     var currentIslamicDate: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.calendar = Calendar(identifier: .islamicUmmAlQura)
-        dateFormatter.locale = Locale(identifier: "en_EN")
-        dateFormatter.dateFormat = "d MMMM yyyy"
-        
-        return dateFormatter.string(from: Date())
+        return islamicDateFormatter.string(from: Date())
     }
     
     var body: some View {
@@ -36,9 +34,9 @@ struct PrayerTimeView: View {
                 .fill(
                     LinearGradient(
                         gradient: Gradient(colors: [
-                            Color(#colorLiteral(red: 0.9833441377, green: 0.909168005, blue: 0.8199952841, alpha: 1)),
-                            Color(#colorLiteral(red: 0.800, green: 0.600, blue: 0.400, alpha: 1)),
-                            Color(#colorLiteral(red: 0.882, green: 0.690, blue: 0.235, alpha: 1))
+                            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)), // базовый цвет
+                            Color(#colorLiteral(red: 0.8680392157, green: 0.9033333333, blue: 0.970, alpha: 1)), // чуть затемненный вариант базового цвета
+                            Color(#colorLiteral(red: 0.8380392157, green: 0.8733333333, blue: 0.940, alpha: 1))  // еще более затемненный вариант базового цвета
                         ]),
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
@@ -58,14 +56,14 @@ struct PrayerTimeView: View {
                     .cardStyled()
                 
                 Group {
-                    PrayerTimeRow(prayerName: "Fajr", prayerTime: fajrTime)
-                    PrayerTimeRow(prayerName: "Sunrise", prayerTime: sunriseTime)
+                    PrayerTimeRow(prayerName: "Fajr", prayerTime: prayerTimes["Fajr"] ?? "")
+                    PrayerTimeRow(prayerName: "Sunrise", prayerTime: prayerTimes["Sunrise"] ?? "")
                         .capsuleStyled()
-                    PrayerTimeRow(prayerName: "Dhuhr", prayerTime: dhuhrTime)
-                    PrayerTimeRow(prayerName: "Asr", prayerTime: asrTime)
-                    PrayerTimeRow(prayerName: "Maghrib", prayerTime: maghribTime)
-                    PrayerTimeRow(prayerName: "Isha", prayerTime: ishaTime)
-                    PrayerTimeRow(prayerName: "Qiyam", prayerTime: tahajjudTime)
+                    PrayerTimeRow(prayerName: "Dhuhr", prayerTime: prayerTimes["Dhuhr"] ?? "")
+                    PrayerTimeRow(prayerName: "Asr", prayerTime: prayerTimes["Asr"] ?? "")
+                    PrayerTimeRow(prayerName: "Maghrib", prayerTime: prayerTimes["Maghrib"] ?? "")
+                    PrayerTimeRow(prayerName: "Isha", prayerTime: prayerTimes["Isha"] ?? "")
+                    PrayerTimeRow(prayerName: "Qiyam", prayerTime: prayerTimes["Qiyam"] ?? "")
                         .capsuleStyled()
                 }
                 .foregroundStyle(.black)
@@ -75,18 +73,16 @@ struct PrayerTimeView: View {
             .onAppear {
                 setupPrayerTimes()
             }
+            .onReceive(timer) { _ in
+                updatePrayerTimes()
+            }
         }
     }
     
-    // Настраивает начальные времена молитв и запускает таймер, который будет обновлять времена каждую секунду.
     func setupPrayerTimes() {
         updatePrayerTimes()
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            self.updatePrayerTimes()
-        }
     }
     
-    // Обновляет времена молитв для текущего и следующего дня, а также определяет время ночной молитвы Тахаджуд.
     func updatePrayerTimes() {
         let cal = Calendar(identifier: .gregorian)
         let today = Date()
@@ -97,37 +93,46 @@ struct PrayerTimeView: View {
         var params = CalculationMethod.ummAlQura.params
         params.madhab = .shafi
         
-        if let todayPrayers = PrayerTimes(coordinates: coordinates, date: todayDateComponents, calculationParameters: params),
-           let tomorrowPrayers = PrayerTimes(coordinates: coordinates, date: tomorrowDateComponents, calculationParameters: params) {
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            formatter.timeZone = TimeZone(identifier: "Asia/Riyadh")!
-            
-            let maghribToFajrInterval = tomorrowPrayers.fajr.timeIntervalSince(todayPrayers.maghrib)
-            let lastThirdStart = todayPrayers.maghrib.addingTimeInterval(2 * maghribToFajrInterval / 3)
-            
-            DispatchQueue.main.async {
-                // Обновляет переменные состояния для всех времен молитв.
-                self.fajrTime = formatter.string(from: todayPrayers.fajr)
-                self.sunriseTime = formatter.string(from: todayPrayers.sunrise)
-                self.dhuhrTime = formatter.string(from: todayPrayers.dhuhr)
-                self.asrTime = formatter.string(from: todayPrayers.asr)
-                self.maghribTime = formatter.string(from: todayPrayers.maghrib)
-                self.ishaTime = formatter.string(from: todayPrayers.isha)
-                self.tahajjudTime = formatter.string(from: lastThirdStart)
-                self.updateCountdownToNextPrayer(prayers: todayPrayers)
+        DispatchQueue.global(qos: .background).async {
+            if let todayPrayers = PrayerTimes(coordinates: coordinates, date: todayDateComponents, calculationParameters: params),
+               let tomorrowPrayers = PrayerTimes(coordinates: coordinates, date: tomorrowDateComponents, calculationParameters: params) {
+                let formatter: DateFormatter = {
+                    let formatter = DateFormatter()
+                    formatter.timeStyle = .short
+                    formatter.timeZone = TimeZone(identifier: "Asia/Riyadh")!
+                    return formatter
+                }()
+                
+                let maghribToFajrInterval = tomorrowPrayers.fajr.timeIntervalSince(todayPrayers.maghrib)
+                let lastThirdStart = todayPrayers.maghrib.addingTimeInterval(2 * maghribToFajrInterval / 3)
+                
+                let newPrayerTimes: [String: String] = [
+                    "Fajr": formatter.string(from: todayPrayers.fajr),
+                    "Sunrise": formatter.string(from: todayPrayers.sunrise),
+                    "Dhuhr": formatter.string(from: todayPrayers.dhuhr),
+                    "Asr": formatter.string(from: todayPrayers.asr),
+                    "Maghrib": formatter.string(from: todayPrayers.maghrib),
+                    "Isha": formatter.string(from: todayPrayers.isha),
+                    "Qiyam": formatter.string(from: lastThirdStart)
+                ]
+                
+                DispatchQueue.main.async {
+                    self.prayerTimes = newPrayerTimes
+                    self.updateCountdownToNextPrayer(prayers: todayPrayers)
+                }
             }
         }
     }
     
-    // Проверяет, возможно ли создать структуру времени молитв для текущего и следующего дня.
     func updateCountdownToNextPrayer(prayers: PrayerTimes) {
         let now = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
-        formatter.timeZone = TimeZone(identifier: "Asia/Riyadh")!
+        let _: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm:ss"
+            formatter.timeZone = TimeZone(identifier: "Asia/Riyadh")!
+            return formatter
+        }()
         
-        // Список намазов и их времена в порядке
         let prayerTimes = [
             ("Fajr", prayers.fajr),
             ("Sunrise", prayers.sunrise),
@@ -137,16 +142,15 @@ struct PrayerTimeView: View {
             ("Isha", prayers.isha)
         ]
         
-        // Находим следующий намаз
         let nextPrayer = prayerTimes.first { $0.1 > now }
-        nextPrayerName = nextPrayer?.0 ?? "Fajr" // Переход к Фаджру после Иши
+        nextPrayerName = nextPrayer?.0 ?? "Fajr"
         
-        // Расчет времени до следующего намаза
-        let nextPrayerTime = nextPrayer?.1 ?? prayers.fajr.addingTimeInterval(24 * 60 * 60) // Если после Иши, то до следующего Фаджра
+        let nextPrayerTime = nextPrayer?.1 ?? prayers.fajr.addingTimeInterval(24 * 60 * 60)
         let countdown = Calendar.current.dateComponents([.hour, .minute, .second], from: now, to: nextPrayerTime)
         timeUntilNextPrayer = String(format: "%02d:%02d:%02d", countdown.hour ?? 0, countdown.minute ?? 0, countdown.second ?? 0)
     }
 }
+
 
 
 struct PrayerTimeModalView: View {
@@ -160,7 +164,7 @@ struct PrayerTimeModalView: View {
                 }, label: {
                     Image(systemName: "multiply.circle")
                         .imageScale(.large)
-                        .foregroundColor(.black)
+                        .foregroundStyle(.black)
                 }))
         }
     }

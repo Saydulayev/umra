@@ -21,9 +21,7 @@ struct StepView: View {
             Divider()
             NavigationLink(destination: destinationView) {
                 Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .imageCustomModifier()
+                    .customImageStyle()
             }
             Text(titleKey, bundle: settings.bundle)
         }
@@ -52,7 +50,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.white
+                Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
                     .ignoresSafeArea(edges: .bottom)
                 ScrollView {
                     content
@@ -91,7 +89,7 @@ struct ContentView: View {
                 ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
                     StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2))
                         .font(.custom("Lato-Black", size: 10))
-                        .foregroundStyle(Color.init(#colorLiteral(red: 0.5188618898, green: 0.2738361061, blue: 0.2221542895, alpha: 1)))
+                        .foregroundStyle(.black)
                 }
             }
         } else {
