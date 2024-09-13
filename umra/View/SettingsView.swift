@@ -23,91 +23,51 @@ struct SettingsView: View {
 
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
-                Section(header: Text("Feedback")) {
-                    Image(systemName: "message")
-                        .foregroundColor(.purple)
+                Section(header: Text("text_button_feedback_string", bundle: settings.bundle)) {
                     Button(action: {
                         if let url = URL(string: "mailto:saydulayev.wien@gmail.com") {
                             UIApplication.shared.open(url)
                         }
                     }) {
                         HStack {
+                            Image(systemName: "message")
+                                .foregroundColor(.purple)
                             Text("text_button_feedback_string", bundle: settings.bundle)
-                                .foregroundColor(.blue)
                         }
                     }
                 }
                 
-                Section(header: Text("Evaluate the app")) {
-                    Image(systemName: "star")
-                        .foregroundColor(.yellow)
+                Section(header: Text("text_button_rate_the_app_string", bundle: settings.bundle)) {
+
                     Button(action: {
                         showSafariView.toggle()
                     }) {
-                        Text("text_button_rate_the_app_string", bundle: settings.bundle)
+                        HStack {
+                            Image(systemName: "star")
+                                .foregroundColor(.yellow)
+                            Text("text_button_rate_the_app_string", bundle: settings.bundle)
+                        }
                     }
                     .foregroundColor(.blue)
                 }
 
                 
-                Section(header: Text("Support the developer")) {
-                    Image(systemName: "heart")
-                        .foregroundColor(.red)
-                    
-                    PurchaseView()
-//                        .environmentObject(UserSettings())
-
-                    
+                Section(header: Text("text_button_support_string", bundle: settings.bundle)) {
+                    HStack {
+                        Image(systemName: "heart")
+                            .foregroundColor(.red)
+                        PurchaseView()
+                    }
                 }
-                Section(header: Text("LANGUAGE SELECTION")) {
-                    VStack {
+                Section(header: Text("select_language_settings_string", bundle: settings.bundle)) {
+                    HStack {
                         Image(systemName: "globe")
                             .foregroundColor(.green)
-                        
+                        LanguageView()
                     }
-                    LanguageView()
                 }
-//                Section(header: Text("Color")) {
-//                    Image(systemName: "paintbrush")
-//                        .foregroundColor(.orange)
-//                    
-//                        HStack {
-//                            Text("background_color", bundle: settings.bundle)
-//                                .foregroundStyle(.blue)
-//                            ColorPicker("", selection: $colorManager.backgroundColor)
-//                        }
-//                        HStack {
-//                            Text("text_color", bundle: settings.bundle)
-//                                .foregroundStyle(.blue)
-//                            ColorPicker("", selection: $colorManager.textColor)
-//                        }
-//                }
-//                
-//                Section(header: Text("Text")) {
-//                    Image(systemName: "textformat")
-//                        .foregroundColor(.green)
-//                    HStack {
-//                        Text("_font_", bundle: settings.bundle)
-//                            .foregroundStyle(.blue)
-//                        Picker("", selection: $fontManager.selectedFont) {
-//                            ForEach(fontManager.fonts, id: \.self) { font in
-//                                Text(font).tag(font)
-//                                
-//                            }
-//                        }
-//                    }
-//                    HStack {
-//                        Text("_size_", bundle: settings.bundle)
-//                            .foregroundStyle(.blue)
-//                        Picker("", selection: $fontManager.selectedFontSize) {
-//                            ForEach([14, 16, 18, 20, 22, 24, 26], id: \.self) { size in
-//                                Text("\(size) pt").tag(CGFloat(size))
-//                            }
-//                        }
-//                    }
-//                }
             }
             .navigationBarTitle(Text("settings_string", bundle: settings.bundle), displayMode: .inline)
             .sheet(isPresented: $showSafariView) {

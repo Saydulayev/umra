@@ -53,11 +53,7 @@ struct DonationSheetView: View {
             Rectangle()
                 .fill(
                     LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color(#colorLiteral(red: 0.8956587315, green: 0.9328896403, blue: 1, alpha: 1)), // базовый цвет
-                            Color(#colorLiteral(red: 0.8956587315, green: 0.9328896403, blue: 1, alpha: 1)), // чуть затемненный вариант базового цвета
-                            Color(#colorLiteral(red: 0.8956587315, green: 0.9328896403, blue: 1, alpha: 0))  // еще более затемненный вариант базового цвета
-                        ]),
+                        gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8956587315, green: 0.9328896403, blue: 1, alpha: 1))]),
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
@@ -65,14 +61,28 @@ struct DonationSheetView: View {
                 .ignoresSafeArea()
             
             Text("Contribution to Application Development", bundle: settings.bundle)
-                .font(.system(size: 14))
-                .foregroundStyle(.primary)
-                .padding(10)
+                .font(.system(size: 16))
+                .foregroundColor(.black)
+                .padding()
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 20)
-                .background(.regularMaterial)
+                .background(
+                    ZStack {
+                        Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.white)
+                            .blur(radius: 4)
+                            .offset(x: -8, y: -8)
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .padding(2)
+                            .blur(radius: 2)
+                        
+                    })
+                .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
-                .padding(10)
+                .padding()
 
             VStack(alignment: .trailing) {
                 Button(action: {
@@ -96,10 +106,26 @@ struct DonationSheetView: View {
                         }
                         .font(.title)
                         .padding(5)
-                        .background(.blue.opacity(0.7))
-                        .clipShape(Capsule())
+                        .background(
+                            ZStack {
+                                Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                                
+                                RoundedRectangle(cornerRadius: 20)
+                                    .foregroundColor(.white)
+                                    .blur(radius: 4)
+                                    .offset(x: -8, y: -8)
+                                
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    .padding(2)
+                                    .blur(radius: 2)
+                                
+                            })
+                        .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .padding()
                         
-                        .accentColor(.white)
+                        .accentColor(.blue)
                         .pickerStyle(MenuPickerStyle())
                     }
                     
@@ -128,11 +154,27 @@ struct DonationSheetView: View {
             } label: {
                 Text("_donate_button", bundle: settings.bundle)
                     .font(.system(size: 18, weight: .medium, design: .default))
+                    .foregroundColor(.black)
                     .padding()
-                    .foregroundColor(.white)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(Color.blue)
-                    .clipShape(Capsule())
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        ZStack {
+                            Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                            
+                            RoundedRectangle(cornerRadius: 20)
+                                .foregroundColor(.white)
+                                .blur(radius: 4)
+                                .offset(x: -8, y: -8)
+                            
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .padding(2)
+                                .blur(radius: 2)
+                            
+                        })
+                    .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .padding()
             }
             .padding()
         }

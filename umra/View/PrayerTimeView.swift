@@ -33,11 +33,7 @@ struct PrayerTimeView: View {
             Rectangle()
                 .fill(
                     LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)), // базовый цвет
-                            Color(#colorLiteral(red: 0.8680392157, green: 0.9033333333, blue: 0.970, alpha: 1)), // чуть затемненный вариант базового цвета
-                            Color(#colorLiteral(red: 0.8380392157, green: 0.8733333333, blue: 0.940, alpha: 1))  // еще более затемненный вариант базового цвета
-                        ]),
+                        gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))]),
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
@@ -191,9 +187,23 @@ struct PrayerTimeRow: View {
 
 extension View {
     func capsuleStyled() -> some View {
-        self.foregroundStyle(.white)
+        self.foregroundStyle(.black)
             .frame(maxWidth: .infinity)
-            .background(Color.black.opacity(0.1))
+            .background(
+                ZStack {
+                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                    
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(.white)
+                        .blur(radius: 4)
+                        .offset(x: -8, y: -8)
+                    
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .padding(2)
+                        .blur(radius: 2)
+                    
+                })
             .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
@@ -204,18 +214,52 @@ extension View {
         .foregroundColor(.black)
         .padding()
         .frame(maxWidth: .infinity)
-        .background(Color.white.opacity(0.5))
-        .padding(.vertical, 85)
+        .background(
+            ZStack {
+                Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(.white)
+                    .blur(radius: 4)
+                    .offset(x: -8, y: -8)
+                
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .padding(2)
+                    .blur(radius: 2)
+                
+            })
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
+        .padding(.vertical, 40)
+        
     }
 }
 
 extension View {
     func transparentStyled() -> some View {
         self.padding(.vertical)
-        .background(Color.black.opacity(0.3))
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .padding(15)
+            .padding(.all, 25)
+            .background(
+                ZStack {
+                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                    
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(.white)
+                        .blur(radius: 4)
+                        .offset(x: -8, y: -8)
+                    
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .padding(2)
+                        .blur(radius: 2)
+                    
+                })
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
+            .padding()
     }
+    
 }
 
 #Preview {

@@ -28,8 +28,8 @@ struct CustomToolbar: View {
                 Image(systemName: "textformat").imageScale(.large).foregroundColor(.primary)
             }
 
-            ColorPicker("", selection: $backgroundColor)
-            ColorPicker("", selection: $textColor)
+//            ColorPicker("", selection: $backgroundColor)
+//            ColorPicker("", selection: $textColor)
         }
     }
 }

@@ -33,7 +33,7 @@ struct ContentView: View {
     @EnvironmentObject var colorManager: ColorManager
     @EnvironmentObject var fontManager: FontManager
     
-    @State private var isGridView = false
+    @State private var isGridView = true
     @State private var showPrayerTimes = false
     
     let steps = [
@@ -105,7 +105,7 @@ struct ContentView: View {
     private var gridColumns: [GridItem] {
         // Расчет ширины колонки
         let screenWidth = UIScreen.main.bounds.width
-        let columnWidth = screenWidth / 2 - 20 // Вычитаем отступы
+        let columnWidth = screenWidth / 2 - 15 // Вычитаем отступы
         
         return [GridItem(.fixed(columnWidth)), GridItem(.fixed(columnWidth))]
     }

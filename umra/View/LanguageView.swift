@@ -45,7 +45,8 @@ struct LanguageView: View {
                     .foregroundColor(.blue)
             }
             .actionSheet(isPresented: $showingActionSheet) {
-                ActionSheet(title: Text("Select a Language"), message: nil, buttons: [
+                ActionSheet(title: Text("select_language_settings_string", bundle: settings.bundle)
+                    .foregroundColor(.blue), message: nil, buttons: [
                     .default(Text("Русский")) {
                         settings.lang = "ru"
                     },
