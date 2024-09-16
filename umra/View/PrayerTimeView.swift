@@ -158,9 +158,9 @@ struct PrayerTimeModalView: View {
                 .navigationBarItems(trailing: Button(action: {
                     isPresented = false
                 }, label: {
-                    Image(systemName: "multiply.circle")
+                    Image(systemName: "xmark.circle")
                         .imageScale(.large)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.blue)
                 }))
         }
     }
@@ -201,7 +201,6 @@ extension View {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .padding(2)
-                        .blur(radius: 2)
                     
                 })
             .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -226,7 +225,6 @@ extension View {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                     .padding(2)
-                    .blur(radius: 2)
                 
             })
         .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -252,7 +250,6 @@ extension View {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .padding(2)
-                        .blur(radius: 2)
                     
                 })
             .clipShape(RoundedRectangle(cornerRadius: 20))

@@ -37,7 +37,6 @@ struct Step1: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "1")
-                            .padding()
                         
                         Text("Turn your face towards the Qiblah and say:", bundle: settings.bundle)
                         
@@ -49,7 +48,6 @@ struct Step1: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "2")
-                            .padding()
                         
                         Text("O Allah, this Umrah is without any ostentation or fame", bundle: settings.bundle)
                         
@@ -66,7 +64,6 @@ struct Step1: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "3")
-                            .padding()
                         
                         Text("Labbayka Allahumma labbayk", bundle: settings.bundle)
                         
@@ -79,7 +76,6 @@ struct Step1: View {
                             .customTextforArabic()
                             
                             PlayerView(fileName: "4")
-                                .padding()
                             
                             
                             
@@ -95,7 +91,6 @@ struct Step1: View {
                             .customTextforArabic()
                             
                             PlayerView(fileName: "5")
-                                .padding()
                         }
                         
                         Text("Ihram text1", bundle: settings.bundle)

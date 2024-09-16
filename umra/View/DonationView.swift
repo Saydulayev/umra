@@ -20,8 +20,16 @@ struct DonationView: View {
                 Button(action: {
                     showingSheet = true
                 }) {
-                    Text("text_button_support_string", bundle: settings.bundle)
-                        .foregroundColor(.blue)
+
+                    HStack {
+                        Image(systemName: "heart")
+                            .foregroundStyle(.red)
+                        Text("text_button_support_string", bundle: settings.bundle)
+                            .foregroundStyle(.blue)
+                        Spacer()
+                    }
+                    .customTextStyle()
+
                 }
                 .sheet(isPresented: $showingSheet) {
                     DonationSheetView(isPresented: $showingSheet, isPurchased: $isPurchased, storeVM: storeVM)
@@ -77,7 +85,6 @@ struct DonationSheetView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .padding(2)
-                            .blur(radius: 2)
                         
                     })
                 .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
@@ -90,7 +97,7 @@ struct DonationSheetView: View {
                 }, label: {
                     Image(systemName: "xmark.circle")
                         .font(.system(size: 22))
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.blue)
                 })
                 .padding()
                 VStack {
@@ -118,7 +125,6 @@ struct DonationSheetView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                     .padding(2)
-                                    .blur(radius: 2)
                                 
                             })
                         .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
@@ -154,7 +160,7 @@ struct DonationSheetView: View {
             } label: {
                 Text("_donate_button", bundle: settings.bundle)
                     .font(.system(size: 18, weight: .medium, design: .default))
-                    .foregroundColor(.black)
+                    .foregroundColor(.blue)
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(
@@ -169,7 +175,6 @@ struct DonationSheetView: View {
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                 .padding(2)
-                                .blur(radius: 2)
                             
                         })
                     .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)

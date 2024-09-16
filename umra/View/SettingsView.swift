@@ -14,18 +14,15 @@ struct SettingsView: View {
     @State private var showPicker = false
     @EnvironmentObject var settings: UserSettings
     @Environment(\.dismiss) var dismiss
-//    @EnvironmentObject var fontManager: FontManager
-//    @StateObject var colorManager = ColorManager()
-
-
-
-
-
     
     var body: some View {
         NavigationStack {
-            Form {
-                Section(header: Text("text_button_feedback_string", bundle: settings.bundle)) {
+            ZStack {
+                Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+                    .ignoresSafeArea(edges: .bottom)
+                VStack(alignment: .leading, spacing: 10) {
+                    
+                    // Feedback Button
                     Button(action: {
                         if let url = URL(string: "mailto:saydulayev.wien@gmail.com") {
                             UIApplication.shared.open(url)
@@ -35,12 +32,13 @@ struct SettingsView: View {
                             Image(systemName: "message")
                                 .foregroundColor(.purple)
                             Text("text_button_feedback_string", bundle: settings.bundle)
+                                .foregroundColor(.blue)
+                            Spacer()
                         }
+                        .customTextStyle()
                     }
-                }
-                
-                Section(header: Text("text_button_rate_the_app_string", bundle: settings.bundle)) {
-
+                    
+                    // Rate the App Button
                     Button(action: {
                         showSafariView.toggle()
                     }) {
@@ -48,32 +46,27 @@ struct SettingsView: View {
                             Image(systemName: "star")
                                 .foregroundColor(.yellow)
                             Text("text_button_rate_the_app_string", bundle: settings.bundle)
+                                .foregroundColor(.blue)
+                            Spacer()
                         }
+                        .customTextStyle()
                     }
-                    .foregroundColor(.blue)
-                }
-
-                
-                Section(header: Text("text_button_support_string", bundle: settings.bundle)) {
-                    HStack {
-                        Image(systemName: "heart")
-                            .foregroundColor(.red)
+                    
+                    // Support View
                         PurchaseView()
-                    }
-                }
-                Section(header: Text("select_language_settings_string", bundle: settings.bundle)) {
-                    HStack {
-                        Image(systemName: "globe")
-                            .foregroundColor(.green)
+                    
+                    // Language Selection
                         LanguageView()
-                    }
+
+                    
+                    Spacer()
+                }
+                .padding()
+                .navigationBarTitle(Text("settings_string", bundle: settings.bundle), displayMode: .inline)
+                .sheet(isPresented: $showSafariView) {
+                    SafariView(url: URL(string: "https://apps.apple.com/app/id1673683355")!)
                 }
             }
-            .navigationBarTitle(Text("settings_string", bundle: settings.bundle), displayMode: .inline)
-            .sheet(isPresented: $showSafariView) {
-                SafariView(url: URL(string: "https://apps.apple.com/app/id1673683355")!)
-            }
-                
         }
     }
 }
@@ -88,6 +81,7 @@ struct SafariView: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {}
 }
+
 
 
 //struct SettingsView_Previews: PreviewProvider {

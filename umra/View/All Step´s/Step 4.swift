@@ -43,7 +43,7 @@ struct Step4: View {
                         textColor: $colorManager.textColor,
                         fonts: fontManager.fonts
                     )
-                    .environmentObject(settings) // Предоставляем доступ к настройкам через объект окружения
+                    .environmentObject(settings) 
                 }
             }
         }

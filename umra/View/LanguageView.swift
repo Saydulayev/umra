@@ -41,8 +41,14 @@ struct LanguageView: View {
             Button(action: {
                 showingActionSheet = true
             }) {
-                Text("select_language_settings_string", bundle: settings.bundle)
-                    .foregroundColor(.blue)
+                HStack {
+                    Image(systemName: "globe")
+                        .foregroundColor(.green)
+                    Text("select_language_settings_string", bundle: settings.bundle)
+                        .foregroundColor(.blue)
+                    Spacer()
+                }
+                .customTextStyle()
             }
             .actionSheet(isPresented: $showingActionSheet) {
                 ActionSheet(title: Text("select_language_settings_string", bundle: settings.bundle)

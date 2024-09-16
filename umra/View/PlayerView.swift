@@ -121,11 +121,9 @@ struct PlayerView: View {
                         Circle()
                             .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .padding(2)
-                            .blur(radius: 2)
                     }
                     .clipShape(Circle())
-                    .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
-                    .shadow(color: Color.white, radius: 20, x: -20, y: -20))
+                    .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20))
 
         }
         .padding()

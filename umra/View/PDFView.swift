@@ -26,7 +26,8 @@ struct PDFViewWrapper: View {
     @State private var isPDFViewerPresented: Bool = false
     private let documents: [PDFDocumentModel] = [
         PDFDocumentModel(fileName: "hadj_i_umra", displayName: "Обряды хаджа и умры"),
-        PDFDocumentModel(fileName: "hadj_proroka", displayName: "Хадж Пророка")
+        PDFDocumentModel(fileName: "hadj_proroka", displayName: "Хадж Пророка"),
+        PDFDocumentModel(fileName: "", displayName: "")
     ]
     
     

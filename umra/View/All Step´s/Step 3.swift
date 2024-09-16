@@ -33,7 +33,6 @@ struct Step3: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "13")
-                            .padding()
                         
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.selectedFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.selectedFontSize))
@@ -57,7 +56,7 @@ struct Step3: View {
                         textColor: $colorManager.textColor,
                         fonts: fontManager.fonts
                     )
-                    .environmentObject(settings) // Предоставляем доступ к настройкам через объект окружения
+                    .environmentObject(settings) 
                 }
             }
         }
