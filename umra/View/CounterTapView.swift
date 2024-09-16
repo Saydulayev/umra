@@ -33,8 +33,8 @@ struct CounterTapView: View {
                     }) {
                         Text("add_string", bundle: settings.bundle)
                             .padding()
-                            .lineSpacing(15) // Добавляем отступ между строками
-                            .multilineTextAlignment(.center) // Выравниваем текст по правому краю
+                            .lineSpacing(15)
+                            .multilineTextAlignment(.center) 
                             .frame(width: 170, height: 50)
                             .background(
                                 ZStack {

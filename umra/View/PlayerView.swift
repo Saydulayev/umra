@@ -89,7 +89,6 @@ struct PlayerView: View {
         }
         .padding()
         .onAppear {
-            // Назначаем замыкание для обновления состояния
             coordinator.onFinishPlaying = {
                 self.isPlaying = false
             }
@@ -139,7 +138,7 @@ struct PlayerView: View {
         if let soundPath = Bundle.main.path(forResource: fileName, ofType: "mp3") {
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath))
-                self.audioPlayer.delegate = coordinator // Назначаем делегата
+                self.audioPlayer.delegate = coordinator 
                 self.audioPlayer.prepareToPlay()
                 self.duration = self.audioPlayer.duration
             } catch {

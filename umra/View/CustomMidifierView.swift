@@ -41,34 +41,10 @@ extension Image {
     }
 }
 
-struct ImageCustomModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .shadow(color: Color.black.opacity(0.5), radius: 10, x: 10, y: 10)
-            .padding(25)
-    }
-}
 
-extension View {
-    func imageCustomModifier() -> some View {
-        self.modifier(ImageCustomModifier())
-    }
-}
 
-//MARK: TextCustomMidifier
 
-struct CustomText: View {
-    var name: String
-    var body: some View {
-      Text(name)
-            .font(.custom("Lato-Black", size: 38))
-            .foregroundColor(Color.init(#colorLiteral(red: 0.5188618898, green: 0.2738361061, blue: 0.2221542895, alpha: 1)))
-            .multilineTextAlignment(.center)
-            .padding(10)
 
-    }
-}
 //MARK: CustomTextforSteps
 
 struct CustomTextforSteps: ViewModifier {
@@ -76,8 +52,8 @@ struct CustomTextforSteps: ViewModifier {
         content
             .padding()
             .font(.custom("Amiri Quran", size: 38))
-            .lineSpacing(15) // Добавляем отступ между строками
-            .multilineTextAlignment(.center) // Выравниваем текст по правому краю
+            .lineSpacing(15)
+            .multilineTextAlignment(.center)
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
@@ -135,17 +111,17 @@ extension View {
                 ZStack {
                     Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
                     
-                    RoundedRectangle(cornerRadius: 20)
+                    RoundedRectangle(cornerRadius: 10)
                         .foregroundColor(.white)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomLeading))
                         .padding(2)
                 })
             .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .padding()
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding(.vertical, 10)
     }
 }
