@@ -11,16 +11,21 @@ struct StepView: View {
     let imageName: String
     let destinationView: AnyView
     let titleKey: LocalizedStringKey
+    let index: Int?
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var colorManager: ColorManager
     @EnvironmentObject var fontManager: FontManager
     
-    
     var body: some View {
         VStack {
             NavigationLink(destination: destinationView) {
-                Image(imageName)
-                    .customImageStyle()
+                if let index = index {
+                    Image(imageName)
+                        .customImageStyle(index: index)
+                } else {
+                    Image(imageName)
+                        .customImageStyleWithoutIndex()
+                }
             }
             Text(titleKey, bundle: settings.bundle)
             Divider()
@@ -87,7 +92,7 @@ struct ContentView: View {
         if isGridView {
             LazyVGrid(columns: gridColumns, spacing: 20) {
                 ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-                    StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2))
+                    StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2), index: index)
                         .font(.custom("Lato-Black", size: 10))
                         .foregroundStyle(.black)
                 }
@@ -95,7 +100,7 @@ struct ContentView: View {
         } else {
             VStack {
                 ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-                    StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2))
+                    StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2), index: nil)
                         .titleTextModifier()
                 }
             }
