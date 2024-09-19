@@ -1,12 +1,10 @@
 #### Preview
 
-<table border=0>
-    <tr>
-        <td>
-            <image src=https://github.com/Saydulayev/umra/blob/main/umra/Gif/GIF.gif width=230 align=center>
-        </td>
-    </tr>
-</table>
+<p align="center">
+  <img src="https://github.com/Saydulayev/umra/blob/main/umra/Screensh./1.png" width="300">
+  <img src="https://github.com/Saydulayev/umra/blob/main/umra/Screensh./2.png" width="300">
+  <img src="https://github.com/Saydulayev/umra/blob/main/umra/Screensh./3.png" width="300">
+</p>
 
 # Umra Guide: Simplify Your Pilgrimage Experience
 
