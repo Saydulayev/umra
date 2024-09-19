@@ -12,7 +12,6 @@ struct Step1: View {
     
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
-    @EnvironmentObject var colorManager: ColorManager
 
 
     
@@ -97,7 +96,6 @@ struct Step1: View {
                         
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.selectedFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.selectedFontSize))                }
-                .foregroundColor(colorManager.textColor)
                 .padding(.horizontal, 10)
                 //                .environmentObject(settings)
                 LanguageView()
@@ -109,8 +107,6 @@ struct Step1: View {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     CustomToolbar(
                         selectedFont: $fontManager.selectedFont,
-                        backgroundColor: $colorManager.backgroundColor,
-                        textColor: $colorManager.textColor,
                         fonts: fontManager.fonts
                     )
                     .environmentObject(settings) // Предоставляем доступ к настройкам через объект окружения

@@ -10,15 +10,13 @@ import SwiftUI
 struct Step6: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
-    @EnvironmentObject var colorManager: ColorManager
 
     
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 0)
-                .fill(colorManager.backgroundColor)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+
                 .edgesIgnoringSafeArea(.bottom)
             ScrollView {
                 VStack {
@@ -79,7 +77,6 @@ struct Step6: View {
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.selectedFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.selectedFontSize))
                 }
-                .foregroundColor(colorManager.textColor)
                 .padding(.horizontal, 10)
                 LanguageView()
                     .hidden()
@@ -88,8 +85,6 @@ struct Step6: View {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     CustomToolbar(
                         selectedFont: $fontManager.selectedFont,
-                        backgroundColor: $colorManager.backgroundColor,
-                        textColor: $colorManager.textColor,
                         fonts: fontManager.fonts
                     )
                     .environmentObject(settings) // Предоставляем доступ к настройкам через объект окружения

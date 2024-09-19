@@ -51,7 +51,6 @@
 		C0908DF72982A0AA00458ACB /* Step 5.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF62982A0AA00458ACB /* Step 5.swift */; };
 		C0908DF92982A0B300458ACB /* Step 6.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF82982A0B300458ACB /* Step 6.swift */; };
 		C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DFA2982A0BC00458ACB /* Step 7.swift */; };
-		C0A5B38C2AF11F0300ACE4B7 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */; };
 		C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */; };
 		C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DC35DF2A0686A2002527D7 /* LanguageView.swift */; };
 		C24508EA2C9CD39D003E3E58 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508E92C9CD39D003E3E58 /* 1.png */; };
@@ -108,7 +107,6 @@
 		C0908DF62982A0AA00458ACB /* Step 5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 5.swift"; sourceTree = "<group>"; };
 		C0908DF82982A0B300458ACB /* Step 6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 6.swift"; sourceTree = "<group>"; };
 		C0908DFA2982A0BC00458ACB /* Step 7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 7.swift"; sourceTree = "<group>"; };
-		C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolbar.swift; sourceTree = "<group>"; };
 		C0DC35DF2A0686A2002527D7 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
 		C0DC35E12A0687DF002527D7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 		C024683D2BDF961100CE5A6B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */,
 				C08EAFD22AF91CFB00C847AC /* textFont.swift */,
 				C2E117392C999AE3002DC520 /* UsefulTex.swift */,
 			);
@@ -410,7 +407,6 @@
 				C077B4782B20D41D00086594 /* StoreKit.swift in Sources */,
 				C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */,
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
-				C0A5B38C2AF11F0300ACE4B7 /* ColorManager.swift in Sources */,
 				C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */,
 				C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */,
 				C077B47A2B20D45600086594 /* DonationView.swift in Sources */,
@@ -580,7 +576,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MARKETING_VERSION = 3.5.0;
+				MARKETING_VERSION = 4.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "saydulayev.wien-gmail.com.umra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -615,7 +611,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MARKETING_VERSION = 3.5.0;
+				MARKETING_VERSION = 4.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "saydulayev.wien-gmail.com.umra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

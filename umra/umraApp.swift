@@ -20,7 +20,6 @@ import WebKit
 struct umraApp: App {
     let userSettings = UserSettings()
     let fontManager = FontManager()
-    let colorManager = ColorManager()
     
 
 
@@ -29,8 +28,6 @@ struct umraApp: App {
             ContentView()
                 .environmentObject(userSettings)
                 .environmentObject(fontManager)
-                .environmentObject(colorManager)
-
         }
     }
 }

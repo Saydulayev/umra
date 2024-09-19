@@ -15,7 +15,6 @@ struct StepView<Destination: View>: View {
     let fontSize: CGFloat
     
     @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var colorManager: ColorManager
     @EnvironmentObject var fontManager: FontManager
     
     var body: some View {
@@ -39,7 +38,6 @@ struct StepView<Destination: View>: View {
 
 struct ContentView: View {
     @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var colorManager: ColorManager
     @EnvironmentObject var fontManager: FontManager
     
     @State private var isGridView = false
@@ -138,7 +136,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .environmentObject(UserSettings())
             .environmentObject(FontManager())
-            .environmentObject(ColorManager())
     }
 }
 
