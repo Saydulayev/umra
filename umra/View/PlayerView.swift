@@ -32,15 +32,16 @@ class AudioManager {
 }
 
 
+
 struct PlayerView: View {
-    @State var audioPlayer: AVAudioPlayer!
-    @State var isPlaying = false
-    @State var currentTime: TimeInterval = 0.0
-    @State var duration: TimeInterval = 0.0
-    @State var isRepeating = false
+    @State private var audioPlayer: AVAudioPlayer?
+    @State private var isPlaying = false
+    @State private var currentTime: TimeInterval = 0.0
+    @State private var duration: TimeInterval = 0.0
+    @State private var isRepeating = false
     let fileName: String
     
-    @StateObject private var coordinator = Coordinator() 
+    @StateObject private var coordinator = Coordinator()
     
     var body: some View {
         VStack {
@@ -64,7 +65,7 @@ struct PlayerView: View {
                               isActive: self.isRepeating,
                               backgroundColors: [.red, .gray]) {
                     self.isRepeating.toggle()
-                    self.audioPlayer.numberOfLoops = self.isRepeating ? -1 : 0
+                    self.audioPlayer?.numberOfLoops = self.isRepeating ? -1 : 0
                 }
                 
                 Spacer()
@@ -79,7 +80,7 @@ struct PlayerView: View {
                 get: { self.currentTime },
                 set: { newValue in
                     self.currentTime = newValue
-                    self.audioPlayer.currentTime = self.currentTime
+                    self.audioPlayer?.currentTime = self.currentTime
                 }
             ),
                    in: 0...duration,
@@ -95,10 +96,7 @@ struct PlayerView: View {
             setupAudioPlayer()
         }
         .onReceive(Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()) { _ in
-            self.currentTime = self.audioPlayer.currentTime
-            if !self.audioPlayer.isPlaying {
-                self.isPlaying = false
-            }
+            updateProgress()
         }
     }
     
@@ -137,10 +135,11 @@ struct PlayerView: View {
     func setupAudioPlayer() {
         if let soundPath = Bundle.main.path(forResource: fileName, ofType: "mp3") {
             do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath))
-                self.audioPlayer.delegate = coordinator 
-                self.audioPlayer.prepareToPlay()
-                self.duration = self.audioPlayer.duration
+                let player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath))
+                self.audioPlayer = player
+                self.audioPlayer?.delegate = coordinator
+                self.audioPlayer?.prepareToPlay()
+                self.duration = player.duration
             } catch {
                 print("Error initializing audio player: \(error)")
             }
@@ -156,6 +155,14 @@ struct PlayerView: View {
         }
     }
     
+    func updateProgress() {
+        guard let player = audioPlayer else { return }
+        self.currentTime = player.currentTime
+        if !player.isPlaying {
+            self.isPlaying = false
+        }
+    }
+
     class Coordinator: NSObject, AVAudioPlayerDelegate, ObservableObject {
         var onFinishPlaying: (() -> Void)?
         
@@ -166,9 +173,6 @@ struct PlayerView: View {
         }
     }
 }
-    
-
-
 
 struct Player_Previews: PreviewProvider {
     static var previews: some View {
