@@ -1,9 +1,9 @@
 #### Preview
 
 <p align="center">
-  <img src="https://github.com/Saydulayev/umra/blob/main/umra/Screensh./1.png" width="300">
-  <img src="https://github.com/Saydulayev/umra/blob/main/umra/Screensh./2.png" width="300">
-  <img src="https://github.com/Saydulayev/umra/blob/main/umra/Screensh./3.png" width="300">
+  <img src="https://github.com/Saydulayev/umra/blob/main/umra/Screensh./1.png" width="200">
+  <img src="https://github.com/Saydulayev/umra/blob/main/umra/Screensh./2.png" width="200">
+  <img src="https://github.com/Saydulayev/umra/blob/main/umra/Screensh./3.png" width="200">
 </p>
 
 # Umra Guide: Simplify Your Pilgrimage Experience
