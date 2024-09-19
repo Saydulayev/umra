@@ -37,7 +37,6 @@
 		C077B47A2B20D45600086594 /* DonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077B4792B20D45600086594 /* DonationView.swift */; };
 		C079318C2B246BAE00B38D01 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C079318B2B246BAE00B38D01 /* StoreKit.framework */; };
 		C07BE9072AA3474600BA3A15 /* hadj_i_umra.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */; };
-		C07BE90A2AA347AD00BA3A15 /* Final1693649288.gif in Resources */ = {isa = PBXBuildFile; fileRef = C07BE9092AA347AD00BA3A15 /* Final1693649288.gif */; };
 		C07BE9262AA34B8900BA3A15 /* CounterTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */; };
 		C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08EAFD22AF91CFB00C847AC /* textFont.swift */; };
 		C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDB29829F8A00458ACB /* umraApp.swift */; };
@@ -55,6 +54,9 @@
 		C0A5B38C2AF11F0300ACE4B7 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A5B38B2AF11F0300ACE4B7 /* ColorManager.swift */; };
 		C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */; };
 		C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DC35DF2A0686A2002527D7 /* LanguageView.swift */; };
+		C24508EA2C9CD39D003E3E58 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508E92C9CD39D003E3E58 /* 1.png */; };
+		C24508EC2C9CD3A6003E3E58 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508EB2C9CD3A6003E3E58 /* 2.png */; };
+		C24508EE2C9CD3AD003E3E58 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508ED2C9CD3AD003E3E58 /* 3.png */; };
 		C2E1173A2C999AE3002DC520 /* UsefulTex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E117392C999AE3002DC520 /* UsefulTex.swift */; };
 		C2E1173C2C999B31002DC520 /* UsefulInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */; };
 /* End PBXBuildFile section */
@@ -91,7 +93,6 @@
 		C07931892B24627100B38D01 /* InAppPurchase.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = InAppPurchase.storekit; sourceTree = "<group>"; };
 		C079318B2B246BAE00B38D01 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hadj_i_umra.pdf; sourceTree = "<group>"; };
-		C07BE9092AA347AD00BA3A15 /* Final1693649288.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Final1693649288.gif; sourceTree = "<group>"; };
 		C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTapView.swift; sourceTree = "<group>"; };
 		C08EAFD22AF91CFB00C847AC /* textFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFont.swift; sourceTree = "<group>"; };
 		C0908DD829829F8A00458ACB /* umra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umra.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +113,9 @@
 		C0DC35DF2A0686A2002527D7 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
 		C0DC35E12A0687DF002527D7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0DC35E22A068F21002527D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C24508E92C9CD39D003E3E58 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		C24508EB2C9CD3A6003E3E58 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		C24508ED2C9CD3AD003E3E58 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		C2E117392C999AE3002DC520 /* UsefulTex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulTex.swift; sourceTree = "<group>"; };
 		C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,12 +219,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C07BE9082AA3477E00BA3A15 /* Gif */ = {
+		C07BE9082AA3477E00BA3A15 /* Screensh. */ = {
 			isa = PBXGroup;
 			children = (
-				C07BE9092AA347AD00BA3A15 /* Final1693649288.gif */,
+				C24508ED2C9CD3AD003E3E58 /* 3.png */,
+				C24508EB2C9CD3A6003E3E58 /* 2.png */,
+				C24508E92C9CD39D003E3E58 /* 1.png */,
 			);
-			path = Gif;
+			path = Screensh.;
 			sourceTree = "<group>";
 		};
 		C0908DCF29829F8A00458ACB = {
@@ -253,7 +259,7 @@
 				C036BC802997A5190000FD8E /* Font */,
 				C063ADE429DF2ED500746D2E /* MP3Voice */,
 				C075CB1B2A137ED600D4C842 /* PDF */,
-				C07BE9082AA3477E00BA3A15 /* Gif */,
+				C07BE9082AA3477E00BA3A15 /* Screensh. */,
 				C0908DDF29829F8A00458ACB /* Assets.xcassets */,
 				C0908DE129829F8A00458ACB /* Preview Content */,
 			);
@@ -355,12 +361,13 @@
 				C063ADF929DF2FC700746D2E /* 11.mp3 in Resources */,
 				C0908DE329829F8A00458ACB /* Preview Assets.xcassets in Resources */,
 				C041C7A02BB06739007381FB /* .gitignore in Resources */,
-				C07BE90A2AA347AD00BA3A15 /* Final1693649288.gif in Resources */,
 				C025CE992A03E4300052188D /* Localizable.strings in Resources */,
 				C063ADF529DF2FC700746D2E /* 4.mp3 in Resources */,
 				C063ADFA29DF2FC700746D2E /* 13.mp3 in Resources */,
+				C24508EA2C9CD39D003E3E58 /* 1.png in Resources */,
 				C063ADF429DF2FC700746D2E /* 12.mp3 in Resources */,
 				C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */,
+				C24508EC2C9CD3A6003E3E58 /* 2.png in Resources */,
 				C05648EF2BB5AA8700E12230 /* hadj_proroka.pdf in Resources */,
 				C063ADF729DF2FC700746D2E /* 7.mp3 in Resources */,
 				C07BE9072AA3474600BA3A15 /* hadj_i_umra.pdf in Resources */,
@@ -369,6 +376,7 @@
 				C063ADF829DF2FC700746D2E /* 6.mp3 in Resources */,
 				C063ADFC29DF2FC700746D2E /* 3.mp3 in Resources */,
 				C063ADFE29DF2FC700746D2E /* 8.mp3 in Resources */,
+				C24508EE2C9CD3AD003E3E58 /* 3.png in Resources */,
 				C063ADFB29DF2FC700746D2E /* 9.mp3 in Resources */,
 				C063ADF329DF2FC700746D2E /* 2.mp3 in Resources */,
 				C036BC852997A8E40000FD8E /* Lato-Italic.ttf in Resources */,
