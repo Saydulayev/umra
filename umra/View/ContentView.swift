@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-struct StepView: View {
+struct StepView<Destination: View>: View {
     let imageName: String
-    let destinationView: AnyView
+    let destinationView: Destination
     let titleKey: LocalizedStringKey
     let index: Int?
+    let fontSize: CGFloat
+    
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var colorManager: ColorManager
     @EnvironmentObject var fontManager: FontManager
@@ -21,13 +23,15 @@ struct StepView: View {
             NavigationLink(destination: destinationView) {
                 if let index = index {
                     Image(imageName)
-                        .customImageStyle(index: index)
+                        .styledImageWithIndex(index: index)
                 } else {
                     Image(imageName)
-                        .customImageStyleWithoutIndex()
+                        .styledImage()
                 }
             }
             Text(titleKey, bundle: settings.bundle)
+                .font(.custom("Lato-Black", size: fontSize))
+                .multilineTextAlignment(.center)
             Divider()
         }
     }
@@ -49,7 +53,7 @@ struct ContentView: View {
         ("image 5", AnyView(Step5()), "title_black_stone_screen"),
         ("image 6", AnyView(Step6()), "title_safa_and_marva_screen"),
         ("image 7", AnyView(Step7()), "title_shave_head_screen"),
-        //("image 8", AnyView(PDFViewWrapper()), "title_link_book_screen")
+        ("image 8", AnyView(UsefulInfoView()), "Useful")
     ]
     
     var body: some View {
@@ -57,6 +61,7 @@ struct ContentView: View {
             ZStack {
                 Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
                     .ignoresSafeArea(edges: .bottom)
+                
                 ScrollView {
                     content
                 }
@@ -65,16 +70,22 @@ struct ContentView: View {
                     leading: Button(action: {
                         isGridView.toggle()
                     }) {
-                        Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2").imageScale(.large).foregroundColor(.primary)
+                        Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2")
+                            .imageScale(.large)
+                            .foregroundColor(.primary)
                     },
                     trailing: HStack {
                         Button(action: {
                             showPrayerTimes = true
                         }) {
-                            Image(systemName: "clock").imageScale(.large).foregroundColor(.primary)
+                            Image(systemName: "clock")
+                                .imageScale(.large)
+                                .foregroundColor(.primary)
                         }
                         NavigationLink(destination: SettingsView()) {
-                            Image(systemName: "gearshape").imageScale(.large).foregroundColor(.primary)
+                            Image(systemName: "gearshape")
+                                .imageScale(.large)
+                                .foregroundColor(.primary)
                         }
                     }
                 )
@@ -91,19 +102,25 @@ struct ContentView: View {
     private var content: some View {
         if isGridView {
             LazyVGrid(columns: gridColumns, spacing: 20) {
-                ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-                    StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2), index: index)
-                        .font(.custom("Lato-Black", size: 10))
-                        .foregroundStyle(.black)
-                }
+                stepsView(showIndex: true, fontSize: 10)
             }
         } else {
             VStack {
-                ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-                    StepView(imageName: step.0, destinationView: step.1, titleKey: LocalizedStringKey(step.2), index: nil)
-                        .titleTextModifier()
-                }
+                stepsView(showIndex: false, fontSize: 38)
             }
+        }
+    }
+
+    private func stepsView(showIndex: Bool, fontSize: CGFloat) -> some View {
+        ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+            StepView(
+                imageName: step.0,
+                destinationView: step.1,
+                titleKey: LocalizedStringKey(step.2),
+                index: showIndex ? index : nil,
+                fontSize: fontSize
+            )
+            .foregroundStyle(.black)
         }
     }
 
@@ -115,15 +132,6 @@ struct ContentView: View {
         return [GridItem(.fixed(columnWidth)), GridItem(.fixed(columnWidth))]
     }
 }
-
-
-
-
-
-
-
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

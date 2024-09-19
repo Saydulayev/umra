@@ -8,11 +8,8 @@
 import SwiftUI
 
 //MARK: ImageCustomMidifier
-
-
-
 extension Image {
-    func customImageStyle(index: Int) -> some View {
+    func styledImageWithIndex(index: Int) -> some View {
         ZStack(alignment: .topTrailing) {
             self
                 .resizable()
@@ -51,7 +48,7 @@ extension Image {
         }
     }
     
-    func customImageStyleWithoutIndex() -> some View {
+    func styledImage() -> some View {
         self
             .resizable()
             .aspectRatio(contentMode: .fit)
@@ -76,7 +73,7 @@ extension Image {
                 })
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
-            .padding()
+            .padding(30)
     }
 }
 
@@ -85,8 +82,7 @@ extension Image {
 
 
 //MARK: CustomTextforSteps
-
-struct CustomTextforSteps: ViewModifier {
+struct StepTextModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding()
@@ -116,26 +112,11 @@ struct CustomTextforSteps: ViewModifier {
 
 extension View {
     func customTextforArabic() -> some View {
-        self.modifier(CustomTextforSteps())
+        self.modifier(StepTextModifier())
     }
 }
 
 
-struct TitleTextModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .font(.custom("Lato-Black", size: 38))
-            .foregroundColor(.black)
-            .multilineTextAlignment(.center)
-            .padding(10)
-    }
-}
-
-extension View {
-    func titleTextModifier() -> some View {
-        self.modifier(TitleTextModifier())
-    }
-}
 
 
 

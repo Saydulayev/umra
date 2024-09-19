@@ -38,7 +38,7 @@ struct PrayerTimeView: View {
                         endPoint: .bottomTrailing
                     )
                 )
-                .ignoresSafeArea()
+                .ignoresSafeArea(edges: .bottom)
             VStack {
                 HStack {
                     Text("Mecca,")
