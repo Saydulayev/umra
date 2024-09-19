@@ -14,14 +14,12 @@ struct Step1: View {
     @EnvironmentObject var fontManager: FontManager
     @EnvironmentObject var colorManager: ColorManager
 
-    //@StateObject var colorManager = ColorManager()
 
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 0)
-                .fill(colorManager.backgroundColor)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+
                 .edgesIgnoringSafeArea(.bottom)
             ScrollView {
                 VStack {
@@ -39,7 +37,6 @@ struct Step1: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "1")
-                            .padding()
                         
                         Text("Turn your face towards the Qiblah and say:", bundle: settings.bundle)
                         
@@ -51,7 +48,6 @@ struct Step1: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "2")
-                            .padding()
                         
                         Text("O Allah, this Umrah is without any ostentation or fame", bundle: settings.bundle)
                         
@@ -68,7 +64,6 @@ struct Step1: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "3")
-                            .padding()
                         
                         Text("Labbayka Allahumma labbayk", bundle: settings.bundle)
                         
@@ -81,7 +76,6 @@ struct Step1: View {
                             .customTextforArabic()
                             
                             PlayerView(fileName: "4")
-                                .padding()
                             
                             
                             
@@ -97,7 +91,6 @@ struct Step1: View {
                             .customTextforArabic()
                             
                             PlayerView(fileName: "5")
-                                .padding()
                         }
                         
                         Text("Ihram text1", bundle: settings.bundle)

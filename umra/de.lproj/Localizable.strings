@@ -11,12 +11,12 @@
 "main_screen_name_string" = "UMRA";
 "title_black_stone_screen" = "Zurück zum schwarzen Stein";
 "title_ihram_screen" = "Ihram";
-"title_place_ibrohim_stand_screen" = "Ort des Propheten Ibrahims Stand.";
+"title_place_ibrohim_stand_screen" = "Ort des Propheten Ibrahims Stand";
 "title_round_kaaba_screen" = "Tawaf";
 "title_safa_and_marva_screen" = "Safa und Marwa";
 "title_settings_screen" = "Einstellungen";
 "title_shave_head_screen" = "Kopf rasieren oder Haare kürzen";
-"title_water_zamzam_screen" = "Trinken des Zamzam-Wassers.";
+"title_water_zamzam_screen" = "Trinken des Zamzam-Wassers";
 "title_link_book_screen" = "Bücher";
 
 
@@ -237,3 +237,6 @@ Abschließend bitte ich den Allmächtigen Allah, unsere guten Taten anzunehmen u
 
 "Contribution to Application Development" = "Ihre Spende ist rein freiwillig und eine einmalige Zuwendung, die nicht mit dem Zugang zu zusätzlichem digitalen Inhalt oder speziellen Funktionen in der App verbunden ist. Unser Ziel ist es, unsere App kostenlos und ohne Einschränkungen für alle zur Verfügung zu stellen. Lassen Sie Ihre Unterstützung um Allahs willen erfolgen, mit dem Ziel, an der Unterstützung und Verbreitung der Anwendung teilzunehmen. BarakAllahu fikum!";
 
+
+"Useful" = "Hilfreich";
+"soon_available_text" = "Dieser Text wird bald auch in anderen Sprachen verfügbar sein.";

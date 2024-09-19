@@ -32,7 +32,6 @@ struct Step2: View {
                             .customTextforArabic()
                         
                         PlayerView(fileName: "6")
-                            .padding()
                         
                         Text("Kaaba text3", bundle: settings.bundle)
                         
@@ -42,7 +41,6 @@ struct Step2: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "7")
-                            .padding()
                         
                         Text("Kaaba text4", bundle: settings.bundle)
                         
@@ -65,7 +63,7 @@ struct Step2: View {
                         textColor: $colorManager.textColor,
                         fonts: fontManager.fonts
                     )
-                    .environmentObject(settings) // Предоставляем доступ к настройкам через объект окружения
+                    .environmentObject(settings) 
                 }
             }
         }

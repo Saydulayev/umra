@@ -7,155 +7,152 @@
 
 
 
+/*
+ import SwiftUI
+ import PDFKit
 
+ // MARK: - Model
 
-import SwiftUI
-import PDFKit
+ struct PDFDocumentModel: Identifiable {
+     var id: String { fileName }
+     let fileName: String
+     let displayName: String
+ }
 
-// MARK: - Model
+ // MARK: - Main View
 
-struct PDFDocumentModel: Identifiable {
-    var id: String { fileName }
-    let fileName: String
-    let displayName: String
-}
+ struct PDFViewWrapper: View {
+     @State private var isPDFViewerPresented: Bool = false
+     private let documents: [PDFDocumentModel] = [
+         PDFDocumentModel(fileName: "hadj_i_umra", displayName: "Обряды хаджа и умры"),
+         PDFDocumentModel(fileName: "hadj_proroka", displayName: "Хадж Пророка"),
+         PDFDocumentModel(fileName: "", displayName: "")
+     ]
+     
+     
+     var body: some View {
+         NavigationView {
+             GeometryReader { geometry in
+                 List(documents) { document in
+                     VStack {
+                         NavigationLink(destination: PDFViewScreen(pdfFileName: document.fileName)) {
+                             HStack {
+                                 ImageViewRepresented(image: firstPageOfPDF(named: document.fileName))
+                                     .frame(width: geometry.size.width * 0.35, height: geometry.size.width * 0.5)
+                                     .background(.white)
+                                     .clipShape(RoundedRectangle(cornerRadius: 5))
+                                     .shadow(radius: 5)
+                                 
+                                 Text(document.displayName)
+                                     .font(.headline)
+                                     .foregroundColor(.primary)
+                                     .frame(maxWidth: .infinity, alignment: .leading)
+                                     .padding(.horizontal, 8)
+                             }
+                         }
+                         .frame(maxWidth: .infinity)
+                     }
+                 }
+             }
+         }
+         .navigationViewStyle(StackNavigationViewStyle())
+     }
+ }
 
-// MARK: - Main View
+ // MARK: - PDF View Screen
 
-struct PDFViewWrapper: View {
-    @State private var isPDFViewerPresented: Bool = false
-    private let documents: [PDFDocumentModel] = [
-        PDFDocumentModel(fileName: "hadj_i_umra", displayName: "Обряды хаджа и умры"),
-        PDFDocumentModel(fileName: "hadj_proroka", displayName: "Хадж Пророка")
-    ]
-    
-    
-    var body: some View {
-        NavigationView {
-            GeometryReader { geometry in
-                List(documents) { document in
-                    VStack {
-                        NavigationLink(destination: PDFViewScreen(pdfFileName: document.fileName)) {
-                            HStack {
-                                ImageViewRepresented(image: firstPageOfPDF(named: document.fileName))
-                                    .frame(width: geometry.size.width * 0.35, height: geometry.size.width * 0.5)
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                                    .shadow(radius: 5)
-                                
-                                Text(document.displayName)
-                                    .font(.headline)
-                                    .foregroundColor(.primary)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.horizontal, 8)
-                            }
-                        }
-                        .frame(maxWidth: .infinity)
-                    }
-                }
-            }
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-    }
-}
+ struct PDFViewScreen: View {
+     var pdfFileName: String
+     @Environment(\.presentationMode) var presentationMode
+     @State private var isShowingPDFsList = true
+     
+     var body: some View {
+         VStack {
+             PDFViewRepresented(pdfFileName: pdfFileName)
+                 .background(Color.white.ignoresSafeArea())
+                 .navigationBarBackButtonHidden(true)
+             
+             Spacer()
+             
+             Button(action: {
+                 if self.isShowingPDFsList {
+                     self.presentationMode.wrappedValue.dismiss()
+                 }
+             }) {
+                 Text(self.isShowingPDFsList ? Image(systemName: "arrowshape.turn.up.backward.fill") : Image(systemName: ""))
+                     .font(.headline)
+                     .foregroundStyle(.blue)
+                     .padding()
+                 Spacer()
+             }
+         }
+         .onAppear {
+             self.isShowingPDFsList = true
+         }
+     }
+ }
 
-// MARK: - PDF View Screen
+ // MARK: - UIViewRepresentable for PDF View
 
-struct PDFViewScreen: View {
-    var pdfFileName: String
-    @Environment(\.presentationMode) var presentationMode
-    @State private var isShowingPDFsList = true
-    
-    var body: some View {
-        VStack {
-            PDFViewRepresented(pdfFileName: pdfFileName)
-                .background(Color.white.ignoresSafeArea())
-                .navigationBarBackButtonHidden(true)
-            
-            Spacer()
-            
-            Button(action: {
-                if self.isShowingPDFsList {
-                    self.presentationMode.wrappedValue.dismiss()
-                }
-            }) {
-                Text(self.isShowingPDFsList ? Image(systemName: "arrowshape.turn.up.backward.fill") : Image(systemName: ""))
-                    .font(.headline)
-                    .foregroundStyle(.blue)
-                    .padding()
-                Spacer()
-            }
-        }
-        .onAppear {
-            self.isShowingPDFsList = true
-        }
-    }
-}
+ struct PDFViewRepresented: UIViewRepresentable {
+     var pdfFileName: String
+     
+     func makeUIView(context: Context) -> PDFView {
+         let pdfView = PDFView()
+         if let url = Bundle.main.url(forResource: pdfFileName, withExtension: "pdf") {
+             pdfView.document = PDFDocument(url: url)
+         }
+         pdfView.autoScales = true
+         pdfView.displayMode = .singlePageContinuous
+         pdfView.backgroundColor = UIColor.white
+         return pdfView
+     }
+     
+     func updateUIView(_ uiView: PDFView, context: Context) {
+ //        if uiView.document != nil {
+ //            uiView.scaleFactor = uiView.scaleFactorForSizeToFit
+ //        }
+     }
+ }
 
-// MARK: - UIViewRepresentable for PDF View
+ // MARK: - Helper function for obtaining the first page of PDF as UIImage
 
-struct PDFViewRepresented: UIViewRepresentable {
-    var pdfFileName: String
-    
-    func makeUIView(context: Context) -> PDFView {
-        let pdfView = PDFView()
-        if let url = Bundle.main.url(forResource: pdfFileName, withExtension: "pdf") {
-            pdfView.document = PDFDocument(url: url)
-        }
-        pdfView.autoScales = true
-        pdfView.displayMode = .singlePageContinuous
-        pdfView.backgroundColor = UIColor.white
-        return pdfView
-    }
-    
-    func updateUIView(_ uiView: PDFView, context: Context) {
-//        if uiView.document != nil {
-//            uiView.scaleFactor = uiView.scaleFactorForSizeToFit
-//        }
-    }
-}
+ func firstPageOfPDF(named fileName: String) -> UIImage? {
+     guard let url = Bundle.main.url(forResource: fileName, withExtension: "pdf"),
+           let document = PDFDocument(url: url),
+           let page = document.page(at: 0) else {
+         return nil
+     }
+     
+     let pageSize = page.bounds(for: .mediaBox)
+     let renderer = UIGraphicsImageRenderer(size: pageSize.size)
+     return renderer.image { ctx in
+         ctx.cgContext.translateBy(x: 0, y: pageSize.height)
+         ctx.cgContext.scaleBy(x: 1.0, y: -1.0)
+         
+         page.draw(with: .mediaBox, to: ctx.cgContext)
+     }
+ }
 
-// MARK: - Helper function for obtaining the first page of PDF as UIImage
+ // MARK: - ImageViewRepresented
 
-func firstPageOfPDF(named fileName: String) -> UIImage? {
-    guard let url = Bundle.main.url(forResource: fileName, withExtension: "pdf"),
-          let document = PDFDocument(url: url),
-          let page = document.page(at: 0) else {
-        return nil
-    }
-    
-    let pageSize = page.bounds(for: .mediaBox)
-    let renderer = UIGraphicsImageRenderer(size: pageSize.size)
-    return renderer.image { ctx in
-        ctx.cgContext.translateBy(x: 0, y: pageSize.height)
-        ctx.cgContext.scaleBy(x: 1.0, y: -1.0)
-        
-        page.draw(with: .mediaBox, to: ctx.cgContext)
-    }
-}
-
-// MARK: - ImageViewRepresented
-
-struct ImageViewRepresented: View {
-    let image: UIImage?
-    
-    var body: some View {
-        if let image = image {
-            Image(uiImage: image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        } else {
-            Image(systemName: "doc")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding(20)
-        }
-    }
-}
-
-
-
-
+ struct ImageViewRepresented: View {
+     let image: UIImage?
+     
+     var body: some View {
+         if let image = image {
+             Image(uiImage: image)
+                 .resizable()
+                 .aspectRatio(contentMode: .fill)
+         } else {
+             Image(systemName: "doc")
+                 .resizable()
+                 .aspectRatio(contentMode: .fit)
+                 .padding(20)
+         }
+     }
+ }
+ */
 
 
 
@@ -171,8 +168,14 @@ struct ImageViewRepresented: View {
 
 
 
-struct PDFView_Previews: PreviewProvider {
-    static var previews: some View {
-        PDFViewWrapper()
-    }
-}
+
+
+
+
+
+
+//struct PDFView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PDFViewWrapper()
+//    }
+//}

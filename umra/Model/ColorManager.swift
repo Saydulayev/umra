@@ -21,7 +21,7 @@ class ColorManager: ObservableObject {
     }
 
     init() {
-        let defaultBackgroundColor = UIColor(red: 0.98108989, green: 0.9316333532, blue: 0.8719255924, alpha: 1)
+        let defaultBackgroundColor = UIColor(Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)))
         self.backgroundColor = Color(UserDefaults.standard.colorForKey(key: "backgroundColor") ?? defaultBackgroundColor)
         self.textColor = Color(UserDefaults.standard.colorForKey(key: "textColor") ?? UIColor.black)
     }

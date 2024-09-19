@@ -33,7 +33,6 @@ struct Step6: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "8")
-                            .padding()
                         
                         Text("Surah Al-Baqarah, verse 158.", bundle: settings.bundle)
                         
@@ -43,7 +42,6 @@ struct Step6: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "9")
-                            .padding()
                         
                         Text("We begin with that string", bundle: settings.bundle)
                     }
@@ -54,9 +52,9 @@ struct Step6: View {
                         """)
                         .customTextforArabic()
                         CounterTapView()
-                        
+                            
                         PlayerView(fileName: "10")
-                            .padding()
+                        
                         
                         Text("Remembrance of Allah during the Sa'i of Safa and Marwa.", bundle: settings.bundle)
                         
@@ -66,7 +64,6 @@ struct Step6: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "11")
-                            .padding()
                         
                         Text("Du'a during the Sa'i ritual of Safa and Marwa.", bundle: settings.bundle)
                         
@@ -76,7 +73,6 @@ struct Step6: View {
                         .customTextforArabic()
                         
                         PlayerView(fileName: "12")
-                            .padding()
                         
                         Text("Du'a upon exiting the Sacred Mosque.", bundle: settings.bundle)
                         

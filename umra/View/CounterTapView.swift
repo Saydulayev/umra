@@ -12,58 +12,76 @@ struct CounterTapView: View {
     @AppStorage("add_string") private var counter = 0
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("circle_string", bundle: settings.bundle)
-                    .font(.largeTitle.bold())
-                Text("\(counter)")
-                    .font(.largeTitle.bold())
-            }
-            
-            if counter == 7 {
-                Text("Sa´y finished_string", bundle: settings.bundle)
-                    .foregroundColor(.black)
-                    .font(.title.bold())
-                    .padding()
-            }
-            
-            HStack(spacing: 20) {
-                Button(action: {
-                    incrementCounter()
-                }) {
-                    Text("add_string", bundle: settings.bundle)
-                        .foregroundColor(.black)
-                        .font(.system(size: 25))
-                        .padding(20)
-                        .background(
-                            LinearGradient(
-                                gradient: Gradient(colors: [.green, .gray]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .cornerRadius(20)
-                        .shadow(color: Color.gray.opacity(0.4), radius: 10, x: 0, y: 10)
+        ZStack {
+            VStack {
+                HStack {
+                    Text("circle_string", bundle: settings.bundle)
+                        .font(.largeTitle.bold())
+                    Text("\(counter)")
+                        .font(.largeTitle.bold())
                 }
                 
-                Button(action: {
-                    decrementCounter()
-                }) {
-                    Text("reset_string", bundle: settings.bundle)
-                        .foregroundColor(.black)
-                        .font(.system(size: 25))
-                        .padding(20)
-                        .background(
-                            LinearGradient(
-                                gradient: Gradient(colors: [.red, .gray]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .cornerRadius(20)
-                        .shadow(color: Color.gray.opacity(0.4), radius: 10, x: 0, y: 10)
+                if counter == 7 {
+                    Text("Sa´y finished_string", bundle: settings.bundle)
+                        .foregroundColor(.green)
+                        .font(.title.bold())
+                }
+                
+                HStack(spacing: 20) {
+                    Button(action: {
+                        incrementCounter()
+                    }) {
+                        Text("add_string", bundle: settings.bundle)
+                            .padding()
+                            .lineSpacing(15)
+                            .multilineTextAlignment(.center) 
+                            .frame(width: 170, height: 50)
+                            .background(
+                                ZStack {
+                                    Color(#colorLiteral(red: 0.7608050108, green: 0.9, blue: 0.8, alpha: 1))
+                                    
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .foregroundColor(.white)
+                                        .blur(radius: 4)
+                                        .offset(x: -8, y: -8)
+                                    
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .padding(2)
+                                    
+                                })
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
+                    }
+                    
+                    Button(action: {
+                        decrementCounter()
+                    }) {
+                        Text("reset_string", bundle: settings.bundle)
+                            .padding()
+                            .multilineTextAlignment(.center)
+                            .frame(width: 170, height: 50)
+                            .background(
+                                ZStack {
+                                    Color(#colorLiteral(red: 0.9, green: 0.8, blue: 0.8, alpha: 1))
+                                    
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .foregroundColor(.white)
+                                        .blur(radius: 4)
+                                        .offset(x: -8, y: -8)
+                                    
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .padding(2)
+                                    
+                                })
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
+
+                    }
                 }
             }
+            .padding(.vertical)
             LanguageView()
                 .hidden()
         }
