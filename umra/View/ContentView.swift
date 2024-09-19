@@ -42,7 +42,7 @@ struct ContentView: View {
     @EnvironmentObject var colorManager: ColorManager
     @EnvironmentObject var fontManager: FontManager
     
-    @State private var isGridView = true
+    @State private var isGridView = false
     @State private var showPrayerTimes = false
     
     let steps = [
