@@ -52,7 +52,7 @@ struct Step1: View {
                         
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.selectedFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.selectedFontSize))
-
+                    
                     
                     
                     Group {
@@ -95,9 +95,10 @@ struct Step1: View {
                         Text("Ihram text1", bundle: settings.bundle)
                         
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.selectedFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.selectedFontSize))                }
+                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.selectedFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.selectedFontSize))
+                }
+                .foregroundStyle(.black)
                 .padding(.horizontal, 10)
-                //                .environmentObject(settings)
                 LanguageView()
                     .hidden()
             }

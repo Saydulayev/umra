@@ -77,6 +77,7 @@ struct Step6: View {
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.selectedFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.selectedFontSize))
                 }
+                .foregroundStyle(.black)
                 .padding(.horizontal, 10)
                 LanguageView()
                     .hidden()

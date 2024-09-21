@@ -36,6 +36,7 @@ struct Step7: View {
  ⵈ━══════╗◊╔══════━ⵈ
 """)
                 }
+                .foregroundStyle(.black)
                 .padding(10)
                 LanguageView()
                     .hidden()
