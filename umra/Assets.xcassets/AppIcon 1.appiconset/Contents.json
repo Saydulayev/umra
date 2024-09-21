@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "UmraLogo.png",
+      "filename" : "light.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "UmraLogo 1.png",
+      "filename" : "UmraLogo_resized_no_background-removebg.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,7 +25,6 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "UmraLogo 2.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
