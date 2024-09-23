@@ -5,19 +5,10 @@
 //  Created by Akhmed on 06.04.23.
 //
 
-import ActivityKit
 import AVKit
 import SwiftUI
 
 
-struct PlayerAttributes: ActivityAttributes {
-    public struct ContentState: Codable, Hashable {
-        var trackName: String
-        var progress: Double
-    }
-
-    var trackTitle: String
-}
 
 class AudioManager {
     static let shared = AudioManager()
@@ -44,7 +35,7 @@ struct PlayerView: View {
     @State private var currentTime: TimeInterval = 0.0
     @State private var duration: TimeInterval = 0.0
     @State private var isRepeating = false
-    @State private var playbackRate: Float = 1.0 // Track playback speed
+    @State private var playbackRate: Float = 1.0 
     let fileName: String
     
     @StateObject private var coordinator = Coordinator()
@@ -143,7 +134,6 @@ struct PlayerView: View {
     func controlButtonWithText(text: String, isActive: Bool, backgroundColors: [Color], action: @escaping () -> Void) -> some View {
         Button(action: {
             action()
-            // Добавляем вибрацию при нажатии кнопки
             let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .medium)
             impactFeedbackgenerator.impactOccurred()
         }) {
