@@ -10,7 +10,7 @@ import SwiftUI
 struct UsefulInfoView: View {
     @State private var isInfoPresented = false
     @EnvironmentObject var settings: UserSettings
-
+    
     
     
     let chapters: [Chapter] = [
@@ -78,40 +78,17 @@ struct UsefulInfoView: View {
                                 .padding()
                                 .foregroundColor(.blue)
                         }
-                        .popover(isPresented: $isInfoPresented) {
+                        .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
                             VStack {
                                 Text("soon_available_text", bundle: settings.bundle)
                                     .font(.body)
                                     .padding()
                                     .multilineTextAlignment(.center)
                                     .frame(width: 250, height: 150)
-
-                                if #available(iOS 16.4, *) {
-                                    Button(action: {
-                                        isInfoPresented = false
-                                    }) {
-                                        Image(systemName: "xmark.circle.fill")
-                                            .resizable()
-                                            .frame(width: 24, height: 24)
-                                            .foregroundColor(.gray)
-                                    }
-                                    .presentationCompactAdaptation(.popover)
-                                    .padding()
-                                } else {
-                                    Button(action: {
-                                        isInfoPresented = false
-                                    }) {
-                                        Image(systemName: "xmark.circle.fill")
-                                            .resizable()
-                                            .frame(width: 24, height: 24)
-                                            .foregroundColor(.gray)
-                                    }
-                                    .padding()
-                                }
                             }
                             .frame(width: 250, height: 200)
+                            .presentationCompactAdaptation(.popover)
                         }
-                        .padding()
                     }
                 }
             }
