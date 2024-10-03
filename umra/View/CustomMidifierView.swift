@@ -9,7 +9,7 @@ import SwiftUI
 
 //MARK: ImageCustomMidifier
 extension Image {
-    func styledImageWithIndex(index: Int) -> some View {
+    func styledImageWithIndex(index: Int, stepsCount: Int) -> some View {
         ZStack(alignment: .topTrailing) {
             self
                 .resizable()
@@ -36,8 +36,7 @@ extension Image {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
                 .padding()
-            
-            // Номер в правом верхнем углу
+
             Text("\(index + 1)")
                 .font(.caption)
                 .fontWeight(.bold)
@@ -45,6 +44,7 @@ extension Image {
                 .background(Color.white.opacity(0.7))
                 .clipShape(Circle())
                 .offset(x: -25, y: 20)
+                .opacity(index == stepsCount - 1 ? 0 : 1) 
         }
     }
     
@@ -76,6 +76,7 @@ extension Image {
             .padding(30)
     }
 }
+
 
 
 

@@ -13,6 +13,7 @@ struct StepView<Destination: View>: View {
     let titleKey: LocalizedStringKey
     let index: Int?
     let fontSize: CGFloat
+    let stepsCount: Int
     
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
@@ -22,7 +23,7 @@ struct StepView<Destination: View>: View {
             NavigationLink(destination: destinationView) {
                 if let index = index {
                     Image(imageName)
-                        .styledImageWithIndex(index: index)
+                        .styledImageWithIndex(index: index, stepsCount: stepsCount) 
                 } else {
                     Image(imageName)
                         .styledImage()
@@ -36,11 +37,12 @@ struct StepView<Destination: View>: View {
     }
 }
 
+
 struct ContentView: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
     
-    @State private var isGridView = false
+    @State private var isGridView = UIDevice.current.userInterfaceIdiom == .pad
     @State private var showPrayerTimes = false
     
     let steps = [
@@ -116,7 +118,7 @@ struct ContentView: View {
                 destinationView: step.1,
                 titleKey: LocalizedStringKey(step.2),
                 index: showIndex ? index : nil,
-                fontSize: fontSize
+                fontSize: fontSize, stepsCount: steps.count
             )
             .foregroundStyle(.black)
         }
