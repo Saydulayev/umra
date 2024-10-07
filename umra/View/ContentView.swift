@@ -89,7 +89,7 @@ struct ContentView: View {
                         }
                     }
                 )
-                .fullScreenCover(isPresented: $showPrayerTimes) {
+                .sheet(isPresented: $showPrayerTimes) {
                     PrayerTimeModalView(isPresented: $showPrayerTimes)
                 }
                 LanguageView().hidden()
