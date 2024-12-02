@@ -30,11 +30,12 @@ struct CounterTapView: View {
                 HStack(spacing: 20) {
                     Button(action: {
                         incrementCounter()
+                        triggerVibration()
                     }) {
                         Text("add_string", bundle: settings.bundle)
                             .padding()
                             .lineSpacing(15)
-                            .multilineTextAlignment(.center) 
+                            .multilineTextAlignment(.center)
                             .frame(width: 170, height: 50)
                             .background(
                                 ZStack {
@@ -56,6 +57,7 @@ struct CounterTapView: View {
                     
                     Button(action: {
                         decrementCounter()
+                        triggerVibration()
                     }) {
                         Text("reset_string", bundle: settings.bundle)
                             .padding()
@@ -77,7 +79,6 @@ struct CounterTapView: View {
                                 })
                             .clipShape(RoundedRectangle(cornerRadius: 20))
                             .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
-
                     }
                 }
             }
@@ -86,7 +87,6 @@ struct CounterTapView: View {
                 .hidden()
         }
     }
-    
     
     func incrementCounter() {
         if counter < 7 {
@@ -99,11 +99,9 @@ struct CounterTapView: View {
             counter = 0
         }
     }
+    
+    func triggerVibration() {
+        let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+        impactFeedbackGenerator.impactOccurred()
+    }
 }
-
-
-//struct CounterTapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CounterTapView()
-//    }
-//}
