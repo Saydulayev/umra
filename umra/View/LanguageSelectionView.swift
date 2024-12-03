@@ -61,7 +61,7 @@ struct LanguageSelectionView: View {
                     }
                 }
             }
-            .padding(.vertical)
+            .padding()
         }
     }
 
