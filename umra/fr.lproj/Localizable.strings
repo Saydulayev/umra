@@ -9,229 +9,192 @@
 
 "app_name" = "Umra";
 "main_screen_name_string" = "UMRA";
-"title_black_stone_screen" = "Возврат к Черному камню";
-"title_ihram_screen" = "Ихрам";
-"title_place_ibrohim_stand_screen" = "Место стояния Иброхима";
-"title_round_kaaba_screen" = "Обход Каабы";
-"title_safa_and_marva_screen" = "Сафа и Марва";
-"title_settings_screen" = "Настройки";
-"title_shave_head_screen" = "Бритье головы";
-"title_water_zamzam_screen" = "Питье воды Замзам";
-"title_link_book_screen" = "Ссылка на книгу";
+"title_black_stone_screen" = "Retour à la Pierre Noire";
+"title_ihram_screen" = "État de Ihram";
+"title_place_ibrohim_stand_screen" = "Station d'Ibrahim";
+"title_round_kaaba_screen" = "Tawaf autour de la Kaaba";
+"title_safa_and_marva_screen" = "Safa et Marwa";
+"title_settings_screen" = "Paramètres";
+"title_shave_head_screen" = "Rasage de la tête";
+"title_water_zamzam_screen" = "Boire de l'eau de Zamzam";
+"title_link_book_screen" = "Livres";
 
 
 /* IHRAM */
-"into the state of Ihram" = "
-Entrez dans l'état d'ihram à l'endroit désigné (miqat).
+"into the state of Ihram"="
+Entrez dans l'état d'Ihram à l'endroit prévu à cet effet (Miqat).
 ";
-"When entering the state of Ihram, say:" = "При вхождении в состоянии ихрама произнесите:";
-"Turn your face towards the Qiblah and say:" = "
-Ляббайка Аллаhумма би-1умра.
-
-Обратитесь лицом к кибле и скажите:
+"When entering the state of Ihram, say:"="Lors de l'entrée en état d'Ihram, dites:
 ";
-"O Allah, this Umrah is without any ostentation or fame" = "Аллаhумма hазиhи 1умра
-ля рийа’ фи-hа ва ля сум1аh
-    
-О Аллах, эта Умра — нет
-в ней показухи и стремления к славе!
-    
-    
-Затем начните громко произносить тальбию:";
+"Turn your face towards the Qiblah and say:"="
+Labbayka Allahumma bi-‘Umrah.
 
-"Labbayka Allahumma labbayk" = "Ляббайка Ллаhумма ляббайка! Ляббайка ляя шариика ляка ляббайка! Инналь хьамда ван ни1мата ляка валь мульк, ляя шариика ляк
-    
-(«Вот я перед Тобой, о, Аллаh! Вот я перед Тобой! Вот я перед Тобой, и нет у Тебя сотоварища! Вот я перед Тобой! Поистине, Тебе надлежит хвала, и Тебе принадлежит милость и владычество! Нет у Тебя сотоварища!»).
-    
-    
-    
-Достигнув заповедной территории Мекки и увидев дома Мекки, следует прекратить произносить тальбию.";
-"Entering the Sacred Mosque from the right foot" = "
-    
-    Войдя в Заповедную мечеть
-    с правой ноги, скажите:";
-"entering the Sacred Mosque" = "Аллаhумма, солли 1аля Мухьаммадин ва саллим!
-Аллаhумма - фтахь ли абваба рохьмати-ка!
-    
-О Аллах, благослови Мухаммада и ниспошли ему мир!
-О Аллах, открой для меня врата Своего милосердия!";
-"Conditioning for Hajj or Umrah." = "
-Обусловливание Хаджа или Умры.
+Tournez votre visage vers la Qiblah et dites:
 ";
-"If a pilgrim fears that some reason may prevent them from completing the Hajj" = "Если паломник опасается, что какая-либо причина может помешать ему совершить хадж до конца – будь то болезнь или страх, то до произнесении тальбии он может обусловить свой хадж пред Всевышним Господом, сказав то, чему научил посланник, да пребудет над Ним мир и благословение Аллаха:";
-"Ihram text1" = "«Аллаhумма махьилли хьайсу хьабастани»
+"O Allah, this Umrah is without any ostentation or fame"="Allahumma hadhihi ‘Umrah la riya’a fiha wa la sum’ah
+    
+Ô Allah, cette ‘Umrah – il n’y a ni ostentation ni recherche de renommée en elle!
+    
+    
+Ensuite, commencez à réciter à haute voix la Talbiyah:
+";
 
-«О Аллах, мое место вхождения в ихрам там, где Ты меня задержал».
+"Labbayka Allahumma labbayk"="Labbayka Allahumma labbayk! Labbayka la sharika laka labbayk! Innal hamda wan ni‘mata laka wal mulk, la sharika laka.
+    
+«Me voici devant Toi, ô Allah! Me voici devant Toi! Me voici devant Toi, et Tu n’as aucun associé! Me voici devant Toi! En vérité, à Toi reviennent la louange, la grâce et la royauté! Tu n’as aucun associé!».
+    
+    
+Après avoir atteint la zone sacrée de La Mecque et aperçu les maisons de La Mecque, cessez de réciter la Talbiyah.";
+"Entering the Sacred Mosque from the right foot"="
+    
+En entrant dans la Mosquée Sacrée avec le pied droit, dites:
+";
+"entering the Sacred Mosque"="Allahumma solli ‘ala Muhammad wa sallim!
+Allahumma-ftah li abwaba rohmatika!
+    
+Ô Allah, bénis Muhammad et accorde-lui la paix!
+Ô Allah, ouvre pour moi les portes de Ta miséricorde!";
+"Conditioning for Hajj or Umrah."="
 
-Этот хадис является согласованным. См. также «Сахих Аби Дауд» (1776).
+Condition pour le Hajj ou l’‘Umrah.
+";
+"If a pilgrim fears that some reason may prevent them from completing the Hajj"="Si un pèlerin craint qu’une raison quelconque puisse l’empêcher de compléter le Hajj – que ce soit une maladie ou une crainte, avant de réciter la Talbiyah, il peut conditionner son Hajj devant le Seigneur Tout-Puissant en disant ce qu’a enseigné le Messager, que la paix et les bénédictions d’Allah soient sur lui:
+";
+"Ihram text1"="«Allahumma mahilli haythu habastani»
 
-Поэтому, если паломник поступит так, и его что-то задержит или он заболеет, то ему разрешено выйти из состояния ихрама при совершении хаджа или умры, и ему не надо будет приносить в жертву животное в качестве искупления и снова повторять хадж, если только это не был его первый хадж, являющийся обязательным, который в таком случае следует совершить заново.";
+«Ô Allah, mon lieu de sortie de l'Ihram est là où Tu m’as retenu».
+
+Ce hadith est unanimement rapporté. Voir également «Sahih Abi Dawud» (1776).
+
+Ainsi, si le pèlerin agit ainsi et que quelque chose le retient ou s’il tombe malade, il lui est permis de sortir de l’état d’Ihram pour le Hajj ou l’‘Umrah, et il n’aura pas besoin de sacrifier un animal en expiation ni de refaire le Hajj, sauf si c’était son premier Hajj obligatoire, qu’il devra alors accomplir de nouveau.";
 
 
 /* KAABA */
-"Kaaba text1" = "Обход Каабы";
-"Kaaba text2" = "Начните семикратный обход
-        Каабы (таваф)
+"Kaaba text1"="
+Le Tawaf autour de la Kaaba";
+"Kaaba text2"="
+Commencez le Tawaf de la Kaaba en faisant sept tours
         
-        После этого он прикасается к Черному камню своей рукой
-        и целует его.
+Après cela, le pèlerin touche la Pierre Noire de sa main et l’embrasse.
         
-        Если нет возможности поцеловать
-        Черный камень, следует прикоснуться
-        к Черному камню своей рукой.
+S’il n’est pas possible d’embrasser la Pierre Noire, il faut la toucher avec la main.
         
         
-        Если нет возможности прикоснуться и поцеловать Черный камень, то обратитесь к нему лицом, укажите на него правой рукой и произнесите такбир: «Аллаhу акбар» Аллах Велик.
-        (Все это следует делать во время каждого круга при обходе Ка’бы.)";
-"Kaaba text3" = "Начните семикратный обход
-        Каабы (таваф) от Чёрного
-        камня. Прохождение от Чёрного камня до Чёрного камня
-        считается за один круг. Начиная новый круг, укажите правой рукой
-        на Чёрный камень и произнесите
-        такбир. С самого начала этого
-        обхода Каабы и до его завершения мужчины обнажают правое
-        плечо. Первые три круга, от Чёрного камня до Чёрного камня,
-        мужчинам необходимо пройти
-        быстрым шагом, а оставшиеся четыре — обычным шагом.
-        При возможности прикасайтесь
-        к йеменскому углу во время каждого круга. Всякий раз, проходя
-        между йеменским углом и Чёрным камнем, следует сказать:";
-"Kaaba text4" = "Раббана, атина фи-д-дунья хьасанатан ва филь-ахироти хьасанатан ва къына 1азаба-н-нар
+S’il n’est pas possible de la toucher et de l’embrasser, tournez-vous vers elle, pointez-la de la main droite et dites le Takbir: «Allahu Akbar» Allah est Grand. (Cela doit être fait à chaque tour du Tawaf autour de la Kaaba.)
+";
+"Kaaba text3"="Commencez le Tawaf de la Kaaba en faisant sept tours depuis la Pierre Noire.
+Le passage de la Pierre Noire jusqu'à la Pierre Noire est considéré comme un tour. En commençant un nouveau tour, pointez la Pierre Noire de la main droite et dites le Takbir. Dès le début de ce Tawaf jusqu’à sa fin, les hommes découvrent leur épaule droite. Les trois premiers tours, de la Pierre Noire à la Pierre Noire, doivent être effectués à pas rapide par les hommes, tandis que les quatre derniers tours se font à pas normal. Si possible, touchez le coin yéménite à chaque tour. Chaque fois que vous passez entre le coin yéménite et la Pierre Noire, récitez:
+";
+"Kaaba text4"="Robbana atina fi d-dunya hasanatan wa fil-akhiroti hasanatan wa qina azaba-n-nar
         
-        («Господь наш! Одари нас добром в этом мире и добром в Последней жизни и защити нас от мучений в Огне!», сура “Корова“, аят 201).";
-"Prayer after Tawaf of Kaaba." = "Намаз после обхода Каабы.";
+«Seigneur, accorde-nous le bien dans ce monde et le bien dans l’au-delà, et protège-nous du châtiment du Feu!»,
+Sourate Al-Baqara, verset 201.";
+"Prayer after Tawaf of Kaaba."="La prière après le Tawaf de la Kaaba.";
 
 
 /* Namaz after Tawaf around the Kaaba. */
-"Prayer after Tawaf of Kaaba." = "Намаз после обхода Каабы.";
+"Prayer after Tawaf of Kaaba."="
+La prière après le Tawaf de la Kaaba.";
 
-"Having completed seven circuits around the Kaaba" = "Завершив семикратный обход
-    Каабы, мужчина прикрывает
-    правое плечо. Затем направьтесь к месту стояния Ибрахима
-    и произнесите:";
+"Having completed seven circuits around the Kaaba"="
+Après avoir terminé les sept tours autour de la Kaaba, l’homme couvre son épaule droite. Ensuite, dirigez-vous vers le lieu de la station d’Ibrahim et récitez:
+";
 
-"Place of standing of Ibrahim" = "Ва-ттахизу мим-макъоми Иброhима мусолля
+"Place of standing of Ibrahim"="Wattakhidhu mim maqomi Ibrohima musolla
     
-    «Изберите же место [стояния] Ибрахима местом моления» (сура 2 «Аль-Бакара = Корова», аят 125).
+«Et prenez le lieu de la station d’Ibrahim comme lieu de prière» (Sourate 2 «Al-Baqara = La Vache», verset 125).
     
-    При возможности за местом
-    стояния Ибрахима либо же
-    в любом месте Заповедной
-    мечети совершите два рак‘ата
-    намаза. Не забудьте установить перед собой преграду так, чтобы между вами и этой преградой никто не проходил.
-    В первом рак‘ате после суры 1
-    «Аль-Фатиха = Открывающая» прочтите суру 109 «АльКяфирун = Неверующие», а во
-    втором рак‘ате после суры «АльФатиха» прочтите суру 112
-    «Аль-Ихляс = Очищение веры».
-    Завершив намаз, отправьтесь
-    к источнику с водой Замзам.";
+Si possible, priez deux rak’ahs derrière le lieu de la station d’Ibrahim ou à tout autre endroit dans la Mosquée Sacrée. Assurez-vous de placer une barrière devant vous afin que personne ne passe entre vous et cette barrière. Lors du premier rak’ah après la sourate 1 «Al-Fatiha = L’Ouverture», récitez la sourate 109 «Al-Kafirun = Les Mécréants», et au deuxième rak’ah après la sourate «Al-Fatiha», récitez la sourate 112 «Al-Ikhlas = La Pureté de la foi».
+
+Après avoir terminé la prière, dirigez-vous vers la source d’eau de Zamzam.";
 
 /* Drinking Zamzam water. */
-"Drinking Zamzam water." = "Питье воды Замзам.";
-"Zamzam text" = "Выпейте воду и полейте её себе
-    на голову.
+"Drinking Zamzam water."="
+Boire de l’eau de Zamzam.";
+"Zamzam text"="
+Buvez de l’eau et versez-en sur votre tête.
     
-    Джабир (да будет доволен им Аллах) рассказывал: “Пророк (мир ему и благословение Аллаха) направился к колодцу Замзам, выпил из него воды и полил её себе на голову”. Ахмад (3/394), Ибн Хузайма (4/305). Достоверность хадиса подтвердили аз-Заркаши, Бадруддин аль-‘Айни, Шу’айб аль-Арнаут. См. «‘Умдатуль-къари» (9/227), «Хашия ‘аля аль-Манасик» (стр. 263), «Тахридж аль-Муснад» (15243).
+Jabir (qu’Allah soit satisfait de lui) a rapporté: «Le Prophète (que la paix et les bénédictions d’Allah soient sur lui) s’est dirigé vers le puits de Zamzam, il en a bu de l’eau et s’en est versé sur la tête.» Ahmad (3/394), Ibn Khuzaymah (4/305). L’authenticité du hadith a été confirmée par Az-Zarkashi, Badr ad-Din al-‘Ayni, Shou’aib al-Arna’ut. Voir «‘Umdatul-Qari» (9/227), «Hashiyah ‘ala al-Manasik» (p. 263), «Takhrij al-Musnad» (15243).
     
-    Со слов Джабира (да будет доволен им Аллах) сообщается, что Посланник Аллаха (мир ему и благословение Аллаха) сказал: «Вода Замзам способствует осуществлению того, для чего её пьют».
-    Ахмад (3/357), Ибн Маджах (3062), аль-Хаким (1739). Достоверность хадиса подтвердили Суфьян ибн ‘Уяйна, аль-Мунзири, ад-Думьяты, Ибн аль-Къайим, аз-Заркаши, Ибн Хаджар, аль-Альбани. См. “аль-Муджаляса” (509), “аль-Матджар ар-рабих” (982), “Задуль-ма’ад” (4/393), “аль-Макъасыд аль-хасана” (928), “Файдуль-Къадир” (7759), “Сахих ат-Таргъиб” (1165).
+Selon Jabir (qu’Allah soit satisfait de lui), il est rapporté que le Messager d’Allah (que la paix et les bénédictions d’Allah soient sur lui) a dit: «L’eau de Zamzam aide à accomplir ce pour quoi elle est bue.»
+Ahmad (3/357), Ibn Majah (3062), al-Hakim (1739). L’authenticité du hadith a été confirmée par Sufyan ibn ‘Uyaynah, al-Munziri, ad-Dumiyati, Ibn al-Qayyim, Az-Zarkashi, Ibn Hajar, al-Albani. Voir “al-Mujalasa” (509), “al-Matjar ar-Rabih” (982), “Zadul-Ma’ad” (4/393), “al-Maqasid al-Hasana” (928), “Faydul-Qadir” (7759), “Sahih at-Targhib” (1165).
     
-    Сказал аш-Шаукани: “В данном хадисе содержится доказательство на то, что питьё воды Замзам приносит пользу пьющему, с каким бы намерением он ни пил её, будь это дела мира этого или мира Вечного. Ведь слова: «Способствует осуществлению того, ради чего её пьют» являются обобщёнными”. См. “Нейлюль-аутар” (5/105).
-    Сказал ан-Науауи: “Смысл этого хадиса в том, что пьющий эту воду для чего-то конкретного, приобретает это. Воистину, испробовали это учёные и праведники для достижения своих нужд, связанных с миром этим и миром Вечным и получили это по милости Всевышнего Аллаха”. См. “Тахзиб аль-асма уа-ллюгъат” (3/139).";
+Ash-Shawkani a dit: «Ce hadith prouve que boire de l’eau de Zamzam est bénéfique pour celui qui la boit, quelle que soit l’intention avec laquelle il la boit, que ce soit pour les affaires de ce monde ou pour celles de l’au-delà. En effet, les mots: ”Elle aide à accomplir ce pour quoi elle est bue„ sont généraux.» Voir “Nayl al-Awtar” (5/105).
+An-Nawawi a dit: «Le sens de ce hadith est que celui qui boit cette eau avec une intention particulière obtient ce qu’il a demandé. En vérité, les savants et les pieux ont expérimenté cela pour satisfaire leurs besoins liés à ce monde et à l’au-delà, et ils les ont obtenus par la grâce d’Allah Tout-Puissant.» Voir “Tahdhib al-Asma wa-l-Lughat” (3/139).";
 
 /* Return to the Black Stone. */
-"Return to the Black Stone." = "Возврат к Черному камню.";
-"Return to the Black Stone, recite the Takbir." = "Возвратитесь к Чёрному камню, произносите такбир и прикаснитесь к нему так же, как было разъяснено ранее. Или укажите на него рукой и произнесите такбир. Аллах Велик.";
-"Allah is great." = "Аллаhу Акбар.";
+"Return to the Black Stone."="
+Retournez à la Pierre Noire.";
+"Return to the Black Stone, recite the Takbir."="
+Retournez à la Pierre Noire, récitez le Takbir et touchez-la comme expliqué précédemment. Sinon, pointez-la du doigt et récitez le Takbir. Allah est Grand.";
+"Allah is great."="
+Allahu Akbar.";
 
 /* Safa and Marwa */
-"Safa and Marwa" = "Сафа и Марва";
-"Head towards the hill of Safa" = "Направьтесь к холму Сафа для
-    совершения семикратного ритуального прохождения между
-    холмами Сафа и Марва (са‘й).
-    Начните са‘й у холма Сафа.
+"Safa and Marwa"="
+As-Safa et Al-Marwa";
+"Head towards the hill of Safa"="
+Dirigez-vous vers la colline de Safa pour effectuer le rituel des sept passages entre les collines de Safa et Marwa (Sa’i). Commencez le Sa’i à la colline de Safa.
     
     
-    Приблизившись к Сафе, прочтите:";
-"Surah Al-Baqarah, verse 158." = "Inna Ssofaa wal-Marwata min sha’aaa’iril laah, faman hajjal Baita awi’tamaro falaa junaaha ‘alaihi ayyatt´owwafa bihimaa, wa man tat´owwa’a hoyron fa-inna-LLAha Shakirun ´alim.
+En vous approchant de Safa, récitez:
+";
+"Surah Al-Baqarah, verse 158."="Inna-s-Sofa wal-Marwata min sha'airi-Llah, fa man hajjal-bayta awi'tamaro fala junaha 'alayhi ay yatt`owwafa bihima, wa man tatowwa'a khoyron fa inna-Llaha Shakurun 'Alim.
     
-    «Воистину, ас-Сафа и аль-Марва – одни из обрядовых знамений Аллаhа. Кто совершает хадж к Ка’бе или ‘умру, тот не совершит греха, если пройдет между ними. А если кто добровольно совершает доброе дело, то ведь Аллаh – Признательный, Знающий.» (сура «‎Корова», аят 158)
+«En vérité, As-Safa et Al-Marwa font partie des rites prescrits par Allah. Celui qui fait le pèlerinage à la Kaaba ou la ‘Umra ne commet aucun péché en passant entre eux. Et quiconque fait de son plein gré une bonne action, Allah en est Reconnaissant et Omniscient.» (Sourate «La Vache», verset 158)
     
-    Затем скажите:";
-"We begin with that string" = "Набдау бима бадаа-ЛлАhу биhи
-    «Мы начинаем с того, с чего начал Аллах»
+    Ensuite, dites:
+";
+"We begin with that string"="Nabdau bima bada Allohu bihi
+
+«Nous commençons par ce qu’Allah a commencé»
     
-    Поднимитесь на холм Сафа,
-    повернитесь лицом к Каабе
-    и произнесите:";
-"Remembrance of Allah during the Sa'i of Safa and Marwa." = "Аллаhу акбар! Аллаhу акбар! Аллаhу акбар!
-    Ля иляhа илля-ЛлАhу вахьдаhу ля шарика ляhу! Ляhуль мульку ва ляhуль хьамду йухьйи ва йумиту ва hува 1аля кулли шайъин къодиир! Ля иляhа илля ЛлАhу вахьдаhу ля шарика ляhу анджаза ва1даhу ва насо-ро 1абдаhу ва hазамаль ахьзаба вахьдаhу
-    «Аллах Превелик, Аллах Превелик, Аллах Превелик!
+Montez sur la colline de Safa, tournez-vous vers la Kaaba et dites:
+";
+"Remembrance of Allah during the Sa'i of Safa and Marwa."="
+Allahu Akbar! Allahu Akbar! Allahu Akbar!
+La ilaha illa-Llohu wahdahu la sharika lah! Lahul mulku wa lahul hamdu yuhyi wa yumitu wa huwa 'ala kulli shay'in qodir! La ilaha illa Llahu wahdahu la sharika lah anjaza wa'dah wa nasara 'abdah wa hazama al-ahzaba wahdah.
     
-    Нет божества, кроме Аллаhа, Одного, у Которого нет сотоварища! Ему принадлежит власть и надлежит хвала, Он оживляет и умерщвляет, и Он властен над всем сущим! Нет божества, кроме одного Аллаhа, у Которого нет сотоварища! Он выполнил Свое обещание, помог Своему рабу и в одиночку разбил враждебные племена»
+«Allah est Grand, Allah est Grand, Allah est Grand!
+Il n’y a pas de divinité à part Allah, l’Unique, qui n’a pas d’associé! À Lui appartient la royauté et à Lui revient la louange, Il donne la vie et la mort, et Il est Puissant sur toutes choses! Il n’y a pas de divinité à part Allah, l’Unique, qui n’a pas d’associé! Il a accompli Sa promesse, aidé Son serviteur et seul Il a vaincu les clans ennemis»
     
-    Произнесите эти слова три
-    раза. В промежутке после первого и второго раза произнесите
-    те мольбы, которые пожелаете.
-    После третьего раза мольба не
-    произносится.
-    Затем спуститесь с холма Сафа
-    и направьтесь к холму Марва,
-    начав ритуальное прохождение. Одно прохождение от Сафы
-    до Марвы считается за один раз
+Récitez ces paroles trois fois, en levant les mains pour la supplication après la première et la deuxième fois. Ensuite, commencez le passage de la colline de Safa à celle de Marwa. Un passage de Safa à Marwa compte pour un tour, et le chemin de retour est compté comme un autre tour. Sur la colline de Marwa, répétez le même ordre: Dhikr – supplication – Dhikr – supplication – Dhikr. Ces Dhikr et supplications doivent être répétés à chaque montée sur Safa et Marwa, sauf lors du septième passage. En atteignant la première marque verte, les hommes doivent courir jusqu’à la deuxième marque verte. Le reste du chemin se fait en marchant normalement.
     
-    На холме Марва следует
-    повторить то же самое, что и на
-    холме Сафа: обратиться лицом
-    к Каабе, произнести такбиры
-    и свидетельство единобожия
-    и воззвать к Аллаху с мольбами.
-    Дойдя до первой отметки, обозначенной зелёным цветом,
-    мужчинам необходимо пробежать до второй отметки.
-    Остальной путь совершается
-    обычным шагом.
+Pendant le rituel du Sa’i, vous pouvez adresser cette supplication à Allah:
+";
+"Du'a during the Sa'i ritual of Safa and Marwa."="
+Robbi-ghfir wa-rham, innaka antal a'azzul akram
     
-    Во время обряда са‘й можно обратиться
-    к Аллаху с такой мольбой:";
-"Du'a during the Sa'i ritual of Safa and Marwa." = "Рабби-г1фир ва-рхьам, иннакя анталь
-    а1аззу-ль-акрам
+«Seigneur, pardonne et fais miséricorde, car Tu es le Plus Grand et le Plus Noble!»,
     
-    «Господи, прости и помилуй,
-    ибо Ты – Самый Великий и Великодушный!», –
+cela n’est pas blâmable, car cette supplication a été rapportée par plusieurs pieux prédécesseurs.
+
+À la fin du septième passage, le pèlerin ne récite plus de Dhikr ni de supplication sur la colline de Marwa. Cela signifie que le rituel du Sa’i est terminé.
+
+Supplication en sortant de la Mosquée Sacrée. Après avoir terminé le septième passage sur la colline de Marwa, sortez de la Mosquée Sacrée avec le pied gauche en disant:
+";
+"Du'a upon exiting the Sacred Mosque."="
+Allahumma solli 'ala Muhammadin wa sallim! Allahumma inni as aluka min fadzlik!
     
-    в этом нет ничего плохого, поскольку
-    эта мольба установлена от целой
-    группы праведных предшественников.
-    
-    Мольба при выходе
-    из Заповедной мечети
-    Завершив седьмое прохождение на холме Марва, выйдите из
-    Заповедной мечети с левой ноги,
-    сказав:";
-"Du'a upon exiting the Sacred Mosque." = "Аллаhумма, солли 1аля Мухьаммадин ва саллим! Аллаhумма,
-    инни ас’алю-ка мин фадли-ка!
-    
-    О Аллах, благослови Мухаммада и ниспошли ему мир!
-    О Аллах, воистину, я прошу
-    Тебя о Милости Твоей!";
+Ô Allah, bénis Muhammad et accorde-lui la paix! Ô Allah, en vérité, je Te demande Ta Grâce!";
 
 /* Shaving of the head or trimming of the hair. */
-"Shaving the head string" = "Бритьё головы либо укорачивание волос.";
-"Men shorten or shave their hair." = "Затем мужчина равномерно укорачивает волосы на своей голове
-    либо сбривает её, а женщина состригает локон величиной
-    с треть пальца. Примечание.
-    Приехавшим в хадж лучше укоротить волосы, если они не успеют отрасти
-    после ‘умры до хаджа, так как бритьё головы совершается во время хаджа.
-    Приехавшим совершить только ‘умру (без хаджа) лучше обрить голову.
+"Shaving the head string"="
+Se raser la tête ou couper les cheveux.";
+"Men shorten or shave their hair."="
+Ensuite, l’homme égalise la longueur de ses cheveux ou rase sa tête, tandis que la femme coupe une mèche de la taille d’un tiers de doigt.
+
+Remarque:
+Pour ceux venus pour le Hajj, il est préférable de couper les cheveux s’ils n’ont pas le temps de repousser entre la ‘Umra et le Hajj, car le rasage de la tête se fait pendant le Hajj.
+Pour ceux qui viennent uniquement pour la ‘Umra (sans Hajj), il est préférable de se raser la tête.
     
-    
-    
-    Полный выход из состояния ихрама
-    На этом ‘умра заканчивается. Мужчина снимает одеяние
-    ихрам. Ограничения, действовавшие в состоянии ихрама,
-    сняты.";
-"Du'a at the end." = "В заключение я прошу Всевышнего Аллаха принять наши благие дела и сохранить нам награду за их совершение вплоть до того Дня, когда мы с Ним встретимся, «в тот День, когда ни богатство, ни сыновья не принесут пользы никому, кроме тех, которые предстанут перед Аллахом с непорочным сердцем»
-                        (Сура «Поэты», аяты 88-89). Хвала Аллаху, Господу миров!";
+Sortie complète de l’état d’Ihram.
+À ce stade, la ‘Umra est terminée. L’homme enlève le vêtement d’Ihram. Les restrictions imposées en état d’Ihram sont levées.";
+"Du'a at the end."="
+                        
+En conclusion, je demande à Allah le Très-Haut d’accepter nos bonnes actions et de préserver pour nous la récompense de leur accomplissement jusqu’au jour où nous Le rencontrerons, «le jour où ni les richesses ni les enfants ne seront d’aucune utilité, sauf pour ceux qui se présenteront devant Allah avec un cœur pur»
+(Sourate «Les Poètes», versets 88-89).
+Louange à Allah, Seigneur des Mondes!";
 
 
 
@@ -240,15 +203,35 @@ Entrez dans l'état d'ihram à l'endroit désigné (miqat).
 //<!--  Resources for the Settings screen  -->
 
 
-    "feedback_settings_screen_string" = "FEEDBACK";
-    "text_button_feedback_string" = "Обратная связь";
-    "evaluate_the_app_string" = "EVALUATE THE APP";
-    "text_button_rate_the_app_string" = "Оценить приложение";
-    "support_the_developer_string" = "SUPPORT THE DEVELOPER";
-    "text_button_support_string" = "Поддержать разработчика";
-    "select_language_settings_string" = "Выбрать язык";
+"feedback_settings_screen_string"="COMMENTAIRES";
+"text_button_feedback_string"="Retour d'information";
+"evaluate_the_app_string"="ÉVALUER L'APPLICATION";
+"text_button_rate_the_app_string"="Évaluer l'application";
+"support_the_developer_string"="SOUTENIR LE DÉVELOPPEUR";
+"text_button_support_string"="Soutenir le développeur";
+"select_language_settings_string"="Choisir la langue";
+"settings_string"="Paramètres";
 //    <string name="select_language_string">Выберите язык</string>
 //    <string name="russian_string">Русский</string>
 //    <string name="english_string">Английский</string>
 //    <string name="deutsche_string">Немецкий</string>
 //    <string name="french_string">Французский</string>
+
+"add_string"="Ajouter";
+"reset_string"="Réinitialiser";
+"Sa´y finished_string"="Sa´y terminé";
+"circle_string"="Tour:";
+
+"background_color"="Couleur de fond";
+"text_color"="Couleur du texte";
+
+"_size_"="Taille";
+"_font_"="Police";
+
+"_donate_button"="Faire un don";
+"select_the_amount"="Choisissez le montant:";
+
+"Contribution to Application Development"="Votre don est entièrement volontaire. Il n'est pas lié à l'obtention de contenu numérique supplémentaire ou de fonctionnalités spéciales dans l'application. Notre objectif est de fournir une application gratuite et accessible à tous, sans aucune restriction.";
+
+"Useful"="Utile";
+"soon_available_text"="Ce texte sera bientôt disponible dans d'autres langues.";

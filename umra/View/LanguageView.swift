@@ -62,6 +62,9 @@ struct LanguageView: View {
                     .default(Text("Deutsch")) {
                         settings.lang = "de"
                     },
+                    .default(Text("Français")) {
+                        settings.lang = "fr"
+                    },
                     .cancel()
                 ])
             }
@@ -72,10 +75,3 @@ struct LanguageView: View {
 
 
 
-
-
-//struct LanguageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LanguageView()
-//    }
-//}
