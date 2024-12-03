@@ -75,6 +75,7 @@ struct ContentView: View {
                 
                 ScrollView {
                     content
+                        .padding(.vertical, 8)
                 }
                 .navigationBarTitle("UMRA", displayMode: .inline)
                 .navigationBarItems(
