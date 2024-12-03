@@ -5,22 +5,34 @@ xcuserdata/
 # Build artifacts and derived data
 build/
 DerivedData/
+*.o
+*.lo
+*.la
+*.al
+*.swp
+*.swo
+*.tmp
 
 # Swift Package Manager
 .build/
 Packages/
 Package.resolved
+.swiftpm/
 
 # Xcode project files
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
 !*.xcodeproj/project.xcworkspace/
+!*.xcodeproj/xcshareddata/xcschemes/
+*.xcworkspacedata
 
 # CocoaPods and Carthage
 Pods/
 Carthage/
 Carthage/Build/
+Cartfile.resolved
+Cartfile
 
 # Fastlane
 fastlane/report.xml
@@ -30,3 +42,7 @@ fastlane/test_output
 
 # Miscellaneous
 .DS_Store
+*.xcuserdatad/
+*.moved-aside
+*.xcscmblueprint
+*.orig
