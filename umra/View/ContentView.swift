@@ -41,10 +41,10 @@ struct StepView<Destination: View>: View {
 struct ContentView: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
-    
+
     @State private var isGridView = UIDevice.current.userInterfaceIdiom == .pad
     @State private var showPrayerTimes = false
-    
+
     let steps = [
         ("image 1", AnyView(Step1()), "title_ihram_screen"),
         ("image 2", AnyView(Step2()), "title_round_kaaba_screen"),
@@ -55,8 +55,19 @@ struct ContentView: View {
         ("image 7", AnyView(Step7()), "title_shave_head_screen"),
         ("image 8", AnyView(UsefulInfoView()), "Useful")
     ]
-    
+
     var body: some View {
+        Group {
+            if settings.hasSelectedLanguage {
+                mainContentView
+            } else {
+                LanguageSelectionView()
+            }
+        }
+        .animation(.easeInOut, value: settings.hasSelectedLanguage)
+    }
+
+    private var mainContentView: some View {
         NavigationStack {
             ZStack {
                 Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
@@ -95,9 +106,8 @@ struct ContentView: View {
                 LanguageView().hidden()
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
-    
+
     @ViewBuilder
     private var content: some View {
         if isGridView {
@@ -125,13 +135,12 @@ struct ContentView: View {
     }
 
     private var gridColumns: [GridItem] {
-        // Расчет ширины колонки
         let screenWidth = UIScreen.main.bounds.width
-        let columnWidth = screenWidth / 2 - 10  // Вычитаем отступы
-        
+        let columnWidth = screenWidth / 2 - 10
         return [GridItem(.fixed(columnWidth)), GridItem(.fixed(columnWidth))]
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -8,30 +8,6 @@
 import SwiftUI
 
 
-class UserSettings: ObservableObject {
-    @Published var lang: String {
-        didSet {
-            UserDefaults.standard.set(lang, forKey: "selectedLanguage")
-            loadBundle()
-        }
-    }
-    var bundle: Bundle?
-
-    init() {
-        lang = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "ru"
-        loadBundle()
-    }
-
-    private func loadBundle() {
-        guard let path = Bundle.main.path(forResource: lang, ofType: "lproj"),
-              let resultBundle = Bundle(path: path) else {
-            bundle = nil
-            return
-        }
-        bundle = resultBundle
-    }
-}
-
 struct LanguageView: View {
     @EnvironmentObject var settings: UserSettings
     @State private var showingActionSheet = false
@@ -71,6 +47,10 @@ struct LanguageView: View {
         }
     }
 }
+
+
+
+
 
 
 
