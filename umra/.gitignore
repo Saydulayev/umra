@@ -1,6 +1,9 @@
-# Xcode user-specific settings
-xcuserdata/
+# Xcode user-specific files
 *.xcuserstate
+xcuserdata/
+
+# macOS system files
+.DS_Store
 
 # Build artifacts and derived data
 build/
