@@ -12,7 +12,7 @@
 "title_black_stone_screen" = "Retour à la Pierre Noire";
 "title_ihram_screen" = "État de Ihram";
 "title_place_ibrohim_stand_screen" = "Station d'Ibrahim";
-"title_round_kaaba_screen" = "Tawaf autour de la Kaaba";
+"title_round_kaaba_screen" = "Tawaf";
 "title_safa_and_marva_screen" = "Safa et Marwa";
 "title_settings_screen" = "Paramètres";
 "title_shave_head_screen" = "Rasage de la tête";
@@ -21,92 +21,97 @@
 
 
 /* IHRAM */
-"into the state of Ihram"="
+"into the state of Ihram" = "
 Entrez dans l'état d'Ihram à l'endroit prévu à cet effet (Miqat).
 ";
-"When entering the state of Ihram, say:"="Lors de l'entrée en état d'Ihram, dites:
+"When entering the state of Ihram, say:" = "Lors de l'entrée en état d'Ihram, dites:
 ";
-"Turn your face towards the Qiblah and say:"="
+"Turn your face towards the Qiblah and say:" = "
 Labbayka Allahumma bi-‘Umrah.
 
 Tournez votre visage vers la Qiblah et dites:
 ";
-"O Allah, this Umrah is without any ostentation or fame"="Allahumma hadhihi ‘Umrah la riya’a fiha wa la sum’ah
+"O Allah, this Umrah is without any ostentation or fame" = "Allahumma hadhihi ‘Umrah la riya’a fiha wa la sum’ah
     
 Ô Allah, cette ‘Umrah – il n’y a ni ostentation ni recherche de renommée en elle!
-    
     
 Ensuite, commencez à réciter à haute voix la Talbiyah:
 ";
 
-"Labbayka Allahumma labbayk"="Labbayka Allahumma labbayk! Labbayka la sharika laka labbayk! Innal hamda wan ni‘mata laka wal mulk, la sharika laka.
+"Labbayka Allahumma labbayk" = "Labbayka Allahumma labbayk! Labbayka la sharika laka labbayk! Innal hamda wan ni‘mata laka wal mulk, la sharika laka.
     
-«Me voici devant Toi, ô Allah! Me voici devant Toi! Me voici devant Toi, et Tu n’as aucun associé! Me voici devant Toi! En vérité, à Toi reviennent la louange, la grâce et la royauté! Tu n’as aucun associé!».
+«Me voici devant Toi, ô Allah! Me voici devant Toi! Me voici devant Toi, Tu n'as point d'associé! Me voici devant Toi! En vérité, à Toi la louange, à Toi la grâce et la royauté! Tu n'as point d'associé!».
     
-    
-Après avoir atteint la zone sacrée de La Mecque et aperçu les maisons de La Mecque, cessez de réciter la Talbiyah.";
-"Entering the Sacred Mosque from the right foot"="
+Après avoir atteint la zone sacrée de La Mecque et aperçu les maisons de La Mecque, cessez de réciter la Talbiyah.
+";
+"Entering the Sacred Mosque from the right foot" = "
     
 En entrant dans la Mosquée Sacrée avec le pied droit, dites:
 ";
-"entering the Sacred Mosque"="Allahumma solli ‘ala Muhammad wa sallim!
+"entering the Sacred Mosque" = "Allahumma solli ‘ala Muhammad wa sallim!
 Allahumma-ftah li abwaba rohmatika!
     
 Ô Allah, bénis Muhammad et accorde-lui la paix!
-Ô Allah, ouvre pour moi les portes de Ta miséricorde!";
-"Conditioning for Hajj or Umrah."="
-
+Ô Allah, ouvre pour moi les portes de Ta miséricorde!
+";
+"Conditioning for Hajj or Umrah." = "
+    
 Condition pour le Hajj ou l’‘Umrah.
 ";
-"If a pilgrim fears that some reason may prevent them from completing the Hajj"="Si un pèlerin craint qu’une raison quelconque puisse l’empêcher de compléter le Hajj – que ce soit une maladie ou une crainte, avant de réciter la Talbiyah, il peut conditionner son Hajj devant le Seigneur Tout-Puissant en disant ce qu’a enseigné le Messager, que la paix et les bénédictions d’Allah soient sur lui:
+"If a pilgrim fears that some reason may prevent them from completing the Hajj" = "Si un pèlerin craint qu’une raison quelconque puisse l’empêcher de compléter le Hajj – que ce soit une maladie ou une crainte, avant de réciter la Talbiyah, il peut conditionner son Hajj devant le Seigneur Tout-Puissant en disant ce qu’a enseigné le Messager, que la paix et les bénédictions d’Allah soient sur lui:
 ";
-"Ihram text1"="«Allahumma mahilli haythu habastani»
-
+"Ihram text1" = "«Allahumma mahilli haythu habastani»
+    
 «Ô Allah, mon lieu de sortie de l'Ihram est là où Tu m’as retenu».
-
+    
 Ce hadith est unanimement rapporté. Voir également «Sahih Abi Dawud» (1776).
-
-Ainsi, si le pèlerin agit ainsi et que quelque chose le retient ou s’il tombe malade, il lui est permis de sortir de l’état d’Ihram pour le Hajj ou l’‘Umrah, et il n’aura pas besoin de sacrifier un animal en expiation ni de refaire le Hajj, sauf si c’était son premier Hajj obligatoire, qu’il devra alors accomplir de nouveau.";
+    
+Ainsi, si le pèlerin agit ainsi et que quelque chose le retient ou s’il tombe malade, il lui est permis de sortir de l’état d’Ihram pour le Hajj ou l’‘Umrah, et il n’aura pas besoin de sacrifier un animal en expiation ni de refaire le Hajj, sauf si c’était son premier Hajj obligatoire, qu’il devra alors accomplir de nouveau.
+";
 
 
 /* KAABA */
-"Kaaba text1"="
-Le Tawaf autour de la Kaaba";
-"Kaaba text2"="
-Commencez le Tawaf de la Kaaba en faisant sept tours
-        
-Après cela, le pèlerin touche la Pierre Noire de sa main et l’embrasse.
-        
-S’il n’est pas possible d’embrasser la Pierre Noire, il faut la toucher avec la main.
-        
-        
-S’il n’est pas possible de la toucher et de l’embrasser, tournez-vous vers elle, pointez-la de la main droite et dites le Takbir: «Allahu Akbar» Allah est Grand. (Cela doit être fait à chaque tour du Tawaf autour de la Kaaba.)
+"Kaaba text1" = "
+La Tawaf (Tourner sept fois autour de la Kaaba).
 ";
-"Kaaba text3"="Commencez le Tawaf de la Kaaba en faisant sept tours depuis la Pierre Noire.
-Le passage de la Pierre Noire jusqu'à la Pierre Noire est considéré comme un tour. En commençant un nouveau tour, pointez la Pierre Noire de la main droite et dites le Takbir. Dès le début de ce Tawaf jusqu’à sa fin, les hommes découvrent leur épaule droite. Les trois premiers tours, de la Pierre Noire à la Pierre Noire, doivent être effectués à pas rapide par les hommes, tandis que les quatre derniers tours se font à pas normal. Si possible, touchez le coin yéménite à chaque tour. Chaque fois que vous passez entre le coin yéménite et la Pierre Noire, récitez:
-";
-"Kaaba text4"="Robbana atina fi d-dunya hasanatan wa fil-akhiroti hasanatan wa qina azaba-n-nar
+"Kaaba text2" = "
+Commencez sept tours autour de la Kaaba (tawaf)
         
-«Seigneur, accorde-nous le bien dans ce monde et le bien dans l’au-delà, et protège-nous du châtiment du Feu!»,
-Sourate Al-Baqara, verset 201.";
-"Prayer after Tawaf of Kaaba."="La prière après le Tawaf de la Kaaba.";
+Après cela, le pèlerin touche la Pierre Noire avec sa main et l'embrasse.
+        
+S'il n'est pas possible d'embrasser la pierre noire, il faut la toucher avec la main.
+        
+        
+S'il n'est pas possible de toucher et d'embrasser la pierre noire, il faut la regarder en face, la pointer de la main droite et dire le takbir : « Allahu akbar », Allah est grand. (Tout cela doit être fait à chaque tour de la Kaaba.)
+";
+"Kaaba text3" = "Commencez sept tours autour de la Kaaba (tawaf) à partir de la Pierre Noire.
+Le trajet de la Pierre Noire à la Pierre Noire compte pour un tour. En débutant un nouveau tour, pointez la Pierre Noire de la main droite et récitez le takbir. Dès le début de cet itinéraire autour de la Kaaba jusqu'à son achèvement, les hommes découvrent leur épaule droite. Les trois premiers tours, de la Pierre Noire à la Pierre Noire, les hommes doivent marcher d'un pas rapide, et les quatre autres tours à un pas normal. Si possible, touchez l'angle yéménite pendant chaque tour. Chaque fois que vous passez entre l'angle yéménite et la Pierre Noire, dites :
+";
+"Kaaba text4" = "Rabbana, atina fi-d-dunya khyasanatan va fil-ahiroti khyasanatanan va k'ina ´azaba-n-n-nar
+        
+« Ô notre Seigneur ! Accorde-nous une belle part dans l'ici-bas, une belle part dans l'au-delà et protège-nous du châtiment du feu ! »,
+sourate « La Vache », verset 201.
+";
+"Prayer after Tawaf of Kaaba." = "La prière après le Tawaf de la Kaaba.";
+
 
 
 /* Namaz after Tawaf around the Kaaba. */
-"Prayer after Tawaf of Kaaba."="
+"Prayer after Tawaf of Kaaba." = "
 La prière après le Tawaf de la Kaaba.";
 
-"Having completed seven circuits around the Kaaba"="
+"Having completed seven circuits around the Kaaba" = "
 Après avoir terminé les sept tours autour de la Kaaba, l’homme couvre son épaule droite. Ensuite, dirigez-vous vers le lieu de la station d’Ibrahim et récitez:
 ";
 
-"Place of standing of Ibrahim"="Wattakhidhu mim maqomi Ibrohima musolla
+"Place of standing of Ibrahim" = "Wattakhidhu mim maqomi Ibrohima musolla
     
 «Et prenez le lieu de la station d’Ibrahim comme lieu de prière» (Sourate 2 «Al-Baqara = La Vache», verset 125).
     
 Si possible, priez deux rak’ahs derrière le lieu de la station d’Ibrahim ou à tout autre endroit dans la Mosquée Sacrée. Assurez-vous de placer une barrière devant vous afin que personne ne passe entre vous et cette barrière. Lors du premier rak’ah après la sourate 1 «Al-Fatiha = L’Ouverture», récitez la sourate 109 «Al-Kafirun = Les Mécréants», et au deuxième rak’ah après la sourate «Al-Fatiha», récitez la sourate 112 «Al-Ikhlas = La Pureté de la foi».
 
 Après avoir terminé la prière, dirigez-vous vers la source d’eau de Zamzam.";
+
 
 /* Drinking Zamzam water. */
 "Drinking Zamzam water."="
