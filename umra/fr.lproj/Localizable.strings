@@ -40,7 +40,7 @@ Ensuite, commencez à réciter à haute voix la Talbiyah:
 
 "Labbayka Allahumma labbayk" = "Labbayka Allahumma labbayk! Labbayka la sharika laka labbayk! Innal hamda wan ni‘mata laka wal mulk, la sharika laka.
     
-«Me voici devant Toi, ô Allah! Me voici devant Toi! Me voici devant Toi, Tu n'as point d'associé! Me voici devant Toi! En vérité, à Toi la louange, à Toi la grâce et la royauté! Tu n'as point d'associé!».
+«Me voici répondant à Ton appel, ô Allah ! Tu n’as aucun associé, me voici ! La louange et le bienfait T’appartiennent, ainsi que la Royauté. Tu n’as aucun associé!».
     
 Après avoir atteint la zone sacrée de La Mecque et aperçu les maisons de La Mecque, cessez de réciter la Talbiyah.
 ";
@@ -72,7 +72,7 @@ Ainsi, si le pèlerin agit ainsi et que quelque chose le retient ou s’il tombe
 
 /* KAABA */
 "Kaaba text1" = "
-La Tawaf (Tourner sept fois autour de la Kaaba).
+La Tawaf (Sept tours autour de la Kaaba).
 ";
 "Kaaba text2" = "
 Commencez sept tours autour de la Kaaba (tawaf)
@@ -89,8 +89,8 @@ Le trajet de la Pierre Noire à la Pierre Noire compte pour un tour. En débutan
 ";
 "Kaaba text4" = "Rabbana, atina fi-d-dunya khyasanatan va fil-ahiroti khyasanatanan va k'ina ´azaba-n-n-nar
         
-« Ô notre Seigneur ! Accorde-nous une belle part dans l'ici-bas, une belle part dans l'au-delà et protège-nous du châtiment du feu ! »,
-sourate « La Vache », verset 201.
+«Ô notre Seigneur! Accorde-nous une belle part dans l'ici-bas, une belle part dans l'au-delà et protège-nous du châtiment du feu!»,
+sourate «La Vache», verset 201.
 ";
 "Prayer after Tawaf of Kaaba." = "La prière après le Tawaf de la Kaaba.";
 
