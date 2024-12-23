@@ -45,6 +45,11 @@ struct ContentView: View {
     @State private var isGridView = UIDevice.current.userInterfaceIdiom == .pad
     @State private var showPrayerTimes = false
 
+    @State private var usageTime: TimeInterval = 0
+    @State private var timer: Timer?
+    @AppStorage("hasRatedApp") private var hasRatedApp: Bool = false
+    @Environment(\.requestReview) var requestReview
+
     let steps = [
         ("image 1", AnyView(Step1()), "title_ihram_screen"),
         ("image 2", AnyView(Step2()), "title_round_kaaba_screen"),
@@ -65,6 +70,12 @@ struct ContentView: View {
             }
         }
         .animation(.easeInOut, value: settings.hasSelectedLanguage)
+        .onAppear {
+            startTimer()
+        }
+        .onDisappear {
+            stopTimer()
+        }
     }
 
     private var mainContentView: some View {
@@ -140,7 +151,32 @@ struct ContentView: View {
         let columnWidth = screenWidth / 2 - 10
         return [GridItem(.fixed(columnWidth)), GridItem(.fixed(columnWidth))]
     }
+
+    func startTimer() {
+        guard !hasRatedApp else { return }
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            usageTime += 1
+            if usageTime >= 300 { // 5 минут
+                timer?.invalidate()
+                timer = nil
+                requestReviewIfNeeded()
+            }
+        }
+    }
+
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+
+    func requestReviewIfNeeded() {
+        guard !hasRatedApp else { return }
+        requestReview()
+        hasRatedApp = true
+    }
 }
+
 
 
 struct ContentView_Previews: PreviewProvider {
