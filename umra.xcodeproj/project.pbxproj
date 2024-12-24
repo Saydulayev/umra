@@ -114,6 +114,7 @@
 		C0DC35DF2A0686A2002527D7 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
 		C0DC35E12A0687DF002527D7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0DC35E22A068F21002527D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C204DEBD2D198C42008EC9E5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C24508E92C9CD39D003E3E58 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		C24508EB2C9CD3A6003E3E58 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		C24508ED2C9CD3AD003E3E58 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
@@ -342,6 +343,7 @@
 				de,
 				fr,
 				Base,
+				ar,
 			);
 			mainGroup = C0908DCF29829F8A00458ACB;
 			packageReferences = (
@@ -436,6 +438,7 @@
 				C0DC35E22A068F21002527D7 /* en */,
 				C06B9C562A08F4A000549748 /* de */,
 				C06B9C572A08F4AE00549748 /* fr */,
+				C204DEBD2D198C42008EC9E5 /* ar */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
