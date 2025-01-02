@@ -238,3 +238,9 @@
 
 "Useful" = "Полезное";
 "soon_available_text" = "Этот текст скоро будет доступен и на других языках.";
+
+
+"Notification Settings" = "Настройки уведомлений";
+"30-Minute Notifications" = "Уведомления за 30 минут";
+"Prayer Time Notifications" = "Уведомления в время молитвы";
+"Close" = "Закрыть";

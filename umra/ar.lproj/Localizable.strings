@@ -211,3 +211,9 @@
 "Useful" = "مفيد";
 "soon_available_text" = "سيكون هذا النص متاحًا قريبًا بلغات أخرى.";
 
+
+
+"Notification Settings" = "إعدادات الإشعارات";
+"30-Minute Notifications" = "إشعارات قبل 30 دقيقة";
+"Prayer Time Notifications" = "إشعارات وقت الصلاة";
+"Close" = "إغلاق";

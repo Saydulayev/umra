@@ -10,6 +10,7 @@ import SafariServices
 
 struct SettingsView: View {
     @State private var showSafariView = false
+    @State private var showNotificationSettingsSheet = false
     @State private var selectedLanguage = "English"
     @State private var showPicker = false
     @EnvironmentObject var settings: UserSettings
@@ -53,11 +54,26 @@ struct SettingsView: View {
                     }
                     
                     // Support View
-                        PurchaseView()
+                    PurchaseView()
+                    
+                    // Notification Settings Button
+                    Button(action: {
+                        showNotificationSettingsSheet.toggle()
+                    }) {
+                        HStack {
+                            Image(systemName: "bell")
+                                .foregroundColor(.green)
+                            Text("Notification Settings", bundle: settings.bundle)
+                                .foregroundColor(.blue)
+                            Spacer()
+                        }
+                        .customTextStyle()
+                    }
                     
                     // Language Selection
-                        LanguageView()
-
+                    LanguageView()
+                    
+                    
                     
                     Spacer()
                 }
@@ -66,10 +82,16 @@ struct SettingsView: View {
                 .sheet(isPresented: $showSafariView) {
                     SafariView(url: URL(string: "https://apps.apple.com/app/id1673683355")!)
                 }
+                .sheet(isPresented: $showNotificationSettingsSheet) {
+                    NotificationSettingsView()
+                }
             }
         }
     }
 }
+
+
+
 
 struct SafariView: UIViewControllerRepresentable {
     let url: URL
