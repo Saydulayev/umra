@@ -1,4 +1,14 @@
 {
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
   "identifier" : "BDB0E09C",
   "nonRenewingSubscriptions" : [
 
@@ -9,6 +19,11 @@
       "familyShareable" : false,
       "internalID" : "6473829076",
       "localizations" : [
+        {
+          "description" : "Contribution volontaire à l'application.",
+          "displayName" : "Soutenir le développeur",
+          "locale" : "fr"
+        },
         {
           "description" : "Voluntary contribution to the application.",
           "displayName" : "Support the Developer.",
@@ -35,6 +50,11 @@
       "internalID" : "6473839477",
       "localizations" : [
         {
+          "description" : "Contribution volontaire à l'application.",
+          "displayName" : "Soutenir le développeur",
+          "locale" : "fr"
+        },
+        {
           "description" : "Freiwilliger Beitrag zur Anwendung.",
           "displayName" : "Entwickler unterstützen.",
           "locale" : "de"
@@ -60,19 +80,24 @@
       "internalID" : "6473836442",
       "localizations" : [
         {
+          "description" : "Contribution volontaire à l'application.",
+          "displayName" : "Soutenir le développeur",
+          "locale" : "fr"
+        },
+        {
           "description" : "Voluntary contribution to the application.",
           "displayName" : "Support the Developer.",
           "locale" : "en_AU"
         },
         {
-          "description" : "Добровольный вклад в приложение.",
-          "displayName" : "Поддержать разработчика.",
-          "locale" : "ru"
-        },
-        {
           "description" : "Freiwilliger Beitrag zur Anwendung.",
           "displayName" : "Entwickler unterstützen.",
           "locale" : "de"
+        },
+        {
+          "description" : "Добровольный вклад в приложение.",
+          "displayName" : "Поддержать разработчика.",
+          "locale" : "ru"
         }
       ],
       "productID" : "UmrahSunnah2",
@@ -85,19 +110,24 @@
       "internalID" : "6473839654",
       "localizations" : [
         {
+          "description" : "Contribution volontaire à l'application.",
+          "displayName" : "Soutenir le développeur",
+          "locale" : "fi"
+        },
+        {
           "description" : "Voluntary contribution to the application.",
           "displayName" : "Support the Developer.",
           "locale" : "en_AU"
         },
         {
-          "description" : "Freiwilliger Beitrag zur Anwendung.",
-          "displayName" : "Entwickler unterstützen.",
-          "locale" : "de"
-        },
-        {
           "description" : "Добровольный вклад в приложение.",
           "displayName" : "Поддержать разработчика.",
           "locale" : "ru"
+        },
+        {
+          "description" : "Freiwilliger Beitrag zur Anwendung.",
+          "displayName" : "Entwickler unterstützen.",
+          "locale" : "de"
         }
       ],
       "productID" : "UmrahSunnah5",
@@ -109,6 +139,11 @@
       "familyShareable" : false,
       "internalID" : "6473838143",
       "localizations" : [
+        {
+          "description" : "Contribution volontaire à l'application.",
+          "displayName" : "Soutenir le développeur",
+          "locale" : "fr"
+        },
         {
           "description" : "Добровольный вклад в приложение.",
           "displayName" : "Поддержать разработчика.",
@@ -145,6 +180,11 @@
           "locale" : "de"
         },
         {
+          "description" : "Contribution volontaire à l'application.",
+          "displayName" : "Soutenir le développeur",
+          "locale" : "fr"
+        },
+        {
           "description" : "Добровольный вклад в приложение.",
           "displayName" : "Поддержать разработчика.",
           "locale" : "ru"
@@ -160,7 +200,7 @@
     "_askToBuyEnabled" : false,
     "_developerTeamID" : "93NA5FP2X8",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 723812355.56266701,
+    "_lastSynchronizedDate" : 757589526.54153299,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -218,7 +258,7 @@
 
   ],
   "version" : {
-    "major" : 3,
+    "major" : 4,
     "minor" : 0
   }
 }
