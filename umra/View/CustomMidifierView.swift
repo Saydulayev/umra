@@ -84,10 +84,19 @@ extension Image {
 
 //MARK: CustomTextforSteps
 struct StepTextModifier: ViewModifier {
+    
+    private var dynamicFontSize: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 58 : 38
+    }
+    
+    private var customPadding: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 32 : 16
+    }
+    
     func body(content: Content) -> some View {
         content
-            .padding()
-            .font(.custom("Amiri Quran", size: 38))
+            .padding(customPadding)
+            .font(.custom("Amiri Quran", size: dynamicFontSize))
             .lineSpacing(15)
             .multilineTextAlignment(.center)
             .frame(maxWidth: .infinity)

@@ -8,6 +8,12 @@
 import SwiftUI
 
 class FontManager: ObservableObject {
+    
+    // Вычисляемое свойство для динамического размера шрифта
+    var dynamicFontSize: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 30 : 20
+    }
+    
     @Published var fonts: [String] = [
         "Arial",
         "Helvetica",
@@ -37,10 +43,8 @@ class FontManager: ObservableObject {
         "Lato-Black",
         "Lato-Italic",
         "Lato-Blackitalic",
-        "Lato-Bold",
-
+        "Lato-Bold"
     ]
-
     
     @Published var selectedFont: String {
         didSet {
@@ -57,6 +61,5 @@ class FontManager: ObservableObject {
     init() {
         self.selectedFont = UserDefaults.standard.string(forKey: "SelectedFont") ?? "Lato-Black"
         self.selectedFontSize = UserDefaults.standard.object(forKey: "SelectedFontSize") as? CGFloat ?? 20
-
     }
 }

@@ -42,8 +42,13 @@ struct ContentView: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
 
-    @State private var isGridView = UIDevice.current.userInterfaceIdiom == .pad
+    @State private var isGridView: Bool = UIDevice.current.userInterfaceIdiom == .pad
     @State private var showPrayerTimes = false
+    
+    private var dynamicFontSize: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 30 : 10
+    }
+
 
     @State private var usageTime: TimeInterval = 0
     @State private var timer: Timer?
@@ -91,11 +96,15 @@ struct ContentView: View {
                 .navigationBarTitle("UMRA", displayMode: .inline)
                 .navigationBarItems(
                     leading: Button(action: {
-                        isGridView.toggle()
+                        // Только для iPhone разрешено переключение
+                        if UIDevice.current.userInterfaceIdiom != .pad {
+                            isGridView.toggle()
+                        }
                     }) {
                         Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2")
                             .imageScale(.large)
                             .foregroundColor(.primary)
+                            .opacity(UIDevice.current.userInterfaceIdiom == .pad ? 0.0 : 1.0) 
                     },
                     trailing: HStack {
                         Button(action: {
@@ -124,14 +133,15 @@ struct ContentView: View {
     private var content: some View {
         if isGridView {
             LazyVGrid(columns: gridColumns, spacing: 20) {
-                stepsView(showIndex: true, fontSize: 10)
+                stepsView(showIndex: true, fontSize: dynamicFontSize)
             }
         } else {
             VStack {
-                stepsView(showIndex: false, fontSize: 38)
+                stepsView(showIndex: false, fontSize: dynamicFontSize * 3.8)
             }
         }
     }
+
 
     private func stepsView(showIndex: Bool, fontSize: CGFloat) -> some View {
         ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
