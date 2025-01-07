@@ -9,7 +9,6 @@ import Adhan
 import SwiftUI
 import UserNotifications
 
-
 struct PrayerTimeView: View {
     @State private var prayerTimes: [String: String] = [:]
     @State private var nextPrayerName = ""
@@ -159,7 +158,13 @@ struct PrayerTimeView: View {
         }
     }
 
+    func clearNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+
     func scheduleNotifications(prayerTimes: PrayerTimes) {
+        clearNotifications()
+
         let prayers = [
             ("Fajr", prayerTimes.fajr),
             ("Sunrise", prayerTimes.sunrise),
@@ -176,8 +181,9 @@ struct PrayerTimeView: View {
                 content.body = "Time for \(prayerName)"
                 content.sound = UNNotificationSound.default
 
-                let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: prayerTime)
-                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+                var triggerDate = Calendar.current.dateComponents([.hour, .minute, .second], from: prayerTime)
+                triggerDate.weekday = Calendar.current.component(.weekday, from: prayerTime)
+                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
 
                 let request = UNNotificationRequest(identifier: "\(prayerName)_time", content: content, trigger: trigger)
                 UNUserNotificationCenter.current().add(request) { error in
@@ -194,8 +200,9 @@ struct PrayerTimeView: View {
                 content30MinBefore.sound = UNNotificationSound.default
 
                 let prayerTime30MinBefore = prayerTime.addingTimeInterval(-30 * 60)
-                let triggerDate30MinBefore = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: prayerTime30MinBefore)
-                let trigger30MinBefore = UNCalendarNotificationTrigger(dateMatching: triggerDate30MinBefore, repeats: false)
+                var triggerDate30MinBefore = Calendar.current.dateComponents([.hour, .minute, .second], from: prayerTime30MinBefore)
+                triggerDate30MinBefore.weekday = Calendar.current.component(.weekday, from: prayerTime30MinBefore)
+                let trigger30MinBefore = UNCalendarNotificationTrigger(dateMatching: triggerDate30MinBefore, repeats: true)
 
                 let request30MinBefore = UNNotificationRequest(identifier: "\(prayerName)_30min", content: content30MinBefore, trigger: trigger30MinBefore)
                 UNUserNotificationCenter.current().add(request30MinBefore) { error in
@@ -207,8 +214,6 @@ struct PrayerTimeView: View {
         }
     }
 }
-
-
 
 struct PrayerTimeModalView: View {
     @Binding var isPresented: Bool
@@ -353,7 +358,6 @@ extension View {
             .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
             .padding()
     }
-    
 }
 
 #Preview {
