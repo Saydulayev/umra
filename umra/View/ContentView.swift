@@ -14,19 +14,26 @@ struct StepView<Destination: View>: View {
     let index: Int?
     let fontSize: CGFloat
     let stepsCount: Int
+    @Binding var imageDescriptions: [String: String]
     
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
-    
+
+    private var accessibilityLabel: String {
+        NSLocalizedString(imageDescriptions[imageName] ?? imageName, bundle: settings.bundle ?? .main, comment: "")
+    }
+
     var body: some View {
         VStack {
             NavigationLink(destination: destinationView) {
                 if let index = index {
                     Image(imageName)
-                        .styledImageWithIndex(index: index, stepsCount: stepsCount) 
+                        .styledImageWithIndex(index: index, stepsCount: stepsCount)
+                        .accessibilityLabel(accessibilityLabel)
                 } else {
                     Image(imageName)
                         .styledImage()
+                        .accessibilityLabel(accessibilityLabel)
                 }
             }
             Text(titleKey, bundle: settings.bundle)
@@ -37,19 +44,22 @@ struct StepView<Destination: View>: View {
     }
 }
 
-
 struct ContentView: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
 
     @State private var isGridView: Bool = UIDevice.current.userInterfaceIdiom == .pad
     @State private var showPrayerTimes = false
-    
-    private var dynamicFontSize: CGFloat {
-        UIDevice.current.userInterfaceIdiom == .pad ? 30 : 10
-    }
-
-
+    @State private var imageDescriptions: [String: String] = [
+        "image 1": "title_ihram_screen",
+        "image 2": "title_round_kaaba_screen",
+        "image 3": "title_place_ibrohim_stand_screen",
+        "image 4": "title_water_zamzam_screen",
+        "image 5": "title_black_stone_screen",
+        "image 6": "title_safa_and_marva_screen",
+        "image 7": "title_shave_head_screen",
+        "image 8": "Useful"
+    ]
     @State private var usageTime: TimeInterval = 0
     @State private var timer: Timer?
     @AppStorage("hasRatedApp") private var hasRatedApp: Bool = false
@@ -65,6 +75,10 @@ struct ContentView: View {
         ("image 7", AnyView(Step7()), "title_shave_head_screen"),
         ("image 8", AnyView(UsefulInfoView()), "Useful")
     ]
+
+    private var dynamicFontSize: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 30 : 10
+    }
 
     var body: some View {
         Group {
@@ -96,7 +110,6 @@ struct ContentView: View {
                 .navigationBarTitle("UMRA", displayMode: .inline)
                 .navigationBarItems(
                     leading: Button(action: {
-                        // Только для iPhone разрешено переключение
                         if UIDevice.current.userInterfaceIdiom != .pad {
                             isGridView.toggle()
                         }
@@ -104,7 +117,7 @@ struct ContentView: View {
                         Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2")
                             .imageScale(.large)
                             .foregroundColor(.primary)
-                            .opacity(UIDevice.current.userInterfaceIdiom == .pad ? 0.0 : 1.0) 
+                            .opacity(UIDevice.current.userInterfaceIdiom == .pad ? 0.0 : 1.0)
                     },
                     trailing: HStack {
                         Button(action: {
@@ -142,7 +155,6 @@ struct ContentView: View {
         }
     }
 
-
     private func stepsView(showIndex: Bool, fontSize: CGFloat) -> some View {
         ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
             StepView(
@@ -150,7 +162,9 @@ struct ContentView: View {
                 destinationView: step.1,
                 titleKey: LocalizedStringKey(step.2),
                 index: showIndex ? index : nil,
-                fontSize: fontSize, stepsCount: steps.count
+                fontSize: fontSize,
+                stepsCount: steps.count,
+                imageDescriptions: $imageDescriptions
             )
             .foregroundStyle(.black)
         }
@@ -164,10 +178,9 @@ struct ContentView: View {
 
     func startTimer() {
         guard !hasRatedApp else { return }
-        
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             usageTime += 1
-            if usageTime >= 300 { // 5 минут
+            if usageTime >= 300 {
                 timer?.invalidate()
                 timer = nil
                 requestReviewIfNeeded()
@@ -186,8 +199,6 @@ struct ContentView: View {
         hasRatedApp = true
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
