@@ -239,10 +239,126 @@ Louange à Allah, Seigneur des Mondes!";
 "Contribution to Application Development"="Votre don est entièrement volontaire. Il n'est pas lié à l'obtention de contenu numérique supplémentaire ou de fonctionnalités spéciales dans l'application. Notre objectif est de fournir une application gratuite et accessible à tous, sans aucune restriction.";
 
 "Useful"="Utile";
-"soon_available_text"="Ce texte sera bientôt disponible dans d'autres langues.";
+"soon_available_text" = "Ce texte a été traduit du russe à l'aide de l'IA. Si vous remarquez des erreurs ou des inexactitudes, veuillez nous en informer via les retours.";
 
 
 "Notification Settings" = "Paramètres des notifications";
 "30-Minute Notifications" = "Notifications 30 minutes";
 "Prayer Time Notifications" = "Notifications pour l'heure de prière";
 "Close" = "Fermer";
+
+
+/* Titre de la page */
+"useful_info_title" = "Informations utiles";
+
+/* Chapitres et sous-chapitres */
+"etiquette_manners" = "Étiquette et bonnes manières";
+"sincerity" = "Sincérité";
+"laws" = "Réglementations";
+"choice_of_companions" = "Choix des compagnons";
+"financial_independence" = "Indépendance financière";
+"noble_manners" = "Bonnes mœurs";
+"zikr_and_prayers" = "Dhikr et prières";
+"caution_in_relationships" = "Prudence dans les relations";
+
+"hajj_umrah_virtues" = "Les vertus du Hajj et de la 'Umrah";
+"atonement_and_rewards" = "Expiation des péchés et récompenses";
+"hajj_for_women" = "Hajj pour les femmes";
+"perfect_hajj" = "Hajj parfait";
+"following_the_sunnah" = "Suivre la Sunnah";
+
+"hajj_umrah_obligation" = "Obligation du Hajj et de la 'Umrah";
+"hajj_obligation_evidence" = "Preuves de l'obligation du Hajj";
+"umrah_obligation_evidence" = "Preuves de l'obligation de la 'Umrah";
+"conclusion" = "Conclusion";
+
+
+
+/* Texts for Etiquette Manners */
+"etiquette_manners_text1" = "La chose la plus importante pour une personne accomplissant le Hajj et la ‘Umrah est la sincérité envers Allah. Elle doit se débarrasser de toute ostentation et de tout désir de gloire afin de recevoir la récompense pour ce Hajj et cette ‘Umrah.
+
+Il est rapporté d’après Abu Hurayra, qu’Allah soit satisfait de lui, que le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, a dit : « Allah le Très-Haut a dit : « Je n’ai absolument pas besoin qu’on Me donne des associés. Si quelqu’un fait une action non seulement pour Moi, mais aussi pour quelqu’un d’autre, Je le rejetterai, ainsi que son associationnisme ! »» Muslim, 2985.
+
+Il est également rapporté que le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, a dit : « Ô Allah, rends ce Hajj exempt d’ostentation et de désir de gloire ! » Ibn Majah, 2890.";
+"etiquette_manners_text2" = "Une personne souhaitant accomplir le Hajj et la ‘Umrah doit s’efforcer d’étudier les dispositions relatives au Hajj et à la ‘Umrah afin de les accomplir en connaissance de cause.";
+"etiquette_manners_text3" = "Une personne accomplissant le Hajj et la ‘Umrah doit s’efforcer de choisir les meilleurs compagnons de voyage pour le Hajj, afin de tirer profit de leur savoir et de leur comportement.
+
+Il est rapporté d’après Abu Musa al-Ash‘ari, qu’Allah soit satisfait de lui, que le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, a dit : « L’exemple d’un bon compagnon et d’un mauvais est semblable à celui d’un vendeur de musc et d’un forgeron utilisant un soufflet. Quant au vendeur de musc, soit il t’en fait cadeau, soit tu lui en achètes, soit tu profites de son agréable parfum. Quant au forgeron utilisant un soufflet, soit il brûle tes vêtements, soit tu es incommodé par son odeur désagréable. » Al-Boukhari 5534, Mouslim 2628.";
+"etiquette_manners_text4" = "Une personne accomplissant le Hajj et la ‘Umrah doit avoir avec elle une somme d’argent suffisante pour ne pas dépendre financièrement des autres.
+
+Il est rapporté d’après Abu Sa‘id al-Khudri, qu’Allah soit satisfait de lui, que le Prophète, qu’Allah le bénisse et lui accorde la paix, a dit : « Celui qui cherche à être modeste, Allah le rendra modeste, et celui qui s’efforce d’être autonome, Allah le rendra indépendant des autres. » Al-Boukhari 1469, Mouslim 1053.";
+"etiquette_manners_text5" = "Une personne accomplissant le Hajj et la ‘Umrah doit s’embellir de nobles caractères et traiter les autres de la meilleure manière.
+
+Il est rapporté d’après Abu Dharr, qu’Allah soit satisfait de lui, que le Prophète, qu’Allah le bénisse et lui accorde la paix, a dit : « Crains Allah où que tu sois ! Suis une mauvaise action par une bonne, qui l’effacera, et adopte les meilleures manières dans tes relations avec les gens. » At-Tirmidhi 1987.
+
+Il est également rapporté d’après ‘Abdullah ibn ‘Amr ibn al-‘As, qu’Allah soit satisfait de lui et de son père, que le Prophète, qu’Allah le bénisse et lui accorde la paix, a dit : « Que celui qui désire être éloigné du Feu et admis au Paradis, croie en Allah et au Jour Dernier au moment de sa mort, et qu’il traite les gens de la manière dont il aimerait qu’ils le traitent. » Mouslim 1844.";
+"etiquette_manners_text6" = "Une personne accomplissant le Hajj et la ‘Umrah doit s’occuper du rappel d’Allah (dhikr), des invocations adressées à Lui (du‘a) et des demandes de pardon (istighfar). Elle doit préserver sa langue de tout, sauf de bonnes paroles. Elle doit consacrer tout son temps à ce qui lui sera bénéfique, aussi bien dans cette vie que dans l’Au-delà.
+
+Il est rapporté d’après Abu Hurayra, qu’Allah soit satisfait de lui, que le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, a dit : « Que celui qui croit en Allah et au Jour Dernier dise du bien ou se taise. » Al-Boukhari 6018, Mouslim 47.
+
+Il est également rapporté d’après Ibn ‘Abbas, qu’Allah soit satisfait de lui et de son père, que le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, a dit : « Deux bienfaits dont beaucoup de gens ne profitent pas : la santé et le temps libre. » Al-Boukhari 6412.";
+"etiquette_manners_text7" = "Une personne accomplissant le Hajj et la ‘Umrah doit veiller à ne pas blesser les autres par ses paroles ou ses actions.
+
+Le Prophète, qu’Allah le bénisse et lui accorde la paix, a dit : « Le musulman est celui dont les autres musulmans sont à l’abri de sa langue et de ses mains. » Al-Boukhari 10, Mouslim 41.
+
+Un musulman doit également éviter de nuire aux autres musulmans par l’odeur désagréable de la fumée de cigarette s’il fume lui-même. Il est d’ailleurs de son devoir d’abandonner la cigarette et de se repentir devant Allah. En effet, fumer nuit à la santé et gaspille les biens.
+
+Un musulman doit s’efforcer d’adopter en permanence les nobles qualités morales mentionnées ci-dessus, en tout lieu et en toute circonstance, mais particulièrement durant son voyage pour le Hajj ou la ‘Umrah.";
+
+
+
+/* Texts for Hajj and Umrah Virtues */
+"hajj_umrah_virtues_text1" = "Les mérites du Hajj et de la ‘Umrah sont mentionnés dans des hadiths authentiques rapportés du Messager d’Allah, qu’Allah le bénisse et lui accorde la paix. En voici quelques-uns :
+
+Il est rapporté d’après Abu Hurayra, qu’Allah soit satisfait de lui, que le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, a dit : « L’accomplissement d’une ‘Umrah jusqu’à la suivante expie les péchés commis entre elles, et le Hajj irréprochable n’a d’autre récompense que le Paradis. » Al-Boukhari 1773, Mouslim 1349.
+
+Il est rapporté d’après Ibn Mas‘ud, qu’Allah soit satisfait de lui, que le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, a dit : « Accomplissez régulièrement le Hajj et la ‘Umrah, car ils éliminent la pauvreté et les péchés, tout comme le soufflet du forgeron élimine les impuretés du fer, de l’or et de l’argent. Et le Hajj irréprochable n’a d’autre récompense que le Paradis. » At-Tirmidhi 810, An-Nassa’i 2631.
+
+Il est rapporté d’après Ibn ‘Abbas, qu’Allah soit satisfait de lui et de son père, que le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, a dit : « Accomplissez régulièrement le Hajj et la ‘Umrah, car ils éliminent la pauvreté et les péchés, tout comme le soufflet du forgeron élimine les impuretés du fer. » An-Nassa’i 2630.";
+
+"hajj_umrah_virtues_text2" = "Il est rapporté d’après la Mère des croyants, ‘Aïcha, qu’Allah soit satisfait d’elle, qu’un jour elle dit : « Ô Messager d’Allah, nous considérons le djihad comme la meilleure des actions. Ne devrions-nous pas y participer ? » Le Prophète, qu’Allah le bénisse et lui accorde la paix, répondit : « Non ! Le meilleur djihad pour vous (les femmes) est un Hajj irréprochable. » Al-Boukhari 1520.
+
+Dans une autre version, il est rapporté que ‘Aïcha, qu’Allah soit satisfait d’elle, dit : « Ô Messager d’Allah, les femmes doivent-elles accomplir le djihad ? » Le Prophète, qu’Allah le bénisse et lui accorde la paix, répondit : « Oui, elles doivent accomplir un djihad sans combat, et c’est le Hajj et la ‘Umrah. » Ibn Madjah 2901.";
+
+"hajj_umrah_virtues_text3" = "Il est rapporté d’après Abu Hurayra, qu’Allah soit satisfait de lui, que le Prophète, qu’Allah le bénisse et lui accorde la paix, a dit : « Celui qui accomplit le Hajj pour Allah, sans approcher son épouse et sans commettre d’actes pécheurs ou indécents, reviendra chez lui aussi pur que le jour où sa mère l’a mis au monde. » Al-Boukhari 1521, Mouslim 1350.
+
+Il est également rapporté que le Prophète, qu’Allah le bénisse et lui accorde la paix, a dit à ‘Amr ibn al-‘As, qu’Allah soit satisfait de lui : « Ne sais-tu pas que l’Islam efface tout ce qui l’a précédé, que la Hijra efface tout ce qui l’a précédé, et que le Hajj efface tout ce qui l’a précédé ? » Mouslim 121.
+
+Un Hajj irréprochable (mentionné dans les hadiths ci-dessus) est un Hajj accompli conformément à la Sunnah du Messager d’Allah, qu’Allah le bénisse et lui accorde la paix.";
+
+"hajj_umrah_virtues_text4" = "Il est rapporté d’après Jabir, qu’Allah soit satisfait de lui, que le Prophète, qu’Allah le bénisse et lui accorde la paix, a dit : « Prenez de moi vos rites religieux, car je ne sais pas – peut-être que, après ce Hajj, je n’accomplirai plus jamais le pèlerinage. » Mouslim 1297.
+
+Dans une autre version de ce hadith, il est rapporté que le Prophète, qu’Allah le bénisse et lui accorde la paix, a dit : « Ô gens, prenez de moi vos rites religieux, car je ne sais pas – peut-être que je n’accomplirai plus de Hajj après cette année. » An-Nassa’i 3062.";
+
+
+
+/* Texts for Hajj and Umrah Obligation */
+"hajj_umrah_obligation_obligation_evidence" = "L’accomplissement du Hajj et de la ‘Umrah est obligatoire une fois dans une vie. Celui qui les accomplit plus d’une fois réalise un acte d’adoration volontaire.
+
+Le Hajj et la ‘Umrah peuvent également devenir obligatoires après un vœu (nadhr). Si une personne fait le vœu devant Allah d’accomplir le Hajj ou la ‘Umrah, elle doit obligatoirement s’acquitter de ce vœu.
+
+Si une personne commence un Hajj ou une ‘Umrah volontaire, elle est tenue de les terminer, car Allah a dit : « Achevez le Hajj et la ‘Umrah pour Allah. » (Sourate Al-Baqara, verset 196)
+
+L’obligation d’accomplir le Hajj est établie par des preuves tirées du Coran, de la Sunna, ainsi que par le consensus (ijma‘) des musulmans.  
+Allah le Très-Haut a dit : « Les gens ont un devoir envers Allah : accomplir le pèlerinage à la Maison, s’ils en ont les moyens. Et quiconque refuse de croire, Allah Se passe largement des mondes. » (Sourate Aal ‘Imran, verset 97)
+
+Le Prophète, qu’Allah le bénisse et lui accorde la paix, a dit : « L’Islam repose sur cinq piliers : attester qu’il n’y a de dieu digne d’adoration qu’Allah et que Muhammad est le Messager d’Allah, accomplir la prière, s’acquitter de la zakat, accomplir le Hajj et jeûner le mois de Ramadan. » Al-Boukhari 8, Mouslim 16.
+
+Il a également dit : « (L’essence de) l’Islam consiste à attester qu’il n’y a de dieu digne d’adoration qu’Allah et que Muhammad est le Messager d’Allah, à accomplir la prière, à donner la zakat, à jeûner pendant le Ramadan et à accomplir le Hajj à la Maison si tu en es capable. » Mouslim 8.
+
+Il est également rapporté qu’Abu Hurayra, qu’Allah soit satisfait de lui, a dit : « Un jour, le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, nous fit un sermon et dit : “Ô gens, le Hajj vous a été rendu obligatoire, accomplissez-le donc.” Un homme demanda : “Chaque année, ô Messager d’Allah ?” Le Prophète, qu’Allah le bénisse et lui accorde la paix, resta silencieux jusqu’à ce que l’homme répète sa question trois fois. Alors le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, dit : “Si je disais ‘oui’, cela deviendrait obligatoire pour vous, mais vous ne seriez pas en mesure de l’accomplir.” » Mouslim 1337.
+
+Les musulmans sont unanimes sur le fait que le Hajj est obligatoire pour toute personne réunissant les conditions nécessaires à son accomplissement.";
+
+"hajj_umrah_obligation_evidence_umrah_obligation" = "Quant à l’obligation de la ‘Umrah, elle est établie par les hadiths suivants :
+
+1 — Il est rapporté qu’‘Aïcha, qu’Allah soit satisfait d’elle, demanda un jour : « Ô Messager d’Allah, les femmes doivent-elles accomplir le djihad ? » Le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, répondit : « Oui, elles doivent accomplir un djihad sans combat, qui est le Hajj et la ‘Umrah. » Ahmad 6/165 ; Ibn Madjah 2901.  
+En commentant ce hadith, Ibn Khuzayma, qu’Allah lui fasse miséricorde, a dit : « Les paroles du Prophète, qu’Allah le bénisse et lui accorde la paix : “...elles doivent accomplir un djihad sans combat, qui est le Hajj et la ‘Umrah” montrent clairement que la ‘Umrah est aussi obligatoire que le Hajj. » Voir « Sahih Ibn Khuzayma », hadith n° 3074.
+
+2 — Il est rapporté d’après ‘Oumar, qu’Allah soit satisfait de lui, que le Messager d’Allah, qu’Allah le bénisse et lui accorde la paix, a dit : « L’essence de l’Islam consiste à attester qu’il n’y a de dieu digne d’adoration qu’Allah, que Muhammad est le Messager d’Allah, à accomplir la prière, à donner la zakat, à accomplir le Hajj et la ‘Umrah, à effectuer la grande purification après une impureté majeure, à accomplir les ablutions mineures correctement et à jeûner pendant le mois de Ramadan. » Voir « Sahih Ibn Khuzayma », hadith n° 3065. Ce hadith est également rapporté par Ad-Daraqutni, 2/282.
+
+3 — Il est rapporté d’après Abu Razin Al-‘Uqayli qu’il vint un jour voir le Prophète, qu’Allah le bénisse et lui accorde la paix, et lui dit : « Ô Messager d’Allah, mon père est très âgé et ne peut accomplir ni le Hajj ni la ‘Umrah, et ne peut même pas tenir sur une selle. » Le Prophète, qu’Allah le bénisse et lui accorde la paix, répondit : « Accomplis le Hajj et la ‘Umrah à la place de ton père. » At-Tirmidhi 930.
+
+4 — Il est rapporté d’après As-Subay‘ ibn Ma‘bad qu’il dit un jour à ‘Oumar ibn Al-Khattab, qu’Allah soit satisfait de lui : « Ô Commandeur des croyants, j’étais bédouin et je pratiquais le christianisme, puis j’ai embrassé l’Islam. Je veux accomplir le djihad, mais j’ai découvert que le Hajj et la ‘Umrah me sont prescrits. J’ai interrogé une personne de mon peuple à ce sujet, et elle m’a dit : ‘Accomplis le Hajj et la ‘Umrah ensemble et offre un sacrifice selon ce qui t’est possible.’ Et je les ai accomplis ensemble. » Alors ‘Oumar lui répondit : « Tu as été guidé vers la Sunnah de ton Prophète, qu’Allah le bénisse et lui accorde la paix. » Abu Dawoud 1799.";
+
+"hajj_umrah_obligation_concluding_evidence" = "Le Hajj et la ‘Umrah sont obligatoires pour ceux qui remplissent les conditions nécessaires à leur accomplissement. Les musulmans sont unanimes sur l’obligation du Hajj lorsque toutes les conditions sont réunies. Il est important de noter que le Hajj et la ‘Umrah, accomplis après un vœu ou commencés, doivent être achevés.";

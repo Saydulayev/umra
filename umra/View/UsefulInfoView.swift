@@ -88,9 +88,9 @@ struct UsefulInfoView: View {
                                     .font(.body)
                                     .padding()
                                     .multilineTextAlignment(.center)
-                                    .frame(width: 250, height: 150)
+                                    .frame(width: 350, height: 150)
                             }
-                            .frame(width: 250, height: 200)
+                            .frame(width: 350, height: 200)
                             .presentationCompactAdaptation(.popover)
                         }
                     }
