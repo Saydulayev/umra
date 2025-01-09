@@ -5,9 +5,10 @@
 //  Created by Akhmed on 29.04.24.
 //
 
-import Adhan
 import SwiftUI
 import UserNotifications
+import BackgroundTasks
+import Adhan
 
 struct PrayerTimeView: View {
     @State private var prayerTimes: [String: String] = [:]
@@ -78,6 +79,7 @@ struct PrayerTimeView: View {
             .onAppear {
                 setupPrayerTimes()
                 requestNotificationPermission()
+                registerBackgroundTask()
             }
             .onReceive(timer) { _ in
                 updatePrayerTimes()
@@ -177,18 +179,17 @@ struct PrayerTimeView: View {
         for (prayerName, prayerTime) in prayers {
             if enablePrayerTimeNotifications {
                 let content = UNMutableNotificationContent()
-                content.title = "\(prayerName)"
+                content.title = prayerName
                 content.body = "Time for \(prayerName)"
                 content.sound = UNNotificationSound.default
 
-                var triggerDate = Calendar.current.dateComponents([.hour, .minute, .second], from: prayerTime)
-                triggerDate.weekday = Calendar.current.component(.weekday, from: prayerTime)
+                let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: prayerTime)
                 let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
 
                 let request = UNNotificationRequest(identifier: "\(prayerName)_time", content: content, trigger: trigger)
                 UNUserNotificationCenter.current().add(request) { error in
                     if let error = error {
-                        print("Ошибка при создании уведомления для молитвы \(prayerName): \(error.localizedDescription)")
+                        print("Error creating notification for \(prayerName): \(error.localizedDescription)")
                     }
                 }
             }
@@ -200,21 +201,41 @@ struct PrayerTimeView: View {
                 content30MinBefore.sound = UNNotificationSound.default
 
                 let prayerTime30MinBefore = prayerTime.addingTimeInterval(-30 * 60)
-                var triggerDate30MinBefore = Calendar.current.dateComponents([.hour, .minute, .second], from: prayerTime30MinBefore)
-                triggerDate30MinBefore.weekday = Calendar.current.component(.weekday, from: prayerTime30MinBefore)
+                let triggerDate30MinBefore = Calendar.current.dateComponents([.hour, .minute], from: prayerTime30MinBefore)
                 let trigger30MinBefore = UNCalendarNotificationTrigger(dateMatching: triggerDate30MinBefore, repeats: true)
 
                 let request30MinBefore = UNNotificationRequest(identifier: "\(prayerName)_30min", content: content30MinBefore, trigger: trigger30MinBefore)
                 UNUserNotificationCenter.current().add(request30MinBefore) { error in
                     if let error = error {
-                        print("Ошибка при создании уведомления за 30 минут до молитвы \(prayerName): \(error.localizedDescription)")
+                        print("Error creating notification 30 minutes before \(prayerName): \(error.localizedDescription)")
                     }
                 }
             }
         }
     }
-}
 
+    func registerBackgroundTask() {
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.yourapp.updatePrayerTimes", using: nil) { task in
+            self.handleAppRefresh(task: task as! BGAppRefreshTask)
+        }
+    }
+
+    func scheduleBackgroundRefresh() {
+        let request = BGAppRefreshTaskRequest(identifier: "com.yourapp.updatePrayerTimes")
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 3600)
+        do {
+            try BGTaskScheduler.shared.submit(request)
+        } catch {
+            print("Failed to schedule background task: \(error)")
+        }
+    }
+
+    func handleAppRefresh(task: BGAppRefreshTask) {
+        scheduleBackgroundRefresh()
+        updatePrayerTimes()
+        task.setTaskCompleted(success: true)
+    }
+}
 struct PrayerTimeModalView: View {
     @Binding var isPresented: Bool
     
