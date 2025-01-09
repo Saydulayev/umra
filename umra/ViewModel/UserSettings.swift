@@ -7,6 +7,15 @@
 
 import Foundation
 
+// MARK: - Extensions for Localization
+extension String {
+    func localized(bundle: Bundle?) -> String {
+        guard let bundle = bundle else { return self }
+        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: self, comment: "")
+    }
+}
+
+// MARK: - UserSettings
 class UserSettings: ObservableObject {
     @Published var lang: String {
         didSet {
@@ -19,15 +28,15 @@ class UserSettings: ObservableObject {
             UserDefaults.standard.set(hasSelectedLanguage, forKey: "hasSelectedLanguage")
         }
     }
-
+    
     var bundle: Bundle?
-
+    
     init() {
         lang = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "ru"
         hasSelectedLanguage = UserDefaults.standard.bool(forKey: "hasSelectedLanguage")
         loadBundle()
     }
-
+    
     private func loadBundle() {
         guard let path = Bundle.main.path(forResource: lang, ofType: "lproj"),
               let resultBundle = Bundle(path: path) else {
@@ -37,3 +46,5 @@ class UserSettings: ObservableObject {
         bundle = resultBundle
     }
 }
+
+

@@ -245,3 +245,82 @@ Abschließend bitte ich den Allmächtigen Allah, unsere guten Taten anzunehmen u
 "30-Minute Notifications" = "Benachrichtigungen 30 Minuten";
 "Prayer Time Notifications" = "Benachrichtigungen zur Gebetszeit";
 "Close" = "Schließen";
+
+
+
+/* Seitentitel */
+"useful_info_title" = "Nützliche Informationen";
+
+/* Kapitel und Unterkapitel */
+"etiquette_manners" = "Etikette und Manieren";
+"sincerity" = "Aufrichtigkeit";
+"laws" = "Rechtsvorschriften";
+"choice_of_companions" = "Wahl der Gefährten";
+"financial_independence" = "Finanzielle Unabhängigkeit";
+"noble_manners" = "Edle Manieren";
+"zikr_and_prayers" = "Gedenken und Gebete";
+"caution_in_relationships" = "Vorsicht in Beziehungen";
+
+"hajj_umrah_virtues" = "Die Vorzüge von Hajj und Umrah";
+"atonement_and_rewards" = "Sündenvergebung und Belohnung";
+"hajj_for_women" = "Hajj für Frauen";
+"perfect_hajj" = "Perfekter Hajj";
+"following_the_sunnah" = "Das Befolgen der Sunnah";
+
+"hajj_umrah_obligation" = "Die Verpflichtung von Hajj und Umrah";
+"hajj_obligation_evidence" = "Beweise für die Verpflichtung des Hajj";
+"umrah_obligation_evidence" = "Beweise für die Verpflichtung der Umrah";
+"conclusion" = "Schlussfolgerung";
+
+
+
+/* Texts for Etiquette Manners */
+"etiquette_manners_text1" = "Das Wichtigste für jemanden, der Hajj und ‘Umrah verrichtet, ist die Aufrichtigkeit gegenüber Allah. Er muss sich von Heuchelei und dem Verlangen nach Ruhm befreien, um die Belohnung für diesen Hajj und diese ‘Umrah zu erhalten.
+
+Es wird von Abu Huraira, möge Allah mit ihm zufrieden sein, überliefert, dass der Gesandte Allahs, Allahs Segen und Frieden seien auf ihm, sagte: «Allah, der Erhabene, sprach: „Ich bin völlig unabhängig davon, dass Mir Teilhaber zur Seite gestellt werden. Wer etwas tut, nicht nur für Mich, sondern auch für jemand anderen, den werde Ich verlassen, ebenso wie sein Beigesellen!“» Muslim, 2985.
+
+Es wird auch berichtet, dass der Gesandte Allahs, Allahs Segen und Frieden seien auf ihm, sagte: «O Allah, mache diesen Hajj frei von Heuchelei und dem Verlangen nach Ruhm!» Ibn Madschah, 2890.";
+"etiquette_manners_text2" = "Eine Person, die Hajj und ‘Umrah verrichten möchte, sollte sich bemühen, die Vorschriften im Zusammenhang mit Hajj und ‘Umrah zu lernen, um sie auf der Grundlage von Wissen zu vollziehen.";
+"etiquette_manners_text3" = "Eine Person, die Hajj und ‘Umrah verrichtet, sollte versuchen, die besten Gefährten für die Reise zum Hajj auszuwählen, um von ihnen sowohl im Wissen als auch im Verhalten zu profitieren.
+
+Es wird von Abu Musa al-Asch‘ari, möge Allah mit ihm zufrieden sein, überliefert, dass der Gesandte Allahs, Allahs Segen und Frieden seien auf ihm, sagte: «Das Beispiel eines rechtschaffenen Gefährten und eines schlechten ist wie das eines Verkäufers von Moschus und eines Schmiedes, der den Blasebalg betätigt. Was den Moschusverkäufer betrifft, so wird er dir entweder ein Geschenk machen, du wirst etwas von ihm kaufen oder du wirst seinen angenehmen Duft genießen. Was jedoch den Schmied betrifft, so wird er entweder deine Kleidung verbrennen oder du wirst seinen üblen Geruch wahrnehmen.» Al-Bukhari 5534, Muslim 2628.";
+"etiquette_manners_text4" = "Eine Person, die Hajj und ‘Umrah verrichtet, sollte über eine ausreichende Menge Geld verfügen, damit sie nicht auf das Geld anderer Menschen angewiesen ist.
+
+Es wird von Abu Sa‘id al-Khudri, möge Allah mit ihm zufrieden sein, überliefert, dass der Prophet, Allahs Segen und Frieden seien auf ihm, sagte: «Wer danach strebt, Enthaltsamkeit zu bewahren, den wird Allah zur Enthaltsamkeit führen, und wer danach strebt, unabhängig zu sein, den wird Allah unabhängig machen.» Al-Bukhari 1469, Muslim 1053.";
+"etiquette_manners_text5" = "Eine Person, die Hajj und ‘Umrah verrichtet, sollte sich mit edlen Charaktereigenschaften schmücken und andere Menschen auf die bestmögliche Weise behandeln.
+
+Es wird von Abu Dharr, möge Allah mit ihm zufrieden sein, überliefert, dass der Prophet, Allahs Segen und Frieden seien auf ihm, sagte: «Fürchte Allah, wo immer du auch bist! Folge einer schlechten Tat mit einer guten, die sie auslöscht, und halte dich im Umgang mit den Menschen an die besten Charaktereigenschaften.» At-Tirmidhi 1987.
+
+Es wird auch von ‘Abdullah ibn ‘Amr ibn al-‘As, möge Allah mit ihm und seinem Vater zufrieden sein, überliefert, dass der Prophet, Allahs Segen und Frieden seien auf ihm, sagte: «Wer möchte, dass er vom Feuer entfernt und ins Paradies eingelassen wird, der soll an Allah und den Jüngsten Tag glauben, wenn der Tod zu ihm kommt, und er soll die Menschen so behandeln, wie er möchte, dass sie ihn behandeln.» Muslim 1844.";
+"etiquette_manners_text6" = "Eine Person, die Hajj und ‘Umrah verrichtet, sollte sich mit dem Gedenken Allahs (Dhikr), Bittgebeten zu Ihm (Du‘a) und dem Erbitten von Vergebung (Istighfar) beschäftigen. Sie sollte ihre Zunge vor allem schützen, außer vor guten Worten. Sie sollte ihre gesamte Zeit mit Dingen füllen, die ihr sowohl im diesseitigen Leben als auch im Jenseits Nutzen bringen.
+
+Es wird von Abu Hurayrah, möge Allah mit ihm zufrieden sein, überliefert, dass der Gesandte Allahs, Allahs Segen und Frieden seien auf ihm, sagte: «Wer an Allah und den Jüngsten Tag glaubt, der soll Gutes sprechen oder schweigen.» Al-Bukhari 6018, Muslim 47.
+
+Es wird auch von Ibn ‘Abbas, möge Allah mit ihm und seinem Vater zufrieden sein, überliefert, dass der Gesandte Allahs, Allahs Segen und Frieden seien auf ihm, sagte: «Zwei Gnaden, deren Wert viele Menschen nicht schätzen: Gesundheit und freie Zeit.» Al-Bukhari 6412.";
+"etiquette_manners_text7" = "Eine Person, die Hajj und ‘Umrah verrichtet, sollte sich davor hüten, andere Menschen durch Worte oder Taten zu verletzen.
+
+Der Prophet, Allahs Segen und Frieden seien auf ihm, sagte: «Ein Muslim ist derjenige, vor dessen Zunge und Händen andere Muslime sicher sind.» Al-Bukhari 10, Muslim 41.
+
+Ein Muslim sollte auch darauf achten, andere Muslime nicht durch den unangenehmen Geruch von Zigarettenrauch zu belästigen, falls er selbst raucht. Tatsächlich ist er ohnehin verpflichtet, das Rauchen aufzugeben und bei Allah um Vergebung zu bitten. Rauchen schadet der Gesundheit und verschwendet sein Vermögen.
+
+Ein Muslim sollte sich bemühen, die oben genannten edlen Charaktereigenschaften immer und überall zu bewahren, insbesondere während seiner Reise zum Hajj oder zur ‘Umrah.";
+
+
+
+/* Texts for Hajj and Umrah Virtues */
+"hajj_umrah_virtues_text1" = "О достоинстве хаджа и ’умры пришли достоверные хадисы от посланника Аллаха, да благословит его Аллах и приветствует. Приведем некоторые из них:\n\nСообщается со слов Абу Хурейры, да будет доволен им Аллах, что посланник Аллаха, да благословит его Аллах и приветствует, сказал: «Совершение ‘умры до следующей умры служит искуплением совершенных между ними грехов, что же касается безупречного хаджа, то нет за него иного воздаяния, кроме Рая». аль-Бухари, 1773; Муслим, 1349.\n\nСообщается со слов ибн Мас’уда, да будет доволен им Аллах, что посланник Аллаха, да благословит его Аллах и приветствует, сказал: «Совершайте хадж и ’умру регулярно, ибо они удаляют бедность и грехи подобно тому, как кузнечные меха удаляют шлаки с железа, золота и серебра. А за безупречный хадж нет иной награды, кроме Рая». ат-Тирмизи, 810; ан-Насаи, 2631.\n\nСообщается со слов ибн ’Аббаса, да будет доволен им Аллах и его отцом, что посланник Аллаха, да благословит его Аллах и приветствует, сказал: «Совершайте хадж и ’умру регулярно, ибо они удаляют бедность и грехи подобно тому, как кузнечные меха удаляют шлаки с железа». ан-Насаи, 2630.";
+
+"hajj_umrah_virtues_text2" = "Сообщается со слов матери правоверных ‘Аиши, да будет доволен ею Аллах, что однажды она сказала: «О посланник Аллаха, мы считаем наилучшим делом джихад, так не принять ли нам в нём участие?» Пророк, да благословит его Аллах и приветствует, ответил: «Нет! Наилучшим джихадом для вас (женщин) является безупречный хадж». аль-Бухари, 1520.\n\nТакже в другой версии сообщается, что ‘Аиша, да будет доволен ею Аллах, сказала: «О посланник Аллаха, должны ли женщины совершать джихад?» Пророк, да благословит его Аллах и приветствует, ответил: «Они должны совершать джихад, в котором нет сражения, а это хадж и ’умра». ибн Маджах, 2901.";
+
+"hajj_umrah_virtues_text3" = "Сообщается со слов Абу Хурейры, да будет доволен им Аллах, что пророк, да благословит его Аллах и приветствует, сказал: «Тот, кто совершит хадж ради Аллаха, не приблизившись к своей жене и не совершив ничего греховного и недостойного, вернётся домой таким же, каким был он в тот день, когда родила его мать». аль-Бухари, 1521; Муслим, 1350.\n\nСообщается также, что пророк, да благословит его Аллах и приветствует, сказал ’Амру ибн аль-’Асу, да будет доволен им Аллах: «Разве тебе не известно, что ислам уничтожает всё, что было прежде, и хиджра уничтожает всё, что было прежде, и хадж уничтожает всё, что было прежде?» Муслим, 121.\n\nБезупречный хадж, (о котором сказано в вышеперечисленных хадисах), это такой хадж, который соответствует сунне посланника Аллаха, да благословит его Аллах и приветствует.";
+
+"hajj_umrah_virtues_text4" = "Сообщается со слов Джабира, да будет доволен им Аллах, что пророк, да благословит его Аллах и приветствует, сказал: «Перенимайте от меня ваши религиозные обряды, ибо я не знаю — может быть, после этого моего хаджа я уже никогда не совершу паломничества». Муслим, 1297.\n\nВ другой версии этого хадиса сообщается, что пророк, да благословит его Аллах и приветствует, сказал: «О люди, перенимайте от меня ваши религиозные обряды, ибо я не знаю — может быть, я не совершу больше хаджа после этого года». ан-Насаи, 3062.";
+
+
+
+/* Texts for Hajj and Umrah Obligation */
+"hajj_umrah_obligation_obligation_evidence" = "Совершение хаджа и ’умры обязательно один раз в течении жизни, а кто совершит их больше одного раза, то это уже будет считаться добровольным поклонением.\n\nТакже хадж и ’умра могут стать обязательными после совершения обета (назра). Если человек дал обет перед Аллахом совершить хадж или ’умру, то обязательно нужно выполнить свой обет.\n\nЕсли человек уже начал совершать добровольный хадж или ’умру, то он обязан довести их до конца, ибо Аллах сказал: «Завершайте хадж и малое паломничество ради Аллаха». (Сура аль-Бакара, аят 196)\n\nСовершение хаджа обязательно из-за доводов из Корана и Сунны, а также по единогласному мнению мусульман (иджма’).\nАллах Всевышний сказал: «Люди обязаны перед Аллахом совершить хадж к Дому (Каабе), если они способны проделать этот путь. Если же кто не уверует, то ведь Аллах не нуждается в мирах». (Сура али ’Имран, аят 97)\n\nПророк, да благословит его Аллах и приветствует, сказал: “Ислам основывается на пяти (столпах): свидетельстве о том, что нет божества, достойного поклонения, кроме Аллаха, и что Мухаммад — посланник Аллаха, совершении намаза, выплате закята, совершении хаджа и соблюдении поста в Рамадане”. аль-Бухари, 8; Муслим, 16.\nА также: «(Суть) ислама заключается в том, чтобы ты засвидетельствовал, что нет божества, достойного поклонения, кроме Аллаха, и что Мухаммад - посланник Аллаха, совершал намаз, давал закят, соблюдал пост во время Рамадана и совершил хадж к Дому, если сумеешь сделать это». Муслим, 8.\n\nТакже сообщается, что Абу Хурейра, да будет доволен им Аллах, сказал: «Однажды посланник Аллаха, да благословит его Аллах и приветствует, обратился к нам с проповедью и сказал: ″О люди, хадж был вменён вам в обязанность, так совершайте же его″. Один человек спросил: ″Каждый год, о посланник Аллаха?″ — однако пророк, да благословит его Аллах и приветствует, хранил молчание до тех пор, пока тот не задал свой вопрос трижды. Тогда посланник Аллаха, да благословит его Аллах и приветствует, сказал: ″Если я скажу: «Да» это непременно станет вашей обязанностью, но вы ведь не сможете выполнять её″». Муслим, 1337.\n\nИ мусульмане единогласны, что хадж обязателен для того, в ком объединились все условия обязательности хаджа.";
+
+"hajj_umrah_obligation_evidence_umrah_obligation" = "Что же касается ’умры, то на её обязательность указывают следующие хадисы:\n\n1 — Сообщается, что ’Айша, да будет доволен ею Аллах, однажды, спросила: «О посланник Аллаха, должны ли женщины совершать джихад?» Посланник Аллаха, да благословит его Аллах и приветствует, ответил: «Да, они обязаны совершать джихад, в котором нет сражения, а это – хадж и ’умра». Ахмад, 6/165; ибн Маджах, 2901.\nПриведя этот хадис, ибн Хузейма, да смилуется над ним Аллах, сказал: «В словах пророка, да благословит его Аллах и приветствует: «…они обязаны совершать джихад, в котором нет сражения, а это – хадж и ’умра», разъяснение того, что ’умра так же обязательна, как и хадж». См. «Сахих ибн Хузеймы», хадис № 3074.\n\n2 — Сообщается со слов ’Умара, да будет доволен им Аллах, что посланник Аллаха, да благословит его Аллах и приветствует, сказал: «Суть Ислама заключается в том, чтобы ты засвидетельствовал, что нет божества, достойного поклонения, кроме Аллаха, и что Мухаммад - посланник Аллаха, а также совершал намаз, давал закят, совершал хадж и ’умру, совершал полное омовение после полового осквернения, а также совершал малое омовение должным образом и постился в месяц Рамадан». См. «Сахих ибн Хузеймы», хадис № 3065. А также этот хадис у ад-Даракъутни, 2/282.\n\n3 — Сообщается со слов Абу Разина аль-’Укъайли, что, однажды, он пришел к пророку, да благословит его Аллах и приветствует, и сказал: «О посланник Аллаха, поистине, мой отец очень стар и не может совершить ни хадж, ни ’умру, и даже не может сидеть в седле». Пророк, да благословит его Аллах и приветствует, ответил: «Соверши хадж и ’умру за своего отца». ат-Тирмизи, 930.\n\n4 — Сообщается со слов ас-Субейи ибн Ма’бада, что, однажды, он сказал ’Умару ибн аль-Хаттабу, да будет доволен им Аллах: «О повелитель правоверных, поистине, я был бедуином и исповедовал христианство, а затем принял Ислам. Я стремлюсь попасть на джихад, но нашел то, что хадж и ’умра являются предписанными мне. Я спросил об этом у одного человека из моего народа, и он сказал мне: ″Соверши хадж и ’умру вместе и принеси в жертву животное из того, что тебе будет облегчено″, и я совершил их вместе». Тогда ’Умар сказал: «Ты был наставлен на сунну твоего пророка, да благословит его Аллах и приветствует». Абу Дауд, 1799.";
+
+"hajj_umrah_obligation_concluding_evidence" = "Хадж и ’умра обязательны для того, кто имеет условия для их совершения. Мусульмане единогласны в обязательности хаджа, когда выполняются все условия. Важно отметить, что хадж и умра, которые совершаются после обета или начаты, должны быть завершены.";

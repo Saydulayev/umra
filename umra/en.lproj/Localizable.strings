@@ -231,3 +231,117 @@ In conclusion, I ask the Most High Allah to accept our good deeds and to preserv
 "30-Minute Notifications" = "30-Minute Notifications";
 "Prayer Time Notifications" = "Prayer Time Notifications";
 "Close" = "Close";
+
+
+/* Page Title */
+"useful_info_title" = "Useful Information";
+
+/* Chapters and Subchapters */
+"etiquette_manners" = "Etiquette and Manners";
+"sincerity" = "Sincerity";
+"laws" = "Legislations";
+"choice_of_companions" = "Choosing Companions";
+"financial_independence" = "Financial Independence";
+"noble_manners" = "Noble Manners";
+"zikr_and_prayers" = "Remembrance and Supplications";
+"caution_in_relationships" = "Caution in Relationships";
+
+"hajj_umrah_virtues" = "Virtues of Hajj and Umrah";
+"atonement_and_rewards" = "Expiation of Sins and Reward";
+"hajj_for_women" = "Hajj for Women";
+"perfect_hajj" = "Perfect Hajj";
+"following_the_sunnah" = "Following the Sunnah";
+
+"hajj_umrah_obligation" = "Obligation of Hajj and Umrah";
+"hajj_obligation_evidence" = "Evidence of Hajj Obligation";
+"umrah_obligation_evidence" = "Evidence of Umrah Obligation";
+"conclusion" = "Conclusion";
+
+
+
+/* Texts for Etiquette Manners */
+"etiquette_manners_text1" = "The most important duty for a person performing Hajj and ‘Umrah is sincerity before Allah. One must rid themselves of ostentation and the desire for fame in order to receive the reward for this Hajj and ‘Umrah.
+
+It is reported from Abu Hurayrah, may Allah be pleased with him, that the Messenger of Allah, peace and blessings be upon him, said: 'Allah, the Most High, said: «I am entirely independent of needing any partner. Whoever performs any deed for My sake but also for someone else, I will leave him and his act of associating partners with Me!»' Muslim, 2985.
+
+It is also reported that the Messenger of Allah, peace and blessings be upon him, said: 'O Allah, make this Hajj one free of ostentation and the desire for fame!' Ibn Majah, 2890.";
+"etiquette_manners_text2" = "A person intending to perform Hajj and ‘Umrah must strive to learn the rulings related to Hajj and ‘Umrah so that they perform them based on knowledge.";
+"etiquette_manners_text3" = "A person performing Hajj and ‘Umrah should strive to choose the best companions for their journey during Hajj, so they may benefit from them in both knowledge and character.
+
+It is reported from Abu Musa al-Ash‘ari, may Allah be pleased with him, that the Messenger of Allah, peace and blessings be upon him, said: «The example of a righteous companion and a bad one is like that of a seller of musk and a blacksmith’s bellows. As for the seller of musk, he will either gift it to you, or you will buy something from him, or you will enjoy a pleasant fragrance from him. As for the blacksmith’s bellows, it will either burn your clothes, or you will experience an unpleasant odor from it.» Al-Bukhari 5534, Muslim 2628.";
+"etiquette_manners_text4" = "A person performing Hajj and ‘Umrah should have sufficient funds with them so that they do not depend on others for financial assistance.
+
+It is reported from Abu Sa‘id al-Khudri, may Allah be pleased with him, that the Prophet, peace and blessings be upon him, said: «Whoever strives for self-restraint, Allah will grant them self-restraint, and whoever seeks self-sufficiency, Allah will make them self-sufficient.» Al-Bukhari 1469, Muslim 1053.";
+"etiquette_manners_text5" = "A person performing Hajj and ‘Umrah should adorn themselves with noble character and treat others in the best possible manner.
+
+It is reported from Abu Dharr, may Allah be pleased with him, that the Prophet, peace and blessings be upon him, said: «Fear Allah wherever you may be! Follow a bad deed with a good one that will erase it, and behave towards people with the best of manners.» At-Tirmidhi 1987.
+
+It is also reported from ‘Abdullah ibn ‘Amr ibn al-‘As, may Allah be pleased with him and his father, that the Prophet, peace and blessings be upon him, said: «Let whoever desires to be removed from the Fire and admitted to Paradise have faith in Allah and the Last Day when death comes to them, and let them treat people the way they wish to be treated.» Muslim 1844.";
+"etiquette_manners_text6" = "A person performing Hajj and ‘Umrah should engage in the remembrance of Allah (dhikr), supplications to Him (du‘a), and seeking His forgiveness (istighfar). They should guard their tongue from anything except good speech. They should dedicate all their time to what will bring them benefit in this world and in the Hereafter.
+
+It is reported from Abu Hurayrah, may Allah be pleased with him, that the Messenger of Allah, peace and blessings be upon him, said: «Let whoever believes in Allah and the Last Day speak good or remain silent.» Al-Bukhari 6018, Muslim 47.
+
+It is also reported from Ibn ‘Abbas, may Allah be pleased with him and his father, that the Messenger of Allah, peace and blessings be upon him, said: «Two blessings that many people fail to make use of: good health and free time.» Al-Bukhari 6412.";
+"etiquette_manners_text7" = "A person performing Hajj and ‘Umrah must avoid harming others through their words or actions.
+
+The Prophet, peace and blessings be upon him, said: «A Muslim is the one from whose tongue and hands other Muslims are safe.» Al-Bukhari 10, Muslim 41.
+
+A Muslim should also be cautious not to harm others with the foul smell of cigarette smoke if they themselves smoke. Indeed, they are already obliged to quit smoking and repent to Allah. Smoking harms one’s health and wastes their wealth.
+
+A Muslim should strive to adhere to these noble moral qualities at all times and places, especially during their journey for Hajj or ‘Umrah.";
+
+
+/* Texts for Hajj and Umrah Virtues */
+"hajj_umrah_virtues_text1" = "Authentic hadiths from the Messenger of Allah, peace and blessings be upon him, highlight the virtues of Hajj and ‘Umrah. Here are some of them:
+
+It is reported from Abu Hurayrah, may Allah be pleased with him, that the Messenger of Allah, peace and blessings be upon him, said: «Performing one ‘Umrah to the next serves as expiation for the sins committed between them, and the reward for an accepted Hajj is nothing but Paradise.» Al-Bukhari 1773, Muslim 1349.
+
+It is reported from Ibn Mas‘ud, may Allah be pleased with him, that the Messenger of Allah, peace and blessings be upon him, said: «Perform Hajj and ‘Umrah regularly, for they remove poverty and sins just as bellows remove impurities from iron, gold, and silver. And the reward for an accepted Hajj is nothing but Paradise.» At-Tirmidhi 810, An-Nasa’i 2631.
+
+It is reported from Ibn ‘Abbas, may Allah be pleased with him and his father, that the Messenger of Allah, peace and blessings be upon him, said: «Perform Hajj and ‘Umrah regularly, for they remove poverty and sins just as bellows remove impurities from iron.» An-Nasa’i 2630.";
+
+"hajj_umrah_virtues_text2" = "It is reported from the Mother of the Believers, ‘Aishah, may Allah be pleased with her, that she once said: «O Messenger of Allah, we consider jihad to be the best deed. Should we not participate in it?» The Prophet, peace and blessings be upon him, replied: «No! The best jihad for you (women) is an accepted Hajj.» Al-Bukhari 1520.
+
+In another narration, it is reported that ‘Aishah, may Allah be pleased with her, said: «O Messenger of Allah, are women required to perform jihad?» The Prophet, peace and blessings be upon him, replied: «Yes, they must perform a jihad in which there is no fighting, and that is Hajj and ‘Umrah.» Ibn Majah 2901.";
+
+"hajj_umrah_virtues_text3" = "It is reported from Abu Hurayrah, may Allah be pleased with him, that the Prophet, peace and blessings be upon him, said: «Whoever performs Hajj for the sake of Allah, refraining from intimacy with their spouse and avoiding sin and improper conduct, will return home as pure as the day their mother gave birth to them.» Al-Bukhari 1521, Muslim 1350.
+
+It is also reported that the Prophet, peace and blessings be upon him, said to ‘Amr ibn al-‘As, may Allah be pleased with him: «Do you not know that Islam erases all that came before it, migration erases all that came before it, and Hajj erases all that came before it?» Muslim 121.
+
+An accepted Hajj (as mentioned in the hadiths above) is one that aligns with the Sunnah of the Messenger of Allah, peace and blessings be upon him.";
+
+"hajj_umrah_virtues_text4" = "It is reported from Jabir, may Allah be pleased with him, that the Prophet, peace and blessings be upon him, said: «Learn your religious rituals from me, for I do not know—perhaps this Hajj of mine will be the last pilgrimage I perform.» Muslim 1297.
+
+In another version of this hadith, it is reported that the Prophet, peace and blessings be upon him, said: «O people, learn your religious rituals from me, for I do not know—perhaps I will not perform Hajj after this year.» An-Nasa’i 3062.";
+
+
+/* Texts for Hajj and Umrah Obligation */
+"hajj_umrah_obligation_obligation_evidence" = "Performing Hajj and ‘Umrah is obligatory once in a lifetime, and whoever performs them more than once, it is considered voluntary worship.
+
+Hajj and ‘Umrah also become obligatory if one makes a vow (nazr). If a person vows to Allah to perform Hajj or ‘Umrah, they must fulfill their vow.
+
+If a person begins performing a voluntary Hajj or ‘Umrah, they are required to complete it, as Allah said: «Complete the Hajj and ‘Umrah for Allah.» (Surah Al-Baqarah, Ayah 196)
+
+The obligation of performing Hajj is established by evidence from the Qur’an, the Sunnah, and the consensus (ijma‘) of Muslims.  
+Allah the Exalted said: «Pilgrimage to the House (Ka‘bah) is a duty owed to Allah by people who are able to undertake it. And if anyone refuses to obey, then indeed Allah has no need of the worlds.» (Surah Aal ‘Imran, Ayah 97)
+
+The Prophet, peace and blessings be upon him, said: «Islam is built upon five (pillars): the testimony that there is no deity worthy of worship except Allah and that Muhammad is the Messenger of Allah, establishing prayer, paying zakat, performing Hajj, and fasting during Ramadan.» Al-Bukhari 8, Muslim 16.
+
+He also said: «Islam is to bear witness that there is no deity worthy of worship except Allah and that Muhammad is the Messenger of Allah, to establish prayer, to give zakat, to fast during Ramadan, and to perform Hajj to the House if you are able to do so.» Muslim 8.
+
+It is also reported that Abu Hurayrah, may Allah be pleased with him, said: «The Messenger of Allah, peace and blessings be upon him, once addressed us and said: «O people, Hajj has been made obligatory upon you, so perform it.» A man asked, «Every year, O Messenger of Allah?» The Prophet, peace and blessings be upon him, remained silent until the man repeated the question three times. Then the Messenger of Allah, peace and blessings be upon him, said: «If I were to say ‘Yes,’ it would become obligatory upon you, but you would not be able to do it.» Muslim 1337.
+
+The Muslim community unanimously agrees that Hajj is obligatory for anyone who meets all the conditions for its obligation.";
+
+"hajj_umrah_obligation_evidence_umrah_obligation" = "As for ‘Umrah, its obligation is indicated by the following hadiths:
+
+1 — It is reported that ‘Aishah, may Allah be pleased with her, once asked: «O Messenger of Allah, are women required to perform jihad?» The Messenger of Allah, peace and blessings be upon him, replied: «Yes, they are required to perform a jihad in which there is no fighting, and that is Hajj and ‘Umrah.» Ahmad 6/165; Ibn Majah 2901.  
+Commenting on this hadith, Ibn Khuzaymah, may Allah have mercy on him, said: «The Prophet's words, peace and blessings be upon him: “...they are required to perform a jihad in which there is no fighting, and that is Hajj and ‘Umrah” clarify that ‘Umrah is as obligatory as Hajj.» See «Sahih Ibn Khuzaymah,» Hadith No. 3074.
+
+2 — It is reported from ‘Umar, may Allah be pleased with him, that the Messenger of Allah, peace and blessings be upon him, said: «The essence of Islam is to bear witness that there is no deity worthy of worship except Allah, and that Muhammad is the Messenger of Allah, to establish prayer, to give zakat, to perform Hajj and ‘Umrah, to perform the major purification after sexual impurity, to perform minor ablution properly, and to fast during Ramadan.» See «Sahih Ibn Khuzaymah,» Hadith No. 3065. This hadith is also found in Ad-Daraqutni 2/282.
+
+3 — It is reported from Abu Razin Al-‘Uqayli that he once came to the Prophet, peace and blessings be upon him, and said: «O Messenger of Allah, my father is very old and cannot perform Hajj or ‘Umrah, nor can he sit firmly in a saddle.» The Prophet, peace and blessings be upon him, replied: «Perform Hajj and ‘Umrah on behalf of your father.» At-Tirmidhi 930.
+
+4 — It is reported from As-Subay‘ bin Ma‘bad that he once said to ‘Umar ibn Al-Khattab, may Allah be pleased with him: «O Commander of the Believers, I was a Bedouin and practiced Christianity. Then I embraced Islam. I aspire to participate in jihad, but I found that Hajj and ‘Umrah have been prescribed for me. I asked one of my people about it, and he said to me: “Perform Hajj and ‘Umrah together and offer a sacrifice from what is easy for you,” and I performed them together.» ‘Umar then said: «You have been guided to the Sunnah of your Prophet, peace and blessings be upon him.» Abu Dawood 1799.";
+
+"hajj_umrah_obligation_concluding_evidence" = "Hajj and ‘Umrah are obligatory for those who meet the conditions for their performance. Muslims are unanimous on the obligation of Hajj when all the conditions are fulfilled. It is important to note that Hajj and ‘Umrah undertaken after a vow or voluntarily begun must be completed.";
