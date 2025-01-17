@@ -227,8 +227,10 @@ In conclusion, I ask the Most High Allah to accept our good deeds and to preserv
 "soon_available_text" = "This text has been translated from Russian using AI. If you notice any errors or inaccuracies, please let us know through feedback.";
 
 "Notification Settings" = "Notification Settings";
-"30-Minute Notifications" = "30-Minute Notifications";
-"Prayer Time Notifications" = "Prayer Time Notifications";
+"30-Minute Notifications" = "Notify 30 minutes before prayer";
+"Prayer Time Notifications" = "Notify at prayer time";
+"Sunrise Notifications" = "Notify at sunrise";
+"Open iOS Notification Settings" = "Open iOS Notification Settings";
 "Close" = "Close";
 
 

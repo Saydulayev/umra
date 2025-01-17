@@ -48,7 +48,7 @@ struct ContentView: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
 
-    @State private var isGridView: Bool = UIDevice.current.userInterfaceIdiom == .pad
+    @AppStorage("isGridView") private var isGridView: Bool = UIDevice.current.userInterfaceIdiom == .pad
     @State private var showPrayerTimes = false
     @State private var imageDescriptions: [String: String] = [
         "image 1": "title_ihram_screen",

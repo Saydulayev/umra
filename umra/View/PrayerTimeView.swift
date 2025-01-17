@@ -5,19 +5,22 @@
 //  Created by Akhmed on 29.04.24.
 //
 
+import Adhan
+import BackgroundTasks
 import SwiftUI
 import UserNotifications
-import BackgroundTasks
-import Adhan
+
 
 struct PrayerTimeView: View {
     @State private var prayerTimes: [String: String] = [:]
     @State private var nextPrayerName = ""
     @State private var timeUntilNextPrayer = ""
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var storedPrayerTimes: PrayerTimes? = nil
 
     @AppStorage("enable30MinNotifications") private var enable30MinNotifications: Bool = true
     @AppStorage("enablePrayerTimeNotifications") private var enablePrayerTimeNotifications: Bool = true
+    @AppStorage("enableSunriseNotifications") private var enableSunriseNotifications: Bool = true
 
     private let islamicDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -43,12 +46,15 @@ struct PrayerTimeView: View {
             Rectangle()
                 .fill(
                     LinearGradient(
-                        gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))]),
+                        gradient: Gradient(colors: [
+                            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+                        ]),
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
                 )
                 .ignoresSafeArea()
+            
             VStack {
                 HStack {
                     Text("Mecca,")
@@ -58,6 +64,7 @@ struct PrayerTimeView: View {
                 .foregroundStyle(.black)
                 .padding(-5)
                 Divider()
+                
                 Text("\(nextPrayerName) in \(timeUntilNextPrayer)")
                     .cardStyled()
 
@@ -87,6 +94,16 @@ struct PrayerTimeView: View {
             .onDisappear {
                 timer.upstream.connect().cancel()
             }
+            .onChange(of: enable30MinNotifications) { _ in
+                updateNotifications()
+            }
+            .onChange(of: enablePrayerTimeNotifications) { _ in
+                updateNotifications()
+            }
+            // ↓ Добавлено, чтобы пересоздавать уведомления при изменении тумблера Sunrise
+            .onChange(of: enableSunriseNotifications) { _ in
+                updateNotifications()
+            }
         }
     }
 
@@ -105,8 +122,12 @@ struct PrayerTimeView: View {
         params.madhab = .shafi
 
         DispatchQueue.global(qos: .background).async {
-            guard let todayPrayers = PrayerTimes(coordinates: coordinates, date: todayDateComponents, calculationParameters: params),
-                  let tomorrowPrayers = PrayerTimes(coordinates: coordinates, date: tomorrowDateComponents, calculationParameters: params) else {
+            guard let todayPrayers = PrayerTimes(coordinates: coordinates,
+                                                 date: todayDateComponents,
+                                                 calculationParameters: params),
+                  let tomorrowPrayers = PrayerTimes(coordinates: coordinates,
+                                                    date: tomorrowDateComponents,
+                                                    calculationParameters: params) else {
                 print("Error initializing PrayerTimes")
                 return
             }
@@ -127,6 +148,7 @@ struct PrayerTimeView: View {
             DispatchQueue.main.async {
                 self.prayerTimes = newPrayerTimes
                 self.updateCountdownToNextPrayer(prayers: todayPrayers)
+                self.storedPrayerTimes = todayPrayers
                 self.scheduleNotifications(prayerTimes: todayPrayers)
             }
         }
@@ -177,6 +199,10 @@ struct PrayerTimeView: View {
         ]
 
         for (prayerName, prayerTime) in prayers {
+            if prayerName == "Sunrise" && !enableSunriseNotifications {
+                continue
+            }
+
             if enablePrayerTimeNotifications {
                 let content = UNMutableNotificationContent()
                 content.title = prayerName
@@ -186,7 +212,9 @@ struct PrayerTimeView: View {
                 let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: prayerTime)
                 let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
 
-                let request = UNNotificationRequest(identifier: "\(prayerName)_time", content: content, trigger: trigger)
+                let request = UNNotificationRequest(identifier: "\(prayerName)_time",
+                                                    content: content,
+                                                    trigger: trigger)
                 UNUserNotificationCenter.current().add(request) { error in
                     if let error = error {
                         print("Error creating notification for \(prayerName): \(error.localizedDescription)")
@@ -204,7 +232,9 @@ struct PrayerTimeView: View {
                 let triggerDate30MinBefore = Calendar.current.dateComponents([.hour, .minute], from: prayerTime30MinBefore)
                 let trigger30MinBefore = UNCalendarNotificationTrigger(dateMatching: triggerDate30MinBefore, repeats: true)
 
-                let request30MinBefore = UNNotificationRequest(identifier: "\(prayerName)_30min", content: content30MinBefore, trigger: trigger30MinBefore)
+                let request30MinBefore = UNNotificationRequest(identifier: "\(prayerName)_30min",
+                                                               content: content30MinBefore,
+                                                               trigger: trigger30MinBefore)
                 UNUserNotificationCenter.current().add(request30MinBefore) { error in
                     if let error = error {
                         print("Error creating notification 30 minutes before \(prayerName): \(error.localizedDescription)")
@@ -215,7 +245,8 @@ struct PrayerTimeView: View {
     }
 
     func registerBackgroundTask() {
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.yourapp.updatePrayerTimes", using: nil) { task in
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.yourapp.updatePrayerTimes",
+                                        using: nil) { task in
             self.handleAppRefresh(task: task as! BGAppRefreshTask)
         }
     }
@@ -235,7 +266,85 @@ struct PrayerTimeView: View {
         updatePrayerTimes()
         task.setTaskCompleted(success: true)
     }
+
+    func updateNotifications() {
+        guard let prayers = storedPrayerTimes else { return }
+        scheduleNotifications(prayerTimes: prayers)
+    }
 }
+
+struct NotificationSettingsView: View {
+    @AppStorage("enable30MinNotifications") private var enable30MinNotifications: Bool = true
+    @AppStorage("enablePrayerTimeNotifications") private var enablePrayerTimeNotifications: Bool = true
+    @AppStorage("enableSunriseNotifications") private var enableSunriseNotifications: Bool = true
+
+    @EnvironmentObject var settings: UserSettings
+    @Environment(\.dismiss) var dismiss
+
+    var body: some View {
+        VStack {
+            Text("Notification Settings", bundle: settings.bundle)
+                .font(.headline)
+                .padding()
+
+            Toggle(isOn: $enable30MinNotifications, label: {
+                Text("30-Minute Notifications", bundle: settings.bundle)
+            })
+            .padding(.horizontal)
+
+            Toggle(isOn: $enablePrayerTimeNotifications, label: {
+                Text("Prayer Time Notifications", bundle: settings.bundle)
+            })
+            .padding(.horizontal)
+            
+            Toggle(isOn: $enableSunriseNotifications, label: {
+                Text("Sunrise Notifications", bundle: settings.bundle)
+            })
+            .padding(.horizontal)
+
+            Button(action: {
+                openSystemNotificationSettings()
+            }, label: {
+                HStack {
+                    Text("Open iOS Notification Settings", bundle: settings.bundle)
+                    Image(systemName: "gear")
+                }
+                    .foregroundStyle(.blue)
+            })
+            .padding(.vertical, 30)
+            
+            Spacer()
+            
+            Button(action: {
+                dismiss()
+            }, label: {
+                Text("Close", bundle: settings.bundle)
+                    .foregroundStyle(.blue)
+            })
+            .padding(.vertical, 30)
+        }
+        .lineLimit(1)
+        .minimumScaleFactor(0.5)
+        .foregroundStyle(.black)
+        .background(Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)))
+        .ignoresSafeArea()
+        .presentationDetents([.medium, .large])
+        .presentationDragIndicator(.visible)
+    }
+
+    private func openSystemNotificationSettings() {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL)
+        }
+    }
+}
+
+
+
+
 struct PrayerTimeModalView: View {
     @Binding var isPresented: Bool
     
@@ -271,42 +380,7 @@ struct PrayerTimeRow: View {
     }
 }
 
-struct NotificationSettingsView: View {
-    @AppStorage("enable30MinNotifications") private var enable30MinNotifications: Bool = true
-    @AppStorage("enablePrayerTimeNotifications") private var enablePrayerTimeNotifications: Bool = true
-    @EnvironmentObject var settings: UserSettings
-    @Environment(\.dismiss) var dismiss
 
-    var body: some View {
-        VStack {
-            Text("Notification Settings", bundle: settings.bundle)
-                .font(.headline)
-                .padding()
-            
-            Toggle(isOn: $enable30MinNotifications, label: { Text("30-Minute Notifications", bundle: settings.bundle) })
-                .padding(.horizontal)
-
-            
-            Toggle(isOn: $enablePrayerTimeNotifications, label: { Text("Prayer Time Notifications", bundle: settings.bundle) })
-                .padding(.horizontal)
-            
-            Spacer()
-            
-            Button(action: {
-                dismiss()
-            }, label: {
-                Text("Close", bundle: settings.bundle)
-                    .foregroundStyle(.blue)
-            })
-            .padding(.vertical, 30)
-        }
-        .foregroundStyle(.black)
-        .background(Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)))
-        .ignoresSafeArea()
-        .presentationDetents([.medium, .large])
-        .presentationDragIndicator(.visible)
-    }
-}
 
 extension View {
     func capsuleStyled() -> some View {

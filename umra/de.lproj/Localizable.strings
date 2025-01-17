@@ -242,8 +242,10 @@ Abschließend bitte ich den Allmächtigen Allah, unsere guten Taten anzunehmen u
 
 
 "Notification Settings" = "Benachrichtigungseinstellungen";
-"30-Minute Notifications" = "Benachrichtigungen 30 Minuten";
-"Prayer Time Notifications" = "Benachrichtigungen zur Gebetszeit";
+"30-Minute Notifications" = "30 Minuten vorher benachrichtigen";
+"Prayer Time Notifications" = "Benachrichtigen zur Gebetszeit";
+"Sunrise Notifications" = "Benachrichtigen bei Sonnenaufgang";
+"Open iOS Notification Settings" = "iOS-Benachrichtigungseinstellungen öffnen";
 "Close" = "Schließen";
 
 

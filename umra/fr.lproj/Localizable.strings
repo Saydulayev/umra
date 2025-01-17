@@ -243,8 +243,10 @@ Louange à Allah, Seigneur des Mondes!";
 
 
 "Notification Settings" = "Paramètres des notifications";
-"30-Minute Notifications" = "Notifications 30 minutes";
-"Prayer Time Notifications" = "Notifications pour l'heure de prière";
+"30-Minute Notifications" = "Notifier 30 minutes avant la prière";
+"Prayer Time Notifications" = "Notifier à l'heure de la prière";
+"Sunrise Notifications" = "Notifier au lever du soleil";
+"Open iOS Notification Settings" = "Ouvrir les paramètres de notifications iOS";
 "Close" = "Fermer";
 
 

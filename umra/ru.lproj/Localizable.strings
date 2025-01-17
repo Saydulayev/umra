@@ -240,8 +240,10 @@
 "soon_available_text" = "Этот текст был переведен с русского языка на другие языки с использованием ИИ. Если вы заметите ошибку в переводе, пожалуйста, сообщите нам через обратную связь.";
 
 "Notification Settings" = "Настройки уведомлений";
-"30-Minute Notifications" = "Уведомления за 30 минут";
-"Prayer Time Notifications" = "Уведомления в время молитвы";
+"30-Minute Notifications" = "Уведомлять за 30 минут до молитвы";
+"Prayer Time Notifications" = "Уведомлять во время молитвы";
+"Sunrise Notifications" = "Уведомлять о восходе солнца";
+"Open iOS Notification Settings" = "Открыть настройки уведомлений iOS";
 "Close" = "Закрыть";
 
 
