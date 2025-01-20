@@ -14,8 +14,7 @@ struct Step2: View {
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
-
-                .edgesIgnoringSafeArea(.bottom)
+                .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 VStack {
                     Text("Kaaba text1", bundle: settings.bundle)
@@ -52,6 +51,8 @@ struct Step2: View {
                 .padding(.horizontal, 10)
                 LanguageView()
                     .hidden()
+                    .navigationTitle(Text("title_round_kaaba_screen", bundle: settings.bundle))
+                    .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {

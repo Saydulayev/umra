@@ -15,8 +15,7 @@ struct Step3: View {
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
-
-                .edgesIgnoringSafeArea(.bottom)
+                .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 VStack {
                     Text("Prayer after Tawaf of Kaaba.", bundle: settings.bundle)
@@ -45,6 +44,8 @@ struct Step3: View {
                 .padding(.horizontal, 10)
                 LanguageView()
                     .hidden()
+                    .navigationTitle(Text("title_place_ibrohim_stand_screen", bundle: settings.bundle))
+                    .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {

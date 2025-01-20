@@ -15,8 +15,7 @@ struct Step4: View {
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
-
-                .edgesIgnoringSafeArea(.bottom)
+                .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 VStack {
                     Text("Drinking Zamzam water.", bundle: settings.bundle)
@@ -32,6 +31,8 @@ struct Step4: View {
                 .padding(.horizontal, 10)
                 LanguageView()
                     .hidden()
+                    .navigationTitle(Text("title_water_zamzam_screen", bundle: settings.bundle))
+                    .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {

@@ -15,8 +15,7 @@ struct Step7: View {
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
-
-                .edgesIgnoringSafeArea(.bottom)
+                .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 VStack {
                     Text("Shaving the head string", bundle: settings.bundle)
@@ -40,6 +39,8 @@ struct Step7: View {
                 .padding(10)
                 LanguageView()
                     .hidden()
+                    .navigationTitle(Text("title_shave_head_screen", bundle: settings.bundle))
+                    .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
