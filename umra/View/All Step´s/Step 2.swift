@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Step2: View {
+    
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
 

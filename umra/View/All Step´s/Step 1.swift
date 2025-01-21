@@ -13,8 +13,6 @@ struct Step1: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
 
-
-    
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
@@ -103,9 +101,6 @@ struct Step1: View {
             }
             .navigationTitle(Text("title_ihram_screen", bundle: settings.bundle))
             .navigationBarTitleDisplayMode(.inline)
-
-            
-            
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     CustomToolbar(

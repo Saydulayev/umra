@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct Step6: View {
+    
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
-
-    
     
     var body: some View {
         ZStack {
@@ -89,7 +88,7 @@ struct Step6: View {
                         selectedFont: $fontManager.selectedFont,
                         fonts: fontManager.fonts
                     )
-                    .environmentObject(settings) // Предоставляем доступ к настройкам через объект окружения
+                    .environmentObject(settings) 
                 }
             }
         }

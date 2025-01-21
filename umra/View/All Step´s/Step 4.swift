@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct Step4: View {
+    
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
-
     
     var body: some View {
         ZStack {
