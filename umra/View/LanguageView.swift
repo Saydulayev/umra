@@ -44,6 +44,9 @@ struct LanguageView: View {
 //                    .default(Text("العربية")) {
 //                        settings.lang = "ar"
 //                    },
+                        .default(Text("Türkçe")) {
+                            settings.lang = "tr"
+                        },
                     .cancel()
                 ])
             }

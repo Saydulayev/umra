@@ -217,3 +217,28 @@
 "30-Minute Notifications" = "إشعارات قبل 30 دقيقة";
 "Prayer Time Notifications" = "إشعارات وقت الصلاة";
 "Close" = "إغلاق";
+
+/* Заголовок страницы */
+"useful_info_title" = "معلومات مفيدة";
+
+/* Главы и подглавы */
+"etiquette_manners" = "الآداب والأخلاق";
+"sincerity" = "الإخلاص";
+"laws" = "الأحكام الشرعية";
+"choice_of_companions" = "اختيار الرفاق";
+"financial_independence" = "الاستقلال المالي";
+"noble_manners" = "الأخلاق النبيلة";
+"zikr_and_prayers" = "الذكر والدعاء";
+"caution_in_relationships" = "الحذر في العلاقات";
+
+"hajj_umrah_virtues" = "فضائل الحج والعمرة";
+"atonement_and_rewards" = "تكفير الذنوب والثواب";
+"hajj_for_women" = "الحج للنساء";
+"perfect_hajj" = "حج مثالي";
+"following_the_sunnah" = "اتباع السنة";
+
+"hajj_umrah_obligation" = "وجوب الحج والعمرة";
+"hajj_obligation_evidence" = "أدلة وجوب الحج";
+"umrah_obligation_evidence" = "أدلة وجوب العمرة";
+"conclusion" = "الخاتمة";
+

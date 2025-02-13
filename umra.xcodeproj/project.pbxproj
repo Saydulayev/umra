@@ -118,6 +118,7 @@
 		C24508E92C9CD39D003E3E58 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		C24508EB2C9CD3A6003E3E58 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		C24508ED2C9CD3AD003E3E58 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		C2561DF52D5A467800097793 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2A68D332CFF1DC8005F3ED8 /* LanguageSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionView.swift; sourceTree = "<group>"; };
 		C2A68D352CFF1E3C005F3ED8 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		C2A68D372CFF1E64005F3ED8 /* ShimmeringText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringText.swift; sourceTree = "<group>"; };
@@ -344,6 +345,7 @@
 				fr,
 				Base,
 				ar,
+				tr,
 			);
 			mainGroup = C0908DCF29829F8A00458ACB;
 			packageReferences = (
@@ -439,6 +441,7 @@
 				C06B9C562A08F4A000549748 /* de */,
 				C06B9C572A08F4AE00549748 /* fr */,
 				C204DEBD2D198C42008EC9E5 /* ar */,
+				C2561DF52D5A467800097793 /* tr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
