@@ -56,8 +56,7 @@ struct UsefulInfoView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(chapters) { chapter in
                             if chapter.title == "title_janaza_guide".localized(bundle: settings.bundle) {
-                                // Специальная обработка для джаназа
-                                NavigationLink(destination: SubChapterDetailView(subChapter: chapter.subChapters[0])) {
+                                NavigationLink(destination: JanazaView()) {
                                     HStack {
                                         Text(chapter.title)
                                             .font(.system(size: getDynamicFontSize()))
@@ -70,7 +69,6 @@ struct UsefulInfoView: View {
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             } else {
-                                // Стандартная навигация для остальных разделов
                                 NavigationLink(destination: ChapterDetailView(chapter: chapter)) {
                                     HStack {
                                         Text(chapter.title)
@@ -122,12 +120,73 @@ struct UsefulInfoView: View {
     }
 }
 
+struct JanazaView: View {
+    @EnvironmentObject var settings: UserSettings
+    
+    var body: some View {
+        ZStack {
+            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+                .ignoresSafeArea(edges: .bottom)
+            
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    Group {
+                        Text(JanazaPrayerGuide.janazaBasicRules(bundle: settings.bundle))
+                            .font(.headline)
+                        Divider()
 
+                        Text(JanazaPrayerGuide.firstTakbirTitle(bundle: settings.bundle))
+                            .font(.headline)
+                        Text(JanazaPrayerGuide.firstTakbirText(bundle: settings.bundle))
+                            .padding(.bottom)
+                        Divider()
+                        Text(JanazaPrayerGuide.secondTakbirTitle(bundle: settings.bundle))
+                            .font(.headline)
+                        Text(JanazaPrayerGuide.secondTakbirText(bundle: settings.bundle))
+                            .padding(.bottom)
+                    }
+                    
+                    Divider()
+                    
+                    Group {
+                        Text(JanazaPrayerGuide.thirdTakbirTitle(bundle: settings.bundle))
+                            .font(.headline)
+                        Text(JanazaPrayerGuide.thirdTakbirText(bundle: settings.bundle))
+                            .padding(.bottom)
+                        Divider()
 
+                        Text(JanazaPrayerGuide.duaVariationsTitle(bundle: settings.bundle))
+                            .font(.headline)
+                        Text(JanazaPrayerGuide.duaVariationsText(bundle: settings.bundle))
+                            .padding(.bottom)
+                    }
+                    
+                    Divider()
+                    
+                    Group {
+                        Text(JanazaPrayerGuide.fourthTakbirTitle(bundle: settings.bundle))
+                            .font(.headline)
+                        Text(JanazaPrayerGuide.fourthTakbirText(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.fourthTakbirAdditionalInfo(bundle: settings.bundle))
+                            .padding(.bottom)
+                        Divider()
+                        Text(JanazaPrayerGuide.taslimTitle(bundle: settings.bundle))
+                            .font(.headline)
+                        Text(JanazaPrayerGuide.taslimText(bundle: settings.bundle))
+                    }
+                }
+                .padding()
+                .font(.system(size: getDynamicFontSize()))
+                .foregroundStyle(.black)
+                .textSelection(.enabled)
+            }
+            .navigationTitle(JanazaPrayerGuide.title(bundle: settings.bundle))
+        }
+    }
+}
 
 struct ChapterDetailView: View {
     let chapter: Chapter
-    
     
     var body: some View {
         NavigationStack {
@@ -163,7 +222,6 @@ struct ChapterDetailView: View {
 struct SubChapterDetailView: View {
     let subChapter: SubChapter
     
-    
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
@@ -174,7 +232,6 @@ struct SubChapterDetailView: View {
                     .foregroundStyle(.black)
                     .padding()
                     .textSelection(.enabled)
-                
             }
             .navigationTitle(subChapter.title)
         }
@@ -184,7 +241,6 @@ struct SubChapterDetailView: View {
 func getDynamicFontSize(forPad: CGFloat = 30, forPhone: CGFloat = 20) -> CGFloat {
     UIDevice.current.userInterfaceIdiom == .pad ? forPad : forPhone
 }
-
 
 struct Chapter: Identifiable {
     let id = UUID()
@@ -201,9 +257,6 @@ struct SubChapter: Identifiable {
 #Preview {
     UsefulInfoView()
 }
-
-
-
 
 extension View {
     func customListItemStyle() -> some View {
