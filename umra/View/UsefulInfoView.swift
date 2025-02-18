@@ -37,6 +37,11 @@ struct UsefulInfoView: View {
                         SubChapter(title: "hajj_obligation_evidence".localized(bundle: settings.bundle), content: HajjUmrahObligation.obligationEvidence(bundle: settings.bundle)),
                         SubChapter(title: "umrah_obligation_evidence".localized(bundle: settings.bundle), content: HajjUmrahObligation.evidenceUmrahObligation(bundle: settings.bundle)),
                         SubChapter(title: "conclusion".localized(bundle: settings.bundle), content: HajjUmrahObligation.concludingEvidence(bundle: settings.bundle)),
+                    ]),
+            Chapter(title: "title_janaza_guide".localized(bundle: settings.bundle),
+                    subChapters: [
+                        SubChapter(title: "basic_rules".localized(bundle: settings.bundle),
+                                 content: JanazaPrayerGuide.basicRules(bundle: settings.bundle)),
                     ])
         ]
     }
@@ -50,18 +55,35 @@ struct UsefulInfoView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(chapters) { chapter in
-                            NavigationLink(destination: ChapterDetailView(chapter: chapter)) {
-                                HStack {
-                                    Text(chapter.title)
-                                        .font(.system(size: getDynamicFontSize()))
-                                        .foregroundStyle(.black)
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundStyle(.blue)
+                            if chapter.title == "title_janaza_guide".localized(bundle: settings.bundle) {
+                                // Специальная обработка для джаназа
+                                NavigationLink(destination: SubChapterDetailView(subChapter: chapter.subChapters[0])) {
+                                    HStack {
+                                        Text(chapter.title)
+                                            .font(.system(size: getDynamicFontSize()))
+                                            .foregroundStyle(.black)
+                                        Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .foregroundStyle(.blue)
+                                    }
+                                    .customListItemStyle()
                                 }
-                                .customListItemStyle()
+                                .buttonStyle(PlainButtonStyle())
+                            } else {
+                                // Стандартная навигация для остальных разделов
+                                NavigationLink(destination: ChapterDetailView(chapter: chapter)) {
+                                    HStack {
+                                        Text(chapter.title)
+                                            .font(.system(size: getDynamicFontSize()))
+                                            .foregroundStyle(.black)
+                                        Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .foregroundStyle(.blue)
+                                    }
+                                    .customListItemStyle()
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
-                            .buttonStyle(PlainButtonStyle())
                             Divider()
                         }
                     }
@@ -99,7 +121,6 @@ struct UsefulInfoView: View {
         }
     }
 }
-
 
 
 

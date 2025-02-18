@@ -124,3 +124,9 @@ struct HajjUmrahObligation {
     }
 }
 
+
+struct JanazaPrayerGuide {
+    static func basicRules(bundle: Bundle?) -> String {
+        "janaza_guide_basic_rules".localized(bundle: bundle)
+    }
+}
