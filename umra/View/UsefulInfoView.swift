@@ -132,16 +132,16 @@ struct JanazaView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     Group {
                         Text(JanazaPrayerGuide.janazaBasicRules(bundle: settings.bundle))
-                            .font(.headline)
+                            .fontWeight(.bold)
                         Divider()
 
                         Text(JanazaPrayerGuide.firstTakbirTitle(bundle: settings.bundle))
-                            .font(.headline)
+                            .fontWeight(.bold)
                         Text(JanazaPrayerGuide.firstTakbirText(bundle: settings.bundle))
                             .padding(.bottom)
                         Divider()
                         Text(JanazaPrayerGuide.secondTakbirTitle(bundle: settings.bundle))
-                            .font(.headline)
+                            .fontWeight(.bold)
                         Text(JanazaPrayerGuide.secondTakbirText(bundle: settings.bundle))
                             .padding(.bottom)
                     }
@@ -150,13 +150,13 @@ struct JanazaView: View {
                     
                     Group {
                         Text(JanazaPrayerGuide.thirdTakbirTitle(bundle: settings.bundle))
-                            .font(.headline)
+                            .fontWeight(.bold)
                         Text(JanazaPrayerGuide.thirdTakbirText(bundle: settings.bundle))
                             .padding(.bottom)
                         Divider()
 
                         Text(JanazaPrayerGuide.duaVariationsTitle(bundle: settings.bundle))
-                            .font(.headline)
+                            .fontWeight(.bold)
                         Text(JanazaPrayerGuide.duaVariationsText(bundle: settings.bundle))
                             .padding(.bottom)
                     }
@@ -165,13 +165,13 @@ struct JanazaView: View {
                     
                     Group {
                         Text(JanazaPrayerGuide.fourthTakbirTitle(bundle: settings.bundle))
-                            .font(.headline)
+                            .fontWeight(.bold)
                         Text(JanazaPrayerGuide.fourthTakbirText(bundle: settings.bundle))
                         Text(JanazaPrayerGuide.fourthTakbirAdditionalInfo(bundle: settings.bundle))
                             .padding(.bottom)
                         Divider()
                         Text(JanazaPrayerGuide.taslimTitle(bundle: settings.bundle))
-                            .font(.headline)
+                            .fontWeight(.bold)
                         Text(JanazaPrayerGuide.taslimText(bundle: settings.bundle))
                     }
                 }
