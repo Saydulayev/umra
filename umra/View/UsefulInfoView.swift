@@ -147,6 +147,8 @@ struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
 struct JanazaView: View {
     @EnvironmentObject var settings: UserSettings
     @State private var isDuaExpanded = false
+    @State private var isSecondTakbirExpanded = false
+    @State private var isThirdTakbirExpanded = false
 
     var body: some View {
         ZStack {
@@ -169,6 +171,18 @@ struct JanazaView: View {
                             .fontWeight(.bold)
                         Text(JanazaPrayerGuide.secondTakbirText(bundle: settings.bundle))
                             .padding(.bottom)
+                        DisclosureGroup(
+                            isExpanded: $isDuaExpanded,
+                            content: {
+                                Text(JanazaPrayerGuide.translateSecondTakbirText(bundle: settings.bundle))
+                                    .padding(.vertical)
+                            },
+                            label: {
+                                Text("translate_text", bundle: settings.bundle)            .font(.headline)
+                                    .foregroundStyle(.blue)
+                            }
+                        )
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle())
                     }
 
                     Divider()
@@ -178,17 +192,16 @@ struct JanazaView: View {
                             .fontWeight(.bold)
                         Text(JanazaPrayerGuide.thirdTakbirText(bundle: settings.bundle))
                             .padding(.bottom)
-                        Divider()
-
+                        
                         DisclosureGroup(
-                            isExpanded: $isDuaExpanded,
+                            isExpanded: $isThirdTakbirExpanded,
                             content: {
-                                Text(JanazaPrayerGuide.duaVariationsText(bundle: settings.bundle))
+                                Text(JanazaPrayerGuide.translateThirdTakbirText(bundle: settings.bundle))
                                     .padding(.vertical)
                             },
                             label: {
-                                Text(JanazaPrayerGuide.duaVariationsTitle(bundle: settings.bundle))
-                                    .fontWeight(.bold)
+                                Text("translate_text", bundle: settings.bundle)            .font(.headline)
+                                    .foregroundStyle(.blue)
                             }
                         )
                         .disclosureGroupStyle(CustomDisclosureGroupStyle())
@@ -207,6 +220,20 @@ struct JanazaView: View {
                             .fontWeight(.bold)
                         Text(JanazaPrayerGuide.taslimText(bundle: settings.bundle))
                     }
+                    Divider()
+                    
+                    DisclosureGroup(
+                        isExpanded: $isSecondTakbirExpanded,
+                        content: {
+                            Text(JanazaPrayerGuide.duaVariationsText(bundle: settings.bundle))
+                                .padding(.vertical)
+                        },
+                        label: {
+                            Text(JanazaPrayerGuide.duaVariationsTitle(bundle: settings.bundle))
+                                .fontWeight(.bold)
+                        }
+                    )
+                    .disclosureGroupStyle(CustomDisclosureGroupStyle())
                 }
                 .padding()
                 .font(.system(size: getDynamicFontSize()))
