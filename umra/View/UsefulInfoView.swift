@@ -120,14 +120,39 @@ struct UsefulInfoView: View {
     }
 }
 
+
+struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        VStack(alignment: .leading) {
+            Button(action: {
+                withAnimation {
+                    configuration.isExpanded.toggle()
+                }
+            }) {
+                HStack {
+                    configuration.label
+                    Spacer()
+                    Image(systemName: "chevron.down")
+                        .foregroundStyle(.blue)
+                        .rotationEffect(.degrees(configuration.isExpanded ? 180 : 0))
+                }
+            }
+            if configuration.isExpanded {
+                configuration.content
+            }
+        }
+    }
+}
+
 struct JanazaView: View {
     @EnvironmentObject var settings: UserSettings
-    
+    @State private var isDuaExpanded = false
+
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
                 .ignoresSafeArea(edges: .bottom)
-            
+
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     Group {
@@ -145,9 +170,9 @@ struct JanazaView: View {
                         Text(JanazaPrayerGuide.secondTakbirText(bundle: settings.bundle))
                             .padding(.bottom)
                     }
-                    
+
                     Divider()
-                    
+
                     Group {
                         Text(JanazaPrayerGuide.thirdTakbirTitle(bundle: settings.bundle))
                             .fontWeight(.bold)
@@ -155,14 +180,22 @@ struct JanazaView: View {
                             .padding(.bottom)
                         Divider()
 
-                        Text(JanazaPrayerGuide.duaVariationsTitle(bundle: settings.bundle))
-                            .fontWeight(.bold)
-                        Text(JanazaPrayerGuide.duaVariationsText(bundle: settings.bundle))
-                            .padding(.bottom)
+                        DisclosureGroup(
+                            isExpanded: $isDuaExpanded,
+                            content: {
+                                Text(JanazaPrayerGuide.duaVariationsText(bundle: settings.bundle))
+                                    .padding(.vertical)
+                            },
+                            label: {
+                                Text(JanazaPrayerGuide.duaVariationsTitle(bundle: settings.bundle))
+                                    .fontWeight(.bold)
+                            }
+                        )
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle())
                     }
-                    
+
                     Divider()
-                    
+
                     Group {
                         Text(JanazaPrayerGuide.fourthTakbirTitle(bundle: settings.bundle))
                             .fontWeight(.bold)

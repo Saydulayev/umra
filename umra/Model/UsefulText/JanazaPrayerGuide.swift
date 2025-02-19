@@ -8,70 +8,12 @@
 import Foundation
 
 
-struct EtiquetteManners {
-    static func text1(bundle: Bundle?) -> String {
-        "etiquette_manners_text1".localized(bundle: bundle)
-    }
-    
-    static func text2(bundle: Bundle?) -> String {
-        "etiquette_manners_text2".localized(bundle: bundle)
-    }
-    
-    static func text3(bundle: Bundle?) -> String {
-        "etiquette_manners_text3".localized(bundle: bundle)
-    }
-    
-    static func text4(bundle: Bundle?) -> String {
-        "etiquette_manners_text4".localized(bundle: bundle)
-    }
-    
-    static func text5(bundle: Bundle?) -> String {
-        "etiquette_manners_text5".localized(bundle: bundle)
-    }
-    
-    static func text6(bundle: Bundle?) -> String {
-        "etiquette_manners_text6".localized(bundle: bundle)
-    }
-    
-    static func text7(bundle: Bundle?) -> String {
-        "etiquette_manners_text7".localized(bundle: bundle)
-    }
-}
-
-
-struct HajjUmrahVirtues {
-    static func text1(bundle: Bundle?) -> String {
-        "hajj_umrah_virtues_text1".localized(bundle: bundle)
-    }
-
-    static func text2(bundle: Bundle?) -> String {
-        "hajj_umrah_virtues_text2".localized(bundle: bundle)
-    }
-
-    static func text3(bundle: Bundle?) -> String {
-        "hajj_umrah_virtues_text3".localized(bundle: bundle)
-    }
-
-    static func text4(bundle: Bundle?) -> String {
-        "hajj_umrah_virtues_text4".localized(bundle: bundle)
-    }
-}
 
 
 
-struct HajjUmrahObligation {
-    static func obligationEvidence(bundle: Bundle?) -> String {
-        "hajj_umrah_obligation_obligation_evidence".localized(bundle: bundle)
-    }
 
-    static func evidenceUmrahObligation(bundle: Bundle?) -> String {
-        "hajj_umrah_obligation_evidence_umrah_obligation".localized(bundle: bundle)
-    }
 
-    static func concludingEvidence(bundle: Bundle?) -> String {
-        "hajj_umrah_obligation_concluding_evidence".localized(bundle: bundle)
-    }
-}
+
 
 
 struct JanazaPrayerGuide {
