@@ -49,13 +49,10 @@
 		C0908DF92982A0B300458ACB /* Step 6.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF82982A0B300458ACB /* Step 6.swift */; };
 		C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DFA2982A0BC00458ACB /* Step 7.swift */; };
 		C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */; };
-		C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DC35DF2A0686A2002527D7 /* LanguageView.swift */; };
 		C24508EA2C9CD39D003E3E58 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508E92C9CD39D003E3E58 /* 1.png */; };
 		C24508EC2C9CD3A6003E3E58 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508EB2C9CD3A6003E3E58 /* 2.png */; };
 		C24508EE2C9CD3AD003E3E58 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508ED2C9CD3AD003E3E58 /* 3.png */; };
-		C2A68D342CFF1DC8005F3ED8 /* LanguageSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A68D332CFF1DC8005F3ED8 /* LanguageSelectionView.swift */; };
 		C2A68D362CFF1E3C005F3ED8 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A68D352CFF1E3C005F3ED8 /* UserSettings.swift */; };
-		C2A68D382CFF1E64005F3ED8 /* ShimmeringText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A68D372CFF1E64005F3ED8 /* ShimmeringText.swift */; };
 		C2E1173A2C999AE3002DC520 /* UsefulTex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E117392C999AE3002DC520 /* UsefulTex.swift */; };
 		C2E1173C2C999B31002DC520 /* UsefulInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */; };
 /* End PBXBuildFile section */
@@ -105,7 +102,6 @@
 		C0908DF82982A0B300458ACB /* Step 6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 6.swift"; sourceTree = "<group>"; };
 		C0908DFA2982A0BC00458ACB /* Step 7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 7.swift"; sourceTree = "<group>"; };
 		C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolbar.swift; sourceTree = "<group>"; };
-		C0DC35DF2A0686A2002527D7 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
 		C0DC35E12A0687DF002527D7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0DC35E22A068F21002527D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C204DEBD2D198C42008EC9E5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -113,9 +109,7 @@
 		C24508EB2C9CD3A6003E3E58 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		C24508ED2C9CD3AD003E3E58 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		C2561DF52D5A467800097793 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C2A68D332CFF1DC8005F3ED8 /* LanguageSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionView.swift; sourceTree = "<group>"; };
 		C2A68D352CFF1E3C005F3ED8 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
-		C2A68D372CFF1E64005F3ED8 /* ShimmeringText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringText.swift; sourceTree = "<group>"; };
 		C2E117392C999AE3002DC520 /* UsefulTex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulTex.swift; sourceTree = "<group>"; };
 		C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +117,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C24AC7BA2D65CB0C007F5E5A /* ContentView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ContentView; sourceTree = "<group>"; };
 		C24AC7BF2D65D366007F5E5A /* DonationView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DonationView; sourceTree = "<group>"; };
+		C24AC7C32D65DD14007F5E5A /* LanguageView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LanguageView; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,9 +140,7 @@
 				C063ADE229DF2E5B00746D2E /* PlayerView.swift */,
 				C0514F332998F3C000AA1776 /* PDFView.swift */,
 				C008900229E1B09400031176 /* SettingsView.swift */,
-				C0DC35DF2A0686A2002527D7 /* LanguageView.swift */,
-				C2A68D332CFF1DC8005F3ED8 /* LanguageSelectionView.swift */,
-				C2A68D372CFF1E64005F3ED8 /* ShimmeringText.swift */,
+				C24AC7C32D65DD14007F5E5A /* LanguageView */,
 				C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */,
 				C24AC7BF2D65D366007F5E5A /* DonationView */,
 				C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */,
@@ -312,6 +305,7 @@
 			fileSystemSynchronizedGroups = (
 				C24AC7BA2D65CB0C007F5E5A /* ContentView */,
 				C24AC7BF2D65D366007F5E5A /* DonationView */,
+				C24AC7C32D65DD14007F5E5A /* LanguageView */,
 			);
 			name = umra;
 			packageProductDependencies = (
@@ -404,8 +398,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C008900329E1B09400031176 /* SettingsView.swift in Sources */,
-				C2A68D382CFF1E64005F3ED8 /* ShimmeringText.swift in Sources */,
-				C2A68D342CFF1DC8005F3ED8 /* LanguageSelectionView.swift in Sources */,
 				C2E1173A2C999AE3002DC520 /* UsefulTex.swift in Sources */,
 				C0908DF92982A0B300458ACB /* Step 6.swift in Sources */,
 				C0514F342998F3C000AA1776 /* PDFView.swift in Sources */,
@@ -420,7 +412,6 @@
 				C063ADE329DF2E5B00746D2E /* PlayerView.swift in Sources */,
 				C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */,
 				C077B4782B20D41D00086594 /* StoreKit.swift in Sources */,
-				C0DC35E02A0686A2002527D7 /* LanguageView.swift in Sources */,
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
 				C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */,
 				C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */,
