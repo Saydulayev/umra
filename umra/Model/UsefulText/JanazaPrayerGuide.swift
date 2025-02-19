@@ -8,14 +8,6 @@
 import Foundation
 
 
-
-
-
-
-
-
-
-
 struct JanazaPrayerGuide {
     static func title(bundle: Bundle?) -> String {
         "title_janaza_guide".localized(bundle: bundle)
