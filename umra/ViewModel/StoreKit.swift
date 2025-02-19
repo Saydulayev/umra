@@ -8,18 +8,17 @@
 import Foundation
 import StoreKit
 
-
-
+@MainActor
 class StoreVM: ObservableObject {
-//    @Published var subscriptions: [Product] = []
-//    @Published var purchasedSubscriptions: [Product] = []
-    
     @Published var availableDonations: [Product] = []
     @Published var completedDonations: [Product] = []
-    
-    private let productIds: [String] = ["UmrahSunnah1", "UmrahSunnah2", "UmrahSunnah3", "UmrahSunnah4", "UmrahSunnah5", "UmrahSunnah6"]
 
-    var updateListenerTask: Task<Void, Error>? = nil
+    private let productIds: [String] = [
+        "UmrahSunnah1", "UmrahSunnah2", "UmrahSunnah3",
+        "UmrahSunnah4", "UmrahSunnah5", "UmrahSunnah6"
+    ]
+
+    var updateListenerTask: Task<Void, Never>? = nil
 
     init() {
         updateListenerTask = listenForTransactions()
@@ -33,49 +32,51 @@ class StoreVM: ObservableObject {
         updateListenerTask?.cancel()
     }
 
-    func listenForTransactions() -> Task<Void, Error> {
-        return Task.detached {
+    /// Мониторинг транзакций
+    func listenForTransactions() -> Task<Void, Never> {
+        return Task {
             for await result in Transaction.updates {
                 do {
-                    let transaction = try self.checkVerified(result)
+                    let transaction = try checkVerified(result)
                     await transaction.finish()
+                    print("✅ Transaction completed: \(transaction)")
                 } catch {
-                    print("Transaction failed verification")
+                    print("❌ Transaction verification failed: \(error.localizedDescription)")
                 }
             }
         }
     }
 
-    @MainActor
+    /// Запрос продуктов из App Store
     func requestProducts() async {
         do {
             availableDonations = try await Product.products(for: productIds)
+            print("✅ Products loaded successfully")
         } catch {
-            print("Failed product request from app store server: \(error)")
+            print("❌ Failed to load products: \(error.localizedDescription)")
         }
     }
 
+    /// Покупка продукта
     func purchase(_ product: Product) async throws -> Transaction? {
         let result = try await product.purchase()
 
-        switch result {
-        case .success(let verification):
+        if case .success(let verification) = result {
             let transaction = try checkVerified(verification)
             await transaction.finish()
             return transaction
-        case .userCancelled, .pending:
-            return nil
-        default:
-            return nil
         }
+
+        return nil
     }
 
+    /// Верификация покупки
     func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
         switch result {
-        case .unverified:
-            throw StoreError.failedVerification
         case .verified(let safe):
             return safe
+        case .unverified:
+            throw StoreError.failedVerification
         }
     }
 }
@@ -83,5 +84,7 @@ class StoreVM: ObservableObject {
 public enum StoreError: Error {
     case failedVerification
 }
+
+
 
 

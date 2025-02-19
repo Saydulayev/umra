@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,15 +32,12 @@
 		C063ADFC29DF2FC700746D2E /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADEF29DF2FC600746D2E /* 3.mp3 */; };
 		C063ADFD29DF2FC700746D2E /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADF029DF2FC600746D2E /* 1.mp3 */; };
 		C063ADFE29DF2FC700746D2E /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADF129DF2FC700746D2E /* 8.mp3 */; };
-		C077B4762B20D3EA00086594 /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077B4752B20D3EA00086594 /* PurchaseView.swift */; };
 		C077B4782B20D41D00086594 /* StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077B4772B20D41D00086594 /* StoreKit.swift */; };
-		C077B47A2B20D45600086594 /* DonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077B4792B20D45600086594 /* DonationView.swift */; };
 		C079318C2B246BAE00B38D01 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C079318B2B246BAE00B38D01 /* StoreKit.framework */; };
 		C07BE9072AA3474600BA3A15 /* hadj_i_umra.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */; };
 		C07BE9262AA34B8900BA3A15 /* CounterTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */; };
 		C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08EAFD22AF91CFB00C847AC /* textFont.swift */; };
 		C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDB29829F8A00458ACB /* umraApp.swift */; };
-		C0908DDE29829F8A00458ACB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDD29829F8A00458ACB /* ContentView.swift */; };
 		C0908DE029829F8A00458ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DDF29829F8A00458ACB /* Assets.xcassets */; };
 		C0908DE329829F8A00458ACB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DE229829F8A00458ACB /* Preview Assets.xcassets */; };
 		C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */; };
@@ -89,9 +86,7 @@
 		C063ADF129DF2FC700746D2E /* 8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8.mp3; sourceTree = "<group>"; };
 		C06B9C562A08F4A000549748 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C06B9C572A08F4AE00549748 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C077B4752B20D3EA00086594 /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseView.swift; sourceTree = "<group>"; };
 		C077B4772B20D41D00086594 /* StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKit.swift; sourceTree = "<group>"; };
-		C077B4792B20D45600086594 /* DonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationView.swift; sourceTree = "<group>"; };
 		C07931892B24627100B38D01 /* InAppPurchase.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = InAppPurchase.storekit; sourceTree = "<group>"; };
 		C079318B2B246BAE00B38D01 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hadj_i_umra.pdf; sourceTree = "<group>"; };
@@ -99,7 +94,6 @@
 		C08EAFD22AF91CFB00C847AC /* textFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFont.swift; sourceTree = "<group>"; };
 		C0908DD829829F8A00458ACB /* umra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0908DDB29829F8A00458ACB /* umraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = umraApp.swift; sourceTree = "<group>"; };
-		C0908DDD29829F8A00458ACB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0908DDF29829F8A00458ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0908DE229829F8A00458ACB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMidifierView.swift; sourceTree = "<group>"; };
@@ -126,6 +120,11 @@
 		C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C24AC7BA2D65CB0C007F5E5A /* ContentView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ContentView; sourceTree = "<group>"; };
+		C24AC7BF2D65D366007F5E5A /* DonationView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DonationView; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		C0908DD529829F8A00458ACB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -142,7 +141,7 @@
 		C008900129E1AE0C00031176 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C0908DDD29829F8A00458ACB /* ContentView.swift */,
+				C24AC7BA2D65CB0C007F5E5A /* ContentView */,
 				C063ADE229DF2E5B00746D2E /* PlayerView.swift */,
 				C0514F332998F3C000AA1776 /* PDFView.swift */,
 				C008900229E1B09400031176 /* SettingsView.swift */,
@@ -150,8 +149,7 @@
 				C2A68D332CFF1DC8005F3ED8 /* LanguageSelectionView.swift */,
 				C2A68D372CFF1E64005F3ED8 /* ShimmeringText.swift */,
 				C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */,
-				C077B4752B20D3EA00086594 /* PurchaseView.swift */,
-				C077B4792B20D45600086594 /* DonationView.swift */,
+				C24AC7BF2D65D366007F5E5A /* DonationView */,
 				C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */,
 				C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */,
 				C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */,
@@ -311,6 +309,10 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				C24AC7BA2D65CB0C007F5E5A /* ContentView */,
+				C24AC7BF2D65D366007F5E5A /* DonationView */,
+			);
 			name = umra;
 			packageProductDependencies = (
 				C02468412BDF979A00CE5A6B /* Adhan */,
@@ -401,9 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C077B4762B20D3EA00086594 /* PurchaseView.swift in Sources */,
 				C008900329E1B09400031176 /* SettingsView.swift in Sources */,
-				C0908DDE29829F8A00458ACB /* ContentView.swift in Sources */,
 				C2A68D382CFF1E64005F3ED8 /* ShimmeringText.swift in Sources */,
 				C2A68D342CFF1DC8005F3ED8 /* LanguageSelectionView.swift in Sources */,
 				C2E1173A2C999AE3002DC520 /* UsefulTex.swift in Sources */,
@@ -424,7 +424,6 @@
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
 				C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */,
 				C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */,
-				C077B47A2B20D45600086594 /* DonationView.swift in Sources */,
 				C2A68D362CFF1E3C005F3ED8 /* UserSettings.swift in Sources */,
 				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,
 			);

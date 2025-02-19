@@ -7,42 +7,6 @@
 
 import SwiftUI
 
-struct StepView<Destination: View>: View {
-    let imageName: String
-    let destinationView: Destination
-    let titleKey: LocalizedStringKey
-    let index: Int?
-    let fontSize: CGFloat
-    let stepsCount: Int
-    @Binding var imageDescriptions: [String: String]
-    
-    @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var fontManager: FontManager
-
-    private var accessibilityLabel: String {
-        NSLocalizedString(imageDescriptions[imageName] ?? imageName, bundle: settings.bundle ?? .main, comment: "")
-    }
-
-    var body: some View {
-        VStack {
-            NavigationLink(destination: destinationView) {
-                if let index = index {
-                    Image(imageName)
-                        .styledImageWithIndex(index: index, stepsCount: stepsCount)
-                        .accessibilityLabel(accessibilityLabel)
-                } else {
-                    Image(imageName)
-                        .styledImage()
-                        .accessibilityLabel(accessibilityLabel)
-                }
-            }
-            Text(titleKey, bundle: settings.bundle)
-                .font(.custom("Lato-Black", size: fontSize))
-                .multilineTextAlignment(.center)
-            Divider()
-        }
-    }
-}
 
 struct ContentView: View {
     @EnvironmentObject var settings: UserSettings
