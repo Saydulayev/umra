@@ -1,0 +1,451 @@
+/* 
+  Localizable.strings
+  umra
+
+  Created by Akhmed on 04.05.23.
+  
+*/
+
+
+"app_name" = "Umre";
+"main_screen_name_string" = "UMRE";
+"title_black_stone_screen" = "Hacerü'l-Esved'e Dönüş";
+"title_ihram_screen" = "Ihram";
+"title_place_ibrohim_stand_screen" = "Makâm-ı İbrahim";
+"title_round_kaaba_screen" = "Kâbe'yi Tavaf";
+"title_safa_and_marva_screen" = "Safa ve Merve";
+"title_settings_screen" = "Ayarlar";
+"title_shave_head_screen" = "Saç Tıraşı";
+"title_water_zamzam_screen" = "Zemzem İçme";
+"title_link_book_screen" = "Kitaplar";
+
+
+/* IHRAM */
+"into the state of Ihram" = "
+Mikat noktasında ihrama girin.
+";
+
+"When entering the state of Ihram, say:" = "İhrama girerken şunu söyleyin:
+";
+
+"Turn your face towards the Qiblah and say:" = "
+Labbayka Allahumma bi-´umrah.
+
+Kıbleye yönelin ve şunu söyleyin:
+";
+
+"O Allah, this Umrah is without any ostentation or fame" = "Allahumma hazihi 'umrah, la riya'a fiha wa la sum'ah.
+    
+Ey Allah’ım! Bu umre, gösteriş ve şöhret için değildir!
+    
+    
+Daha sonra yüksek sesle telbiyeye başlayın:
+";
+
+"Labbayka Allahumma labbayk" = "Labbayka Allahumma labbayk! Labbayka laa shariika laka labbayka! Innal hamda wanni'mata laka wal mulk, laa shariika lak
+    
+«Buyur Allah’ım, buyur! Buyur, Senin hiçbir ortağın yoktur! Buyur! Şüphesiz hamd, nimet ve mülk yalnızca Sana aittir! Senin hiçbir ortağın yoktur!».
+    
+    
+Mekke'nin Harem bölgesine ulaştığınızda ve Mekke'nin evlerini gördüğünüzde telbiyeyi bırakmalısınız.";
+
+"Entering the Sacred Mosque from the right foot" = "
+    
+Mescid-i Haram’a sağ ayak ile girerken şunu söyleyin:
+";
+
+"entering the Sacred Mosque" = "Allahumma, solli ´ala Muhammadin wa sallim! Allahumma - ftah li abwaba rohmati-ka!
+    
+Ey Allah’ım! Muhammed’e salât ve selam eyle!
+Ey Allah’ım! Bana rahmet kapılarını aç!";
+ 
+"Conditioning for Hajj or Umrah." = "
+
+Hac veya Umre için şart koşma.
+";
+
+"If a pilgrim fears that some reason may prevent them from completing the Hajj" = "Eğer bir hacı, hastalık veya başka bir sebeple haccını tamamlayamayacağından korkuyorsa, telbiyeyi söylemeden önce, Allah Resulü’nün (sallallâhu aleyhi ve sellem) öğrettiği şekilde niyetini şartlı olarak yapabilir:
+";
+
+"Ihram text1" = "«Allahumma mahilli haysu habastani»
+
+«Ey Allah’ım! Eğer beni bir şey engellerse, ihramdan çıkışım burada olsun.»
+
+Bu hadis, sahih olarak kabul edilmiştir. Ayrıca bkz. “Sahîh Ebû Dâvûd” (1776).
+
+Bundan dolayı, eğer hacı bu şekilde niyet eder ve bir engel çıkarsa ya da hastalanırsa, hac veya umre ibadetini tamamlamadan ihramdan çıkabilir. Bu durumda ceza olarak kurban kesmesi gerekmez ve yeniden hac yapmasına da gerek yoktur. Ancak bu onun farz olan ilk haccı ise, bu durumda onu tekrar yapması gerekir.";
+
+
+/* KAABA */
+"Kaaba text1" = "
+Kâbe’yi Tavaf";
+"Kaaba text2" = "
+Kâbe etrafında yedi kez tavaf etmeye başlayın (Tavaf)
+        
+Bundan sonra, hacı Kara Taş’a (Hacerü'l-Esved) eliyle dokunur ve onu öper.
+        
+Eğer Kara Taş’ı öpmek mümkün değilse, ona eliyle dokunmalıdır.
+        
+        
+Eğer Kara Taş’a dokunmak ve öpmek mümkün değilse, o zaman ona yönelin, sağ elinizle işaret edin ve «Allahu Akbar» (Allah en büyüktür) deyin. (Bütün bunlar Kâbe’yi tavaf ederken her turda yapılmalıdır.)
+";
+"Kaaba text3" = "Kâbe’nin tavafına Kara Taş’tan başlayın. Kara Taş’tan Kara Taş’a bir tur tamamlanmış sayılır. Her yeni tura başlarken sağ elinizle Kara Taş’a işaret edin ve tekbir getirin. Bu tavafın başlangıcından bitimine kadar erkekler sağ omuzlarını açık bırakmalıdır. İlk üç turda, Kara Taş’tan Kara Taş’a hızlı adımlarla yürümeleri, geri kalan dört turda ise normal tempoda yürümeleri gerekir. Mümkünse, her turda Yemen Köşesi’ne dokunun. Yemen Köşesi ile Kara Taş arasından her geçişinizde şu duayı okuyun:
+";
+"Kaaba text4" = "Rabbana, atina fid-dunya hasanatan wa fil-akhiroti hasanatan wa qina azaba-n-nar
+        
+«Rabbimiz! Bize dünyada iyilik ver, ahirette de iyilik ver ve bizi ateşin azabından koru!», (Bakara Suresi, 201. ayet).";
+"Prayer after Tawaf of Kaaba." = "Tavaftan sonra namaz.";
+
+
+/* Namaz after Tawaf around the Kaaba. */
+"Prayer after Tawaf of Kaaba." = "
+Kâbe'yi tavaf ettikten sonra namaz";
+
+"Having completed seven circuits around the Kaaba" = "
+Kâbe etrafında yedi turu tamamladıktan sonra, erkekler sağ omuzlarını kapatır. Sonra İbrahim makamına yönelin ve şunu söyleyin:
+";
+
+"Place of standing of Ibrahim" =
+    "Wa-ttahizu mim-maqomi Ibrohima musollya.
+    
+«Ve İbrahim’in makamını namaz yeri edinin» (Bakara Suresi, 125. ayet).
+    
+Eğer mümkünse, İbrahim Makamı’nda veya Mescid-i Haram’ın herhangi bir yerinde iki rekât namaz kılın. Önünüze bir engel koymayı unutmayın ki kimse sizinle engel arasından geçmesin.
+İlk rekâtta 1. sure «Al-Fatihah = Fatiha Suresi» okunduktan sonra 109. sure «Al-Kafirun = Kâfirun Suresi» okunur, ikinci rekâtta «Al-Fatihah» okunduktan sonra 112. sure «Al-Ikhlas = İhlas Suresi» okunur.
+
+Namazı tamamladıktan sonra Zemzem suyu kaynağına yönelin.";
+
+
+/* Drinking Zamzam water. */
+"Drinking Zamzam water." = "
+Zemzem Suyu İçme.";
+
+"Zamzam text" = "
+Suyu için ve başınıza dökün.
+    
+Cabir (radıyallahu anh) şöyle anlatmıştır: “Peygamber (sallallahu aleyhi ve sellem) Zemzem kuyusuna yöneldi, ondan su içti ve başına döktü.” (Ahmed 3/394), (İbn Huzeyme 4/305). Hadisin sahih olduğunu ez-Zerkeşî, Bedruddin el-Aynî, Şuayb el-Arnaût onaylamıştır. Bkz. «Umdetü’l-Kârî» (9/227), «Haşiye ‘alâ’l-Menâsik» (s. 263), «Tahric el-Müsned» (15243).
+    
+Cabir’den (radıyallahu anh) rivayet edildiğine göre, Allah Resulü (sallallahu aleyhi ve sellem) şöyle buyurdu: «Zemzem suyu, hangi niyetle içilirse ona vesile olur.»
+(Ahmed 3/357), (İbn Mace 3062), (el-Hâkim 1739). Hadisin sahih olduğunu Süfyan ibn Uyeyne, el-Münzirî, ed-Dümyâtî, İbn Kayyim, ez-Zerkeşî, İbn Hacer, el-Elbânî onaylamıştır. Bkz. “el-Mücâlasa” (509), “el-Metcar er-Râbih” (982), “Zâdü’l-Meâd” (4/393), “el-Makâsıdü’l-Hasene” (928), “Feyzü’l-Kadîr” (7759), “Sahîh et-Terğîb” (1165).
+    
+eş-Şevkânî şöyle demiştir: “Bu hadis, Zemzem suyunun hangi niyetle içilirse içilsin içen kişiye fayda sağlayacağına delildir. Çünkü ‘hangi niyetle içilirse ona vesile olur’ ifadesi genel bir hüküm içermektedir.” Bkz. “Neylü’l-Evtâr” (5/105).
+
+en-Nevevî şöyle demiştir: “Bu hadisin anlamı şudur ki, bir kişi Zemzem suyunu belirli bir niyetle içerse, o niyetine ulaşır. Gerçekten de ilim ehli ve salih kişiler bu suyu dünya ve ahiret işlerinde dileklerine ulaşmak için içmişler ve Allah’ın lütfuyla istediklerine ulaşmışlardır.” Bkz. “Tehzîb el-Esma ve’l-Luğât” (3/139).";
+
+
+/* Return to the Black Stone. */
+"Return to the Black Stone." = "
+Hacerü'l-Esved'e Dönüş.";
+
+"Return to the Black Stone, recite the Takbir." = "
+Hacerü'l-Esved'e dönün, tekbir getirin ve daha önce açıklandığı gibi ona dokunun. Veya ona elinizle işaret edin ve tekbir getirin. Allah en büyüktür.";
+
+"Allah is great." = "
+Allahu Akbar.";
+
+/* Safa and Marwa */
+"Safa and Marwa" = "
+Safa ve Merve";
+
+"Head towards the hill of Safa" = "
+Safa ve Merve tepeleri arasında yedi kez gerçekleştirilen sa‘y ibadetini yerine getirmek için Safa tepesine gidin. Sa‘y ibadetine Safa tepesinden başlayın.
+    
+    
+       Safa'ya yaklaşırken şu ayeti okuyun:
+";
+
+"Surah Al-Baqarah, verse 158." = "Inna Ssofaa wal-Marwata min sha’aaa’iril laah, faman hajjal Baita awi’tamaro falaa junaaha ‘alaihi ayyatt´owwafa bihimaa, wa man tat´owwa’a hoyron fa-inna-LLAha Shakirun ´alim.
+       
+«Şüphesiz ki Safa ve Merve, Allah’ın sembollerindendir. Bu nedenle, kim Beytullah’a hac veya umre için gelirse, onların arasında yürüyerek geçmesinde kendisine bir günah yoktur. Kim gönülden bir iyilik yaparsa, şüphesiz Allah, şükrün karşılığını verendir, bilendir.» (Bakara Suresi, 158. Ayet).
+    
+    Sonra şunu söyleyin:
+";
+
+"We begin with that string" = "Nabdau bima badaa-Llahu bihi
+
+«Biz, Allah’ın başladığı ile başlıyoruz.»
+    
+Safa tepesine çıkın, yüzünüzü Kâbe’ye çevirin ve şu zikri okuyun:
+";
+
+"Remembrance of Allah during the Sa'i of Safa and Marwa." =
+"Allahu Akbar! Allahu Akbar! Allahu Akbar!
+La ilaha illa-Llahu wahdahu la sharika lahu. Lahul mulku wa lahul hamdu yuhyi wa yumitu wa huwa 'ala kulli shay'in qodir. La ilaha illa-Llahu wahdahu la sharika lah, anjaza wa'dahu, wa nasaro 'abdahu, wa hazamal ahzaba wahdahu.
+
+«Allah en büyüktür! Allah en büyüktür! Allah en büyüktür!
+Allah’tan başka ilah yoktur, O tektir ve O’nun ortağı yoktur! Mülk O’nundur, hamd O’na aittir. O, diriltir ve öldürür. O, her şeye kadirdir! Allah’tan başka ilah yoktur, O tektir ve O’nun ortağı yoktur! O, vaadini yerine getirdi, kuluna yardım etti ve düşman birliklerini tek başına mağlup etti.»
+    
+Bu sözleri üç kez tekrarlayın ve ilk iki kez ellerinizi kaldırarak dua edin. Sonra Safa’dan Merve’ye doğru yürümeye başlayın. Safa’dan Merve’ye gitmek bir tur, Merve’den Safa’ya dönmek ikinci tur olarak sayılır. Merve tepesine ulaştığınızda aynı düzeni tekrar edin: zikir – dua – zikir – dua – zikir. Eller dua için ilk iki tekrarda kaldırılmalıdır. Bu zikir ve dualar, yedinci ve son tur hariç, Safa ve Merve tepelerine her çıkışta tekrarlanmalıdır. Yeşil işaretli ilk noktaya ulaştığınızda, erkekler ikinci işarete kadar hızlı koşmalıdır. Yolun geri kalanı normal yürüyerek tamamlanmalıdır.
+
+Sa‘y ibadeti sırasında şu duayı okuyabilirsiniz:
+";
+
+"Du'a during the Sa'i ritual of Safa and Marwa." =
+    "Rabbi-ghfir wa rham, innaka anta a´azzul-akram
+    
+«Ey Rabbim! Beni bağışla ve merhamet et! Şüphesiz Sen, en yüce ve en cömert olansın!»
+    
+Bu duayı okumakta bir sakınca yoktur, çünkü selef alimlerinden bir grup tarafından kabul edilmiştir.
+
+Yedinci turun tamamlanmasının ardından, artık Merve tepesinde zikir ve dua yapılmaz. Bu, sa‘y ibadetinin tamamlandığını gösterir.
+
+Mescid-i Haram’dan çıkarken yapılan dua: Yedinci turun sonunda Merve tepesinde sa‘y ibadetini tamamladıktan sonra, sol ayağınızla Mescid-i Haram’dan çıkarken şu duayı okuyun:
+";
+
+"Du'a upon exiting the Sacred Mosque." =
+"Allahumma solli 'ala Muhammadin wa sallim! Allahumma, inni as'aluka min fadlika!
+    
+«Ey Allah’ım! Muhammed’e salât ve selam eyle! Ey Allah’ım! Şüphesiz, Senin lütfunu diliyorum!»";
+
+
+/* Shaving of the head or trimming of the hair. */
+"Shaving the head string" = "
+Başı tıraş etmek veya saçları kısaltmak.";
+
+"Men shorten or shave their hair." = "
+Daha sonra erkekler başındaki saçları eşit şekilde kısaltır veya tamamen tıraş eder, kadınlar ise saçlarından bir parmak boğumu kadar keser.
+
+Not:
+Hac için gelenlerin, saçları umreden sonra hacca kadar uzamayacaksa, tıraş yerine saçlarını kısaltmaları daha faziletlidir. Çünkü saç tıraşı hac esnasında yapılır.
+Yalnızca umre yapmak için gelenlerin ise saçlarını tamamen tıraş etmeleri daha faziletlidir.
+    
+İhramdan tamamen çıkış gerçekleşir.
+Böylece umre ibadeti tamamlanmış olur. Erkekler ihram elbiselerini çıkarır. İhram halindeyken geçerli olan yasaklar artık kaldırılmıştır.";
+
+"Du'a at the end." = "
+                        
+Son olarak, Yüce Allah’tan tüm salih amellerimizi kabul etmesini ve bu amellerimizin sevabını, O’nun huzuruna çıkacağımız güne kadar korumasını diliyorum.
+    
+«O gün ki, ne mal fayda verir ne de oğullar. Ancak Allah’a selim bir kalple gelenler müstesna.» 
+(Şuara Suresi, 88–89. ayetler).
+    
+Ayrıca, bu uygulamanın oluşturulmasına, geliştirilmesine ve yayılmasına herhangi bir şekilde katkıda bulunan herkese – ister bir tavsiye, ister ilim, ister maddi destek veya güzel bir söz olsun – Allah’ın tam mükafat vermesini niyaz ediyorum. 
+    
+Çünkü Allah Resulü (sallallahu aleyhi ve sellem) şöyle buyurmuştur:
+«Kim bir hayra vesile olursa, onu yapanın sevabı kadar sevap kazanır.» 
+(Sahih Müslim, Hadis No: 1893).
+
+Alemlerin Rabbi olan Allah’a hamdolsun!";
+
+
+
+//<!--  Resources for the LinkBook screen  -->
+
+//<!--  Resources for the Settings screen  -->
+
+
+"feedback_settings_screen_string" = "GERİ BİLDİRİM";
+"text_button_feedback_string" = "Geri Bildirim";
+"evaluate_the_app_string" = "UYGULAMAYI DEĞERLENDİRİN";
+"text_button_rate_the_app_string" = "Uygulamayı Değerlendir";
+"support_the_developer_string" = "GELİŞTİRİCİYİ DESTEKLEYİN";
+"text_button_support_string" = "Geliştiriciyi Destekle";
+"select_language_settings_string" = "Dili Seç";
+"settings_string" = "Ayarlar";
+//    <string name="select_language_string">Выберите язык</string>
+//    <string name="russian_string">Русский</string>
+//    <string name="english_string">Английский</string>
+//    <string name="deutsche_string">Немецкий</string>
+//    <string name="french_string">Французский</string>
+
+"add_string" = "Ekle";
+"reset_string" = "Sıfırla";
+"Sa´y finished_string" = "Sa´y tamamlandı";
+"circle_string" = "Tur:";
+
+"background_color" = "Arka plan rengi";
+"text_color" = "Metin rengi";
+
+"_size_" = "Boyut";
+"_font_" = "Yazı tipi";
+
+"_donate_button" = "Bağış Yap";
+"select_the_amount" = "Miktarı seçin:";
+
+"Contribution to Application Development" = "Bağışınız tamamen gönüllüdür. Herhangi bir ek dijital içerik veya özel uygulama özelliği ile bağlantılı değildir. Amacımız, herkesin herhangi bir kısıtlama olmaksızın ücretsiz ve erişilebilir bir uygulamaya sahip olmasını sağlamaktır.";
+
+"Useful" = "Faydalı";
+"soon_available_text" = "Bu metin yapay zeka kullanılarak Rusçadan diğer dillere çevrildi. Çeviride bir hata fark ederseniz, lütfen geri bildirim yoluyla bize bildirin.";
+
+"Notification Settings" = "Bildirim Ayarları";
+"30-Minute Notifications" = "Namazdan 30 dakika önce bildirim gönder";
+"Prayer Time Notifications" = "Namaz vakti bildirimi gönder";
+"Sunrise Notifications" = "Güneş doğuşu bildirimi gönder";
+"Open iOS Notification Settings" = "iOS Bildirim Ayarlarını Aç";
+"Close" = "Kapat";
+
+
+/* Заголовок страницы */
+"useful_info_title" = "Faydalı Bilgiler";
+
+/* Главы и подглавы */
+"etiquette_manners" = "Adap ve Ahlak";
+"sincerity" = "İhlâs";
+"laws" = "Hükümler";
+"choice_of_companions" = "Yol Arkadaşı Seçimi";
+"financial_independence" = "Mali Bağımsızlık";
+"noble_manners" = "Asil Ahlak";
+"zikr_and_prayers" = "Zikir ve Dualar";
+"caution_in_relationships" = "İlişkilerde Dikkat";
+
+"hajj_umrah_virtues" = "Hac ve Umrenin Faziletleri";
+"atonement_and_rewards" = "Günahların Kefareti ve Sevap";
+"hajj_for_women" = "Kadınlar İçin Hac";
+"perfect_hajj" = "Kusursuz Hac";
+"following_the_sunnah" = "Sünnete Uymak";
+
+"hajj_umrah_obligation" = "Hac ve Umrenin Farziyeti";
+"hajj_obligation_evidence" = "Haccın Farz Olduğuna Dair Deliller";
+"umrah_obligation_evidence" = "Umrenin Farz Olduğuna Dair Deliller";
+"conclusion" = "Sonuç";
+
+
+
+/* Texts for Etiquette Manners */
+"etiquette_manners_text1" = "Hac ve umre yapan kişinin en önemli vazifesi, Allah'a karşı ihlaslı olmaktır. O, riyadan ve şöhret arzusundan arınmalı, böylece bu hac ve umre ibadetinin mükafatını almalıdır.\n\nEbu Hureyre'den (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurdu: «Allah Teâlâ buyurdu ki: 'Ben, ortak koşulmasından en fazla müstağni olanım. Kim bir amel işler ve onda Beni başkasıyla ortak kılarsa, onu da, o şirkini de reddederim!'». (Müslim, 2985)\n\nAyrıca, Resulullah (sallallahu aleyhi ve sellem) şöyle dua etmiştir: «Allah’ım! Riyadan ve gösterişten uzak bir hac nasip eyle!» (İbn Mâce, 2890).";
+
+"etiquette_manners_text2" = "Hac ve umre yapmak isteyen kişi, bu ibadetleri ilme dayalı bir şekilde yerine getirebilmek için hac ve umreyle ilgili fıkhî hükümleri öğrenmeye gayret etmelidir.";
+
+"etiquette_manners_text3" = "Hac ve umre yapan kişi, yolculuk esnasında kendisine en hayırlı arkadaşları seçmeye özen göstermelidir. Böylece onlardan hem ilim hem de ahlak açısından fayda görebilir.\n\nEbu Musa el-Eş'arî'den (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurdu: «Salih dost ile kötü dostun misali, misk satıcısı ile körük üfleyen demirciye benzer. Misk satıcısı ya sana hediye verir, ya sen ondan misk satın alırsın ya da en azından güzel kokusunu duyarsın. Körük üfleyen demirci ise ya elbiseni yakar ya da ondan gelen kötü kokuyu duyarsın.» (Buhari, 5534; Müslim, 2628).";
+
+"etiquette_manners_text4" = "Hac ve umre yapan kişi, başkalarına muhtaç olmamak için yeterli maddi imkana sahip olmalıdır.\n\nEbu Said el-Hudrî'den (radıyallahu anh) rivayet edildiğine göre, Peygamberimiz (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «Kim iffetli olmaya çalışırsa, Allah ona iffet ihsan eder; kim başkasına muhtaç olmamaya çalışırsa, Allah onu başkasına muhtaç olmaktan kurtarır.» (Buhari, 1469; Müslim, 1053).";
+
+"etiquette_manners_text5" = "Hac ve umre yapan kişi, güzel ahlak sahibi olmalı ve insanlara en güzel şekilde davranmalıdır.\n\nEbu Zerr’den (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurdu: «Nerede olursan ol, Allah’tan kork! Kötü bir amel işlersen hemen ardından onu silecek bir iyilik yap ve insanlara güzel ahlak ile muamele et.» (Tirmizî, 1987).\n\nAbdullah ibn Amr ibn Âs’tan (radıyallahu anh) rivayet edildiğine göre, Peygamber (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «Kim cehennemden uzaklaştırılıp cennete girmek isterse, Allah’a ve ahiret gününe iman etmiş olarak ölsün ve insanlara, kendisine nasıl davranılmasını istiyorsa öyle davransın.» (Müslim, 1844).";
+
+"etiquette_manners_text6" = "Hac ve umre yapan kişi, Allah'ı zikretmeye, dua etmeye ve istiğfarda bulunmaya önem vermelidir. Dilini hayırdan başka şeyle meşgul etmemeli, dünya ve ahiret hayatı için kendisine faydalı olan işlerle zamanını değerlendirmelidir.\n\nEbu Hureyre’den (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «Kim Allah’a ve ahiret gününe iman ediyorsa, ya hayır söylesin ya da sussun!» (Buhari, 6018; Müslim, 47).\n\nİbn Abbas’tan (radıyallahu anh) rivayet edildiğine göre, Peygamber (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «İnsanların çoğunun farkına varmadığı iki büyük nimet vardır: Sağlık ve boş vakit.» (Buhari, 6412).";
+
+"etiquette_manners_text7" = "Hac ve umre yapan kişi, başkalarına söz veya fiil ile zarar vermekten sakınmalıdır.\n\nResulullah (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «Müslüman, diğer Müslümanların elinden ve dilinden emin olduğu kişidir.» (Buhari, 10; Müslim, 41).\n\nAyrıca, hac ve umre yapan kişinin, sigara içiyorsa, dumanının başkalarına zarar vermemesine dikkat etmesi gerekir. Zira zaten sigarayı bırakmak ve Allah’a tövbe etmek bir müslümana vaciptir. Çünkü sigara sağlığa zararlıdır ve kişinin malını israf etmesine sebep olur.\n\nMüslüman, burada zikredilen güzel ahlaki özellikleri her zaman ve her yerde benimsemeli, özellikle hac ve umre yolculuğunda daha fazla dikkat göstermelidir.";
+
+
+
+/* Texts for Hajj and Umrah Virtues */
+"hajj_umrah_virtues_text1" = "Hac ve umrenin fazileti hakkında Resulullah’tan (sallallahu aleyhi ve sellem) sahih hadisler rivayet edilmiştir. Bunlardan bazılarını zikredelim:\n\nEbu Hureyre’den (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «Bir umreden diğerine kadar işlenen günahlar affedilir. Makbul bir haccın karşılığı ise ancak cennettir.» (Buhari, 1773; Müslim, 1349).\n\nAbdullah ibn Mes’ud’dan (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «Hac ve umreyi peş peşe yapınız. Çünkü bu ikisi, demircinin körüğü demir, altın ve gümüşün paslarını giderdiği gibi fakirliği ve günahları giderir. Makbul bir haccın karşılığı ise ancak cennettir.» (Tirmizî, 810; Nesâî, 2631).\n\nİbn Abbas’tan (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «Hac ve umreyi peş peşe yapınız. Çünkü bunlar, demircinin körüğünün demirden kiri giderdiği gibi fakirliği ve günahları giderir.» (Nesâî, 2630).";
+
+"hajj_umrah_virtues_text2" = "Müminlerin annesi Âişe’den (radıyallahu anha) rivayet edildiğine göre, bir gün şöyle dedi: «Ey Allah’ın Resulü! Biz, cihadın en faziletli amel olduğunu düşünüyoruz. Peki, biz de cihada katılmalı mıyız?» Resulullah (sallallahu aleyhi ve sellem) şöyle buyurdu: «Hayır! Sizin (kadınlar için) en faziletli cihadınız makbul bir hacdır.» (Buhari, 1520).\n\nBir diğer rivayette ise Âişe (radıyallahu anha) şöyle demiştir: «Ey Allah’ın Resulü! Kadınlar cihad etmeli mi?» Resulullah (sallallahu aleyhi ve sellem) şöyle buyurdu: «Onlar, içinde savaş bulunmayan bir cihad yapmalıdır. Bu da hac ve umredir.» (İbn Mâce, 2901).";
+
+"hajj_umrah_virtues_text3" = "Ebu Hureyre’den (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «Kim Allah için hacceder ve bu esnada eşiyle ilişkiye girmez, günah işlemez ve kötü söz söylemezse, annesinden doğduğu günkü gibi günahlarından arınmış olarak döner.» (Buhari, 1521; Müslim, 1350).\n\nAyrıca Resulullah (sallallahu aleyhi ve sellem), Amr ibn Âs’a (radıyallahu anh) şöyle buyurmuştur: «Bilmiyor musun ki, İslam, daha önce işlenen günahları siler? Hicret, daha önce işlenen günahları siler. Hac da daha önce işlenen günahları siler.» (Müslim, 121).\n\nHadislerde geçen “makbul hac” (hacc-ı mebrur), Resulullah’ın (sallallahu aleyhi ve sellem) sünnetine uygun bir şekilde yerine getirilen hacdır.";
+
+"hajj_umrah_virtues_text4" = "Câbir’den (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «Benden hac menasikini öğrenin! Çünkü ben, bu hactan sonra bir daha hac yapamayabilirim.» (Müslim, 1297).\n\nBu hadisin bir başka rivayetinde ise Resulullah (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «Ey insanlar! Hac menasikini benden öğrenin. Çünkü bu yıldan sonra bir daha hac yapmayabilirim.» (Nesâî, 3062).";
+
+
+
+/* Texts for Hajj and Umrah Obligation */
+"hajj_umrah_obligation_obligation_evidence" = "Hac ve umrenin ömründe bir kez yapılması farzdır. Kim hac ve umreyi birden fazla yaparsa, bu artık nafile ibadet olur.\n\nAyrıca, hac ve umre, adak olarak adandığında da farz hale gelir. Eğer bir kişi Allah’a hac veya umre yapacağına dair adakta bulunmuşsa, bu adağını yerine getirmesi gereklidir.\n\nEğer kişi, nafile olarak hac veya umreye başlamışsa, artık onu tamamlaması gerekir. Çünkü Allah Teâlâ şöyle buyurmuştur: «Haccı ve umreyi Allah için tamamlayın.» (Bakara Suresi, 196. ayet).\n\nHaccın farz olduğu; Kur’an, Sünnet ve İslam âlimlerinin icmaı ile sabittir.\n\nAllah Teâlâ şöyle buyurmuştur: «İnsanlar, oraya gitmeye gücü yetenlerin Allah için Beytullah’ı haccetmeleri gerekir. Kim inkâr ederse bilsin ki Allah, âlemlerden müstağnidir.» (Âl-i İmran Suresi, 97. ayet).\n\nResulullah (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «İslam beş temel üzerine kurulmuştur: Allah’tan başka ilah olmadığına ve Muhammed’in O’nun resulü olduğuna şehadet etmek, namaz kılmak, zekât vermek, haccetmek ve Ramazan orucunu tutmak.» (Buhari, 8; Müslim, 16).\n\nBir diğer hadiste ise: «İslam’ın esası, Allah’tan başka ilah olmadığına ve Muhammed’in O’nun resulü olduğuna şahitlik etmen, namaz kılman, zekât vermen, Ramazan orucunu tutman ve gücün yettiğinde Beytullah’ı haccetmendir.» (Müslim, 8).\n\nEbu Hureyre’den (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) bir gün hutbe vererek şöyle buyurdu: «Ey insanlar! Size hac farz kılındı, o halde haccı yerine getirin.» Bir adam sordu: «Ey Allah’ın Resulü! Her yıl mı?» Resulullah (sallallahu aleyhi ve sellem) ona cevap vermedi. Adam üç kez soruyu tekrarladıktan sonra Resulullah (sallallahu aleyhi ve sellem) şöyle buyurdu: «Eğer 'evet' deseydim, her yıl yapmak üzerinize farz olurdu, ancak siz bunu yerine getiremezdiniz.» (Müslim, 1337).\n\nMüslümanlar, haccın farz olduğu konusunda icma etmişlerdir. Haccın farz olabilmesi için gereken şartlar bir kişide bulunduğunda, onun için hac yapmak bir zorunluluktur.";
+
+"hajj_umrah_obligation_evidence_umrah_obligation" = "Umrenin farz olduğuna dair şu hadisler delil olarak getirilmiştir:\n\n1 — Âişe’den (radıyallahu anha) rivayet edildiğine göre, bir gün Peygamberimiz’e (sallallahu aleyhi ve sellem) şöyle sordu: «Ey Allah’ın Resulü! Kadınlar da cihad etmeli mi?» Resulullah (sallallahu aleyhi ve sellem) şöyle buyurdu: «Evet, onlar savaş bulunmayan bir cihad yapmak zorundadır. Bu da hac ve umredir.» (Ahmed, 6/165; İbn Mâce, 2901).\n\nBu hadisi zikreden İbn Huzeyme (rahimehullah) şöyle demiştir: «Resulullah’ın (sallallahu aleyhi ve sellem) 'Onlar savaşsız bir cihad yapmalıdır ve bu da hac ile umredir.' sözünde, umrenin de hac gibi farz olduğuna dair açıklık vardır.» (Sahih İbn Huzeyme, Hadis No: 3074).\n\n2 — Ömer’den (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «İslam’ın temeli şudur: Allah’tan başka ilah olmadığına ve Muhammed’in O’nun resulü olduğuna şahitlik etmek, namaz kılmak, zekât vermek, hac ve umre yapmak, cünüplükten sonra gusletmek, abdest almak ve Ramazan ayında oruç tutmaktır.» (Sahih İbn Huzeyme, Hadis No: 3065; Darakutni, 2/282).\n\n3 — Ebu Razin el-Uqayli’den rivayet edildiğine göre, bir gün Resulullah’a (sallallahu aleyhi ve sellem) gelerek şöyle dedi: «Ey Allah’ın Resulü! Babam çok yaşlıdır, ne hac ne de umre yapabilir, hatta hayvana bile binemez.» Resulullah (sallallahu aleyhi ve sellem) şöyle buyurdu: «Babanın yerine hac ve umre yap.» (Tirmizî, 930).\n\n4 — Es-Subey’î ibn Ma’bad’dan rivayet edildiğine göre, Ömer ibn Hattab’a (radıyallahu anh) şöyle dedi: «Ey müminlerin emiri! Ben önceden bedevi bir Hristiyandım, sonra İslam’a girdim ve cihada gitmek istedim. Ancak hac ve umrenin bana farz kılındığını öğrendim. Kavmimden birine sordum ve bana, 'Hac ve umreyi birlikte yap ve gücünün yettiği bir kurban kes' dedi. Ben de hac ve umreyi birlikte yaptım.» Bunun üzerine Ömer (radıyallahu anh) şöyle dedi: «Sen, Resulullah’ın (sallallahu aleyhi ve sellem) sünnetine uygun davrandın.» (Ebu Davud, 1799).";
+
+"hajj_umrah_obligation_concluding_evidence" = "Hac ve umre, şartları taşıyan her Müslüman için farzdır. Haccın farz olduğu konusunda Müslümanlar icma etmişlerdir. Ayrıca, yapılan bir adaktan dolayı hac ve umre farz hale gelebilir ve başlanılan nafile bir hac veya umre tamamlanmalıdır.";
+
+
+/* Janaza Prayer Guide */
+"translate_text" = "çeviri";
+
+"title_janaza_guide" = "Cenaze Namazı";
+"basic_rules" = "Cenaze Namazı Kılavuzu";
+"janaza_basic_rules" = "📌 Cenaze namazının temel kuralları.
+
+Namaz ayakta kılınır, rükû ve secde yapılmaz. Dört tekbirden («Allahu Ekber») oluşur.
+
+Her tekbirden sonra belirli dualar okunur:
+
+1. Fatiha Suresi  
+2. Peygamber Efendimiz ﷺ için salavat  
+3. Merhum için dua  
+4. Ek bir dua yapılabilir veya doğrudan selam verilerek namaz bitirilebilir.";
+
+
+"first_takbir_title" = "1. Birinci Tekbir";
+"first_takbir_text" = "Eller omuz hizasına veya kulak seviyesine kadar kaldırılır ve şöyle denir:
+
+اللَّهُ أَكْبَرُ  
+Allahu Ekber (“Allah en büyüktür”)
+
+Ardından:  
+Fatiha Suresi okunur.";
+
+"second_takbir_title" = "2. İkinci Tekbir";
+"second_takbir_text" = "Eller kaldırılmadan tekbir getirilir:
+
+اللَّهُ أَكْبَرُ - Allahu Akbar
+
+Peygamber Efendimiz ﷺ için salavat okunur:
+
+اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ. اللَّهُمَّ بَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ
+
+Allahumma salli ‘ala Muhammadin wa ‘ala ali Muhammadin, kama sallayta ‘ala Ibrahima wa ‘ala ali Ibrahima, innaka Hamidun Majid.  Allahumma barik ‘ala Muhammadin wa ‘ala ali Muhammadin, kama barakta ‘ala Ibrahima wa ‘ala ali Ibrahima, innaka Hamidun Majid!";
+
+"translate_second_takbir_text" = "«Ey Yüce Allah! Muhammed’e ve onun ailesine, İbrahim’e ve onun ailesine rahmet ettiğin gibi rahmet eyle. Şüphesiz ki Sen övülmeye layıksın ve yücesin! Ey Yüce Allah! Muhammed’e ve onun ailesine bereket ver, İbrahim’e ve onun ailesine bereket verdiğin gibi. Şüphesiz ki Sen övülmeye layıksın ve yücesin!».";
+
+
+"third_takbir_title" = "3. Üçüncü Tekbir";
+"third_takbir_text" = "Eller kaldırılmadan tekbir getirilir:
+
+اللَّهُ أَكْبَرُ - Allahu Akbar
+
+Merhum için dua okunur (eğer erkekse):
+
+اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
+
+Allahumma ighfir lahu, warhamhu.
+
+Veya:
+
+اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ، وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ، وَوَسِّعْ مُدْخَلَهُ، وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الأبْيَضَ مِنَ الدَّنَسِ، وَأَبْدِلْهُ دَاراً خَيْراً مِنْ دَارِهِ، وَأَهْلاً خَيْراً مِنْ أَهْلِهِ، وَزَوْجاً خَيْرا ًمِنْ زَوَجِهِ، وَأَدْخِلْهُ الْجَنَّةَ، وَأَعِذْهُ مِنْ عَذَابِ الْقَبْرِ وَعَذَابِ النَّارِ
+
+Allahumma ighfir lahu, warhamhu, wa ‘afihi, wa‘fu ‘anhu, wa akrim nuzulahu, wa wassi‘ mudkhalahu, waghsilhu bil-ma’i, wassalji wal-baradi, wa naqqihi mina-l-khataya kama yunaqqa-th-thawbu-l-abyadu mina-d-danas, wa abdilhu daran khayran min darihi, wa ahlan khayran min ahlihi, wa zawjan khayran min zawjihi, wa adkhilhu-l-jannata, wa a‘iz-hu min ‘adhabi-l-qabri wa ‘adhabi-n-nar.";
+
+"translate_third_takbir_text" = "‘Awf ibn Malik şöyle rivayet etmiştir: “Bir gün Allah’ın Resulü (Allah’ın selamı ve bereketi onun üzerine olsun) cenaze namazı kıldırdı ve ben onun, vefat eden kişi için yaptığı şu duayı ezberledim:  
+
+«Ey Allah’ım! Onu bağışla, ona merhamet et, onu kurtuluşa eriştir ve onu güzel bir şekilde karşıla. Kabrini genişlet ve onu su, kar ve dolu ile yıka! Onu günahlardan arındır, tıpkı beyaz bir giysiyi kirden arındırdığın gibi. Ona evinin daha hayırlısını, ailesinin daha hayırlısını ve eşinin daha hayırlısını ver. Onu Cennet’e dahil et ve kabir azabından ve Cehennem ateşinden koru!» - Ebu Abdurrahman dedi ki: 'Bu duayı duyduğumda, vefat edenin yerinde olmayı diledim.' (Sahih Muslim 2/663).";
+
+
+"dua_variations_title" = "Merhuma Göre Dua Çeşitleri";
+"dua_variations_text" = "📌 Eğer vefat eden kişi bir erkekse  
+- Aşağıdaki formu kullanın: لَهُ (lahu)  
+
+اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،  
+
+(Allahumma ighfir lahu, warhamhu.)  
+
+📌 Eğer vefat eden kişi bir kadınsa  
+- Erkek formunun yerine kadın formunu kullanın: لَهَا (laha)  
+
+اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،  
+
+(Allahumma ighfir laha, warhamha.)  
+
+📌 Eğer vefat edenler birden fazla erkekse  
+- Erkek çoğul formunu kullanın: لَهُمْ (lahum)  
+
+اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،  
+
+(Allahumma ighfir lahum, warhamhum.)  
+
+📌 Eğer vefat edenler birden fazla kadınsa  
+- Kadın çoğul formunu kullanın: لَهُنَّ (lahunna)  
+
+اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،  
+
+(Allahumma ighfir lahunna, warhamhunna.)  
+
+📌 Eğer vefat edenler hem erkek hem kadınlardan oluşuyorsa (karışık grup)  
+- Arapça dilbilgisi kurallarına göre erkek çoğul formu tercih edilir: لَهُمْ (lahum).  
+
+اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،  
+
+(Allahumma ighfir lahum, warhamhum.)";
+
+"fourth_takbir_title" = "4. Dördüncü Tekbir";
+"fourth_takbir_text" = "Eller kaldırılmadan tekbir getirilir:
+
+اللَّهُ أَكْبَرُ - Allahu Akbar
+
+Bir dua yapılabilir, ancak zorunlu değildir.";
+
+"fourth_takbir_additional_info" = "Dördüncü tekbirden sonra vefat eden kişi için dua etmenin caizliği hakkında.  
+Rivayet edilir ki, Abdullah ibn Abi Awfa kızının cenaze namazını kıldığında dört kez tekbir getirmiştir. Dördüncü tekbirden sonra, iki tekbir arasındaki süre kadar bekleyerek kızının bağışlanması için Allah’a dua etmiş ve onun için niyazda bulunmuştur. Daha sonra şöyle demiştir: «Resulullah (Allah’ın selamı ve bereketi onun üzerine olsun) da böyle yapardı.» (al-Hakim 1/512. Bkz. “Sahih Sunan İbn Mace” 1220.)";
+
+"taslim_title" = "Namazın Sonlandırılması (Teslim)";
+"taslim_text" = "📌 Teslim, sağ tarafa bir kez veya sağa ve sola iki kez verilebilir.  
+
+Resulullah (Allah’ın selamı ve bereketi onun üzerine olsun) cenaze namazında bazen bir, bazen de iki selam verirdi, ancak çoğunlukla tek selamla bitirirdi.";

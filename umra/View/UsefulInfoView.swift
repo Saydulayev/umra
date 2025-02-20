@@ -37,6 +37,11 @@ struct UsefulInfoView: View {
                         SubChapter(title: "hajj_obligation_evidence".localized(bundle: settings.bundle), content: HajjUmrahObligation.obligationEvidence(bundle: settings.bundle)),
                         SubChapter(title: "umrah_obligation_evidence".localized(bundle: settings.bundle), content: HajjUmrahObligation.evidenceUmrahObligation(bundle: settings.bundle)),
                         SubChapter(title: "conclusion".localized(bundle: settings.bundle), content: HajjUmrahObligation.concludingEvidence(bundle: settings.bundle)),
+                    ]),
+            Chapter(title: "title_janaza_guide".localized(bundle: settings.bundle),
+                    subChapters: [
+                        SubChapter(title: "basic_rules".localized(bundle: settings.bundle),
+                                 content: JanazaPrayerGuide.basicRules(bundle: settings.bundle)),
                     ])
         ]
     }
@@ -50,18 +55,33 @@ struct UsefulInfoView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(chapters) { chapter in
-                            NavigationLink(destination: ChapterDetailView(chapter: chapter)) {
-                                HStack {
-                                    Text(chapter.title)
-                                        .font(.system(size: getDynamicFontSize()))
-                                        .foregroundStyle(.black)
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundStyle(.blue)
+                            if chapter.title == "title_janaza_guide".localized(bundle: settings.bundle) {
+                                NavigationLink(destination: JanazaView()) {
+                                    HStack {
+                                        Text(chapter.title)
+                                            .font(.system(size: getDynamicFontSize()))
+                                            .foregroundStyle(.black)
+                                        Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .foregroundStyle(.blue)
+                                    }
+                                    .customListItemStyle()
                                 }
-                                .customListItemStyle()
+                                .buttonStyle(PlainButtonStyle())
+                            } else {
+                                NavigationLink(destination: ChapterDetailView(chapter: chapter)) {
+                                    HStack {
+                                        Text(chapter.title)
+                                            .font(.system(size: getDynamicFontSize()))
+                                            .foregroundStyle(.black)
+                                        Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .foregroundStyle(.blue)
+                                    }
+                                    .customListItemStyle()
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
-                            .buttonStyle(PlainButtonStyle())
                             Divider()
                         }
                     }
@@ -101,12 +121,132 @@ struct UsefulInfoView: View {
 }
 
 
+struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        VStack(alignment: .leading) {
+            Button(action: {
+                withAnimation {
+                    configuration.isExpanded.toggle()
+                }
+            }) {
+                HStack {
+                    configuration.label
+                    Spacer()
+                    Image(systemName: "chevron.down")
+                        .foregroundStyle(.blue)
+                        .rotationEffect(.degrees(configuration.isExpanded ? 180 : 0))
+                }
+            }
+            if configuration.isExpanded {
+                configuration.content
+            }
+        }
+    }
+}
 
+struct JanazaView: View {
+    @EnvironmentObject var settings: UserSettings
+    @State private var isDuaExpanded = false
+    @State private var isSecondTakbirExpanded = false
+    @State private var isThirdTakbirExpanded = false
 
+    var body: some View {
+        ZStack {
+            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+                .ignoresSafeArea(edges: .bottom)
+
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    Group {
+                        Text(JanazaPrayerGuide.janazaBasicRules(bundle: settings.bundle))
+                            .fontWeight(.bold)
+                        Divider()
+
+                        Text(JanazaPrayerGuide.firstTakbirTitle(bundle: settings.bundle))
+                            .fontWeight(.bold)
+                        Text(JanazaPrayerGuide.firstTakbirText(bundle: settings.bundle))
+                            .padding(.bottom)
+                        Divider()
+                        Text(JanazaPrayerGuide.secondTakbirTitle(bundle: settings.bundle))
+                            .fontWeight(.bold)
+                        Text(JanazaPrayerGuide.secondTakbirText(bundle: settings.bundle))
+                            .padding(.bottom)
+                        DisclosureGroup(
+                            isExpanded: $isDuaExpanded,
+                            content: {
+                                Text(JanazaPrayerGuide.translateSecondTakbirText(bundle: settings.bundle))
+                                    .padding(.vertical)
+                            },
+                            label: {
+                                Text("translate_text", bundle: settings.bundle)            .font(.headline)
+                                    .foregroundStyle(.blue)
+                            }
+                        )
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                    }
+
+                    Divider()
+
+                    Group {
+                        Text(JanazaPrayerGuide.thirdTakbirTitle(bundle: settings.bundle))
+                            .fontWeight(.bold)
+                        Text(JanazaPrayerGuide.thirdTakbirText(bundle: settings.bundle))
+                            .padding(.bottom)
+                        
+                        DisclosureGroup(
+                            isExpanded: $isThirdTakbirExpanded,
+                            content: {
+                                Text(JanazaPrayerGuide.translateThirdTakbirText(bundle: settings.bundle))
+                                    .padding(.vertical)
+                            },
+                            label: {
+                                Text("translate_text", bundle: settings.bundle)            .font(.headline)
+                                    .foregroundStyle(.blue)
+                            }
+                        )
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                    }
+
+                    Divider()
+
+                    Group {
+                        Text(JanazaPrayerGuide.fourthTakbirTitle(bundle: settings.bundle))
+                            .fontWeight(.bold)
+                        Text(JanazaPrayerGuide.fourthTakbirText(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.fourthTakbirAdditionalInfo(bundle: settings.bundle))
+                            .padding(.bottom)
+                        Divider()
+                        Text(JanazaPrayerGuide.taslimTitle(bundle: settings.bundle))
+                            .fontWeight(.bold)
+                        Text(JanazaPrayerGuide.taslimText(bundle: settings.bundle))
+                    }
+                    Divider()
+                    
+                    DisclosureGroup(
+                        isExpanded: $isSecondTakbirExpanded,
+                        content: {
+                            Text(JanazaPrayerGuide.duaVariationsText(bundle: settings.bundle))
+                                .padding(.vertical)
+                        },
+                        label: {
+                            Text(JanazaPrayerGuide.duaVariationsTitle(bundle: settings.bundle))
+                                .fontWeight(.bold)
+                        }
+                    )
+                    .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                }
+                .padding()
+                .font(.system(size: getDynamicFontSize()))
+                .foregroundStyle(.black)
+                .textSelection(.enabled)
+            }
+            .navigationTitle(JanazaPrayerGuide.title(bundle: settings.bundle))
+        }
+    }
+}
 
 struct ChapterDetailView: View {
     let chapter: Chapter
-    
     
     var body: some View {
         NavigationStack {
@@ -142,7 +282,6 @@ struct ChapterDetailView: View {
 struct SubChapterDetailView: View {
     let subChapter: SubChapter
     
-    
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
@@ -153,7 +292,6 @@ struct SubChapterDetailView: View {
                     .foregroundStyle(.black)
                     .padding()
                     .textSelection(.enabled)
-                
             }
             .navigationTitle(subChapter.title)
         }
@@ -163,7 +301,6 @@ struct SubChapterDetailView: View {
 func getDynamicFontSize(forPad: CGFloat = 30, forPhone: CGFloat = 20) -> CGFloat {
     UIDevice.current.userInterfaceIdiom == .pad ? forPad : forPhone
 }
-
 
 struct Chapter: Identifiable {
     let id = UUID()
@@ -180,9 +317,6 @@ struct SubChapter: Identifiable {
 #Preview {
     UsefulInfoView()
 }
-
-
-
 
 extension View {
     func customListItemStyle() -> some View {

@@ -8,14 +8,6 @@
 import SwiftUI
 import WebKit
 
-//@main
-//struct umraApp: App {
-//    var body: some Scene {
-//        WindowGroup {
-//            ContentView()
-//        }
-//    }
-//}
 @main
 struct umraApp: App {
     let userSettings = UserSettings()
