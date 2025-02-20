@@ -372,3 +372,118 @@ Zu diesem Hadith sagte Ibn Khuzaymah, möge Allah sich seiner erbarmen: «Die Wo
 4 — Es wird von As-Subay‘ ibn Ma‘bad berichtet, dass er einmal zu ‘Umar ibn Al-Khattab, möge Allah mit ihm zufrieden sein, sagte: «O Führer der Gläubigen, ich war ein Beduine und praktizierte das Christentum, dann nahm ich den Islam an. Ich strebe danach, Dschihad zu leisten, aber ich fand heraus, dass Hajj und ‘Umrah mir vorgeschrieben sind. Ich fragte eine Person aus meinem Volk darüber, und sie sagte zu mir: ‚Verrichte Hajj und ‘Umrah gemeinsam und opfere ein Tier von dem, was dir möglich ist‘, und so habe ich sie zusammen verrichtet.» Daraufhin sagte ‘Umar: «Du wurdest zur Sunnah deines Propheten, Allahs Segen und Frieden seien auf ihm, geleitet.» Abu Dawood 1799.";
 
 "hajj_umrah_obligation_concluding_evidence" = "Hajj und ‘Umrah sind für diejenigen verpflichtend, die die Voraussetzungen für ihre Durchführung erfüllen. Die Muslime sind sich einig über die Verpflichtung des Hajj, wenn alle Bedingungen erfüllt sind. Es ist wichtig zu beachten, dass Hajj und ‘Umrah, die nach einem Gelübde verrichtet oder begonnen wurden, abgeschlossen werden müssen.";
+
+
+/* Janaza Prayer Guide */
+"translate_text" = "Übersetzung";
+
+"title_janaza_guide" = "Janaza-Gebet";
+"basic_rules" = "Leitfaden für das Janaza-Gebet";
+"janaza_basic_rules" = "📌 Grundregeln des Janaza-Gebets (Totengebet).
+
+Das Gebet wird stehend verrichtet, ohne Verbeugungen (Ruku‘) oder Niederwerfungen (Sujud). Es besteht aus vier Takbirs (Ausspruch von „Allahu Akbar“).
+
+Nach jedem Takbir werden bestimmte Bittgebete rezitiert:
+
+1. Sura Al-Fatiha  
+2. Salawat auf den Propheten ﷺ  
+3. Dua für den Verstorbenen  
+4. Zusätzliches Bittgebet oder direktes Beenden des Gebets möglich.";
+
+"first_takbir_title" = "1. Erster Takbir";
+"first_takbir_text" = "Hebe die Hände auf Schulter- oder Ohrhöhe und sprich:
+
+اللَّهُ أَكْبَرُ
+Allahu Akbar („Allah ist der Größte“)
+
+Dann:
+Rezitiere die Sure „Al-Fatiha“.";
+
+"second_takbir_title" = "2. Zweiter Takbir";
+"second_takbir_text" = "Sprich den Takbir (ohne die Hände zu heben):
+
+اللَّهُ أَكْبَرُ - Allahu Akbar
+
+Rezitiere das Salawat auf den Propheten ﷺ:
+
+اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ. اللَّهُمَّ بَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ
+
+Allahumma salli ‘ala Muhammadin wa ‘ala ali Muhammadin, kama sallayta ‘ala Ibrahima wa ‘ala ali Ibrahima, innaka Hamidun Majid. Allahumma barik ‘ala Muhammadin wa ‘ala ali Muhammadin, kama barakta ‘ala Ibrahima wa ‘ala ali Ibrahima, innaka Hamidun Majid!";
+
+"translate_second_takbir_text" = "„O erhabener Allah, segne Muhammad und seine Familie, so wie Du Ibrahim und seine Familie gesegnet hast. Wahrlich, Du bist der Preiswürdige, der Ruhmreiche! O erhabener Allah, sende Muhammad und seiner Familie Deinen Segen, so wie Du ihn Ibrahim und seiner Familie gesandt hast. Wahrlich, Du bist der Preiswürdige, der Ruhmreiche!“.";
+
+
+"third_takbir_title" = "3. Dritter Takbir";
+"third_takbir_text" = "Sprich den Takbir (ohne die Hände zu heben):
+
+اللَّهُ أَكْبَرُ - Allahu Akbar
+
+Rezitiere das Dua für den Verstorbenen (wenn es ein Mann ist):
+
+اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
+
+Allahumma ighfir lahu, warhamhu.
+
+Oder:
+
+اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ، وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ، وَوَسِّعْ مُدْخَلَهُ، وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الأبْيَضَ مِنَ الدَّنَسِ، وَأَبْدِلْهُ دَاراً خَيْراً مِنْ دَارِهِ، وَأَهْلاً خَيْراً مِنْ أَهْلِهِ، وَزَوْجاً خَيْراً مِنْ زَوْجِهِ، وَأَدْخِلْهُ الْجَنَّةَ، وَأَعِذْهُ مِنْ عَذَابِ الْقَبْرِ وَعَذَابِ النَّارِ
+
+Allahumma ighfir lahu, warhamhu, wa 'afihi, wa‘fu 'anhu, wa akrim nuzulahu, wa wassi‘ mudkhalahu, waghsilhu bil-ma’i, wassalji wal-baradi, wa naqqihi mina-l-khataya kama yunaqqa-th-thawbu-l-abyadu mina-d-danas, wa abdilhu daran khayran min darihi, wa ahlan khayran min ahlihi, wa zawjan khayran min zawjihi, wa adkhilhu-l-jannata, wa a‘iz-hu min 'adhabi-l-qabri wa 'adhabi-n-nar.";
+
+"translate_third_takbir_text" = "‘Auf ibn Malik berichtete: “Eines Tages verrichtete der Gesandte Allahs (Friede und Segen seien auf ihm) das Janaza-Gebet, und ich erinnerte mich, dass er in seinem Bittgebet für den Verstorbenen sagte:  
+
+«O Allah! Vergib ihm, und erbarme Dich seiner, und gewähre ihm Erlösung, und bereite ihm eine ehrenvolle Aufnahme, und mache sein Grab weit, und wasche ihn mit Wasser, Schnee und Hagel! Reinige ihn von seinen Sünden, so wie Du ein weißes Gewand von Schmutz reinigst, und ersetze ihm sein Haus durch ein besseres Haus, und seine Familie durch eine bessere Familie, und seine Ehefrau durch eine bessere Ehefrau, und lasse ihn ins Paradies eintreten und schütze ihn vor der Strafe des Grabes und vor der Pein des Feuers!»  - Abu ‘Abdur-Rahman sagte: “Und ich wünschte mir sogar, an der Stelle des Verstorbenen zu sein.”  (Sahih Muslim 2/663).";
+
+
+"dua_variations_title" = "Varianten des Dua je nach Verstorbenem";
+"dua_variations_text" = "📌 Wenn der Verstorbene ein einzelner Mann ist
+- Verwenden Sie die Form: لَهُ (lahu)
+
+اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
+
+(Allahumma ighfir lahu, warhamhu.)
+
+📌 Wenn die Verstorbene eine einzelne Frau ist
+- Ersetzen Sie alle männlichen Formen durch die weibliche Form: لَهَا (laha)
+
+اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،
+
+(Allahumma ighfir laha, warhamha.)
+
+📌 Wenn die Verstorbenen mehrere Männer sind
+- Verwenden Sie die männliche Pluralform: لَهُمْ (lahum)
+
+اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
+
+(Allahumma ighfir lahum, warhamhum.)
+
+📌 Wenn die Verstorbenen mehrere Frauen sind
+- Verwenden Sie die weibliche Pluralform: لَهُنَّ (lahunna)
+
+اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،
+
+(Allahumma ighfir lahunna, warhamhunna.)
+
+📌 Wenn es sowohl Männer als auch Frauen gibt (gemischte Gruppe)
+- Nach den Regeln der arabischen Sprache ist die männliche Pluralform bevorzugt: لَهُمْ (lahum).
+
+اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
+
+(Allahumma ighfir lahum, warhamhum.)";
+
+
+"fourth_takbir_title" = "4. Vierter Takbir";
+"fourth_takbir_text" = "Sprich den Takbir (ohne die Hände zu heben):
+
+اللَّهُ أَكْبَرُ - Allahu Akbar
+
+Ein Bittgebet kann gesprochen werden, ist aber nicht verpflichtend.";
+
+"fourth_takbir_additional_info" = "Über die Erlaubnis, nach dem vierten Takbir ein Bittgebet für den Verstorbenen zu sprechen.
+Es wird überliefert, dass als 'Abdullah ibn Abi Aufa das Janaza-Gebet für seine Tochter verrichtete, er viermal den Takbir aussprach. Nach dem vierten Takbir blieb er für eine Zeit stehen, die der Zeit zwischen zwei Takbirs entsprach, und bat Allah um Vergebung für seine Tochter, während er Bittgebete für sie sprach. Danach sagte er: „So hat es auch der Gesandte Allahs (Friede und Segen seien auf ihm) getan.“  
+(al-Hakim 1/512. Siehe „Sahih Sunan Ibn Majah“ 1220.)";
+
+"taslim_title" = "Beendigung des Gebets (Taslim)";
+"taslim_text" = "📌 Der Taslim kann entweder einmal nach rechts oder zweimal (nach rechts und links) ausgesprochen werden.
+
+Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebet sowohl mit einer als auch mit zwei Verabschiedungen, wobei er jedoch häufiger nur eine Verabschiedung ausführte.";

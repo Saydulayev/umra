@@ -335,3 +335,117 @@ Alemlerin Rabbi olan Allah’a hamdolsun!";
 "hajj_umrah_obligation_evidence_umrah_obligation" = "Umrenin farz olduğuna dair şu hadisler delil olarak getirilmiştir:\n\n1 — Âişe’den (radıyallahu anha) rivayet edildiğine göre, bir gün Peygamberimiz’e (sallallahu aleyhi ve sellem) şöyle sordu: «Ey Allah’ın Resulü! Kadınlar da cihad etmeli mi?» Resulullah (sallallahu aleyhi ve sellem) şöyle buyurdu: «Evet, onlar savaş bulunmayan bir cihad yapmak zorundadır. Bu da hac ve umredir.» (Ahmed, 6/165; İbn Mâce, 2901).\n\nBu hadisi zikreden İbn Huzeyme (rahimehullah) şöyle demiştir: «Resulullah’ın (sallallahu aleyhi ve sellem) 'Onlar savaşsız bir cihad yapmalıdır ve bu da hac ile umredir.' sözünde, umrenin de hac gibi farz olduğuna dair açıklık vardır.» (Sahih İbn Huzeyme, Hadis No: 3074).\n\n2 — Ömer’den (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurmuştur: «İslam’ın temeli şudur: Allah’tan başka ilah olmadığına ve Muhammed’in O’nun resulü olduğuna şahitlik etmek, namaz kılmak, zekât vermek, hac ve umre yapmak, cünüplükten sonra gusletmek, abdest almak ve Ramazan ayında oruç tutmaktır.» (Sahih İbn Huzeyme, Hadis No: 3065; Darakutni, 2/282).\n\n3 — Ebu Razin el-Uqayli’den rivayet edildiğine göre, bir gün Resulullah’a (sallallahu aleyhi ve sellem) gelerek şöyle dedi: «Ey Allah’ın Resulü! Babam çok yaşlıdır, ne hac ne de umre yapabilir, hatta hayvana bile binemez.» Resulullah (sallallahu aleyhi ve sellem) şöyle buyurdu: «Babanın yerine hac ve umre yap.» (Tirmizî, 930).\n\n4 — Es-Subey’î ibn Ma’bad’dan rivayet edildiğine göre, Ömer ibn Hattab’a (radıyallahu anh) şöyle dedi: «Ey müminlerin emiri! Ben önceden bedevi bir Hristiyandım, sonra İslam’a girdim ve cihada gitmek istedim. Ancak hac ve umrenin bana farz kılındığını öğrendim. Kavmimden birine sordum ve bana, 'Hac ve umreyi birlikte yap ve gücünün yettiği bir kurban kes' dedi. Ben de hac ve umreyi birlikte yaptım.» Bunun üzerine Ömer (radıyallahu anh) şöyle dedi: «Sen, Resulullah’ın (sallallahu aleyhi ve sellem) sünnetine uygun davrandın.» (Ebu Davud, 1799).";
 
 "hajj_umrah_obligation_concluding_evidence" = "Hac ve umre, şartları taşıyan her Müslüman için farzdır. Haccın farz olduğu konusunda Müslümanlar icma etmişlerdir. Ayrıca, yapılan bir adaktan dolayı hac ve umre farz hale gelebilir ve başlanılan nafile bir hac veya umre tamamlanmalıdır.";
+
+
+/* Janaza Prayer Guide */
+"translate_text" = "çeviri";
+
+"title_janaza_guide" = "Cenaze Namazı";
+"basic_rules" = "Cenaze Namazı Kılavuzu";
+"janaza_basic_rules" = "📌 Cenaze namazının temel kuralları.
+
+Namaz ayakta kılınır, rükû ve secde yapılmaz. Dört tekbirden («Allahu Ekber») oluşur.
+
+Her tekbirden sonra belirli dualar okunur:
+
+1. Fatiha Suresi  
+2. Peygamber Efendimiz ﷺ için salavat  
+3. Merhum için dua  
+4. Ek bir dua yapılabilir veya doğrudan selam verilerek namaz bitirilebilir.";
+
+
+"first_takbir_title" = "1. Birinci Tekbir";
+"first_takbir_text" = "Eller omuz hizasına veya kulak seviyesine kadar kaldırılır ve şöyle denir:
+
+اللَّهُ أَكْبَرُ  
+Allahu Ekber (“Allah en büyüktür”)
+
+Ardından:  
+Fatiha Suresi okunur.";
+
+"second_takbir_title" = "2. İkinci Tekbir";
+"second_takbir_text" = "Eller kaldırılmadan tekbir getirilir:
+
+اللَّهُ أَكْبَرُ - Allahu Akbar
+
+Peygamber Efendimiz ﷺ için salavat okunur:
+
+اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ. اللَّهُمَّ بَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ
+
+Allahumma salli ‘ala Muhammadin wa ‘ala ali Muhammadin, kama sallayta ‘ala Ibrahima wa ‘ala ali Ibrahima, innaka Hamidun Majid.  Allahumma barik ‘ala Muhammadin wa ‘ala ali Muhammadin, kama barakta ‘ala Ibrahima wa ‘ala ali Ibrahima, innaka Hamidun Majid!";
+
+"translate_second_takbir_text" = "«Ey Yüce Allah! Muhammed’e ve onun ailesine, İbrahim’e ve onun ailesine rahmet ettiğin gibi rahmet eyle. Şüphesiz ki Sen övülmeye layıksın ve yücesin! Ey Yüce Allah! Muhammed’e ve onun ailesine bereket ver, İbrahim’e ve onun ailesine bereket verdiğin gibi. Şüphesiz ki Sen övülmeye layıksın ve yücesin!».";
+
+
+"third_takbir_title" = "3. Üçüncü Tekbir";
+"third_takbir_text" = "Eller kaldırılmadan tekbir getirilir:
+
+اللَّهُ أَكْبَرُ - Allahu Akbar
+
+Merhum için dua okunur (eğer erkekse):
+
+اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
+
+Allahumma ighfir lahu, warhamhu.
+
+Veya:
+
+اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ، وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ، وَوَسِّعْ مُدْخَلَهُ، وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الأبْيَضَ مِنَ الدَّنَسِ، وَأَبْدِلْهُ دَاراً خَيْراً مِنْ دَارِهِ، وَأَهْلاً خَيْراً مِنْ أَهْلِهِ، وَزَوْجاً خَيْرا ًمِنْ زَوَجِهِ، وَأَدْخِلْهُ الْجَنَّةَ، وَأَعِذْهُ مِنْ عَذَابِ الْقَبْرِ وَعَذَابِ النَّارِ
+
+Allahumma ighfir lahu, warhamhu, wa ‘afihi, wa‘fu ‘anhu, wa akrim nuzulahu, wa wassi‘ mudkhalahu, waghsilhu bil-ma’i, wassalji wal-baradi, wa naqqihi mina-l-khataya kama yunaqqa-th-thawbu-l-abyadu mina-d-danas, wa abdilhu daran khayran min darihi, wa ahlan khayran min ahlihi, wa zawjan khayran min zawjihi, wa adkhilhu-l-jannata, wa a‘iz-hu min ‘adhabi-l-qabri wa ‘adhabi-n-nar.";
+
+"translate_third_takbir_text" = "‘Awf ibn Malik şöyle rivayet etmiştir: “Bir gün Allah’ın Resulü (Allah’ın selamı ve bereketi onun üzerine olsun) cenaze namazı kıldırdı ve ben onun, vefat eden kişi için yaptığı şu duayı ezberledim:  
+
+«Ey Allah’ım! Onu bağışla, ona merhamet et, onu kurtuluşa eriştir ve onu güzel bir şekilde karşıla. Kabrini genişlet ve onu su, kar ve dolu ile yıka! Onu günahlardan arındır, tıpkı beyaz bir giysiyi kirden arındırdığın gibi. Ona evinin daha hayırlısını, ailesinin daha hayırlısını ve eşinin daha hayırlısını ver. Onu Cennet’e dahil et ve kabir azabından ve Cehennem ateşinden koru!» - Ebu Abdurrahman dedi ki: 'Bu duayı duyduğumda, vefat edenin yerinde olmayı diledim.' (Sahih Muslim 2/663).";
+
+
+"dua_variations_title" = "Merhuma Göre Dua Çeşitleri";
+"dua_variations_text" = "📌 Eğer vefat eden kişi bir erkekse  
+- Aşağıdaki formu kullanın: لَهُ (lahu)  
+
+اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،  
+
+(Allahumma ighfir lahu, warhamhu.)  
+
+📌 Eğer vefat eden kişi bir kadınsa  
+- Erkek formunun yerine kadın formunu kullanın: لَهَا (laha)  
+
+اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،  
+
+(Allahumma ighfir laha, warhamha.)  
+
+📌 Eğer vefat edenler birden fazla erkekse  
+- Erkek çoğul formunu kullanın: لَهُمْ (lahum)  
+
+اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،  
+
+(Allahumma ighfir lahum, warhamhum.)  
+
+📌 Eğer vefat edenler birden fazla kadınsa  
+- Kadın çoğul formunu kullanın: لَهُنَّ (lahunna)  
+
+اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،  
+
+(Allahumma ighfir lahunna, warhamhunna.)  
+
+📌 Eğer vefat edenler hem erkek hem kadınlardan oluşuyorsa (karışık grup)  
+- Arapça dilbilgisi kurallarına göre erkek çoğul formu tercih edilir: لَهُمْ (lahum).  
+
+اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،  
+
+(Allahumma ighfir lahum, warhamhum.)";
+
+"fourth_takbir_title" = "4. Dördüncü Tekbir";
+"fourth_takbir_text" = "Eller kaldırılmadan tekbir getirilir:
+
+اللَّهُ أَكْبَرُ - Allahu Akbar
+
+Bir dua yapılabilir, ancak zorunlu değildir.";
+
+"fourth_takbir_additional_info" = "Dördüncü tekbirden sonra vefat eden kişi için dua etmenin caizliği hakkında.  
+Rivayet edilir ki, Abdullah ibn Abi Awfa kızının cenaze namazını kıldığında dört kez tekbir getirmiştir. Dördüncü tekbirden sonra, iki tekbir arasındaki süre kadar bekleyerek kızının bağışlanması için Allah’a dua etmiş ve onun için niyazda bulunmuştur. Daha sonra şöyle demiştir: «Resulullah (Allah’ın selamı ve bereketi onun üzerine olsun) da böyle yapardı.» (al-Hakim 1/512. Bkz. “Sahih Sunan İbn Mace” 1220.)";
+
+"taslim_title" = "Namazın Sonlandırılması (Teslim)";
+"taslim_text" = "📌 Teslim, sağ tarafa bir kez veya sağa ve sola iki kez verilebilir.  
+
+Resulullah (Allah’ın selamı ve bereketi onun üzerine olsun) cenaze namazında bazen bir, bazen de iki selam verirdi, ancak çoğunlukla tek selamla bitirirdi.";

@@ -355,3 +355,115 @@ Commenting on this hadith, Ibn Khuzaymah, may Allah have mercy on him, said: «T
 4 — It is reported from As-Subay‘ bin Ma‘bad that he once said to ‘Umar ibn Al-Khattab, may Allah be pleased with him: «O Commander of the Believers, I was a Bedouin and practiced Christianity. Then I embraced Islam. I aspire to participate in jihad, but I found that Hajj and ‘Umrah have been prescribed for me. I asked one of my people about it, and he said to me: “Perform Hajj and ‘Umrah together and offer a sacrifice from what is easy for you,” and I performed them together.» ‘Umar then said: «You have been guided to the Sunnah of your Prophet, peace and blessings be upon him.» Abu Dawood 1799.";
 
 "hajj_umrah_obligation_concluding_evidence" = "Hajj and ‘Umrah are obligatory for those who meet the conditions for their performance. Muslims are unanimous on the obligation of Hajj when all the conditions are fulfilled. It is important to note that Hajj and ‘Umrah undertaken after a vow or voluntarily begun must be completed.";
+
+
+/* Janaza Prayer Guide */
+"translate_text" = "translation";
+
+"title_janaza_guide" = "Janazah Prayer";
+"basic_rules" = "Guide to Janazah Prayer";
+"janaza_basic_rules" = "📌 Essential Rules of the Janazah Prayer (Funeral Prayer).
+
+The prayer is performed while standing, without bowing (ruku') or prostration (sujood). It consists of four takbirs (saying 'Allahu Akbar').
+
+After each takbir, specific supplications are recited:
+
+Surah Al-Fatihah
+Salawat upon the Prophet ﷺ
+Dua for the deceased
+An additional supplication may be made, or the prayer can be concluded immediately.";
+
+"first_takbir_title" = "1. First Takbir";
+"first_takbir_text" = "Raise your hands to the level of your shoulders or ears and say:
+
+اللَّهُ أَكْبَرُ
+Allahu Akbar ('Allah is the Greatest')
+
+Then:
+Recite Surah Al-Fatihah.";
+
+"second_takbir_title" = "2. Second Takbir";
+"second_takbir_text" = "Say the takbir (without raising the hands):
+
+اللَّهُ أَكْبَرُ
+Allahu Akbar
+
+Then recite Salawat upon the Prophet ﷺ:
+
+اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ. اللَّهُمَّ بَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ
+
+Allahumma salli ‘ala Muhammadin wa ‘ala ali Muhammadin, kama sallayta ‘ala Ibrahima wa ‘ala ali Ibrahima, innaka Hamidun Majid. Allahumma barik ‘ala Muhammadin wa ‘ala ali Muhammadin, kama barakta ‘ala Ibrahima wa ‘ala ali Ibrahima, innaka Hamidun Majid!";
+
+"translate_second_takbir_text" = "«O Almighty Allah, send Your blessings upon Muhammad and his family, just as You sent blessings upon Ibrahim and his family. Truly, You are Praiseworthy, Most Glorious. O Almighty Allah, bestow blessings upon Muhammad and his family, just as You bestowed blessings upon Ibrahim and his family. Truly, You are Praiseworthy, Most Glorious!».";
+
+"third_takbir_title" = "3. Third Takbir";
+"third_takbir_text" = "Say the takbir (without raising the hands):
+
+اللَّهُ أَكْبَرُ
+Allahu Akbar
+
+Recite the dua for the deceased (if male):
+
+اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
+Allahumma ighfir lahu wa arhamhu.
+
+Or:
+
+اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ، وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ، وَوَسِّعْ مُدْخَلَهُ، وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الأبْيَضَ مِنَ الدَّنَسِ، وَأَبْدِلْهُ دَاراً خَيْراً مِنْ دَارِهِ، وَأَهْلاً خَيْراً مِنْ أَهْلِهِ، وَزَوْجاً خَيْرا ًمِنْ زَوَجِهِ، وَأَدْخِلْهُ الْجَنَّةَ، وَأَعِذْهُ مِنْ عَذَابِ الْقَبْرِ وَعَذَابِ النَّارِ
+
+Allahumma ighfir lahu, warhamhu, wa ‘afihi, wa‘fu ‘anhu, wa akrim nuzulahu, wa wassi‘ mudkhalahu, waghsilhu bil-ma’i, wassalji wal-baradi, wa naqqihi mina-l-khataya kama yunaqqa-th-thawbu-l-abyadu mina-d-danas, wa abdilhu daran khayran min darihi, wa ahlan khayran min ahlihi, wa zawjan khayran min zawjihi, wa adkhilhu-l-jannata, wa a‘iz-hu min ‘adhabi-l-qabri wa ‘adhabi-n-nar.";
+
+"translate_third_takbir_text" =
+"Awf ibn Malik reported: 'One day, the Messenger of Allah (peace and blessings be upon him) performed the Janazah prayer, and I memorized his supplication for the deceased. He said: «O Allah! Forgive him, have mercy on him, grant him relief, and grant him a noble reception. Make his grave spacious and wash him with water, snow, and hail. Cleanse him from sins as a white garment is cleansed from dirt. Grant him a home better than his home, a family better than his family, and a spouse better than his spouse. Admit him into Paradise and protect him from the punishment of the grave and the torment of the Fire!» - Abu ‘Abdur-Rahman said: 'I even wished to be in the place of the deceased.' (Sahih Muslim 2/663)";
+
+"dua_variations_title" = "Dua variations depending on the deceased";
+"dua_variations_text" = "📌 If the deceased is one man
+- Use the form: لَهُ (lahu)
+
+اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
+
+(Allahumma ghfur lahu, wa-rhamhu.)
+
+📌 If the deceased is one woman
+- Replace all masculine forms with feminine: لَهَا (laha)
+
+اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،
+
+(Allahumma ghfur laha, wa-rhamha.)
+
+📌 If there are several deceased (only men)
+- Use the masculine plural form: لَهُمْ (lahum)
+
+اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
+
+(Allahumma ghfur lahum, wa-rhamhum.)
+
+📌 If there are several deceased (only women)
+- Use the feminine plural form: لَهُنَّ (lahunna)
+
+اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،
+
+(Allahumma ghfur lahunna, wa-rhamhunna.)
+
+📌 If there are both men and women (mixed group)
+- According to Arabic grammar rules, the masculine plural is preferred: لَهُمْ (lahum).
+
+اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
+
+(Allahumma ghfur lahum, wa-rhamhum.)";
+
+
+"fourth_takbir_title" = "4. Fourth Takbir";
+"fourth_takbir_text" = "Pronounce the takbir (without raising the hands):
+
+اللَّهُ أَكْبَرُ - Allahu Akbar
+
+You can make a supplication, but it is not obligatory.";
+
+"fourth_takbir_additional_info" = "On the permissibility of supplicating for the deceased after the fourth takbir.
+It is reported that when 'Abdullah ibn Abu Awfa performed the funeral prayer over his daughter, he pronounced the takbir four times. After the fourth takbir, he stood for the same amount of time as between two takbirs, asking Allah for forgiveness for his daughter and supplicating for her, and then said: 'This is what the Messenger of Allah (peace and blessings of Allah be upon him) used to do.' Al-Hakim 1/512. See 'Sahih Sunan Ibn Majah' 1220.";
+
+"taslim_title" = "Conclusion of the prayer (taslim)";
+"taslim_text" = "📌 You can say the taslim once to the right or twice (to the right and to the left).
+
+The Messenger of Allah (peace and blessings of Allah be upon him), when performing the funeral prayer, did both one and two salutations, but he did one salutation more frequently.";
