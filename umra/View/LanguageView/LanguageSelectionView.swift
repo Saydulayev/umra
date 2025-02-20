@@ -32,31 +32,24 @@ struct LanguageSelectionView: View {
 
                 // Кнопки внизу
                 VStack(spacing: 20) {
-                    Button(action: {
-                        selectLanguage("ru")
-                    }) {
-                        Text("Русский")
+                    Button(action: { selectLanguage("de") }) {
+                        Text("Deutsch")
                             .buttonStyle()
                     }
-
-                    Button(action: {
-                        selectLanguage("en")
-                    }) {
+                    Button(action: { selectLanguage("en") }) {
                         Text("English")
                             .buttonStyle()
                     }
-
-                    Button(action: {
-                        selectLanguage("fr")
-                    }) {
+                    Button(action: { selectLanguage("fr") }) {
                         Text("Français")
                             .buttonStyle()
                     }
-
-                    Button(action: {
-                        selectLanguage("de")
-                    }) {
-                        Text("Deutsch")
+                    Button(action: { selectLanguage("ru") }) {
+                        Text("Русский")
+                            .buttonStyle()
+                    }
+                    Button(action: { selectLanguage("tr") }) {
+                        Text("Türkçe")
                             .buttonStyle()
                     }
                 }
