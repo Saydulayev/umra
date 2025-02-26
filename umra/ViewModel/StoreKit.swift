@@ -48,7 +48,7 @@ class PurchaseManager: ObservableObject {
             logger.info("✅ Products loaded successfully. Count: \(self.availableDonations.count, privacy: .public)")
         } catch {
             logger.error("❌ Failed to load products: \(error.localizedDescription, privacy: .public)")
-            purchaseError = "Не удалось загрузить продукты: \(error.localizedDescription)"
+            //purchaseError = "Не удалось загрузить продукты: \(error.localizedDescription)"
         }
     }
     
@@ -101,7 +101,7 @@ class PurchaseManager: ObservableObject {
             }
         } catch {
             logger.error("❌ Purchase failed: \(error.localizedDescription, privacy: .public)")
-            purchaseError = "Ошибка при покупке: \(error.localizedDescription)"
+            //purchaseError = "Ошибка при покупке: \(error.localizedDescription)"
         }
     }
     
