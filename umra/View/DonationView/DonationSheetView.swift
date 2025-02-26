@@ -47,7 +47,6 @@ extension View {
 }
 
 // MARK: - DonationSheetView
-
 struct DonationSheetView: View {
     @Binding var isPresented: Bool
     @Binding var isPurchased: Bool
@@ -117,7 +116,7 @@ struct DonationSheetView: View {
                     
                     if isLoading {
                         ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
                     } else {
@@ -145,7 +144,7 @@ struct DonationSheetView: View {
             ZStack {
                 if isLoading {
                     ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .progressViewStyle(CircularProgressViewStyle(tint: .black))
                         .padding()
                 } else {
                     Text("_donate_button", bundle: settings.bundle)

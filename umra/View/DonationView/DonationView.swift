@@ -15,29 +15,25 @@ struct DonationView: View {
     @State private var showingSheet = false
 
     var body: some View {
-            VStack {
-                Button(action: {
-                    showingSheet = true
-                }) {
-
-                    HStack {
-                        Image(systemName: "heart")
-                            .foregroundStyle(.red)
-                        Text("text_button_support_string", bundle: settings.bundle)
-                            .foregroundStyle(.blue)
-                        Spacer()
-                    }
-                    .customTextStyle()
-
+        VStack {
+            Button(action: {
+                showingSheet = true
+            }) {
+                HStack {
+                    Image(systemName: "heart")
+                        .foregroundStyle(.red)
+                    Text("text_button_support_string", bundle: settings.bundle)
+                        .foregroundStyle(.blue)
+                    Spacer()
                 }
-                .sheet(isPresented: $showingSheet) {
-                    DonationSheetView(isPresented: $showingSheet, isPurchased: $isPurchased, storeVM: storeVM)
-                }
+                .customTextStyle()
+            }
+            .sheet(isPresented: $showingSheet) {
+                DonationSheetView(isPresented: $showingSheet, isPurchased: $isPurchased, storeVM: storeVM)
             }
         }
     }
-
-
+}
 
 
 //#Preview {

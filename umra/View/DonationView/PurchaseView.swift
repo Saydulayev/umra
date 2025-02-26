@@ -16,10 +16,13 @@ struct PurchaseView: View {
     var body: some View {
         DonationView()
             .environmentObject(storeVM)
-            // Отслеживаем, когда массив покупок становится не пустым
+            // Отслеживаем, когда массив завершённых покупок становится не пустым,
+            // и сразу очищаем его, чтобы алерт не показывался повторно.
             .onChange(of: storeVM.completedDonations) { newValue in
                 if !newValue.isEmpty {
                     showThankYouAlert = true
+                    // Очистка массива завершённых покупок после срабатывания алерта
+                    storeVM.completedDonations.removeAll()
                 }
             }
             // Показываем алерт, когда произошла покупка
@@ -28,7 +31,6 @@ struct PurchaseView: View {
             })
     }
 }
-
 
 #Preview {
     PurchaseView()
