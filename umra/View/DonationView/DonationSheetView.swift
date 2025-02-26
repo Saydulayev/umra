@@ -51,7 +51,7 @@ struct DonationSheetView: View {
     @Binding var isPresented: Bool
     @Binding var isPurchased: Bool
     @EnvironmentObject var settings: UserSettings
-    @ObservedObject var storeVM: StoreVM
+    @ObservedObject var purchaseManager: PurchaseManager
     @State private var selectedProductId = "UmrahSunnah1"
     @State private var isLoading = false
     @State private var showError = false
@@ -67,7 +67,7 @@ struct DonationSheetView: View {
     
     var body: some View {
         ZStack {
-            // Фоновый градиент для всего экрана
+            // Фоновый градиент для экрана
             Rectangle()
                 .fill(
                     LinearGradient(
@@ -83,7 +83,7 @@ struct DonationSheetView: View {
                 .foregroundColor(.black)
                 .padding()
                 .frame(maxWidth: .infinity)
-                .neumorphicBackground() 
+                .neumorphicBackground()
                 .padding()
             
             VStack(alignment: .trailing) {
@@ -108,7 +108,7 @@ struct DonationSheetView: View {
                         }
                         .font(.title)
                         .padding(5)
-                        .neumorphicBackground() // Применяем выделенный стиль для Picker
+                        .neumorphicBackground()
                         .padding()
                         .accentColor(.blue)
                         .pickerStyle(MenuPickerStyle())
@@ -117,7 +117,7 @@ struct DonationSheetView: View {
                     if isLoading {
                         ProgressView()
                             .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .frame(maxWidth: .infinity)
                             .padding()
                     } else {
                         donateButton
@@ -136,9 +136,9 @@ struct DonationSheetView: View {
         Button {
             Task {
                 isLoading = true
-                let success = await buy(productID: selectedProductId)
+                await buy(productID: selectedProductId)
                 isLoading = false
-                if success { isPresented = false }
+                if isPurchased { isPresented = false }
             }
         } label: {
             ZStack {
@@ -154,28 +154,25 @@ struct DonationSheetView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-            .neumorphicBackground() // Применяем модификатор для кнопки пожертвования
+            .neumorphicBackground()
             .padding()
         }
     }
     
-    func buy(productID: String) async -> Bool {
-        do {
-            guard let product = storeVM.availableDonations.first(where: { $0.id == productID }) else {
-                print("⚠️ Product \(productID) not found in availableDonations")
-                return false
-            }
-            if try await storeVM.purchase(product) != nil {
-                isPurchased = true
-                // Обновляем состояние после успешной покупки:
-                storeVM.completedDonations.append(product)
-                return true
-            }
-        } catch {
-            print("❌ Purchase failed: \(error.localizedDescription)")
+    func buy(productID: String) async {
+        // Сбрасываем флаг ошибки перед началом
+        showError = false
+        guard let product = purchaseManager.availableDonations.first(where: { $0.id == productID }) else {
+            print("⚠️ Product \(productID) not found")
+            return
+        }
+        await purchaseManager.purchase(product)
+        // Если после покупки продукт присутствует в списке завершённых, считаем покупку успешной
+        if purchaseManager.completedDonations.contains(where: { $0.id == productID }) {
+            isPurchased = true
+        } else if purchaseManager.purchaseError != nil {
             showError = true
         }
-        return false
     }
 }
 

@@ -7,31 +7,29 @@
 
 
 import SwiftUI
-import StoreKit
 
 struct PurchaseView: View {
-    @StateObject var storeVM = StoreVM()
+    @EnvironmentObject var purchaseManager: PurchaseManager
     @State private var showThankYouAlert = false
 
     var body: some View {
         DonationView()
-            .environmentObject(storeVM)
-            // Отслеживаем, когда массив завершённых покупок становится не пустым,
-            // и сразу очищаем его, чтобы алерт не показывался повторно.
-            .onChange(of: storeVM.completedDonations) { newValue in
+            .environmentObject(purchaseManager)
+            // Отслеживание завершённых покупок для показа благодарственного сообщения
+            .onChange(of: purchaseManager.completedDonations) { newValue in
                 if !newValue.isEmpty {
-                    showThankYouAlert = true
-                    // Очистка массива завершённых покупок после срабатывания алерта
-                    storeVM.completedDonations.removeAll()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        showThankYouAlert = true
+                        purchaseManager.completedDonations.removeAll()
+                    }
                 }
             }
-            // Показываем алерт, когда произошла покупка
             .alert("جزاك الله خيراً", isPresented: $showThankYouAlert, actions: {
-                Button("OK", role: .cancel) { }
+                Button("OK", role: .cancel) {
+                    showThankYouAlert = false
+                }
             })
     }
 }
 
-#Preview {
-    PurchaseView()
-}
+

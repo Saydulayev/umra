@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
-import StoreKit
 
 struct DonationView: View {
-    @EnvironmentObject var storeVM: StoreVM
+    @EnvironmentObject var purchaseManager: PurchaseManager
     @EnvironmentObject var settings: UserSettings
     @State private var isPurchased = false
     @State private var showingSheet = false
@@ -29,7 +28,7 @@ struct DonationView: View {
                 .customTextStyle()
             }
             .sheet(isPresented: $showingSheet) {
-                DonationSheetView(isPresented: $showingSheet, isPurchased: $isPurchased, storeVM: storeVM)
+                DonationSheetView(isPresented: $showingSheet, isPurchased: $isPurchased, purchaseManager: purchaseManager)
             }
         }
     }

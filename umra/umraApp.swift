@@ -10,16 +10,17 @@ import WebKit
 
 @main
 struct umraApp: App {
+    @StateObject private var purchaseManager = PurchaseManager()
     let userSettings = UserSettings()
     let fontManager = FontManager()
-    
-
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(purchaseManager)
                 .environmentObject(userSettings)
                 .environmentObject(fontManager)
         }
     }
 }
+
