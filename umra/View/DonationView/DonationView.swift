@@ -19,7 +19,7 @@ struct DonationView: View {
                 showingSheet = true
             }) {
                 HStack {
-                    Image(systemName: "heart")
+                    Image(systemName: "dollarsign")
                         .foregroundStyle(.red)
                     Text("text_button_support_string", bundle: settings.bundle)
                         .foregroundStyle(.blue)

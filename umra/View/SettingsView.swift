@@ -62,7 +62,7 @@ struct SettingsView: View {
                     }) {
                         HStack {
                             Image(systemName: "bell")
-                                .foregroundColor(.green)
+                                .foregroundColor(.orange)
                             Text("Notification Settings", bundle: settings.bundle)
                                 .foregroundColor(.blue)
                             Spacer()
