@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
-
+    @EnvironmentObject var purchaseManager: PurchaseManager
+    
     @AppStorage("isGridView") private var isGridView: Bool = UIDevice.current.userInterfaceIdiom == .pad
     @State private var showPrayerTimes = false
     @State private var imageDescriptions: [String: String] = [
@@ -28,7 +28,7 @@ struct ContentView: View {
     @State private var timer: Timer?
     @AppStorage("hasRatedApp") private var hasRatedApp: Bool = false
     @Environment(\.requestReview) var requestReview
-
+    
     let steps = [
         ("image 1", AnyView(Step1()), "title_ihram_screen"),
         ("image 2", AnyView(Step2()), "title_round_kaaba_screen"),
@@ -39,11 +39,17 @@ struct ContentView: View {
         ("image 7", AnyView(Step7()), "title_shave_head_screen"),
         ("image 8", AnyView(UsefulInfoView()), "Useful")
     ]
-
-    private var dynamicFontSize: CGFloat {
-        UIDevice.current.userInterfaceIdiom == .pad ? 30 : 10
+    
+    /// Вычисляемое свойство для определения устройства iPad
+    private var isPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
     }
-
+    
+    /// Динамический размер шрифта в зависимости от устройства
+    private var dynamicFontSize: CGFloat {
+        isPad ? 30 : 10
+    }
+    
     var body: some View {
         Group {
             if settings.hasSelectedLanguage {
@@ -53,40 +59,27 @@ struct ContentView: View {
             }
         }
         .animation(.easeInOut, value: settings.hasSelectedLanguage)
-        .onAppear {
-            startTimer()
-        }
-        .onDisappear {
-            stopTimer()
-        }
+        .onAppear(perform: startTimer)
+        .onDisappear(perform: stopTimer)
     }
-
+    
+    /// Основное содержимое экрана
     private var mainContentView: some View {
         NavigationStack {
             ZStack {
-                Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+                Color(UIColor(red: 0.898, green: 0.933, blue: 1, alpha: 1))
                     .ignoresSafeArea(edges: .bottom)
                 
                 ScrollView {
                     content
                         .padding(.vertical, 8)
                 }
+                .scrollIndicators(.hidden)
                 .navigationBarTitle("UMRA", displayMode: .inline)
                 .navigationBarItems(
-                    leading: Button(action: {
-                        if UIDevice.current.userInterfaceIdiom != .pad {
-                            isGridView.toggle()
-                        }
-                    }) {
-                        Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2")
-                            .imageScale(.large)
-                            .foregroundColor(.primary)
-                            .opacity(UIDevice.current.userInterfaceIdiom == .pad ? 0.0 : 1.0)
-                    },
+                    leading: gridToggleButton,
                     trailing: HStack {
-                        Button(action: {
-                            showPrayerTimes = true
-                        }) {
+                        Button(action: { showPrayerTimes = true }) {
                             Image(systemName: "clock")
                                 .imageScale(.large)
                                 .foregroundColor(.primary)
@@ -105,20 +98,43 @@ struct ContentView: View {
             }
         }
     }
-
+    
+    /// Кнопка для переключения между списком и сеткой (не отображается на iPad)
+    private var gridToggleButton: some View {
+        Group {
+            if !isPad {
+                Button(action: { isGridView.toggle() }) {
+                    Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2")
+                        .imageScale(.large)
+                        .foregroundColor(.primary)
+                }
+            }
+        }
+    }
+    
+    /// Отображение контента в виде сетки или списка
     @ViewBuilder
     private var content: some View {
         if isGridView {
             LazyVGrid(columns: gridColumns, spacing: 20) {
                 stepsView(showIndex: true, fontSize: dynamicFontSize)
             }
+            .padding(.horizontal)
         } else {
-            VStack {
-                stepsView(showIndex: false, fontSize: dynamicFontSize * 3.8)
+            LazyVStack(spacing: 8) {
+                ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                    NavigationLink(destination: step.1) {
+                        StepRow(step: step, index: index)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.horizontal, 8)
+                }
             }
+            .padding(.vertical, 10)
         }
     }
-
+    
+    /// Для сетки: отображение шагов через отдельный View StepView
     private func stepsView(showIndex: Bool, fontSize: CGFloat) -> some View {
         ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
             StepView(
@@ -133,34 +149,72 @@ struct ContentView: View {
             .foregroundStyle(.black)
         }
     }
-
+    
+    /// Создание столбцов для LazyVGrid
     private var gridColumns: [GridItem] {
         let screenWidth = UIScreen.main.bounds.width
         let columnWidth = screenWidth / 2 - 10
-        return [GridItem(.fixed(columnWidth)), GridItem(.fixed(columnWidth))]
+        return Array(repeating: GridItem(.fixed(columnWidth)), count: 2)
     }
-
-    func startTimer() {
+    
+    /// Запуск таймера для запроса отзыва
+    private func startTimer() {
         guard !hasRatedApp else { return }
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             usageTime += 1
             if usageTime >= 300 {
-                timer?.invalidate()
-                timer = nil
+                stopTimer()
                 requestReviewIfNeeded()
             }
         }
     }
-
-    func stopTimer() {
+    
+    /// Остановка таймера
+    private func stopTimer() {
         timer?.invalidate()
         timer = nil
     }
-
-    func requestReviewIfNeeded() {
+    
+    /// Запрос отзыва, если это необходимо
+    private func requestReviewIfNeeded() {
         guard !hasRatedApp else { return }
         requestReview()
         hasRatedApp = true
+    }
+}
+
+/// Отдельный View для отображения строки шага в списке
+private struct StepRow: View {
+    var step: (String, AnyView, String)
+    var index: Int
+    @EnvironmentObject var settings: UserSettings
+    
+    var body: some View {
+        HStack(spacing: 15) {
+            Image(step.0)
+                .styledImage()
+            VStack(alignment: .leading, spacing: 5) {
+                Text(LocalizedStringKey(step.2), bundle: settings.bundle)
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(.black)
+            }
+            Spacer()
+            Image(systemName: "chevron.right")
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundColor(.black)
+                .frame(width: 24, height: 24)
+                .background(
+                    Circle()
+                        .fill(Color.blue.opacity(0.1))
+                )
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal, 16)
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 2)
+        )
     }
 }
 
@@ -169,8 +223,10 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .environmentObject(UserSettings())
             .environmentObject(FontManager())
+            .environmentObject(PurchaseManager())
     }
 }
+
 
 
 
