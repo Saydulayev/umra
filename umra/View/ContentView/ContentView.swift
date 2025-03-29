@@ -62,6 +62,22 @@ struct ContentView: View {
         .onAppear(perform: startTimer)
         .onDisappear(perform: stopTimer)
     }
+    /*
+     var body: some View {
+         ZStack {
+             if settings.hasSelectedLanguage {
+                 mainContentView
+                     .transition(.move(edge: .trailing).combined(with: .opacity))
+             } else {
+                 LanguageSelectionView()
+                     .transition(.move(edge: .leading).combined(with: .opacity))
+             }
+         }
+         .animation(.easeInOut(duration: 0.5), value: settings.hasSelectedLanguage)
+         .onAppear(perform: startTimer)
+         .onDisappear(perform: stopTimer)
+     }
+     */
     
     /// Основное содержимое экрана
     private var mainContentView: some View {
@@ -209,7 +225,7 @@ private struct StepRow: View {
                 )
         }
         .padding(.vertical, 12)
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 12)
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color.white)
