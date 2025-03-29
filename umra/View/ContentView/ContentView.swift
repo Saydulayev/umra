@@ -51,33 +51,30 @@ struct ContentView: View {
     }
     
     var body: some View {
-        Group {
+        ZStack {
             if settings.hasSelectedLanguage {
                 mainContentView
+                    .transition(
+                        .asymmetric(
+                            insertion: .move(edge: .trailing).combined(with: .opacity),
+                            removal: .scale(scale: 0.9).combined(with: .opacity)
+                        )
+                    )
             } else {
                 LanguageSelectionView()
+                    .transition(
+                        .asymmetric(
+                            insertion: .move(edge: .leading).combined(with: .opacity),
+                            removal: .move(edge: .leading).combined(with: .opacity)
+                        )
+                    )
             }
         }
-        .animation(.easeInOut, value: settings.hasSelectedLanguage)
+        .animation(.spring(response: 0.4, dampingFraction: 0.75), value: settings.hasSelectedLanguage)
         .onAppear(perform: startTimer)
         .onDisappear(perform: stopTimer)
     }
-    /*
-     var body: some View {
-         ZStack {
-             if settings.hasSelectedLanguage {
-                 mainContentView
-                     .transition(.move(edge: .trailing).combined(with: .opacity))
-             } else {
-                 LanguageSelectionView()
-                     .transition(.move(edge: .leading).combined(with: .opacity))
-             }
-         }
-         .animation(.easeInOut(duration: 0.5), value: settings.hasSelectedLanguage)
-         .onAppear(perform: startTimer)
-         .onDisappear(perform: stopTimer)
-     }
-     */
+
     
     /// Основное содержимое экрана
     private var mainContentView: some View {
@@ -117,14 +114,10 @@ struct ContentView: View {
     
     /// Кнопка для переключения между списком и сеткой (не отображается на iPad)
     private var gridToggleButton: some View {
-        Group {
-            if !isPad {
-                Button(action: { isGridView.toggle() }) {
-                    Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2")
-                        .imageScale(.large)
-                        .foregroundColor(.primary)
-                }
-            }
+        Button(action: { isGridView.toggle() }) {
+            Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2")
+                .imageScale(.large)
+                .foregroundColor(.primary)
         }
     }
     
