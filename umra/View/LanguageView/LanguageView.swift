@@ -29,26 +29,26 @@ struct LanguageView: View {
             .actionSheet(isPresented: $showingActionSheet) {
                 ActionSheet(title: Text("select_language_settings_string", bundle: settings.bundle)
                     .foregroundColor(.blue), message: nil, buttons: [
-                    .default(Text("Русский")) {
-                        settings.lang = "ru"
-                    },
-                    .default(Text("English")) {
-                        settings.lang = "en"
-                    },
-                    .default(Text("Deutsch")) {
-                        settings.lang = "de"
-                    },
-                    .default(Text("Français")) {
-                        settings.lang = "fr"
-                    },
-//                    .default(Text("العربية")) {
-//                        settings.lang = "ar"
-//                    },
+                        .default(Text("Русский")) {
+                            settings.lang = "ru"
+                        },
+                        .default(Text("English")) {
+                            settings.lang = "en"
+                        },
+                        .default(Text("Deutsch")) {
+                            settings.lang = "de"
+                        },
+                        .default(Text("Français")) {
+                            settings.lang = "fr"
+                        },
                         .default(Text("Türkçe")) {
                             settings.lang = "tr"
                         },
-                    .cancel()
-                ])
+                        .default(Text("Bahasa Indonesia")) {
+                            settings.lang = "id"
+                        },
+                        .cancel()
+                    ])
             }
         }
     }

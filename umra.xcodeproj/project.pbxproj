@@ -108,6 +108,7 @@
 		C24508EB2C9CD3A6003E3E58 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		C24508ED2C9CD3AD003E3E58 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		C2561DF52D5A467800097793 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2884B4D2DE37E8600A3975D /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2A68D352CFF1E3C005F3ED8 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -323,7 +324,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1510;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					C0908DD729829F8A00458ACB = {
 						CreatedOnToolsVersion = 14.2;
@@ -342,6 +343,7 @@
 				Base,
 				ar,
 				tr,
+				id,
 			);
 			mainGroup = C0908DCF29829F8A00458ACB;
 			packageReferences = (
@@ -431,6 +433,7 @@
 				C06B9C572A08F4AE00549748 /* fr */,
 				C204DEBD2D198C42008EC9E5 /* ar */,
 				C2561DF52D5A467800097793 /* tr */,
+				C2884B4D2DE37E8600A3975D /* id */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 93NA5FP2X8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -540,6 +544,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 93NA5FP2X8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -570,7 +575,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"umra/Preview Content\"";
-				DEVELOPMENT_TEAM = 93NA5FP2X8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = umra/Info.plist;
@@ -605,7 +609,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"umra/Preview Content\"";
-				DEVELOPMENT_TEAM = 93NA5FP2X8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = umra/Info.plist;
