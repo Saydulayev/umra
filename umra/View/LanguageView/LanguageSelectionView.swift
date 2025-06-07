@@ -74,17 +74,8 @@ struct LanguageSelectionView: View {
                         }
                         .scrollIndicators(.hidden)
                         .frame(maxHeight: maxListHeight)
-                        
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color.clear, Color(#colorLiteral(red: 0.898, green: 0.933, blue: 1, alpha: 1))]),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                        .frame(height: geo.size.height * 0.05)
-                        .allowsHitTesting(false)
                     }
 
-                    // Стрелка показывается только если реально есть невидимые языки
                     if needChevron {
                         Image(systemName: "chevron.down")
                             .foregroundColor(.gray)
