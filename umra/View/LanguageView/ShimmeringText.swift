@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ShimmeringText: View {
     @State private var isAnimating = false
+    @State private var phase: CGFloat = 0 // 0...1 непрерывная фаза
 
     // Контент и параметры
     var text: String = "WELCOME TO THE UMRA GUIDE"
-    var fontSize: CGFloat = 24
+    var fontSize: CGFloat = 28
     var cornerRadius: CGFloat = 24
     var material: Material = .ultraThinMaterial
 
@@ -58,8 +59,13 @@ struct ShimmeringText: View {
 
                     // Параметры блика
                     let stripeWidth = max(width * 0.48, 36) // ширина блика
-                    let startX = -stripeWidth                // старт за левой гранью
-                    let endX = width + stripeWidth           // финиш за правой гранью
+                    // Дадим больше запасов, чтобы скачок был полностью вне экрана
+                    let overshoot: CGFloat = stripeWidth * 1.4
+                    let startX = -overshoot                // старт далеко за левой гранью
+                    let endX = width + overshoot           // финиш далеко за правой гранью
+
+                    // Интерполяция по фазе 0...1
+                    let currentX = startX + (endX - startX) * phase
 
                     Rectangle()
                         .fill(
@@ -73,15 +79,10 @@ struct ShimmeringText: View {
                                 endPoint: .trailing
                             )
                         )
-                        .frame(width: stripeWidth, height: height * 1.25)
+                        // Чуть выше, чтобы при наклоне не торчали углы
+                        .frame(width: stripeWidth, height: height * 1.8)
                         .rotationEffect(.degrees(18))
-                        .offset(x: isAnimating ? endX : startX)
-                        .animation(
-                            .linear(duration: 2.8)
-                                .delay(0.3)
-                                .repeatForever(autoreverses: false),
-                            value: isAnimating
-                        )
+                        .offset(x: currentX)
                         .allowsHitTesting(false)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
@@ -109,6 +110,15 @@ struct ShimmeringText: View {
             .shadow(color: .black.opacity(0.25), radius: 20, x: 0, y: 18)
             .onAppear {
                 isAnimating = true
+                phase = 0
+                // Плавная бесконечная анимация фазы 0 -> 1
+                withAnimation(
+                    .linear(duration: 2.8)
+                        .delay(0.3)
+                        .repeatForever(autoreverses: false)
+                ) {
+                    phase = 1
+                }
             }
     }
 }

@@ -29,28 +29,43 @@ struct LanguageSelectionView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+                // Базовый фон
+                LinearGradient(
+                    colors: [
+                        Color.mint.opacity(0.35),
+                        Color.black.opacity(0.45)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea()
+
+                // Полноэкранный «лист» материала без рамок и теней
+                Rectangle()
+                    .fill(.ultraThinMaterial)
                     .ignoresSafeArea()
-                
+
                 VStack {
+                    // Заголовок на стекле
                     ShimmeringText()
-                        .font(.largeTitle)
                         .minimumScaleFactor(0.7)
                         .padding(.bottom, geo.size.height * 0.02)
-                    
-                    Spacer(minLength: geo.size.height * 0.03)
-                    
+                    Spacer()
+                    // Адаптивные параметры карточек
+                    let contentWidth = adaptiveContentWidth(geo.size)
+                    let cardCornerRadius: CGFloat = contentWidth >= 520 ? 28 : 24
+                    let imageAspect: CGFloat = 16.0 / 9.0
+
+                    // Картинка в стеклянной карточке с адаптивной шириной
                     Image("WelcomeImage")
                         .resizable()
                         .scaledToFit()
-                        .frame(
-                            maxWidth: min(geo.size.width * 0.7, 400),
-                            maxHeight: min(geo.size.height * 0.25, 400)
-                        )
-                        .padding(.bottom, geo.size.height * 0.05)
-                    
-                    Spacer(minLength: geo.size.height * 0.02)
-                    
+                        .padding(14)
+                        .frame(width: contentWidth)
+                        .aspectRatio(imageAspect, contentMode: .fit)
+                        .glassContainer(cornerRadius: cardCornerRadius)
+                        .padding(.bottom, geo.size.height * 0.02)
+
                     // Подсчитываем высоту кнопки + отступы
                     let buttonFontSize = geo.size.height * 0.025
                     let buttonVerticalPadding: CGFloat = 16
@@ -60,26 +75,39 @@ struct LanguageSelectionView: View {
                     let maxVisibleButtons = Int(maxListHeight / buttonFullHeight)
                     let needChevron = languages.count > maxVisibleButtons
 
-                    ZStack(alignment: .bottom) {
+                    // Стеклянная карточка со списком кнопок — та же ширина, что у картинки
+                    VStack(spacing: buttonSpacing) {
                         ScrollView {
                             VStack(spacing: buttonSpacing) {
                                 ForEach(languages) { lang in
                                     Button(action: { selectLanguage(lang.code) }) {
                                         Text(lang.title)
-                                            .buttonStyle(fontSize: buttonFontSize)
+                                            .frame(maxWidth: .infinity)
                                     }
+                                    .buttonStyle(
+                                        GlassButtonStyle(
+                                            fontSize: buttonFontSize,
+                                            verticalPadding: buttonVerticalPadding,
+                                            cornerRadius: 20,
+                                            material: .ultraThinMaterial
+                                        )
+                                    )
                                 }
                             }
-                            .padding(.bottom)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 8)
                         }
                         .scrollIndicators(.hidden)
                         .frame(maxHeight: maxListHeight)
                     }
+                    .padding(12)
+                    .frame(width: contentWidth)
+                    .glassContainer(cornerRadius: cardCornerRadius)
 
                     if needChevron {
                         Image(systemName: "chevron.down")
-                            .foregroundColor(.gray)
-                            .font(.system(size: geo.size.height * 0.025))
+                            .foregroundColor(.white.opacity(0.8))
+                            .font(.system(size: geo.size.height * 0.025, weight: .semibold, design: .rounded))
                             .padding(.top, 4)
                             .padding(.bottom, geo.size.height * 0.01)
                             .transition(.opacity)
@@ -97,40 +125,78 @@ struct LanguageSelectionView: View {
         settings.lang = lang
         settings.hasSelectedLanguage = true
     }
+
+    // MARK: - Adaptive width helper
+    private func adaptiveContentWidth(_ size: CGSize) -> CGFloat {
+        let isPad = UIDevice.current.userInterfaceIdiom == .pad
+        let isLandscape = size.width > size.height
+
+        // Доля ширины экрана для карточек
+        let fraction: CGFloat = {
+            if isPad {
+                return isLandscape ? 0.5 : 0.6
+            } else {
+                return isLandscape ? 0.6 : 0.78
+            }
+        }()
+
+        // Границы, чтобы ширина оставалась «человечной»
+        let minW: CGFloat = isPad ? 420 : 300
+        let maxW: CGFloat = isPad ? 640 : 460
+
+        let proposed = size.width * fraction
+        return min(max(proposed, minW), maxW)
+    }
 }
 
-extension Text {
-    func buttonStyle(fontSize: CGFloat = 18) -> some View {
-        self.font(.system(size: fontSize, weight: .medium))
-            .minimumScaleFactor(0.75)
-            .foregroundColor(.black)
-            .padding(.vertical, 16)
+// Стеклянная кнопка под glassmorphism
+struct GlassButtonStyle: ButtonStyle {
+    var fontSize: CGFloat = 18
+    var verticalPadding: CGFloat = 16
+    var cornerRadius: CGFloat = 20
+    var material: Material = .ultraThinMaterial
+
+    func makeBody(configuration: Configuration) -> some View {
+        let shape = RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+
+        return configuration.label
+            .font(.system(size: fontSize, weight: .semibold, design: .rounded))
+            .foregroundStyle(.black.opacity(0.92))
+            .padding(.vertical, verticalPadding)
             .padding(.horizontal, 8)
-            .frame(maxWidth: .infinity)
             .background(
-                ZStack {
-                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(
+                shape
+                    .fill(material)
+                    .overlay(
+                        shape.fill(
                             LinearGradient(
-                                gradient: Gradient(colors: [
-                                    Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)),
-                                    Color.white
-                                ]),
+                                colors: [
+                                    Color.white.opacity(0.05),
+                                    Color.cyan.opacity(0.08)
+                                ],
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             )
                         )
-                        .padding(2)
-                })
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .padding(.horizontal)
+                    )
+            )
+            .overlay(
+                shape
+                    .strokeBorder(
+                        LinearGradient(
+                            colors: [
+                                Color.white.opacity(0.70),
+                                Color.white.opacity(0.15)
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ),
+                        lineWidth: 1
+                    )
+            )
+            .shadow(color: .black.opacity(0.18), radius: 14, x: 0, y: 10)
+            .scaleEffect(configuration.isPressed ? 0.98 : 1.0)
+            .animation(.spring(response: 0.25, dampingFraction: 0.8), value: configuration.isPressed)
     }
 }
 
@@ -138,6 +204,3 @@ extension Text {
     LanguageSelectionView()
         .environmentObject(UserSettings())
 }
-
-
-
