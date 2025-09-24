@@ -194,13 +194,13 @@ extension View {
             .padding()
             .frame(maxWidth: .infinity)
             .background(
-                glassRoundedBackground(cornerRadius: 10)
+                glassRoundedBackground(cornerRadius: 20)
             )
             .overlay(
-                glassRoundedStroke(cornerRadius: 10)
+                glassRoundedStroke(cornerRadius: 20)
             )
             .overlay(
-                glassRoundedHighlight(cornerRadius: 10)
+                glassRoundedHighlight(cornerRadius: 20)
             )
             .modifier(GlassShadowModifier())
             .padding(.vertical, 10)
