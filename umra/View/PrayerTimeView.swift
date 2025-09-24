@@ -10,6 +10,60 @@ import BackgroundTasks
 import SwiftUI
 import UserNotifications
 
+// MARK: - Общие стеклянные утилиты
+
+private let glassStrokeGradient = LinearGradient(
+    colors: [Color.white.opacity(0.65), Color.white.opacity(0.15)],
+    startPoint: .topLeading,
+    endPoint: .bottomTrailing
+)
+
+@ViewBuilder
+private func glassRoundedBackground(cornerRadius: CGFloat) -> some View {
+    // Мягкая затемнённая подложка под «листом» для усиления эффекта стекла
+    ZStack {
+        RoundedRectangle(cornerRadius: cornerRadius + 2, style: .continuous)
+            .fill(Color.black.opacity(0.10))
+            .blur(radius: 12)
+            .offset(y: 2)
+            .compositingGroup()
+        if #available(iOS 15.0, *) {
+            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                .fill(.ultraThinMaterial)
+        } else {
+            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                .fill(Color.white.opacity(0.25))
+        }
+    }
+}
+
+private func glassRoundedStroke(cornerRadius: CGFloat, lineWidth: CGFloat = 1) -> some View {
+    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+        .strokeBorder(glassStrokeGradient, lineWidth: lineWidth)
+}
+
+private func glassRoundedHighlight(cornerRadius: CGFloat) -> some View {
+    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+        .fill(
+            LinearGradient(
+                colors: [Color.white.opacity(0.35), .clear],
+                startPoint: .topLeading,
+                endPoint: .center
+            )
+        )
+        .blur(radius: 12)
+        .allowsHitTesting(false)
+}
+
+private struct GlassShadowModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .shadow(color: Color.black.opacity(0.10), radius: 18, x: 0, y: 10)
+            .shadow(color: Color.white.opacity(0.12), radius: 1, x: 0, y: 1)
+    }
+}
+
+// MARK: - PrayerTimeView
 
 struct PrayerTimeView: View {
     @State private var prayerTimes: [String: String] = [:]
@@ -43,11 +97,13 @@ struct PrayerTimeView: View {
 
     var body: some View {
         ZStack {
+            // Фон экрана — можно оставить лёгким, стекло усилено внутренним затемнением
             Rectangle()
                 .fill(
                     LinearGradient(
                         gradient: Gradient(colors: [
-                            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+                            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)),
+                            Color(#colorLiteral(red: 0.835, green: 0.88, blue: 0.98, alpha: 1))
                         ]),
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
@@ -56,30 +112,31 @@ struct PrayerTimeView: View {
                 .ignoresSafeArea()
             
             VStack {
-                HStack {
+                HStack(spacing: 6) {
                     Text("Mecca,")
                     Text(currentIslamicDate)
                 }
                 .font(.custom("Savoye LET", size: 36))
-                .foregroundStyle(.black)
-                .padding(-5)
+                .foregroundStyle(.primary)
+                .padding(.bottom, -5)
+                
                 Divider()
                 
                 Text("\(nextPrayerName) in \(timeUntilNextPrayer)")
                     .cardStyled()
 
                 Group {
-                    PrayerTimeRow(prayerName: "Fajr", prayerTime: prayerTimes["Fajr"] ?? "")
+                    PrayerTimeRow(prayerName: "Fajr",    prayerTime: prayerTimes["Fajr"] ?? "")
                     PrayerTimeRow(prayerName: "Sunrise", prayerTime: prayerTimes["Sunrise"] ?? "")
                         .capsuleStyled()
-                    PrayerTimeRow(prayerName: "Dhuhr", prayerTime: prayerTimes["Dhuhr"] ?? "")
-                    PrayerTimeRow(prayerName: "Asr", prayerTime: prayerTimes["Asr"] ?? "")
+                    PrayerTimeRow(prayerName: "Dhuhr",   prayerTime: prayerTimes["Dhuhr"] ?? "")
+                    PrayerTimeRow(prayerName: "Asr",     prayerTime: prayerTimes["Asr"] ?? "")
                     PrayerTimeRow(prayerName: "Maghrib", prayerTime: prayerTimes["Maghrib"] ?? "")
-                    PrayerTimeRow(prayerName: "Isha", prayerTime: prayerTimes["Isha"] ?? "")
-                    PrayerTimeRow(prayerName: "Qiyam", prayerTime: prayerTimes["Qiyam"] ?? "")
+                    PrayerTimeRow(prayerName: "Isha",    prayerTime: prayerTimes["Isha"] ?? "")
+                    PrayerTimeRow(prayerName: "Qiyam",   prayerTime: prayerTimes["Qiyam"] ?? "")
                         .capsuleStyled()
                 }
-                .foregroundStyle(.black)
+                .foregroundStyle(.primary)
                 .padding(.horizontal)
             }
             .transparentStyled()
@@ -100,7 +157,6 @@ struct PrayerTimeView: View {
             .onChange(of: enablePrayerTimeNotifications) { _ in
                 updateNotifications()
             }
-            // ↓ Добавлено, чтобы пересоздавать уведомления при изменении тумблера Sunrise
             .onChange(of: enableSunriseNotifications) { _ in
                 updateNotifications()
             }
@@ -273,6 +329,8 @@ struct PrayerTimeView: View {
     }
 }
 
+// MARK: - NotificationSettingsView
+
 struct NotificationSettingsView: View {
     @AppStorage("enable30MinNotifications") private var enable30MinNotifications: Bool = true
     @AppStorage("enablePrayerTimeNotifications") private var enablePrayerTimeNotifications: Bool = true
@@ -282,52 +340,70 @@ struct NotificationSettingsView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        VStack {
-            Text("Notification Settings", bundle: settings.bundle)
-                .font(.headline)
-                .padding()
+        ZStack {
+            LinearGradient(
+                colors: [
+                    Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)),
+                    Color(#colorLiteral(red: 0.835, green: 0.88, blue: 0.98, alpha: 1))
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
 
-            Toggle(isOn: $enable30MinNotifications, label: {
-                Text("30-Minute Notifications", bundle: settings.bundle)
-            })
-            .padding(.horizontal)
+            VStack(spacing: 14) {
+                Text("Notification Settings", bundle: settings.bundle)
+                    .font(.headline)
+                    .padding(.top, 6)
 
-            Toggle(isOn: $enablePrayerTimeNotifications, label: {
-                Text("Prayer Time Notifications", bundle: settings.bundle)
-            })
-            .padding(.horizontal)
-            
-            Toggle(isOn: $enableSunriseNotifications, label: {
-                Text("Sunrise Notifications", bundle: settings.bundle)
-            })
-            .padding(.horizontal)
-
-            Button(action: {
-                openSystemNotificationSettings()
-            }, label: {
-                HStack {
-                    Text("Open iOS Notification Settings", bundle: settings.bundle)
-                    Image(systemName: "gear")
+                Toggle(isOn: $enable30MinNotifications) {
+                    Text("30-Minute Notifications", bundle: settings.bundle)
                 }
+                .padding(.horizontal)
+                .tint(.blue)
+
+                Toggle(isOn: $enablePrayerTimeNotifications) {
+                    Text("Prayer Time Notifications", bundle: settings.bundle)
+                }
+                .padding(.horizontal)
+                .tint(.blue)
+                
+                Toggle(isOn: $enableSunriseNotifications) {
+                    Text("Sunrise Notifications", bundle: settings.bundle)
+                }
+                .padding(.horizontal)
+                .tint(.blue)
+
+                Button(action: {
+                    openSystemNotificationSettings()
+                }) {
+                    HStack(spacing: 6) {
+                        Text("Open iOS Notification Settings", bundle: settings.bundle)
+                        Image(systemName: "gear")
+                    }
                     .foregroundStyle(.blue)
-            })
-            .padding(.vertical, 30)
-            
-            Spacer()
-            
-            Button(action: {
-                dismiss()
-            }, label: {
-                Text("Close", bundle: settings.bundle)
-                    .foregroundStyle(.blue)
-            })
-            .padding(.vertical, 30)
+                }
+                .padding(.vertical, 16)
+                
+                Spacer()
+                
+                Button(action: { dismiss() }) {
+                    Text("Close", bundle: settings.bundle)
+                        .foregroundStyle(.blue)
+                }
+                .padding(.bottom, 16)
+            }
+            .lineLimit(1)
+            .minimumScaleFactor(0.5)
+            .foregroundStyle(.primary)
+            .padding(.vertical)
+            .padding(.horizontal, 20)
+            .background(glassRoundedBackground(cornerRadius: 20))
+            .overlay(glassRoundedStroke(cornerRadius: 20))
+            .overlay(glassRoundedHighlight(cornerRadius: 20))
+            .modifier(GlassShadowModifier())
+            .padding()
         }
-        .lineLimit(1)
-        .minimumScaleFactor(0.5)
-        .foregroundStyle(.black)
-        .background(Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)))
-        .ignoresSafeArea()
         .presentationDetents([.medium, .large])
         .presentationDragIndicator(.visible)
     }
@@ -342,8 +418,7 @@ struct NotificationSettingsView: View {
     }
 }
 
-
-
+// MARK: - Modal
 
 struct PrayerTimeModalView: View {
     @Binding var isPresented: Bool
@@ -356,11 +431,12 @@ struct PrayerTimeModalView: View {
                 }, label: {
                     Image(systemName: "xmark.circle")
                         .imageScale(.large)
-                        .foregroundStyle(.blue)
                 }))
         }
     }
 }
+
+// MARK: - Row
 
 struct PrayerTimeRow: View {
     var prayerName: String
@@ -380,77 +456,48 @@ struct PrayerTimeRow: View {
     }
 }
 
-
+// MARK: - Стеклянные стили
 
 extension View {
     func capsuleStyled() -> some View {
-        self.foregroundStyle(.black)
+        self
+            .foregroundStyle(.primary)
             .frame(maxWidth: .infinity)
-            .background(
-                ZStack {
-                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-                    
-                })
-            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .padding(.vertical, 4)
+            .background(glassRoundedBackground(cornerRadius: 20))
+            .overlay(glassRoundedStroke(cornerRadius: 20))
+            .overlay(glassRoundedHighlight(cornerRadius: 20))
+            .modifier(GlassShadowModifier())
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
     }
 }
 
 extension View {
     func cardStyled() -> some View {
-        self.font(.headline)
-        .foregroundColor(.black)
-        .padding()
-        .frame(maxWidth: .infinity)
-        .background(
-            ZStack {
-                Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
-                
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(.white)
-                    .blur(radius: 4)
-                    .offset(x: -8, y: -8)
-                
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .padding(2)
-                
-            })
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
-        .padding(.vertical, 40)
-        
+        self
+            .font(.headline)
+            .foregroundColor(.primary)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(glassRoundedBackground(cornerRadius: 20))
+            .overlay(glassRoundedStroke(cornerRadius: 20))
+            .overlay(glassRoundedHighlight(cornerRadius: 20))
+            .modifier(GlassShadowModifier())
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .padding(.vertical, 40)
     }
 }
 
 extension View {
     func transparentStyled() -> some View {
-        self.padding(.vertical)
+        self
+            .padding(.vertical)
             .padding(.all, 25)
-            .background(
-                ZStack {
-                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-                    
-                })
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
+            .background(glassRoundedBackground(cornerRadius: 24))
+            .overlay(glassRoundedStroke(cornerRadius: 24))
+            .overlay(glassRoundedHighlight(cornerRadius: 24))
+            .modifier(GlassShadowModifier())
+            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
             .padding()
     }
 }

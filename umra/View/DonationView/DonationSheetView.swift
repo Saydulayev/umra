@@ -8,45 +8,83 @@
 import SwiftUI
 import StoreKit
 
-// MARK: - Neumorphic Background Modifier
+// MARK: - Glass Utilities
 
-struct NeumorphicBackground: ViewModifier {
-    var cornerRadius: CGFloat = 20
-    
+private let glassStrokeGradient = LinearGradient(
+    colors: [Color.white.opacity(0.65), Color.white.opacity(0.15)],
+    startPoint: .topLeading,
+    endPoint: .bottomTrailing
+)
+
+@ViewBuilder
+private func glassRoundedBackground(cornerRadius: CGFloat) -> some View {
+    ZStack {
+        // Лёгкая затемнённая подложка под стеклом для объёма
+        RoundedRectangle(cornerRadius: cornerRadius + 2, style: .continuous)
+            .fill(Color.black.opacity(0.10))
+            .blur(radius: 12)
+            .offset(y: 2)
+            .compositingGroup()
+        if #available(iOS 15.0, *) {
+            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                .fill(.ultraThinMaterial)
+        } else {
+            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                .fill(Color.white.opacity(0.25))
+        }
+    }
+}
+
+private func glassRoundedStroke(cornerRadius: CGFloat, lineWidth: CGFloat = 1) -> some View {
+    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+        .strokeBorder(glassStrokeGradient, lineWidth: lineWidth)
+}
+
+private func glassRoundedHighlight(cornerRadius: CGFloat) -> some View {
+    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+        .fill(
+            LinearGradient(
+                colors: [Color.white.opacity(0.35), .clear],
+                startPoint: .topLeading,
+                endPoint: .center
+            )
+        )
+        .blur(radius: 12)
+        .allowsHitTesting(false)
+}
+
+private struct GlassShadowModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(
-                ZStack {
-                    Color(red: 0.76, green: 0.82, blue: 0.93)
-                    
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [Color(red: 0.90, green: 0.93, blue: 1.0), Color.white]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .padding(2)
-                }
-            )
-            .shadow(color: Color(red: 0.76, green: 0.82, blue: 0.93), radius: 20, x: 20, y: 20)
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .shadow(color: Color.black.opacity(0.10), radius: 18, x: 0, y: 10)
+            .shadow(color: Color.white.opacity(0.12), radius: 1, x: 0, y: 1)
     }
 }
 
 extension View {
-    func neumorphicBackground(cornerRadius: CGFloat = 20) -> some View {
-        self.modifier(NeumorphicBackground(cornerRadius: cornerRadius))
+    func glassContainer(cornerRadius: CGFloat) -> some View {
+        self
+            .background(glassRoundedBackground(cornerRadius: cornerRadius))
+            .overlay(glassRoundedStroke(cornerRadius: cornerRadius))
+            .overlay(glassRoundedHighlight(cornerRadius: cornerRadius))
+            .modifier(GlassShadowModifier())
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+    }
+}
+
+// MARK: - Pressable Glass Button Style
+
+struct GlassPressButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.98 : 1.0)
+            .opacity(configuration.isPressed ? 0.96 : 1.0)
+            .animation(.spring(response: 0.25, dampingFraction: 0.85), value: configuration.isPressed)
     }
 }
 
 // MARK: - DonationSheetView
+
 struct DonationSheetView: View {
     @Binding var isPresented: Bool
     @Binding var isPurchased: Bool
@@ -67,62 +105,78 @@ struct DonationSheetView: View {
     
     var body: some View {
         ZStack {
-            // Фоновый градиент для экрана
+            // Фон экрана с лёгким градиентом
             Rectangle()
                 .fill(
                     LinearGradient(
-                        gradient: Gradient(colors: [Color(red: 0.90, green: 0.93, blue: 1.0)]),
+                        gradient: Gradient(colors: [
+                            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)),
+                            Color(#colorLiteral(red: 0.835, green: 0.88, blue: 0.98, alpha: 1))
+                        ]),
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
                 )
                 .ignoresSafeArea()
             
-            Text("Contribution to Application Development", bundle: settings.bundle)
-                .font(.system(size: 16))
-                .foregroundColor(.black)
-                .padding()
-                .frame(maxWidth: .infinity)
-                .neumorphicBackground()
-                .padding()
-            
-            VStack(alignment: .trailing) {
-                Button(action: {
-                    isPresented = false
-                }, label: {
-                    Image(systemName: "xmark.circle")
-                        .font(.system(size: 22))
-                        .foregroundStyle(.blue)
-                })
-                .padding()
+            // Центрирование основного блока по вертикали
+            VStack {
+                Spacer(minLength: 0)
                 
-                VStack {
+                // Основной стеклянный блок
+                VStack(spacing: 18) {
+                    // Заголовок
                     Spacer()
-                    HStack {
-                        Text("select_the_amount", bundle: settings.bundle)
-                            .foregroundStyle(.black)
-                        Picker("Выберите сумму", selection: $selectedProductId) {
-                            ForEach(productPrices.keys.sorted(), id: \.self) { productId in
-                                Text(productPrices[productId, default: "Unknown"]).tag(productId)
+                    Text("Contribution to Application Development", bundle: settings.bundle)
+                        .font(.system(size: 16))
+                        .foregroundStyle(.primary)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 16)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .glassContainer(cornerRadius: 18)
+                    Spacer()
+                    // Выбор суммы
+                    VStack(spacing: 12) {
+                        HStack {
+                            Text("select_the_amount", bundle: settings.bundle)
+                                .foregroundStyle(.primary)
+                                .font(.body)
+                            Spacer(minLength: 8)
+                            Picker("Выберите сумму", selection: $selectedProductId) {
+                                ForEach(productPrices.keys.sorted(), id: \.self) { productId in
+                                    Text(productPrices[productId, default: "Unknown"]).tag(productId)
+                                }
                             }
+                            .labelsHidden()
+                            .tint(.blue)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 10)
+                            .background(glassRoundedBackground(cornerRadius: 14))
+                            .overlay(glassRoundedStroke(cornerRadius: 14))
+                            .overlay(glassRoundedHighlight(cornerRadius: 14))
+                            .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                         }
-                        .font(.title)
-                        .padding(5)
-                        .neumorphicBackground()
-                        .padding()
-                        .accentColor(.blue)
-                        .pickerStyle(MenuPickerStyle())
                     }
+                    .padding(.horizontal, 6)
+                    .glassContainer(cornerRadius: 18)
                     
+                    // Кнопка пожертвования или индикатор загрузки
                     if isLoading {
                         ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                            .progressViewStyle(CircularProgressViewStyle(tint: .primary))
+                            .padding(.vertical, 14)
                             .frame(maxWidth: .infinity)
-                            .padding()
+                            .glassContainer(cornerRadius: 18)
                     } else {
                         donateButton
                     }
                 }
+                .padding(.vertical)
+                .padding(.horizontal, 20)
+                .glassContainer(cornerRadius: 24)
+                .padding()
+                
+                Spacer(minLength: 0)
             }
         }
         .alert(isPresented: $showError) {
@@ -141,33 +195,24 @@ struct DonationSheetView: View {
                 if isPurchased { isPresented = false }
             }
         } label: {
-            ZStack {
-                if isLoading {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                        .padding()
-                } else {
-                    Text("_donate_button", bundle: settings.bundle)
-                        .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(.blue)
-                        .padding()
-                }
-            }
-            .frame(maxWidth: .infinity)
-            .neumorphicBackground()
-            .padding()
+            Text("_donate_button", bundle: settings.bundle)
+                .font(.system(size: 18, weight: .medium))
+                .foregroundStyle(.blue)
+                .padding(.vertical, 14)
+                .frame(maxWidth: .infinity)
+                .glassContainer(cornerRadius: 18)
         }
+        .buttonStyle(GlassPressButtonStyle())
+        .padding(.top, 4)
     }
     
     func buy(productID: String) async {
-        // Сбрасываем флаг ошибки перед началом
         showError = false
         guard let product = purchaseManager.availableDonations.first(where: { $0.id == productID }) else {
             print("⚠️ Product \(productID) not found")
             return
         }
         await purchaseManager.purchase(product)
-        // Если после покупки продукт присутствует в списке завершённых, считаем покупку успешной
         if purchaseManager.completedDonations.contains(where: { $0.id == productID }) {
             isPurchased = true
         } else if purchaseManager.purchaseError != nil {

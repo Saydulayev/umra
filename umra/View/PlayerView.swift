@@ -7,6 +7,7 @@
 
 import AVKit
 import SwiftUI
+import UIKit
 
 class AudioManager {
     static let shared = AudioManager()
@@ -59,51 +60,82 @@ struct PlayerView: View {
     @StateObject private var coordinator = Coordinator()
 
     var body: some View {
-        VStack {
-            HStack {
+        VStack(spacing: 16) {
+            // Панель с кнопками
+            HStack(spacing: 0) {
                 Spacer()
                 controlButton(imageName: "repeat",
-                              isActive: self.isRepeating,
-                              backgroundColors: [.red, .gray]) {
-                    self.isRepeating.toggle()
-                    self.audioPlayer?.numberOfLoops = self.isRepeating ? -1 : 0
+                              isActive: self.isRepeating) {
+                    withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                        self.isRepeating.toggle()
+                        self.audioPlayer?.numberOfLoops = self.isRepeating ? -1 : 0
+                    }
                 }
 
                 controlButton(imageName: self.isPlaying ? "pause.fill" : "play.fill",
-                              isActive: self.isPlaying,
-                              backgroundColors: [.green, .gray]) {
+                              isActive: self.isPlaying) {
                     if let player = self.audioPlayer {
                         if player.isPlaying {
                             player.pause()
-                            self.isPlaying = false
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                                self.isPlaying = false
+                            }
                         } else {
                             AudioManager.shared.play(audioPlayer: player)
-                            self.isPlaying = true
+                            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                                self.isPlaying = true
+                            }
                         }
                     }
                 }
 
                 controlButtonWithText(text: "\(playbackRate)x",
-                                      isActive: playbackRate > 1.0,
-                                      backgroundColors: [.blue, .gray]) {
+                                      isActive: playbackRate > 1.0) {
                     cyclePlaybackRate()
                 }
-
                 Spacer()
             }
-            .padding(.bottom, 10)
+            .padding(.bottom, 6)
 
-            Slider(value: Binding(
-                get: { self.currentTime },
-                set: { newValue in
-                    self.currentTime = newValue
-                    self.audioPlayer?.currentTime = self.currentTime
+            // Стеклянный контейнер под слайдером
+            VStack {
+                Slider(value: Binding(
+                    get: { self.currentTime },
+                    set: { newValue in
+                        self.currentTime = newValue
+                        self.audioPlayer?.currentTime = self.currentTime
+                    }
+                ),
+                       in: 0...max(duration, 0.001),
+                       onEditingChanged: { _ in }
+                )
+                .tint(.green)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background(
+                Group {
+                    if #available(iOS 15.0, *) {
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .fill(.ultraThinMaterial)
+                    } else {
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .fill(Color.white.opacity(0.25))
+                    }
                 }
-            ),
-                   in: 0...duration,
-                   onEditingChanged: { _ in }
             )
-            .accentColor(.green)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .strokeBorder(
+                        LinearGradient(colors: [
+                            Color.white.opacity(0.65),
+                            Color.white.opacity(0.15)
+                        ], startPoint: .topLeading, endPoint: .bottomTrailing),
+                        lineWidth: 1
+                    )
+            )
+            .shadow(color: Color.black.opacity(0.10), radius: 18, x: 0, y: 10)
+            .shadow(color: Color.white.opacity(0.12), radius: 1, x: 0, y: 1)
         }
         .padding()
         .onAppear {
@@ -114,7 +146,9 @@ struct PlayerView: View {
                 print("Failed to activate audio session: \(error)")
             }
             coordinator.onFinishPlaying = {
-                self.isPlaying = false
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                    self.isPlaying = false
+                }
             }
             setupAudioPlayer()
         }
@@ -127,65 +161,92 @@ struct PlayerView: View {
         }
     }
 
-    func controlButton(imageName: String, isActive: Bool, backgroundColors: [Color], action: @escaping () -> Void) -> some View {
+    // MARK: - Glass Buttons
+
+    func controlButton(imageName: String, isActive: Bool, action: @escaping () -> Void) -> some View {
         Button(action: {
             action()
         }) {
             Image(systemName: imageName)
-                .foregroundColor(isActive ? .green : .black.opacity(0.8))
-                .font(.system(size: 16, weight: .bold))
-                .frame(width: 70, height: 70)
-                .background(
-                    ZStack {
-                        Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
-
-                        Circle()
-                            .foregroundColor(.white)
-                            .blur(radius: 4)
-                            .offset(x: -8, y: -8)
-
-                        Circle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .padding(2)
-                    }
-                    .clipShape(Circle())
-                    .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
-                )
+                .symbolRenderingMode(.hierarchical)
+                .foregroundStyle(isActive ? Color.green : Color.primary.opacity(0.85))
+                .font(.system(size: 22, weight: .semibold))
+                .frame(width: 72, height: 72)
+                .background(glassCircleBackground)
+                .overlay(glassCircleStroke(isActive: isActive))
+                .overlay(glassHighlight)
         }
+        .buttonStyle(.plain)
+        .contentShape(Circle())
+        .shadow(color: Color.black.opacity(0.10), radius: 18, x: 0, y: 10)
+        .shadow(color: Color.white.opacity(0.12), radius: 1, x: 0, y: 1)
         .padding()
     }
 
-    func controlButtonWithText(text: String, isActive: Bool, backgroundColors: [Color], action: @escaping () -> Void) -> some View {
+    func controlButtonWithText(text: String, isActive: Bool, action: @escaping () -> Void) -> some View {
         Button(action: {
             action()
             let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
             impactFeedbackGenerator.impactOccurred()
         }) {
             Text(text)
-                .foregroundColor(isActive ? .green : .black.opacity(0.8))
-                .font(.system(size: 16, weight: .bold))
+                .foregroundColor(isActive ? .green : .primary.opacity(0.85))
+                .font(.system(size: 18, weight: .semibold))
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
-                .frame(width: 70, height: 70)
-                .background(
-                    ZStack {
-                        Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
-
-                        Circle()
-                            .foregroundColor(.white)
-                            .blur(radius: 4)
-                            .offset(x: -8, y: -8)
-
-                        Circle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .padding(2)
-                    }
-                    .clipShape(Circle())
-                    .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
-                )
+                .frame(width: 72, height: 72)
+                .background(glassCircleBackground)
+                .overlay(glassCircleStroke(isActive: isActive))
+                .overlay(glassHighlight)
         }
+        .buttonStyle(.plain)
+        .contentShape(Circle())
+        .shadow(color: Color.black.opacity(0.10), radius: 18, x: 0, y: 10)
+        .shadow(color: Color.white.opacity(0.12), radius: 1, x: 0, y: 1)
         .padding()
     }
+
+    @ViewBuilder
+    private var glassCircleBackground: some View {
+        Group {
+            if #available(iOS 15.0, *) {
+                Circle().fill(.ultraThinMaterial)
+            } else {
+                Circle().fill(Color.white.opacity(0.28))
+            }
+        }
+    }
+
+    private func glassCircleStroke(isActive: Bool) -> some View {
+        Circle()
+            .strokeBorder(
+                LinearGradient(
+                    colors: [
+                        Color.white.opacity(0.75),
+                        Color.white.opacity(0.15)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ),
+                lineWidth: isActive ? 2 : 1
+            )
+    }
+
+    private var glassHighlight: some View {
+        Circle()
+            .fill(
+                RadialGradient(
+                    colors: [Color.white.opacity(0.28), .clear],
+                    center: .topLeading,
+                    startRadius: 0,
+                    endRadius: 80
+                )
+            )
+            .blur(radius: 10)
+            .allowsHitTesting(false)
+    }
+
+    // MARK: - Playback
 
     func cyclePlaybackRate() {
         guard let player = audioPlayer else { return }
@@ -203,9 +264,11 @@ struct PlayerView: View {
 
         if !player.isPlaying {
             player.play()
+            withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                isPlaying = true
+            }
         }
     }
-
 
     func setupAudioPlayer() {
         if let soundPath = Bundle.main.path(forResource: fileName, ofType: "mp3") {
@@ -260,10 +323,13 @@ struct PlayerView: View {
     }
 }
 
-
-
 struct Player_Previews: PreviewProvider {
     static var previews: some View {
         PlayerView(fileName: "1")
+            .preferredColorScheme(.dark)
+            .padding()
+            .background(
+                LinearGradient(colors: [Color.blue.opacity(0.25), Color.indigo.opacity(0.25)], startPoint: .top, endPoint: .bottom)
+            )
     }
 }
