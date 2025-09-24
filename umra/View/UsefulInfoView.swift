@@ -7,6 +7,61 @@
 
 import SwiftUI
 
+// Круглая стеклянная кнопка (для info)
+private struct LiquidGlassCircle: ViewModifier {
+    var diameter: CGFloat = 44
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: diameter * 0.45, weight: .semibold))
+            .foregroundStyle(
+                LinearGradient(
+                    colors: [Color.white.opacity(0.95), Color.white.opacity(0.75)],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
+            .frame(width: diameter, height: diameter)
+            .background(.ultraThinMaterial, in: Circle())
+            .overlay(
+                Circle()
+                    .stroke(
+                        LinearGradient(
+                            colors: [Color.white.opacity(0.9), Color.white.opacity(0.25)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ),
+                        lineWidth: 1
+                    )
+            )
+            .shadow(color: .black.opacity(0.10), radius: 10, x: 0, y: 8)
+            .shadow(color: .white.opacity(0.35), radius: 1, x: -1, y: -1)
+            .contentShape(Circle())
+    }
+}
+
+extension View {
+    func liquidGlassCircle(diameter: CGFloat = 44) -> some View {
+        modifier(LiquidGlassCircle(diameter: diameter))
+    }
+}
+
+// Стеклянные стили для элементов списка и карточек
+extension View {
+    func listItemGlassStyle(cornerRadius: CGFloat = 16) -> some View {
+        self
+            .padding()
+            .frame(maxWidth: .infinity)
+            .glassContainer(cornerRadius: cornerRadius)
+    }
+    
+    func cardGlassStyle(cornerRadius: CGFloat = 20) -> some View {
+        self
+            .padding()
+            .frame(maxWidth: .infinity)
+            .glassContainer(cornerRadius: cornerRadius)
+    }
+}
 
 // MARK: - UsefulInfoView
 struct UsefulInfoView: View {
@@ -41,7 +96,7 @@ struct UsefulInfoView: View {
             Chapter(title: "title_janaza_guide".localized(bundle: settings.bundle),
                     subChapters: [
                         SubChapter(title: "basic_rules".localized(bundle: settings.bundle),
-                                 content: JanazaPrayerGuide.basicRules(bundle: settings.bundle)),
+                                   content: JanazaPrayerGuide.basicRules(bundle: settings.bundle)),
                     ])
         ]
     }
@@ -49,23 +104,30 @@ struct UsefulInfoView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
-                    .ignoresSafeArea(edges: .bottom)
+                LinearGradient(
+                    colors: [
+                        Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)),
+                        Color(#colorLiteral(red: 0.835, green: 0.88, blue: 0.98, alpha: 1))
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea()
                 
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 0) {
+                    VStack(alignment: .leading, spacing: 12) {
                         ForEach(chapters) { chapter in
                             if chapter.title == "title_janaza_guide".localized(bundle: settings.bundle) {
                                 NavigationLink(destination: JanazaView()) {
                                     HStack {
                                         Text(chapter.title)
                                             .font(.system(size: getDynamicFontSize()))
-                                            .foregroundStyle(.black)
+                                            .foregroundStyle(.primary)
                                         Spacer()
                                         Image(systemName: "chevron.right")
                                             .foregroundStyle(.blue)
                                     }
-                                    .customListItemStyle()
+                                    .listItemGlassStyle()
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             } else {
@@ -73,22 +135,24 @@ struct UsefulInfoView: View {
                                     HStack {
                                         Text(chapter.title)
                                             .font(.system(size: getDynamicFontSize()))
-                                            .foregroundStyle(.black)
+                                            .foregroundStyle(.primary)
                                         Spacer()
                                         Image(systemName: "chevron.right")
                                             .foregroundStyle(.blue)
                                     }
-                                    .customListItemStyle()
+                                    .listItemGlassStyle()
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
-                            Divider()
                         }
+                        .padding(.horizontal)
+                        .padding(.top, 8)
                     }
                 }
                 .navigationTitle("useful_info_title".localized(bundle: settings.bundle))
                 .navigationBarTitleDisplayMode(.inline)
                 
+                // Стеклянная кнопка info
                 VStack {
                     Spacer()
                     HStack {
@@ -96,23 +160,24 @@ struct UsefulInfoView: View {
                         Button(action: {
                             isInfoPresented.toggle()
                         }) {
-                            Image(systemName: "info.circle")
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                                .padding()
-                                .foregroundColor(.blue)
+                            Image(systemName: "info")
+                                .liquidGlassCircle(diameter: 44)
+                                .accessibilityLabel(Text("Info", bundle: settings.bundle))
                         }
                         .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
                             VStack {
                                 Text("soon_available_text".localized(bundle: settings.bundle))
                                     .font(.body)
-                                    .padding()
                                     .multilineTextAlignment(.center)
-                                    .frame(width: 350, height: 150)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
                             }
-                            .frame(width: 350, height: 200)
+                            .frame(width: 320, height: 180)
+                            .cardGlassStyle(cornerRadius: 18)
+                            .padding()
                             .presentationCompactAdaptation(.popover)
                         }
+                        .padding()
                     }
                 }
             }
@@ -123,7 +188,7 @@ struct UsefulInfoView: View {
 
 struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
     func makeBody(configuration: Configuration) -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 8) {
             Button(action: {
                 withAnimation {
                     configuration.isExpanded.toggle()
@@ -136,11 +201,13 @@ struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
                         .foregroundStyle(.blue)
                         .rotationEffect(.degrees(configuration.isExpanded ? 180 : 0))
                 }
+                .contentShape(Rectangle())
             }
             if configuration.isExpanded {
                 configuration.content
             }
         }
+        .padding(.vertical, 6)
     }
 }
 
@@ -152,11 +219,18 @@ struct JanazaView: View {
 
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
-                .ignoresSafeArea(edges: .bottom)
+            LinearGradient(
+                colors: [
+                    Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)),
+                    Color(#colorLiteral(red: 0.835, green: 0.88, blue: 0.98, alpha: 1))
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
 
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 16) {
                     Group {
                         Text(JanazaPrayerGuide.janazaBasicRules(bundle: settings.bundle))
                             .fontWeight(.bold)
@@ -178,7 +252,8 @@ struct JanazaView: View {
                                     .padding(.vertical)
                             },
                             label: {
-                                Text("translate_text", bundle: settings.bundle)            .font(.headline)
+                                Text("translate_text", bundle: settings.bundle)
+                                    .font(.headline)
                                     .foregroundStyle(.blue)
                             }
                         )
@@ -200,7 +275,8 @@ struct JanazaView: View {
                                     .padding(.vertical)
                             },
                             label: {
-                                Text("translate_text", bundle: settings.bundle)            .font(.headline)
+                                Text("translate_text", bundle: settings.bundle)
+                                    .font(.headline)
                                     .foregroundStyle(.blue)
                             }
                         )
@@ -237,8 +313,10 @@ struct JanazaView: View {
                 }
                 .padding()
                 .font(.system(size: getDynamicFontSize()))
-                .foregroundStyle(.black)
+                .foregroundStyle(.primary)
                 .textSelection(.enabled)
+                .cardGlassStyle(cornerRadius: 22)
+                .padding()
             }
             .navigationTitle(JanazaPrayerGuide.title(bundle: settings.bundle))
         }
@@ -251,26 +329,35 @@ struct ChapterDetailView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
-                    .ignoresSafeArea(edges: .bottom)
+                LinearGradient(
+                    colors: [
+                        Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)),
+                        Color(#colorLiteral(red: 0.835, green: 0.88, blue: 0.98, alpha: 1))
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea()
+                
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 0) {
+                    VStack(alignment: .leading, spacing: 12) {
                         ForEach(chapter.subChapters) { subChapter in
                             NavigationLink(destination: SubChapterDetailView(subChapter: subChapter)) {
                                 HStack {
                                     Text(subChapter.title)
                                         .font(.system(size: getDynamicFontSize()))
-                                        .foregroundStyle(.black)
+                                        .foregroundStyle(.primary)
                                         .textSelection(.enabled)
                                     Spacer()
                                     Image(systemName: "chevron.right")
                                         .foregroundStyle(.blue)
                                 }
-                                .customListItemStyle()
+                                .listItemGlassStyle()
                             }
                             .buttonStyle(PlainButtonStyle())
-                            Divider()
                         }
+                        .padding(.horizontal)
+                        .padding(.top, 8)
                     }
                 }
                 .navigationTitle(chapter.title)
@@ -284,14 +371,23 @@ struct SubChapterDetailView: View {
     
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
-                .ignoresSafeArea(edges: .bottom)
+            LinearGradient(
+                colors: [
+                    Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)),
+                    Color(#colorLiteral(red: 0.835, green: 0.88, blue: 0.98, alpha: 1))
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
             ScrollView {
                 Text(subChapter.content)
                     .font(.system(size: getDynamicFontSize()))
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.primary)
                     .padding()
                     .textSelection(.enabled)
+                    .cardGlassStyle(cornerRadius: 22)
+                    .padding()
             }
             .navigationTitle(subChapter.title)
         }
@@ -316,26 +412,4 @@ struct SubChapter: Identifiable {
 
 #Preview {
     UsefulInfoView()
-}
-
-extension View {
-    func customListItemStyle() -> some View {
-        self
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(
-                ZStack {
-                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
-                    
-                    Rectangle()
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    Rectangle()
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomLeading))
-                })
-            .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
-            .clipShape(RoundedRectangle(cornerRadius: 0))
-    }
 }
