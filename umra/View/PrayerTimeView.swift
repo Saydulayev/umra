@@ -9,32 +9,34 @@ import Adhan
 import BackgroundTasks
 import SwiftUI
 import UserNotifications
+import UIKit
 
-// MARK: - Общие стеклянные утилиты
+// MARK: - Прозрачное стекло
 
 private let glassStrokeGradient = LinearGradient(
-    colors: [Color.white.opacity(0.65), Color.white.opacity(0.15)],
+    colors: [Color.white.opacity(0.75), Color.white.opacity(0.20)],
     startPoint: .topLeading,
     endPoint: .bottomTrailing
 )
 
+// Всегда "светлый" блюр, независимо от темы устройства
+private struct LightBlurView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        let effect: UIBlurEffect
+        if #available(iOS 13.0, *) {
+            effect = UIBlurEffect(style: .systemThinMaterialLight)
+        } else {
+            effect = UIBlurEffect(style: .light)
+        }
+        return UIVisualEffectView(effect: effect)
+    }
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) { }
+}
+
 @ViewBuilder
 private func glassRoundedBackground(cornerRadius: CGFloat) -> some View {
-    // Мягкая затемнённая подложка под «листом» для усиления эффекта стекла
-    ZStack {
-        RoundedRectangle(cornerRadius: cornerRadius + 2, style: .continuous)
-            .fill(Color.black.opacity(0.10))
-            .blur(radius: 12)
-            .offset(y: 2)
-            .compositingGroup()
-        if #available(iOS 15.0, *) {
-            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(.ultraThinMaterial)
-        } else {
-            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(Color.white.opacity(0.25))
-        }
-    }
+    LightBlurView()
+        .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
 }
 
 private func glassRoundedStroke(cornerRadius: CGFloat, lineWidth: CGFloat = 1) -> some View {
@@ -46,12 +48,37 @@ private func glassRoundedHighlight(cornerRadius: CGFloat) -> some View {
     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
         .fill(
             LinearGradient(
-                colors: [Color.white.opacity(0.35), .clear],
+                colors: [Color.white.opacity(0.28), .clear],
                 startPoint: .topLeading,
                 endPoint: .center
             )
         )
-        .blur(radius: 12)
+        .blur(radius: 10)
+        .allowsHitTesting(false)
+}
+
+@ViewBuilder
+private func glassCircleBackground() -> some View {
+    LightBlurView()
+        .clipShape(Circle())
+}
+
+private func glassCircleStroke(lineWidth: CGFloat = 1) -> some View {
+    Circle()
+        .strokeBorder(glassStrokeGradient, lineWidth: lineWidth)
+}
+
+private func glassCircleHighlight() -> some View {
+    Circle()
+        .fill(
+            RadialGradient(
+                colors: [Color.white.opacity(0.28), .clear],
+                center: .topLeading,
+                startRadius: 0,
+                endRadius: 80
+            )
+        )
+        .blur(radius: 8)
         .allowsHitTesting(false)
 }
 
@@ -97,7 +124,7 @@ struct PrayerTimeView: View {
 
     var body: some View {
         ZStack {
-            // Фон экрана — можно оставить лёгким, стекло усилено внутренним затемнением
+            // Фон экрана
             Rectangle()
                 .fill(
                     LinearGradient(
@@ -117,7 +144,7 @@ struct PrayerTimeView: View {
                     Text(currentIslamicDate)
                 }
                 .font(.custom("Savoye LET", size: 36))
-                .foregroundStyle(.primary)
+                .foregroundColor(.black)
                 .padding(.bottom, -5)
                 
                 Divider()
@@ -136,9 +163,10 @@ struct PrayerTimeView: View {
                     PrayerTimeRow(prayerName: "Qiyam",   prayerTime: prayerTimes["Qiyam"] ?? "")
                         .capsuleStyled()
                 }
-                .foregroundStyle(.primary)
+                .foregroundColor(.black)
                 .padding(.horizontal)
             }
+            .foregroundColor(.black) // весь текст внутри — чёрный
             .transparentStyled()
             .onAppear {
                 setupPrayerTimes()
@@ -381,7 +409,7 @@ struct NotificationSettingsView: View {
                         Text("Open iOS Notification Settings", bundle: settings.bundle)
                         Image(systemName: "gear")
                     }
-                    .foregroundStyle(.blue)
+                    .foregroundColor(.black)
                 }
                 .padding(.vertical, 16)
                 
@@ -389,13 +417,13 @@ struct NotificationSettingsView: View {
                 
                 Button(action: { dismiss() }) {
                     Text("Close", bundle: settings.bundle)
-                        .foregroundStyle(.blue)
+                        .foregroundColor(.black)
                 }
                 .padding(.bottom, 16)
             }
             .lineLimit(1)
             .minimumScaleFactor(0.5)
-            .foregroundStyle(.primary)
+            .foregroundColor(.black)
             .padding(.vertical)
             .padding(.horizontal, 20)
             .background(glassRoundedBackground(cornerRadius: 20))
@@ -429,8 +457,14 @@ struct PrayerTimeModalView: View {
                 .navigationBarItems(trailing: Button(action: {
                     isPresented = false
                 }, label: {
-                    Image(systemName: "xmark.circle")
-                        .imageScale(.large)
+                    // Стеклянная круглая кнопка закрытия
+                    Image(systemName: "xmark")
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundColor(.black)
+                        .frame(width: 32, height: 32)
+                        .background(glassCircleBackground())
+                        .overlay(glassCircleStroke())
+                        .overlay(glassCircleHighlight())
                 }))
         }
     }
@@ -461,7 +495,7 @@ struct PrayerTimeRow: View {
 extension View {
     func capsuleStyled() -> some View {
         self
-            .foregroundStyle(.primary)
+            .foregroundColor(.black)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 4)
             .background(glassRoundedBackground(cornerRadius: 20))
@@ -476,7 +510,7 @@ extension View {
     func cardStyled() -> some View {
         self
             .font(.headline)
-            .foregroundColor(.primary)
+            .foregroundColor(.black)
             .padding()
             .frame(maxWidth: .infinity)
             .background(glassRoundedBackground(cornerRadius: 20))

@@ -7,32 +7,34 @@
 
 import SwiftUI
 import StoreKit
+import UIKit
 
-// MARK: - Glass Utilities
+// MARK: - Glass Utilities (прозрачное стекло)
 
 private let glassStrokeGradient = LinearGradient(
-    colors: [Color.white.opacity(0.65), Color.white.opacity(0.15)],
+    colors: [Color.white.opacity(0.75), Color.white.opacity(0.20)],
     startPoint: .topLeading,
     endPoint: .bottomTrailing
 )
 
+// Всегда "светлый" блюр, независимо от темы устройства
+private struct LightBlurView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        let effect: UIBlurEffect
+        if #available(iOS 13.0, *) {
+            effect = UIBlurEffect(style: .systemThinMaterialLight)
+        } else {
+            effect = UIBlurEffect(style: .light)
+        }
+        return UIVisualEffectView(effect: effect)
+    }
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) { }
+}
+
 @ViewBuilder
 private func glassRoundedBackground(cornerRadius: CGFloat) -> some View {
-    ZStack {
-        // Лёгкая затемнённая подложка под стеклом для объёма
-        RoundedRectangle(cornerRadius: cornerRadius + 2, style: .continuous)
-            .fill(Color.black.opacity(0.10))
-            .blur(radius: 12)
-            .offset(y: 2)
-            .compositingGroup()
-        if #available(iOS 15.0, *) {
-            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(.ultraThinMaterial)
-        } else {
-            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(Color.white.opacity(0.25))
-        }
-    }
+    LightBlurView()
+        .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
 }
 
 private func glassRoundedStroke(cornerRadius: CGFloat, lineWidth: CGFloat = 1) -> some View {
@@ -44,12 +46,12 @@ private func glassRoundedHighlight(cornerRadius: CGFloat) -> some View {
     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
         .fill(
             LinearGradient(
-                colors: [Color.white.opacity(0.35), .clear],
+                colors: [Color.white.opacity(0.28), .clear],
                 startPoint: .topLeading,
                 endPoint: .center
             )
         )
-        .blur(radius: 12)
+        .blur(radius: 10)
         .allowsHitTesting(false)
 }
 
@@ -129,7 +131,7 @@ struct DonationSheetView: View {
                     Spacer()
                     Text("Contribution to Application Development", bundle: settings.bundle)
                         .font(.system(size: 16))
-                        .foregroundStyle(.primary)
+                        .foregroundColor(.black)
                         .padding(.vertical, 12)
                         .padding(.horizontal, 16)
                         .frame(maxWidth: .infinity, alignment: .center)
@@ -139,7 +141,7 @@ struct DonationSheetView: View {
                     VStack(spacing: 12) {
                         HStack {
                             Text("select_the_amount", bundle: settings.bundle)
-                                .foregroundStyle(.primary)
+                                .foregroundColor(.black)
                                 .font(.body)
                             Spacer(minLength: 8)
                             Picker("Выберите сумму", selection: $selectedProductId) {
@@ -163,7 +165,7 @@ struct DonationSheetView: View {
                     // Кнопка пожертвования или индикатор загрузки
                     if isLoading {
                         ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: .primary))
+                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
                             .padding(.vertical, 14)
                             .frame(maxWidth: .infinity)
                             .glassContainer(cornerRadius: 18)
@@ -171,6 +173,7 @@ struct DonationSheetView: View {
                         donateButton
                     }
                 }
+                .foregroundColor(.black)
                 .padding(.vertical)
                 .padding(.horizontal, 20)
                 .glassContainer(cornerRadius: 24)
@@ -197,7 +200,7 @@ struct DonationSheetView: View {
         } label: {
             Text("_donate_button", bundle: settings.bundle)
                 .font(.system(size: 18, weight: .medium))
-                .foregroundStyle(.blue)
+                .foregroundColor(.blue)
                 .padding(.vertical, 14)
                 .frame(maxWidth: .infinity)
                 .glassContainer(cornerRadius: 18)

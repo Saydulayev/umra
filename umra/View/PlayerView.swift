@@ -9,6 +9,126 @@ import AVKit
 import SwiftUI
 import UIKit
 
+// Всегда "светлый" блюр, независимо от темы устройства
+private struct LightBlurView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        let effect: UIBlurEffect
+        if #available(iOS 13.0, *) {
+            effect = UIBlurEffect(style: .systemThinMaterialLight)
+        } else {
+            effect = UIBlurEffect(style: .light)
+        }
+        return UIVisualEffectView(effect: effect)
+    }
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) { }
+}
+
+// Кастомный UISlider для контроля цветов дорожки + «стеклянный» ползунок
+private struct CustomSlider: UIViewRepresentable {
+    @Binding var value: Double
+    var range: ClosedRange<Double>
+    var minimumTrackTintColor: UIColor = .systemGreen
+    var maximumTrackTintColor: UIColor = UIColor.black.withAlphaComponent(0.25)
+    var onEditingChanged: ((Bool) -> Void)? = nil
+
+    func makeCoordinator() -> Coordinator { Coordinator(self) }
+
+    func makeUIView(context: Context) -> UISlider {
+        let slider = UISlider(frame: .zero)
+        slider.minimumValue = Float(range.lowerBound)
+        slider.maximumValue = Float(range.upperBound)
+        slider.value = Float(value)
+        slider.minimumTrackTintColor = minimumTrackTintColor
+        slider.maximumTrackTintColor = maximumTrackTintColor
+
+        // «Стеклянный» ползунок (thumb)
+        let diameter: CGFloat = 26
+        slider.setThumbImage(makeGlassThumbImage(diameter: diameter, strokeWidth: 1.0), for: .normal)
+        slider.setThumbImage(makeGlassThumbImage(diameter: diameter, strokeWidth: 2.0), for: .highlighted)
+
+        slider.addTarget(context.coordinator, action: #selector(Coordinator.valueChanged(_:for:)), for: .valueChanged)
+        slider.addTarget(context.coordinator, action: #selector(Coordinator.touchDown), for: .touchDown)
+        slider.addTarget(context.coordinator, action: #selector(Coordinator.touchUp), for: [.touchUpInside, .touchUpOutside, .touchCancel])
+
+        return slider
+    }
+
+    func updateUIView(_ uiView: UISlider, context: Context) {
+        uiView.minimumValue = Float(range.lowerBound)
+        uiView.maximumValue = Float(range.upperBound)
+
+        // Обновляем значение без лишних событий
+        if abs(Double(uiView.value) - value) > 0.0001 {
+            uiView.setValue(Float(value), animated: false)
+        }
+
+        uiView.minimumTrackTintColor = minimumTrackTintColor
+        uiView.maximumTrackTintColor = maximumTrackTintColor
+
+        // На случай смены trait'ов/темы — переустановим изображения ползунка
+        let diameter: CGFloat = 26
+        uiView.setThumbImage(makeGlassThumbImage(diameter: diameter, strokeWidth: 1.0), for: .normal)
+        uiView.setThumbImage(makeGlassThumbImage(diameter: diameter, strokeWidth: 2.0), for: .highlighted)
+    }
+
+    // Рисуем «стеклянный» круглый ползунок
+    private func makeGlassThumbImage(diameter: CGFloat, strokeWidth: CGFloat) -> UIImage {
+        let size = CGSize(width: diameter, height: diameter)
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { ctx in
+            let rect = CGRect(origin: .zero, size: size)
+            let circleRect = rect.insetBy(dx: strokeWidth / 2, dy: strokeWidth / 2)
+            let cg = ctx.cgContext
+
+            // Клип по кругу
+            cg.saveGState()
+            cg.addEllipse(in: circleRect)
+            cg.clip()
+
+            // Полупрозрачная «стеклянная» заливка
+            cg.setFillColor(UIColor.white.withAlphaComponent(0.22).cgColor)
+            cg.fill(circleRect)
+
+            // Мягкая радиальная подсветка сверху-слева
+            let colors = [UIColor.white.withAlphaComponent(0.35).cgColor,
+                          UIColor.white.withAlphaComponent(0.0).cgColor] as CFArray
+            let locations: [CGFloat] = [0.0, 1.0]
+            if let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors, locations: locations) {
+                let center = CGPoint(x: circleRect.minX + circleRect.width * 0.35,
+                                     y: circleRect.minY + circleRect.height * 0.35)
+                cg.drawRadialGradient(gradient,
+                                      startCenter: center, startRadius: 0,
+                                      endCenter: center, endRadius: circleRect.width * 0.6,
+                                      options: .drawsBeforeStartLocation)
+            }
+            cg.restoreGState()
+
+            // Светлая обводка
+            let path = UIBezierPath(ovalIn: circleRect)
+            UIColor.white.withAlphaComponent(0.7).setStroke()
+            path.lineWidth = strokeWidth
+            path.stroke()
+        }
+    }
+
+    class Coordinator: NSObject {
+        var parent: CustomSlider
+        init(_ parent: CustomSlider) { self.parent = parent }
+
+        @objc func valueChanged(_ sender: UISlider, for event: UIEvent) {
+            parent.value = Double(sender.value)
+        }
+
+        @objc func touchDown() {
+            parent.onEditingChanged?(true)
+        }
+
+        @objc func touchUp() {
+            parent.onEditingChanged?(false)
+        }
+    }
+}
+
 class AudioManager {
     static let shared = AudioManager()
     private var audioPlayers: [AVAudioPlayer] = []
@@ -99,30 +219,25 @@ struct PlayerView: View {
 
             // Стеклянный контейнер под слайдером
             VStack {
-                Slider(value: Binding(
-                    get: { self.currentTime },
-                    set: { newValue in
-                        self.currentTime = newValue
-                        self.audioPlayer?.currentTime = self.currentTime
-                    }
-                ),
-                       in: 0...max(duration, 0.001),
-                       onEditingChanged: { _ in }
+                CustomSlider(
+                    value: Binding(
+                        get: { self.currentTime },
+                        set: { newValue in
+                            self.currentTime = newValue
+                            self.audioPlayer?.currentTime = self.currentTime
+                        }
+                    ),
+                    range: 0...max(duration, 0.001),
+                    minimumTrackTintColor: .systemGreen,
+                    maximumTrackTintColor: UIColor.black.withAlphaComponent(0.25)
                 )
-                .tint(.green)
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 12)
             .background(
-                Group {
-                    if #available(iOS 15.0, *) {
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .fill(.ultraThinMaterial)
-                    } else {
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .fill(Color.white.opacity(0.25))
-                    }
-                }
+                // Всегда светлый "жидкий стеклянный" фон
+                LightBlurView()
+                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
@@ -169,7 +284,7 @@ struct PlayerView: View {
         }) {
             Image(systemName: imageName)
                 .symbolRenderingMode(.hierarchical)
-                .foregroundStyle(isActive ? Color.green : Color.primary.opacity(0.85))
+                .foregroundStyle(isActive ? Color.green : Color.black.opacity(0.85))
                 .font(.system(size: 22, weight: .semibold))
                 .frame(width: 72, height: 72)
                 .background(glassCircleBackground)
@@ -190,7 +305,7 @@ struct PlayerView: View {
             impactFeedbackGenerator.impactOccurred()
         }) {
             Text(text)
-                .foregroundColor(isActive ? .green : .primary.opacity(0.85))
+                .foregroundColor(isActive ? .green : .black.opacity(0.85))
                 .font(.system(size: 18, weight: .semibold))
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
@@ -208,13 +323,9 @@ struct PlayerView: View {
 
     @ViewBuilder
     private var glassCircleBackground: some View {
-        Group {
-            if #available(iOS 15.0, *) {
-                Circle().fill(.ultraThinMaterial)
-            } else {
-                Circle().fill(Color.white.opacity(0.28))
-            }
-        }
+        // Всегда светлое "жидкое стекло" под кнопками
+        LightBlurView()
+            .clipShape(Circle())
     }
 
     private func glassCircleStroke(isActive: Bool) -> some View {

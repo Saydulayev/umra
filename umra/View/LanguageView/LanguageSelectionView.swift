@@ -54,17 +54,6 @@ struct LanguageSelectionView: View {
                     // Адаптивные параметры карточек
                     let contentWidth = adaptiveContentWidth(geo.size)
                     let cardCornerRadius: CGFloat = contentWidth >= 520 ? 28 : 24
-                    let imageAspect: CGFloat = 16.0 / 9.0
-
-                    // Картинка в стеклянной карточке с адаптивной шириной
-                    Image("WelcomeImage")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(14)
-                        .frame(width: contentWidth)
-                        .aspectRatio(imageAspect, contentMode: .fit)
-                        .glassContainer(cornerRadius: cardCornerRadius)
-                        .padding(.bottom, geo.size.height * 0.02)
 
                     // Подсчитываем высоту кнопки + отступы
                     let buttonFontSize = geo.size.height * 0.025
@@ -119,6 +108,8 @@ struct LanguageSelectionView: View {
                 .padding(.bottom, geo.size.height > 800 ? 32 : 12)
             }
         }
+        // ВАЖНО: заставка всегда светлая
+        .preferredColorScheme(.light)
     }
 
     private func selectLanguage(_ lang: String) {

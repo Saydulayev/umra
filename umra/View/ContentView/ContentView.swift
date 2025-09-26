@@ -6,6 +6,21 @@
 //
 
 import SwiftUI
+import UIKit
+
+// Всегда светлый блюр, независимо от темы устройства
+private struct LightBlurView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        let effect: UIBlurEffect
+        if #available(iOS 13.0, *) {
+            effect = UIBlurEffect(style: .systemThinMaterialLight)
+        } else {
+            effect = UIBlurEffect(style: .light)
+        }
+        return UIVisualEffectView(effect: effect)
+    }
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) { }
+}
 
 struct ContentView: View {
     @EnvironmentObject var settings: UserSettings
@@ -213,17 +228,80 @@ private struct StepRow: View {
                 .foregroundColor(.black)
                 .frame(width: 24, height: 24)
                 .background(
-                    Circle()
-                        .fill(Color.blue.opacity(0.1))
+                    // Светлый стеклянный фон в кружке
+                    LightBlurView()
+                        .clipShape(Circle())
                 )
+                .overlay(
+                    // Светлая стеклянная обводка
+                    Circle()
+                        .strokeBorder(
+                            LinearGradient(
+                                colors: [
+                                    Color.white.opacity(0.75),
+                                    Color.white.opacity(0.20)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 1
+                        )
+                )
+                .overlay(
+                    // Нежный блик
+                    Circle()
+                        .fill(
+                            RadialGradient(
+                                colors: [Color.white.opacity(0.28), .clear],
+                                center: .topLeading,
+                                startRadius: 0,
+                                endRadius: 40
+                            )
+                        )
+                        .blur(radius: 6)
+                        .allowsHitTesting(false)
+                )
+                .shadow(color: Color.black.opacity(0.10), radius: 8, x: 0, y: 5)
+                .shadow(color: Color.white.opacity(0.12), radius: 1, x: 0, y: 1)
         }
         .padding(.vertical, 12)
         .padding(.horizontal, 12)
         .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 2)
+            // Светлое стекло для всей карточки (вместо адаптивного материала)
+            LightBlurView()
+                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         )
+        .overlay(
+            // Светлая обводка
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .strokeBorder(
+                    LinearGradient(
+                        colors: [
+                            Color.white.opacity(0.65),
+                            Color.white.opacity(0.15)
+                        ],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
+                    lineWidth: 1
+                )
+        )
+        .overlay(
+            // Нежный блик сверху-слева
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(
+                    LinearGradient(
+                        colors: [Color.white.opacity(0.18), .clear],
+                        startPoint: .topLeading,
+                        endPoint: .bottom
+                    )
+                )
+                .blur(radius: 10)
+                .allowsHitTesting(false)
+        )
+        // Мягкие тени
+        .shadow(color: Color.black.opacity(0.10), radius: 18, x: 0, y: 10)
+        .shadow(color: Color.white.opacity(0.12), radius: 1, x: 0, y: 1)
     }
 }
 
@@ -233,37 +311,6 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(UserSettings())
             .environmentObject(FontManager())
             .environmentObject(PurchaseManager())
+            .preferredColorScheme(.dark) // Для проверки — стекло останется светлым
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

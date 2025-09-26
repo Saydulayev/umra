@@ -112,7 +112,7 @@ struct UsefulInfoView: View {
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )
-                .ignoresSafeArea()
+                .ignoresSafeArea(edges: .bottom)
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 12) {
@@ -122,7 +122,7 @@ struct UsefulInfoView: View {
                                     HStack {
                                         Text(chapter.title)
                                             .font(.system(size: getDynamicFontSize()))
-                                            .foregroundStyle(.primary)
+                                            .foregroundStyle(.black)
                                         Spacer()
                                         Image(systemName: "chevron.right")
                                             .foregroundStyle(.blue)
@@ -135,7 +135,7 @@ struct UsefulInfoView: View {
                                     HStack {
                                         Text(chapter.title)
                                             .font(.system(size: getDynamicFontSize()))
-                                            .foregroundStyle(.primary)
+                                            .foregroundStyle(.black)
                                         Spacer()
                                         Image(systemName: "chevron.right")
                                             .foregroundStyle(.blue)
@@ -168,6 +168,7 @@ struct UsefulInfoView: View {
                             VStack {
                                 Text("soon_available_text".localized(bundle: settings.bundle))
                                     .font(.body)
+                                    .foregroundStyle(.black) // <- делаем текст в поповере черным
                                     .multilineTextAlignment(.center)
                                     .padding()
                                     .frame(maxWidth: .infinity)
@@ -227,7 +228,7 @@ struct JanazaView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
-            .ignoresSafeArea()
+            .ignoresSafeArea(edges: .bottom)
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
@@ -313,7 +314,7 @@ struct JanazaView: View {
                 }
                 .padding()
                 .font(.system(size: getDynamicFontSize()))
-                .foregroundStyle(.primary)
+                .foregroundStyle(.black)
                 .textSelection(.enabled)
                 .cardGlassStyle(cornerRadius: 22)
                 .padding()
@@ -337,7 +338,7 @@ struct ChapterDetailView: View {
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )
-                .ignoresSafeArea()
+                .ignoresSafeArea(edges: .bottom)
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 12) {
@@ -346,7 +347,7 @@ struct ChapterDetailView: View {
                                 HStack {
                                     Text(subChapter.title)
                                         .font(.system(size: getDynamicFontSize()))
-                                        .foregroundStyle(.primary)
+                                        .foregroundStyle(.black)
                                         .textSelection(.enabled)
                                     Spacer()
                                     Image(systemName: "chevron.right")
@@ -379,11 +380,11 @@ struct SubChapterDetailView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
-            .ignoresSafeArea()
+            .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 Text(subChapter.content)
                     .font(.system(size: getDynamicFontSize()))
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(.black)
                     .padding()
                     .textSelection(.enabled)
                     .cardGlassStyle(cornerRadius: 22)

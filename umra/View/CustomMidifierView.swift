@@ -10,63 +10,60 @@ import UIKit
 
 // Общие стеклянные утилиты
 private let glassStrokeGradient = LinearGradient(
-    colors: [Color.white.opacity(0.65), Color.white.opacity(0.15)],
+    colors: [Color.white.opacity(0.75), Color.white.opacity(0.20)],
     startPoint: .topLeading,
     endPoint: .bottomTrailing
 )
 
-@ViewBuilder
-private func glassRoundedBackground(cornerRadius: CGFloat) -> some View {
-    // Мягкая затемнённая подложка под «листом» для усиления эффекта стекла
-    ZStack {
-        RoundedRectangle(cornerRadius: cornerRadius + 2, style: .continuous)
-            .fill(Color.black.opacity(0.10))
-            .blur(radius: 12)
-            .offset(y: 2)
-            .compositingGroup()
-        if #available(iOS 15.0, *) {
-            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(.ultraThinMaterial)
+// Всегда "светлый" блюр, независимо от темы устройства
+private struct LightBlurView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        let effect: UIBlurEffect
+        if #available(iOS 13.0, *) {
+            effect = UIBlurEffect(style: .systemThinMaterialLight)
         } else {
-            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(Color.white.opacity(0.25))
+            effect = UIBlurEffect(style: .light)
         }
+        return UIVisualEffectView(effect: effect)
     }
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) { }
 }
 
+// MARK: - Прозрачное стекло (Rounded)
+
+// Лёгкий «прозрачный стеклянный» фон без затемнения
+@ViewBuilder
+private func glassRoundedBackground(cornerRadius: CGFloat) -> some View {
+    LightBlurView()
+        .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+}
+
+// Белая обводка с лёгким градиентом
 private func glassRoundedStroke(cornerRadius: CGFloat, lineWidth: CGFloat = 1) -> some View {
     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
         .strokeBorder(glassStrokeGradient, lineWidth: lineWidth)
 }
 
+// Нежный блик сверху-слева
 private func glassRoundedHighlight(cornerRadius: CGFloat) -> some View {
     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
         .fill(
             LinearGradient(
-                colors: [Color.white.opacity(0.35), .clear],
+                colors: [Color.white.opacity(0.28), .clear],
                 startPoint: .topLeading,
                 endPoint: .center
             )
         )
-        .blur(radius: 12)
+        .blur(radius: 10)
         .allowsHitTesting(false)
 }
 
+// MARK: - Прозрачное стекло (Circle)
+
 @ViewBuilder
 private func glassCircleBackground() -> some View {
-    // Мягкая затемнённая подложка под круглым «листом»
-    ZStack {
-        Circle()
-            .fill(Color.black.opacity(0.12))
-            .blur(radius: 10)
-            .offset(y: 2)
-            .compositingGroup()
-        if #available(iOS 15.0, *) {
-            Circle().fill(.ultraThinMaterial)
-        } else {
-            Circle().fill(Color.white.opacity(0.28))
-        }
-    }
+    LightBlurView()
+        .clipShape(Circle())
 }
 
 private func glassCircleStroke(lineWidth: CGFloat = 1) -> some View {
@@ -74,16 +71,33 @@ private func glassCircleStroke(lineWidth: CGFloat = 1) -> some View {
         .strokeBorder(glassStrokeGradient, lineWidth: lineWidth)
 }
 
-private var glassShadow: some View {
-    EmptyView()
-        .shadow(color: Color.black.opacity(0.10), radius: 18, x: 0, y: 10)
-        .shadow(color: Color.white.opacity(0.12), radius: 1, x: 0, y: 1)
+private func glassCircleHighlight() -> some View {
+    Circle()
+        .fill(
+            RadialGradient(
+                colors: [Color.white.opacity(0.28), .clear],
+                center: .topLeading,
+                startRadius: 0,
+                endRadius: 80
+            )
+        )
+        .blur(radius: 8)
+        .allowsHitTesting(false)
+}
+
+// MARK: - Общая тень для стекла
+private struct GlassShadowModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .shadow(color: Color.black.opacity(0.10), radius: 18, x: 0, y: 10)
+            .shadow(color: Color.white.opacity(0.12), radius: 1, x: 0, y: 1)
+    }
 }
 
 // MARK: ImageCustomMidifier
 extension Image {
     func styledImageWithIndex(index: Int, stepsCount: Int) -> some View {
-        // Карточка изображения со стеклянным фоном
+        // Карточка изображения с прозрачным стеклянным фоном
         self
             .resizable()
             .scaledToFit()
@@ -101,17 +115,18 @@ extension Image {
                 glassRoundedHighlight(cornerRadius: 20)
             )
             .modifier(GlassShadowModifier())
-            // Номер шага фиксирован в правом верхнем углу карточки
+            // Номер шага в правом верхнем углу карточки
             .overlay(alignment: .topTrailing) {
                 if index != stepsCount - 1 {
                     Text("\(index + 1)")
                         .font(.caption.weight(.bold))
-                        .foregroundColor(.primary)
+                        .foregroundColor(.black)
                         .padding(8)
                         .background(glassCircleBackground())
                         .overlay(glassCircleStroke())
+                        .overlay(glassCircleHighlight())
                         .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 4)
-                        .padding(10) // отступ от правого и верхнего края карточки
+                        .padding(10)
                 }
             }
             .padding(.horizontal)
@@ -136,15 +151,6 @@ extension Image {
                 glassRoundedHighlight(cornerRadius: 20)
             )
             .modifier(GlassShadowModifier())
-    }
-}
-
-// MARK: - Общий модификатор теней для стекла
-private struct GlassShadowModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .shadow(color: Color.black.opacity(0.10), radius: 18, x: 0, y: 10)
-            .shadow(color: Color.white.opacity(0.12), radius: 1, x: 0, y: 1)
     }
 }
 
