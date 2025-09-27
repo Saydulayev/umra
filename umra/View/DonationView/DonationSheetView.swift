@@ -66,35 +66,26 @@ struct DonationSheetView: View {
     ]
     
     var body: some View {
-        ZStack {
-            // Фоновый градиент для экрана
-            Rectangle()
-                .fill(
-                    LinearGradient(
-                        gradient: Gradient(colors: [Color(red: 0.90, green: 0.93, blue: 1.0)]),
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
+        NavigationView {
+            ZStack {
+                // Фоновый градиент для экрана
+                Rectangle()
+                    .fill(
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color(red: 0.90, green: 0.93, blue: 1.0)]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
                     )
-                )
-                .ignoresSafeArea()
-            
-            Text("Contribution to Application Development", bundle: settings.bundle)
-                .font(.system(size: 16))
-                .foregroundColor(.black)
-                .padding()
-                .frame(maxWidth: .infinity)
-                .neumorphicBackground()
-                .padding()
-            
-            VStack(alignment: .trailing) {
-                Button(action: {
-                    isPresented = false
-                }, label: {
-                    Image(systemName: "xmark.circle")
-                        .font(.system(size: 22))
-                        .foregroundStyle(.blue)
-                })
-                .padding()
+                    .ignoresSafeArea()
+                
+                Text("Contribution to Application Development", bundle: settings.bundle)
+                    .font(.system(size: 16))
+                    .foregroundColor(.black)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .neumorphicBackground()
+                    .padding()
                 
                 VStack {
                     Spacer()
@@ -124,6 +115,18 @@ struct DonationSheetView: View {
                     }
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isPresented = false
+                    }, label: {
+                        Image(systemName: "xmark.circle")
+                            .imageScale(.large)
+                            .foregroundStyle(.blue)
+                    })
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
         }
         .alert(isPresented: $showError) {
             Alert(title: Text("Error"),
