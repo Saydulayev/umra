@@ -5,18 +5,19 @@
 //  Created by Akhmed on 06.04.23.
 //
 
-import AVKit
+import AVFoundation
 import SwiftUI
+import UIKit
 
 class AudioManager {
     static let shared = AudioManager()
     private var audioPlayers: [AVAudioPlayer] = []
 
     func play(audioPlayer: AVAudioPlayer) {
-        if let currentPlayer = audioPlayers.first, currentPlayer != audioPlayer {
+        if let currentPlayer = audioPlayers.first, currentPlayer !== audioPlayer {
             stopAll()
         }
-        if !audioPlayers.contains(audioPlayer) {
+        if !audioPlayers.contains(where: { $0 === audioPlayer }) {
             audioPlayers.append(audioPlayer)
         }
         audioPlayer.enableRate = true
@@ -33,6 +34,10 @@ class AudioManager {
         audioPlayers.removeAll()
     }
 
+    func remove(_ audioPlayer: AVAudioPlayer) {
+        audioPlayers.removeAll { $0 === audioPlayer }
+    }
+
     func deactivateAudioSession() {
         let anyPlayerIsPlaying = audioPlayers.contains { $0.isPlaying }
         if anyPlayerIsPlaying {
@@ -41,6 +46,7 @@ class AudioManager {
         
         do {
             try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+            audioPlayers.removeAll()
         } catch {
             print("Error deactivating audio session: \(error)")
         }
@@ -77,6 +83,9 @@ struct PlayerView: View {
                             player.pause()
                             self.isPlaying = false
                         } else {
+                            // Гарантируем старт на выбранной скорости
+                            player.enableRate = true
+                            player.rate = playbackRate
                             AudioManager.shared.play(audioPlayer: player)
                             self.isPlaying = true
                         }
@@ -93,26 +102,20 @@ struct PlayerView: View {
             }
             .padding(.bottom, 10)
 
-            Slider(value: Binding(
-                get: { self.currentTime },
-                set: { newValue in
-                    self.currentTime = newValue
-                    self.audioPlayer?.currentTime = self.currentTime
-                }
-            ),
-                   in: 0...duration,
-                   onEditingChanged: { _ in }
+            ThemedSlider(
+                value: Binding(
+                    get: { self.currentTime },
+                    set: { newValue in
+                        self.currentTime = newValue
+                        self.audioPlayer?.currentTime = self.currentTime
+                    }
+                ),
+                range: 0...duration,
+                onEditingChanged: { _ in }
             )
-            .accentColor(.green)
         }
         .padding()
         .onAppear {
-            do {
-                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
-                try AVAudioSession.sharedInstance().setActive(true)
-            } catch {
-                print("Failed to activate audio session: \(error)")
-            }
             coordinator.onFinishPlaying = {
                 self.isPlaying = false
             }
@@ -123,7 +126,6 @@ struct PlayerView: View {
         }
         .onDisappear {
             stopAudioPlayer()
-            AudioManager.shared.deactivateAudioSession()
         }
     }
 
@@ -199,13 +201,13 @@ struct PlayerView: View {
             playbackRate = 1.0
         }
 
+        player.enableRate = true
         player.rate = playbackRate
 
         if !player.isPlaying {
             player.play()
         }
     }
-
 
     func setupAudioPlayer() {
         if let soundPath = Bundle.main.path(forResource: fileName, ofType: "mp3") {
@@ -246,6 +248,7 @@ struct PlayerView: View {
             player.currentTime = 0
         }
         isPlaying = false
+        AudioManager.shared.remove(player)
         AudioManager.shared.deactivateAudioSession()
     }
 
@@ -260,7 +263,68 @@ struct PlayerView: View {
     }
 }
 
+struct ThemedSlider: UIViewRepresentable {
+    @Binding var value: Double
+    var range: ClosedRange<Double>
+    var onEditingChanged: (Bool) -> Void = { _ in }
 
+    func makeUIView(context: Context) -> UISlider {
+        let slider = UISlider(frame: .zero)
+        slider.isContinuous = true
+        slider.minimumValue = Float(range.lowerBound)
+        slider.maximumValue = Float(range.upperBound)
+        slider.value = Float(value)
+
+        // Цвета трека
+        slider.minimumTrackTintColor = .systemGreen
+        slider.maximumTrackTintColor = .systemGray
+
+        // События
+        slider.addTarget(context.coordinator, action: #selector(Coordinator.valueChanged(_:for:)), for: .valueChanged)
+        slider.addTarget(context.coordinator, action: #selector(Coordinator.touchDown(_:)), for: .touchDown)
+        slider.addTarget(context.coordinator, action: #selector(Coordinator.touchUp(_:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
+
+        return slider
+    }
+
+    func updateUIView(_ uiView: UISlider, context: Context) {
+        uiView.minimumValue = Float(range.lowerBound)
+        uiView.maximumValue = Float(range.upperBound)
+
+        if uiView.value != Float(value) {
+            uiView.value = Float(value)
+        }
+
+        // Цвета не зависят от темы
+        uiView.minimumTrackTintColor = .systemGreen
+        uiView.maximumTrackTintColor = .systemGray
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    class Coordinator: NSObject {
+        var parent: ThemedSlider
+
+        init(_ parent: ThemedSlider) {
+            self.parent = parent
+        }
+
+        @objc func valueChanged(_ sender: UISlider, for event: UIEvent) {
+            parent.value = Double(sender.value)
+            parent.onEditingChanged(sender.isTracking)
+        }
+
+        @objc func touchDown(_ sender: UISlider) {
+            parent.onEditingChanged(true)
+        }
+
+        @objc func touchUp(_ sender: UISlider) {
+            parent.onEditingChanged(false)
+        }
+    }
+}
 
 struct Player_Previews: PreviewProvider {
     static var previews: some View {
