@@ -19,10 +19,10 @@ struct DonationView: View {
                 showingSheet = true
             }) {
                 HStack {
-                    Image(systemName: "dollarsign")
-                        .foregroundStyle(.red)
-                    Text("text_button_support_string", bundle: settings.bundle)
+                    Image(systemName: "dollarsign.circle")
                         .foregroundStyle(.blue)
+                    Text("text_button_support_string", bundle: settings.bundle)
+                        .foregroundStyle(.black)
                     Spacer()
                 }
                 .customTextStyle()

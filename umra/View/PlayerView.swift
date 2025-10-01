@@ -63,6 +63,17 @@ struct PlayerView: View {
     let fileName: String
 
     @StateObject private var coordinator = Coordinator()
+    @Environment(\.colorScheme) private var colorScheme
+
+    // Адаптивный цвет тени под тему
+    private func adaptiveShadowColor(intensity: Double = 0.5) -> Color {
+        let clamped = min(max(intensity, 0.0), 1.0)
+        if colorScheme == .dark {
+            return Color.black.opacity(clamped * 0.55)
+        } else {
+            return Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)).opacity(clamped)
+        }
+    }
 
     var body: some View {
         VStack {
@@ -151,7 +162,8 @@ struct PlayerView: View {
                             .padding(2)
                     }
                     .clipShape(Circle())
-                    .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
+                    .compositingGroup()
+                    .shadow(color: adaptiveShadowColor(intensity: 0.5), radius: 20, x: 20, y: 20)
                 )
         }
         .padding()
@@ -183,7 +195,8 @@ struct PlayerView: View {
                             .padding(2)
                     }
                     .clipShape(Circle())
-                    .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
+                    .compositingGroup()
+                    .shadow(color: adaptiveShadowColor(intensity: 0.5), radius: 20, x: 20, y: 20)
                 )
         }
         .padding()

@@ -19,9 +19,9 @@ struct LanguageView: View {
             }) {
                 HStack {
                     Image(systemName: "globe")
-                        .foregroundColor(.green)
-                    Text("select_language_settings_string", bundle: settings.bundle)
                         .foregroundColor(.blue)
+                    Text("select_language_settings_string", bundle: settings.bundle)
+                        .foregroundColor(.black)
                     Spacer()
                 }
                 .customTextStyle()

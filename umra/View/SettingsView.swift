@@ -31,9 +31,9 @@ struct SettingsView: View {
                     }) {
                         HStack {
                             Image(systemName: "message")
-                                .foregroundColor(.purple)
-                            Text("text_button_feedback_string", bundle: settings.bundle)
                                 .foregroundColor(.blue)
+                            Text("text_button_feedback_string", bundle: settings.bundle)
+                                .foregroundColor(.black)
                             Spacer()
                         }
                         .customTextStyle()
@@ -45,9 +45,9 @@ struct SettingsView: View {
                     }) {
                         HStack {
                             Image(systemName: "star")
-                                .foregroundColor(.yellow)
-                            Text("text_button_rate_the_app_string", bundle: settings.bundle)
                                 .foregroundColor(.blue)
+                            Text("text_button_rate_the_app_string", bundle: settings.bundle)
+                                .foregroundColor(.black)
                             Spacer()
                         }
                         .customTextStyle()
@@ -62,9 +62,9 @@ struct SettingsView: View {
                     }) {
                         HStack {
                             Image(systemName: "bell")
-                                .foregroundColor(.orange)
-                            Text("Notification Settings", bundle: settings.bundle)
                                 .foregroundColor(.blue)
+                            Text("Notification Settings", bundle: settings.bundle)
+                                .foregroundColor(.black)
                             Spacer()
                         }
                         .customTextStyle()
