@@ -21,7 +21,7 @@ struct LanguageView: View {
                     Image(systemName: "globe")
                         .foregroundColor(.blue)
                     Text("select_language_settings_string", bundle: settings.bundle)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.black)
                     Spacer()
                 }
                 .customTextStyle()

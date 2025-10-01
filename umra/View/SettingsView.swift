@@ -33,7 +33,7 @@ struct SettingsView: View {
                             Image(systemName: "message")
                                 .foregroundColor(.blue)
                             Text("text_button_feedback_string", bundle: settings.bundle)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.black)
                             Spacer()
                         }
                         .customTextStyle()
@@ -47,7 +47,7 @@ struct SettingsView: View {
                             Image(systemName: "star")
                                 .foregroundColor(.blue)
                             Text("text_button_rate_the_app_string", bundle: settings.bundle)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.black)
                             Spacer()
                         }
                         .customTextStyle()
@@ -64,7 +64,7 @@ struct SettingsView: View {
                             Image(systemName: "bell")
                                 .foregroundColor(.blue)
                             Text("Notification Settings", bundle: settings.bundle)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.black)
                             Spacer()
                         }
                         .customTextStyle()
