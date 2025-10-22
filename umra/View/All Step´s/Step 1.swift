@@ -12,7 +12,7 @@ struct Step1: View {
     
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var fontManager: FontManager
-
+    
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
@@ -90,6 +90,32 @@ struct Step1: View {
                         }
                         
                         Text("Ihram text1", bundle: settings.bundle)
+                        
+                        // Раздел для умры за родителей
+                        Text("Umrah for parents", bundle: settings.bundle)
+                            .font(.custom("Lato-Black", size: 26))
+                            .padding(.top, 20)
+                            .padding(.bottom, 10)
+                        
+                        Text("Umrah for parents explanation", bundle: settings.bundle)
+                        
+                        // Тальбия за отца
+                        Text("""
+لَبَّيْكَ اللَّهُمَّ بِعُمْرَةٍ عَنْ أَبِي
+""")
+                        .customTextforArabic()
+                        
+                        Text("Umrah for father", bundle: settings.bundle)
+                            .padding(.top, 10)
+                        
+                        // Тальбия за мать
+                        Text("""
+لَبَّيْكَ اللَّهُمَّ بِعُمْرَةٍ عَنْ أُمِّي
+""")
+                        .customTextforArabic()
+                        
+                        Text("Umrah for mother", bundle: settings.bundle)
+                            .padding(.top, 10)
                         
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
