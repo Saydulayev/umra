@@ -1,5 +1,5 @@
 //
-//  CustomMidifier.swift
+//  CustomMidifierView.swift
 //  umra
 //
 //  Created by Akhmed on 26.01.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// Общий адаптивный модификатор тени под светлую/тёмную темы
+// MARK: - Адаптивные модификаторы теней
 private struct AdaptiveShadowModifier: ViewModifier {
     @Environment(\.colorScheme) private var scheme
     let radius: CGFloat
@@ -15,14 +15,10 @@ private struct AdaptiveShadowModifier: ViewModifier {
     let y: CGFloat
     let intensity: Double
 
-    // Подбираем цвет тени в зависимости от темы
     private var shadowColor: Color {
         if scheme == .dark {
-            // В тёмной теме — только тёмная мягкая тень
             return Color.black.opacity(intensity == 0 ? 0 : min(max(intensity, 0.0), 1.0) * 0.55)
         } else {
-            // В светлой теме можно оставить фирменный холодный оттенок или перейти на чёрный с небольшой прозрачностью
-            // Используем прежний голубовато‑серый, но с пониженной прозрачностью, чтобы он не был “плоским”
             return Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
                 .opacity(intensity == 0 ? 0 : min(max(intensity, 0.0), 1.0))
         }
@@ -30,20 +26,19 @@ private struct AdaptiveShadowModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            // Комбинируем в группу, чтобы тень считалась от целого блока
             .compositingGroup()
             .shadow(color: shadowColor, radius: radius, x: x, y: y)
     }
 }
 
-private extension View {
-    /// Унифицированная адаптивная тень
+// MARK: - Расширения для View
+extension View {
     func adaptiveShadow(radius: CGFloat, x: CGFloat, y: CGFloat, intensity: Double = 0.5) -> some View {
         modifier(AdaptiveShadowModifier(radius: radius, x: x, y: y, intensity: intensity))
     }
 }
 
-//MARK: ImageCustomMidifier
+// MARK: - Модификаторы для изображений
 extension Image {
     func styledImageWithIndex(index: Int, stepsCount: Int) -> some View {
         ZStack(alignment: .topTrailing) {
@@ -67,7 +62,6 @@ extension Image {
                         RoundedRectangle(cornerRadius: 20)
                             .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8956587315, green: 0.9328896403, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .padding(2)
-                        
                     })
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .adaptiveShadow(radius: 5, x: 10, y: 10, intensity: 0.5)
@@ -80,7 +74,7 @@ extension Image {
                 .background(.white)
                 .clipShape(Circle())
                 .offset(x: -25, y: 20)
-                .opacity(index == stepsCount - 1 ? 0 : 1) 
+                .opacity(index == stepsCount - 1 ? 0 : 1)
         }
     }
     
@@ -104,16 +98,14 @@ extension Image {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .padding(2)
-                    
                 })
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .adaptiveShadow(radius: 5, x: 5, y: 5, intensity: 0.5)
     }
 }
 
-//MARK: CustomTextforSteps
+// MARK: - Модификаторы для текста
 struct StepTextModifier: ViewModifier {
-    
     private var dynamicFontSize: CGFloat {
         UIDevice.current.userInterfaceIdiom == .pad ? 58 : 38
     }
@@ -141,7 +133,6 @@ struct StepTextModifier: ViewModifier {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .padding(2)
-                    
                 })
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .adaptiveShadow(radius: 20, x: 20, y: 20, intensity: 0.5)
