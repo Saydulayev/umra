@@ -12,12 +12,13 @@ import StoreKit
 
 struct NeumorphicBackground: ViewModifier {
     var cornerRadius: CGFloat = 20
+    var theme: AppTheme
     
     func body(content: Content) -> some View {
         content
             .background(
                 ZStack {
-                    Color(red: 0.76, green: 0.82, blue: 0.93)
+                    theme.primaryColor.opacity(0.1)
                     
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .foregroundColor(.white)
@@ -27,7 +28,7 @@ struct NeumorphicBackground: ViewModifier {
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .fill(
                             LinearGradient(
-                                gradient: Gradient(colors: [Color(red: 0.90, green: 0.93, blue: 1.0), Color.white]),
+                                gradient: Gradient(colors: [theme.gradientTopColor, Color.white]),
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             )
@@ -35,14 +36,14 @@ struct NeumorphicBackground: ViewModifier {
                         .padding(2)
                 }
             )
-            .shadow(color: Color(red: 0.76, green: 0.82, blue: 0.93), radius: 20, x: 20, y: 20)
+            .shadow(color: theme.primaryColor.opacity(0.3), radius: 20, x: 20, y: 20)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
     }
 }
 
 extension View {
-    func neumorphicBackground(cornerRadius: CGFloat = 20) -> some View {
-        self.modifier(NeumorphicBackground(cornerRadius: cornerRadius))
+    func neumorphicBackground(cornerRadius: CGFloat = 20, theme: AppTheme) -> some View {
+        self.modifier(NeumorphicBackground(cornerRadius: cornerRadius, theme: theme))
     }
 }
 
@@ -68,15 +69,8 @@ struct DonationSheetView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // Фоновый градиент для экрана
-                Rectangle()
-                    .fill(
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color(red: 0.90, green: 0.93, blue: 1.0)]),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
+                // Фоновый цвет для экрана
+                settings.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea()
                 
                 Text("Contribution to Application Development", bundle: settings.bundle)
@@ -84,7 +78,7 @@ struct DonationSheetView: View {
                     .foregroundColor(.black)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .neumorphicBackground()
+                    .neumorphicBackground(theme: settings.selectedTheme)
                     .padding()
                 
                 VStack {
@@ -99,7 +93,7 @@ struct DonationSheetView: View {
                         }
                         .font(.title)
                         .padding(5)
-                        .neumorphicBackground()
+                        .neumorphicBackground(theme: settings.selectedTheme)
                         .padding()
                         .accentColor(.blue)
                         .pickerStyle(MenuPickerStyle())
@@ -122,7 +116,7 @@ struct DonationSheetView: View {
                     }, label: {
                         Image(systemName: "xmark.circle")
                             .imageScale(.large)
-                            .foregroundStyle(.blue)
+                            .foregroundStyle(settings.selectedTheme.primaryColor)
                     })
                 }
             }
@@ -152,12 +146,12 @@ struct DonationSheetView: View {
                 } else {
                     Text("_donate_button", bundle: settings.bundle)
                         .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(.blue)
+                        .foregroundColor(.black)
                         .padding()
                 }
             }
             .frame(maxWidth: .infinity)
-            .neumorphicBackground()
+                        .neumorphicBackground(theme: settings.selectedTheme)
             .padding()
         }
     }

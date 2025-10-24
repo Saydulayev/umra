@@ -28,11 +28,11 @@ struct StepView<Destination: View>: View {
             NavigationLink(destination: destinationView) {
                 if let index = index {
                     Image(imageName)
-                        .styledImageWithIndex(index: index, stepsCount: stepsCount)
+                        .styledImageWithIndexAndTheme(index: index, stepsCount: stepsCount, theme: settings.selectedTheme)
                         .accessibilityLabel(accessibilityLabel)
                 } else {
                     Image(imageName)
-                        .styledImage()
+                        .styledImageWithThemeColors(theme: settings.selectedTheme)
                         .accessibilityLabel(accessibilityLabel)
                 }
             }

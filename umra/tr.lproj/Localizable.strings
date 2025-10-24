@@ -447,4 +447,13 @@ Rivayet edilir ki, Abdullah ibn Abi Awfa kızının cenaze namazını kıldığ�
 "taslim_title" = "Namazın Sonlandırılması (Teslim)";
 "taslim_text" = "📌 Teslim, sağ tarafa bir kez veya sağa ve sola iki kez verilebilir.  
 
-Resulullah (Allah’ın selamı ve bereketi onun üzerine olsun) cenaze namazında bazen bir, bazen de iki selam verirdi, ancak çoğunlukla tek selamla bitirirdi.";
+Resulullah (Allah'ın selamı ve bereketi onun üzerine olsun) cenaze namazında bazen bir, bazen de iki selam verirdi, ancak çoğunlukla tek selamla bitirirdi.";
+
+/* Tema Yerelleştirmesi */
+"theme_app_title" = "Uygulama Teması";
+"theme_select_title" = "Uygulama Teması Seçin";
+"theme_heavenly" = "Göksel";
+"theme_oasis" = "Vaha";
+"theme_gold" = "Altın";
+"theme_turquoise" = "Deniz";
+"done_button" = "Tamam";

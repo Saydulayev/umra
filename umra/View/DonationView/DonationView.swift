@@ -20,7 +20,7 @@ struct DonationView: View {
             }) {
                 HStack {
                     Image(systemName: "dollarsign.circle")
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(settings.selectedTheme.primaryColor)
                     Text("text_button_support_string", bundle: settings.bundle)
                         .foregroundStyle(.black)
                     Spacer()

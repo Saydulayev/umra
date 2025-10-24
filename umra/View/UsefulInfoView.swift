@@ -49,7 +49,7 @@ struct UsefulInfoView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+                settings.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea(edges: .bottom)
                 
                 ScrollView {
@@ -65,7 +65,7 @@ struct UsefulInfoView: View {
                                         Image(systemName: "chevron.right")
                                             .foregroundStyle(.blue)
                                     }
-                                    .customListItemStyle()
+                                    .customListItemStyle(theme: settings.selectedTheme)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             } else {
@@ -78,7 +78,7 @@ struct UsefulInfoView: View {
                                         Image(systemName: "chevron.right")
                                             .foregroundStyle(.blue)
                                     }
-                                    .customListItemStyle()
+                                    .customListItemStyle(theme: settings.selectedTheme)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
@@ -152,7 +152,7 @@ struct JanazaView: View {
 
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+            settings.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
 
             ScrollView {
@@ -247,11 +247,12 @@ struct JanazaView: View {
 
 struct ChapterDetailView: View {
     let chapter: Chapter
+    @EnvironmentObject var settings: UserSettings
     
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+                settings.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea(edges: .bottom)
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
@@ -266,7 +267,7 @@ struct ChapterDetailView: View {
                                     Image(systemName: "chevron.right")
                                         .foregroundStyle(.blue)
                                 }
-                                .customListItemStyle()
+                                .customListItemStyle(theme: settings.selectedTheme)
                             }
                             .buttonStyle(PlainButtonStyle())
                             Divider()
@@ -281,10 +282,11 @@ struct ChapterDetailView: View {
 
 struct SubChapterDetailView: View {
     let subChapter: SubChapter
+    @EnvironmentObject var settings: UserSettings
     
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+            settings.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 Text(subChapter.content)
@@ -319,13 +321,13 @@ struct SubChapter: Identifiable {
 }
 
 extension View {
-    func customListItemStyle() -> some View {
+    func customListItemStyle(theme: AppTheme) -> some View {
         self
             .padding()
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
-                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                    theme.primaryColor.opacity(0.1)
                     
                     Rectangle()
                         .foregroundColor(.white)
@@ -333,9 +335,15 @@ extension View {
                         .offset(x: -8, y: -8)
                     
                     Rectangle()
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomLeading))
+                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomLeading))
                 })
-            .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
-            .clipShape(RoundedRectangle(cornerRadius: 0))
+            .overlay(
+                // Профессиональная темная обводка для лучшего разделения
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.black.opacity(0.1), lineWidth: 1)
+            )
+            .shadow(color: theme.primaryColor.opacity(0.3), radius: 20, x: 20, y: 20)
+            .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }

@@ -466,3 +466,12 @@ It is reported that when 'Abdullah ibn Abu Awfa performed the funeral prayer ove
 "taslim_text" = "📌 You can say the taslim once to the right or twice (to the right and to the left).
 
 The Messenger of Allah (peace and blessings of Allah be upon him), when performing the funeral prayer, did both one and two salutations, but he did one salutation more frequently.";
+
+/* Theme Localization */
+"theme_app_title" = "App Theme";
+"theme_select_title" = "Choose App Theme";
+"theme_heavenly" = "Heavenly";
+"theme_oasis" = "Oasis";
+"theme_gold" = "Gold";
+"theme_turquoise" = "Sea";
+"done_button" = "Done";

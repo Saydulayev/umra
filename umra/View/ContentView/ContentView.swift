@@ -80,7 +80,7 @@ struct ContentView: View {
     private var mainContentView: some View {
         NavigationStack {
             ZStack {
-                Color(UIColor(red: 0.898, green: 0.933, blue: 1, alpha: 1))
+                settings.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea(edges: .bottom)
                 
                 ScrollView {
@@ -201,7 +201,7 @@ private struct StepRow: View {
     var body: some View {
         HStack(spacing: 15) {
             Image(step.0)
-                .styledImage()
+                .styledImageWithThemeColors(theme: settings.selectedTheme)
             VStack(alignment: .leading, spacing: 5) {
                 Text(LocalizedStringKey(step.2), bundle: settings.bundle)
                     .font(.system(size: 18, weight: .semibold))
@@ -214,7 +214,11 @@ private struct StepRow: View {
                 .frame(width: 24, height: 24)
                 .background(
                     Circle()
-                        .fill(Color.blue.opacity(0.1))
+                        .fill(settings.selectedTheme.primaryColor.opacity(0.3))
+                        .overlay(
+                            Circle()
+                                .stroke(Color.black.opacity(0.1), lineWidth: 1)
+                        )
                 )
         }
         .padding(.vertical, 12)
@@ -222,7 +226,12 @@ private struct StepRow: View {
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 2)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color.black.opacity(0.08), lineWidth: 1)
+                )
+                .shadow(color: settings.selectedTheme.primaryColor.opacity(0.3), radius: 8, x: 0, y: 2)
+                .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
         )
     }
 }

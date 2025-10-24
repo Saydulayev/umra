@@ -498,3 +498,12 @@ Diriwayatkan bahwa ‘Abdullah bin Abi Awfa ketika melaksanakan shalat jenazah a
 "taslim_text" = "📌 Taslim bisa dilakukan sekali ke kanan, atau dua kali (ke kanan dan ke kiri).
 
 Rasulullah ﷺ dalam shalat jenazah terkadang memberi salam sekali, dan terkadang dua kali. Namun, yang lebih sering beliau lakukan adalah salam sekali.";
+
+/* Lokalisasi Tema */
+"theme_app_title" = "Tema Aplikasi";
+"theme_select_title" = "Pilih Tema Aplikasi";
+"theme_heavenly" = "Langit";
+"theme_oasis" = "Oasis";
+"theme_gold" = "Emas";
+"theme_turquoise" = "Laut";
+"done_button" = "Selesai";

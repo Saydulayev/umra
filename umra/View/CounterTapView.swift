@@ -39,7 +39,7 @@ struct CounterTapView: View {
                             .frame(width: 170, height: 50)
                             .background(
                                 ZStack {
-                                    Color(#colorLiteral(red: 0.7608050108, green: 0.9, blue: 0.8, alpha: 1))
+                                    settings.selectedTheme.primaryColor.opacity(0.1)
                                     
                                     RoundedRectangle(cornerRadius: 20)
                                         .foregroundColor(.white)
@@ -47,12 +47,12 @@ struct CounterTapView: View {
                                         .offset(x: -8, y: -8)
                                     
                                     RoundedRectangle(cornerRadius: 20)
-                                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .fill(LinearGradient(gradient: Gradient(colors: [settings.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                         .padding(2)
                                     
                                 })
                             .clipShape(RoundedRectangle(cornerRadius: 20))
-                            .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
+                            .shadow(color: settings.selectedTheme.primaryColor.opacity(0.3), radius: 20, x: 20, y: 20)
                     }
                     
                     Button(action: {
@@ -65,7 +65,7 @@ struct CounterTapView: View {
                             .frame(width: 170, height: 50)
                             .background(
                                 ZStack {
-                                    Color(#colorLiteral(red: 0.9, green: 0.8, blue: 0.8, alpha: 1))
+                                    settings.selectedTheme.primaryColor.opacity(0.1)
                                     
                                     RoundedRectangle(cornerRadius: 20)
                                         .foregroundColor(.white)
@@ -73,12 +73,12 @@ struct CounterTapView: View {
                                         .offset(x: -8, y: -8)
                                     
                                     RoundedRectangle(cornerRadius: 20)
-                                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .fill(LinearGradient(gradient: Gradient(colors: [settings.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                         .padding(2)
                                     
                                 })
                             .clipShape(RoundedRectangle(cornerRadius: 20))
-                            .shadow(color: Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)), radius: 20, x: 20, y: 20)
+                            .shadow(color: settings.selectedTheme.primaryColor.opacity(0.3), radius: 20, x: 20, y: 20)
                     }
                 }
             }

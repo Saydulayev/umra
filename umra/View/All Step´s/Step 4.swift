@@ -14,7 +14,7 @@ struct Step4: View {
     
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+            settings.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 VStack {

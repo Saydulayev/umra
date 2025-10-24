@@ -486,3 +486,12 @@ Il est rapporté que lorsque 'Abdullah ibn Abi Awfa a accompli la prière de Jan
 
 Le Messager d'Allah (paix et bénédictions sur lui) concluait la prière de Janaza tantôt avec une salutation, tantôt avec deux salutations, mais il le faisait plus fréquemment avec une seule.";
 
+/* Localisation des thèmes */
+"theme_app_title" = "Thème de l'application";
+"theme_select_title" = "Choisir le thème de l'application";
+"theme_heavenly" = "Céleste";
+"theme_oasis" = "Oasis";
+"theme_gold" = "Or";
+"theme_turquoise" = "Mer";
+"done_button" = "Terminé";
+

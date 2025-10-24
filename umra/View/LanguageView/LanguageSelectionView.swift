@@ -29,7 +29,8 @@ struct LanguageSelectionView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1))
+                // Экран приветствия - более мягкий светло-синий фон
+                Color(UIColor(red: 0.92, green: 0.95, blue: 0.98, alpha: 1))
                     .ignoresSafeArea()
                 
                 VStack {
@@ -66,7 +67,7 @@ struct LanguageSelectionView: View {
                                 ForEach(languages) { lang in
                                     Button(action: { selectLanguage(lang.code) }) {
                                         Text(lang.title)
-                                            .buttonStyle(fontSize: buttonFontSize)
+                                            .welcomeButtonStyle(fontSize: buttonFontSize)
                                     }
                                 }
                             }
@@ -100,7 +101,7 @@ struct LanguageSelectionView: View {
 }
 
 extension Text {
-    func buttonStyle(fontSize: CGFloat = 18) -> some View {
+    func buttonStyle(fontSize: CGFloat = 18, theme: AppTheme) -> some View {
         self.font(.system(size: fontSize, weight: .medium))
             .minimumScaleFactor(0.75)
             .foregroundColor(.black)
@@ -109,7 +110,7 @@ extension Text {
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
-                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                    theme.primaryColor.opacity(0.1)
                     
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
@@ -120,7 +121,7 @@ extension Text {
                         .fill(
                             LinearGradient(
                                 gradient: Gradient(colors: [
-                                    Color(#colorLiteral(red: 0.8980392157, green: 0.9333333333, blue: 1, alpha: 1)),
+                                    theme.gradientTopColor,
                                     Color.white
                                 ]),
                                 startPoint: .topLeading,
@@ -129,7 +130,54 @@ extension Text {
                         )
                         .padding(2)
                 })
+            .overlay(
+                // Профессиональная темная обводка
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.black.opacity(0.1), lineWidth: 1)
+            )
             .clipShape(RoundedRectangle(cornerRadius: 20))
+            .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
+            .padding(.horizontal)
+    }
+    
+    // Специальный стиль для экрана приветствия - всегда классический синий
+    func welcomeButtonStyle(fontSize: CGFloat = 18) -> some View {
+        self.font(.system(size: fontSize, weight: .medium))
+            .minimumScaleFactor(0.75)
+            .foregroundColor(.black)
+            .padding(.vertical, 16)
+            .padding(.horizontal, 8)
+            .frame(maxWidth: .infinity)
+            .background(
+                ZStack {
+                    // Более контрастный синий цвет для лучшей видимости
+                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)).opacity(0.15)
+                    
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(.white)
+                        .blur(radius: 4)
+                        .offset(x: -8, y: -8)
+                    
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(
+                            LinearGradient(
+                                gradient: Gradient(colors: [
+                                    Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)),
+                                    Color.white
+                                ]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .padding(2)
+                })
+            .overlay(
+                // Профессиональная темная обводка для лучшего контраста
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.black.opacity(0.12), lineWidth: 1)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .shadow(color: Color.black.opacity(0.08), radius: 3, x: 0, y: 2)
             .padding(.horizontal)
     }
 }

@@ -487,3 +487,12 @@ Es wird überliefert, dass als 'Abdullah ibn Abi Aufa das Janaza-Gebet für sein
 "taslim_text" = "📌 Der Taslim kann entweder einmal nach rechts oder zweimal (nach rechts und links) ausgesprochen werden.
 
 Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebet sowohl mit einer als auch mit zwei Verabschiedungen, wobei er jedoch häufiger nur eine Verabschiedung ausführte.";
+
+/* Theme Lokalisierung */
+"theme_app_title" = "App-Design";
+"theme_select_title" = "App-Design wählen";
+"theme_heavenly" = "Himmlisch";
+"theme_oasis" = "Oase";
+"theme_gold" = "Gold";
+"theme_turquoise" = "Meer";
+"done_button" = "Fertig";

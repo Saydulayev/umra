@@ -19,7 +19,7 @@ struct LanguageView: View {
             }) {
                 HStack {
                     Image(systemName: "globe")
-                        .foregroundColor(.blue)
+                        .foregroundColor(settings.selectedTheme.primaryColor)
                     Text("select_language_settings_string", bundle: settings.bundle)
                         .foregroundColor(.black)
                     Spacer()
@@ -28,7 +28,7 @@ struct LanguageView: View {
             }
             .actionSheet(isPresented: $showingActionSheet) {
                 ActionSheet(title: Text("select_language_settings_string", bundle: settings.bundle)
-                    .foregroundColor(.blue), message: nil, buttons: [
+                    .foregroundColor(settings.selectedTheme.primaryColor), message: nil, buttons: [
                         .default(Text("Русский")) {
                             settings.lang = "ru"
                         },
