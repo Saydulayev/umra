@@ -95,6 +95,29 @@ struct Step1: View {
                         }
                         
                         Text("Ihram text1", bundle: localizationManager.bundle)
+                        
+                        Group {
+                            Text("Umrah for parents", bundle: localizationManager.bundle)
+                                .font(.custom("Lato-Black", size: 26))
+                            
+                            Text("Umrah for parents explanation", bundle: localizationManager.bundle)
+                            
+                            Text("Umrah for father arabic", bundle: localizationManager.bundle)
+                                .customTextforArabic()
+                            
+                            Text("Umrah for father", bundle: localizationManager.bundle)
+                            
+                            Text("Umrah for mother arabic", bundle: localizationManager.bundle)
+                                .customTextforArabic()
+                            
+                            Text("Umrah for mother", bundle: localizationManager.bundle)
+                            
+                            Text("Umrah for other person arabic", bundle: localizationManager.bundle)
+                                .customTextforArabic()
+                            
+                            Text("Umrah for other person", bundle: localizationManager.bundle)
+                        }
+                        
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                 }

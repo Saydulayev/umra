@@ -74,6 +74,31 @@ Hadis ini muttafaq 'alaih. Lihat juga dalam Shahih Abu Dawud (1776).
 
 Jika seseorang melakukan ini, lalu dia tertahan atau sakit, maka ia dibolehkan keluar dari ihram ketika sedang berhaji atau umrah tanpa harus menyembelih hewan dam atau mengulang haji, kecuali jika ini merupakan haji wajib pertamanya, yang dalam kondisi tersebut ia harus mengulanginya di lain waktu.";
 
+/* Judul */
+"Umrah for parents" = "
+
+Umrah untuk orang tua
+";
+
+/* --- UMRAH UNTUK AYAH --- */
+"Umrah for father arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ أَبِي";
+"Umrah for father" = "Labbayka Allahumma bi-'umrah 'an abi (nama ayah)
+«Ya Allah, aku melaksanakan umrah untuk ayahku (nama).»";
+
+/* --- UMRAH UNTUK IBU --- */
+"Umrah for mother arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ أُمِّي";
+"Umrah for mother" = "Labbayka Allahumma bi-'umrah 'an ummi (nama ibu)
+«Ya Allah, aku melaksanakan umrah untuk ibuku (nama).»";
+
+/* --- UMRAH UNTUK ORANG LAIN --- */
+"Umrah for other person arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ";
+"Umrah for other person" = "Labbayka Allahumma bi-'umrah 'an (nama orang)
+«Ya Allah, aku melaksanakan umrah untuk (nama orang).»";
+
+/* --- PENJELASAN --- */
+"Umrah for parents explanation" = "Jika Anda ingin melaksanakan umrah untuk orang tua atau orang lain, alih-alih talbiyah biasa, bacalah salah satu formula yang diberikan, tambahkan setelah kata-kata «abi» (ayah), «ummi» (ibu) atau cukup setelah kata «'an» nama orang yang umrah dilaksanakan. Setelah mengucapkan niat dan talbiyah dengan menyebutkan nama, semua tindakan lainnya, doa (dua) dan dzikir Allah (dzikir) dilakukan seperti biasa, seolah-olah Anda melakukan umrah untuk diri sendiri. Satu-satunya perbedaan adalah niat.";
+
+
 
 /* KAABA */
 "Kaaba text1" = "

@@ -75,6 +75,31 @@ Bu hadis, sahih olarak kabul edilmiştir. Ayrıca bkz. “Sahîh Ebû Dâvûd”
 
 Bundan dolayı, eğer hacı bu şekilde niyet eder ve bir engel çıkarsa ya da hastalanırsa, hac veya umre ibadetini tamamlamadan ihramdan çıkabilir. Bu durumda ceza olarak kurban kesmesi gerekmez ve yeniden hac yapmasına da gerek yoktur. Ancak bu onun farz olan ilk haccı ise, bu durumda onu tekrar yapması gerekir.";
 
+/* Başlık */
+"Umrah for parents" = "
+
+Ebeveynler için Umre
+";
+
+/* --- BABA İÇİN UMRE --- */
+"Umrah for father arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ أَبِي";
+"Umrah for father" = "Labbayka Allahumma bi-'umrah 'an abi (baba adı)
+«Ey Allah'ım! Babam (adı) için umre yapıyorum.»";
+
+/* --- ANNE İÇİN UMRE --- */
+"Umrah for mother arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ أُمِّي";
+"Umrah for mother" = "Labbayka Allahumma bi-'umrah 'an ummi (anne adı)
+«Ey Allah'ım! Annem (adı) için umre yapıyorum.»";
+
+/* --- BAŞKA BİRİ İÇİN UMRE --- */
+"Umrah for other person arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ";
+"Umrah for other person" = "Labbayka Allahumma bi-'umrah 'an (kişi adı)
+«Ey Allah'ım! (kişi adı) için umre yapıyorum.»";
+
+/* --- AÇIKLAMA --- */
+"Umrah for parents explanation" = "Eğer ebeveynleriniz veya başka bir kişi için umre yapmak istiyorsanız, normal telbiye yerine verilen formüllerden birini okuyun, «abi» (baba), «ummi» (anne) kelimelerinden sonra veya sadece «'an» kelimesinden sonra umrenin yapıldığı kişinin adını ekleyin. Adı belirterek niyet ve telbiyeyi söyledikten sonra, diğer tüm eylemler, dualar (dua) ve Allah'ı anma (zikir) normal şekilde yapılır, sanki kendiniz için umre yapıyormuş gibi. Tek fark niyettir.";
+
+
 
 /* KAABA */
 "Kaaba text1" = "
