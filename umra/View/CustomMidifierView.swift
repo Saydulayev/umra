@@ -114,7 +114,7 @@ extension Image {
                 .frame(maxWidth: .infinity)
                 .background(
                     ZStack {
-                        theme.primaryColor.opacity(0.1)
+                        theme.primaryColor.opacity(0.2)
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(.white)
                             .blur(radius: 4)
@@ -217,7 +217,7 @@ struct CustomTextStyleWithThemeModifier: ViewModifier {
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
-                    themeManager.selectedTheme.primaryColor.opacity(0.1)
+                    themeManager.selectedTheme.primaryColor.opacity(0.2)
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
                         .blur(radius: 4)

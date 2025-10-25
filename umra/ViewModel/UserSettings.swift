@@ -31,26 +31,34 @@ enum AppTheme: String, CaseIterable {
     var primaryColor: Color {
         switch self {
         case .blue:
-            return Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+            // Небесная тема - более яркий голубой для лучшей видимости обводки
+            return Color(#colorLiteral(red: 0.3, green: 0.6, blue: 0.9, alpha: 1))
         case .green:
-            return Color(#colorLiteral(red: 0.6, green: 0.8, blue: 0.6, alpha: 1))
+            // Оазис тема - более яркий зеленый для лучшей видимости обводки
+            return Color(#colorLiteral(red: 0.2, green: 0.7, blue: 0.3, alpha: 1))
         case .gold:
-            return Color(#colorLiteral(red: 0.9, green: 0.8, blue: 0.4, alpha: 1))
+            // Золотая тема - более яркий золотой для лучшей видимости обводки
+            return Color(#colorLiteral(red: 0.8, green: 0.6, blue: 0.1, alpha: 1))
         case .turquoise:
-            return Color(#colorLiteral(red: 0.4, green: 0.8, blue: 0.8, alpha: 1))
+            // Бирюзовая тема - более яркий бирюзовый для лучшей видимости обводки
+            return Color(#colorLiteral(red: 0.1, green: 0.7, blue: 0.7, alpha: 1))
         }
     }
     
     var gradientTopColor: Color {
         switch self {
         case .blue:
-            return Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1))
+            // Небесная тема - светлый голубой градиент
+            return Color(#colorLiteral(red: 0.94, green: 0.97, blue: 1.0, alpha: 1))
         case .green:
-            return Color(#colorLiteral(red: 0.9, green: 0.95, blue: 0.9, alpha: 1))
+            // Оазис тема - светлый зеленый градиент
+            return Color(#colorLiteral(red: 0.95, green: 0.98, blue: 0.95, alpha: 1))
         case .gold:
-            return Color(#colorLiteral(red: 0.95, green: 0.9, blue: 0.7, alpha: 1))
+            // Золотая тема - светлый теплый кремовый градиент
+            return Color(#colorLiteral(red: 0.98, green: 0.95, blue: 0.88, alpha: 1))
         case .turquoise:
-            return Color(#colorLiteral(red: 0.9, green: 0.95, blue: 0.95, alpha: 1))
+            // Бирюзовая тема - светлый бирюзовый градиент
+            return Color(#colorLiteral(red: 0.95, green: 0.98, blue: 0.98, alpha: 1))
         }
     }
     
@@ -70,34 +78,34 @@ enum AppTheme: String, CaseIterable {
     var lightBackgroundColor: Color {
         switch self {
         case .blue:
-            // Профессиональный подход: высокая яркость (95%+) с легким оттенком темы
-            return Color(UIColor(red: 0.98, green: 0.99, blue: 1.0, alpha: 1))
+            // Небесная тема - очень светлый голубой с легким оттенком
+            return Color(UIColor(red: 0.99, green: 0.995, blue: 1.0, alpha: 1))
         case .green:
-            // Оптимальный контраст для черного текста с зеленым оттенком
-            return Color(UIColor(red: 0.98, green: 1.0, blue: 0.98, alpha: 1))
+            // Оазис тема - очень светлый зеленый с легким оттенком
+            return Color(UIColor(red: 0.99, green: 1.0, blue: 0.99, alpha: 1))
         case .gold:
-            // Теплый, но очень светлый фон для максимальной читаемости
-            return Color(UIColor(red: 1.0, green: 0.99, blue: 0.95, alpha: 1))
+            // Золотая тема - очень светлый теплый кремовый
+            return Color(UIColor(red: 1.0, green: 0.995, blue: 0.98, alpha: 1))
         case .turquoise:
-            // Светлый бирюзовый с высокой яркостью для контраста
-            return Color(UIColor(red: 0.98, green: 1.0, blue: 1.0, alpha: 1))
+            // Бирюзовая тема - очень светлый бирюзовый с легким оттенком
+            return Color(UIColor(red: 0.99, green: 1.0, blue: 1.0, alpha: 1))
         }
     }
     
     var textBackgroundColor: Color {
         switch self {
         case .blue:
-            // Профессиональный подход: достаточная яркость для читаемости черного текста
-            return Color(#colorLiteral(red: 0.85, green: 0.92, blue: 0.95, alpha: 1))
+            // Небесная тема - светлый голубой с хорошим контрастом
+            return Color(#colorLiteral(red: 0.92, green: 0.96, blue: 0.98, alpha: 1))
         case .green:
-            // Оптимизированный зеленый с высокой яркостью
-            return Color(#colorLiteral(red: 0.88, green: 0.95, blue: 0.88, alpha: 1))
+            // Оазис тема - светлый зеленый с хорошим контрастом
+            return Color(#colorLiteral(red: 0.94, green: 0.98, blue: 0.94, alpha: 1))
         case .gold:
-            // Теплый золотистый с достаточным контрастом
-            return Color(#colorLiteral(red: 0.95, green: 0.92, blue: 0.85, alpha: 1))
+            // Золотая тема - светлый теплый кремовый с хорошим контрастом
+            return Color(#colorLiteral(red: 0.98, green: 0.96, blue: 0.92, alpha: 1))
         case .turquoise:
-            // Светлый бирюзовый для оптимальной читаемости
-            return Color(#colorLiteral(red: 0.88, green: 0.95, blue: 0.95, alpha: 1))
+            // Бирюзовая тема - светлый бирюзовый с хорошим контрастом
+            return Color(#colorLiteral(red: 0.94, green: 0.98, blue: 0.98, alpha: 1))
         }
     }
 }

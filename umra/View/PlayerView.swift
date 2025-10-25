@@ -152,7 +152,7 @@ struct PlayerView: View {
                 .frame(width: 70, height: 70)
                 .background(
                     ZStack {
-                        themeManager.selectedTheme.primaryColor.opacity(0.1)
+                        themeManager.selectedTheme.primaryColor.opacity(0.2)
 
                         Circle()
                             .foregroundColor(.white)
@@ -185,7 +185,7 @@ struct PlayerView: View {
                 .frame(width: 70, height: 70)
                 .background(
                     ZStack {
-                        themeManager.selectedTheme.primaryColor.opacity(0.1)
+                        themeManager.selectedTheme.primaryColor.opacity(0.2)
 
                         Circle()
                             .foregroundColor(.white)

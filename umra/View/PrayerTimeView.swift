@@ -384,7 +384,7 @@ extension View {
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
-                    theme.primaryColor.opacity(0.1)
+                    theme.primaryColor.opacity(0.2)
                     
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
@@ -439,7 +439,7 @@ extension View {
             .padding(.all, 25)
             .background(
                 ZStack {
-                    theme.primaryColor.opacity(0.1)
+                    theme.primaryColor.opacity(0.2)
                     
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
