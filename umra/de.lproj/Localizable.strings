@@ -75,18 +75,15 @@ Umrah für Eltern
 
 /* --- UMRAH FÜR VATER --- */
 "Umrah for father arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ أَبِي";
-"Umrah for father" = "Labbayka Allahumma bi-'umrah 'an abi (Vaters Name)
-«O Allah, ich vollziehe 'umrah für meinen Vater (Name).»";
+"Umrah for father" = "Labbayka Allahumma bi-'umrah 'an abi (Vaters Name) - «O Allah, ich vollziehe 'umrah für meinen Vater (Name).»";
 
 /* --- UMRAH FÜR MUTTER --- */
 "Umrah for mother arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ أُمِّي";
-"Umrah for mother" = "Labbayka Allahumma bi-'umrah 'an ummi (Mutter Name)
-«O Allah, ich vollziehe 'umrah für meine Mutter (Name).»";
+"Umrah for mother" = "Labbayka Allahumma bi-'umrah 'an ummi (Mutter Name) - «O Allah, ich vollziehe 'umrah für meine Mutter (Name).»";
 
 /* --- UMRAH FÜR ANDERE PERSON --- */
 "Umrah for other person arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ";
-"Umrah for other person" = "Labbayka Allahumma bi-'umrah 'an (Personen Name)
-«O Allah, ich vollziehe 'umrah für (Personen Name).»";
+"Umrah for other person" = "Labbayka Allahumma bi-'umrah 'an (Personen Name) - «O Allah, ich vollziehe 'umrah für (Personen Name).»";
 
 /* --- ERKLÄRUNG --- */
 "Umrah for parents explanation" = "Wenn Sie Umrah für Ihre Eltern oder eine andere Person vollziehen möchten, sprechen Sie anstelle der üblichen Talbiyah eine der angegebenen Formeln aus und fügen Sie nach den Wörtern «abi» (Vater), «ummi» (Mutter) oder einfach nach dem Wort «'an» den Namen der Person hinzu, für die die Umrah vollzogen wird. Nach der Aussprache der Absicht und Talbiyah mit der Erwähnung des Namens werden alle anderen Handlungen, Bittgebete (dua) und das Gedenken an Allah (dhikr) wie gewöhnlich durchgeführt, als würden Sie Umrah für sich selbst machen. Der einzige Unterschied ist die Absicht.";
