@@ -15,8 +15,15 @@ struct Step3: View {
     @Bindable private var bindableFontManager: FontManager
     
     init() {
-        // Инициализируем bindableFontManager
+        // Создаем bindable wrapper для глобального FontManager
         self._bindableFontManager = Bindable(FontManager())
+    }
+    
+    // Синхронизируем изменения между bindableFontManager и глобальным fontManager
+    private func syncFontManager() {
+        if bindableFontManager.selectedFont != fontManager.selectedFont {
+            fontManager.selectedFont = bindableFontManager.selectedFont
+        }
     }
     
     var body: some View {
@@ -53,6 +60,12 @@ struct Step3: View {
                     .hidden()
                     .navigationTitle(Text("title_place_ibrohim_stand_screen", bundle: localizationManager.bundle))
                     .navigationBarTitleDisplayMode(.inline)
+            }
+            .onAppear {
+                syncFontManager()
+            }
+            .onChange(of: bindableFontManager.selectedFont) { _, newFont in
+                fontManager.selectedFont = newFont
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
