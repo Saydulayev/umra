@@ -147,7 +147,7 @@ struct PlayerView: View {
             action()
         }) {
             Image(systemName: imageName)
-                .foregroundColor(isActive ? .green : .black.opacity(0.8))
+                .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : .black.opacity(0.8))
                 .font(.system(size: 16, weight: .bold))
                 .frame(width: 70, height: 70)
                 .background(
@@ -178,7 +178,7 @@ struct PlayerView: View {
             impactFeedbackGenerator.impactOccurred()
         }) {
             Text(text)
-                .foregroundColor(isActive ? .green : .black.opacity(0.8))
+                .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : .black.opacity(0.8))
                 .font(.system(size: 16, weight: .bold))
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)

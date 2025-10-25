@@ -126,6 +126,24 @@ enum AppTheme: String, CaseIterable {
             return Color(#colorLiteral(red: 0.3, green: 0.7, blue: 0.7, alpha: 1))
         }
     }
+    
+    // Яркие цвета для активных кнопок плеера
+    var activeButtonColor: Color {
+        switch self {
+        case .blue:
+            // Небесная тема - яркий синий для активных кнопок
+            return Color(#colorLiteral(red: 0.0, green: 0.5, blue: 1.0, alpha: 1))
+        case .green:
+            // Оазис тема - яркий зеленый для активных кнопок
+            return Color(#colorLiteral(red: 0.0, green: 0.8, blue: 0.0, alpha: 1))
+        case .gold:
+            // Золотая тема - яркий золотой для активных кнопок
+            return Color(#colorLiteral(red: 1.0, green: 0.8, blue: 0.0, alpha: 1))
+        case .turquoise:
+            // Бирюзовая тема - яркий бирюзовый для активных кнопок
+            return Color(#colorLiteral(red: 0.0, green: 0.8, blue: 0.8, alpha: 1))
+        }
+    }
 }
 
 // MARK: - Extensions for Localization
