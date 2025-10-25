@@ -9,12 +9,14 @@ import Foundation
 import StoreKit
 import OSLog
 
+@available(iOS 17.0, *)
 @MainActor
-class PurchaseManager: ObservableObject {
+@Observable
+class PurchaseManager {
     // Доступные продукты и завершённые покупки
-    @Published var availableDonations: [Product] = []
-    @Published var completedDonations: [Product] = []
-    @Published var purchaseError: String? = nil
+    var availableDonations: [Product] = []
+    var completedDonations: [Product] = []
+    var purchaseError: String? = nil
 
     // Идентификаторы продуктов
     private let productIds: [String] = [
@@ -37,7 +39,9 @@ class PurchaseManager: ObservableObject {
     
     deinit {
         logger.info("PurchaseManager deinitializing")
-        updateListenerTask?.cancel()
+        Task { @MainActor in
+            updateListenerTask?.cancel()
+        }
     }
     
     /// Загрузка продуктов из App Store

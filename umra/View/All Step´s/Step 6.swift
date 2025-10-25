@@ -9,20 +9,27 @@ import SwiftUI
 
 struct Step6: View {
     
-    @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var fontManager: FontManager
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
+    @Bindable private var bindableFontManager: FontManager
+    
+    init() {
+        // Инициализируем bindableFontManager
+        self._bindableFontManager = Bindable(FontManager())
+    }
     
     var body: some View {
         ZStack {
-            settings.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 VStack {
-                    Text("Safa and Marwa", bundle: settings.bundle)
+                    Text("Safa and Marwa", bundle: localizationManager.bundle)
                         .font(.custom("Lato-Black", size: 26))
                     Group {
                         
-                        Text("Head towards the hill of Safa", bundle: settings.bundle)
+                        Text("Head towards the hill of Safa", bundle: localizationManager.bundle)
                         Text("""
                         إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَنْ يَطَّوَّفَ بِهِمَا ۚ وَمَنْ تَطَوَّعَ خَيْرًا فَإِنَّ اللهَ شَاكِرٌ عَلِيمٌ
                         """)
@@ -30,7 +37,7 @@ struct Step6: View {
                         
                         PlayerView(fileName: "8")
                         
-                        Text("Surah Al-Baqarah, verse 158.", bundle: settings.bundle)
+                        Text("Surah Al-Baqarah, verse 158.", bundle: localizationManager.bundle)
                         
                         Text("""
 نَبْدَأُ بِمَا بَدَأَ اللهُ بِهِ
@@ -39,7 +46,7 @@ struct Step6: View {
                         
                         PlayerView(fileName: "9")
                         
-                        Text("We begin with that string", bundle: settings.bundle)
+                        Text("We begin with that string", bundle: localizationManager.bundle)
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     Group {
@@ -52,7 +59,7 @@ struct Step6: View {
                         PlayerView(fileName: "10")
                         
                         
-                        Text("Remembrance of Allah during the Sa'i of Safa and Marwa.", bundle: settings.bundle)
+                        Text("Remembrance of Allah during the Sa'i of Safa and Marwa.", bundle: localizationManager.bundle)
                         
                         Text("""
                         رَبِّ اغْفِرْ وَ ارْحَمْ، إِنَّكَ أَنْتَ الْأَعَزُّ الْاَكْرَمُ.
@@ -61,7 +68,7 @@ struct Step6: View {
                         
                         PlayerView(fileName: "11")
                         
-                        Text("Du'a during the Sa'i ritual of Safa and Marwa.", bundle: settings.bundle)
+                        Text("Du'a during the Sa'i ritual of Safa and Marwa.", bundle: localizationManager.bundle)
                         
                         Text("""
                         اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَ سَلِّمْ ، اَللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ.
@@ -70,7 +77,7 @@ struct Step6: View {
                         
                         PlayerView(fileName: "12")
                         
-                        Text("Du'a upon exiting the Sacred Mosque.", bundle: settings.bundle)
+                        Text("Du'a upon exiting the Sacred Mosque.", bundle: localizationManager.bundle)
                         
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
@@ -79,16 +86,16 @@ struct Step6: View {
                 .padding(.horizontal, 10)
                 LanguageView()
                     .hidden()
-                    .navigationTitle(Text("title_safa_and_marva_screen", bundle: settings.bundle))
+                    .navigationTitle(Text("title_safa_and_marva_screen", bundle: localizationManager.bundle))
                     .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     CustomToolbar(
-                        selectedFont: $fontManager.selectedFont,
-                        fonts: fontManager.fonts
+                        selectedFont: $bindableFontManager.selectedFont,
+                        fonts: bindableFontManager.fonts
                     )
-                    .environmentObject(settings) 
+                    .environment(themeManager) 
                 }
             }
         }

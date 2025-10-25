@@ -16,11 +16,12 @@ struct StepView<Destination: View>: View {
     let stepsCount: Int
     @Binding var imageDescriptions: [String: String]
     
-    @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var fontManager: FontManager
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
 
     private var accessibilityLabel: String {
-        NSLocalizedString(imageDescriptions[imageName] ?? imageName, bundle: settings.bundle ?? .main, comment: "")
+        NSLocalizedString(imageDescriptions[imageName] ?? imageName, bundle: localizationManager.bundle ?? .main, comment: "")
     }
 
     var body: some View {
@@ -28,15 +29,15 @@ struct StepView<Destination: View>: View {
             NavigationLink(destination: destinationView) {
                 if let index = index {
                     Image(imageName)
-                        .styledImageWithIndexAndTheme(index: index, stepsCount: stepsCount, theme: settings.selectedTheme)
+                        .styledImageWithIndexAndTheme(index: index, stepsCount: stepsCount, theme: themeManager.selectedTheme)
                         .accessibilityLabel(accessibilityLabel)
                 } else {
                     Image(imageName)
-                        .styledImageWithThemeColors(theme: settings.selectedTheme)
+                        .styledImageWithThemeColors(theme: themeManager.selectedTheme)
                         .accessibilityLabel(accessibilityLabel)
                 }
             }
-            Text(titleKey, bundle: settings.bundle)
+            Text(titleKey, bundle: localizationManager.bundle)
                 .font(.custom("Lato-Black", size: fontSize))
                 .multilineTextAlignment(.center)
             Divider()

@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct PurchaseView: View {
-    @EnvironmentObject var purchaseManager: PurchaseManager
+    @Environment(PurchaseManager.self) private var purchaseManager
     @State private var showThankYouAlert = false
 
     var body: some View {
         DonationView()
-            .environmentObject(purchaseManager)
             // Отслеживание завершённых покупок для показа благодарственного сообщения
-            .onChange(of: purchaseManager.completedDonations) { newValue in
+            .onChange(of: purchaseManager.completedDonations) { _, newValue in
                 if !newValue.isEmpty {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         showThankYouAlert = true

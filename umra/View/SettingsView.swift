@@ -14,14 +14,15 @@ struct SettingsView: View {
     @State private var showThemeSelectionSheet = false
     @State private var selectedLanguage = "English"
     @State private var showPicker = false
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
     
     
     var body: some View {
         NavigationStack {
             ZStack {
-                settings.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea(edges: .bottom)
                 VStack(alignment: .leading, spacing: 10) {
                     
@@ -33,8 +34,8 @@ struct SettingsView: View {
                     }) {
                         HStack {
                             Image(systemName: "message")
-                                .foregroundColor(settings.selectedTheme.primaryColor)
-                            Text("text_button_feedback_string", bundle: settings.bundle)
+                                .foregroundColor(themeManager.selectedTheme.primaryColor)
+                            Text("text_button_feedback_string", bundle: localizationManager.bundle)
                                 .foregroundColor(.black)
                             Spacer()
                         }
@@ -47,8 +48,8 @@ struct SettingsView: View {
                     }) {
                         HStack {
                             Image(systemName: "star")
-                                .foregroundColor(settings.selectedTheme.primaryColor)
-                            Text("text_button_rate_the_app_string", bundle: settings.bundle)
+                                .foregroundColor(themeManager.selectedTheme.primaryColor)
+                            Text("text_button_rate_the_app_string", bundle: localizationManager.bundle)
                                 .foregroundColor(.black)
                             Spacer()
                         }
@@ -64,8 +65,8 @@ struct SettingsView: View {
                     }) {
                         HStack {
                             Image(systemName: "bell")
-                                .foregroundColor(settings.selectedTheme.primaryColor)
-                            Text("Notification Settings", bundle: settings.bundle)
+                                .foregroundColor(themeManager.selectedTheme.primaryColor)
+                            Text("Notification Settings", bundle: localizationManager.bundle)
                                 .foregroundColor(.black)
                             Spacer()
                         }
@@ -81,15 +82,15 @@ struct SettingsView: View {
                     }) {
                         HStack {
                             Image(systemName: "paintbrush.fill")
-                                .foregroundColor(settings.selectedTheme.primaryColor)
-                            Text("theme_app_title", bundle: settings.bundle)
+                                .foregroundColor(themeManager.selectedTheme.primaryColor)
+                            Text("theme_app_title", bundle: localizationManager.bundle)
                                 .foregroundColor(.black)
                             Spacer()
                             HStack(spacing: 8) {
                                 Circle()
-                                    .fill(settings.selectedTheme.primaryColor)
+                                    .fill(themeManager.selectedTheme.primaryColor)
                                     .frame(width: 20, height: 20)
-                                Text(settings.selectedTheme.displayName(bundle: settings.bundle ?? Bundle.main))
+                                Text(themeManager.selectedTheme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
                                     .foregroundColor(.gray)
                                     .font(.system(size: 14))
                             }
@@ -100,7 +101,7 @@ struct SettingsView: View {
                     Spacer()
                 }
                 .padding()
-                .navigationBarTitle(Text("settings_string", bundle: settings.bundle), displayMode: .inline)
+                .navigationBarTitle(Text("settings_string", bundle: localizationManager.bundle), displayMode: .inline)
                 .sheet(isPresented: $showSafariView) {
                     SafariView(url: URL(string: "https://apps.apple.com/app/id1673683355")!)
                 }
@@ -134,17 +135,18 @@ struct SafariView: UIViewControllerRepresentable {
 
 // MARK: - Theme Preview View
 struct ThemePreviewView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationView {
             ZStack {
-                settings.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea()
                 
                 VStack(spacing: 20) {
-                    Text("theme_select_title", bundle: settings.bundle)
+                    Text("theme_select_title", bundle: localizationManager.bundle)
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(.black)
@@ -153,7 +155,7 @@ struct ThemePreviewView: View {
                     VStack(spacing: 16) {
                         ForEach(AppTheme.allCases, id: \.self) { theme in
                             Button(action: {
-                                settings.selectedTheme = theme
+                                themeManager.selectedTheme = theme
                                 dismiss()
                             }) {
                                 HStack(spacing: 16) {
@@ -162,13 +164,13 @@ struct ThemePreviewView: View {
                                         .fill(theme.primaryColor)
                                         .frame(width: 50, height: 50)
                                     
-                                    Text(theme.displayName(bundle: settings.bundle ?? Bundle.main))
+                                    Text(theme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
                                         .font(.system(size: 18, weight: .semibold))
                                         .foregroundColor(.black)
                                     
                                     Spacer()
                                     
-                                    if settings.selectedTheme == theme {
+                                    if themeManager.selectedTheme == theme {
                                         Image(systemName: "checkmark.circle.fill")
                                             .font(.system(size: 24))
                                             .foregroundColor(theme.primaryColor)
@@ -195,8 +197,8 @@ struct ThemePreviewView: View {
                     Button(action: {
                         dismiss()
                     }) {
-                        Text("done_button", bundle: settings.bundle)
-                            .foregroundColor(settings.selectedTheme.primaryColor)
+                        Text("done_button", bundle: localizationManager.bundle)
+                            .foregroundColor(themeManager.selectedTheme.primaryColor)
                     }
                 }
             }

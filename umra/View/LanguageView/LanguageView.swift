@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Foundation
 
 
 struct LanguageView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     @State private var showingActionSheet = false
 
     var body: some View {
@@ -19,33 +21,33 @@ struct LanguageView: View {
             }) {
                 HStack {
                     Image(systemName: "globe")
-                        .foregroundColor(settings.selectedTheme.primaryColor)
-                    Text("select_language_settings_string", bundle: settings.bundle)
+                        .foregroundColor(themeManager.selectedTheme.primaryColor)
+                    Text("select_language_settings_string", bundle: localizationManager.bundle)
                         .foregroundColor(.black)
                     Spacer()
                 }
                 .customTextStyle()
             }
             .actionSheet(isPresented: $showingActionSheet) {
-                ActionSheet(title: Text("select_language_settings_string", bundle: settings.bundle)
-                    .foregroundColor(settings.selectedTheme.primaryColor), message: nil, buttons: [
+                ActionSheet(title: Text("select_language_settings_string", bundle: localizationManager.bundle)
+                    .foregroundColor(themeManager.selectedTheme.primaryColor), message: nil, buttons: [
                         .default(Text("Русский")) {
-                            settings.lang = "ru"
+                            localizationManager.currentLanguage = "ru"
                         },
                         .default(Text("English")) {
-                            settings.lang = "en"
+                            localizationManager.currentLanguage = "en"
                         },
                         .default(Text("Deutsch")) {
-                            settings.lang = "de"
+                            localizationManager.currentLanguage = "de"
                         },
                         .default(Text("Français")) {
-                            settings.lang = "fr"
+                            localizationManager.currentLanguage = "fr"
                         },
                         .default(Text("Türkçe")) {
-                            settings.lang = "tr"
+                            localizationManager.currentLanguage = "tr"
                         },
                         .default(Text("Bahasa Indonesia")) {
-                            settings.lang = "id"
+                            localizationManager.currentLanguage = "id"
                         },
                         .cancel()
                     ])

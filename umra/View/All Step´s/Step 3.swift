@@ -9,20 +9,27 @@ import SwiftUI
 
 struct Step3: View {
     
-    @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var fontManager: FontManager
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
+    @Bindable private var bindableFontManager: FontManager
+    
+    init() {
+        // Инициализируем bindableFontManager
+        self._bindableFontManager = Bindable(FontManager())
+    }
     
     var body: some View {
         ZStack {
-            settings.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 VStack {
-                    Text("Prayer after Tawaf of Kaaba.", bundle: settings.bundle)
+                    Text("Prayer after Tawaf of Kaaba.", bundle: localizationManager.bundle)
                         .font(.custom("Lato-Black", size: 26))
                     Group {
                         
-                        Text("Having completed seven circuits around the Kaaba", bundle: settings.bundle)
+                        Text("Having completed seven circuits around the Kaaba", bundle: localizationManager.bundle)
                         
                         Text("""
                         وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّ
@@ -35,7 +42,7 @@ struct Step3: View {
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     
                     Group {
-                        Text("Place of standing of Ibrahim", bundle: settings.bundle)
+                        Text("Place of standing of Ibrahim", bundle: localizationManager.bundle)
                         
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
@@ -44,16 +51,16 @@ struct Step3: View {
                 .padding(.horizontal, 10)
                 LanguageView()
                     .hidden()
-                    .navigationTitle(Text("title_place_ibrohim_stand_screen", bundle: settings.bundle))
+                    .navigationTitle(Text("title_place_ibrohim_stand_screen", bundle: localizationManager.bundle))
                     .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     CustomToolbar(
-                        selectedFont: $fontManager.selectedFont,
-                        fonts: fontManager.fonts
+                        selectedFont: $bindableFontManager.selectedFont,
+                        fonts: bindableFontManager.fonts
                     )
-                    .environmentObject(settings) 
+                    .environment(themeManager) 
                 }
             }
         }

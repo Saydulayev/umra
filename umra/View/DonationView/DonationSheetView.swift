@@ -51,8 +51,9 @@ extension View {
 struct DonationSheetView: View {
     @Binding var isPresented: Bool
     @Binding var isPurchased: Bool
-    @EnvironmentObject var settings: UserSettings
-    @ObservedObject var purchaseManager: PurchaseManager
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(PurchaseManager.self) private var purchaseManager
     @State private var selectedProductId = "UmrahSunnah1"
     @State private var isLoading = false
     @State private var showError = false
@@ -70,21 +71,21 @@ struct DonationSheetView: View {
         NavigationView {
             ZStack {
                 // Фоновый цвет для экрана
-                settings.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea()
                 
-                Text("Contribution to Application Development", bundle: settings.bundle)
+                Text("Contribution to Application Development", bundle: localizationManager.bundle)
                     .font(.system(size: 16))
                     .foregroundColor(.black)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .neumorphicBackground(theme: settings.selectedTheme)
+                    .neumorphicBackground(theme: themeManager.selectedTheme)
                     .padding()
                 
                 VStack {
                     Spacer()
                     HStack {
-                        Text("select_the_amount", bundle: settings.bundle)
+                        Text("select_the_amount", bundle: localizationManager.bundle)
                             .foregroundStyle(.black)
                         Picker("Выберите сумму", selection: $selectedProductId) {
                             ForEach(productPrices.keys.sorted(), id: \.self) { productId in
@@ -93,7 +94,7 @@ struct DonationSheetView: View {
                         }
                         .font(.title)
                         .padding(5)
-                        .neumorphicBackground(theme: settings.selectedTheme)
+                        .neumorphicBackground(theme: themeManager.selectedTheme)
                         .padding()
                         .accentColor(.blue)
                         .pickerStyle(MenuPickerStyle())
@@ -116,7 +117,7 @@ struct DonationSheetView: View {
                     }, label: {
                         Image(systemName: "xmark.circle")
                             .imageScale(.large)
-                            .foregroundStyle(settings.selectedTheme.primaryColor)
+                            .foregroundStyle(themeManager.selectedTheme.primaryColor)
                     })
                 }
             }
@@ -144,14 +145,14 @@ struct DonationSheetView: View {
                         .progressViewStyle(CircularProgressViewStyle(tint: .black))
                         .padding()
                 } else {
-                    Text("_donate_button", bundle: settings.bundle)
+                    Text("_donate_button", bundle: localizationManager.bundle)
                         .font(.system(size: 18, weight: .medium))
                         .foregroundColor(.black)
                         .padding()
                 }
             }
             .frame(maxWidth: .infinity)
-                        .neumorphicBackground(theme: settings.selectedTheme)
+                        .neumorphicBackground(theme: themeManager.selectedTheme)
             .padding()
         }
     }

@@ -10,21 +10,28 @@ import SwiftUI
 
 struct Step1: View {
     
-    @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var fontManager: FontManager
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
+    @Bindable private var bindableFontManager: FontManager
+    
+    init() {
+        // Инициализируем bindableFontManager
+        self._bindableFontManager = Bindable(FontManager())
+    }
     
     var body: some View {
         ZStack {
-            settings.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 VStack {
-                    Text("into the state of Ihram", bundle: settings.bundle)
+                    Text("into the state of Ihram", bundle: localizationManager.bundle)
                     
                         .font(.custom("Lato-Black", size: 26))
                     Group {
                         
-                        Text("When entering the state of Ihram, say:", bundle: settings.bundle)
+                        Text("When entering the state of Ihram, say:", bundle: localizationManager.bundle)
                         
                         
                         Text("""
@@ -34,7 +41,7 @@ struct Step1: View {
                         
                         PlayerView(fileName: "1")
                         
-                        Text("Turn your face towards the Qiblah and say:", bundle: settings.bundle)
+                        Text("Turn your face towards the Qiblah and say:", bundle: localizationManager.bundle)
                         
                         
                         Text("""
@@ -45,7 +52,7 @@ struct Step1: View {
                         
                         PlayerView(fileName: "2")
                         
-                        Text("O Allah, this Umrah is without any ostentation or fame", bundle: settings.bundle)
+                        Text("O Allah, this Umrah is without any ostentation or fame", bundle: localizationManager.bundle)
                         
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
@@ -61,10 +68,10 @@ struct Step1: View {
                         
                         PlayerView(fileName: "3")
                         
-                        Text("Labbayka Allahumma labbayk", bundle: settings.bundle)
+                        Text("Labbayka Allahumma labbayk", bundle: localizationManager.bundle)
                         
                         
-                        Text("Entering the Sacred Mosque from the right foot", bundle: settings.bundle)
+                        Text("Entering the Sacred Mosque from the right foot", bundle: localizationManager.bundle)
                         Group {
                             Text("""
     اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَ سَلِّمْ،اَللَّهُمَّ افْتَحْ لِي اَبْوَابَ رَحْمَتِكَ
@@ -76,11 +83,11 @@ struct Step1: View {
                             
                             
                             
-                            Text("entering the Sacred Mosque", bundle: settings.bundle)
-                            Text("Conditioning for Hajj or Umrah.", bundle: settings.bundle)
+                            Text("entering the Sacred Mosque", bundle: localizationManager.bundle)
+                            Text("Conditioning for Hajj or Umrah.", bundle: localizationManager.bundle)
                                 .font(.custom("Lato-Black", size: 26))
                             
-                            Text("If a pilgrim fears that some reason may prevent them from completing the Hajj", bundle: settings.bundle)
+                            Text("If a pilgrim fears that some reason may prevent them from completing the Hajj", bundle: localizationManager.bundle)
                             Text("""
                          اَللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي
                          """)
@@ -89,15 +96,15 @@ struct Step1: View {
                             PlayerView(fileName: "5")
                         }
                         
-                        Text("Ihram text1", bundle: settings.bundle)
+                        Text("Ihram text1", bundle: localizationManager.bundle)
                         
                         // Раздел для умры за родителей
-                        Text("Umrah for parents", bundle: settings.bundle)
+                        Text("Umrah for parents", bundle: localizationManager.bundle)
                             .font(.custom("Lato-Black", size: 26))
                             .padding(.top, 20)
                             .padding(.bottom, 10)
                         
-                        Text("Umrah for parents explanation", bundle: settings.bundle)
+                        Text("Umrah for parents explanation", bundle: localizationManager.bundle)
                         
                         // Тальбия за отца
                         Text("""
@@ -105,7 +112,7 @@ struct Step1: View {
 """)
                         .customTextforArabic()
                         
-                        Text("Umrah for father", bundle: settings.bundle)
+                        Text("Umrah for father", bundle: localizationManager.bundle)
                             .padding(.top, 10)
                         
                         // Тальбия за мать
@@ -114,7 +121,7 @@ struct Step1: View {
 """)
                         .customTextforArabic()
                         
-                        Text("Umrah for mother", bundle: settings.bundle)
+                        Text("Umrah for mother", bundle: localizationManager.bundle)
                             .padding(.top, 10)
                         
                     }
@@ -125,15 +132,15 @@ struct Step1: View {
                 LanguageView()
                     .hidden()
             }
-            .navigationTitle(Text("title_ihram_screen", bundle: settings.bundle))
+            .navigationTitle(Text("title_ihram_screen", bundle: localizationManager.bundle))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     CustomToolbar(
-                        selectedFont: $fontManager.selectedFont,
-                        fonts: fontManager.fonts
+                        selectedFont: $bindableFontManager.selectedFont,
+                        fonts: bindableFontManager.fonts
                     )
-                    .environmentObject(settings) // Предоставляем доступ к настройкам через объект окружения
+                    .environment(themeManager)
                 }
             }
         }

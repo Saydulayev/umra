@@ -11,37 +11,38 @@ import SwiftUI
 // MARK: - UsefulInfoView
 struct UsefulInfoView: View {
     @State private var isInfoPresented = false
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     
     var chapters: [Chapter] {
         [
-            Chapter(title: "etiquette_manners".localized(bundle: settings.bundle),
+            Chapter(title: "etiquette_manners".localized(bundle: localizationManager.bundle),
                     subChapters: [
-                        SubChapter(title: "sincerity".localized(bundle: settings.bundle), content: EtiquetteManners.text1(bundle: settings.bundle)),
-                        SubChapter(title: "laws".localized(bundle: settings.bundle), content: EtiquetteManners.text2(bundle: settings.bundle)),
-                        SubChapter(title: "choice_of_companions".localized(bundle: settings.bundle), content: EtiquetteManners.text3(bundle: settings.bundle)),
-                        SubChapter(title: "financial_independence".localized(bundle: settings.bundle), content: EtiquetteManners.text4(bundle: settings.bundle)),
-                        SubChapter(title: "noble_manners".localized(bundle: settings.bundle), content: EtiquetteManners.text5(bundle: settings.bundle)),
-                        SubChapter(title: "zikr_and_prayers".localized(bundle: settings.bundle), content: EtiquetteManners.text6(bundle: settings.bundle)),
-                        SubChapter(title: "caution_in_relationships".localized(bundle: settings.bundle), content: EtiquetteManners.text7(bundle: settings.bundle)),
+                        SubChapter(title: "sincerity".localized(bundle: localizationManager.bundle), content: EtiquetteManners.text1(bundle: localizationManager.bundle)),
+                        SubChapter(title: "laws".localized(bundle: localizationManager.bundle), content: EtiquetteManners.text2(bundle: localizationManager.bundle)),
+                        SubChapter(title: "choice_of_companions".localized(bundle: localizationManager.bundle), content: EtiquetteManners.text3(bundle: localizationManager.bundle)),
+                        SubChapter(title: "financial_independence".localized(bundle: localizationManager.bundle), content: EtiquetteManners.text4(bundle: localizationManager.bundle)),
+                        SubChapter(title: "noble_manners".localized(bundle: localizationManager.bundle), content: EtiquetteManners.text5(bundle: localizationManager.bundle)),
+                        SubChapter(title: "zikr_and_prayers".localized(bundle: localizationManager.bundle), content: EtiquetteManners.text6(bundle: localizationManager.bundle)),
+                        SubChapter(title: "caution_in_relationships".localized(bundle: localizationManager.bundle), content: EtiquetteManners.text7(bundle: localizationManager.bundle)),
                     ]),
-            Chapter(title: "hajj_umrah_virtues".localized(bundle: settings.bundle),
+            Chapter(title: "hajj_umrah_virtues".localized(bundle: localizationManager.bundle),
                     subChapters: [
-                        SubChapter(title: "atonement_and_rewards".localized(bundle: settings.bundle), content: HajjUmrahVirtues.text1(bundle: settings.bundle)),
-                        SubChapter(title: "hajj_for_women".localized(bundle: settings.bundle), content: HajjUmrahVirtues.text2(bundle: settings.bundle)),
-                        SubChapter(title: "perfect_hajj".localized(bundle: settings.bundle), content: HajjUmrahVirtues.text3(bundle: settings.bundle)),
-                        SubChapter(title: "following_the_sunnah".localized(bundle: settings.bundle), content: HajjUmrahVirtues.text4(bundle: settings.bundle)),
+                        SubChapter(title: "atonement_and_rewards".localized(bundle: localizationManager.bundle), content: HajjUmrahVirtues.text1(bundle: localizationManager.bundle)),
+                        SubChapter(title: "hajj_for_women".localized(bundle: localizationManager.bundle), content: HajjUmrahVirtues.text2(bundle: localizationManager.bundle)),
+                        SubChapter(title: "perfect_hajj".localized(bundle: localizationManager.bundle), content: HajjUmrahVirtues.text3(bundle: localizationManager.bundle)),
+                        SubChapter(title: "following_the_sunnah".localized(bundle: localizationManager.bundle), content: HajjUmrahVirtues.text4(bundle: localizationManager.bundle)),
                     ]),
-            Chapter(title: "hajj_umrah_obligation".localized(bundle: settings.bundle),
+            Chapter(title: "hajj_umrah_obligation".localized(bundle: localizationManager.bundle),
                     subChapters: [
-                        SubChapter(title: "hajj_obligation_evidence".localized(bundle: settings.bundle), content: HajjUmrahObligation.obligationEvidence(bundle: settings.bundle)),
-                        SubChapter(title: "umrah_obligation_evidence".localized(bundle: settings.bundle), content: HajjUmrahObligation.evidenceUmrahObligation(bundle: settings.bundle)),
-                        SubChapter(title: "conclusion".localized(bundle: settings.bundle), content: HajjUmrahObligation.concludingEvidence(bundle: settings.bundle)),
+                        SubChapter(title: "hajj_obligation_evidence".localized(bundle: localizationManager.bundle), content: HajjUmrahObligation.obligationEvidence(bundle: localizationManager.bundle)),
+                        SubChapter(title: "umrah_obligation_evidence".localized(bundle: localizationManager.bundle), content: HajjUmrahObligation.evidenceUmrahObligation(bundle: localizationManager.bundle)),
+                        SubChapter(title: "conclusion".localized(bundle: localizationManager.bundle), content: HajjUmrahObligation.concludingEvidence(bundle: localizationManager.bundle)),
                     ]),
-            Chapter(title: "title_janaza_guide".localized(bundle: settings.bundle),
+            Chapter(title: "title_janaza_guide".localized(bundle: localizationManager.bundle),
                     subChapters: [
-                        SubChapter(title: "basic_rules".localized(bundle: settings.bundle),
-                                 content: JanazaPrayerGuide.basicRules(bundle: settings.bundle)),
+                        SubChapter(title: "basic_rules".localized(bundle: localizationManager.bundle),
+                                 content: JanazaPrayerGuide.basicRules(bundle: localizationManager.bundle)),
                     ])
         ]
     }
@@ -49,13 +50,13 @@ struct UsefulInfoView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                settings.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea(edges: .bottom)
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(chapters) { chapter in
-                            if chapter.title == "title_janaza_guide".localized(bundle: settings.bundle) {
+                            if chapter.title == "title_janaza_guide".localized(bundle: localizationManager.bundle) {
                                 NavigationLink(destination: JanazaView()) {
                                     HStack {
                                         Text(chapter.title)
@@ -65,7 +66,7 @@ struct UsefulInfoView: View {
                                         Image(systemName: "chevron.right")
                                             .foregroundStyle(.blue)
                                     }
-                                    .customListItemStyle(theme: settings.selectedTheme)
+                                    .customListItemStyle(theme: themeManager.selectedTheme)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             } else {
@@ -78,7 +79,7 @@ struct UsefulInfoView: View {
                                         Image(systemName: "chevron.right")
                                             .foregroundStyle(.blue)
                                     }
-                                    .customListItemStyle(theme: settings.selectedTheme)
+                                    .customListItemStyle(theme: themeManager.selectedTheme)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
@@ -86,7 +87,7 @@ struct UsefulInfoView: View {
                         }
                     }
                 }
-                .navigationTitle("useful_info_title".localized(bundle: settings.bundle))
+                .navigationTitle("useful_info_title".localized(bundle: localizationManager.bundle))
                 .navigationBarTitleDisplayMode(.inline)
                 
                 VStack {
@@ -104,7 +105,7 @@ struct UsefulInfoView: View {
                         }
                         .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
                             VStack {
-                                Text("soon_available_text".localized(bundle: settings.bundle))
+                                Text("soon_available_text".localized(bundle: localizationManager.bundle))
                                     .font(.body)
                                     .padding()
                                     .multilineTextAlignment(.center)
@@ -145,40 +146,41 @@ struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
 }
 
 struct JanazaView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     @State private var isDuaExpanded = false
     @State private var isSecondTakbirExpanded = false
     @State private var isThirdTakbirExpanded = false
 
     var body: some View {
         ZStack {
-            settings.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     Group {
-                        Text(JanazaPrayerGuide.janazaBasicRules(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.janazaBasicRules(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
                         Divider()
 
-                        Text(JanazaPrayerGuide.firstTakbirTitle(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.firstTakbirTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
-                        Text(JanazaPrayerGuide.firstTakbirText(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.firstTakbirText(bundle: localizationManager.bundle))
                             .padding(.bottom)
                         Divider()
-                        Text(JanazaPrayerGuide.secondTakbirTitle(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.secondTakbirTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
-                        Text(JanazaPrayerGuide.secondTakbirText(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.secondTakbirText(bundle: localizationManager.bundle))
                             .padding(.bottom)
                         DisclosureGroup(
                             isExpanded: $isDuaExpanded,
                             content: {
-                                Text(JanazaPrayerGuide.translateSecondTakbirText(bundle: settings.bundle))
+                                Text(JanazaPrayerGuide.translateSecondTakbirText(bundle: localizationManager.bundle))
                                     .padding(.vertical)
                             },
                             label: {
-                                Text("translate_text", bundle: settings.bundle)            .font(.headline)
+                                Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
                                     .foregroundStyle(.blue)
                             }
                         )
@@ -188,19 +190,19 @@ struct JanazaView: View {
                     Divider()
 
                     Group {
-                        Text(JanazaPrayerGuide.thirdTakbirTitle(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.thirdTakbirTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
-                        Text(JanazaPrayerGuide.thirdTakbirText(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.thirdTakbirText(bundle: localizationManager.bundle))
                             .padding(.bottom)
                         
                         DisclosureGroup(
                             isExpanded: $isThirdTakbirExpanded,
                             content: {
-                                Text(JanazaPrayerGuide.translateThirdTakbirText(bundle: settings.bundle))
+                                Text(JanazaPrayerGuide.translateThirdTakbirText(bundle: localizationManager.bundle))
                                     .padding(.vertical)
                             },
                             label: {
-                                Text("translate_text", bundle: settings.bundle)            .font(.headline)
+                                Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
                                     .foregroundStyle(.blue)
                             }
                         )
@@ -210,26 +212,26 @@ struct JanazaView: View {
                     Divider()
 
                     Group {
-                        Text(JanazaPrayerGuide.fourthTakbirTitle(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.fourthTakbirTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
-                        Text(JanazaPrayerGuide.fourthTakbirText(bundle: settings.bundle))
-                        Text(JanazaPrayerGuide.fourthTakbirAdditionalInfo(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.fourthTakbirText(bundle: localizationManager.bundle))
+                        Text(JanazaPrayerGuide.fourthTakbirAdditionalInfo(bundle: localizationManager.bundle))
                             .padding(.bottom)
                         Divider()
-                        Text(JanazaPrayerGuide.taslimTitle(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.taslimTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
-                        Text(JanazaPrayerGuide.taslimText(bundle: settings.bundle))
+                        Text(JanazaPrayerGuide.taslimText(bundle: localizationManager.bundle))
                     }
                     Divider()
                     
                     DisclosureGroup(
                         isExpanded: $isSecondTakbirExpanded,
                         content: {
-                            Text(JanazaPrayerGuide.duaVariationsText(bundle: settings.bundle))
+                            Text(JanazaPrayerGuide.duaVariationsText(bundle: localizationManager.bundle))
                                 .padding(.vertical)
                         },
                         label: {
-                            Text(JanazaPrayerGuide.duaVariationsTitle(bundle: settings.bundle))
+                            Text(JanazaPrayerGuide.duaVariationsTitle(bundle: localizationManager.bundle))
                                 .fontWeight(.bold)
                         }
                     )
@@ -240,19 +242,20 @@ struct JanazaView: View {
                 .foregroundStyle(.black)
                 .textSelection(.enabled)
             }
-            .navigationTitle(JanazaPrayerGuide.title(bundle: settings.bundle))
+            .navigationTitle(JanazaPrayerGuide.title(bundle: localizationManager.bundle))
         }
     }
 }
 
 struct ChapterDetailView: View {
     let chapter: Chapter
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     
     var body: some View {
         NavigationStack {
             ZStack {
-                settings.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea(edges: .bottom)
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
@@ -267,7 +270,7 @@ struct ChapterDetailView: View {
                                     Image(systemName: "chevron.right")
                                         .foregroundStyle(.blue)
                                 }
-                                .customListItemStyle(theme: settings.selectedTheme)
+                                .customListItemStyle(theme: themeManager.selectedTheme)
                             }
                             .buttonStyle(PlainButtonStyle())
                             Divider()
@@ -282,11 +285,12 @@ struct ChapterDetailView: View {
 
 struct SubChapterDetailView: View {
     let subChapter: SubChapter
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     
     var body: some View {
         ZStack {
-            settings.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 Text(subChapter.content)

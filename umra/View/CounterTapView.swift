@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CounterTapView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     @AppStorage("add_string") private var counter = 0
     @State private var showCelebration = false
     
@@ -16,7 +17,7 @@ struct CounterTapView: View {
         ZStack {
             VStack {
                 HStack {
-                    Text("circle_string", bundle: settings.bundle)
+                    Text("circle_string", bundle: localizationManager.bundle)
                         .font(.largeTitle.bold())
                     Text("\(counter)")
                         .font(.largeTitle.bold())
@@ -43,7 +44,7 @@ struct CounterTapView: View {
                         .opacity(showCelebration ? 1.0 : 0.0)
                         
                         // Текст с градиентом и свечением
-                        Text("Sa´y finished_string", bundle: settings.bundle)
+                        Text("Sa´y finished_string", bundle: localizationManager.bundle)
                             .font(.system(size: 28, weight: .bold, design: .rounded))
                             .foregroundStyle(
                                 LinearGradient(
@@ -101,14 +102,14 @@ struct CounterTapView: View {
                         incrementCounter()
                         triggerVibration()
                     }) {
-                        Text("add_string", bundle: settings.bundle)
+                        Text("add_string", bundle: localizationManager.bundle)
                             .padding()
                             .lineSpacing(15)
                             .multilineTextAlignment(.center)
                             .frame(width: 170, height: 50)
                             .background(
                                 ZStack {
-                                    settings.selectedTheme.primaryColor.opacity(0.1)
+                                    themeManager.selectedTheme.primaryColor.opacity(0.1)
                                     
                                     RoundedRectangle(cornerRadius: 20)
                                         .foregroundColor(.white)
@@ -116,7 +117,7 @@ struct CounterTapView: View {
                                         .offset(x: -8, y: -8)
                                     
                                     RoundedRectangle(cornerRadius: 20)
-                                        .fill(LinearGradient(gradient: Gradient(colors: [settings.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                         .padding(2)
                                     
                                 })
@@ -128,13 +129,13 @@ struct CounterTapView: View {
                         decrementCounter()
                         triggerVibration()
                     }) {
-                        Text("reset_string", bundle: settings.bundle)
+                        Text("reset_string", bundle: localizationManager.bundle)
                             .padding()
                             .multilineTextAlignment(.center)
                             .frame(width: 170, height: 50)
                             .background(
                                 ZStack {
-                                    settings.selectedTheme.primaryColor.opacity(0.1)
+                                    themeManager.selectedTheme.primaryColor.opacity(0.1)
                                     
                                     RoundedRectangle(cornerRadius: 20)
                                         .foregroundColor(.white)
@@ -142,7 +143,7 @@ struct CounterTapView: View {
                                         .offset(x: -8, y: -8)
                                     
                                     RoundedRectangle(cornerRadius: 20)
-                                        .fill(LinearGradient(gradient: Gradient(colors: [settings.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                         .padding(2)
                                     
                                 })

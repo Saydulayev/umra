@@ -64,7 +64,8 @@ struct PlayerView: View {
 
     @StateObject private var coordinator = Coordinator()
     @Environment(\.colorScheme) private var colorScheme
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
 
     // Адаптивный цвет тени под тему
     private func adaptiveShadowColor(intensity: Double = 0.5) -> Color {
@@ -72,7 +73,7 @@ struct PlayerView: View {
         if colorScheme == .dark {
             return Color.black.opacity(clamped * 0.55)
         } else {
-            return settings.selectedTheme.primaryColor.opacity(clamped)
+            return themeManager.selectedTheme.primaryColor.opacity(clamped)
         }
     }
 
@@ -151,7 +152,7 @@ struct PlayerView: View {
                 .frame(width: 70, height: 70)
                 .background(
                     ZStack {
-                        settings.selectedTheme.primaryColor.opacity(0.1)
+                        themeManager.selectedTheme.primaryColor.opacity(0.1)
 
                         Circle()
                             .foregroundColor(.white)
@@ -159,7 +160,7 @@ struct PlayerView: View {
                             .offset(x: -8, y: -8)
 
                         Circle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [settings.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .padding(2)
                     }
                     .clipShape(Circle())
@@ -184,7 +185,7 @@ struct PlayerView: View {
                 .frame(width: 70, height: 70)
                 .background(
                     ZStack {
-                        settings.selectedTheme.primaryColor.opacity(0.1)
+                        themeManager.selectedTheme.primaryColor.opacity(0.1)
 
                         Circle()
                             .foregroundColor(.white)
@@ -192,7 +193,7 @@ struct PlayerView: View {
                             .offset(x: -8, y: -8)
 
                         Circle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [settings.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .padding(2)
                     }
                     .clipShape(Circle())
@@ -281,7 +282,8 @@ struct ThemedSlider: UIViewRepresentable {
     @Binding var value: Double
     var range: ClosedRange<Double>
     var onEditingChanged: (Bool) -> Void = { _ in }
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
 
     func makeUIView(context: Context) -> UISlider {
         let slider = UISlider(frame: .zero)
@@ -291,8 +293,8 @@ struct ThemedSlider: UIViewRepresentable {
         slider.value = Float(value)
 
         // Цвета трека
-        slider.minimumTrackTintColor = UIColor(settings.selectedTheme.primaryColor)
-        slider.maximumTrackTintColor = UIColor(settings.selectedTheme.primaryColor.opacity(0.3))
+        slider.minimumTrackTintColor = UIColor(themeManager.selectedTheme.primaryColor)
+        slider.maximumTrackTintColor = UIColor(themeManager.selectedTheme.primaryColor.opacity(0.3))
 
         // События
         slider.addTarget(context.coordinator, action: #selector(Coordinator.valueChanged(_:for:)), for: .valueChanged)
@@ -311,8 +313,8 @@ struct ThemedSlider: UIViewRepresentable {
         }
 
         // Цвета зависят от темы
-        uiView.minimumTrackTintColor = UIColor(settings.selectedTheme.primaryColor)
-        uiView.maximumTrackTintColor = UIColor(settings.selectedTheme.primaryColor.opacity(0.3))
+        uiView.minimumTrackTintColor = UIColor(themeManager.selectedTheme.primaryColor)
+        uiView.maximumTrackTintColor = UIColor(themeManager.selectedTheme.primaryColor.opacity(0.3))
     }
 
     func makeCoordinator() -> Coordinator {

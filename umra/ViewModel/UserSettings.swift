@@ -110,7 +110,86 @@ extension String {
     }
 }
 
-// MARK: - UserSettings
+// MARK: - Theme Manager
+@available(iOS 17.0, *)
+@Observable
+class ThemeManager {
+    var selectedTheme: AppTheme {
+        didSet {
+            UserDefaults.standard.set(selectedTheme.rawValue, forKey: "selectedTheme")
+        }
+    }
+    
+    init() {
+        selectedTheme = AppTheme(rawValue: UserDefaults.standard.string(forKey: "selectedTheme") ?? "blue") ?? .blue
+    }
+}
+
+// MARK: - Localization Manager
+@available(iOS 17.0, *)
+@Observable
+class LocalizationManager {
+    var currentLanguage: String {
+        didSet {
+            UserDefaults.standard.set(currentLanguage, forKey: "selectedLanguage")
+            loadBundle()
+        }
+    }
+    
+    var hasSelectedLanguage: Bool {
+        didSet {
+            UserDefaults.standard.set(hasSelectedLanguage, forKey: "hasSelectedLanguage")
+        }
+    }
+    
+    var bundle: Bundle?
+    
+    init() {
+        currentLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "ru"
+        hasSelectedLanguage = UserDefaults.standard.bool(forKey: "hasSelectedLanguage")
+        loadBundle()
+    }
+    
+    private func loadBundle() {
+        guard let path = Bundle.main.path(forResource: currentLanguage, ofType: "lproj"),
+              let resultBundle = Bundle(path: path) else {
+            bundle = nil
+            return
+        }
+        bundle = resultBundle
+    }
+}
+
+// MARK: - User Preferences Manager
+@available(iOS 17.0, *)
+@Observable
+class UserPreferences {
+    var hasSelectedLanguage: Bool {
+        didSet {
+            UserDefaults.standard.set(hasSelectedLanguage, forKey: "hasSelectedLanguage")
+        }
+    }
+    
+    var isGridView: Bool {
+        didSet {
+            UserDefaults.standard.set(isGridView, forKey: "isGridView")
+        }
+    }
+    
+    var hasRatedApp: Bool {
+        didSet {
+            UserDefaults.standard.set(hasRatedApp, forKey: "hasRatedApp")
+        }
+    }
+    
+    init() {
+        hasSelectedLanguage = UserDefaults.standard.bool(forKey: "hasSelectedLanguage")
+        isGridView = UserDefaults.standard.bool(forKey: "isGridView") || UIDevice.current.userInterfaceIdiom == .pad
+        hasRatedApp = UserDefaults.standard.bool(forKey: "hasRatedApp")
+    }
+}
+
+// MARK: - UserSettings (Legacy - для обратной совместимости)
 class UserSettings: ObservableObject {
     @Published var lang: String {
         didSet {

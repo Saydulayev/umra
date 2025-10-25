@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct DonationView: View {
-    @EnvironmentObject var purchaseManager: PurchaseManager
-    @EnvironmentObject var settings: UserSettings
+    @Environment(PurchaseManager.self) private var purchaseManager
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     @State private var isPurchased = false
     @State private var showingSheet = false
 
@@ -20,15 +21,15 @@ struct DonationView: View {
             }) {
                 HStack {
                     Image(systemName: "dollarsign.circle")
-                        .foregroundStyle(settings.selectedTheme.primaryColor)
-                    Text("text_button_support_string", bundle: settings.bundle)
+                        .foregroundStyle(themeManager.selectedTheme.primaryColor)
+                    Text("text_button_support_string", bundle: localizationManager.bundle)
                         .foregroundStyle(.black)
                     Spacer()
                 }
                 .customTextStyle()
             }
             .sheet(isPresented: $showingSheet) {
-                DonationSheetView(isPresented: $showingSheet, isPurchased: $isPurchased, purchaseManager: purchaseManager)
+                DonationSheetView(isPresented: $showingSheet, isPurchased: $isPurchased)
             }
         }
     }

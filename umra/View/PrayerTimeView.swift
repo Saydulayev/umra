@@ -17,7 +17,8 @@ struct PrayerTimeView: View {
     @State private var timeUntilNextPrayer = ""
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var storedPrayerTimes: PrayerTimes? = nil
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
 
     @AppStorage("enable30MinNotifications") private var enable30MinNotifications: Bool = true
     @AppStorage("enablePrayerTimeNotifications") private var enablePrayerTimeNotifications: Bool = true
@@ -44,7 +45,7 @@ struct PrayerTimeView: View {
 
     var body: some View {
         ZStack {
-            settings.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea()
             
             VStack {
@@ -58,23 +59,23 @@ struct PrayerTimeView: View {
                 Divider()
                 
                 Text("\(nextPrayerName) in \(timeUntilNextPrayer)")
-                    .cardStyled(theme: settings.selectedTheme)
+                    .cardStyled(theme: themeManager.selectedTheme)
 
                 Group {
                     PrayerTimeRow(prayerName: "Fajr", prayerTime: prayerTimes["Fajr"] ?? "")
                     PrayerTimeRow(prayerName: "Sunrise", prayerTime: prayerTimes["Sunrise"] ?? "")
-                        .capsuleStyled(theme: settings.selectedTheme)
+                        .capsuleStyled(theme: themeManager.selectedTheme)
                     PrayerTimeRow(prayerName: "Dhuhr", prayerTime: prayerTimes["Dhuhr"] ?? "")
                     PrayerTimeRow(prayerName: "Asr", prayerTime: prayerTimes["Asr"] ?? "")
                     PrayerTimeRow(prayerName: "Maghrib", prayerTime: prayerTimes["Maghrib"] ?? "")
                     PrayerTimeRow(prayerName: "Isha", prayerTime: prayerTimes["Isha"] ?? "")
                     PrayerTimeRow(prayerName: "Qiyam", prayerTime: prayerTimes["Qiyam"] ?? "")
-                        .capsuleStyled(theme: settings.selectedTheme)
+                        .capsuleStyled(theme: themeManager.selectedTheme)
                 }
                 .foregroundStyle(.black)
                 .padding(.horizontal)
             }
-            .transparentStyled(theme: settings.selectedTheme)
+            .transparentStyled(theme: themeManager.selectedTheme)
             .onAppear {
                 setupPrayerTimes()
                 requestNotificationPermission()
@@ -270,27 +271,28 @@ struct NotificationSettingsView: View {
     @AppStorage("enablePrayerTimeNotifications") private var enablePrayerTimeNotifications: Bool = true
     @AppStorage("enableSunriseNotifications") private var enableSunriseNotifications: Bool = true
 
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
         VStack {
-            Text("Notification Settings", bundle: settings.bundle)
+            Text("Notification Settings", bundle: localizationManager.bundle)
                 .font(.headline)
                 .padding()
 
             Toggle(isOn: $enable30MinNotifications, label: {
-                Text("30-Minute Notifications", bundle: settings.bundle)
+                Text("30-Minute Notifications", bundle: localizationManager.bundle)
             })
             .padding(.horizontal)
 
             Toggle(isOn: $enablePrayerTimeNotifications, label: {
-                Text("Prayer Time Notifications", bundle: settings.bundle)
+                Text("Prayer Time Notifications", bundle: localizationManager.bundle)
             })
             .padding(.horizontal)
             
             Toggle(isOn: $enableSunriseNotifications, label: {
-                Text("Sunrise Notifications", bundle: settings.bundle)
+                Text("Sunrise Notifications", bundle: localizationManager.bundle)
             })
             .padding(.horizontal)
 
@@ -298,10 +300,10 @@ struct NotificationSettingsView: View {
                 openSystemNotificationSettings()
             }, label: {
                 HStack {
-                    Text("Open iOS Notification Settings", bundle: settings.bundle)
+                    Text("Open iOS Notification Settings", bundle: localizationManager.bundle)
                     Image(systemName: "gear")
                 }
-                    .foregroundStyle(settings.selectedTheme.primaryColor)
+                    .foregroundStyle(themeManager.selectedTheme.primaryColor)
             })
             .padding(.vertical, 30)
             
@@ -310,15 +312,15 @@ struct NotificationSettingsView: View {
             Button(action: {
                 dismiss()
             }, label: {
-                Text("Close", bundle: settings.bundle)
-                    .foregroundStyle(settings.selectedTheme.primaryColor)
+                Text("Close", bundle: localizationManager.bundle)
+                    .foregroundStyle(themeManager.selectedTheme.primaryColor)
             })
             .padding(.vertical, 30)
         }
         .lineLimit(1)
         .minimumScaleFactor(0.5)
         .foregroundStyle(.black)
-        .background(settings.selectedTheme.lightBackgroundColor)
+        .background(themeManager.selectedTheme.lightBackgroundColor)
         .ignoresSafeArea()
         .presentationDetents([.medium, .large])
         .presentationDragIndicator(.visible)
@@ -339,7 +341,8 @@ struct NotificationSettingsView: View {
 
 struct PrayerTimeModalView: View {
     @Binding var isPresented: Bool
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     
     var body: some View {
         NavigationView {
@@ -349,7 +352,7 @@ struct PrayerTimeModalView: View {
                 }, label: {
                     Image(systemName: "xmark.circle")
                         .imageScale(.large)
-                        .foregroundStyle(settings.selectedTheme.primaryColor)
+                        .foregroundStyle(themeManager.selectedTheme.primaryColor)
                 }))
         }
     }

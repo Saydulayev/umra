@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-class FontManager: ObservableObject {
+@available(iOS 17.0, *)
+@Observable
+class FontManager {
     
     // Вычисляемое свойство для динамического размера шрифта
     var dynamicFontSize: CGFloat {
         UIDevice.current.userInterfaceIdiom == .pad ? 30 : 20
     }
     
-    @Published var fonts: [String] = [
+    var fonts: [String] = [
         "Arial",
         "Helvetica",
         "Times New Roman",
@@ -46,13 +48,13 @@ class FontManager: ObservableObject {
         "Lato-Bold"
     ]
     
-    @Published var selectedFont: String {
+    var selectedFont: String {
         didSet {
             UserDefaults.standard.set(selectedFont, forKey: "SelectedFont")
         }
     }
     
-    @Published var selectedFontSize: CGFloat {
+    var selectedFontSize: CGFloat {
         didSet {
             UserDefaults.standard.set(selectedFontSize, forKey: "SelectedFontSize")
         }

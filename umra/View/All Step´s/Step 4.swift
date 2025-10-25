@@ -9,20 +9,27 @@ import SwiftUI
 
 struct Step4: View {
     
-    @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var fontManager: FontManager
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
+    @Bindable private var bindableFontManager: FontManager
+    
+    init() {
+        // Инициализируем bindableFontManager
+        self._bindableFontManager = Bindable(FontManager())
+    }
     
     var body: some View {
         ZStack {
-            settings.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 VStack {
-                    Text("Drinking Zamzam water.", bundle: settings.bundle)
+                    Text("Drinking Zamzam water.", bundle: localizationManager.bundle)
                         .font(.custom("Lato-Black", size: 26))
                     Group {
                         
-                        Text("Zamzam text", bundle: settings.bundle)
+                        Text("Zamzam text", bundle: localizationManager.bundle)
                         
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
@@ -31,16 +38,16 @@ struct Step4: View {
                 .padding(.horizontal, 10)
                 LanguageView()
                     .hidden()
-                    .navigationTitle(Text("title_water_zamzam_screen", bundle: settings.bundle))
+                    .navigationTitle(Text("title_water_zamzam_screen", bundle: localizationManager.bundle))
                     .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     CustomToolbar(
-                        selectedFont: $fontManager.selectedFont,
-                        fonts: fontManager.fonts
+                        selectedFont: $bindableFontManager.selectedFont,
+                        fonts: bindableFontManager.fonts
                     )
-                    .environmentObject(settings) 
+                    .environment(themeManager) 
                 }
             }
         }

@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Foundation
 
 // MARK: - Адаптивные модификаторы теней
 private struct AdaptiveShadowModifier: ViewModifier {
     @Environment(\.colorScheme) private var scheme
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
     let radius: CGFloat
     let x: CGFloat
     let y: CGFloat
@@ -20,7 +21,7 @@ private struct AdaptiveShadowModifier: ViewModifier {
         if scheme == .dark {
             return Color.black.opacity(intensity == 0 ? 0 : min(max(intensity, 0.0), 1.0) * 0.55)
         } else {
-            return settings.selectedTheme.primaryColor
+            return themeManager.selectedTheme.primaryColor
                 .opacity(intensity == 0 ? 0 : min(max(intensity, 0.0), 1.0))
         }
     }
@@ -39,190 +40,126 @@ extension View {
     }
 }
 
-// MARK: - Модификаторы для изображений
-extension Image {
-    func styledImageWithIndex(index: Int, stepsCount: Int) -> some View {
-        ZStack(alignment: .topTrailing) {
-            self
+// MARK: - Unified Image Style Helper
+struct ImageStyleHelper {
+    static func styledImage(
+        _ image: Image,
+        theme: AppTheme? = nil,
+        showIndex: Bool = false,
+        index: Int? = nil,
+        stepsCount: Int? = nil,
+        frameSize: CGSize? = nil
+    ) -> some View {
+        ZStack(alignment: showIndex ? .topTrailing : .center) {
+            image
                 .resizable()
                 .scaledToFit()
-                .padding(.bottom)
+                .padding(.bottom, frameSize == nil ? 10 : 0)
                 .clipShape(Circle())
                 .foregroundColor(.black)
                 .padding()
-                .frame(maxWidth: .infinity)
-                .background(
-                    ZStack {
-                        Color.primary.opacity(0.1)
-                        
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.white)
-                            .blur(radius: 4)
-                            .offset(x: -8, y: -8)
-                        
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.8), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .padding(2)
-                    })
+                .frame(width: frameSize?.width, height: frameSize?.height)
+                .frame(maxWidth: frameSize == nil ? .infinity : nil)
+                .background(backgroundView(theme: theme))
                 .clipShape(RoundedRectangle(cornerRadius: 20))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.primary.opacity(0.3), lineWidth: 2)
-                )
-                .adaptiveShadow(radius: 5, x: 10, y: 10, intensity: 0.5)
+                .overlay(overlayView(theme: theme))
+                .shadow(color: Color.black.opacity(0.25), radius: 5, x: frameSize == nil ? 10 : 5, y: frameSize == nil ? 10 : 5)
+                .shadow(color: Color.black.opacity(0.15), radius: 3, x: 2, y: 2)
                 .padding()
-
-            Text("\(index + 1)")
-                .font(.caption)
-                .fontWeight(.bold)
-                .padding(8)
-                .background(.white)
-                .clipShape(Circle())
-                .offset(x: -25, y: 20)
-                .opacity(index == stepsCount - 1 ? 0 : 1)
+            
+            if showIndex, let index = index, let stepsCount = stepsCount {
+                indexView(index: index, stepsCount: stepsCount)
+            }
         }
+    }
+    
+    @ViewBuilder
+    private static func backgroundView(theme: AppTheme?) -> some View {
+        ZStack {
+            if let theme = theme {
+                theme.primaryColor.opacity(0.1)
+            } else {
+                Color.primary.opacity(0.1)
+            }
+            
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(.white)
+                .blur(radius: 4)
+                .offset(x: -8, y: -8)
+            
+            RoundedRectangle(cornerRadius: 20)
+                .fill(LinearGradient(
+                    gradient: Gradient(colors: [
+                        (theme?.gradientTopColor ?? Color.white.opacity(0.8)),
+                        Color.white
+                    ]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ))
+                .padding(2)
+        }
+    }
+    
+    @ViewBuilder
+    private static func overlayView(theme: AppTheme?) -> some View {
+        RoundedRectangle(cornerRadius: 20)
+            .stroke(
+                (theme?.primaryColor ?? Color.primary).opacity(theme != nil ? 0.6 : 0.3),
+                lineWidth: 2
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.black.opacity(0.1), lineWidth: 1)
+            )
+    }
+    
+    @ViewBuilder
+    private static func indexView(index: Int, stepsCount: Int) -> some View {
+        Text("\(index + 1)")
+            .font(.caption)
+            .fontWeight(.bold)
+            .padding(8)
+            .background(.white)
+            .clipShape(Circle())
+            .offset(x: -25, y: 20)
+            .opacity(index == stepsCount - 1 ? 0 : 1)
+    }
+}
+
+// MARK: - Модификаторы для изображений
+extension Image {
+    func styledImage(theme: AppTheme? = nil, showIndex: Bool = false, index: Int? = nil, stepsCount: Int? = nil, frameSize: CGSize? = nil) -> some View {
+        ImageStyleHelper.styledImage(
+            self,
+            theme: theme,
+            showIndex: showIndex,
+            index: index,
+            stepsCount: stepsCount,
+            frameSize: frameSize
+        )
+    }
+    
+    // Обратная совместимость
+    func styledImageWithIndex(index: Int, stepsCount: Int) -> some View {
+        styledImage(showIndex: true, index: index, stepsCount: stepsCount)
     }
     
     func styledImageWithIndexAndTheme(index: Int, stepsCount: Int, theme: AppTheme) -> some View {
-        ZStack(alignment: .topTrailing) {
-            self
-                .resizable()
-                .scaledToFit()
-                .padding(.bottom)
-                .clipShape(Circle())
-                .foregroundColor(.black)
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(
-                    ZStack {
-                        theme.primaryColor.opacity(0.1)
-                        
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.white)
-                            .blur(radius: 4)
-                            .offset(x: -8, y: -8)
-                        
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .padding(2)
-                    })
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(theme.primaryColor.opacity(0.6), lineWidth: 2)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.black.opacity(0.1), lineWidth: 1)
-                        )
-                )
-                .shadow(color: Color.black.opacity(0.25), radius: 5, x: 10, y: 10)
-                .shadow(color: Color.black.opacity(0.15), radius: 3, x: 2, y: 2)
-                .padding()
-
-            Text("\(index + 1)")
-                .font(.caption)
-                .fontWeight(.bold)
-                .padding(8)
-                .background(.white)
-                .clipShape(Circle())
-                .offset(x: -25, y: 20)
-                .opacity(index == stepsCount - 1 ? 0 : 1)
-        }
+        styledImage(theme: theme, showIndex: true, index: index, stepsCount: stepsCount)
     }
     
     func styledImageWithTheme() -> some View {
-        self
-            .resizable()
-            .scaledToFit()
-            .padding(.bottom, 10)
-            .clipShape(Circle())
-            .frame(width: 90, height: 90)
-            .padding(4)
-            .background(
-                ZStack {
-                    Color.primary.opacity(0.1)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.8), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-                })
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.primary.opacity(0.3), lineWidth: 2)
-            )
-            .adaptiveShadow(radius: 5, x: 5, y: 5, intensity: 0.7)
-            .shadow(color: Color.black.opacity(0.15), radius: 3, x: 2, y: 2)
+        styledImage(frameSize: CGSize(width: 90, height: 90))
     }
     
     func styledImageWithThemeColors(theme: AppTheme) -> some View {
-        self
-            .resizable()
-            .scaledToFit()
-            .padding(.bottom, 10)
-            .clipShape(Circle())
-            .frame(width: 90, height: 90)
-            .padding(4)
-            .background(
-                ZStack {
-                    theme.primaryColor.opacity(0.1)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-                })
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(theme.primaryColor.opacity(0.6), lineWidth: 2)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.black.opacity(0.1), lineWidth: 1)
-                    )
-            )
-            .shadow(color: Color.black.opacity(0.25), radius: 5, x: 5, y: 5)
-            .shadow(color: Color.black.opacity(0.15), radius: 3, x: 2, y: 2)
-    }
-    
-    func styledImage() -> some View {
-        self
-            .resizable()
-            .scaledToFit()
-            .padding(.bottom, 10)
-            .clipShape(Circle())
-            .frame(width: 90, height: 90)
-            .padding(4)
-            .background(
-                ZStack {
-                    Color.primary.opacity(0.1)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.8), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-                })
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .adaptiveShadow(radius: 5, x: 5, y: 5, intensity: 0.5)
+        styledImage(theme: theme, frameSize: CGSize(width: 90, height: 90))
     }
 }
 
 // MARK: - Модификаторы для текста
 struct StepTextModifier: ViewModifier {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
     
     private var dynamicFontSize: CGFloat {
         UIDevice.current.userInterfaceIdiom == .pad ? 58 : 38
@@ -241,7 +178,7 @@ struct StepTextModifier: ViewModifier {
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
-                    settings.selectedTheme.textBackgroundColor
+                    themeManager.selectedTheme.textBackgroundColor
                     
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
@@ -249,7 +186,7 @@ struct StepTextModifier: ViewModifier {
                         .offset(x: -8, y: -8)
                     
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [settings.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .padding(2)
                 })
             .clipShape(RoundedRectangle(cornerRadius: 20))

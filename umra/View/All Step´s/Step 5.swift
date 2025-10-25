@@ -9,23 +9,30 @@ import SwiftUI
 
 struct Step5: View {
     
-    @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var fontManager: FontManager
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
+    @Bindable private var bindableFontManager: FontManager
+    
+    init() {
+        // Инициализируем bindableFontManager
+        self._bindableFontManager = Bindable(FontManager())
+    }
     
     var body: some View {
         ZStack {
-            settings.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 VStack {
-                    Text("Return to the Black Stone.", bundle: settings.bundle)
+                    Text("Return to the Black Stone.", bundle: localizationManager.bundle)
                         .font(.custom("Lato-Black", size: 26))
                     Group {
                         
-                        Text("Return to the Black Stone, recite the Takbir.", bundle: settings.bundle)
+                        Text("Return to the Black Stone, recite the Takbir.", bundle: localizationManager.bundle)
                         Spacer()
                         
-                        Text("Allah is great.", bundle: settings.bundle)
+                        Text("Allah is great.", bundle: localizationManager.bundle)
                         Text("الله أكبر‎")
                             .customTextforArabic()
                         
@@ -38,17 +45,17 @@ struct Step5: View {
                 .padding(.horizontal, 10)
                 LanguageView()
                     .hidden()
-                    .navigationTitle(Text("title_black_stone_screen", bundle: settings.bundle))
+                    .navigationTitle(Text("title_black_stone_screen", bundle: localizationManager.bundle))
                     .navigationBarTitleDisplayMode(.inline)
             }
             .scrollBounceBehavior(.basedOnSize)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     CustomToolbar(
-                        selectedFont: $fontManager.selectedFont,
-                        fonts: fontManager.fonts
+                        selectedFont: $bindableFontManager.selectedFont,
+                        fonts: bindableFontManager.fonts
                     )
-                    .environmentObject(settings) 
+                    .environment(themeManager) 
                 }
             }
         }

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var fontManager: FontManager
-    @EnvironmentObject var purchaseManager: PurchaseManager
-    
-    @AppStorage("isGridView") private var isGridView: Bool = UIDevice.current.userInterfaceIdiom == .pad
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(UserPreferences.self) private var userPreferences
+    @Environment(FontManager.self) private var fontManager
+    @Environment(PurchaseManager.self) private var purchaseManager
     @State private var showPrayerTimes = false
     @State private var imageDescriptions: [String: String] = [
         "image 1": "title_ihram_screen",
@@ -26,7 +26,6 @@ struct ContentView: View {
     ]
     @State private var usageTime: TimeInterval = 0
     @State private var timer: Timer?
-    @AppStorage("hasRatedApp") private var hasRatedApp: Bool = false
     @Environment(\.requestReview) var requestReview
     
     let steps = [
@@ -52,7 +51,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            if settings.hasSelectedLanguage {
+            if localizationManager.hasSelectedLanguage {
                 mainContentView
                     .transition(
                         .asymmetric(
@@ -70,7 +69,7 @@ struct ContentView: View {
                     )
             }
         }
-        .animation(.spring(response: 0.4, dampingFraction: 0.75), value: settings.hasSelectedLanguage)
+        .animation(.spring(response: 0.4, dampingFraction: 0.75), value: localizationManager.hasSelectedLanguage)
         .onAppear(perform: startTimer)
         .onDisappear(perform: stopTimer)
     }
@@ -80,7 +79,7 @@ struct ContentView: View {
     private var mainContentView: some View {
         NavigationStack {
             ZStack {
-                settings.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea(edges: .bottom)
                 
                 ScrollView {
@@ -114,8 +113,8 @@ struct ContentView: View {
     
     /// Кнопка для переключения между списком и сеткой (не отображается на iPad)
     private var gridToggleButton: some View {
-        Button(action: { isGridView.toggle() }) {
-            Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2")
+        Button(action: { userPreferences.isGridView.toggle() }) {
+            Image(systemName: userPreferences.isGridView ? "list.bullet" : "square.grid.2x2")
                 .imageScale(.large)
                 .foregroundColor(.primary)
         }
@@ -124,7 +123,7 @@ struct ContentView: View {
     /// Отображение контента в виде сетки или списка
     @ViewBuilder
     private var content: some View {
-        if isGridView {
+        if userPreferences.isGridView {
             LazyVGrid(columns: gridColumns, spacing: 20) {
                 stepsView(showIndex: true, fontSize: dynamicFontSize)
             }
@@ -168,7 +167,7 @@ struct ContentView: View {
     
     /// Запуск таймера для запроса отзыва
     private func startTimer() {
-        guard !hasRatedApp else { return }
+        guard !userPreferences.hasRatedApp else { return }
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             usageTime += 1
             if usageTime >= 300 {
@@ -186,9 +185,9 @@ struct ContentView: View {
     
     /// Запрос отзыва, если это необходимо
     private func requestReviewIfNeeded() {
-        guard !hasRatedApp else { return }
+        guard !userPreferences.hasRatedApp else { return }
         requestReview()
-        hasRatedApp = true
+        userPreferences.hasRatedApp = true
     }
 }
 
@@ -196,14 +195,15 @@ struct ContentView: View {
 private struct StepRow: View {
     var step: (String, AnyView, String)
     var index: Int
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
     
     var body: some View {
         HStack(spacing: 15) {
             Image(step.0)
-                .styledImageWithThemeColors(theme: settings.selectedTheme)
+                .styledImageWithThemeColors(theme: themeManager.selectedTheme)
             VStack(alignment: .leading, spacing: 5) {
-                Text(LocalizedStringKey(step.2), bundle: settings.bundle)
+                Text(LocalizedStringKey(step.2), bundle: localizationManager.bundle)
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(.black)
             }
@@ -214,7 +214,7 @@ private struct StepRow: View {
                 .frame(width: 24, height: 24)
                 .background(
                     Circle()
-                        .fill(settings.selectedTheme.primaryColor.opacity(0.3))
+                        .fill(themeManager.selectedTheme.primaryColor.opacity(0.3))
                         .overlay(
                             Circle()
                                 .stroke(Color.black.opacity(0.1), lineWidth: 1)
@@ -239,9 +239,11 @@ private struct StepRow: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(UserSettings())
-            .environmentObject(FontManager())
-            .environmentObject(PurchaseManager())
+            .environment(ThemeManager())
+            .environment(LocalizationManager())
+            .environment(UserPreferences())
+            .environment(FontManager())
+            .environment(PurchaseManager())
     }
 }
 

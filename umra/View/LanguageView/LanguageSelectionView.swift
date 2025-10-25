@@ -24,7 +24,8 @@ let languages: [Language] = [
 ]
 
 struct LanguageSelectionView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
 
     var body: some View {
         GeometryReader { geo in
@@ -95,8 +96,8 @@ struct LanguageSelectionView: View {
     }
 
     private func selectLanguage(_ lang: String) {
-        settings.lang = lang
-        settings.hasSelectedLanguage = true
+        localizationManager.currentLanguage = lang
+        localizationManager.hasSelectedLanguage = true
     }
 }
 

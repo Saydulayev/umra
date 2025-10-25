@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Foundation
 
 
 
     struct CustomToolbar: View {
         @Binding var selectedFont: String
-        @EnvironmentObject var settings: UserSettings
+        @Environment(ThemeManager.self) private var themeManager
         var fonts: [String]
 
         var body: some View {
