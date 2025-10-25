@@ -108,6 +108,24 @@ enum AppTheme: String, CaseIterable {
             return Color(#colorLiteral(red: 0.94, green: 0.98, blue: 0.98, alpha: 1))
         }
     }
+    
+    // Мягкие цвета для превью в выборе темы
+    var previewColor: Color {
+        switch self {
+        case .blue:
+            // Небесная тема - мягкий голубой для превью
+            return Color(#colorLiteral(red: 0.5, green: 0.7, blue: 0.9, alpha: 1))
+        case .green:
+            // Оазис тема - мягкий зеленый для превью
+            return Color(#colorLiteral(red: 0.4, green: 0.7, blue: 0.5, alpha: 1))
+        case .gold:
+            // Золотая тема - мягкий золотой для превью
+            return Color(#colorLiteral(red: 0.8, green: 0.7, blue: 0.3, alpha: 1))
+        case .turquoise:
+            // Бирюзовая тема - мягкий бирюзовый для превью
+            return Color(#colorLiteral(red: 0.3, green: 0.7, blue: 0.7, alpha: 1))
+        }
+    }
 }
 
 // MARK: - Extensions for Localization

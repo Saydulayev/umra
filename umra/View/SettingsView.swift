@@ -159,9 +159,9 @@ struct ThemePreviewView: View {
                                 dismiss()
                             }) {
                                 HStack(spacing: 16) {
-                                    // Простой цветной кружок
+                                    // Мягкий цветной кружок для превью
                                     Circle()
-                                        .fill(theme.primaryColor)
+                                        .fill(theme.previewColor)
                                         .frame(width: 50, height: 50)
                                     
                                     Text(theme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
