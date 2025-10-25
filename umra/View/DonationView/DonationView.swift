@@ -26,7 +26,7 @@ struct DonationView: View {
                         .foregroundStyle(.black)
                     Spacer()
                 }
-                .customTextStyle()
+                .customTextStyleWithTheme()
             }
             .sheet(isPresented: $showingSheet) {
                 DonationSheetView(isPresented: $showingSheet, isPurchased: $isPurchased)

@@ -79,7 +79,8 @@ struct ContentView: View {
     private var mainContentView: some View {
         NavigationStack {
             ZStack {
-                themeManager.selectedTheme.lightBackgroundColor
+                // Применяем тему к фону, но сохраняем оригинальный вид
+                themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea(edges: .bottom)
                 
                 ScrollView {
@@ -214,11 +215,7 @@ private struct StepRow: View {
                 .frame(width: 24, height: 24)
                 .background(
                     Circle()
-                        .fill(themeManager.selectedTheme.primaryColor.opacity(0.3))
-                        .overlay(
-                            Circle()
-                                .stroke(Color.black.opacity(0.1), lineWidth: 1)
-                        )
+                        .fill(Color.blue.opacity(0.1))
                 )
         }
         .padding(.vertical, 12)
@@ -226,12 +223,7 @@ private struct StepRow: View {
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color.white)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color.black.opacity(0.08), lineWidth: 1)
-                )
-                .shadow(color: Color.black.opacity(0.15), radius: 8, x: 0, y: 2)
-                .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
+                .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 2)
         )
     }
 }

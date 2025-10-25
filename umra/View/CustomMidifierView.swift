@@ -40,122 +40,128 @@ extension View {
     }
 }
 
-// MARK: - Unified Image Style Helper
-struct ImageStyleHelper {
-    static func styledImage(
-        _ image: Image,
-        theme: AppTheme? = nil,
-        showIndex: Bool = false,
-        index: Int? = nil,
-        stepsCount: Int? = nil,
-        frameSize: CGSize? = nil
-    ) -> some View {
-        ZStack(alignment: showIndex ? .topTrailing : .center) {
-            image
+// MARK: - Восстановленные оригинальные модификаторы изображений
+extension Image {
+    func styledImageWithIndex(index: Int, stepsCount: Int) -> some View {
+        ZStack(alignment: .topTrailing) {
+            self
                 .resizable()
                 .scaledToFit()
-                .padding(.bottom, frameSize == nil ? 10 : 0)
+                .padding(.bottom)
                 .clipShape(Circle())
                 .foregroundColor(.black)
                 .padding()
-                .frame(width: frameSize?.width, height: frameSize?.height)
-                .frame(maxWidth: frameSize == nil ? .infinity : nil)
-                .background(backgroundView(theme: theme))
+                .frame(maxWidth: .infinity)
+                .background(
+                    ZStack {
+                        Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.white)
+                            .blur(radius: 4)
+                            .offset(x: -8, y: -8)
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8956587315, green: 0.9328896403, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .padding(2)
+                    })
                 .clipShape(RoundedRectangle(cornerRadius: 20))
-                .overlay(overlayView(theme: theme))
-                .shadow(color: Color.black.opacity(0.25), radius: 5, x: frameSize == nil ? 10 : 5, y: frameSize == nil ? 10 : 5)
-                .shadow(color: Color.black.opacity(0.15), radius: 3, x: 2, y: 2)
+                .adaptiveShadow(radius: 5, x: 10, y: 10, intensity: 0.5)
                 .padding()
             
-            if showIndex, let index = index, let stepsCount = stepsCount {
-                indexView(index: index, stepsCount: stepsCount)
-            }
+            Text("\(index + 1)")
+                .font(.caption)
+                .fontWeight(.bold)
+                .padding(8)
+                .background(.white)
+                .clipShape(Circle())
+                .offset(x: -25, y: 20)
+                .opacity(index == stepsCount - 1 ? 0 : 1)
         }
     }
     
-    @ViewBuilder
-    private static func backgroundView(theme: AppTheme?) -> some View {
-        ZStack {
-            if let theme = theme {
-                theme.primaryColor.opacity(0.1)
-            } else {
-                Color.primary.opacity(0.1)
-            }
-            
-            RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(.white)
-                .blur(radius: 4)
-                .offset(x: -8, y: -8)
-            
-            RoundedRectangle(cornerRadius: 20)
-                .fill(LinearGradient(
-                    gradient: Gradient(colors: [
-                        (theme?.gradientTopColor ?? Color.white.opacity(0.8)),
-                        Color.white
-                    ]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                ))
-                .padding(2)
-        }
-    }
-    
-    @ViewBuilder
-    private static func overlayView(theme: AppTheme?) -> some View {
-        RoundedRectangle(cornerRadius: 20)
-            .stroke(
-                (theme?.primaryColor ?? Color.primary).opacity(theme != nil ? 0.6 : 0.3),
-                lineWidth: 2
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.black.opacity(0.1), lineWidth: 1)
-            )
-    }
-    
-    @ViewBuilder
-    private static func indexView(index: Int, stepsCount: Int) -> some View {
-        Text("\(index + 1)")
-            .font(.caption)
-            .fontWeight(.bold)
-            .padding(8)
-            .background(.white)
+    func styledImage() -> some View {
+        self
+            .resizable()
+            .scaledToFit()
+            .padding(.bottom, 10)
             .clipShape(Circle())
-            .offset(x: -25, y: 20)
-            .opacity(index == stepsCount - 1 ? 0 : 1)
-    }
-}
-
-// MARK: - Модификаторы для изображений
-extension Image {
-    func styledImage(theme: AppTheme? = nil, showIndex: Bool = false, index: Int? = nil, stepsCount: Int? = nil, frameSize: CGSize? = nil) -> some View {
-        ImageStyleHelper.styledImage(
-            self,
-            theme: theme,
-            showIndex: showIndex,
-            index: index,
-            stepsCount: stepsCount,
-            frameSize: frameSize
-        )
-    }
-    
-    // Обратная совместимость
-    func styledImageWithIndex(index: Int, stepsCount: Int) -> some View {
-        styledImage(showIndex: true, index: index, stepsCount: stepsCount)
+            .frame(width: 90, height: 90)
+            .padding(4)
+            .background(
+                ZStack {
+                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(.white)
+                        .blur(radius: 4)
+                        .offset(x: -8, y: -8)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .padding(2)
+                })
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .adaptiveShadow(radius: 5, x: 5, y: 5, intensity: 0.5)
     }
     
+    // Методы для совместимости с StepView с поддержкой тем
     func styledImageWithIndexAndTheme(index: Int, stepsCount: Int, theme: AppTheme) -> some View {
-        styledImage(theme: theme, showIndex: true, index: index, stepsCount: stepsCount)
-    }
-    
-    func styledImageWithTheme() -> some View {
-        styledImage(frameSize: CGSize(width: 90, height: 90))
+        ZStack(alignment: .topTrailing) {
+            self
+                .resizable()
+                .scaledToFit()
+                .padding(.bottom)
+                .clipShape(Circle())
+                .foregroundColor(.black)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(
+                    ZStack {
+                        theme.primaryColor.opacity(0.1)
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.white)
+                            .blur(radius: 4)
+                            .offset(x: -8, y: -8)
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .padding(2)
+                    })
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .adaptiveShadow(radius: 5, x: 10, y: 10, intensity: 0.5)
+                .padding()
+            
+            Text("\(index + 1)")
+                .font(.caption)
+                .fontWeight(.bold)
+                .padding(8)
+                .background(.white)
+                .clipShape(Circle())
+                .offset(x: -25, y: 20)
+                .opacity(index == stepsCount - 1 ? 0 : 1)
+        }
     }
     
     func styledImageWithThemeColors(theme: AppTheme) -> some View {
-        styledImage(theme: theme, frameSize: CGSize(width: 90, height: 90))
+        self
+            .resizable()
+            .scaledToFit()
+            .padding(.bottom, 10)
+            .clipShape(Circle())
+            .frame(width: 90, height: 90)
+            .padding(4)
+            .background(
+                ZStack {
+                    theme.primaryColor.opacity(0.1)
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(.white)
+                        .blur(radius: 4)
+                        .offset(x: -8, y: -8)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .padding(2)
+                })
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .adaptiveShadow(radius: 5, x: 5, y: 5, intensity: 0.5)
     }
 }
+
 
 // MARK: - Модификаторы для текста
 struct StepTextModifier: ViewModifier {
@@ -179,12 +185,10 @@ struct StepTextModifier: ViewModifier {
             .background(
                 ZStack {
                     themeManager.selectedTheme.textBackgroundColor
-                    
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
-                    
                     RoundedRectangle(cornerRadius: 20)
                         .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .padding(2)
@@ -201,6 +205,33 @@ extension View {
     }
 }
 
+// MARK: - Модификатор для кнопок в настройках с поддержкой тем
+struct CustomTextStyleWithThemeModifier: ViewModifier {
+    @Environment(ThemeManager.self) private var themeManager
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 18, weight: .medium, design: .default))
+            .foregroundColor(.black)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(
+                ZStack {
+                    themeManager.selectedTheme.primaryColor.opacity(0.1)
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(.white)
+                        .blur(radius: 4)
+                        .offset(x: -8, y: -8)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomLeading))
+                        .padding(2)
+                })
+            .adaptiveShadow(radius: 20, x: 20, y: 20, intensity: 0.5)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .padding(.vertical, 5)
+    }
+}
+
 extension View {
     func customTextStyle() -> some View {
         self
@@ -210,19 +241,22 @@ extension View {
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
-                    Color.primary.opacity(0.1)
-                    
+                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
-                    
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.8), Color.white]), startPoint: .topLeading, endPoint: .bottomLeading))
+                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomLeading))
                         .padding(2)
                 })
             .adaptiveShadow(radius: 20, x: 20, y: 20, intensity: 0.5)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .padding(.vertical, 5)
+    }
+    
+    // Новый модификатор с поддержкой тем для кнопок в настройках
+    func customTextStyleWithTheme() -> some View {
+        self.modifier(CustomTextStyleWithThemeModifier())
     }
 }

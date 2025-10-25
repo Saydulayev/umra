@@ -39,7 +39,7 @@ struct SettingsView: View {
                                 .foregroundColor(.black)
                             Spacer()
                         }
-                        .customTextStyle()
+                        .customTextStyleWithTheme()
                     }
                     
                     // Rate the App Button
@@ -53,7 +53,7 @@ struct SettingsView: View {
                                 .foregroundColor(.black)
                             Spacer()
                         }
-                        .customTextStyle()
+                        .customTextStyleWithTheme()
                     }
                     
                     // Support View
@@ -70,7 +70,7 @@ struct SettingsView: View {
                                 .foregroundColor(.black)
                             Spacer()
                         }
-                        .customTextStyle()
+                        .customTextStyleWithTheme()
                     }
                     
                     // Language Selection
@@ -95,7 +95,7 @@ struct SettingsView: View {
                                     .font(.system(size: 14))
                             }
                         }
-                        .customTextStyle()
+                        .customTextStyleWithTheme()
                     }
                     
                     Spacer()

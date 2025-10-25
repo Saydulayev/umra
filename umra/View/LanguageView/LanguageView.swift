@@ -26,7 +26,7 @@ struct LanguageView: View {
                         .foregroundColor(.black)
                     Spacer()
                 }
-                .customTextStyle()
+                .customTextStyleWithTheme()
             }
             .actionSheet(isPresented: $showingActionSheet) {
                 ActionSheet(title: Text("select_language_settings_string", bundle: localizationManager.bundle)
