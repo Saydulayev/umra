@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-
 struct Step1: View {
-    
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(FontManager.self) private var fontManager
@@ -31,18 +29,17 @@ struct Step1: View {
         ZStack {
             themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
+            
             ScrollView {
                 VStack {
                     Text("into the state of Ihram", bundle: localizationManager.bundle)
-                    
                         .font(.custom("Lato-Black", size: 26))
+                    
                     Group {
-                        
                         Text("When entering the state of Ihram, say:", bundle: localizationManager.bundle)
                         
-                        
                         Text("""
-   لَبَّيْكَ اللَّهُمَّ بِعُمْرَةَ
+   لَبَّيْكَ اللَّهُمَّ بِعُمْرَةَ
    """)
                         .customTextforArabic()
                         
@@ -50,87 +47,39 @@ struct Step1: View {
                         
                         Text("Turn your face towards the Qiblah and say:", bundle: localizationManager.bundle)
                         
-                        
                         Text("""
-اَللُّهُمَّ هَذِهِ عُمْرَةً لاٰ رِيَاءَ فِيهَا وَلَا سُمْعَةَ
+اَللُّهُمَّ هَذِهِ عُمْرَةً لاٰ رِيَاءَ فِيهَا وَلَا سُمْعَةَ
 """)
-                        
                         .customTextforArabic()
                         
                         PlayerView(fileName: "2")
                         
-                        Text("O Allah, this Umrah is without any ostentation or fame", bundle: localizationManager.bundle)
+                        Text("Turn your face towards the Qiblah and say:", bundle: localizationManager.bundle)
                         
-                    }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
-                    
-                    
-                    
-                    Group {
                         Text("""
-                        لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ،
-                        إِنَّ الْحَمْدَ، وَالنِّعْمَةَ، لَكَ وَالْمُلْكَ، لاَ شَرِيكَ لَكَ
-                        """)
+اَللُّهُمَّ هَذِهِ عُمْرَةً لاٰ رِيَاءَ فِيهَا وَلَا سُمْعَةَ
+""")
                         .customTextforArabic()
                         
                         PlayerView(fileName: "3")
                         
-                        Text("Labbayka Allahumma labbayk", bundle: localizationManager.bundle)
+                        Text("Turn your face towards the Qiblah and say:", bundle: localizationManager.bundle)
                         
-                        
-                        Text("Entering the Sacred Mosque from the right foot", bundle: localizationManager.bundle)
-                        Group {
-                            Text("""
-    اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَ سَلِّمْ،اَللَّهُمَّ افْتَحْ لِي اَبْوَابَ رَحْمَتِكَ
-    """)
-                            .customTextforArabic()
-                            
-                            PlayerView(fileName: "4")
-                            
-                            
-                            
-                            
-                            Text("entering the Sacred Mosque", bundle: localizationManager.bundle)
-                            Text("Conditioning for Hajj or Umrah.", bundle: localizationManager.bundle)
-                                .font(.custom("Lato-Black", size: 26))
-                            
-                            Text("If a pilgrim fears that some reason may prevent them from completing the Hajj", bundle: localizationManager.bundle)
-                            Text("""
-                         اَللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي
-                         """)
-                            .customTextforArabic()
-                            
-                            PlayerView(fileName: "5")
-                        }
-                        
-                        Text("Ihram text1", bundle: localizationManager.bundle)
-                        
-                        // Раздел для умры за родителей
-                        Text("Umrah for parents", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
-                            .padding(.top, 20)
-                            .padding(.bottom, 10)
-                        
-                        Text("Umrah for parents explanation", bundle: localizationManager.bundle)
-                        
-                        // Тальбия за отца
                         Text("""
-لَبَّيْكَ اللَّهُمَّ بِعُمْرَةٍ عَنْ أَبِي
+اَللُّهُمَّ هَذِهِ عُمْرَةً لاٰ رِيَاءَ فِيهَا وَلَا سُمْعَةَ
 """)
                         .customTextforArabic()
                         
-                        Text("Umrah for father", bundle: localizationManager.bundle)
-                            .padding(.top, 10)
+                        PlayerView(fileName: "4")
                         
-                        // Тальбия за мать
+                        Text("Turn your face towards the Qiblah and say:", bundle: localizationManager.bundle)
+                        
                         Text("""
-لَبَّيْكَ اللَّهُمَّ بِعُمْرَةٍ عَنْ أُمِّي
+اَللُّهُمَّ هَذِهِ عُمْرَةً لاٰ رِيَاءَ فِيهَا وَلَا سُمْعَةَ
 """)
                         .customTextforArabic()
                         
-                        Text("Umrah for mother", bundle: localizationManager.bundle)
-                            .padding(.top, 10)
-                        
+                        PlayerView(fileName: "5")
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                 }
@@ -138,9 +87,9 @@ struct Step1: View {
                 .padding(.horizontal, 10)
                 LanguageView()
                     .hidden()
+                    .navigationTitle(Text("title_ihram_screen", bundle: localizationManager.bundle))
+                    .navigationBarTitleDisplayMode(.inline)
             }
-            .navigationTitle(Text("title_ihram_screen", bundle: localizationManager.bundle))
-            .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 syncFontManager()
             }
@@ -159,5 +108,3 @@ struct Step1: View {
         }
     }
 }
-
-

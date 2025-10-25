@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Step7: View {
-    
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(FontManager.self) private var fontManager
@@ -30,20 +29,18 @@ struct Step7: View {
         ZStack {
             themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
+            
             ScrollView {
                 VStack {
                     Text("Shaving the head string", bundle: localizationManager.bundle)
                         .font(.custom("Lato-Black", size: 26))
+                    
                     Group {
-                        
                         Text("Men shorten or shave their hair.", bundle: localizationManager.bundle)
                         Text("Du'a at the end.", bundle: localizationManager.bundle)
-                        
-                        
-                        
-                        
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    
                     Text("""
 
  ⵈ━══════╗◊╔══════━ⵈ

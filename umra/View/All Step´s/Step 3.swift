@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Step3: View {
-    
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(FontManager.self) private var fontManager
@@ -30,27 +29,26 @@ struct Step3: View {
         ZStack {
             themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
+            
             ScrollView {
                 VStack {
                     Text("Prayer after Tawaf of Kaaba.", bundle: localizationManager.bundle)
                         .font(.custom("Lato-Black", size: 26))
+                    
                     Group {
-                        
                         Text("Having completed seven circuits around the Kaaba", bundle: localizationManager.bundle)
                         
                         Text("""
-                        وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّ
+                        وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّ
                         """)
                         .customTextforArabic()
                         
                         PlayerView(fileName: "13")
-                        
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     
                     Group {
                         Text("Place of standing of Ibrahim", bundle: localizationManager.bundle)
-                        
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                 }

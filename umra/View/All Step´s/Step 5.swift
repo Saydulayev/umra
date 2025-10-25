@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Step5: View {
-    
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(FontManager.self) private var fontManager
@@ -30,12 +29,13 @@ struct Step5: View {
         ZStack {
             themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
+            
             ScrollView {
                 VStack {
                     Text("Return to the Black Stone.", bundle: localizationManager.bundle)
                         .font(.custom("Lato-Black", size: 26))
+                    
                     Group {
-                        
                         Text("Return to the Black Stone, recite the Takbir.", bundle: localizationManager.bundle)
                         Spacer()
                         
@@ -44,7 +44,6 @@ struct Step5: View {
                             .customTextforArabic()
                         
                         PlayerView(fileName: "6")
-                        
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                 }
@@ -74,4 +73,3 @@ struct Step5: View {
         }
     }
 }
-
