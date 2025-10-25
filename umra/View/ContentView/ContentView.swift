@@ -230,7 +230,7 @@ private struct StepRow: View {
                     RoundedRectangle(cornerRadius: 16)
                         .stroke(Color.black.opacity(0.08), lineWidth: 1)
                 )
-                .shadow(color: settings.selectedTheme.primaryColor.opacity(0.3), radius: 8, x: 0, y: 2)
+                .shadow(color: Color.black.opacity(0.15), radius: 8, x: 0, y: 2)
                 .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
         )
     }

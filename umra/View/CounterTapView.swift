@@ -121,7 +121,7 @@ struct CounterTapView: View {
                                     
                                 })
                             .clipShape(RoundedRectangle(cornerRadius: 20))
-                            .shadow(color: settings.selectedTheme.primaryColor.opacity(0.3), radius: 20, x: 20, y: 20)
+                            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
                     }
                     
                     Button(action: {
@@ -147,7 +147,7 @@ struct CounterTapView: View {
                                     
                                 })
                             .clipShape(RoundedRectangle(cornerRadius: 20))
-                            .shadow(color: settings.selectedTheme.primaryColor.opacity(0.3), radius: 20, x: 20, y: 20)
+                            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
                     }
                 }
             }

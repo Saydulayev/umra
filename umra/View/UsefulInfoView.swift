@@ -342,7 +342,7 @@ extension View {
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Color.black.opacity(0.1), lineWidth: 1)
             )
-            .shadow(color: theme.primaryColor.opacity(0.3), radius: 20, x: 20, y: 20)
+            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
             .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }

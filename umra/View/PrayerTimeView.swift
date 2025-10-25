@@ -423,7 +423,7 @@ extension View {
                 .stroke(Color.black.opacity(0.08), lineWidth: 1)
         )
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: theme.primaryColor.opacity(0.3), radius: 20, x: 20, y: 20)
+        .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
         .shadow(color: Color.black.opacity(0.06), radius: 3, x: 0, y: 2)
         .padding(.vertical, 40)
         
@@ -454,7 +454,7 @@ extension View {
                     .stroke(Color.black.opacity(0.08), lineWidth: 1)
             )
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(color: theme.primaryColor.opacity(0.3), radius: 20, x: 20, y: 20)
+            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
             .shadow(color: Color.black.opacity(0.06), radius: 3, x: 0, y: 2)
             .padding()
     }

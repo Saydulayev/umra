@@ -178,7 +178,7 @@ struct ThemePreviewView: View {
                                 .background(
                                     RoundedRectangle(cornerRadius: 12)
                                         .fill(Color.white)
-                                        .shadow(color: theme.primaryColor.opacity(0.2), radius: 8, x: 0, y: 4)
+                                        .shadow(color: Color.black.opacity(0.15), radius: 8, x: 0, y: 4)
                                 )
                             }
                             .buttonStyle(PlainButtonStyle())
