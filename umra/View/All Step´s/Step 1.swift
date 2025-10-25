@@ -54,32 +54,47 @@ struct Step1: View {
                         
                         PlayerView(fileName: "2")
                         
-                        Text("Turn your face towards the Qiblah and say:", bundle: localizationManager.bundle)
-                        
+                        Text("O Allah, this Umrah is without any ostentation or fame", bundle: localizationManager.bundle)
+                    }
+                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    
+                    Group {
                         Text("""
-اَللُّهُمَّ هَذِهِ عُمْرَةً لاٰ رِيَاءَ فِيهَا وَلَا سُمْعَةَ
+لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ،
+إِنَّ الْحَمْدَ، وَالنِّعْمَةَ، لَكَ وَالْمُلْكَ، لاَ شَرِيكَ لَكَ
 """)
                         .customTextforArabic()
                         
                         PlayerView(fileName: "3")
                         
-                        Text("Turn your face towards the Qiblah and say:", bundle: localizationManager.bundle)
+                        Text("Labbayka Allahumma labbayk", bundle: localizationManager.bundle)
                         
-                        Text("""
-اَللُّهُمَّ هَذِهِ عُمْرَةً لاٰ رِيَاءَ فِيهَا وَلَا سُمْعَةَ
+                        Text("Entering the Sacred Mosque from the right foot", bundle: localizationManager.bundle)
+                        
+                        Group {
+                            Text("""
+اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَ سَلِّمْ،اَللَّهُمَّ افْتَحْ لِي اَبْوَابَ رَحْمَتِكَ
 """)
-                        .customTextforArabic()
-                        
-                        PlayerView(fileName: "4")
-                        
-                        Text("Turn your face towards the Qiblah and say:", bundle: localizationManager.bundle)
-                        
-                        Text("""
-اَللُّهُمَّ هَذِهِ عُمْرَةً لاٰ رِيَاءَ فِيهَا وَلَا سُمْعَةَ
+                            .customTextforArabic()
+                            
+                            PlayerView(fileName: "4")
+                            
+                            Text("entering the Sacred Mosque", bundle: localizationManager.bundle)
+                            
+                            Text("Conditioning for Hajj or Umrah.", bundle: localizationManager.bundle)
+                                .font(.custom("Lato-Black", size: 26))
+                            
+                            Text("If a pilgrim fears that some reason may prevent them from completing the Hajj", bundle: localizationManager.bundle)
+                            
+                            Text("""
+اَللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي
 """)
-                        .customTextforArabic()
+                            .customTextforArabic()
+                            
+                            PlayerView(fileName: "5")
+                        }
                         
-                        PlayerView(fileName: "5")
+                        Text("Ihram text1", bundle: localizationManager.bundle)
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                 }
