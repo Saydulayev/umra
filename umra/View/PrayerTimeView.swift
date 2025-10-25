@@ -87,14 +87,14 @@ struct PrayerTimeView: View {
             .onDisappear {
                 timer.upstream.connect().cancel()
             }
-            .onChange(of: enable30MinNotifications) { _ in
+            .onChange(of: enable30MinNotifications) {
                 updateNotifications()
             }
-            .onChange(of: enablePrayerTimeNotifications) { _ in
+            .onChange(of: enablePrayerTimeNotifications) {
                 updateNotifications()
             }
             // ↓ Добавлено, чтобы пересоздавать уведомления при изменении тумблера Sunrise
-            .onChange(of: enableSunriseNotifications) { _ in
+            .onChange(of: enableSunriseNotifications) {
                 updateNotifications()
             }
         }

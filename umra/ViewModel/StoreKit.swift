@@ -10,6 +10,11 @@ import StoreKit
 import OSLog
 
 @available(iOS 17.0, *)
+final class TaskHolder: @unchecked Sendable {
+    var task: Task<Void, Never>?
+}
+
+@available(iOS 17.0, *)
 @MainActor
 @Observable
 class PurchaseManager {
@@ -25,12 +30,12 @@ class PurchaseManager {
     ]
     
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.example.app", category: "PurchaseManager")
-    private var updateListenerTask: Task<Void, Never>? = nil
+    private let updateListenerTask = TaskHolder()
 
     init() {
         logger.info("PurchaseManager initialized")
-        updateListenerTask = listenForTransactions()
-        Task {
+        updateListenerTask.task = listenForTransactions()
+        Task { @MainActor in
             logger.debug("Starting product request")
             await loadProducts()
             logger.debug("Product request completed")
@@ -39,9 +44,7 @@ class PurchaseManager {
     
     deinit {
         logger.info("PurchaseManager deinitializing")
-        Task { @MainActor in
-            updateListenerTask?.cancel()
-        }
+        updateListenerTask.task?.cancel()
     }
     
     /// Загрузка продуктов из App Store
@@ -64,14 +67,9 @@ class PurchaseManager {
                 logger.debug("Received transaction update")
                 do {
                     let transaction = try checkVerified(result)
+                    // Просто завершаем транзакцию, так как purchase() уже обработал покупку
                     await transaction.finish()
-                    logger.info("✅ Transaction completed successfully: \(String(describing: transaction))")
-                    // Находим продукт по идентификатору и добавляем в список завершённых покупок
-                    if let product = availableDonations.first(where: { $0.id == transaction.productID }) {
-                        completedDonations.append(product)
-                    } else {
-                        logger.warning("Product for transaction \(transaction.productID, privacy: .public) not found")
-                    }
+                    logger.info("✅ Transaction finalized: \(transaction.productID, privacy: .public)")
                 } catch {
                     logger.error("❌ Transaction verification failed: \(error.localizedDescription, privacy: .public)")
                 }
@@ -91,7 +89,11 @@ class PurchaseManager {
                     await transaction.finish()
                     logger.info("✅ Purchase of \(product.displayName, privacy: .public) completed successfully")
                     // Добавляем успешно купленный продукт в список завершённых покупок
+                    // Для одноразовых пожертвований просто добавляем каждый продукт
+                    // Пользователь может жертвовать сколько угодно раз
                     completedDonations.append(product)
+                    logger.info("✅ Product \(product.id, privacy: .public) added to completed donations")
+                    logger.info("Total completed donations: \(self.completedDonations.count, privacy: .public)")
                 } catch {
                     logger.error("❌ Verification error after purchase for \(product.displayName, privacy: .public): \(error.localizedDescription, privacy: .public)")
                     throw PurchaseError.verificationFailed
