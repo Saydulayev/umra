@@ -10,6 +10,7 @@ import SwiftUI
 struct CounterTapView: View {
     @EnvironmentObject var settings: UserSettings
     @AppStorage("add_string") private var counter = 0
+    @State private var showCelebration = false
     
     var body: some View {
         ZStack {
@@ -22,9 +23,77 @@ struct CounterTapView: View {
                 }
                 
                 if counter == 7 {
-                    Text("Sa´y finished_string", bundle: settings.bundle)
-                        .foregroundColor(.green)
-                        .font(.title.bold())
+                    VStack(spacing: 12) {
+                        // Иконка галочки в круге
+                        ZStack {
+                            Circle()
+                                .fill(LinearGradient(
+                                    gradient: Gradient(colors: [Color.green.opacity(0.8), Color.mint]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                ))
+                                .frame(width: 70, height: 70)
+                                .shadow(color: .green.opacity(0.5), radius: 15, x: 0, y: 5)
+                            
+                            Image(systemName: "checkmark")
+                                .font(.system(size: 35, weight: .bold))
+                                .foregroundColor(.white)
+                        }
+                        .scaleEffect(showCelebration ? 1.0 : 0.5)
+                        .opacity(showCelebration ? 1.0 : 0.0)
+                        
+                        // Текст с градиентом и свечением
+                        Text("Sa´y finished_string", bundle: settings.bundle)
+                            .font(.system(size: 28, weight: .bold, design: .rounded))
+                            .foregroundStyle(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [
+                                        Color.green,
+                                        Color.mint
+                                    ]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
+                            .shadow(color: .green.opacity(0.6), radius: 8, x: 0, y: 3)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 12)
+                            .background(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(
+                                        LinearGradient(
+                                            gradient: Gradient(colors: [
+                                                Color.white.opacity(0.4),
+                                                Color.white.opacity(0.2)
+                                            ]),
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        )
+                                    )
+                                    .shadow(color: .white.opacity(0.3), radius: 10, x: 0, y: 5)
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(
+                                        LinearGradient(
+                                            gradient: Gradient(colors: [
+                                                Color.green.opacity(0.5),
+                                                Color.mint.opacity(0.3)
+                                            ]),
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ),
+                                        lineWidth: 2
+                                    )
+                            )
+                            .scaleEffect(showCelebration ? 1.0 : 0.8)
+                            .opacity(showCelebration ? 1.0 : 0.0)
+                    }
+                    .onAppear {
+                        withAnimation(.spring(response: 0.6, dampingFraction: 0.7)) {
+                            showCelebration = true
+                        }
+                    }
                 }
                 
                 HStack(spacing: 20) {
