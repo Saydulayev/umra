@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: - Адаптивные модификаторы теней
 private struct AdaptiveShadowModifier: ViewModifier {
-    @Environment(\.colorScheme) private var scheme
     @Environment(ThemeManager.self) private var themeManager
     let radius: CGFloat
     let x: CGFloat
@@ -18,12 +17,9 @@ private struct AdaptiveShadowModifier: ViewModifier {
     let intensity: Double
 
     private var shadowColor: Color {
-        if scheme == .dark {
-            return Color.black.opacity(intensity == 0 ? 0 : min(max(intensity, 0.0), 1.0) * 0.55)
-        } else {
-            return themeManager.selectedTheme.primaryColor
-                .opacity(intensity == 0 ? 0 : min(max(intensity, 0.0), 1.0))
-        }
+        // Всегда используем черный цвет с прозрачностью как в темной теме
+        // Это обеспечивает одинаковый вид теней независимо от системной темы
+        return Color.black.opacity(intensity == 0 ? 0 : min(max(intensity, 0.0), 1.0) * 0.55)
     }
 
     func body(content: Content) -> some View {

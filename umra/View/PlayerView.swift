@@ -63,18 +63,14 @@ struct PlayerView: View {
     let fileName: String
 
     @StateObject private var coordinator = Coordinator()
-    @Environment(\.colorScheme) private var colorScheme
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
 
-    // Адаптивный цвет тени под тему
+    // Цвет тени - всегда как в темной теме, независимо от системной темы
     private func adaptiveShadowColor(intensity: Double = 0.5) -> Color {
         let clamped = min(max(intensity, 0.0), 1.0)
-        if colorScheme == .dark {
-            return Color.black.opacity(clamped * 0.55)
-        } else {
-            return themeManager.selectedTheme.primaryColor.opacity(clamped)
-        }
+        // Всегда используем прозрачность как в темной теме (0.55)
+        return Color.black.opacity(clamped * 0.55)
     }
 
     var body: some View {
