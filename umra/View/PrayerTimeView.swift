@@ -238,14 +238,14 @@ struct PrayerTimeView: View {
     }
 
     func registerBackgroundTask() {
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.yourapp.updatePrayerTimes",
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "saydulayev.wien-gmail.com.umra.updatePrayerTimes",
                                         using: nil) { task in
             self.handleAppRefresh(task: task as! BGAppRefreshTask)
         }
     }
 
     func scheduleBackgroundRefresh() {
-        let request = BGAppRefreshTaskRequest(identifier: "com.yourapp.updatePrayerTimes")
+        let request = BGAppRefreshTaskRequest(identifier: "saydulayev.wien-gmail.com.umra.updatePrayerTimes")
         request.earliestBeginDate = Date(timeIntervalSinceNow: 3600)
         do {
             try BGTaskScheduler.shared.submit(request)

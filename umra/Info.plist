@@ -30,5 +30,9 @@
             <string>This application uses prayer times to display prayer times exclusively for Mecca, without utilizing geolocation.</string>
         </dict>
     </array>
+    <key>BGTaskSchedulerPermittedIdentifiers</key>
+    <array>
+        <string>saydulayev.wien-gmail.com.umra.updatePrayerTimes</string>
+    </array>
 </dict>
 </plist>
