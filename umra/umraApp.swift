@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WebKit
+import BackgroundTasks
 
 @main
 struct umraApp: App {
@@ -15,6 +16,11 @@ struct umraApp: App {
     @State private var localizationManager = LocalizationManager()
     @State private var userPreferences = UserPreferences()
     @State private var fontManager = FontManager()
+    
+    init() {
+        // Регистрируем фоновые задачи при запуске приложения
+        BackgroundTaskManager.shared.registerBackgroundTask()
+    }
 
     var body: some Scene {
         WindowGroup {
