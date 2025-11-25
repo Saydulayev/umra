@@ -15,11 +15,11 @@ struct HajjView: View {
     @Environment(PurchaseManager.self) private var purchaseManager
     @State private var showPrayerTimes = false
     @State private var imageDescriptions: [String: String] = [
-        "image 1": "hajj_step1_title",
-        "image 2": "hajj_step2_title",
-        "image 3": "hajj_step3_title",
-        "image 4": "hajj_step4_title",
-        "image 5": "hajj_step5_title"
+        "hajj1": "hajj_step1_title",
+        "hajj2": "hajj_step2_title",
+        "hajj3": "hajj_step3_title",
+        "hajj4": "hajj_step4_title",
+        "hajj5": "hajj_step5_title"
     ]
     @State private var usageTime: TimeInterval = 0
     @State private var timer: Timer?
@@ -27,11 +27,11 @@ struct HajjView: View {
     
     // Шаги хаджа
     let steps = [
-        ("image 1", AnyView(HajjStep1()), "hajj_step1_title"),
-        ("image 2", AnyView(HajjStep2()), "hajj_step2_title"),
-        ("image 3", AnyView(HajjStep3()), "hajj_step3_title"),
-        ("image 4", AnyView(HajjStep4()), "hajj_step4_title"),
-        ("image 5", AnyView(HajjStep5()), "hajj_step5_title")
+        ("hajj1", AnyView(HajjStep1()), "hajj_step1_title"),
+        ("hajj2", AnyView(HajjStep2()), "hajj_step2_title"),
+        ("hajj3", AnyView(HajjStep3()), "hajj_step3_title"),
+        ("hajj4", AnyView(HajjStep4()), "hajj_step4_title"),
+        ("hajj5", AnyView(HajjStep5()), "hajj_step5_title")
     ]
     
     /// Вычисляемое свойство для определения устройства iPad
