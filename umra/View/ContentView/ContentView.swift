@@ -135,6 +135,7 @@ struct ContentView: View {
                 index: showIndex ? index : nil,
                 fontSize: fontSize,
                 stepsCount: steps.count,
+                hideLastIndex: true,
                 imageDescriptions: $imageDescriptions
             )
             .foregroundStyle(.black)

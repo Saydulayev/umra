@@ -98,7 +98,7 @@ extension Image {
     }
     
     // Методы для совместимости с StepView с поддержкой тем
-    func styledImageWithIndexAndTheme(index: Int, stepsCount: Int, theme: AppTheme) -> some View {
+    func styledImageWithIndexAndTheme(index: Int, stepsCount: Int, theme: AppTheme, hideLastIndex: Bool = true) -> some View {
         ZStack(alignment: .topTrailing) {
             self
                 .resizable()
@@ -130,7 +130,7 @@ extension Image {
                 .background(.white)
                 .clipShape(Circle())
                 .offset(x: -25, y: 20)
-                .opacity(index == stepsCount - 1 ? 0 : 1)
+                .opacity((hideLastIndex && index == stepsCount - 1) ? 0 : 1)
         }
     }
     

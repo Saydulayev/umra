@@ -130,6 +130,7 @@ struct HajjView: View {
                 index: showIndex ? index : nil,
                 fontSize: fontSize,
                 stepsCount: steps.count,
+                hideLastIndex: false,
                 imageDescriptions: $imageDescriptions
             )
             .foregroundStyle(.black)

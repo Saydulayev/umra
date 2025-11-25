@@ -15,6 +15,7 @@ struct StepView<Destination: View>: View {
     let index: Int?
     let fontSize: CGFloat
     let stepsCount: Int
+    let hideLastIndex: Bool
     @Binding var imageDescriptions: [String: String]
     
     @Environment(ThemeManager.self) private var themeManager
@@ -48,7 +49,7 @@ struct StepView<Destination: View>: View {
             NavigationLink(destination: destinationView) {
                 if let index = index {
                     Image(imageName)
-                        .styledImageWithIndexAndTheme(index: index, stepsCount: stepsCount, theme: themeManager.selectedTheme)
+                        .styledImageWithIndexAndTheme(index: index, stepsCount: stepsCount, theme: themeManager.selectedTheme, hideLastIndex: hideLastIndex)
                         .accessibilityLabel(accessibilityLabel)
                 } else {
                     Image(imageName)
