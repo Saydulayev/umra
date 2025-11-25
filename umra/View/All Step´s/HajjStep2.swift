@@ -23,6 +23,24 @@ struct HajjStep2: View {
         }
     }
     
+    /// Извлекает только заголовок без даты из строки локализации
+    private func extractTitleOnly(from key: String) -> String {
+        let fullText = NSLocalizedString(key, bundle: localizationManager.bundle ?? .main, comment: "")
+        // Пробуем разные варианты разделителей: длинное тире, обычное тире, дефис
+        let separators = [" — ", " - ", " – ", " —", " — "]
+        for separator in separators {
+            let components = fullText.components(separatedBy: separator)
+            if components.count == 2 {
+                let title = components[1].trimmingCharacters(in: .whitespaces)
+                if !title.isEmpty {
+                    return title
+                }
+            }
+        }
+        // Если разделитель не найден, возвращаем всю строку
+        return fullText
+    }
+    
     var body: some View {
         ZStack {
             themeManager.selectedTheme.lightBackgroundColor
@@ -100,7 +118,7 @@ struct HajjStep2: View {
                 .padding(.vertical, 12)
                 LanguageView()
                     .hidden()
-                    .navigationTitle(Text("hajj_step2_title", bundle: localizationManager.bundle))
+                    .navigationTitle(Text(extractTitleOnly(from: "hajj_step2_title")))
                     .navigationBarTitleDisplayMode(.inline)
             }
             .onAppear {
