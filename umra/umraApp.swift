@@ -24,7 +24,7 @@ struct umraApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
                 .environment(purchaseManager)
                 .environment(themeManager)
                 .environment(localizationManager)

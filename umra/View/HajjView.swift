@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  HajjView.swift
 //  umra
 //
-//  Created by Akhmed on 26.01.23.
+//  Created on 25.01.25.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct HajjView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(UserPreferences.self) private var userPreferences
@@ -15,28 +15,23 @@ struct ContentView: View {
     @Environment(PurchaseManager.self) private var purchaseManager
     @State private var showPrayerTimes = false
     @State private var imageDescriptions: [String: String] = [
-        "image 1": "title_ihram_screen",
-        "image 2": "title_round_kaaba_screen",
-        "image 3": "title_place_ibrohim_stand_screen",
-        "image 4": "title_water_zamzam_screen",
-        "image 5": "title_black_stone_screen",
-        "image 6": "title_safa_and_marva_screen",
-        "image 7": "title_shave_head_screen",
-        "image 8": "Useful"
+        "image 1": "hajj_step1_title",
+        "image 2": "hajj_step2_title",
+        "image 3": "hajj_step3_title",
+        "image 4": "hajj_step4_title",
+        "image 5": "hajj_step5_title"
     ]
     @State private var usageTime: TimeInterval = 0
     @State private var timer: Timer?
     @Environment(\.requestReview) var requestReview
     
+    // Шаги хаджа
     let steps = [
-        ("image 1", AnyView(Step1()), "title_ihram_screen"),
-        ("image 2", AnyView(Step2()), "title_round_kaaba_screen"),
-        ("image 3", AnyView(Step3()), "title_place_ibrohim_stand_screen"),
-        ("image 4", AnyView(Step4()), "title_water_zamzam_screen"),
-        ("image 5", AnyView(Step5()), "title_black_stone_screen"),
-        ("image 6", AnyView(Step6()), "title_safa_and_marva_screen"),
-        ("image 7", AnyView(Step7()), "title_shave_head_screen"),
-        ("image 8", AnyView(UsefulInfoView()), "Useful")
+        ("image 1", AnyView(HajjStep1()), "hajj_step1_title"),
+        ("image 2", AnyView(HajjStep2()), "hajj_step2_title"),
+        ("image 3", AnyView(HajjStep3()), "hajj_step3_title"),
+        ("image 4", AnyView(HajjStep4()), "hajj_step4_title"),
+        ("image 5", AnyView(HajjStep5()), "hajj_step5_title")
     ]
     
     /// Вычисляемое свойство для определения устройства iPad
@@ -69,7 +64,7 @@ struct ContentView: View {
                         .padding(.vertical, 8)
                 }
                 .scrollIndicators(.hidden)
-                .navigationBarTitle(Text("main_screen_name_string", bundle: localizationManager.bundle), displayMode: .inline)
+                .navigationBarTitle(Text("hajj_screen_title", bundle: localizationManager.bundle), displayMode: .inline)
                 .navigationBarItems(
                     leading: gridToggleButton,
                     trailing: HStack {
@@ -209,9 +204,9 @@ private struct StepRow: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HajjView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HajjView()
             .environment(ThemeManager())
             .environment(LocalizationManager())
             .environment(UserPreferences())
@@ -219,35 +214,4 @@ struct ContentView_Previews: PreviewProvider {
             .environment(PurchaseManager())
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

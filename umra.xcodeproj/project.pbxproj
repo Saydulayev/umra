@@ -56,6 +56,13 @@
 		C24508EE2C9CD3AD003E3E58 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508ED2C9CD3AD003E3E58 /* 3.png */; };
 		C2A68D362CFF1E3C005F3ED8 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A68D352CFF1E3C005F3ED8 /* UserSettings.swift */; };
 		C2E1173C2C999B31002DC520 /* UsefulInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */; };
+		C2H4JJV22E87F4B2006762B4 /* HajjView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2H4JJV12E87F4B2006762B3 /* HajjView.swift */; };
+		C2M4INT2C2E87F4B2006762B6 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2M4INT2B2E87F4B2006762B5 /* MainTabView.swift */; };
+		C2HJST112E87F4B2006762B7 /* HajjStep1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJST102E87F4B2006762B8 /* HajjStep1.swift */; };
+		C2HJST212E87F4B2006762B9 /* HajjStep2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJST202E87F4B2006762C0 /* HajjStep2.swift */; };
+		C2HJST312E87F4B2006762C1 /* HajjStep3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJST302E87F4B2006762C2 /* HajjStep3.swift */; };
+		C2HJST412E87F4B2006762C3 /* HajjStep4.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJST402E87F4B2006762C4 /* HajjStep4.swift */; };
+		C2HJST512E87F4B2006762C5 /* HajjStep5.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJST502E87F4B2006762C6 /* HajjStep5.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +122,13 @@
 		C2884B4D2DE37E8600A3975D /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2A68D352CFF1E3C005F3ED8 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulInfoView.swift; sourceTree = "<group>"; };
+		C2H4JJV12E87F4B2006762B3 /* HajjView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjView.swift; sourceTree = "<group>"; };
+		C2M4INT2B2E87F4B2006762B5 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		C2HJST102E87F4B2006762B8 /* HajjStep1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjStep1.swift; sourceTree = "<group>"; };
+		C2HJST202E87F4B2006762C0 /* HajjStep2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjStep2.swift; sourceTree = "<group>"; };
+		C2HJST302E87F4B2006762C2 /* HajjStep3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjStep3.swift; sourceTree = "<group>"; };
+		C2HJST402E87F4B2006762C4 /* HajjStep4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjStep4.swift; sourceTree = "<group>"; };
+		C2HJST502E87F4B2006762C6 /* HajjStep5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjStep5.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -151,6 +165,8 @@
 				C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */,
 				C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */,
 				C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */,
+				C2H4JJV12E87F4B2006762B3 /* HajjView.swift */,
+				C2M4INT2B2E87F4B2006762B5 /* MainTabView.swift */,
 				C0908DED2982A05B00458ACB /* All Step´s */,
 			);
 			path = View;
@@ -289,6 +305,11 @@
 				C0908DF62982A0AA00458ACB /* Step 5.swift */,
 				C0908DF82982A0B300458ACB /* Step 6.swift */,
 				C0908DFA2982A0BC00458ACB /* Step 7.swift */,
+				C2HJST102E87F4B2006762B8 /* HajjStep1.swift */,
+				C2HJST202E87F4B2006762C0 /* HajjStep2.swift */,
+				C2HJST302E87F4B2006762C2 /* HajjStep3.swift */,
+				C2HJST402E87F4B2006762C4 /* HajjStep4.swift */,
+				C2HJST502E87F4B2006762C6 /* HajjStep5.swift */,
 			);
 			path = "All Step´s";
 			sourceTree = "<group>";
@@ -426,6 +447,13 @@
 				C2A68D362CFF1E3C005F3ED8 /* UserSettings.swift in Sources */,
 				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,
 				C0BG00012CFF1F3C005F3ED9 /* BackgroundTaskManager.swift in Sources */,
+				C2H4JJV22E87F4B2006762B4 /* HajjView.swift in Sources */,
+				C2M4INT2C2E87F4B2006762B6 /* MainTabView.swift in Sources */,
+				C2HJST112E87F4B2006762B7 /* HajjStep1.swift in Sources */,
+				C2HJST212E87F4B2006762B9 /* HajjStep2.swift in Sources */,
+				C2HJST312E87F4B2006762C1 /* HajjStep3.swift in Sources */,
+				C2HJST412E87F4B2006762C3 /* HajjStep4.swift in Sources */,
+				C2HJST512E87F4B2006762C5 /* HajjStep5.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
