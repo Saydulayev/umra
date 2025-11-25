@@ -46,12 +46,12 @@ struct MainTabView: View {
         TabView {
             ContentView()
                 .tabItem {
-                    Label(umraTabLabel, systemImage: "moon.stars")
+                    Label(umraTabLabel, systemImage: "u.circle.fill")
                 }
             
             HajjView()
                 .tabItem {
-                    Label(hajjTabLabel, systemImage: "sun.horizon")
+                    Label(hajjTabLabel, systemImage: "h.circle.fill")
                 }
         }
     }
