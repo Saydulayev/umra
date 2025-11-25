@@ -11,6 +11,7 @@ struct StepView<Destination: View>: View {
     let imageName: String
     let destinationView: Destination
     let titleKey: LocalizedStringKey
+    let stringKey: String
     let index: Int?
     let fontSize: CGFloat
     let stepsCount: Int
@@ -24,6 +25,24 @@ struct StepView<Destination: View>: View {
         NSLocalizedString(imageDescriptions[imageName] ?? imageName, bundle: localizationManager.bundle ?? .main, comment: "")
     }
 
+    /// Парсит строку локализации и разделяет на название и дату
+    private var parsedTitle: (name: String, date: String?) {
+        let fullText = NSLocalizedString(stringKey, bundle: localizationManager.bundle ?? .main, comment: "")
+        // Пробуем разные варианты разделителей: длинное тире, обычное тире, дефис
+        let separators = [" — ", " - ", " – ", " —", " — "]
+        for separator in separators {
+            let components = fullText.components(separatedBy: separator)
+            if components.count == 2 {
+                let date = components[0].trimmingCharacters(in: .whitespaces)
+                let name = components[1].trimmingCharacters(in: .whitespaces)
+                if !date.isEmpty && !name.isEmpty {
+                    return (name: name, date: date)
+                }
+            }
+        }
+        return (name: fullText, date: nil)
+    }
+    
     var body: some View {
         VStack {
             NavigationLink(destination: destinationView) {
@@ -37,9 +56,17 @@ struct StepView<Destination: View>: View {
                         .accessibilityLabel(accessibilityLabel)
                 }
             }
-            Text(titleKey, bundle: localizationManager.bundle)
-                .font(.custom("Lato-Black", size: fontSize))
-                .multilineTextAlignment(.center)
+            VStack(spacing: 4) {
+                Text(parsedTitle.name)
+                    .font(.custom("Lato-Black", size: fontSize))
+                    .multilineTextAlignment(.center)
+                if let date = parsedTitle.date {
+                    Text(date)
+                        .font(.system(size: fontSize * 0.6, weight: .regular))
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                }
+            }
             Divider()
         }
     }

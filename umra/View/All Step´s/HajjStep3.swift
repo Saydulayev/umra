@@ -134,6 +134,19 @@ struct HajjStep3: View {
                     Divider()
                         .padding(.vertical, 8)
                     
+                    // Секция: Внимание для тех, кто не смог совершить обход
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("hajj_step3_attention_title", bundle: localizationManager.bundle)
+                            .font(.custom("Lato-Black", size: 26))
+                            .padding(.top, 8)
+                        
+                        Text("hajj_step3_attention_text", bundle: localizationManager.bundle)
+                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    }
+                    
+                    Divider()
+                        .padding(.vertical, 8)
+                    
                     // Секция: Полный выход
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_full_exit_title", bundle: localizationManager.bundle)

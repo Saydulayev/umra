@@ -131,6 +131,7 @@ struct ContentView: View {
                 imageName: step.0,
                 destinationView: step.1,
                 titleKey: LocalizedStringKey(step.2),
+                stringKey: step.2,
                 index: showIndex ? index : nil,
                 fontSize: fontSize,
                 stepsCount: steps.count,

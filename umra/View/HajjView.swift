@@ -126,6 +126,7 @@ struct HajjView: View {
                 imageName: step.0,
                 destinationView: step.1,
                 titleKey: LocalizedStringKey(step.2),
+                stringKey: step.2,
                 index: showIndex ? index : nil,
                 fontSize: fontSize,
                 stepsCount: steps.count,
@@ -175,14 +176,37 @@ private struct StepRow: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     
+    /// Парсит строку локализации и разделяет на название и дату
+    private var parsedTitle: (name: String, date: String?) {
+        let fullText = NSLocalizedString(step.2, bundle: localizationManager.bundle ?? .main, comment: "")
+        // Пробуем разные варианты разделителей: длинное тире, обычное тире, дефис
+        let separators = [" — ", " - ", " – ", " —", " — "]
+        for separator in separators {
+            let components = fullText.components(separatedBy: separator)
+            if components.count == 2 {
+                let date = components[0].trimmingCharacters(in: .whitespaces)
+                let name = components[1].trimmingCharacters(in: .whitespaces)
+                if !date.isEmpty && !name.isEmpty {
+                    return (name: name, date: date)
+                }
+            }
+        }
+        return (name: fullText, date: nil)
+    }
+    
     var body: some View {
         HStack(spacing: 15) {
             Image(step.0)
                 .styledImageWithThemeColors(theme: themeManager.selectedTheme)
-            VStack(alignment: .leading, spacing: 5) {
-                Text(LocalizedStringKey(step.2), bundle: localizationManager.bundle)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(parsedTitle.name)
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(.black)
+                if let date = parsedTitle.date {
+                    Text(date)
+                        .font(.system(size: 13, weight: .regular))
+                        .foregroundColor(.secondary)
+                }
             }
             Spacer()
             Image(systemName: "chevron.right")
