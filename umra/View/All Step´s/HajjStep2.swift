@@ -29,46 +29,75 @@ struct HajjStep2: View {
                 .ignoresSafeArea(edges: .bottom)
             
             ScrollView {
-                VStack {
-                    Text("hajj_step2_arafat_title", bundle: localizationManager.bundle)
-                        .font(.custom("Lato-Black", size: 26))
-                    
-                    Group {
+                VStack(alignment: .leading, spacing: 20) {
+                    // Секция: Арафат
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("hajj_step2_arafat_title", bundle: localizationManager.bundle)
+                            .font(.custom("Lato-Black", size: 26))
+                            .padding(.top, 8)
+                        
                         Text("hajj_step2_arafat_text", bundle: localizationManager.bundle)
+                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     
-                    Group {
+                    Divider()
+                        .padding(.vertical, 8)
+                    
+                    // Секция: Стояние на Арафате
+                    VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step2_standing_title", bundle: localizationManager.bundle)
                             .font(.custom("Lato-Black", size: 26))
+                            .padding(.top, 8)
                         
-                        Text("hajj_step2_standing_text", bundle: localizationManager.bundle)
-                        
-                        Text("hajj_step2_dua_arabic", bundle: localizationManager.bundle)
-                            .customTextforArabic()
-                        
-                        Text("hajj_step2_dua_transliteration", bundle: localizationManager.bundle)
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("hajj_step2_standing_text", bundle: localizationManager.bundle)
+                                .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text("hajj_step2_dua_arabic", bundle: localizationManager.bundle)
+                                    .customTextforArabic()
+                                    .padding(.top, 4)
+                                
+                                Text("hajj_step2_dua_transliteration", bundle: localizationManager.bundle)
+                                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                                    .italic()
+                                
+                                Text("hajj_step2_dua_translation", bundle: localizationManager.bundle)
+                                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            }
+                            .padding(.leading, 12)
+                        }
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     
-                    Group {
+                    Divider()
+                        .padding(.vertical, 8)
+                    
+                    // Секция: Муздалифа
+                    VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step2_muzdalifah_title", bundle: localizationManager.bundle)
                             .font(.custom("Lato-Black", size: 26))
+                            .padding(.top, 8)
                         
                         Text("hajj_step2_muzdalifah_text", bundle: localizationManager.bundle)
+                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     
-                    Group {
+                    Divider()
+                        .padding(.vertical, 8)
+                    
+                    // Секция: Ночёвка
+                    VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step2_night_title", bundle: localizationManager.bundle)
                             .font(.custom("Lato-Black", size: 26))
+                            .padding(.top, 8)
                         
                         Text("hajj_step2_night_text", bundle: localizationManager.bundle)
+                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                 }
                 .foregroundStyle(.black)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
                 LanguageView()
                     .hidden()
                     .navigationTitle(Text("hajj_step2_title", bundle: localizationManager.bundle))
@@ -92,4 +121,5 @@ struct HajjStep2: View {
         }
     }
 }
+
 

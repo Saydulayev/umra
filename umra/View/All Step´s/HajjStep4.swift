@@ -29,25 +29,33 @@ struct HajjStep4: View {
                 .ignoresSafeArea(edges: .bottom)
             
             ScrollView {
-                VStack {
-                    Text("hajj_step4_stay_title", bundle: localizationManager.bundle)
-                        .font(.custom("Lato-Black", size: 26))
-                    
-                    Group {
+                VStack(alignment: .leading, spacing: 20) {
+                    // Секция: Пребывание в Мине
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("hajj_step4_stay_title", bundle: localizationManager.bundle)
+                            .font(.custom("Lato-Black", size: 26))
+                            .padding(.top, 8)
+                        
                         Text("hajj_step4_stay_text", bundle: localizationManager.bundle)
+                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     
-                    Group {
+                    Divider()
+                        .padding(.vertical, 8)
+                    
+                    // Секция: Бросание камешков
+                    VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step4_jamarat_title", bundle: localizationManager.bundle)
                             .font(.custom("Lato-Black", size: 26))
+                            .padding(.top, 8)
                         
                         Text("hajj_step4_jamarat_text", bundle: localizationManager.bundle)
+                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                 }
                 .foregroundStyle(.black)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
                 LanguageView()
                     .hidden()
                     .navigationTitle(Text("hajj_step4_title", bundle: localizationManager.bundle))
@@ -71,4 +79,5 @@ struct HajjStep4: View {
         }
     }
 }
+
 

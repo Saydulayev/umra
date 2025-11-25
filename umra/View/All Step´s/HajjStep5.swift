@@ -29,17 +29,20 @@ struct HajjStep5: View {
                 .ignoresSafeArea(edges: .bottom)
             
             ScrollView {
-                VStack {
-                    Text("hajj_step5_title", bundle: localizationManager.bundle)
-                        .font(.custom("Lato-Black", size: 26))
-                    
-                    Group {
+                VStack(alignment: .leading, spacing: 20) {
+                    // Секция: Прощальный обход
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("hajj_step5_title", bundle: localizationManager.bundle)
+                            .font(.custom("Lato-Black", size: 26))
+                            .padding(.top, 8)
+                        
                         Text("hajj_step5_farewell_text", bundle: localizationManager.bundle)
+                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                 }
                 .foregroundStyle(.black)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
                 LanguageView()
                     .hidden()
                     .navigationTitle(Text("hajj_step5_title", bundle: localizationManager.bundle))
@@ -63,4 +66,5 @@ struct HajjStep5: View {
         }
     }
 }
+
 
