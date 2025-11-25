@@ -64,7 +64,7 @@ struct StepView<Destination: View>: View {
                 if let date = parsedTitle.date {
                     Text(date)
                         .font(.system(size: fontSize * 0.6, weight: .regular))
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.black.opacity(0.7))
                         .multilineTextAlignment(.center)
                 }
             }

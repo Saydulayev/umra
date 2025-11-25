@@ -206,7 +206,7 @@ private struct StepRow: View {
                 if let date = parsedTitle.date {
                     Text(date)
                         .font(.system(size: 13, weight: .regular))
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.black.opacity(0.7))
                 }
             }
             Spacer()
