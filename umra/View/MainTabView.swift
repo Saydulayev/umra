@@ -54,5 +54,22 @@ struct MainTabView: View {
                     Label(hajjTabLabel, systemImage: "h.circle.fill")
                 }
         }
+        .onAppear {
+            setupTabBarAppearance()
+        }
+        .toolbarBackground(.ultraThinMaterial, for: .tabBar)
+        .toolbarBackground(.visible, for: .tabBar)
+    }
+
+    /// Настройка внешнего вида TabBar с blur эффектом
+    private func setupTabBarAppearance() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        // Используем secondary цвет с прозрачностью для полупрозрачного эффекта
+        appearance.backgroundColor = UIColor.secondarySystemBackground.withAlphaComponent(0.8)
+        
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+        UITabBar.appearance().isTranslucent = true
     }
 }
