@@ -15,28 +15,28 @@ struct ContentView: View {
     @Environment(PurchaseManager.self) private var purchaseManager
     @State private var showPrayerTimes = false
     @State private var imageDescriptions: [String: String] = [
-        "image 1": "title_ihram_screen",
-        "image 2": "title_round_kaaba_screen",
-        "image 3": "title_place_ibrohim_stand_screen",
-        "image 4": "title_water_zamzam_screen",
-        "image 5": "title_black_stone_screen",
-        "image 6": "title_safa_and_marva_screen",
-        "image 7": "title_shave_head_screen",
-        "image 8": "Useful"
+        "img1": "title_ihram_screen",
+        "img2": "title_round_kaaba_screen",
+        "img3": "title_place_ibrohim_stand_screen",
+        "img4": "title_water_zamzam_screen",
+        "img5": "title_black_stone_screen",
+        "img6": "title_safa_and_marva_screen",
+        "img7": "title_shave_head_screen",
+        "img8": "Useful"
     ]
     @State private var usageTime: TimeInterval = 0
     @State private var timer: Timer?
     @Environment(\.requestReview) var requestReview
     
     let steps = [
-        ("image 1", AnyView(Step1()), "title_ihram_screen"),
-        ("image 2", AnyView(Step2()), "title_round_kaaba_screen"),
-        ("image 3", AnyView(Step3()), "title_place_ibrohim_stand_screen"),
-        ("image 4", AnyView(Step4()), "title_water_zamzam_screen"),
-        ("image 5", AnyView(Step5()), "title_black_stone_screen"),
-        ("image 6", AnyView(Step6()), "title_safa_and_marva_screen"),
-        ("image 7", AnyView(Step7()), "title_shave_head_screen"),
-        ("image 8", AnyView(UsefulInfoView()), "Useful")
+        ("img1", AnyView(Step1()), "title_ihram_screen"),
+        ("img2", AnyView(Step2()), "title_round_kaaba_screen"),
+        ("img3", AnyView(Step3()), "title_place_ibrohim_stand_screen"),
+        ("img4", AnyView(Step4()), "title_water_zamzam_screen"),
+        ("img5", AnyView(Step5()), "title_black_stone_screen"),
+        ("img6", AnyView(Step6()), "title_safa_and_marva_screen"),
+        ("img7", AnyView(Step7()), "title_shave_head_screen"),
+        ("img8", AnyView(UsefulInfoView()), "Useful")
     ]
     
     /// Вычисляемое свойство для определения устройства iPad

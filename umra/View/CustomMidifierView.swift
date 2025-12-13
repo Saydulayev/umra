@@ -43,8 +43,8 @@ extension Image {
             self
                 .resizable()
                 .scaledToFit()
-                .padding(.bottom)
                 .clipShape(Circle())
+                .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
                 .foregroundColor(.black)
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -78,8 +78,8 @@ extension Image {
         self
             .resizable()
             .scaledToFit()
-            .padding(.bottom, 10)
             .clipShape(Circle())
+            .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
             .frame(width: 90, height: 90)
             .padding(4)
             .background(
@@ -103,8 +103,8 @@ extension Image {
             self
                 .resizable()
                 .scaledToFit()
-                .padding(.bottom)
                 .clipShape(Circle())
+                .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
                 .foregroundColor(.black)
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -138,10 +138,11 @@ extension Image {
         self
             .resizable()
             .scaledToFit()
-            .padding(.bottom, 10)
+            .frame(width: 74, height: 74)
             .clipShape(Circle())
+            .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
+            .padding(8)
             .frame(width: 90, height: 90)
-            .padding(4)
             .background(
                 ZStack {
                     theme.primaryColor.opacity(0.1)
