@@ -111,6 +111,7 @@ struct SettingsView: View {
                 .sheet(isPresented: $showThemeSelectionSheet) {
                     ThemePreviewView()
                 }
+                .toolbar(.hidden, for: .tabBar)
             }
         }
     }

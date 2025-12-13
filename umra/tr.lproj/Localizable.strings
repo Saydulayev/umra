@@ -479,3 +479,8 @@ Resulullah (Allah'ın selamı ve bereketi onun üzerine olsun) cenaze namazında
 "theme_gold" = "Altın";
 "theme_turquoise" = "Deniz";
 "done_button" = "Tamam";
+
+/* Sekme Yerelleştirme */
+"tab_umra" = "Umre";
+"tab_hajj" = "Hac";
+"hajj_screen_title" = "HAC";

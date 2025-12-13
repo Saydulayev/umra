@@ -518,3 +518,8 @@ Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebe
 "theme_gold" = "Gold";
 "theme_turquoise" = "Meer";
 "done_button" = "Fertig";
+
+/* Tab Lokalisierung */
+"tab_umra" = "Umra";
+"tab_hajj" = "Haddsch";
+"hajj_screen_title" = "HADDsch";

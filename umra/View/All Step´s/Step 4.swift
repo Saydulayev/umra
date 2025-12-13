@@ -62,6 +62,7 @@ struct Step4: View {
                     .environment(themeManager) 
                 }
             }
+            .toolbar(.hidden, for: .tabBar)
         }
     }
 }

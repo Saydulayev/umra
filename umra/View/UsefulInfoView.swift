@@ -117,6 +117,7 @@ struct UsefulInfoView: View {
                     }
                 }
             }
+            .toolbar(.hidden, for: .tabBar)
         }
     }
 }
@@ -243,6 +244,7 @@ struct JanazaView: View {
                 .textSelection(.enabled)
             }
             .navigationTitle(JanazaPrayerGuide.title(bundle: localizationManager.bundle))
+            .toolbar(.hidden, for: .tabBar)
         }
     }
 }
@@ -278,6 +280,7 @@ struct ChapterDetailView: View {
                     }
                 }
                 .navigationTitle(chapter.title)
+                .toolbar(.hidden, for: .tabBar)
             }
         }
     }
@@ -300,6 +303,7 @@ struct SubChapterDetailView: View {
                     .textSelection(.enabled)
             }
             .navigationTitle(subChapter.title)
+            .toolbar(.hidden, for: .tabBar)
         }
     }
 }

@@ -273,3 +273,8 @@
 "theme_turquoise" = "بحر";
 "done_button" = "تم";
 
+/* تخصيص علامات التبويب */
+"tab_umra" = "العمرة";
+"tab_hajj" = "الحج";
+"hajj_screen_title" = "الحج";
+

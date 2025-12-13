@@ -136,6 +136,7 @@ struct HajjStep2: View {
                     .environment(themeManager)
                 }
             }
+            .toolbar(.hidden, for: .tabBar)
         }
     }
 }

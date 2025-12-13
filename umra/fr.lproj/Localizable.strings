@@ -517,3 +517,8 @@ Le Messager d'Allah (paix et bénédictions sur lui) concluait la prière de Jan
 "theme_turquoise" = "Mer";
 "done_button" = "Terminé";
 
+/* Localisation des onglets */
+"tab_umra" = "Omra";
+"tab_hajj" = "Hajj";
+"hajj_screen_title" = "HAJJ";
+

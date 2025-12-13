@@ -143,6 +143,7 @@ struct Step1: View {
                     .environment(themeManager)
                 }
             }
+            .toolbar(.hidden, for: .tabBar)
         }
     }
 }
