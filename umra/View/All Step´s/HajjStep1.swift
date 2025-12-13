@@ -62,6 +62,7 @@ struct HajjStep1: View {
                                 Text("hajj_step1_ihram_arabic", bundle: localizationManager.bundle)
                                     .customTextforArabic()
                                     .padding(.top, 4)
+                                    .padding(.bottom, 16)
                                 
                                 Text("hajj_step1_ihram_transliteration", bundle: localizationManager.bundle)
                                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
@@ -76,6 +77,7 @@ struct HajjStep1: View {
                                 Text("hajj_step1_ihram_dua_arabic", bundle: localizationManager.bundle)
                                     .customTextforArabic()
                                     .padding(.top, 8)
+                                    .padding(.bottom, 16)
                                 
                                 Text("hajj_step1_ihram_dua_transliteration", bundle: localizationManager.bundle)
                                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
@@ -105,6 +107,7 @@ struct HajjStep1: View {
                                 Text("hajj_step1_talbiyah_arabic", bundle: localizationManager.bundle)
                                     .customTextforArabic()
                                     .padding(.top, 4)
+                                    .padding(.bottom, 16)
                                 
                                 Text("hajj_step1_talbiyah_transliteration", bundle: localizationManager.bundle)
                                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))

@@ -75,6 +75,7 @@ struct HajjStep2: View {
                                 Text("hajj_step2_dua_arabic", bundle: localizationManager.bundle)
                                     .customTextforArabic()
                                     .padding(.top, 4)
+                                    .padding(.bottom, 16)
                                 
                                 Text("hajj_step2_dua_transliteration", bundle: localizationManager.bundle)
                                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
