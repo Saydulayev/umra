@@ -135,27 +135,32 @@ extension Image {
     }
     
     func styledImageWithThemeColors(theme: AppTheme) -> some View {
-        self
-            .resizable()
-            .scaledToFit()
-            .frame(width: 74, height: 74)
-            .clipShape(Circle())
-            .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
-            .padding(8)
+        ZStack(alignment: .center) {
+            // Фон квадрата
+            ZStack {
+                theme.primaryColor.opacity(0.1)
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(.white)
+                    .blur(radius: 4)
+                    .offset(x: -8, y: -8)
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .padding(2)
+            }
             .frame(width: 90, height: 90)
-            .background(
-                ZStack {
-                    theme.primaryColor.opacity(0.1)
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-                })
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            .adaptiveShadow(radius: 5, x: 5, y: 5, intensity: 0.5)
+            
+            // Изображение в круге, точно по центру квадрата
+            // Круг 74x74 центрирован в квадрате 90x90 (отступ по 8px с каждой стороны)
+            self
+                .resizable()
+                .scaledToFit()
+                .frame(width: 74, height: 74)
+                .clipShape(Circle())
+                .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
+        }
+        .frame(width: 90, height: 90)
+        .adaptiveShadow(radius: 5, x: 5, y: 5, intensity: 0.5)
     }
 }
 
