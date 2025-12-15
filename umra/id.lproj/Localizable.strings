@@ -534,3 +534,17 @@ Rasulullah ﷺ dalam shalat jenazah terkadang memberi salam sekali, dan terkadan
 "tab_umra" = "Umrah";
 "tab_hajj" = "Haji";
 "hajj_screen_title" = "HAJI";
+
+/* Lokalisasi Waktu Shalat */
+"prayer_mecca" = "Mekah,";
+"prayer_fajr" = "Fajr";
+"prayer_sunrise" = "Terbit";
+"prayer_dhuhr" = "Dhuhr";
+"prayer_asr" = "Asr";
+"prayer_maghrib" = "Maghrib";
+"prayer_isha" = "Isha";
+"prayer_qiyam" = "Qiyam";
+"prayer_in" = "dalam";
+"prayer_time_for" = "Waktu untuk %@";
+"prayer_prepare_for_next" = "Persiapan untuk shalat berikutnya";
+"prayer_time_in_30_minutes" = "Waktu untuk %@ dalam 30 menit";

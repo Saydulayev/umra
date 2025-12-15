@@ -522,3 +522,17 @@ Le Messager d'Allah (paix et bénédictions sur lui) concluait la prière de Jan
 "tab_hajj" = "Hajj";
 "hajj_screen_title" = "HAJJ";
 
+/* Localisation de l'heure de prière */
+"prayer_mecca" = "La Mecque,";
+"prayer_fajr" = "Fajr";
+"prayer_sunrise" = "Lever du soleil";
+"prayer_dhuhr" = "Dhuhr";
+"prayer_asr" = "Asr";
+"prayer_maghrib" = "Maghrib";
+"prayer_isha" = "Isha";
+"prayer_qiyam" = "Qiyam";
+"prayer_in" = "dans";
+"prayer_time_for" = "Heure de %@";
+"prayer_prepare_for_next" = "Préparation pour la prochaine prière";
+"prayer_time_in_30_minutes" = "Heure de %@ dans 30 minutes";
+

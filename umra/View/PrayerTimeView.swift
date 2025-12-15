@@ -50,7 +50,7 @@ struct PrayerTimeView: View {
             
             VStack {
                 HStack {
-                    Text("Mecca,")
+                    Text("prayer_mecca", bundle: localizationManager.bundle)
                     Text(currentIslamicDate)
                 }
                 .font(.custom("Savoye LET", size: 36))
@@ -58,18 +58,18 @@ struct PrayerTimeView: View {
                 .padding(-5)
                 Divider()
                 
-                Text("\(nextPrayerName) in \(timeUntilNextPrayer)")
+                Text("\(localizedPrayerName(nextPrayerName)) \(NSLocalizedString("prayer_in", bundle: localizationManager.bundle ?? .main, comment: "")) \(timeUntilNextPrayer)")
                     .cardStyled(theme: themeManager.selectedTheme)
 
                 Group {
-                    PrayerTimeRow(prayerName: "Fajr", prayerTime: prayerTimes["Fajr"] ?? "")
-                    PrayerTimeRow(prayerName: "Sunrise", prayerTime: prayerTimes["Sunrise"] ?? "")
+                    PrayerTimeRow(prayerName: localizedPrayerName("Fajr"), prayerTime: prayerTimes["Fajr"] ?? "")
+                    PrayerTimeRow(prayerName: localizedPrayerName("Sunrise"), prayerTime: prayerTimes["Sunrise"] ?? "")
                         .capsuleStyled(theme: themeManager.selectedTheme)
-                    PrayerTimeRow(prayerName: "Dhuhr", prayerTime: prayerTimes["Dhuhr"] ?? "")
-                    PrayerTimeRow(prayerName: "Asr", prayerTime: prayerTimes["Asr"] ?? "")
-                    PrayerTimeRow(prayerName: "Maghrib", prayerTime: prayerTimes["Maghrib"] ?? "")
-                    PrayerTimeRow(prayerName: "Isha", prayerTime: prayerTimes["Isha"] ?? "")
-                    PrayerTimeRow(prayerName: "Qiyam", prayerTime: prayerTimes["Qiyam"] ?? "")
+                    PrayerTimeRow(prayerName: localizedPrayerName("Dhuhr"), prayerTime: prayerTimes["Dhuhr"] ?? "")
+                    PrayerTimeRow(prayerName: localizedPrayerName("Asr"), prayerTime: prayerTimes["Asr"] ?? "")
+                    PrayerTimeRow(prayerName: localizedPrayerName("Maghrib"), prayerTime: prayerTimes["Maghrib"] ?? "")
+                    PrayerTimeRow(prayerName: localizedPrayerName("Isha"), prayerTime: prayerTimes["Isha"] ?? "")
+                    PrayerTimeRow(prayerName: localizedPrayerName("Qiyam"), prayerTime: prayerTimes["Qiyam"] ?? "")
                         .capsuleStyled(theme: themeManager.selectedTheme)
                 }
                 .foregroundStyle(.black)
@@ -165,6 +165,29 @@ struct PrayerTimeView: View {
         let countdown = Calendar.current.dateComponents([.hour, .minute, .second], from: now, to: nextPrayerTime)
         timeUntilNextPrayer = String(format: "%02d:%02d:%02d", countdown.hour ?? 0, countdown.minute ?? 0, countdown.second ?? 0)
     }
+    
+    func localizedPrayerName(_ prayerName: String) -> String {
+        let key: String
+        switch prayerName {
+        case "Fajr":
+            key = "prayer_fajr"
+        case "Sunrise":
+            key = "prayer_sunrise"
+        case "Dhuhr":
+            key = "prayer_dhuhr"
+        case "Asr":
+            key = "prayer_asr"
+        case "Maghrib":
+            key = "prayer_maghrib"
+        case "Isha":
+            key = "prayer_isha"
+        case "Qiyam":
+            key = "prayer_qiyam"
+        default:
+            return prayerName
+        }
+        return NSLocalizedString(key, bundle: localizationManager.bundle ?? .main, comment: "")
+    }
 
     func requestNotificationPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
@@ -197,8 +220,9 @@ struct PrayerTimeView: View {
 
             if enablePrayerTimeNotifications {
                 let content = UNMutableNotificationContent()
-                content.title = prayerName
-                content.body = "Time for \(prayerName)"
+                let localizedName = localizedPrayerName(prayerName)
+                content.title = localizedName
+                content.body = String(format: NSLocalizedString("prayer_time_for", bundle: localizationManager.bundle ?? .main, comment: ""), localizedName)
                 content.sound = UNNotificationSound.default
 
                 let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: prayerTime)
@@ -216,8 +240,9 @@ struct PrayerTimeView: View {
 
             if enable30MinNotifications {
                 let content30MinBefore = UNMutableNotificationContent()
-                content30MinBefore.title = "Prepare for next prayer"
-                content30MinBefore.body = "Time for \(prayerName) in 30 minutes"
+                let localizedName = localizedPrayerName(prayerName)
+                content30MinBefore.title = NSLocalizedString("prayer_prepare_for_next", bundle: localizationManager.bundle ?? .main, comment: "")
+                content30MinBefore.body = String(format: NSLocalizedString("prayer_time_in_30_minutes", bundle: localizationManager.bundle ?? .main, comment: ""), localizedName)
                 content30MinBefore.sound = UNNotificationSound.default
 
                 let prayerTime30MinBefore = prayerTime.addingTimeInterval(-30 * 60)

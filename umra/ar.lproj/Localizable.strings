@@ -278,3 +278,17 @@
 "tab_hajj" = "الحج";
 "hajj_screen_title" = "الحج";
 
+/* تخصيص وقت الصلاة */
+"prayer_mecca" = "مكة،";
+"prayer_fajr" = "الفجر";
+"prayer_sunrise" = "الشروق";
+"prayer_dhuhr" = "الظهر";
+"prayer_asr" = "العصر";
+"prayer_maghrib" = "المغرب";
+"prayer_isha" = "العشاء";
+"prayer_qiyam" = "قيام";
+"prayer_in" = "خلال";
+"prayer_time_for" = "وقت %@";
+"prayer_prepare_for_next" = "الاستعداد للصلاة القادمة";
+"prayer_time_in_30_minutes" = "وقت %@ خلال 30 دقيقة";
+

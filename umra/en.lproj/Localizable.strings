@@ -502,3 +502,17 @@ The Messenger of Allah (peace and blessings of Allah be upon him), when performi
 "tab_umra" = "Umrah";
 "tab_hajj" = "Hajj";
 "hajj_screen_title" = "HAJJ";
+
+/* Prayer Time Localization */
+"prayer_mecca" = "Mecca,";
+"prayer_fajr" = "Fajr";
+"prayer_sunrise" = "Sunrise";
+"prayer_dhuhr" = "Dhuhr";
+"prayer_asr" = "Asr";
+"prayer_maghrib" = "Maghrib";
+"prayer_isha" = "Isha";
+"prayer_qiyam" = "Qiyam";
+"prayer_in" = "in";
+"prayer_time_for" = "Time for %@";
+"prayer_prepare_for_next" = "Prepare for next prayer";
+"prayer_time_in_30_minutes" = "Time for %@ in 30 minutes";

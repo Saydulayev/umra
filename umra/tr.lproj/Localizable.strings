@@ -484,3 +484,17 @@ Resulullah (Allah'ın selamı ve bereketi onun üzerine olsun) cenaze namazında
 "tab_umra" = "Umre";
 "tab_hajj" = "Hac";
 "hajj_screen_title" = "HAC";
+
+/* Namaz Vakti Yerelleştirme */
+"prayer_mecca" = "Mekke,";
+"prayer_fajr" = "Fecr";
+"prayer_sunrise" = "Güneş Doğuşu";
+"prayer_dhuhr" = "Öğle";
+"prayer_asr" = "İkindi";
+"prayer_maghrib" = "Akşam";
+"prayer_isha" = "Yatsı";
+"prayer_qiyam" = "Kıyam";
+"prayer_in" = "içinde";
+"prayer_time_for" = "%@ için zaman";
+"prayer_prepare_for_next" = "Sonraki namaza hazırlık";
+"prayer_time_in_30_minutes" = "%@ için 30 dakika içinde zaman";

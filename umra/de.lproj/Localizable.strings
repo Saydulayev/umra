@@ -523,3 +523,17 @@ Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebe
 "tab_umra" = "Umra";
 "tab_hajj" = "Haddsch";
 "hajj_screen_title" = "HADDsch";
+
+/* Gebetszeit Lokalisierung */
+"prayer_mecca" = "Mekka,";
+"prayer_fajr" = "Fajr";
+"prayer_sunrise" = "Sonnenaufgang";
+"prayer_dhuhr" = "Dhuhr";
+"prayer_asr" = "Asr";
+"prayer_maghrib" = "Maghrib";
+"prayer_isha" = "Isha";
+"prayer_qiyam" = "Qiyam";
+"prayer_in" = "in";
+"prayer_time_for" = "Zeit für %@";
+"prayer_prepare_for_next" = "Vorbereitung auf das nächste Gebet";
+"prayer_time_in_30_minutes" = "Zeit für %@ in 30 Minuten";
