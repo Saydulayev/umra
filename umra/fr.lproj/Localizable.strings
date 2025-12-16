@@ -77,15 +77,18 @@ Omra pour les parents
 
 /* --- OMRA POUR LE PÈRE --- */
 "Umrah for father arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ أَبِي";
-"Umrah for father" = "Labbayka Allahumma bi-'umrah 'an abi (nom du père) - «Ô Allah, j'accomplis l'omra pour mon père (nom).»";
+"Umrah for father" = "
+Labbayka Allahumma bi-'umrah 'an abi (nom du père) - «Ô Allah, j'accomplis l'omra pour mon père (nom).»";
 
 /* --- OMRA POUR LA MÈRE --- */
 "Umrah for mother arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ أُمِّي";
-"Umrah for mother" = "Labbayka Allahumma bi-'umrah 'an ummi (nom de la mère) - «Ô Allah, j'accomplis l'omra pour ma mère (nom).»";
+"Umrah for mother" = "
+Labbayka Allahumma bi-'umrah 'an ummi (nom de la mère) - «Ô Allah, j'accomplis l'omra pour ma mère (nom).»";
 
 /* --- OMRA POUR UNE AUTRE PERSONNE --- */
 "Umrah for other person arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ";
-"Umrah for other person" = "Labbayka Allahumma bi-'umrah 'an (nom de la personne) - «Ô Allah, j'accomplis l'omra pour (nom de la personne).»";
+"Umrah for other person" = "
+Labbayka Allahumma bi-'umrah 'an (nom de la personne) - «Ô Allah, j'accomplis l'omra pour (nom de la personne).»";
 
 /* --- EXPLICATION --- */
 "Umrah for parents explanation" = "Si vous voulez accomplir l'omra pour vos parents ou une autre personne, au lieu de la talbiyah habituelle, récitez l'une des formules données, en ajoutant après les mots «abi» (père), «ummi» (mère) ou simplement après le mot «'an» le nom de la personne pour qui l'omra est accomplie. Après avoir prononcé l'intention et la talbiyah avec la mention du nom, toutes les autres actions, supplications (dua) et rappel d'Allah (dhikr) sont accomplies comme d'habitude, comme si vous faisiez l'omra pour vous-même. La seule différence est l'intention.";

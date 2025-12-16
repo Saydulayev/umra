@@ -82,15 +82,18 @@ Umrah untuk orang tua
 
 /* --- UMRAH UNTUK AYAH --- */
 "Umrah for father arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ أَبِي";
-"Umrah for father" = "Labbayka Allahumma bi-'umrah 'an abi (nama ayah) - «Ya Allah, aku melaksanakan umrah untuk ayahku (nama).»";
+"Umrah for father" = "
+Labbayka Allahumma bi-'umrah 'an abi (nama ayah) - «Ya Allah, aku melaksanakan umrah untuk ayahku (nama).»";
 
 /* --- UMRAH UNTUK IBU --- */
 "Umrah for mother arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ أُمِّي";
-"Umrah for mother" = "Labbayka Allahumma bi-'umrah 'an ummi (nama ibu) - «Ya Allah, aku melaksanakan umrah untuk ibuku (nama).»";
+"Umrah for mother" = "
+Labbayka Allahumma bi-'umrah 'an ummi (nama ibu) - «Ya Allah, aku melaksanakan umrah untuk ibuku (nama).»";
 
 /* --- UMRAH UNTUK ORANG LAIN --- */
 "Umrah for other person arabic" = "لَبَّيْكَ ٱللّٰهُمَّ بِعُمْرَةٍ عَنْ";
-"Umrah for other person" = "Labbayka Allahumma bi-'umrah 'an (nama orang) - «Ya Allah, aku melaksanakan umrah untuk (nama orang).»";
+"Umrah for other person" = "
+Labbayka Allahumma bi-'umrah 'an (nama orang) - «Ya Allah, aku melaksanakan umrah untuk (nama orang).»";
 
 /* --- PENJELASAN --- */
 "Umrah for parents explanation" = "Jika Anda ingin melaksanakan umrah untuk orang tua atau orang lain, alih-alih talbiyah biasa, bacalah salah satu formula yang diberikan, tambahkan setelah kata-kata «abi» (ayah), «ummi» (ibu) atau cukup setelah kata «'an» nama orang yang umrah dilaksanakan. Setelah mengucapkan niat dan talbiyah dengan menyebutkan nama, semua tindakan lainnya, doa (dua) dan dzikir Allah (dzikir) dilakukan seperti biasa, seolah-olah Anda melakukan umrah untuk diri sendiri. Satu-satunya perbedaan adalah niat.";
