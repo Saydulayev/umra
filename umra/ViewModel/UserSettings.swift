@@ -37,8 +37,8 @@ enum AppTheme: String, CaseIterable {
             // Оазис тема - более яркий зеленый для лучшей видимости обводки
             return Color(#colorLiteral(red: 0.2, green: 0.7, blue: 0.3, alpha: 1))
         case .gold:
-            // Золотая тема - более яркий золотой для лучшей видимости обводки
-            return Color(#colorLiteral(red: 0.8, green: 0.6, blue: 0.1, alpha: 1))
+            // Золотая тема - золотой цвет для видимости иконок, но светлее для одинакового контраста фона
+            return Color(#colorLiteral(red: 0.7, green: 0.55, blue: 0.25, alpha: 1))
         case .turquoise:
             // Бирюзовая тема - более яркий бирюзовый для лучшей видимости обводки
             return Color(#colorLiteral(red: 0.1, green: 0.7, blue: 0.7, alpha: 1))
@@ -54,8 +54,8 @@ enum AppTheme: String, CaseIterable {
             // Оазис тема - светлый зеленый градиент
             return Color(#colorLiteral(red: 0.95, green: 0.98, blue: 0.95, alpha: 1))
         case .gold:
-            // Золотая тема - светлый теплый кремовый градиент
-            return Color(#colorLiteral(red: 0.98, green: 0.95, blue: 0.88, alpha: 1))
+            // Золотая тема - более светлый кремовый градиент для одинакового контраста
+            return Color(#colorLiteral(red: 0.99, green: 0.97, blue: 0.95, alpha: 1))
         case .turquoise:
             // Бирюзовая тема - светлый бирюзовый градиент
             return Color(#colorLiteral(red: 0.95, green: 0.98, blue: 0.98, alpha: 1))
