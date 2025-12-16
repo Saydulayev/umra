@@ -50,7 +50,7 @@ struct UsefulInfoView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                themeManager.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea(edges: .bottom)
                 
                 ScrollView {
@@ -155,7 +155,7 @@ struct JanazaView: View {
 
     var body: some View {
         ZStack {
-            themeManager.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.backgroundColor
                 .ignoresSafeArea(edges: .bottom)
 
             ScrollView {
@@ -257,7 +257,7 @@ struct ChapterDetailView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                themeManager.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea(edges: .bottom)
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
@@ -293,7 +293,7 @@ struct SubChapterDetailView: View {
     
     var body: some View {
         ZStack {
-            themeManager.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.backgroundColor
                 .ignoresSafeArea(edges: .bottom)
             ScrollView {
                 Text(subChapter.content)

@@ -27,7 +27,7 @@ struct Step6: View {
     
     var body: some View {
         ZStack {
-            themeManager.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.backgroundColor
                 .ignoresSafeArea(edges: .bottom)
             
             ScrollView {
