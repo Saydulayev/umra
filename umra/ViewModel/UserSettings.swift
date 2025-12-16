@@ -69,7 +69,7 @@ enum AppTheme: String, CaseIterable {
         case .green:
             return Color(UIColor(red: 0.9, green: 0.95, blue: 0.9, alpha: 1))
         case .gold:
-            return Color(UIColor(red: 0.95, green: 0.9, blue: 0.7, alpha: 1))
+            return Color(UIColor(red: 0.98, green: 0.96, blue: 0.94, alpha: 1))
         case .turquoise:
             return Color(UIColor(red: 0.9, green: 0.95, blue: 0.95, alpha: 1))
         }
