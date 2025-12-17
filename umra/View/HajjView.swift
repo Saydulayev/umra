@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum HajjStep: Hashable {
+enum HajjStep: Hashable, Sendable {
     case step1
     case step2
     case step3

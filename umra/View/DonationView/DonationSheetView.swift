@@ -136,7 +136,7 @@ struct DonationSheetView: View {
     
     private var donateButton: some View {
         Button {
-            Task {
+            Task { @MainActor in
                 isLoading = true
                 await buy(productID: selectedProductId)
                 isLoading = false

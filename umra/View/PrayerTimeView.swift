@@ -5,7 +5,7 @@
 //  Created by Akhmed on 29.04.24.
 //
 
-import Adhan
+@preconcurrency import Adhan
 import BackgroundTasks
 import SwiftUI
 import UserNotifications
@@ -133,29 +133,35 @@ struct PrayerTimeView: View {
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
         let todayDateComponents = cal.dateComponents([.year, .month, .day], from: today)
         let tomorrowDateComponents = cal.dateComponents([.year, .month, .day], from: tomorrow)
-        let coordinates = Coordinates(latitude: 21.4225, longitude: 39.8262)
+        
+        // Извлекаем примитивные значения для безопасной передачи в Task.detached
+        let latitude = 21.4225
+        let longitude = 39.8262
         var params = CalculationMethod.ummAlQura.params
         params.madhab = .shafi
-        let finalParams = params // Копируем для безопасного использования в параллельных задачах
+        let finalParams = params
 
         // Параллельное вычисление времен молитв для сегодня и завтра
-        async let todayPrayersTask = Task.detached(priority: .userInitiated) {
-            PrayerTimes(coordinates: coordinates,
-                       date: todayDateComponents,
-                       calculationParameters: finalParams)
-        }
+        // Используем вспомогательную функцию для обхода проблем с Sendable в Adhan
+        async let todayPrayers = calculatePrayerTimes(
+            latitude: latitude,
+            longitude: longitude,
+            dateComponents: todayDateComponents,
+            params: finalParams
+        )
         
-        async let tomorrowPrayersTask = Task.detached(priority: .userInitiated) {
-            PrayerTimes(coordinates: coordinates,
-                       date: tomorrowDateComponents,
-                       calculationParameters: finalParams)
-        }
+        async let tomorrowPrayers = calculatePrayerTimes(
+            latitude: latitude,
+            longitude: longitude,
+            dateComponents: tomorrowDateComponents,
+            params: finalParams
+        )
         
-        let todayPrayers = await todayPrayersTask.value
-        let tomorrowPrayers = await tomorrowPrayersTask.value
+        let todayPrayersResult = await todayPrayers
+        let tomorrowPrayersResult = await tomorrowPrayers
         
-        guard let todayPrayers = todayPrayers,
-              let tomorrowPrayers = tomorrowPrayers else {
+        guard let todayPrayers = todayPrayersResult,
+              let tomorrowPrayers = tomorrowPrayersResult else {
             print("Error initializing PrayerTimes")
             return
         }
@@ -186,6 +192,19 @@ struct PrayerTimeView: View {
         await scheduleNotifications(prayerTimes: todayPrayers)
     }
 
+    // Вспомогательная функция для вычисления времен молитв вне MainActor контекста
+    nonisolated private func calculatePrayerTimes(
+        latitude: Double,
+        longitude: Double,
+        dateComponents: DateComponents,
+        params: CalculationParameters
+    ) -> PrayerTimes? {
+        let coordinates = Coordinates(latitude: latitude, longitude: longitude)
+        return PrayerTimes(coordinates: coordinates,
+                          date: dateComponents,
+                          calculationParameters: params)
+    }
+    
     func updateCountdownToNextPrayer(prayers: PrayerTimes) {
         let now = Date()
 

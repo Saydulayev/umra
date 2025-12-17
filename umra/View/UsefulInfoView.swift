@@ -293,7 +293,7 @@ func getDynamicFontSize(forPad: CGFloat = 30, forPhone: CGFloat = 20) -> CGFloat
     UIDevice.current.userInterfaceIdiom == .pad ? forPad : forPhone
 }
 
-struct Chapter: Identifiable, Hashable {
+struct Chapter: Identifiable, Hashable, Sendable {
     let id = UUID()
     let title: String
     let subChapters: [SubChapter]
@@ -307,7 +307,7 @@ struct Chapter: Identifiable, Hashable {
     }
 }
 
-struct SubChapter: Identifiable, Hashable {
+struct SubChapter: Identifiable, Hashable, Sendable {
     let id = UUID()
     let title: String
     let content: String

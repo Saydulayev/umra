@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 // MARK: - Theme System
-enum AppTheme: String, CaseIterable {
+enum AppTheme: String, CaseIterable, Sendable {
     case blue = "blue"
     case green = "green"
     case gold = "gold"
@@ -200,6 +200,7 @@ extension String {
 }
 
 // MARK: - Theme Manager
+@MainActor
 @Observable
 class ThemeManager {
     var selectedTheme: AppTheme {
@@ -214,6 +215,7 @@ class ThemeManager {
 }
 
 // MARK: - Localization Manager
+@MainActor
 @Observable
 class LocalizationManager {
     var currentLanguage: String {
@@ -248,6 +250,7 @@ class LocalizationManager {
 }
 
 // MARK: - User Preferences Manager
+@MainActor
 @Observable
 class UserPreferences {
     var hasSelectedLanguage: Bool {

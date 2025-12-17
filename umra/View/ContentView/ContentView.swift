@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum UmraStep: Hashable {
+enum UmraStep: Hashable, Sendable {
     case step1
     case step2
     case step3
@@ -18,7 +18,7 @@ enum UmraStep: Hashable {
     case useful
 }
 
-enum AppDestination: Hashable {
+enum AppDestination: Hashable, Sendable {
     case settings
 }
 

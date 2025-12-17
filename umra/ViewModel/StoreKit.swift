@@ -136,7 +136,7 @@ class PurchaseManager {
         }
     }
     
-    enum PurchaseError: Error {
+    enum PurchaseError: Error, Sendable {
         case verificationFailed
     }
 }

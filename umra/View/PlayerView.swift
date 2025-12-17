@@ -9,6 +9,7 @@ import AVFoundation
 import SwiftUI
 import UIKit
 
+@MainActor
 @Observable
 class AudioManager {
     private var audioPlayers: [AVAudioPlayer] = []
