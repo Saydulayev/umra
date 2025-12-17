@@ -15,7 +15,8 @@ struct PrayerTimeView: View {
     @State private var prayerTimes: [String: String] = [:]
     @State private var nextPrayerName = ""
     @State private var timeUntilNextPrayer = ""
-    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var timerTask: Task<Void, Never>?
+    @State private var isUpdating = false
     @State private var storedPrayerTimes: PrayerTimes? = nil
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
@@ -82,14 +83,11 @@ struct PrayerTimeView: View {
                 Task {
                     await requestNotificationPermission()
                 }
-            }
-            .onReceive(timer) { _ in
-                Task { @MainActor in
-                    await updatePrayerTimes()
-                }
+                startTimer()
             }
             .onDisappear {
-                timer.upstream.connect().cancel()
+                timerTask?.cancel()
+                timerTask = nil
             }
             .onChange(of: enable30MinNotifications) {
                 updateNotifications()
@@ -109,9 +107,27 @@ struct PrayerTimeView: View {
             await updatePrayerTimes()
         }
     }
+    
+    func startTimer() {
+        timerTask = Task { @MainActor in
+            while !Task.isCancelled {
+                await updatePrayerTimes()
+                do {
+                    try await Task.sleep(for: .seconds(1))
+                } catch {
+                    break
+                }
+            }
+        }
+    }
 
     @MainActor
     func updatePrayerTimes() async {
+        // Защита от параллельных вызовов
+        guard !isUpdating else { return }
+        isUpdating = true
+        defer { isUpdating = false }
+        
         let cal = Calendar(identifier: .gregorian)
         let today = Date()
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
@@ -120,42 +136,49 @@ struct PrayerTimeView: View {
         let coordinates = Coordinates(latitude: 21.4225, longitude: 39.8262)
         var params = CalculationMethod.ummAlQura.params
         params.madhab = .shafi
+        let finalParams = params // Копируем для безопасного использования в параллельных задачах
 
-        let (todayPrayers, _, newPrayerTimes) = await Task.detached(priority: .userInitiated) {
-            guard let todayPrayers = PrayerTimes(coordinates: coordinates,
-                                                 date: todayDateComponents,
-                                                 calculationParameters: params),
-                  let tomorrowPrayers = PrayerTimes(coordinates: coordinates,
-                                                    date: tomorrowDateComponents,
-                                                    calculationParameters: params) else {
-                print("Error initializing PrayerTimes")
-                return (nil as PrayerTimes?, nil as PrayerTimes?, [String: String]())
-            }
+        // Параллельное вычисление времен молитв для сегодня и завтра
+        async let todayPrayersTask = Task.detached(priority: .userInitiated) {
+            PrayerTimes(coordinates: coordinates,
+                       date: todayDateComponents,
+                       calculationParameters: finalParams)
+        }
+        
+        async let tomorrowPrayersTask = Task.detached(priority: .userInitiated) {
+            PrayerTimes(coordinates: coordinates,
+                       date: tomorrowDateComponents,
+                       calculationParameters: finalParams)
+        }
+        
+        let todayPrayers = await todayPrayersTask.value
+        let tomorrowPrayers = await tomorrowPrayersTask.value
+        
+        guard let todayPrayers = todayPrayers,
+              let tomorrowPrayers = tomorrowPrayers else {
+            print("Error initializing PrayerTimes")
+            return
+        }
 
-            let maghribToFajrInterval = tomorrowPrayers.fajr.timeIntervalSince(todayPrayers.maghrib)
-            let lastThirdStart = todayPrayers.maghrib.addingTimeInterval(2 * maghribToFajrInterval / 3)
+        let maghribToFajrInterval = tomorrowPrayers.fajr.timeIntervalSince(todayPrayers.maghrib)
+        let lastThirdStart = todayPrayers.maghrib.addingTimeInterval(2 * maghribToFajrInterval / 3)
 
-            let prayerTimeFormatter: DateFormatter = {
-                let formatter = DateFormatter()
-                formatter.timeStyle = .short
-                formatter.timeZone = TimeZone(identifier: "Asia/Riyadh")
-                return formatter
-            }()
+        let prayerTimeFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.timeStyle = .short
+            formatter.timeZone = TimeZone(identifier: "Asia/Riyadh")
+            return formatter
+        }()
 
-            let newPrayerTimes: [String: String] = [
-                "Fajr": prayerTimeFormatter.string(from: todayPrayers.fajr),
-                "Sunrise": prayerTimeFormatter.string(from: todayPrayers.sunrise),
-                "Dhuhr": prayerTimeFormatter.string(from: todayPrayers.dhuhr),
-                "Asr": prayerTimeFormatter.string(from: todayPrayers.asr),
-                "Maghrib": prayerTimeFormatter.string(from: todayPrayers.maghrib),
-                "Isha": prayerTimeFormatter.string(from: todayPrayers.isha),
-                "Qiyam": prayerTimeFormatter.string(from: lastThirdStart)
-            ]
-
-            return (todayPrayers, tomorrowPrayers, newPrayerTimes)
-        }.value
-
-        guard let todayPrayers = todayPrayers else { return }
+        let newPrayerTimes: [String: String] = [
+            "Fajr": prayerTimeFormatter.string(from: todayPrayers.fajr),
+            "Sunrise": prayerTimeFormatter.string(from: todayPrayers.sunrise),
+            "Dhuhr": prayerTimeFormatter.string(from: todayPrayers.dhuhr),
+            "Asr": prayerTimeFormatter.string(from: todayPrayers.asr),
+            "Maghrib": prayerTimeFormatter.string(from: todayPrayers.maghrib),
+            "Isha": prayerTimeFormatter.string(from: todayPrayers.isha),
+            "Qiyam": prayerTimeFormatter.string(from: lastThirdStart)
+        ]
 
         self.prayerTimes = newPrayerTimes
         self.updateCountdownToNextPrayer(prayers: todayPrayers)

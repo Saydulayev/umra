@@ -60,6 +60,7 @@ struct PlayerView: View {
     @State private var duration: TimeInterval = 0.0
     @State private var isRepeating = false
     @State private var playbackRate: Float = 1.0
+    @State private var progressTask: Task<Void, Never>?
     let fileName: String
 
     @State private var coordinator = Coordinator()
@@ -130,11 +131,11 @@ struct PlayerView: View {
                 self.isPlaying = false
             }
             setupAudioPlayer()
-        }
-        .onReceive(Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()) { _ in
-            updateProgress()
+            startProgressTimer()
         }
         .onDisappear {
+            progressTask?.cancel()
+            progressTask = nil
             stopAudioPlayer()
         }
     }
@@ -245,6 +246,20 @@ struct PlayerView: View {
         }
     }
 
+    func startProgressTimer() {
+        progressTask = Task { @MainActor in
+            while !Task.isCancelled {
+                updateProgress()
+                do {
+                    try await Task.sleep(for: .milliseconds(20))
+                } catch {
+                    break
+                }
+            }
+        }
+    }
+    
+    @MainActor
     func updateProgress() {
         guard let player = audioPlayer else { return }
         self.currentTime = player.currentTime

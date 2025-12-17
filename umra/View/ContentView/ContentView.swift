@@ -41,7 +41,7 @@ struct ContentView: View {
         "img8": "Useful"
     ]
     @State private var usageTime: TimeInterval = 0
-    @State private var timer: Timer?
+    @State private var usageTimerTask: Task<Void, Never>?
     @Environment(\.requestReview) var requestReview
     
     let steps: [(String, UmraStep, String)] = [
@@ -224,19 +224,27 @@ struct ContentView: View {
     /// Запуск таймера для запроса отзыва
     private func startTimer() {
         guard !userPreferences.hasRatedApp else { return }
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            usageTime += 1
-            if usageTime >= 300 {
-                stopTimer()
-                requestReviewIfNeeded()
+        usageTimerTask = Task { @MainActor in
+            while !Task.isCancelled {
+                usageTime += 1
+                if usageTime >= 300 {
+                    stopTimer()
+                    requestReviewIfNeeded()
+                    break
+                }
+                do {
+                    try await Task.sleep(for: .seconds(1))
+                } catch {
+                    break
+                }
             }
         }
     }
     
     /// Остановка таймера
     private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
+        usageTimerTask?.cancel()
+        usageTimerTask = nil
     }
     
     /// Запрос отзыва, если это необходимо

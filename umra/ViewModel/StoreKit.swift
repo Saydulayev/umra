@@ -9,8 +9,18 @@ import Foundation
 import StoreKit
 import OSLog
 
-final class TaskHolder: @unchecked Sendable {
-    var task: Task<Void, Never>?
+actor TaskHolder {
+    private var task: Task<Void, Never>?
+    
+    func setTask(_ newTask: Task<Void, Never>?) {
+        task?.cancel()
+        task = newTask
+    }
+    
+    func cancel() {
+        task?.cancel()
+        task = nil
+    }
 }
 
 @MainActor
@@ -28,11 +38,13 @@ class PurchaseManager {
     ]
     
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.example.app", category: "PurchaseManager")
-    private let updateListenerTask = TaskHolder()
+    private nonisolated let updateListenerTask = TaskHolder()
 
     init() {
         logger.info("PurchaseManager initialized")
-        updateListenerTask.task = listenForTransactions()
+        Task {
+            await updateListenerTask.setTask(listenForTransactions())
+        }
         Task { @MainActor in
             logger.debug("Starting product request")
             await loadProducts()
@@ -42,7 +54,10 @@ class PurchaseManager {
     
     deinit {
         logger.info("PurchaseManager deinitializing")
-        updateListenerTask.task?.cancel()
+        let taskHolder = updateListenerTask
+        Task.detached {
+            await taskHolder.cancel()
+        }
     }
     
     /// Загрузка продуктов из App Store
