@@ -9,6 +9,7 @@ import SwiftUI
 import WebKit
 import BackgroundTasks
 import UIKit
+import OSLog
 
 @main
 struct umraApp: App {
@@ -37,6 +38,8 @@ struct umraApp: App {
 
 // MARK: - AppDelegate для регистрации фоновых задач
 class AppDelegate: NSObject, UIApplicationDelegate {
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "AppDelegate")
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // Регистрируем фоновые задачи синхронно при запуске приложения
         // Это требуется iOS 18+ - все launch handlers должны быть зарегистрированы
@@ -48,19 +51,19 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 self.handleAppRefresh(task: refreshTask)
             }
         }
-        print("✅ Background task registered in AppDelegate")
+        logger.info("✅ Background task registered in AppDelegate")
         return true
     }
     
     private func handleAppRefresh(task: BGAppRefreshTask) {
         // Планируем следующее обновление
         let request = BGAppRefreshTaskRequest(identifier: "saydulayev.wien-gmail.com.umra.updatePrayerTimes")
-        request.earliestBeginDate = Date(timeIntervalSinceNow: 3600)
+        request.earliestBeginDate = Date(timeIntervalSinceNow: AppConstants.backgroundTaskInterval)
         
         do {
             try BGTaskScheduler.shared.submit(request)
         } catch {
-            print("❌ Failed to schedule background task: \(error)")
+            logger.error("❌ Failed to schedule background task: \(error.localizedDescription, privacy: .public)")
         }
         
         // Уведомляем о необходимости обновления времен молитв

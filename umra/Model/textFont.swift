@@ -50,18 +50,18 @@ class FontManager {
     
     var selectedFont: String {
         didSet {
-            UserDefaults.standard.set(selectedFont, forKey: "SelectedFont")
+            UserDefaults.standard.set(selectedFont, forKey: UserDefaultsKey.selectedFont)
         }
     }
     
     var selectedFontSize: CGFloat {
         didSet {
-            UserDefaults.standard.set(selectedFontSize, forKey: "SelectedFontSize")
+            UserDefaults.standard.set(selectedFontSize, forKey: UserDefaultsKey.selectedFontSize)
         }
     }
     
     init() {
-        self.selectedFont = UserDefaults.standard.string(forKey: "SelectedFont") ?? "Lato-Black"
-        self.selectedFontSize = UserDefaults.standard.object(forKey: "SelectedFontSize") as? CGFloat ?? 20
+        self.selectedFont = UserDefaults.standard.string(forKey: UserDefaultsKey.selectedFont) ?? "Lato-Black"
+        self.selectedFontSize = UserDefaults.standard.object(forKey: UserDefaultsKey.selectedFontSize) as? CGFloat ?? 20
     }
 }

@@ -15,6 +15,13 @@ enum HajjStep: Hashable, Sendable {
     case step5
 }
 
+struct HajjStepItem: Identifiable {
+    let id: Int
+    let imageName: String
+    let step: HajjStep
+    let titleKey: String
+}
+
 struct HajjView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
@@ -35,12 +42,12 @@ struct HajjView: View {
     @Environment(\.requestReview) var requestReview
     
     // Шаги хаджа
-    let steps: [(String, HajjStep, String)] = [
-        ("hajj1", .step1, "hajj_step1_title"),
-        ("hajj2", .step2, "hajj_step2_title"),
-        ("hajj3", .step3, "hajj_step3_title"),
-        ("hajj4", .step4, "hajj_step4_title"),
-        ("hajj5", .step5, "hajj_step5_title")
+    private let steps: [HajjStepItem] = [
+        HajjStepItem(id: 0, imageName: "hajj1", step: .step1, titleKey: "hajj_step1_title"),
+        HajjStepItem(id: 1, imageName: "hajj2", step: .step2, titleKey: "hajj_step2_title"),
+        HajjStepItem(id: 2, imageName: "hajj3", step: .step3, titleKey: "hajj_step3_title"),
+        HajjStepItem(id: 3, imageName: "hajj4", step: .step4, titleKey: "hajj_step4_title"),
+        HajjStepItem(id: 4, imageName: "hajj5", step: .step5, titleKey: "hajj_step5_title")
     ]
     
     @ViewBuilder
@@ -60,13 +67,13 @@ struct HajjView: View {
     }
     
     /// Вычисляемое свойство для определения устройства iPad
-    private var isPad: Bool {
+    private var isIPad: Bool {
         UIDevice.current.userInterfaceIdiom == .pad
     }
     
     /// Динамический размер шрифта в зависимости от устройства
     private var dynamicFontSize: CGFloat {
-        isPad ? 30 : 10
+        isIPad ? 30 : 10
     }
     
     var body: some View {
@@ -150,15 +157,15 @@ struct HajjView: View {
             .padding(.horizontal)
         } else {
             LazyVStack(spacing: 8) {
-                ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                ForEach(steps) { stepItem in
                     Button {
-                        navigationPath.append(step.1)
+                        navigationPath.append(stepItem.step)
                     } label: {
-                        StepRow(step: step, index: index)
+                        StepRow(step: (stepItem.imageName, stepItem.step, stepItem.titleKey), index: stepItem.id)
                     }
                     .buttonStyle(PlainButtonStyle())
                     .padding(.horizontal, 8)
-                    .id("\(step.1)-\(index)")
+                    .id("\(stepItem.step)-\(stepItem.id)")
                 }
             }
             .padding(.vertical, 10)
@@ -167,15 +174,15 @@ struct HajjView: View {
     
     /// Для сетки: отображение шагов через отдельный View StepView
     private func stepsView(showIndex: Bool, fontSize: CGFloat) -> some View {
-        ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+        ForEach(steps) { stepItem in
             Button {
-                navigationPath.append(step.1)
+                navigationPath.append(stepItem.step)
             } label: {
                 StepView(
-                    imageName: step.0,
-                    titleKey: LocalizedStringKey(step.2),
-                    stringKey: step.2,
-                    index: showIndex ? index : nil,
+                    imageName: stepItem.imageName,
+                    titleKey: LocalizedStringKey(stepItem.titleKey),
+                    stringKey: stepItem.titleKey,
+                    index: showIndex ? stepItem.id : nil,
                     fontSize: fontSize,
                     stepsCount: steps.count,
                     hideLastIndex: false,
@@ -184,7 +191,7 @@ struct HajjView: View {
                 .foregroundStyle(themeManager.selectedTheme.textColor)
             }
             .buttonStyle(PlainButtonStyle())
-            .id("\(step.1)-\(index)")
+            .id("\(stepItem.step)-\(stepItem.id)")
         }
     }
     

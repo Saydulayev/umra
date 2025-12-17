@@ -45,7 +45,7 @@ struct StepView: View {
     
     var body: some View {
         VStack {
-            if let index = index {
+            if let index {
                 Image(imageName)
                     .styledImageWithIndexAndTheme(index: index, stepsCount: stepsCount, theme: themeManager.selectedTheme, hideLastIndex: hideLastIndex)
                     .accessibilityLabel(accessibilityLabel)

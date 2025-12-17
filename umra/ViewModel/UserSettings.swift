@@ -205,12 +205,12 @@ extension String {
 class ThemeManager {
     var selectedTheme: AppTheme {
         didSet {
-            UserDefaults.standard.set(selectedTheme.rawValue, forKey: "selectedTheme")
+            UserDefaults.standard.set(selectedTheme.rawValue, forKey: UserDefaultsKey.selectedTheme)
         }
     }
     
     init() {
-        selectedTheme = AppTheme(rawValue: UserDefaults.standard.string(forKey: "selectedTheme") ?? "blue") ?? .blue
+        selectedTheme = AppTheme(rawValue: UserDefaults.standard.string(forKey: UserDefaultsKey.selectedTheme) ?? "blue") ?? .blue
     }
 }
 
@@ -220,22 +220,22 @@ class ThemeManager {
 class LocalizationManager {
     var currentLanguage: String {
         didSet {
-            UserDefaults.standard.set(currentLanguage, forKey: "selectedLanguage")
+            UserDefaults.standard.set(currentLanguage, forKey: UserDefaultsKey.selectedLanguage)
             loadBundle()
         }
     }
     
     var hasSelectedLanguage: Bool {
         didSet {
-            UserDefaults.standard.set(hasSelectedLanguage, forKey: "hasSelectedLanguage")
+            UserDefaults.standard.set(hasSelectedLanguage, forKey: UserDefaultsKey.hasSelectedLanguage)
         }
     }
     
     var bundle: Bundle?
     
     init() {
-        currentLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "ru"
-        hasSelectedLanguage = UserDefaults.standard.bool(forKey: "hasSelectedLanguage")
+        currentLanguage = UserDefaults.standard.string(forKey: UserDefaultsKey.selectedLanguage) ?? "ru"
+        hasSelectedLanguage = UserDefaults.standard.bool(forKey: UserDefaultsKey.hasSelectedLanguage)
         loadBundle()
     }
     
@@ -255,26 +255,26 @@ class LocalizationManager {
 class UserPreferences {
     var hasSelectedLanguage: Bool {
         didSet {
-            UserDefaults.standard.set(hasSelectedLanguage, forKey: "hasSelectedLanguage")
+            UserDefaults.standard.set(hasSelectedLanguage, forKey: UserDefaultsKey.hasSelectedLanguage)
         }
     }
     
     var isGridView: Bool {
         didSet {
-            UserDefaults.standard.set(isGridView, forKey: "isGridView")
+            UserDefaults.standard.set(isGridView, forKey: UserDefaultsKey.isGridView)
         }
     }
     
     var hasRatedApp: Bool {
         didSet {
-            UserDefaults.standard.set(hasRatedApp, forKey: "hasRatedApp")
+            UserDefaults.standard.set(hasRatedApp, forKey: UserDefaultsKey.hasRatedApp)
         }
     }
     
     init() {
-        hasSelectedLanguage = UserDefaults.standard.bool(forKey: "hasSelectedLanguage")
-        isGridView = UserDefaults.standard.bool(forKey: "isGridView") || UIDevice.current.userInterfaceIdiom == .pad
-        hasRatedApp = UserDefaults.standard.bool(forKey: "hasRatedApp")
+        hasSelectedLanguage = UserDefaults.standard.bool(forKey: UserDefaultsKey.hasSelectedLanguage)
+        isGridView = UserDefaults.standard.bool(forKey: UserDefaultsKey.isGridView) || UIDevice.current.userInterfaceIdiom == .pad
+        hasRatedApp = UserDefaults.standard.bool(forKey: UserDefaultsKey.hasRatedApp)
     }
 }
 

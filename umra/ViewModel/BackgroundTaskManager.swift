@@ -7,12 +7,14 @@
 
 import BackgroundTasks
 import Foundation
+import OSLog
 import SwiftUI
 
 @MainActor
 @Observable
 class BackgroundTaskManager {
     private let taskIdentifier = "saydulayev.wien-gmail.com.umra.updatePrayerTimes"
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "BackgroundTaskManager")
     
     init() {
         // Регистрация фоновой задачи теперь происходит в AppDelegate
@@ -23,13 +25,13 @@ class BackgroundTaskManager {
     /// Планирует следующее фоновое обновление
     func scheduleBackgroundRefresh() {
         let request = BGAppRefreshTaskRequest(identifier: taskIdentifier)
-        request.earliestBeginDate = Date(timeIntervalSinceNow: 3600) // через 1 час
+        request.earliestBeginDate = Date(timeIntervalSinceNow: AppConstants.backgroundTaskInterval)
         
         do {
             try BGTaskScheduler.shared.submit(request)
-            print("✅ Background refresh scheduled")
+            logger.info("✅ Background refresh scheduled")
         } catch {
-            print("❌ Failed to schedule background task: \(error)")
+            logger.error("❌ Failed to schedule background task: \(error.localizedDescription, privacy: .public)")
         }
     }
 }

@@ -10,6 +10,8 @@ import StoreKit
 import OSLog
 import UIKit
 
+// MARK: - Task Holder
+
 actor TaskHolder {
     private var task: Task<Void, Never>?
     
@@ -24,23 +26,22 @@ actor TaskHolder {
     }
 }
 
+// MARK: - Purchase Manager
+
 @MainActor
 @Observable
 class PurchaseManager {
     // Доступные продукты и завершённые покупки
     var availableDonations: [Product] = []
     var completedDonations: [Product] = []
-    var purchaseError: String? = nil
+    var purchaseError: PurchaseError? = nil
     // Информация о pending транзакциях
     private var pendingTransactions: [String: Date] = [:]
 
     // Идентификаторы продуктов
-    private let productIds: [String] = [
-        "UmrahSunnah1", "UmrahSunnah2", "UmrahSunnah3",
-        "UmrahSunnah4", "UmrahSunnah5", "UmrahSunnah6"
-    ]
+    private let productIds: [String] = ProductID.allProductIDs
     
-    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.example.app", category: "PurchaseManager")
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "PurchaseManager")
     private nonisolated let updateListenerTask = TaskHolder()
 
     init() {
@@ -65,6 +66,8 @@ class PurchaseManager {
         }
     }
     
+    // MARK: - Product Management
+    
     /// Загрузка продуктов из App Store
     func loadProducts() async {
         do {
@@ -78,22 +81,26 @@ class PurchaseManager {
         } catch {
             let purchaseError = mapToPurchaseError(error)
             logger.error("❌ Failed to load products: \(purchaseError.localizedDescription, privacy: .public)")
-            self.purchaseError = purchaseError.localizedDescription
+            self.purchaseError = purchaseError
         }
     }
     
     /// Преобразует системные ошибки в PurchaseError
     private func mapToPurchaseError(_ error: Error) -> PurchaseError {
-        if let storeKitError = error as? StoreKitError {
+        switch error {
+        case let storeKitError as StoreKitError:
             switch storeKitError {
             case .networkError:
                 return .networkError
             default:
                 return .unknown(error)
             }
+        default:
+            return .unknown(error)
         }
-        return .unknown(error)
     }
+    
+    // MARK: - Transaction Handling
     
     /// Отслеживание обновлений транзакций
     /// Для consumable продуктов (пожертвования) транзакции не создают entitlements,
@@ -137,32 +144,32 @@ class PurchaseManager {
                 } catch {
                     let purchaseError = mapToPurchaseError(error)
                     logger.error("❌ Verification error after purchase for \(product.displayName, privacy: .public): \(purchaseError.localizedDescription, privacy: .public)")
-                    self.purchaseError = purchaseError.localizedDescription
+                    self.purchaseError = purchaseError
                     throw purchaseError
                 }
             case .pending:
                 logger.info("Purchase for \(product.displayName, privacy: .public) is pending")
                 // Сохраняем информацию о pending транзакции для последующей проверки
                 pendingTransactions[product.id] = Date()
-                purchaseError = PurchaseError.purchasePending.localizedDescription
+                purchaseError = .purchasePending
                 throw PurchaseError.purchasePending
             case .userCancelled:
                 logger.info("Purchase for \(product.displayName, privacy: .public) cancelled by user")
-                purchaseError = PurchaseError.purchaseCancelled.localizedDescription
+                purchaseError = .purchaseCancelled
                 throw PurchaseError.purchaseCancelled
             @unknown default:
                 let error = PurchaseError.unknown(NSError(domain: "PurchaseManager", code: -1))
-                purchaseError = error.localizedDescription
+                purchaseError = error
                 throw error
             }
         } catch let error as PurchaseError {
             logger.error("❌ Purchase failed: \(error.localizedDescription, privacy: .public)")
-            purchaseError = error.localizedDescription
+            purchaseError = error
             throw error
         } catch {
             let purchaseError = mapToPurchaseError(error)
             logger.error("❌ Purchase failed: \(purchaseError.localizedDescription, privacy: .public)")
-            self.purchaseError = purchaseError.localizedDescription
+            self.purchaseError = purchaseError
             throw purchaseError
         }
     }
@@ -193,7 +200,7 @@ class PurchaseManager {
     /// Удаляет старые pending транзакции (старше 24 часов)
     func checkPendingTransactionsStatus() async {
         let now = Date()
-        let oneDayAgo = now.addingTimeInterval(-24 * 60 * 60)
+        let oneDayAgo = now.addingTimeInterval(-AppConstants.pendingTransactionExpirationInterval)
         
         for (productId, date) in pendingTransactions {
             if date < oneDayAgo {
@@ -231,6 +238,8 @@ class PurchaseManager {
             return false
         }
     }
+    
+    // MARK: - Error Handling
     
     /// Верификация транзакции
     func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {

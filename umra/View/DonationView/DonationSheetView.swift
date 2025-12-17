@@ -7,6 +7,7 @@
 
 import SwiftUI
 import StoreKit
+import OSLog
 
 // MARK: - Neumorphic Background Modifier
 
@@ -58,18 +59,15 @@ struct DonationSheetView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(PurchaseManager.self) private var purchaseManager
-    @State private var selectedProductId = "UmrahSunnah1"
+    @State private var selectedProductID = ProductID.umrahSunnah1.rawValue
     @State private var isLoading = false
     @State private var showError = false
     
-    let productPrices: [String: String] = [
-        "UmrahSunnah1": "$0.99",
-        "UmrahSunnah2": "$4.99",
-        "UmrahSunnah3": "$9.99",
-        "UmrahSunnah4": "$19.99",
-        "UmrahSunnah5": "$49.99",
-        "UmrahSunnah6": "$99.99"
-    ]
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "DonationSheetView")
+    
+    private var productPrices: [String: String] {
+        Dictionary(uniqueKeysWithValues: ProductID.allCases.map { ($0.rawValue, $0.displayPrice) })
+    }
     
     var body: some View {
         NavigationStack {
@@ -91,9 +89,9 @@ struct DonationSheetView: View {
                     HStack {
                         Text("select_the_amount", bundle: localizationManager.bundle)
                             .foregroundStyle(themeManager.selectedTheme.textColor)
-                        Picker("Выберите сумму", selection: $selectedProductId) {
-                            ForEach(productPrices.keys.sorted(), id: \.self) { productId in
-                                Text(productPrices[productId, default: "Unknown"]).tag(productId)
+                        Picker("Выберите сумму", selection: $selectedProductID) {
+                            ForEach(ProductID.allCases, id: \.rawValue) { productID in
+                                Text(productID.displayPrice).tag(productID.rawValue)
                             }
                         }
                         .font(.title)
@@ -138,7 +136,7 @@ struct DonationSheetView: View {
         Button {
             Task { @MainActor in
                 isLoading = true
-                await buy(productID: selectedProductId)
+                await buy(productID: selectedProductID)
                 isLoading = false
                 if isPurchased { isPresented = false }
             }
@@ -165,7 +163,7 @@ struct DonationSheetView: View {
         // Сбрасываем флаг ошибки перед началом
         showError = false
         guard let product = purchaseManager.availableDonations.first(where: { $0.id == productID }) else {
-            print("⚠️ Product \(productID) not found")
+            logger.error("Product not found: \(productID, privacy: .public)")
             showError = true
             return
         }
@@ -175,9 +173,13 @@ struct DonationSheetView: View {
             // Если после покупки продукт присутствует в списке завершённых, считаем покупку успешной
             if purchaseManager.completedDonations.contains(where: { $0.id == productID }) {
                 isPurchased = true
+                logger.info("Purchase successful for product: \(productID, privacy: .public)")
             }
+        } catch let error as PurchaseManager.PurchaseError {
+            logger.error("Purchase failed: \(error.localizedDescription, privacy: .public)")
+            showError = true
         } catch {
-            // Ошибка уже обработана в PurchaseManager и сохранена в purchaseError
+            logger.error("Unexpected purchase error: \(error.localizedDescription, privacy: .public)")
             showError = true
         }
     }

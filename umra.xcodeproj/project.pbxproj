@@ -36,6 +36,7 @@
 		C07BE9072AA3474600BA3A15 /* hadj_i_umra.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */; };
 		C07BE9262AA34B8900BA3A15 /* CounterTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */; };
 		C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08EAFD22AF91CFB00C847AC /* textFont.swift */; };
+		C356ADBE74C524FC1934C6C8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C356ADBE64C524FC1934C6C7 /* Constants.swift */; };
 		C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDB29829F8A00458ACB /* umraApp.swift */; };
 		C0908DE029829F8A00458ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DDF29829F8A00458ACB /* Assets.xcassets */; };
 		C0908DE329829F8A00458ACB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DE229829F8A00458ACB /* Preview Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hadj_i_umra.pdf; sourceTree = "<group>"; };
 		C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTapView.swift; sourceTree = "<group>"; };
 		C08EAFD22AF91CFB00C847AC /* textFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFont.swift; sourceTree = "<group>"; };
+		C356ADBE64C524FC1934C6C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C0908DD829829F8A00458ACB /* umra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0908DDB29829F8A00458ACB /* umraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = umraApp.swift; sourceTree = "<group>"; };
 		C0908DDF29829F8A00458ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		C024683D2BDF961100CE5A6B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C356ADBE64C524FC1934C6C7 /* Constants.swift */,
 				C08EAFD22AF91CFB00C847AC /* textFont.swift */,
 				C24AC7C42D65E4F3007F5E5A /* UsefulText */,
 			);
@@ -439,6 +442,7 @@
 				C077B4782B20D41D00086594 /* StoreKit.swift in Sources */,
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
 				C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */,
+				C356ADBE74C524FC1934C6C8 /* Constants.swift in Sources */,
 				C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */,
 				C2A68D362CFF1E3C005F3ED8 /* UserSettings.swift in Sources */,
 				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,

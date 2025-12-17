@@ -22,6 +22,13 @@ enum AppDestination: Hashable, Sendable {
     case settings
 }
 
+struct StepItem: Identifiable {
+    let id: Int
+    let imageName: String
+    let step: UmraStep
+    let titleKey: String
+}
+
 struct ContentView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
@@ -30,7 +37,7 @@ struct ContentView: View {
     @Environment(PurchaseManager.self) private var purchaseManager
     @State private var showPrayerTimes = false
     @State private var navigationPath = NavigationPath()
-    @State private var imageDescriptions: [String: String] = [
+    @State private var stepImageDescriptions: [String: String] = [
         "img1": "title_ihram_screen",
         "img2": "title_round_kaaba_screen",
         "img3": "title_place_ibrohim_stand_screen",
@@ -44,16 +51,18 @@ struct ContentView: View {
     @State private var usageTimerTask: Task<Void, Never>?
     @Environment(\.requestReview) var requestReview
     
-    let steps: [(String, UmraStep, String)] = [
-        ("img1", .step1, "title_ihram_screen"),
-        ("img2", .step2, "title_round_kaaba_screen"),
-        ("img3", .step3, "title_place_ibrohim_stand_screen"),
-        ("img4", .step4, "title_water_zamzam_screen"),
-        ("img5", .step5, "title_black_stone_screen"),
-        ("img6", .step6, "title_safa_and_marva_screen"),
-        ("img7", .step7, "title_shave_head_screen"),
-        ("img8", .useful, "Useful")
+    private let steps: [StepItem] = [
+        StepItem(id: 0, imageName: "img1", step: .step1, titleKey: "title_ihram_screen"),
+        StepItem(id: 1, imageName: "img2", step: .step2, titleKey: "title_round_kaaba_screen"),
+        StepItem(id: 2, imageName: "img3", step: .step3, titleKey: "title_place_ibrohim_stand_screen"),
+        StepItem(id: 3, imageName: "img4", step: .step4, titleKey: "title_water_zamzam_screen"),
+        StepItem(id: 4, imageName: "img5", step: .step5, titleKey: "title_black_stone_screen"),
+        StepItem(id: 5, imageName: "img6", step: .step6, titleKey: "title_safa_and_marva_screen"),
+        StepItem(id: 6, imageName: "img7", step: .step7, titleKey: "title_shave_head_screen"),
+        StepItem(id: 7, imageName: "img8", step: .useful, titleKey: "Useful")
     ]
+    
+    // MARK: - Navigation
     
     @ViewBuilder
     private func destinationView(for step: UmraStep) -> some View {
@@ -77,15 +86,19 @@ struct ContentView: View {
         }
     }
     
+    // MARK: - Computed Properties
+    
     /// Вычисляемое свойство для определения устройства iPad
-    private var isPad: Bool {
+    private var isIPad: Bool {
         UIDevice.current.userInterfaceIdiom == .pad
     }
     
     /// Динамический размер шрифта в зависимости от устройства
     private var dynamicFontSize: CGFloat {
-        isPad ? 30 : 10
+        isIPad ? 30 : 10
     }
+    
+    // MARK: - Body
     
     var body: some View {
         mainContentView
@@ -166,6 +179,8 @@ struct ContentView: View {
         }
     }
     
+    // MARK: - View Builders
+    
     /// Отображение контента в виде сетки или списка
     @ViewBuilder
     private var content: some View {
@@ -176,15 +191,15 @@ struct ContentView: View {
             .padding(.horizontal)
         } else {
             LazyVStack(spacing: 8) {
-                ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                ForEach(steps) { stepItem in
                     Button {
-                        navigationPath.append(step.1)
+                        navigationPath.append(stepItem.step)
                     } label: {
-                        StepRow(step: step, index: index)
+                        StepRow(step: (stepItem.imageName, stepItem.step, stepItem.titleKey), index: stepItem.id)
                     }
                     .buttonStyle(PlainButtonStyle())
                     .padding(.horizontal, 8)
-                    .id("\(step.1)-\(index)")
+                    .id("\(stepItem.step)-\(stepItem.id)")
                 }
             }
             .padding(.vertical, 10)
@@ -193,33 +208,37 @@ struct ContentView: View {
     
     /// Для сетки: отображение шагов через отдельный View StepView
     private func stepsView(showIndex: Bool, fontSize: CGFloat) -> some View {
-        ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+        ForEach(steps) { stepItem in
             Button {
-                navigationPath.append(step.1)
+                navigationPath.append(stepItem.step)
             } label: {
                 StepView(
-                    imageName: step.0,
-                    titleKey: LocalizedStringKey(step.2),
-                    stringKey: step.2,
-                    index: showIndex ? index : nil,
+                    imageName: stepItem.imageName,
+                    titleKey: LocalizedStringKey(stepItem.titleKey),
+                    stringKey: stepItem.titleKey,
+                    index: showIndex ? stepItem.id : nil,
                     fontSize: fontSize,
                     stepsCount: steps.count,
                     hideLastIndex: true,
-                    imageDescriptions: $imageDescriptions
+                    imageDescriptions: $stepImageDescriptions
                 )
                 .foregroundStyle(themeManager.selectedTheme.textColor)
             }
             .buttonStyle(PlainButtonStyle())
-            .id("\(step.1)-\(index)")
+            .id("\(stepItem.step)-\(stepItem.id)")
         }
     }
+    
+    // MARK: - Grid Configuration
     
     /// Создание столбцов для LazyVGrid
     private var gridColumns: [GridItem] {
         let screenWidth = UIScreen.main.bounds.width
-        let columnWidth = screenWidth / 2 - 10
-        return Array(repeating: GridItem(.fixed(columnWidth)), count: 2)
+        let columnWidth = screenWidth / CGFloat(AppConstants.gridColumnCount) - AppConstants.gridColumnSpacing
+        return Array(repeating: GridItem(.fixed(columnWidth)), count: AppConstants.gridColumnCount)
     }
+    
+    // MARK: - Timer Management
     
     /// Запуск таймера для запроса отзыва
     private func startTimer() {
@@ -227,7 +246,7 @@ struct ContentView: View {
         usageTimerTask = Task { @MainActor in
             while !Task.isCancelled {
                 usageTime += 1
-                if usageTime >= 300 {
+                if usageTime >= AppConstants.reviewRequestTimeInterval {
                     stopTimer()
                     requestReviewIfNeeded()
                     break
@@ -254,6 +273,8 @@ struct ContentView: View {
         userPreferences.hasRatedApp = true
     }
 }
+
+// MARK: - Supporting Views
 
 /// Вспомогательный view для навигации к Chapter
 private struct ChapterDestinationView: View {

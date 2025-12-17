@@ -18,6 +18,9 @@ struct SettingsView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
     
+    // App Store URL - гарантированно валидный
+    private let appStoreURL = URL(string: "https://apps.apple.com/app/id1673683355")!
+    
     
     var body: some View {
         ZStack {
@@ -103,7 +106,7 @@ struct SettingsView: View {
         }
         .navigationBarTitle(Text("settings_string", bundle: localizationManager.bundle), displayMode: .inline)
         .sheet(isPresented: $showSafariView) {
-            SafariView(url: URL(string: "https://apps.apple.com/app/id1673683355")!)
+            SafariView(url: appStoreURL)
         }
         .sheet(isPresented: $showNotificationSettingsSheet) {
             NotificationSettingsView()
@@ -205,9 +208,3 @@ struct ThemePreviewView: View {
     }
     
 }
-
-//struct SettingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SettingsView()
-//    }
-//}

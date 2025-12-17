@@ -6,13 +6,36 @@
 //
 
 import AVFoundation
+import OSLog
 import SwiftUI
 import UIKit
+
+// MARK: - Audio Error
+
+enum AudioError: LocalizedError {
+    case initializationFailed(Error)
+    case fileNotFound(String)
+    case sessionActivationFailed(Error)
+    
+    var errorDescription: String? {
+        switch self {
+        case .initializationFailed(let error):
+            return "Failed to initialize audio player: \(error.localizedDescription)"
+        case .fileNotFound(let fileName):
+            return "Audio file not found: \(fileName)"
+        case .sessionActivationFailed(let error):
+            return "Failed to activate audio session: \(error.localizedDescription)"
+        }
+    }
+}
+
+// MARK: - Audio Management
 
 @MainActor
 @Observable
 class AudioManager {
     private var audioPlayers: [AVAudioPlayer] = []
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "AudioManager")
 
     func play(audioPlayer: AVAudioPlayer) {
         if let currentPlayer = audioPlayers.first, currentPlayer !== audioPlayer {
@@ -36,7 +59,9 @@ class AudioManager {
     }
 
     func remove(_ audioPlayer: AVAudioPlayer) {
-        audioPlayers.removeAll { $0 === audioPlayer }
+        if let index = audioPlayers.firstIndex(where: { $0 === audioPlayer }) {
+            audioPlayers.remove(at: index)
+        }
     }
 
     func deactivateAudioSession() {
@@ -49,10 +74,12 @@ class AudioManager {
             try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
             audioPlayers.removeAll()
         } catch {
-            print("Error deactivating audio session: \(error)")
+            logger.error("Error deactivating audio session: \(error.localizedDescription, privacy: .public)")
         }
     }
 }
+
+// MARK: - Player View
 
 struct PlayerView: View {
     @State private var audioPlayer: AVAudioPlayer?
@@ -68,7 +95,10 @@ struct PlayerView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(AudioManager.self) private var audioManager
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "PlayerView")
 
+    // MARK: - UI Helpers
+    
     // Цвет тени - всегда как в темной теме, независимо от системной темы
     private func adaptiveShadowColor(intensity: Double = 0.5) -> Color {
         let clamped = min(max(intensity, 0.0), 1.0)
@@ -141,6 +171,8 @@ struct PlayerView: View {
         }
     }
 
+    // MARK: - UI Components
+    
     func controlButton(imageName: String, isActive: Bool, backgroundColors: [Color], action: @escaping () -> Void) -> some View {
         Button(action: {
             action()
@@ -203,6 +235,8 @@ struct PlayerView: View {
         .padding()
     }
 
+    // MARK: - Audio Management
+    
     func cyclePlaybackRate() {
         guard let player = audioPlayer else { return }
 
@@ -233,17 +267,20 @@ struct PlayerView: View {
                 self.audioPlayer?.enableRate = true
                 self.duration = player.duration
             } catch {
-                print("Error initializing audio player: \(error)")
+                let audioError = AudioError.initializationFailed(error)
+                logger.error("\(audioError.errorDescription ?? "Unknown error", privacy: .public)")
             }
         } else {
-            print("Audio file not found")
+            let audioError = AudioError.fileNotFound(fileName)
+            logger.error("\(audioError.errorDescription ?? "Unknown error", privacy: .public)")
         }
 
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
-            print("Failed to activate audio session: \(error)")
+            let audioError = AudioError.sessionActivationFailed(error)
+            logger.error("\(audioError.errorDescription ?? "Unknown error", privacy: .public)")
         }
     }
 
@@ -280,6 +317,8 @@ struct PlayerView: View {
         audioManager.deactivateAudioSession()
     }
 
+    // MARK: - Coordinator Pattern
+    
     class Coordinator: NSObject, AVAudioPlayerDelegate {
         var onFinishPlaying: (() -> Void)?
 
@@ -290,6 +329,8 @@ struct PlayerView: View {
         }
     }
 }
+
+// MARK: - Themed Slider
 
 struct ThemedSlider: UIViewRepresentable {
     @Binding var value: Double

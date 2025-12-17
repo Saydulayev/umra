@@ -7,6 +7,7 @@
 
 @preconcurrency import Adhan
 import BackgroundTasks
+import OSLog
 import SwiftUI
 import UserNotifications
 
@@ -21,6 +22,8 @@ struct PrayerTimeView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
+    
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "PrayerTimeView")
 
     @AppStorage("enable30MinNotifications") private var enable30MinNotifications: Bool = true
     @AppStorage("enablePrayerTimeNotifications") private var enablePrayerTimeNotifications: Bool = true
@@ -130,13 +133,16 @@ struct PrayerTimeView: View {
         
         let cal = Calendar(identifier: .gregorian)
         let today = Date()
-        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+        guard let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today) else {
+            logger.error("Failed to calculate tomorrow's date")
+            return
+        }
         let todayDateComponents = cal.dateComponents([.year, .month, .day], from: today)
         let tomorrowDateComponents = cal.dateComponents([.year, .month, .day], from: tomorrow)
         
         // Извлекаем примитивные значения для безопасной передачи в Task.detached
-        let latitude = 21.4225
-        let longitude = 39.8262
+        let latitude = AppConstants.meccaLatitude
+        let longitude = AppConstants.meccaLongitude
         var params = CalculationMethod.ummAlQura.params
         params.madhab = .shafi
         let finalParams = params
@@ -162,7 +168,7 @@ struct PrayerTimeView: View {
         
         guard let todayPrayers = todayPrayersResult,
               let tomorrowPrayers = tomorrowPrayersResult else {
-            print("Error initializing PrayerTimes")
+            logger.error("Error initializing PrayerTimes")
             return
         }
 
@@ -252,7 +258,7 @@ struct PrayerTimeView: View {
         do {
             _ = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
         } catch {
-            print("Error requesting notification permission: \(error)")
+            logger.error("Error requesting notification permission: \(error.localizedDescription, privacy: .public)")
         }
     }
 
@@ -293,7 +299,7 @@ struct PrayerTimeView: View {
                 do {
                     try await UNUserNotificationCenter.current().add(request)
                 } catch {
-                    print("Error creating notification for \(prayerName): \(error.localizedDescription)")
+                    logger.error("Error creating notification for \(prayerName, privacy: .public): \(error.localizedDescription, privacy: .public)")
                 }
             }
 
@@ -304,7 +310,7 @@ struct PrayerTimeView: View {
                 content30MinBefore.body = String(format: NSLocalizedString("prayer_time_in_30_minutes", bundle: localizationManager.bundle ?? .main, comment: ""), localizedName)
                 content30MinBefore.sound = UNNotificationSound.default
 
-                let prayerTime30MinBefore = prayerTime.addingTimeInterval(-30 * 60)
+                let prayerTime30MinBefore = prayerTime.addingTimeInterval(-AppConstants.notification30MinutesInterval)
                 let triggerDate30MinBefore = Calendar.current.dateComponents([.hour, .minute], from: prayerTime30MinBefore)
                 let trigger30MinBefore = UNCalendarNotificationTrigger(dateMatching: triggerDate30MinBefore, repeats: true)
 
@@ -314,7 +320,7 @@ struct PrayerTimeView: View {
                 do {
                     try await UNUserNotificationCenter.current().add(request30MinBefore)
                 } catch {
-                    print("Error creating notification 30 minutes before \(prayerName): \(error.localizedDescription)")
+                    logger.error("Error creating notification 30 minutes before \(prayerName, privacy: .public): \(error.localizedDescription, privacy: .public)")
                 }
             }
         }
