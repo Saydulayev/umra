@@ -551,3 +551,149 @@ Rasulullah ﷺ dalam shalat jenazah terkadang memberi salam sekali, dan terkadan
 "prayer_time_for" = "Waktu untuk %@";
 "prayer_prepare_for_next" = "Persiapan untuk shalat berikutnya";
 "prayer_time_in_30_minutes" = "Waktu untuk %@ dalam 30 menit";
+
+/* HAJI – Langkah 1: 8 Zulhijah */
+"hajj_step1_title" = "8 Zulhijah — Hari Tarwiyah";
+
+"hajj_step1_ihram_title" = "Memasuki keadaan ihram";
+"hajj_step1_ihram_text" = "Masuklah ke dalam keadaan ihram di tempat tinggal Anda setelah terbit fajar (Subuh) dan sebelum waktu tengah hari (Zuhur).
+
+Niatkan untuk menunaikan haji dan ucapkan:";
+
+"hajj_step1_ihram_arabic" = "لَبَّيْكَ اللَّهُمَّ بِحَجٍّ";
+"hajj_step1_ihram_transliteration" = "Labbayka Allahumma bi-haj";
+"hajj_step1_ihram_translation" = "Aku memenuhi panggilan-Mu, ya Allah, [untuk menunaikan] haji.
+
+Hadapkan diri ke arah kiblat dan ucapkan:";
+
+"hajj_step1_ihram_dua_arabic" = "اللَّهُمَّ هَذِهِ حِجَّةٌ لَا رِيَاءَ فِيهَا وَلَا سُمْعَةَ";
+"hajj_step1_ihram_dua_transliteration" = "Allahumma khazihi hijja la riya’ fi-ha wa la sum‘a";
+"hajj_step1_ihram_dua_translation" = "Ya Allah, haji ini tanpa pamer dan tanpa mencari ketenaran!";
+
+"hajj_step1_talbiyah_title" = "Talbiyah";
+"hajj_step1_talbiyah_text" = "Mulailah melafalkan Talbiyah dengan suara keras dan terus mengulanginya hingga Anda melempar kerikil ke Jumrah Besar (pada 10 Zulhijah):";
+
+"hajj_step1_talbiyah_arabic" = "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ، وَالنِّعْمَةَ، لَكَ وَالْمُلْكَ، لاَ شَرِيكَ لَكَ";
+"hajj_step1_talbiyah_transliteration" = "Labbayka Allahumma labbayk! Labbayka la syarika laka labbayk! Innal-hamda wan-ni‘mata laka wal-mulk, la syarika lak";
+"hajj_step1_talbiyah_translation" = "Aku memenuhi panggilan-Mu, ya Allah! Aku memenuhi panggilan-Mu! Aku memenuhi panggilan-Mu, tiada sekutu bagi-Mu! Aku memenuhi panggilan-Mu! Sesungguhnya segala puji, nikmat, dan kerajaan adalah milik-Mu! Tiada sekutu bagi-Mu!";
+
+"hajj_step1_mina_title" = "Perjalanan menuju lembah Mina";
+"hajj_step1_mina_text" = "Kemudian berangkatlah dengan tenang menuju lembah Mina dan laksanakan di sana:
+• salat Zuhur,
+• salat Asar,
+• salat Magrib,
+• salat Isya,
+
+dengan cara mengqashar tanpa menjamak.
+
+Bermalamlah di lembah Mina.";
+
+/* HAJI – Langkah 2: 9 Zulhijah */
+"hajj_step2_title" = "9 Zulhijah — Hari Wukuf di Arafah";
+
+"hajj_step2_arafat_title" = "Perjalanan menuju lembah Arafah";
+"hajj_step2_arafat_text" = "Laksanakan salat Subuh di lembah Mina, kemudian setelah matahari terbit berangkatlah menuju lembah Arafah. Terus-meneruslah melafalkan Talbiyah dan Takbir (ucapan «Allahu akbar»).
+
+Jika memungkinkan, berhentilah di tempat bernama Namirah yang terletak dekat Arafah dan tinggallah di sana hingga waktu Zuhur. Setelah itu, pergilah menuju Wadi ‘Uranah (sebelum Arafah).
+
+Dengarkan khutbah imam, kemudian ketika masuk waktu salat Zuhur, laksanakan bersama beliau salat Zuhur dan Asar dalam bentuk qashar dan jamak. Untuk kedua salat ini dikumandangkan satu azan dan dua iqamah. Tidak dikerjakan salat tambahan di antara kedua salat tersebut.";
+
+"hajj_step2_standing_title" = "Wukuf di Arafah";
+"hajj_step2_standing_text" = "Kemudian pergilah menuju Arafah dan tetaplah di sana hingga matahari terbenam. Jika memungkinkan, berdirilah di dekat batu-batu besar yang tersebar di kaki Gunung Rahmah (Jabal ar-Rahmah). Jika hal itu tidak memungkinkan, maka seluruh lembah Arafah merupakan tempat wukuf.
+
+Disunnahkan untuk berdiri menghadap kiblat, mengangkat tangan, memanjatkan doa kepada Allah, dan melafalkan Talbiyah.
+
+Selain itu, sangat dianjurkan untuk membaca doa berikut:";
+
+"hajj_step2_dua_arabic" = "لَا إِلٰهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ";
+"hajj_step2_dua_transliteration" = "La ilaha illallah wahda-hu la syarika la-hu! La-hu l-mulku wa la-hu l-hamdu wa huwa ‘ala kulli syai’in qadir!";
+"hajj_step2_dua_translation" = "Tidak ada sesembahan selain Allah, Yang Maha Esa, tiada sekutu bagi-Nya! Milik-Nya segala kekuasaan dan segala pujian, dan Dia Mahakuasa atas segala sesuatu!";
+
+"hajj_step2_muzdalifah_title" = "Perjalanan dari Arafah menuju Muzdalifah";
+"hajj_step2_muzdalifah_text" = "Setelah matahari terbenam, berangkatlah dari Arafah menuju Muzdalifah dengan tenang.";
+
+"hajj_step2_night_title" = "Bermalam di Muzdalifah";
+"hajj_step2_night_text" = "Setibanya di Muzdalifah, laksanakan salat Magrib dan Isya dalam bentuk qashar dan jamak. Dikumandangkan azan, kemudian iqamah, lalu salat Magrib dilaksanakan sebanyak tiga rakaat; setelah itu iqamah kembali dikumandangkan dan salat Isya yang diqashar dilaksanakan sebanyak dua rakaat. Tidak dikerjakan salat tambahan di antara kedua salat tersebut. Setelah itu, beristirahatlah hingga fajar.";
+
+/* HAJI – Langkah 3: 10 Zulhijah */
+"hajj_step3_title" = "10 Zulhijah — Hari Penyembelihan Kurban";
+
+"hajj_step3_fajr_title" = "Subuh";
+"hajj_step3_fajr_text" = "Laksanakan salat Subuh di Muzdalifah pada waktu paling awal yang telah ditetapkan untuknya.";
+
+"hajj_step3_mashaar_title" = "Perjalanan menuju al-Masy‘ar al-Haram";
+"hajj_step3_mashaar_text" = "Kemudian berangkatlah menuju al-Masy‘ar al-Haram (sebuah gunung yang terletak di Muzdalifah), naiklah ke atasnya dan hadapkan diri ke arah kiblat. Ucapkan kalimat pujian kepada Allah (al-hamdu li-Llah), pengagungan kepada-Nya (Allahu akbar), dan pengesaan-Nya (la ilaha illallah). Panjatkan doa kepada Allah hingga hari benar-benar terang.
+
+Jika tidak memungkinkan untuk pergi ke al-Masy‘ar al-Haram, maka hal ini dapat dilakukan di mana saja di lembah Muzdalifah.";
+
+"hajj_step3_mina_title" = "Perjalanan menuju lembah Mina";
+"hajj_step3_mina_text" = "Kemudian, sebelum matahari terbit, berangkatlah dengan tenang dari Muzdalifah menuju Mina.";
+
+"hajj_step3_jamarat_title" = "Melempar kerikil ke Jumrah Besar";
+"hajj_step3_jamarat_text" = "Setibanya di lembah Mina, kumpulkan tujuh kerikil yang ukurannya sedikit lebih besar dari biji kacang untuk dilemparkan ke Jumrah Besar. Jika memungkinkan, lakukan ibadah ini sebelum waktu Zuhur. Jika tidak memungkinkan, hal ini dapat dilakukan hingga malam hari.
+
+Hadapkan diri ke arah Jumrah Besar dan berdirilah sehingga Mekah berada di sebelah kiri dan Mina di sebelah kanan Anda.
+
+Lemparkan kerikil ke Jumrah Besar satu per satu. Setiap kali melempar kerikil, ucapkan kalimat «Allahu akbar».";
+
+"hajj_step3_partial_exit_title" = "Keluar sebagian dari keadaan ihram";
+"hajj_step3_partial_exit_text" = "Setelah melempar kerikil terakhir, hentikan pelafalan Talbiyah, kembali ke tempat tinggal Anda di Mina, kenakan pakaian biasa, dan gunakan wewangian. Setelah melempar kerikil ke Jumrah Besar, semua larangan bagi orang yang berihram menjadi gugur, kecuali hubungan suami istri.";
+
+"hajj_step3_sacrifice_title" = "Penyembelihan kurban";
+"hajj_step3_sacrifice_text" = "Jika Anda telah membeli sertifikat penyembelihan hewan kurban, maka hal itu diperbolehkan. Jika tidak, pergilah ke tempat penyembelihan dan lakukan penyembelihan kurban.";
+
+"hajj_step3_shaving_title" = "Mencukur rambut";
+"hajj_step3_shaving_text" = "Setelah penyembelihan kurban, laki-laki mencukur rambut kepalanya hingga habis (lebih utama) atau memendekkannya secara merata (kurang utama), sedangkan perempuan memotong sehelai rambut sepanjang sepertiga jari.";
+
+"hajj_step3_tawaf_title" = "Tawaf utama Ka‘bah";
+"hajj_step3_tawaf_text" = "Kemudian pergilah ke Mekah untuk melaksanakan tawaf utama Ka‘bah (Tawaf Ifadah). Tidak perlu mengenakan pakaian ihram.
+
+Setelah memasuki Masjidil Haram, lakukan semua yang dahulu Anda lakukan saat ‘umrah: membaca doa ketika masuk masjid, melakukan tawaf mengelilingi Ka‘bah sebanyak tujuh putaran, melaksanakan salat sunnah dua rakaat setelah tawaf, meminum air Zamzam, melakukan sa‘i sebanyak tujuh kali antara bukit Safa dan Marwah, serta membaca doa ketika keluar dari masjid.
+
+Perhatian! Tawaf ini dilakukan dengan langkah biasa dari awal hingga akhir.";
+
+"hajj_step3_attention_title" = "Perhatian bagi mereka yang tidak dapat melaksanakan tawaf utama pada 10 Zulhijah!";
+"hajj_step3_attention_text" = "Jemaah haji yang tidak dapat melaksanakan tawaf utama Ka‘bah sebelum datangnya malam pada 10 Zulhijah harus kembali masuk ke dalam keadaan ihram sebagaimana sebelum melempar kerikil: ia harus melepas pakaian biasa, mengenakan pakaian ihram, dan tetap berada dalam keadaan ihram hingga ia melaksanakan tawaf utama Ka‘bah. Nabi ﷺ bersabda:
+
+«Jika malam telah datang sebelum kalian melaksanakan tawaf di Rumah ini, maka kalian kembali ke keadaan ihram sebagaimana sebelum melempar kerikil, hingga kalian melaksanakan tawaf Ka‘bah.» [Abu Dawud. Sunan. No. 1999; Ibn Khuzaimah. Sahih. No. 2958; al-Hakim. Mustadrak. No. 1800; al-Baihaqi. as-Sunan al-Kubra. No. 9601].";
+
+"hajj_step3_full_exit_title" = "Keluar sepenuhnya dari keadaan ihram";
+"hajj_step3_full_exit_text" = "Setelah menyelesaikan sa‘i antara Safa dan Marwah, jemaah haji keluar sepenuhnya dari keadaan ihram. Semua larangan bagi orang yang berihram menjadi gugur, termasuk hubungan suami istri.";
+
+"hajj_step3_return_title" = "Kembali ke lembah Mina";
+"hajj_step3_return_text" = "Setelah menyelesaikan tawaf utama Ka‘bah, kembalilah ke tempat tinggal Anda di lembah Mina.";
+
+/* HAJI – Langkah 4: 11, 12 dan 13 Zulhijah */
+"hajj_step4_title" = "11, 12 dan 13 Zulhijah — Hari-hari Tasyrik";
+
+"hajj_step4_stay_title" = "Tinggal di Mina";
+"hajj_step4_stay_text" = "Selama tiga hari (hari-hari Tasyrik), bermalamlah di tempat tinggal Anda di Mina.";
+
+"hajj_step4_jamarat_title" = "Melempar kerikil ke tiga Jumrah";
+"hajj_step4_jamarat_text" = "Waktu pelaksanaan ibadah ini dimulai setelah waktu Zuhur dan berlangsung hingga malam hari. Setiap hari, kumpulkan dua puluh satu kerikil yang ukurannya sedikit lebih besar dari biji kacang untuk dilemparkan ke tiga Jumrah (masing-masing tujuh kerikil untuk setiap Jumrah).
+
+Pergilah untuk melempar kerikil ke Jumrah pertama dengan tenang. Hadapkan diri ke arah Jumrah Kecil dan berdirilah sehingga Mekah berada di sebelah kiri dan Mina di sebelah kanan Anda.
+
+Lemparkan kerikil ke Jumrah Kecil satu per satu. Setiap kali melempar kerikil, ucapkan kalimat «Allahu akbar». Setelah selesai melempar kerikil ke Jumrah pertama, hadapkan diri ke arah kiblat, angkat tangan, dan panjatkan doa apa pun yang Anda kehendaki.
+
+Kemudian pergilah untuk melempar kerikil ke Jumrah kedua dengan tenang. Hadapkan diri ke arah Jumrah Tengah dan berdirilah sehingga Mekah berada di sebelah kiri dan Mina di sebelah kanan Anda.
+
+Lemparkan kerikil ke Jumrah Tengah satu per satu. Setiap kali melempar kerikil, ucapkan kalimat «Allahu akbar». Setelah selesai melempar kerikil ke Jumrah kedua, hadapkan diri ke arah kiblat, angkat tangan, dan panjatkan doa apa pun yang Anda kehendaki.
+
+Selanjutnya pergilah untuk melempar kerikil ke Jumrah ketiga dengan tenang. Hadapkan diri ke arah Jumrah Besar dan berdirilah sehingga Mekah berada di sebelah kiri dan Mina di sebelah kanan Anda.
+
+Lemparkan kerikil ke Jumrah Besar satu per satu. Setiap kali melempar kerikil, ucapkan kalimat «Allahu akbar». Setelah selesai melempar kerikil ke Jumrah ketiga dan terakhir, lanjutkan perjalanan tanpa memanjatkan doa, sebagaimana pada dua kesempatan sebelumnya.
+
+Ibadah ini dilaksanakan selama tiga hari Tasyrik. Setelah menyelesaikan pelemparan kerikil pada tanggal 13 Zulhijah, kembalilah ke Mekah.";
+
+/* HAJI – Langkah 5: Tawaf Perpisahan */
+"hajj_step5_title" = "Tawaf Perpisahan Ka‘bah";
+
+"hajj_step5_farewell_text" = "Sebelum kembali ke tanah air, hendaknya melaksanakan tawaf perpisahan Ka‘bah. Tidak perlu mengenakan pakaian ihram.
+
+Setelah memasuki Masjidil Haram, lakukan semua yang dahulu Anda lakukan saat ‘umrah: membaca doa ketika masuk masjid, melakukan tawaf mengelilingi Ka‘bah sebanyak tujuh putaran, serta membaca doa ketika keluar dari masjid.
+
+Perhatian: tawaf ini dilakukan dengan langkah biasa dari awal hingga akhir. Sa‘i ritual antara bukit Safa dan Marwah tidak dilaksanakan.
+
+
+Semoga Allah Yang Mahatinggi menerima ibadah haji Anda!";
