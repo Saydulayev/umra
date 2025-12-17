@@ -265,7 +265,7 @@ Louange à Allah, le Seigneur des mondes !";
 "_size_"="Taille";
 "_font_"="Police";
 
-"_donate_button"="Faire un don";
+"_donate_button"="Soutenir";
 "select_the_amount"="Choisissez le montant:";
 
 "Contribution to Application Development" = "Nous avons créé cette application gratuitement afin qu’elle profite à tous. Si vous en avez le désir, vous pouvez contribuer et faire partie de ce bien. Votre don est entièrement volontaire, unique, et n’est lié à aucun abonnement ni à des fonctionnalités supplémentaires.";
@@ -518,6 +518,7 @@ Le Messager d'Allah (paix et bénédictions sur lui) concluait la prière de Jan
 "theme_oasis" = "Oasis";
 "theme_gold" = "Or";
 "theme_turquoise" = "Mer";
+"theme_dark" = "Nuit";
 "done_button" = "Terminé";
 
 /* Localisation des onglets */

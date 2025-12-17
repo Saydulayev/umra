@@ -225,7 +225,7 @@
 "_size_" = "الحجم";
 "_font_" = "الخط";
 
-"_donate_button" = "تبرع";
+"_donate_button" = "دعم";
 "select_the_amount" = "اختر المبلغ:";
 
 "Contribution to Application Development" = "تبرعك هو عمل تطوعي بحت. لا يرتبط بأي محتوى رقمي إضافي أو ميزات خاصة داخل التطبيق. هدفنا هو تقديم تطبيق مجاني ومتاح للجميع بدون أي قيود.";
@@ -271,6 +271,7 @@
 "theme_oasis" = "واحة";
 "theme_gold" = "ذهبي";
 "theme_turquoise" = "بحر";
+"theme_dark" = "ليل";
 "done_button" = "تم";
 
 /* تخصيص علامات التبويب */

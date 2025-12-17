@@ -284,7 +284,7 @@ Alemlerin Rabbi olan Allah’a hamdolsun!";
 "_size_" = "Boyut";
 "_font_" = "Yazı tipi";
 
-"_donate_button" = "Bağış Yap";
+"_donate_button" = "Destekle";
 "select_the_amount" = "Miktarı seçin:";
 
 "Contribution to Application Development" = "Bu uygulamayı herkes faydalansın diye ücretsiz yaptık. Eğer içinizde bir istek olursa, katkıda bulunabilir ve bu hayrın bir parçası olabilirsiniz. Bağışınız tamamen gönüllüdür, tek seferliktir ve herhangi bir abonelikle veya ek özelliklerle bağlantılı değildir.";
@@ -481,6 +481,7 @@ Resulullah (Allah'ın selamı ve bereketi onun üzerine olsun) cenaze namazında
 "theme_oasis" = "Vaha";
 "theme_gold" = "Altın";
 "theme_turquoise" = "Deniz";
+"theme_dark" = "Gece";
 "done_button" = "Tamam";
 
 /* Sekme Yerelleştirme */

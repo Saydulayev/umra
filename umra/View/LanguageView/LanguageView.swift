@@ -23,7 +23,7 @@ struct LanguageView: View {
                     Image(systemName: "globe")
                         .foregroundColor(themeManager.selectedTheme.primaryColor)
                     Text("select_language_settings_string", bundle: localizationManager.bundle)
-                        .foregroundColor(.black)
+                        .foregroundColor(themeManager.selectedTheme.textColor)
                     Spacer()
                 }
                 .customTextStyleWithTheme()

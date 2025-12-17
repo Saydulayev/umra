@@ -23,7 +23,7 @@ struct DonationView: View {
                     Image(systemName: "dollarsign.circle")
                         .foregroundStyle(themeManager.selectedTheme.primaryColor)
                     Text("text_button_support_string", bundle: localizationManager.bundle)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(themeManager.selectedTheme.textColor)
                     Spacer()
                 }
                 .customTextStyleWithTheme()

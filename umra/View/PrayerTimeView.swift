@@ -54,7 +54,7 @@ struct PrayerTimeView: View {
                     Text(currentIslamicDate)
                 }
                 .font(.custom("Savoye LET", size: 36))
-                .foregroundStyle(.black)
+                .foregroundStyle(themeManager.selectedTheme.textColor)
                 .padding(-5)
                 Divider()
                 
@@ -72,7 +72,7 @@ struct PrayerTimeView: View {
                     PrayerTimeRow(prayerName: localizedPrayerName("Qiyam"), prayerTime: prayerTimes["Qiyam"] ?? "")
                         .capsuleStyled(theme: themeManager.selectedTheme)
                 }
-                .foregroundStyle(.black)
+                .foregroundStyle(themeManager.selectedTheme.textColor)
                 .padding(.horizontal)
             }
             .transparentStyled(theme: themeManager.selectedTheme)
@@ -324,7 +324,7 @@ struct NotificationSettingsView: View {
         }
         .lineLimit(1)
         .minimumScaleFactor(0.5)
-        .foregroundStyle(.black)
+        .foregroundStyle(themeManager.selectedTheme.textColor)
         .background(themeManager.selectedTheme.lightBackgroundColor)
         .ignoresSafeArea()
         .presentationDetents([.medium, .large])
@@ -385,19 +385,22 @@ struct PrayerTimeRow: View {
 
 extension View {
     func capsuleStyled(theme: AppTheme) -> some View {
-        self.foregroundStyle(.black)
+        let isDarkTheme = theme == .dark
+        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
+        
+        return self.foregroundStyle(theme.textColor)
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
                     theme.primaryColor.opacity(0.2)
                     
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
+                        .foregroundColor(backgroundColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .padding(2)
                     
                 })
@@ -407,8 +410,12 @@ extension View {
 
 extension View {
     func cardStyled(theme: AppTheme) -> some View {
-        self.font(.headline)
-        .foregroundColor(.black)
+        let isDarkTheme = theme == .dark
+        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
+        let gradientBottom = isDarkTheme ? theme.gradientBottomColor : Color.white
+        
+        return self.font(.headline)
+        .foregroundColor(theme.textColor)
         .padding()
         .frame(maxWidth: .infinity)
         .background(
@@ -416,12 +423,12 @@ extension View {
                 theme.primaryColor.opacity(0.1)
                 
                 RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(.white)
+                    .foregroundColor(backgroundColor)
                     .blur(radius: 4)
                     .offset(x: -8, y: -8)
                 
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, gradientBottom]), startPoint: .topLeading, endPoint: .bottomTrailing))
                     .padding(2)
                 
             })
@@ -440,19 +447,22 @@ extension View {
 
 extension View {
     func transparentStyled(theme: AppTheme) -> some View {
-        self.padding(.vertical)
+        let isDarkTheme = theme == .dark
+        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
+        
+        return self.padding(.vertical)
             .padding(.all, 25)
             .background(
                 ZStack {
                     theme.primaryColor.opacity(0.2)
                     
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
+                        .foregroundColor(backgroundColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .padding(2)
                     
                 })

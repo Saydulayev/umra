@@ -277,7 +277,7 @@ Segala puji bagi Allah, Rabb semesta alam!";
 "_size_" = "Ukuran";
 "_font_" = "Jenis huruf";
 
-"_donate_button" = "Donasi";
+"_donate_button" = "Dukung";
 "select_the_amount" = "Pilih jumlah:";
 
 "Contribution to Application Development" = "Kami membuat aplikasi ini gratis agar bisa bermanfaat untuk semua orang. Jika ada keinginan di hati, Anda dapat berkontribusi dan menjadi bagian dari kebaikan ini. Donasi Anda sepenuhnya sukarela, sekali saja, dan tidak terkait dengan langganan atau fitur tambahan apa pun.";
@@ -531,6 +531,7 @@ Rasulullah ﷺ dalam shalat jenazah terkadang memberi salam sekali, dan terkadan
 "theme_oasis" = "Oasis";
 "theme_gold" = "Emas";
 "theme_turquoise" = "Laut";
+"theme_dark" = "Malam";
 "done_button" = "Selesai";
 
 /* Lokalisasi Tab */

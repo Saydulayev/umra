@@ -265,7 +265,7 @@ Gepriesen sei Allah, der Herr der Welten!";
 "_size_" = "Größe";
 "_font_" = "Schriftart";
 
-"_donate_button" = "Spenden";
+"_donate_button" = "Unterstützen";
 "select_the_amount" = "Wählen Sie den Betrag:";
 
 "Contribution to Application Development" = "Wir haben diese App kostenlos gemacht, damit sie allen nützt. Wenn Sie den Wunsch verspüren, können Sie etwas beitragen und Teil dieses Guten werden. Ihre Spende ist vollkommen freiwillig, einmalig und steht in keinem Zusammenhang mit einem Abonnement oder zusätzlichen Funktionen.";
@@ -520,6 +520,7 @@ Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebe
 "theme_oasis" = "Oase";
 "theme_gold" = "Gold";
 "theme_turquoise" = "Meer";
+"theme_dark" = "Nacht";
 "done_button" = "Fertig";
 
 /* Tab Lokalisierung */

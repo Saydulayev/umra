@@ -133,7 +133,7 @@ struct HajjView: View {
                 hideLastIndex: false,
                 imageDescriptions: $imageDescriptions
             )
-            .foregroundStyle(.black)
+            .foregroundStyle(themeManager.selectedTheme.textColor)
         }
     }
     
@@ -202,17 +202,17 @@ private struct StepRow: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(parsedTitle.name)
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundColor(.black)
+                    .foregroundColor(themeManager.selectedTheme.textColor)
                 if let date = parsedTitle.date {
                     Text(date)
                         .font(.system(size: 13, weight: .regular))
-                        .foregroundStyle(.black.opacity(0.7))
+                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.7))
                 }
             }
             Spacer()
             Image(systemName: "chevron.right")
                 .font(.system(size: 14, weight: .semibold))
-                .foregroundColor(.black)
+                .foregroundColor(themeManager.selectedTheme.textColor)
                 .frame(width: 24, height: 24)
                 .background(
                     Circle()
@@ -223,7 +223,7 @@ private struct StepRow: View {
         .padding(.horizontal, 12)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
+                .fill(themeManager.selectedTheme == .dark ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white)
                 .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 2)
         )
     }

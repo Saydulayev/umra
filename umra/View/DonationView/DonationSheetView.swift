@@ -15,20 +15,24 @@ struct NeumorphicBackground: ViewModifier {
     var theme: AppTheme
     
     func body(content: Content) -> some View {
-        content
+        let isDarkTheme = theme == .dark
+        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
+        let gradientBottom = isDarkTheme ? theme.gradientBottomColor : Color.white
+        
+        return content
             .background(
                 ZStack {
                     theme.primaryColor.opacity(0.1)
                     
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .foregroundColor(.white)
+                        .foregroundColor(backgroundColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .fill(
                             LinearGradient(
-                                gradient: Gradient(colors: [theme.gradientTopColor, Color.white]),
+                                gradient: Gradient(colors: [theme.gradientTopColor, gradientBottom]),
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             )
@@ -76,7 +80,7 @@ struct DonationSheetView: View {
                 
                 Text("Contribution to Application Development", bundle: localizationManager.bundle)
                     .font(.system(size: 16))
-                    .foregroundColor(.black)
+                    .foregroundColor(themeManager.selectedTheme.textColor)
                     .padding()
                     .frame(maxWidth: .infinity)
                     .neumorphicBackground(theme: themeManager.selectedTheme)
@@ -86,7 +90,7 @@ struct DonationSheetView: View {
                     Spacer()
                     HStack {
                         Text("select_the_amount", bundle: localizationManager.bundle)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(themeManager.selectedTheme.textColor)
                         Picker("Выберите сумму", selection: $selectedProductId) {
                             ForEach(productPrices.keys.sorted(), id: \.self) { productId in
                                 Text(productPrices[productId, default: "Unknown"]).tag(productId)
@@ -147,7 +151,7 @@ struct DonationSheetView: View {
                 } else {
                     Text("_donate_button", bundle: localizationManager.bundle)
                         .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(.black)
+                        .foregroundColor(themeManager.selectedTheme.textColor)
                         .padding()
                 }
             }

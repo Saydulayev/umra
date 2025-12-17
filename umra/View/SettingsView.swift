@@ -36,7 +36,7 @@ struct SettingsView: View {
                             Image(systemName: "message")
                                 .foregroundColor(themeManager.selectedTheme.primaryColor)
                             Text("text_button_feedback_string", bundle: localizationManager.bundle)
-                                .foregroundColor(.black)
+                                .foregroundColor(themeManager.selectedTheme.textColor)
                             Spacer()
                         }
                         .customTextStyleWithTheme()
@@ -50,7 +50,7 @@ struct SettingsView: View {
                             Image(systemName: "star")
                                 .foregroundColor(themeManager.selectedTheme.primaryColor)
                             Text("text_button_rate_the_app_string", bundle: localizationManager.bundle)
-                                .foregroundColor(.black)
+                                .foregroundColor(themeManager.selectedTheme.textColor)
                             Spacer()
                         }
                         .customTextStyleWithTheme()
@@ -67,7 +67,7 @@ struct SettingsView: View {
                             Image(systemName: "bell")
                                 .foregroundColor(themeManager.selectedTheme.primaryColor)
                             Text("Notification Settings", bundle: localizationManager.bundle)
-                                .foregroundColor(.black)
+                                .foregroundColor(themeManager.selectedTheme.textColor)
                             Spacer()
                         }
                         .customTextStyleWithTheme()
@@ -84,7 +84,7 @@ struct SettingsView: View {
                             Image(systemName: "paintbrush.fill")
                                 .foregroundColor(themeManager.selectedTheme.primaryColor)
                             Text("theme_app_title", bundle: localizationManager.bundle)
-                                .foregroundColor(.black)
+                                .foregroundColor(themeManager.selectedTheme.textColor)
                             Spacer()
                             HStack(spacing: 8) {
                                 Circle()
@@ -150,7 +150,7 @@ struct ThemePreviewView: View {
                     Text("theme_select_title", bundle: localizationManager.bundle)
                         .font(.title2)
                         .fontWeight(.semibold)
-                        .foregroundColor(.black)
+                        .foregroundColor(themeManager.selectedTheme.textColor)
                         .padding(.top)
                     
                     VStack(spacing: 16) {
@@ -167,7 +167,7 @@ struct ThemePreviewView: View {
                                     
                                     Text(theme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
                                         .font(.system(size: 18, weight: .semibold))
-                                        .foregroundColor(.black)
+                                        .foregroundColor(themeManager.selectedTheme.textColor)
                                     
                                     Spacer()
                                     
@@ -180,7 +180,7 @@ struct ThemePreviewView: View {
                                 .padding()
                                 .background(
                                     RoundedRectangle(cornerRadius: 12)
-                                        .fill(Color.white)
+                                        .fill(themeManager.selectedTheme == .dark ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white)
                                         .shadow(color: Color.black.opacity(0.15), radius: 8, x: 0, y: 4)
                                 )
                             }

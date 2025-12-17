@@ -250,7 +250,7 @@ Praise be to Allah, the Lord of the worlds!";
 "_size_" = "Size";
 "_font_" = "Font";
 
-"_donate_button" = "Donate";
+"_donate_button" = "Support";
 "select_the_amount" = "Select the amount:";
 
 "Contribution to Application Development" = "We made this app free so that it can benefit everyone. If you feel the desire, you may contribute and become part of this goodness. Your donation is entirely voluntary, one-time, and not connected to any subscription or additional features.";
@@ -499,6 +499,7 @@ The Messenger of Allah (peace and blessings of Allah be upon him), when performi
 "theme_oasis" = "Oasis";
 "theme_gold" = "Gold";
 "theme_turquoise" = "Sea";
+"theme_dark" = "Night";
 "done_button" = "Done";
 
 /* Tab Localization */

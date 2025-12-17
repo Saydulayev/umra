@@ -60,11 +60,12 @@ struct StepView<Destination: View>: View {
             VStack(spacing: 4) {
                 Text(parsedTitle.name)
                     .font(.custom("Lato-Black", size: fontSize))
+                    .foregroundColor(themeManager.selectedTheme.textColor)
                     .multilineTextAlignment(.center)
                 if let date = parsedTitle.date {
                     Text(date)
                         .font(.system(size: fontSize * 0.6, weight: .regular))
-                        .foregroundStyle(.black.opacity(0.7))
+                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.7))
                         .multilineTextAlignment(.center)
                 }
             }

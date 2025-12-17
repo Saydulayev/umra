@@ -105,7 +105,7 @@ extension Text {
     func buttonStyle(fontSize: CGFloat = 18, theme: AppTheme) -> some View {
         self.font(.system(size: fontSize, weight: .medium))
             .minimumScaleFactor(0.75)
-            .foregroundColor(.black)
+            .foregroundColor(theme.textColor)
             .padding(.vertical, 16)
             .padding(.horizontal, 8)
             .frame(maxWidth: .infinity)
@@ -123,7 +123,7 @@ extension Text {
                             LinearGradient(
                                 gradient: Gradient(colors: [
                                     theme.gradientTopColor,
-                                    Color.white
+                                    theme.gradientBottomColor
                                 ]),
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
@@ -145,7 +145,7 @@ extension Text {
     func welcomeButtonStyle(fontSize: CGFloat = 18) -> some View {
         self.font(.system(size: fontSize, weight: .medium))
             .minimumScaleFactor(0.75)
-            .foregroundColor(.black)
+            .foregroundColor(.black) // Оставляем черный для экрана приветствия
             .padding(.vertical, 16)
             .padding(.horizontal, 8)
             .frame(maxWidth: .infinity)

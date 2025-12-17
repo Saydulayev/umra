@@ -115,9 +115,9 @@ extension Image {
                             .foregroundColor(.white)
                             .blur(radius: 4)
                             .offset(x: -8, y: -8)
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .padding(2)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .padding(2)
                     })
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .adaptiveShadow(radius: 5, x: 10, y: 10, intensity: 0.5)
@@ -126,6 +126,7 @@ extension Image {
             Text("\(index + 1)")
                 .font(.caption)
                 .fontWeight(.bold)
+                .foregroundColor(theme == .dark ? .black : .black)
                 .padding(8)
                 .background(.white)
                 .clipShape(Circle())
@@ -143,9 +144,9 @@ extension Image {
                     .foregroundColor(.white)
                     .blur(radius: 4)
                     .offset(x: -8, y: -8)
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .padding(2)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .padding(2)
             }
             .frame(width: 90, height: 90)
             .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -178,7 +179,11 @@ struct StepTextModifier: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        content
+        let isDarkTheme = themeManager.selectedTheme == .dark
+        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
+        let gradientBottom = isDarkTheme ? themeManager.selectedTheme.gradientBottomColor : Color.white
+        
+        return content
             .padding(customPadding)
             .font(.custom("Amiri Quran", size: dynamicFontSize))
             .lineSpacing(15)
@@ -188,11 +193,11 @@ struct StepTextModifier: ViewModifier {
                 ZStack {
                     themeManager.selectedTheme.textBackgroundColor
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
+                        .foregroundColor(backgroundColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, gradientBottom]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .padding(2)
                 })
             .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -212,20 +217,24 @@ struct CustomTextStyleWithThemeModifier: ViewModifier {
     @Environment(ThemeManager.self) private var themeManager
     
     func body(content: Content) -> some View {
-        content
+        let isDarkTheme = themeManager.selectedTheme == .dark
+        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
+        let gradientBottom = isDarkTheme ? themeManager.selectedTheme.gradientBottomColor : Color.white
+        
+        return content
             .font(.system(size: 18, weight: .medium, design: .default))
-            .foregroundColor(.black)
+            .foregroundColor(themeManager.selectedTheme.textColor)
             .padding()
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
                     themeManager.selectedTheme.primaryColor.opacity(0.2)
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
+                        .foregroundColor(backgroundColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomLeading))
+                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, gradientBottom]), startPoint: .topLeading, endPoint: .bottomLeading))
                         .padding(2)
                 })
             .adaptiveShadow(radius: 20, x: 20, y: 20, intensity: 0.5)
@@ -238,7 +247,7 @@ extension View {
     func customTextStyle() -> some View {
         self
             .font(.system(size: 18, weight: .medium, design: .default))
-            .foregroundColor(.black)
+            .foregroundColor(Color.black) // Этот метод используется только в старых местах, оставляем черный
             .padding()
             .frame(maxWidth: .infinity)
             .background(

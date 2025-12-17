@@ -117,7 +117,7 @@ struct CounterTapView: View {
                                         .offset(x: -8, y: -8)
                                     
                                     RoundedRectangle(cornerRadius: 20)
-                                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                         .padding(2)
                                     
                                 })
@@ -143,7 +143,7 @@ struct CounterTapView: View {
                                         .offset(x: -8, y: -8)
                                     
                                     RoundedRectangle(cornerRadius: 20)
-                                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                         .padding(2)
                                     
                                 })

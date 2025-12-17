@@ -14,6 +14,7 @@ enum AppTheme: String, CaseIterable {
     case green = "green"
     case gold = "gold"
     case turquoise = "turquoise"
+    case dark = "dark"
     
     func displayName(bundle: Bundle) -> String {
         switch self {
@@ -25,6 +26,8 @@ enum AppTheme: String, CaseIterable {
             return NSLocalizedString("theme_gold", bundle: bundle, comment: "Gold theme")
         case .turquoise:
             return NSLocalizedString("theme_turquoise", bundle: bundle, comment: "Turquoise theme")
+        case .dark:
+            return NSLocalizedString("theme_dark", bundle: bundle, comment: "Dark theme")
         }
     }
     
@@ -42,6 +45,9 @@ enum AppTheme: String, CaseIterable {
         case .turquoise:
             // Бирюзовая тема - более яркий бирюзовый для лучшей видимости обводки
             return Color(#colorLiteral(red: 0.1, green: 0.7, blue: 0.7, alpha: 1))
+        case .dark:
+            // Темная тема - светло-серый для акцентов
+            return Color(#colorLiteral(red: 0.7, green: 0.7, blue: 0.7, alpha: 1))
         }
     }
     
@@ -59,6 +65,20 @@ enum AppTheme: String, CaseIterable {
         case .turquoise:
             // Бирюзовая тема - светлый бирюзовый градиент
             return Color(#colorLiteral(red: 0.95, green: 0.98, blue: 0.98, alpha: 1))
+        case .dark:
+            // Темная тема - темно-серый градиент
+            return Color(#colorLiteral(red: 0.2, green: 0.2, blue: 0.25, alpha: 1))
+        }
+    }
+    
+    var gradientBottomColor: Color {
+        switch self {
+        case .dark:
+            // Темная тема - еще более темный цвет для градиента
+            return Color(#colorLiteral(red: 0.12, green: 0.12, blue: 0.18, alpha: 1))
+        default:
+            // Для светлых тем - белый
+            return Color.white
         }
     }
     
@@ -72,6 +92,9 @@ enum AppTheme: String, CaseIterable {
             return Color(UIColor(red: 0.98, green: 0.96, blue: 0.94, alpha: 1))
         case .turquoise:
             return Color(UIColor(red: 0.9, green: 0.95, blue: 0.95, alpha: 1))
+        case .dark:
+            // Темная тема - не слишком черный, темно-серый
+            return Color(UIColor(red: 0.15, green: 0.15, blue: 0.2, alpha: 1))
         }
     }
     
@@ -89,6 +112,9 @@ enum AppTheme: String, CaseIterable {
         case .turquoise:
             // Бирюзовая тема - очень светлый бирюзовый с легким оттенком
             return Color(UIColor(red: 0.99, green: 1.0, blue: 1.0, alpha: 1))
+        case .dark:
+            // Темная тема - немного светлее основного фона
+            return Color(UIColor(red: 0.18, green: 0.18, blue: 0.23, alpha: 1))
         }
     }
     
@@ -106,6 +132,9 @@ enum AppTheme: String, CaseIterable {
         case .turquoise:
             // Бирюзовая тема - светлый бирюзовый с хорошим контрастом
             return Color(#colorLiteral(red: 0.94, green: 0.98, blue: 0.98, alpha: 1))
+        case .dark:
+            // Темная тема - темно-серый фон для текста
+            return Color(#colorLiteral(red: 0.22, green: 0.22, blue: 0.27, alpha: 1))
         }
     }
     
@@ -124,6 +153,9 @@ enum AppTheme: String, CaseIterable {
         case .turquoise:
             // Бирюзовая тема - мягкий бирюзовый для превью
             return Color(#colorLiteral(red: 0.3, green: 0.7, blue: 0.7, alpha: 1))
+        case .dark:
+            // Темная тема - темно-серый для превью
+            return Color(#colorLiteral(red: 0.3, green: 0.3, blue: 0.35, alpha: 1))
         }
     }
     
@@ -142,6 +174,19 @@ enum AppTheme: String, CaseIterable {
         case .turquoise:
             // Бирюзовая тема - яркий бирюзовый для активных кнопок
             return Color(#colorLiteral(red: 0.0, green: 0.8, blue: 0.8, alpha: 1))
+        case .dark:
+            // Темная тема - светло-серый для активных кнопок
+            return Color(#colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1))
+        }
+    }
+    
+    // Цвет текста - белый для темной темы, черный для остальных
+    var textColor: Color {
+        switch self {
+        case .dark:
+            return .white
+        default:
+            return .black
         }
     }
 }

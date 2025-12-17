@@ -61,7 +61,7 @@ struct UsefulInfoView: View {
                                     HStack {
                                         Text(chapter.title)
                                             .font(.system(size: getDynamicFontSize()))
-                                            .foregroundStyle(.black)
+                                            .foregroundStyle(themeManager.selectedTheme.textColor)
                                         Spacer()
                                         Image(systemName: "chevron.right")
                                             .foregroundStyle(.blue)
@@ -74,7 +74,7 @@ struct UsefulInfoView: View {
                                     HStack {
                                         Text(chapter.title)
                                             .font(.system(size: getDynamicFontSize()))
-                                            .foregroundStyle(.black)
+                                            .foregroundStyle(themeManager.selectedTheme.textColor)
                                         Spacer()
                                         Image(systemName: "chevron.right")
                                             .foregroundStyle(.blue)
@@ -240,7 +240,7 @@ struct JanazaView: View {
                 }
                 .padding()
                 .font(.system(size: getDynamicFontSize()))
-                .foregroundStyle(.black)
+                .foregroundStyle(themeManager.selectedTheme.textColor)
                 .textSelection(.enabled)
             }
             .navigationTitle(JanazaPrayerGuide.title(bundle: localizationManager.bundle))
@@ -266,7 +266,7 @@ struct ChapterDetailView: View {
                                 HStack {
                                     Text(subChapter.title)
                                         .font(.system(size: getDynamicFontSize()))
-                                        .foregroundStyle(.black)
+                                        .foregroundStyle(themeManager.selectedTheme.textColor)
                                         .textSelection(.enabled)
                                     Spacer()
                                     Image(systemName: "chevron.right")
@@ -298,7 +298,7 @@ struct SubChapterDetailView: View {
             ScrollView {
                 Text(subChapter.content)
                     .font(.system(size: getDynamicFontSize()))
-                    .foregroundStyle(.black)
+                    .foregroundStyle(themeManager.selectedTheme.textColor)
                     .padding()
                     .textSelection(.enabled)
             }
@@ -343,7 +343,7 @@ extension View {
                         .offset(x: -8, y: -8)
                     
                     Rectangle()
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomLeading))
+                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomLeading))
                 })
             .overlay(
                 // Профессиональная темная обводка для лучшего разделения

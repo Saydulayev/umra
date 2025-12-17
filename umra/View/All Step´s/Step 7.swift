@@ -46,7 +46,7 @@ struct Step7: View {
  ⵈ━══════╗◊╔══════━ⵈ
 """)
                 }
-                .foregroundStyle(.black)
+                .foregroundStyle(themeManager.selectedTheme.textColor)
                 .padding(10)
                 LanguageView()
                     .hidden()

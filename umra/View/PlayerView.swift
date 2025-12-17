@@ -143,7 +143,7 @@ struct PlayerView: View {
             action()
         }) {
             Image(systemName: imageName)
-                .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : .black.opacity(0.8))
+                .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
                 .font(.system(size: 16, weight: .bold))
                 .frame(width: 70, height: 70)
                 .background(
@@ -156,7 +156,7 @@ struct PlayerView: View {
                             .offset(x: -8, y: -8)
 
                         Circle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .padding(2)
                     }
                     .clipShape(Circle())
@@ -174,7 +174,7 @@ struct PlayerView: View {
             impactFeedbackGenerator.impactOccurred()
         }) {
             Text(text)
-                .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : .black.opacity(0.8))
+                .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
                 .font(.system(size: 16, weight: .bold))
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
@@ -189,7 +189,7 @@ struct PlayerView: View {
                             .offset(x: -8, y: -8)
 
                         Circle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .padding(2)
                     }
                     .clipShape(Circle())
