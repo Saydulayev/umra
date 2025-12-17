@@ -185,7 +185,8 @@ extension Text {
 
 #Preview {
     LanguageSelectionView()
-        .environmentObject(UserSettings())
+        .environment(ThemeManager())
+        .environment(LocalizationManager())
 }
 
 

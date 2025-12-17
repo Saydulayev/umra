@@ -19,6 +19,7 @@ struct PrayerTimeView: View {
     @State private var storedPrayerTimes: PrayerTimes? = nil
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
 
     @AppStorage("enable30MinNotifications") private var enable30MinNotifications: Bool = true
     @AppStorage("enablePrayerTimeNotifications") private var enablePrayerTimeNotifications: Bool = true
@@ -78,10 +79,14 @@ struct PrayerTimeView: View {
             .transparentStyled(theme: themeManager.selectedTheme)
             .onAppear {
                 setupPrayerTimes()
-                requestNotificationPermission()
+                Task {
+                    await requestNotificationPermission()
+                }
             }
             .onReceive(timer) { _ in
-                updatePrayerTimes()
+                Task { @MainActor in
+                    await updatePrayerTimes()
+                }
             }
             .onDisappear {
                 timer.upstream.connect().cancel()
@@ -100,10 +105,13 @@ struct PrayerTimeView: View {
     }
 
     func setupPrayerTimes() {
-        updatePrayerTimes()
+        Task { @MainActor in
+            await updatePrayerTimes()
+        }
     }
 
-    func updatePrayerTimes() {
+    @MainActor
+    func updatePrayerTimes() async {
         let cal = Calendar(identifier: .gregorian)
         let today = Date()
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
@@ -113,7 +121,7 @@ struct PrayerTimeView: View {
         var params = CalculationMethod.ummAlQura.params
         params.madhab = .shafi
 
-        DispatchQueue.global(qos: .background).async {
+        let (todayPrayers, _, newPrayerTimes) = await Task.detached(priority: .userInitiated) {
             guard let todayPrayers = PrayerTimes(coordinates: coordinates,
                                                  date: todayDateComponents,
                                                  calculationParameters: params),
@@ -121,11 +129,18 @@ struct PrayerTimeView: View {
                                                     date: tomorrowDateComponents,
                                                     calculationParameters: params) else {
                 print("Error initializing PrayerTimes")
-                return
+                return (nil as PrayerTimes?, nil as PrayerTimes?, [String: String]())
             }
 
             let maghribToFajrInterval = tomorrowPrayers.fajr.timeIntervalSince(todayPrayers.maghrib)
             let lastThirdStart = todayPrayers.maghrib.addingTimeInterval(2 * maghribToFajrInterval / 3)
+
+            let prayerTimeFormatter: DateFormatter = {
+                let formatter = DateFormatter()
+                formatter.timeStyle = .short
+                formatter.timeZone = TimeZone(identifier: "Asia/Riyadh")
+                return formatter
+            }()
 
             let newPrayerTimes: [String: String] = [
                 "Fajr": prayerTimeFormatter.string(from: todayPrayers.fajr),
@@ -137,13 +152,15 @@ struct PrayerTimeView: View {
                 "Qiyam": prayerTimeFormatter.string(from: lastThirdStart)
             ]
 
-            DispatchQueue.main.async {
-                self.prayerTimes = newPrayerTimes
-                self.updateCountdownToNextPrayer(prayers: todayPrayers)
-                self.storedPrayerTimes = todayPrayers
-                self.scheduleNotifications(prayerTimes: todayPrayers)
-            }
-        }
+            return (todayPrayers, tomorrowPrayers, newPrayerTimes)
+        }.value
+
+        guard let todayPrayers = todayPrayers else { return }
+
+        self.prayerTimes = newPrayerTimes
+        self.updateCountdownToNextPrayer(prayers: todayPrayers)
+        self.storedPrayerTimes = todayPrayers
+        await scheduleNotifications(prayerTimes: todayPrayers)
     }
 
     func updateCountdownToNextPrayer(prayers: PrayerTimes) {
@@ -189,11 +206,11 @@ struct PrayerTimeView: View {
         return NSLocalizedString(key, bundle: localizationManager.bundle ?? .main, comment: "")
     }
 
-    func requestNotificationPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if let error = error {
-                print("Error requesting notification permission: \(error)")
-            }
+    func requestNotificationPermission() async {
+        do {
+            _ = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
+        } catch {
+            print("Error requesting notification permission: \(error)")
         }
     }
 
@@ -201,7 +218,7 @@ struct PrayerTimeView: View {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
 
-    func scheduleNotifications(prayerTimes: PrayerTimes) {
+    func scheduleNotifications(prayerTimes: PrayerTimes) async {
         clearNotifications()
 
         let prayers = [
@@ -231,10 +248,10 @@ struct PrayerTimeView: View {
                 let request = UNNotificationRequest(identifier: "\(prayerName)_time",
                                                     content: content,
                                                     trigger: trigger)
-                UNUserNotificationCenter.current().add(request) { error in
-                    if let error = error {
-                        print("Error creating notification for \(prayerName): \(error.localizedDescription)")
-                    }
+                do {
+                    try await UNUserNotificationCenter.current().add(request)
+                } catch {
+                    print("Error creating notification for \(prayerName): \(error.localizedDescription)")
                 }
             }
 
@@ -252,22 +269,24 @@ struct PrayerTimeView: View {
                 let request30MinBefore = UNNotificationRequest(identifier: "\(prayerName)_30min",
                                                                content: content30MinBefore,
                                                                trigger: trigger30MinBefore)
-                UNUserNotificationCenter.current().add(request30MinBefore) { error in
-                    if let error = error {
-                        print("Error creating notification 30 minutes before \(prayerName): \(error.localizedDescription)")
-                    }
+                do {
+                    try await UNUserNotificationCenter.current().add(request30MinBefore)
+                } catch {
+                    print("Error creating notification 30 minutes before \(prayerName): \(error.localizedDescription)")
                 }
             }
         }
     }
 
     func scheduleBackgroundRefresh() {
-        BackgroundTaskManager.shared.scheduleBackgroundRefresh()
+        backgroundTaskManager.scheduleBackgroundRefresh()
     }
 
     func updateNotifications() {
         guard let prayers = storedPrayerTimes else { return }
-        scheduleNotifications(prayerTimes: prayers)
+        Task { @MainActor in
+            await scheduleNotifications(prayerTimes: prayers)
+        }
     }
 }
 

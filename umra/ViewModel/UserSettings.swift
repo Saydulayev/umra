@@ -278,42 +278,5 @@ class UserPreferences {
     }
 }
 
-// MARK: - UserSettings (Legacy - для обратной совместимости)
-class UserSettings: ObservableObject {
-    @Published var lang: String {
-        didSet {
-            UserDefaults.standard.set(lang, forKey: "selectedLanguage")
-            loadBundle()
-        }
-    }
-    @Published var hasSelectedLanguage: Bool {
-        didSet {
-            UserDefaults.standard.set(hasSelectedLanguage, forKey: "hasSelectedLanguage")
-        }
-    }
-    @Published var selectedTheme: AppTheme {
-        didSet {
-            UserDefaults.standard.set(selectedTheme.rawValue, forKey: "selectedTheme")
-        }
-    }
-    
-    var bundle: Bundle?
-    
-    init() {
-        lang = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "ru"
-        hasSelectedLanguage = UserDefaults.standard.bool(forKey: "hasSelectedLanguage")
-        selectedTheme = AppTheme(rawValue: UserDefaults.standard.string(forKey: "selectedTheme") ?? "blue") ?? .blue
-        loadBundle()
-    }
-    
-    private func loadBundle() {
-        guard let path = Bundle.main.path(forResource: lang, ofType: "lproj"),
-              let resultBundle = Bundle(path: path) else {
-            bundle = nil
-            return
-        }
-        bundle = resultBundle
-    }
-}
 
 

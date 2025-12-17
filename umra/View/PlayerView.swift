@@ -9,8 +9,9 @@ import AVFoundation
 import SwiftUI
 import UIKit
 
+@available(iOS 17.0, *)
+@Observable
 class AudioManager {
-    static let shared = AudioManager()
     private var audioPlayers: [AVAudioPlayer] = []
 
     func play(audioPlayer: AVAudioPlayer) {
@@ -62,9 +63,10 @@ struct PlayerView: View {
     @State private var playbackRate: Float = 1.0
     let fileName: String
 
-    @StateObject private var coordinator = Coordinator()
+    @State private var coordinator = Coordinator()
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(AudioManager.self) private var audioManager
 
     // Цвет тени - всегда как в темной теме, независимо от системной темы
     private func adaptiveShadowColor(intensity: Double = 0.5) -> Color {
@@ -95,7 +97,7 @@ struct PlayerView: View {
                             // Гарантируем старт на выбранной скорости
                             player.enableRate = true
                             player.rate = playbackRate
-                            AudioManager.shared.play(audioPlayer: player)
+                            audioManager.play(audioPlayer: player)
                             self.isPlaying = true
                         }
                     }
@@ -259,16 +261,16 @@ struct PlayerView: View {
             player.currentTime = 0
         }
         isPlaying = false
-        AudioManager.shared.remove(player)
-        AudioManager.shared.deactivateAudioSession()
+        audioManager.remove(player)
+        audioManager.deactivateAudioSession()
     }
 
-    class Coordinator: NSObject, AVAudioPlayerDelegate, ObservableObject {
+    class Coordinator: NSObject, AVAudioPlayerDelegate {
         var onFinishPlaying: (() -> Void)?
 
-        func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-            DispatchQueue.main.async {
-                self.onFinishPlaying?()
+        nonisolated func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+            Task { @MainActor in
+                onFinishPlaying?()
             }
         }
     }

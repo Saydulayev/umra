@@ -7,14 +7,16 @@
 
 import BackgroundTasks
 import Foundation
+import SwiftUI
 
+@available(iOS 17.0, *)
+@MainActor
+@Observable
 class BackgroundTaskManager {
-    static let shared = BackgroundTaskManager()
-    
     private let taskIdentifier = "saydulayev.wien-gmail.com.umra.updatePrayerTimes"
     private var isRegistered = false
     
-    private init() {}
+    init() {}
     
     /// Регистрирует фоновую задачу. Должна вызываться ОДИН РАЗ при запуске приложения.
     func registerBackgroundTask() {

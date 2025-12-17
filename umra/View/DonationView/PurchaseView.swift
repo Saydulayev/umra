@@ -20,7 +20,8 @@ struct PurchaseView: View {
                 // Показываем алерт только если количество пожертвований увеличилось
                 if newCount > lastDonationCount {
                     lastDonationCount = newCount
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Task { @MainActor in
+                        try? await Task.sleep(for: .seconds(0.5))
                         showThankYouAlert = true
                     }
                 }

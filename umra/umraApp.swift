@@ -16,10 +16,12 @@ struct umraApp: App {
     @State private var localizationManager = LocalizationManager()
     @State private var userPreferences = UserPreferences()
     @State private var fontManager = FontManager()
+    @State private var backgroundTaskManager = BackgroundTaskManager()
+    @State private var audioManager = AudioManager()
     
     init() {
         // Регистрируем фоновые задачи при запуске приложения
-        BackgroundTaskManager.shared.registerBackgroundTask()
+        // Регистрация будет выполнена после инициализации через Task
     }
 
     var body: some Scene {
@@ -30,6 +32,11 @@ struct umraApp: App {
                 .environment(localizationManager)
                 .environment(userPreferences)
                 .environment(fontManager)
+                .environment(backgroundTaskManager)
+                .environment(audioManager)
+                .task {
+                    backgroundTaskManager.registerBackgroundTask()
+                }
         }
     }
 }
