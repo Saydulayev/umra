@@ -166,13 +166,18 @@ struct DonationSheetView: View {
         showError = false
         guard let product = purchaseManager.availableDonations.first(where: { $0.id == productID }) else {
             print("⚠️ Product \(productID) not found")
+            showError = true
             return
         }
-        await purchaseManager.purchase(product)
-        // Если после покупки продукт присутствует в списке завершённых, считаем покупку успешной
-        if purchaseManager.completedDonations.contains(where: { $0.id == productID }) {
-            isPurchased = true
-        } else if purchaseManager.purchaseError != nil {
+        
+        do {
+            try await purchaseManager.purchase(product)
+            // Если после покупки продукт присутствует в списке завершённых, считаем покупку успешной
+            if purchaseManager.completedDonations.contains(where: { $0.id == productID }) {
+                isPurchased = true
+            }
+        } catch {
+            // Ошибка уже обработана в PurchaseManager и сохранена в purchaseError
             showError = true
         }
     }
