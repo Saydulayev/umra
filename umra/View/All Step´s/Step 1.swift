@@ -48,8 +48,8 @@ struct Step1: View {
                         Text("Turn your face towards the Qiblah and say:", bundle: localizationManager.bundle)
                         
                         Text("""
-اَللُّهُمَّ هَذِهِ عُمْرَةً لاٰ رِيَاءَ فِيهَا وَلَا سُمْعَةَ
-""")
+                        اَللَّهُمَّ هَذِهِ عُمْرَةٌ لَا رِيَاءَ فِيهَا وَلَا سُمْعَةَ
+                        """)
                         .customTextforArabic()
                         
                         PlayerView(fileName: "2")
