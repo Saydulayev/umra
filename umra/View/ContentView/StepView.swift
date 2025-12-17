@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct StepView<Destination: View>: View {
+struct StepView: View {
     let imageName: String
-    let destinationView: Destination
     let titleKey: LocalizedStringKey
     let stringKey: String
     let index: Int?
@@ -46,16 +45,14 @@ struct StepView<Destination: View>: View {
     
     var body: some View {
         VStack {
-            NavigationLink(destination: destinationView) {
-                if let index = index {
-                    Image(imageName)
-                        .styledImageWithIndexAndTheme(index: index, stepsCount: stepsCount, theme: themeManager.selectedTheme, hideLastIndex: hideLastIndex)
-                        .accessibilityLabel(accessibilityLabel)
-                } else {
-                    Image(imageName)
-                        .styledImageWithThemeColors(theme: themeManager.selectedTheme)
-                        .accessibilityLabel(accessibilityLabel)
-                }
+            if let index = index {
+                Image(imageName)
+                    .styledImageWithIndexAndTheme(index: index, stepsCount: stepsCount, theme: themeManager.selectedTheme, hideLastIndex: hideLastIndex)
+                    .accessibilityLabel(accessibilityLabel)
+            } else {
+                Image(imageName)
+                    .styledImageWithThemeColors(theme: themeManager.selectedTheme)
+                    .accessibilityLabel(accessibilityLabel)
             }
             VStack(spacing: 4) {
                 Text(parsedTitle.name)

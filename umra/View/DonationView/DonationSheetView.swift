@@ -72,7 +72,7 @@ struct DonationSheetView: View {
     ]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 // Фоновый цвет для экрана
                 themeManager.selectedTheme.lightBackgroundColor

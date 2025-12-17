@@ -9,12 +9,10 @@ import Foundation
 import StoreKit
 import OSLog
 
-@available(iOS 17.0, *)
 final class TaskHolder: @unchecked Sendable {
     var task: Task<Void, Never>?
 }
 
-@available(iOS 17.0, *)
 @MainActor
 @Observable
 class PurchaseManager {

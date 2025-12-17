@@ -9,31 +9,15 @@ import BackgroundTasks
 import Foundation
 import SwiftUI
 
-@available(iOS 17.0, *)
 @MainActor
 @Observable
 class BackgroundTaskManager {
     private let taskIdentifier = "saydulayev.wien-gmail.com.umra.updatePrayerTimes"
-    private var isRegistered = false
     
-    init() {}
-    
-    /// Регистрирует фоновую задачу. Должна вызываться ОДИН РАЗ при запуске приложения.
-    func registerBackgroundTask() {
-        guard !isRegistered else {
-            print("⚠️ Background task already registered, skipping duplicate registration")
-            return
-        }
-        
-        BGTaskScheduler.shared.register(
-            forTaskWithIdentifier: taskIdentifier,
-            using: nil
-        ) { task in
-            self.handleAppRefresh(task: task as! BGAppRefreshTask)
-        }
-        
-        isRegistered = true
-        print("✅ Background task registered successfully")
+    init() {
+        // Регистрация фоновой задачи теперь происходит в AppDelegate
+        // для соответствия требованиям iOS 18+ - все launch handlers должны быть
+        // зарегистрированы до завершения application(_:didFinishLaunchingWithOptions:)
     }
     
     /// Планирует следующее фоновое обновление
@@ -47,21 +31,6 @@ class BackgroundTaskManager {
         } catch {
             print("❌ Failed to schedule background task: \(error)")
         }
-    }
-    
-    /// Обрабатывает фоновое обновление
-    private func handleAppRefresh(task: BGAppRefreshTask) {
-        // Планируем следующее обновление
-        scheduleBackgroundRefresh()
-        
-        // Уведомляем о необходимости обновления времен молитв
-        NotificationCenter.default.post(
-            name: NSNotification.Name("UpdatePrayerTimesBackground"),
-            object: nil
-        )
-        
-        task.setTaskCompleted(success: true)
-        print("✅ Background task completed")
     }
 }
 

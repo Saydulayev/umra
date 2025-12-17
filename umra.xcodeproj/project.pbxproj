@@ -16,7 +16,6 @@
 		C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC882997AD040000FD8E /* Lato-Bold.ttf */; };
 		C036BC8B2997AD350000FD8E /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC8A2997AD350000FD8E /* Lato-Black.ttf */; };
 		C041C7A02BB06739007381FB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C041C79F2BB06739007381FB /* .gitignore */; };
-		C0514F342998F3C000AA1776 /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0514F332998F3C000AA1776 /* PDFView.swift */; };
 		C05648EF2BB5AA8700E12230 /* hadj_proroka.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C05648EE2BB5AA8700E12230 /* hadj_proroka.pdf */; };
 		C063ADE329DF2E5B00746D2E /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063ADE229DF2E5B00746D2E /* PlayerView.swift */; };
 		C063ADF229DF2FC700746D2E /* 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE529DF2FC400746D2E /* 5.mp3 */; };
@@ -73,7 +72,6 @@
 		C036BC882997AD040000FD8E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		C036BC8A2997AD350000FD8E /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		C041C79F2BB06739007381FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		C0514F332998F3C000AA1776 /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
 		C05648EE2BB5AA8700E12230 /* hadj_proroka.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hadj_proroka.pdf; sourceTree = "<group>"; };
 		C063ADE229DF2E5B00746D2E /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C063ADE529DF2FC400746D2E /* 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5.mp3; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 			children = (
 				C24AC7BA2D65CB0C007F5E5A /* ContentView */,
 				C063ADE229DF2E5B00746D2E /* PlayerView.swift */,
-				C0514F332998F3C000AA1776 /* PDFView.swift */,
 				C008900229E1B09400031176 /* SettingsView.swift */,
 				C24AC7C32D65DD14007F5E5A /* LanguageView */,
 				C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */,
@@ -429,7 +426,6 @@
 			files = (
 				C008900329E1B09400031176 /* SettingsView.swift in Sources */,
 				C0908DF92982A0B300458ACB /* Step 6.swift in Sources */,
-				C0514F342998F3C000AA1776 /* PDFView.swift in Sources */,
 				C0908DF72982A0AA00458ACB /* Step 5.swift in Sources */,
 				C024683F2BDF972600CE5A6B /* PrayerTimeView.swift in Sources */,
 				C0908DF12982A08B00458ACB /* Step 2.swift in Sources */,

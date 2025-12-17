@@ -85,7 +85,7 @@ struct LanguageSelectionView: View {
                             .padding(.top, 4)
                             .padding(.bottom, geo.size.height * 0.01)
                             .transition(.opacity)
-                            .animation(.easeInOut, value: needChevron)
+                            .animation(.smooth, value: needChevron)
                     }
                 }
                 .padding(.horizontal, geo.size.width > 500 ? 64 : 16)

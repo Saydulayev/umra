@@ -20,100 +20,98 @@ struct SettingsView: View {
     
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                themeManager.selectedTheme.lightBackgroundColor
-                    .ignoresSafeArea(edges: .bottom)
-                VStack(alignment: .leading, spacing: 10) {
-                    
-                    // Feedback Button
-                    Button(action: {
-                        if let url = URL(string: "mailto:saydulayev.wien@gmail.com") {
-                            UIApplication.shared.open(url)
-                        }
-                    }) {
-                        HStack {
-                            Image(systemName: "message")
-                                .foregroundColor(themeManager.selectedTheme.primaryColor)
-                            Text("text_button_feedback_string", bundle: localizationManager.bundle)
-                                .foregroundColor(themeManager.selectedTheme.textColor)
-                            Spacer()
-                        }
-                        .customTextStyleWithTheme()
+        ZStack {
+            themeManager.selectedTheme.lightBackgroundColor
+                .ignoresSafeArea(edges: .bottom)
+            VStack(alignment: .leading, spacing: 10) {
+                
+                // Feedback Button
+                Button(action: {
+                    if let url = URL(string: "mailto:saydulayev.wien@gmail.com") {
+                        UIApplication.shared.open(url)
                     }
-                    
-                    // Rate the App Button
-                    Button(action: {
-                        showSafariView.toggle()
-                    }) {
-                        HStack {
-                            Image(systemName: "star")
-                                .foregroundColor(themeManager.selectedTheme.primaryColor)
-                            Text("text_button_rate_the_app_string", bundle: localizationManager.bundle)
-                                .foregroundColor(themeManager.selectedTheme.textColor)
-                            Spacer()
-                        }
-                        .customTextStyleWithTheme()
+                }) {
+                    HStack {
+                        Image(systemName: "message")
+                            .foregroundColor(themeManager.selectedTheme.primaryColor)
+                        Text("text_button_feedback_string", bundle: localizationManager.bundle)
+                            .foregroundColor(themeManager.selectedTheme.textColor)
+                        Spacer()
                     }
-                    
-                    // Support View
-                    PurchaseView()
-                    
-                    // Notification Settings Button
-                    Button(action: {
-                        showNotificationSettingsSheet.toggle()
-                    }) {
-                        HStack {
-                            Image(systemName: "bell")
-                                .foregroundColor(themeManager.selectedTheme.primaryColor)
-                            Text("Notification Settings", bundle: localizationManager.bundle)
-                                .foregroundColor(themeManager.selectedTheme.textColor)
-                            Spacer()
-                        }
-                        .customTextStyleWithTheme()
+                    .customTextStyleWithTheme()
+                }
+                
+                // Rate the App Button
+                Button(action: {
+                    showSafariView.toggle()
+                }) {
+                    HStack {
+                        Image(systemName: "star")
+                            .foregroundColor(themeManager.selectedTheme.primaryColor)
+                        Text("text_button_rate_the_app_string", bundle: localizationManager.bundle)
+                            .foregroundColor(themeManager.selectedTheme.textColor)
+                        Spacer()
                     }
-                    
-                    // Language Selection
-                    LanguageView()
-                    
-                    // Theme Selection
-                    Button(action: {
-                        showThemeSelectionSheet.toggle()
-                    }) {
-                        HStack {
-                            Image(systemName: "paintbrush.fill")
-                                .foregroundColor(themeManager.selectedTheme.primaryColor)
-                            Text("theme_app_title", bundle: localizationManager.bundle)
-                                .foregroundColor(themeManager.selectedTheme.textColor)
-                            Spacer()
-                            HStack(spacing: 8) {
-                                Circle()
-                                    .fill(themeManager.selectedTheme.primaryColor)
-                                    .frame(width: 20, height: 20)
-                                Text(themeManager.selectedTheme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
-                                    .foregroundColor(.gray)
-                                    .font(.system(size: 14))
-                            }
-                        }
-                        .customTextStyleWithTheme()
+                    .customTextStyleWithTheme()
+                }
+                
+                // Support View
+                PurchaseView()
+                
+                // Notification Settings Button
+                Button(action: {
+                    showNotificationSettingsSheet.toggle()
+                }) {
+                    HStack {
+                        Image(systemName: "bell")
+                            .foregroundColor(themeManager.selectedTheme.primaryColor)
+                        Text("Notification Settings", bundle: localizationManager.bundle)
+                            .foregroundColor(themeManager.selectedTheme.textColor)
+                        Spacer()
                     }
-                    
-                    Spacer()
+                    .customTextStyleWithTheme()
                 }
-                .padding()
-                .navigationBarTitle(Text("settings_string", bundle: localizationManager.bundle), displayMode: .inline)
-                .sheet(isPresented: $showSafariView) {
-                    SafariView(url: URL(string: "https://apps.apple.com/app/id1673683355")!)
+                
+                // Language Selection
+                LanguageView()
+                
+                // Theme Selection
+                Button(action: {
+                    showThemeSelectionSheet.toggle()
+                }) {
+                    HStack {
+                        Image(systemName: "paintbrush.fill")
+                            .foregroundColor(themeManager.selectedTheme.primaryColor)
+                        Text("theme_app_title", bundle: localizationManager.bundle)
+                            .foregroundColor(themeManager.selectedTheme.textColor)
+                        Spacer()
+                        HStack(spacing: 8) {
+                            Circle()
+                                .fill(themeManager.selectedTheme.primaryColor)
+                                .frame(width: 20, height: 20)
+                            Text(themeManager.selectedTheme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
+                                .foregroundColor(.gray)
+                                .font(.system(size: 14))
+                        }
+                    }
+                    .customTextStyleWithTheme()
                 }
-                .sheet(isPresented: $showNotificationSettingsSheet) {
-                    NotificationSettingsView()
-                }
-                .sheet(isPresented: $showThemeSelectionSheet) {
-                    ThemePreviewView()
-                }
-                .toolbar(.hidden, for: .tabBar)
+                
+                Spacer()
             }
+            .padding()
         }
+        .navigationBarTitle(Text("settings_string", bundle: localizationManager.bundle), displayMode: .inline)
+        .sheet(isPresented: $showSafariView) {
+            SafariView(url: URL(string: "https://apps.apple.com/app/id1673683355")!)
+        }
+        .sheet(isPresented: $showNotificationSettingsSheet) {
+            NotificationSettingsView()
+        }
+        .sheet(isPresented: $showThemeSelectionSheet) {
+            ThemePreviewView()
+        }
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
@@ -141,7 +139,7 @@ struct ThemePreviewView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 themeManager.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea()

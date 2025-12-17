@@ -11,17 +11,6 @@ struct HajjStep3: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(FontManager.self) private var fontManager
-    @Bindable private var bindableFontManager: FontManager
-    
-    init() {
-        self._bindableFontManager = Bindable(FontManager())
-    }
-    
-    private func syncFontManager() {
-        if bindableFontManager.selectedFont != fontManager.selectedFont {
-            fontManager.selectedFont = bindableFontManager.selectedFont
-        }
-    }
     
     /// Извлекает только заголовок без даты из строки локализации
     private func extractTitleOnly(from key: String) -> String {
@@ -196,17 +185,11 @@ struct HajjStep3: View {
                     .navigationTitle(Text(extractTitleOnly(from: "hajj_step3_title")))
                     .navigationBarTitleDisplayMode(.inline)
             }
-            .onAppear {
-                syncFontManager()
-            }
-            .onChange(of: bindableFontManager.selectedFont) { _, newFont in
-                fontManager.selectedFont = newFont
-            }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     CustomToolbar(
-                        selectedFont: $bindableFontManager.selectedFont,
-                        fonts: bindableFontManager.fonts
+                        selectedFont: Bindable(fontManager).selectedFont,
+                        fonts: fontManager.fonts
                     )
                     .environment(themeManager)
                 }

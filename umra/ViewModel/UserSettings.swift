@@ -200,7 +200,6 @@ extension String {
 }
 
 // MARK: - Theme Manager
-@available(iOS 17.0, *)
 @Observable
 class ThemeManager {
     var selectedTheme: AppTheme {
@@ -215,7 +214,6 @@ class ThemeManager {
 }
 
 // MARK: - Localization Manager
-@available(iOS 17.0, *)
 @Observable
 class LocalizationManager {
     var currentLanguage: String {
@@ -250,7 +248,6 @@ class LocalizationManager {
 }
 
 // MARK: - User Preferences Manager
-@available(iOS 17.0, *)
 @Observable
 class UserPreferences {
     var hasSelectedLanguage: Bool {

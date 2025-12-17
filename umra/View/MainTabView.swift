@@ -38,7 +38,7 @@ struct MainTabView: View {
                     )
             }
         }
-        .animation(.spring(response: 0.4, dampingFraction: 0.75), value: localizationManager.hasSelectedLanguage)
+        .animation(.smooth, value: localizationManager.hasSelectedLanguage)
     }
     
     @ViewBuilder
@@ -54,6 +54,7 @@ struct MainTabView: View {
                     Label(hajjTabLabel, systemImage: "h.circle.fill")
                 }
         }
+        .environment(\.horizontalSizeClass, .compact)
         .onAppear {
             setupTabBarAppearance()
         }

@@ -369,15 +369,19 @@ struct PrayerTimeModalView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             PrayerTimeView()
-                .navigationBarItems(trailing: Button(action: {
-                    isPresented = false
-                }, label: {
-                    Image(systemName: "xmark.circle")
-                        .imageScale(.large)
-                        .foregroundStyle(themeManager.selectedTheme.primaryColor)
-                }))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            isPresented = false
+                        }, label: {
+                            Image(systemName: "xmark.circle")
+                                .imageScale(.large)
+                                .foregroundStyle(themeManager.selectedTheme.primaryColor)
+                        })
+                    }
+                }
         }
     }
 }

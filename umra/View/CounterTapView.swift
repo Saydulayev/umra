@@ -91,7 +91,7 @@ struct CounterTapView: View {
                             .opacity(showCelebration ? 1.0 : 0.0)
                     }
                     .onAppear {
-                        withAnimation(.spring(response: 0.6, dampingFraction: 0.7)) {
+                        withAnimation(.spring) {
                             showCelebration = true
                         }
                     }

@@ -48,77 +48,60 @@ struct UsefulInfoView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                themeManager.selectedTheme.backgroundColor
-                    .ignoresSafeArea(edges: .bottom)
-                
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 0) {
-                        ForEach(chapters) { chapter in
-                            if chapter.title == "title_janaza_guide".localized(bundle: localizationManager.bundle) {
-                                NavigationLink(destination: JanazaView()) {
-                                    HStack {
-                                        Text(chapter.title)
-                                            .font(.system(size: getDynamicFontSize()))
-                                            .foregroundStyle(themeManager.selectedTheme.textColor)
-                                        Spacer()
-                                        Image(systemName: "chevron.right")
-                                            .foregroundStyle(.blue)
-                                    }
-                                    .customListItemStyle(theme: themeManager.selectedTheme)
-                                }
-                                .buttonStyle(PlainButtonStyle())
-                            } else {
-                                NavigationLink(destination: ChapterDetailView(chapter: chapter)) {
-                                    HStack {
-                                        Text(chapter.title)
-                                            .font(.system(size: getDynamicFontSize()))
-                                            .foregroundStyle(themeManager.selectedTheme.textColor)
-                                        Spacer()
-                                        Image(systemName: "chevron.right")
-                                            .foregroundStyle(.blue)
-                                    }
-                                    .customListItemStyle(theme: themeManager.selectedTheme)
-                                }
-                                .buttonStyle(PlainButtonStyle())
+        ZStack {
+            themeManager.selectedTheme.backgroundColor
+                .ignoresSafeArea(edges: .bottom)
+            
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(chapters) { chapter in
+                        NavigationLink(value: chapter) {
+                            HStack {
+                                Text(chapter.title)
+                                    .font(.system(size: getDynamicFontSize()))
+                                    .foregroundStyle(themeManager.selectedTheme.textColor)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(.blue)
                             }
-                            Divider()
+                            .customListItemStyle(theme: themeManager.selectedTheme)
                         }
-                    }
-                }
-                .navigationTitle("useful_info_title".localized(bundle: localizationManager.bundle))
-                .navigationBarTitleDisplayMode(.inline)
-                
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            isInfoPresented.toggle()
-                        }) {
-                            Image(systemName: "info.circle")
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                                .padding()
-                                .foregroundColor(.blue)
-                        }
-                        .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
-                            VStack {
-                                Text("soon_available_text".localized(bundle: localizationManager.bundle))
-                                    .font(.body)
-                                    .padding()
-                                    .multilineTextAlignment(.center)
-                                    .frame(width: 350, height: 150)
-                            }
-                            .frame(width: 350, height: 200)
-                            .presentationCompactAdaptation(.popover)
-                        }
+                        .buttonStyle(PlainButtonStyle())
+                        Divider()
                     }
                 }
             }
-            .toolbar(.hidden, for: .tabBar)
+            
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isInfoPresented.toggle()
+                    }) {
+                        Image(systemName: "info.circle")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .padding()
+                            .foregroundColor(.blue)
+                    }
+                    .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
+                        VStack {
+                            Text("soon_available_text".localized(bundle: localizationManager.bundle))
+                                .font(.body)
+                                .padding()
+                                .multilineTextAlignment(.center)
+                                .frame(width: 350, height: 150)
+                        }
+                        .frame(width: 350, height: 200)
+                        .presentationCompactAdaptation(.popover)
+                    }
+                }
+            }
         }
+        .navigationTitle("useful_info_title".localized(bundle: localizationManager.bundle))
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
@@ -255,34 +238,32 @@ struct ChapterDetailView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                themeManager.selectedTheme.backgroundColor
-                    .ignoresSafeArea(edges: .bottom)
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 0) {
-                        ForEach(chapter.subChapters) { subChapter in
-                            NavigationLink(destination: SubChapterDetailView(subChapter: subChapter)) {
-                                HStack {
-                                    Text(subChapter.title)
-                                        .font(.system(size: getDynamicFontSize()))
-                                        .foregroundStyle(themeManager.selectedTheme.textColor)
-                                        .textSelection(.enabled)
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .foregroundStyle(.blue)
-                                }
-                                .customListItemStyle(theme: themeManager.selectedTheme)
+        ZStack {
+            themeManager.selectedTheme.backgroundColor
+                .ignoresSafeArea(edges: .bottom)
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(chapter.subChapters) { subChapter in
+                        NavigationLink(value: subChapter) {
+                            HStack {
+                                Text(subChapter.title)
+                                    .font(.system(size: getDynamicFontSize()))
+                                    .foregroundStyle(themeManager.selectedTheme.textColor)
+                                    .textSelection(.enabled)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(.blue)
                             }
-                            .buttonStyle(PlainButtonStyle())
-                            Divider()
+                            .customListItemStyle(theme: themeManager.selectedTheme)
                         }
+                        .buttonStyle(PlainButtonStyle())
+                        Divider()
                     }
                 }
-                .navigationTitle(chapter.title)
-                .toolbar(.hidden, for: .tabBar)
             }
         }
+        .navigationTitle(chapter.title)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
@@ -312,16 +293,32 @@ func getDynamicFontSize(forPad: CGFloat = 30, forPhone: CGFloat = 20) -> CGFloat
     UIDevice.current.userInterfaceIdiom == .pad ? forPad : forPhone
 }
 
-struct Chapter: Identifiable {
+struct Chapter: Identifiable, Hashable {
     let id = UUID()
     let title: String
     let subChapters: [SubChapter]
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: Chapter, rhs: Chapter) -> Bool {
+        lhs.id == rhs.id
+    }
 }
 
-struct SubChapter: Identifiable {
+struct SubChapter: Identifiable, Hashable {
     let id = UUID()
     let title: String
     let content: String
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: SubChapter, rhs: SubChapter) -> Bool {
+        lhs.id == rhs.id
+    }
 }
 
 #Preview {

@@ -9,7 +9,6 @@ import AVFoundation
 import SwiftUI
 import UIKit
 
-@available(iOS 17.0, *)
 @Observable
 class AudioManager {
     private var audioPlayers: [AVAudioPlayer] = []
@@ -341,8 +340,6 @@ struct ThemedSlider: UIViewRepresentable {
     }
 }
 
-struct Player_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayerView(fileName: "1")
-    }
+#Preview {
+    PlayerView(fileName: "1")
 }

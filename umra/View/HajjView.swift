@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+enum HajjStep: Hashable {
+    case step1
+    case step2
+    case step3
+    case step4
+    case step5
+}
+
 struct HajjView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
@@ -14,6 +22,7 @@ struct HajjView: View {
     @Environment(FontManager.self) private var fontManager
     @Environment(PurchaseManager.self) private var purchaseManager
     @State private var showPrayerTimes = false
+    @State private var navigationPath = NavigationPath()
     @State private var imageDescriptions: [String: String] = [
         "hajj1": "hajj_step1_title",
         "hajj2": "hajj_step2_title",
@@ -26,13 +35,29 @@ struct HajjView: View {
     @Environment(\.requestReview) var requestReview
     
     // Шаги хаджа
-    let steps = [
-        ("hajj1", AnyView(HajjStep1()), "hajj_step1_title"),
-        ("hajj2", AnyView(HajjStep2()), "hajj_step2_title"),
-        ("hajj3", AnyView(HajjStep3()), "hajj_step3_title"),
-        ("hajj4", AnyView(HajjStep4()), "hajj_step4_title"),
-        ("hajj5", AnyView(HajjStep5()), "hajj_step5_title")
+    let steps: [(String, HajjStep, String)] = [
+        ("hajj1", .step1, "hajj_step1_title"),
+        ("hajj2", .step2, "hajj_step2_title"),
+        ("hajj3", .step3, "hajj_step3_title"),
+        ("hajj4", .step4, "hajj_step4_title"),
+        ("hajj5", .step5, "hajj_step5_title")
     ]
+    
+    @ViewBuilder
+    private func destinationView(for step: HajjStep) -> some View {
+        switch step {
+        case .step1:
+            HajjStep1()
+        case .step2:
+            HajjStep2()
+        case .step3:
+            HajjStep3()
+        case .step4:
+            HajjStep4()
+        case .step5:
+            HajjStep5()
+        }
+    }
     
     /// Вычисляемое свойство для определения устройства iPad
     private var isPad: Bool {
@@ -48,12 +73,19 @@ struct HajjView: View {
         mainContentView
             .onAppear(perform: startTimer)
             .onDisappear(perform: stopTimer)
+            .onChange(of: navigationPath.count) { oldValue, newValue in
+                // Если путь навигации пуст, значит мы вернулись на главный экран
+                if newValue == 0 && oldValue > 0 {
+                    // Сбрасываем путь навигации при возврате на главный экран
+                    navigationPath = NavigationPath()
+                }
+            }
     }
 
     
     /// Основное содержимое экрана
     private var mainContentView: some View {
-        NavigationStack {
+        NavigationStack(path: $navigationPath) {
             ZStack {
                 // Применяем тему к фону, но сохраняем оригинальный вид
                 themeManager.selectedTheme.backgroundColor
@@ -65,21 +97,32 @@ struct HajjView: View {
                 }
                 .scrollIndicators(.hidden)
                 .navigationBarTitle(Text("hajj_screen_title", bundle: localizationManager.bundle), displayMode: .inline)
-                .navigationBarItems(
-                    leading: gridToggleButton,
-                    trailing: HStack {
+                .navigationDestination(for: HajjStep.self) { step in
+                    destinationView(for: step)
+                }
+                .navigationDestination(for: AppDestination.self) { destination in
+                    switch destination {
+                    case .settings:
+                        SettingsView()
+                    }
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        gridToggleButton
+                    }
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button(action: { showPrayerTimes = true }) {
                             Image(systemName: "clock")
                                 .imageScale(.large)
                                 .foregroundColor(.primary)
                         }
-                        NavigationLink(destination: SettingsView()) {
+                        NavigationLink(value: AppDestination.settings) {
                             Image(systemName: "gearshape")
                                 .imageScale(.large)
                                 .foregroundColor(.primary)
                         }
                     }
-                )
+                }
                 .sheet(isPresented: $showPrayerTimes) {
                     PrayerTimeModalView(isPresented: $showPrayerTimes)
                 }
@@ -108,11 +151,14 @@ struct HajjView: View {
         } else {
             LazyVStack(spacing: 8) {
                 ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-                    NavigationLink(destination: step.1) {
+                    Button {
+                        navigationPath.append(step.1)
+                    } label: {
                         StepRow(step: step, index: index)
                     }
                     .buttonStyle(PlainButtonStyle())
                     .padding(.horizontal, 8)
+                    .id("\(step.1)-\(index)")
                 }
             }
             .padding(.vertical, 10)
@@ -122,18 +168,23 @@ struct HajjView: View {
     /// Для сетки: отображение шагов через отдельный View StepView
     private func stepsView(showIndex: Bool, fontSize: CGFloat) -> some View {
         ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-            StepView(
-                imageName: step.0,
-                destinationView: step.1,
-                titleKey: LocalizedStringKey(step.2),
-                stringKey: step.2,
-                index: showIndex ? index : nil,
-                fontSize: fontSize,
-                stepsCount: steps.count,
-                hideLastIndex: false,
-                imageDescriptions: $imageDescriptions
-            )
-            .foregroundStyle(themeManager.selectedTheme.textColor)
+            Button {
+                navigationPath.append(step.1)
+            } label: {
+                StepView(
+                    imageName: step.0,
+                    titleKey: LocalizedStringKey(step.2),
+                    stringKey: step.2,
+                    index: showIndex ? index : nil,
+                    fontSize: fontSize,
+                    stepsCount: steps.count,
+                    hideLastIndex: false,
+                    imageDescriptions: $imageDescriptions
+                )
+                .foregroundStyle(themeManager.selectedTheme.textColor)
+            }
+            .buttonStyle(PlainButtonStyle())
+            .id("\(step.1)-\(index)")
         }
     }
     
@@ -172,7 +223,7 @@ struct HajjView: View {
 
 /// Отдельный View для отображения строки шага в списке
 private struct StepRow: View {
-    var step: (String, AnyView, String)
+    var step: (String, HajjStep, String)
     var index: Int
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
@@ -229,14 +280,12 @@ private struct StepRow: View {
     }
 }
 
-struct HajjView_Previews: PreviewProvider {
-    static var previews: some View {
-        HajjView()
-            .environment(ThemeManager())
-            .environment(LocalizationManager())
-            .environment(UserPreferences())
-            .environment(FontManager())
-            .environment(PurchaseManager())
-    }
+#Preview {
+    HajjView()
+        .environment(ThemeManager())
+        .environment(LocalizationManager())
+        .environment(UserPreferences())
+        .environment(FontManager())
+        .environment(PurchaseManager())
 }
 
