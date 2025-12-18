@@ -50,7 +50,7 @@ enum AppConstants {
     static let meccaLatitude: Double = 21.4225
     static let meccaLongitude: Double = 39.8262
     
-    // Grid layout
+    // Grid layout (только для iPhone)
     static let gridColumnCount = 2
     static let gridColumnSpacing: CGFloat = 10
     

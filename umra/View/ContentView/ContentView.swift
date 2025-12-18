@@ -93,9 +93,24 @@ struct ContentView: View {
         UIDevice.current.userInterfaceIdiom == .pad
     }
     
-    /// Динамический размер шрифта в зависимости от устройства
+    /// Динамический размер шрифта для сетки (только для iPhone)
     private var dynamicFontSize: CGFloat {
-        isIPad ? 30 : 10
+        10
+    }
+    
+    /// Spacing для сетки (только для iPhone)
+    private var gridSpacing: CGFloat {
+        20
+    }
+    
+    /// Адаптивный spacing для списка
+    private var listSpacing: CGFloat {
+        isIPad ? 12 : 8
+    }
+    
+    /// Адаптивный padding для списка
+    private var listPadding: CGFloat {
+        isIPad ? 16 : 8
     }
     
     // MARK: - Body
@@ -148,8 +163,10 @@ struct ContentView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    gridToggleButton
+                if !isIPad {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        gridToggleButton
+                    }
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: { showPrayerTimes = true }) {
@@ -184,13 +201,14 @@ struct ContentView: View {
     /// Отображение контента в виде сетки или списка
     @ViewBuilder
     private var content: some View {
-        if userPreferences.isGridView {
-            LazyVGrid(columns: gridColumns, spacing: 20) {
+        // На iPad всегда используем режим списка, на iPhone - в зависимости от настройки
+        if !isIPad && userPreferences.isGridView {
+            LazyVGrid(columns: gridColumns, spacing: gridSpacing) {
                 stepsView(showIndex: true, fontSize: dynamicFontSize)
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 16)
         } else {
-            LazyVStack(spacing: 8) {
+            LazyVStack(spacing: listSpacing) {
                 ForEach(steps) { stepItem in
                     Button {
                         navigationPath.append(stepItem.step)
@@ -198,11 +216,11 @@ struct ContentView: View {
                         StepRow(step: (stepItem.imageName, stepItem.step, stepItem.titleKey), index: stepItem.id)
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .padding(.horizontal, 8)
+                    .padding(.horizontal, listPadding)
                     .id("\(stepItem.step)-\(stepItem.id)")
                 }
             }
-            .padding(.vertical, 10)
+            .padding(.vertical, isIPad ? 16 : 10)
         }
     }
     
@@ -231,11 +249,16 @@ struct ContentView: View {
     
     // MARK: - Grid Configuration
     
-    /// Создание столбцов для LazyVGrid
+    /// Создание столбцов для LazyVGrid (только для iPhone)
     private var gridColumns: [GridItem] {
         let screenWidth = UIScreen.main.bounds.width
-        let columnWidth = screenWidth / CGFloat(AppConstants.gridColumnCount) - AppConstants.gridColumnSpacing
-        return Array(repeating: GridItem(.fixed(columnWidth)), count: AppConstants.gridColumnCount)
+        let columnCount = AppConstants.gridColumnCount
+        let spacing = AppConstants.gridColumnSpacing
+        let horizontalPadding: CGFloat = 32
+        let availableWidth = screenWidth - horizontalPadding
+        let totalSpacing = CGFloat(columnCount - 1) * spacing
+        let columnWidth = (availableWidth - totalSpacing) / CGFloat(columnCount)
+        return Array(repeating: GridItem(.fixed(columnWidth)), count: columnCount)
     }
     
     // MARK: - Timer Management
@@ -297,31 +320,55 @@ private struct StepRow: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     
+    private var isIPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
+    private var imageSize: CGFloat {
+        isIPad ? 120 : 90
+    }
+    
+    private var fontSize: CGFloat {
+        isIPad ? 24 : 18
+    }
+    
+    private var spacing: CGFloat {
+        isIPad ? 20 : 15
+    }
+    
+    private var padding: CGFloat {
+        isIPad ? 20 : 12
+    }
+    
+    private var cornerRadius: CGFloat {
+        isIPad ? 20 : 16
+    }
+    
     var body: some View {
-        HStack(spacing: 15) {
+        HStack(spacing: spacing) {
             Image(step.0)
-                .styledImageWithThemeColors(theme: themeManager.selectedTheme)
-            VStack(alignment: .leading, spacing: 5) {
+                .styledImageWithThemeColorsForList(theme: themeManager.selectedTheme, size: imageSize)
+            VStack(alignment: .leading, spacing: 6) {
                 Text(LocalizedStringKey(step.2), bundle: localizationManager.bundle)
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(.system(size: fontSize, weight: .semibold))
                     .foregroundColor(themeManager.selectedTheme.textColor)
             }
             Spacer()
             Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .semibold))
+                .font(.system(size: isIPad ? 18 : 14, weight: .semibold))
                 .foregroundColor(themeManager.selectedTheme.textColor)
-                .frame(width: 24, height: 24)
+                .frame(width: isIPad ? 32 : 24, height: isIPad ? 32 : 24)
                 .background(
                     Circle()
                         .fill(Color.blue.opacity(0.1))
                 )
         }
-        .padding(.vertical, 12)
-        .padding(.horizontal, 12)
+        .padding(.vertical, padding)
+        .padding(.horizontal, padding)
         .background(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: cornerRadius)
                 .fill(themeManager.selectedTheme == .dark ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white)
-                .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 2)
+                .shadow(color: Color.black.opacity(0.08), radius: isIPad ? 12 : 8, x: 0, y: 2)
         )
     }
 }

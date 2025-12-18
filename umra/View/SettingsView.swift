@@ -21,12 +21,23 @@ struct SettingsView: View {
     // App Store URL - гарантированно валидный
     private let appStoreURL = URL(string: "https://apps.apple.com/app/id1673683355")!
     
+    private var isIPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
+    private var contentSpacing: CGFloat {
+        isIPad ? 20 : 10
+    }
+    
+    private var contentPadding: CGFloat {
+        isIPad ? 32 : 16
+    }
     
     var body: some View {
         ZStack {
             themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea(edges: .bottom)
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: contentSpacing) {
                 
                 // Feedback Button
                 Button(action: {
@@ -91,10 +102,10 @@ struct SettingsView: View {
                         HStack(spacing: 8) {
                             Circle()
                                 .fill(themeManager.selectedTheme.primaryColor)
-                                .frame(width: 20, height: 20)
+                                .frame(width: isIPad ? 28 : 20, height: isIPad ? 28 : 20)
                             Text(themeManager.selectedTheme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
                                 .foregroundColor(.gray)
-                                .font(.system(size: 14))
+                                .font(.system(size: isIPad ? 18 : 14))
                         }
                     }
                     .customTextStyleWithTheme()
@@ -102,7 +113,7 @@ struct SettingsView: View {
                 
                 Spacer()
             }
-            .padding()
+            .padding(contentPadding)
         }
         .navigationBarTitle(Text("settings_string", bundle: localizationManager.bundle), displayMode: .inline)
         .sheet(isPresented: $showSafariView) {
