@@ -1,5 +1,5 @@
 //
-//  UsefulTex.swift
+//  JanazaPrayerGuide.swift
 //  umra
 //
 //  Created by Saydulayev on 17.09.24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+// MARK: - Руководство по джаназа-намазу
 struct JanazaPrayerGuide {
     static func title(bundle: Bundle?) -> String {
         "title_janaza_guide".localized(bundle: bundle)

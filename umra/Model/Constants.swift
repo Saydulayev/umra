@@ -37,25 +37,25 @@ enum ProductID: String, CaseIterable {
 // MARK: - App Constants
 
 enum AppConstants {
-    // Timer constants
-    static let reviewRequestTimeInterval: TimeInterval = 300 // 5 minutes
+    // Константы таймера
+    static let reviewRequestTimeInterval: TimeInterval = 300 // 5 минут
     
-    // Background task constants
-    static let backgroundTaskInterval: TimeInterval = 3600 // 1 hour
+    // Константы фоновых задач
+    static let backgroundTaskInterval: TimeInterval = 3600 // 1 час
     
-    // Pending transaction constants
-    static let pendingTransactionExpirationInterval: TimeInterval = 24 * 60 * 60 // 24 hours
+    // Константы ожидающих транзакций
+    static let pendingTransactionExpirationInterval: TimeInterval = 24 * 60 * 60 // 24 часа
     
-    // Prayer time calculation
+    // Вычисление времени молитв
     static let meccaLatitude: Double = 21.4225
     static let meccaLongitude: Double = 39.8262
     
-    // Grid layout (только для iPhone)
+    // Макет сетки (только для iPhone)
     static let gridColumnCount = 2
     static let gridColumnSpacing: CGFloat = 10
     
-    // Notification intervals
-    static let notification30MinutesInterval: TimeInterval = 30 * 60 // 30 minutes in seconds
+    // Интервалы уведомлений
+    static let notification30MinutesInterval: TimeInterval = 30 * 60 // 30 минут в секундах
 }
 
 // MARK: - UserDefaults Keys

@@ -98,7 +98,7 @@ struct PrayerTimeView: View {
             .onChange(of: enablePrayerTimeNotifications) {
                 updateNotifications()
             }
-            // ↓ Добавлено, чтобы пересоздавать уведомления при изменении тумблера Sunrise
+            // Пересоздаём уведомления при изменении тумблера Sunrise
             .onChange(of: enableSunriseNotifications) {
                 updateNotifications()
             }
@@ -148,7 +148,7 @@ struct PrayerTimeView: View {
         let finalParams = params
 
         // Параллельное вычисление времен молитв для сегодня и завтра
-        // Используем вспомогательную функцию для обхода проблем с Sendable в Adhan
+        // Используем вспомогательную функцию для обхода проблем с Sendable в библиотеке Adhan
         async let todayPrayers = calculatePrayerTimes(
             latitude: latitude,
             longitude: longitude,

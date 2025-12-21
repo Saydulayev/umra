@@ -97,7 +97,7 @@ extension Image {
             .adaptiveShadow(radius: 5, x: 5, y: 5, intensity: 0.5)
     }
     
-    // Методы для совместимости с StepView с поддержкой тем
+    // Методы для совместимости с StepView с поддержкой тем оформления
     func styledImageWithIndexAndTheme(index: Int, stepsCount: Int, theme: AppTheme, hideLastIndex: Bool = true) -> some View {
         let isIPad = UIDevice.current.userInterfaceIdiom == .pad
         let imagePadding: CGFloat = isIPad ? 16 : 12

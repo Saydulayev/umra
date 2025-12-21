@@ -20,11 +20,11 @@ enum AudioError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .initializationFailed(let error):
-            return "Failed to initialize audio player: \(error.localizedDescription)"
+            return "Не удалось инициализировать аудиоплеер: \(error.localizedDescription)"
         case .fileNotFound(let fileName):
-            return "Audio file not found: \(fileName)"
+            return "Аудиофайл не найден: \(fileName)"
         case .sessionActivationFailed(let error):
-            return "Failed to activate audio session: \(error.localizedDescription)"
+            return "Не удалось активировать аудиосессию: \(error.localizedDescription)"
         }
     }
 }

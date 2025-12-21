@@ -132,7 +132,7 @@ struct DonationSheetView: View {
                         Spacer()
                         
                         VStack(spacing: 24) {
-                            // Picker с суммой
+                            // Выбор суммы пожертвования
                             HStack(spacing: 16) {
                                 Text("select_the_amount", bundle: localizationManager.bundle)
                                     .font(.system(size: titleFontSize, weight: .medium))
@@ -153,7 +153,7 @@ struct DonationSheetView: View {
                             }
                             .padding(.horizontal, pickerContainerPadding)
                             
-                            // Кнопка или индикатор загрузки
+                            // Кнопка пожертвования или индикатор загрузки
                             if isLoading {
                                 ProgressView()
                                     .progressViewStyle(CircularProgressViewStyle(tint: .black))
@@ -221,8 +221,8 @@ struct DonationSheetView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .alert(isPresented: $showError) {
-            Alert(title: Text("Error"),
-                  message: Text("Purchase failed. Please try again."),
+            Alert(title: Text("Ошибка"),
+                  message: Text("Покупка не удалась. Пожалуйста, попробуйте снова."),
                   dismissButton: .default(Text("OK")))
         }
     }
@@ -273,11 +273,12 @@ struct DonationSheetView: View {
         }
     }
     
+    /// Обработка покупки продукта
     func buy(productID: String) async {
         // Сбрасываем флаг ошибки перед началом
         showError = false
         guard let product = purchaseManager.availableDonations.first(where: { $0.id == productID }) else {
-            logger.error("Product not found: \(productID, privacy: .public)")
+            logger.error("Продукт не найден: \(productID, privacy: .public)")
             showError = true
             return
         }
@@ -287,13 +288,13 @@ struct DonationSheetView: View {
             // Если после покупки продукт присутствует в списке завершённых, считаем покупку успешной
             if purchaseManager.completedDonations.contains(where: { $0.id == productID }) {
                 isPurchased = true
-                logger.info("Purchase successful for product: \(productID, privacy: .public)")
+                logger.info("Покупка успешна для продукта: \(productID, privacy: .public)")
             }
         } catch let error as PurchaseManager.PurchaseError {
-            logger.error("Purchase failed: \(error.localizedDescription, privacy: .public)")
+            logger.error("Ошибка покупки: \(error.localizedDescription, privacy: .public)")
             showError = true
         } catch {
-            logger.error("Unexpected purchase error: \(error.localizedDescription, privacy: .public)")
+            logger.error("Неожиданная ошибка покупки: \(error.localizedDescription, privacy: .public)")
             showError = true
         }
     }

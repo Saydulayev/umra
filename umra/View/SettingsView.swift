@@ -18,7 +18,7 @@ struct SettingsView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
     
-    // App Store URL - гарантированно валидный
+    // URL App Store - гарантированно валидный
     private let appStoreURL = URL(string: "https://apps.apple.com/app/id1673683355")!
     
     private var isIPad: Bool {
@@ -39,7 +39,7 @@ struct SettingsView: View {
                 .ignoresSafeArea(edges: .bottom)
             VStack(alignment: .leading, spacing: contentSpacing) {
                 
-                // Feedback Button
+                // Кнопка обратной связи
                 Button(action: {
                     if let url = URL(string: "mailto:saydulayev.wien@gmail.com") {
                         UIApplication.shared.open(url)
@@ -55,7 +55,7 @@ struct SettingsView: View {
                     .customTextStyleWithTheme()
                 }
                 
-                // Rate the App Button
+                // Кнопка оценки приложения
                 Button(action: {
                     showSafariView.toggle()
                 }) {
@@ -69,10 +69,10 @@ struct SettingsView: View {
                     .customTextStyleWithTheme()
                 }
                 
-                // Support View
+                // Вид поддержки разработчика
                 PurchaseView()
                 
-                // Notification Settings Button
+                // Кнопка настроек уведомлений
                 Button(action: {
                     showNotificationSettingsSheet.toggle()
                 }) {
@@ -86,10 +86,10 @@ struct SettingsView: View {
                     .customTextStyleWithTheme()
                 }
                 
-                // Language Selection
+                // Выбор языка
                 LanguageView()
                 
-                // Theme Selection
+                // Выбор темы
                 Button(action: {
                     showThemeSelectionSheet.toggle()
                 }) {

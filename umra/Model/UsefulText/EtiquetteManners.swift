@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Этикет и манеры для паломничества
 struct EtiquetteManners {
     static func text1(bundle: Bundle?) -> String {
         "etiquette_manners_text1".localized(bundle: bundle)

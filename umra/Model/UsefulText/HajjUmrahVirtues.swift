@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Достоинства хаджа и умры
 struct HajjUmrahVirtues {
     static func text1(bundle: Bundle?) -> String {
         "hajj_umrah_virtues_text1".localized(bundle: bundle)

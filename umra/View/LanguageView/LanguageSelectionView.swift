@@ -13,6 +13,7 @@ struct Language: Identifiable {
     var id: String { code }
 }
 
+// Список поддерживаемых языков приложения
 let languages: [Language] = [
     .init(code: "de", title: "Deutsch"),
     .init(code: "en", title: "English"),
@@ -53,13 +54,14 @@ struct LanguageSelectionView: View {
                     
                     Spacer(minLength: geo.size.height * 0.02)
                     
-                    // Подсчитываем высоту кнопки + отступы
+                    // Вычисляем размеры для адаптивного отображения списка языков
                     let buttonFontSize = geo.size.height * 0.025
                     let buttonVerticalPadding: CGFloat = 16
                     let buttonSpacing = geo.size.height * 0.015
                     let buttonFullHeight = buttonFontSize + buttonVerticalPadding * 2 + buttonSpacing
                     let maxListHeight = geo.size.height * 0.36
                     let maxVisibleButtons = Int(maxListHeight / buttonFullHeight)
+                    // Показываем индикатор прокрутки, если языков больше, чем помещается на экране
                     let needChevron = languages.count > maxVisibleButtons
 
                     ZStack(alignment: .bottom) {

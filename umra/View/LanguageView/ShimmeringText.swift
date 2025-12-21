@@ -11,7 +11,7 @@ struct ShimmeringText: View {
     @State private var shimmerOffset: CGFloat = -2.0
     @State private var isAnimating = false
     
-    // Текст и шрифт
+    // Текст приветствия и размер шрифта
     var text: String = "WELCOME TO THE UMRA GUIDE"
     var fontSize: CGFloat = 32
     
@@ -51,7 +51,7 @@ struct ShimmeringText: View {
             }
     }
     
-    // Параметр ширины мерцания для более плавного движения
+    // Ширина эффекта мерцания для плавной анимации
     private var shimmerWidth: CGFloat {
         return 2.0
     }

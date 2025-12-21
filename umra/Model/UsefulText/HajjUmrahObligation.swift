@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Обязательность хаджа и умры
 struct HajjUmrahObligation {
     static func obligationEvidence(bundle: Bundle?) -> String {
         "hajj_umrah_obligation_obligation_evidence".localized(bundle: bundle)

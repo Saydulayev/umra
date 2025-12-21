@@ -264,17 +264,17 @@ class PurchaseManager {
         var localizedDescription: String {
             switch self {
             case .verificationFailed:
-                return "Transaction verification failed"
+                return "Ошибка верификации транзакции"
             case .productNotFound:
-                return "Product not found"
+                return "Продукт не найден"
             case .purchaseCancelled:
-                return "Purchase was cancelled by user"
+                return "Покупка отменена пользователем"
             case .purchasePending:
-                return "Purchase is pending approval"
+                return "Покупка ожидает подтверждения"
             case .networkError:
-                return "Network error occurred"
+                return "Ошибка сети"
             case .unknown(let error):
-                return "Unknown error: \(error.localizedDescription)"
+                return "Неизвестная ошибка: \(error.localizedDescription)"
             }
         }
     }

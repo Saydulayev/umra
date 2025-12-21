@@ -21,6 +21,7 @@ struct PurchaseView: View {
                 if newCount > lastDonationCount {
                     lastDonationCount = newCount
                     Task { @MainActor in
+                        // Небольшая задержка для плавного отображения
                         try? await Task.sleep(for: .seconds(0.5))
                         showThankYouAlert = true
                     }

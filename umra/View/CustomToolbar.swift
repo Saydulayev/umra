@@ -18,7 +18,7 @@ struct CustomToolbar: View {
     var body: some View {
         HStack {
             Menu {
-                Picker(selection: $selectedFont, label: Text("Select a Font")) {
+                Picker(selection: $selectedFont, label: Text("Выберите шрифт")) {
                     ForEach(fonts, id: \.self) { font in
                         Text(font).tag(font)
                     }
