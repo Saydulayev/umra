@@ -53,6 +53,8 @@ struct HajjStep1: View {
                                     .padding(.top, 4)
                                     .padding(.bottom, 16)
                                 
+                                PlayerView(fileName: "14")
+                                
                                 Text("hajj_step1_ihram_transliteration", bundle: localizationManager.bundle)
                                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                                     .italic()
@@ -67,6 +69,8 @@ struct HajjStep1: View {
                                     .customTextforArabic()
                                     .padding(.top, 8)
                                     .padding(.bottom, 16)
+                                
+                                PlayerView(fileName: "15")
                                 
                                 Text("hajj_step1_ihram_dua_transliteration", bundle: localizationManager.bundle)
                                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
@@ -97,6 +101,8 @@ struct HajjStep1: View {
                                     .customTextforArabic()
                                     .padding(.top, 4)
                                     .padding(.bottom, 16)
+                                
+                                PlayerView(fileName: "3")
                                 
                                 Text("hajj_step1_talbiyah_transliteration", bundle: localizationManager.bundle)
                                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))

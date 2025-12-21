@@ -66,6 +66,8 @@ struct HajjStep2: View {
                                     .padding(.top, 4)
                                     .padding(.bottom, 16)
                                 
+                                PlayerView(fileName: "16")
+                                
                                 Text("hajj_step2_dua_transliteration", bundle: localizationManager.bundle)
                                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                                     .italic()
