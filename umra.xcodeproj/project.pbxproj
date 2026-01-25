@@ -115,7 +115,6 @@
 		C0BG00022CFF1F3C005F3ED9 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		C0DC35E12A0687DF002527D7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0DC35E22A068F21002527D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C204DEBD2D198C42008EC9E5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C22958FC2E87F4B2006762B3 /* GlassIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = GlassIcon.icon; sourceTree = "<group>"; };
 		C24508E92C9CD39D003E3E58 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		C24508EB2C9CD3A6003E3E58 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
@@ -377,7 +376,6 @@
 				de,
 				fr,
 				Base,
-				ar,
 				tr,
 				id,
 			);
@@ -479,7 +477,6 @@
 				C0DC35E22A068F21002527D7 /* en */,
 				C06B9C562A08F4A000549748 /* de */,
 				C06B9C572A08F4AE00549748 /* fr */,
-				C204DEBD2D198C42008EC9E5 /* ar */,
 				C2561DF52D5A467800097793 /* tr */,
 				C2884B4D2DE37E8600A3975D /* id */,
 			);
