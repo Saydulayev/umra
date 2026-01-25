@@ -21,6 +21,10 @@
 
 
 /* IHRAM */
+/* Preparation before Ihram */
+"preparation_before_ihram_title" = "Préparation avant l'Ihram";
+"preparation_before_ihram_text" = "Avant d'entrer dans l'état d'Ihram (c'est-à-dire avant l'intention et le début de la Talbiyah), il est recommandé :\n\nEffectuer le ghusl (ablution complète), c'est une sunnah.\n\nSe préparer selon la fitra : couper les ongles, enlever les poils pubiens et sous les aisselles (l'homme doit aussi couper la moustache), afin de ne pas avoir à le faire déjà en Ihram.\n\nL'homme doit appliquer du parfum sur le corps après le ghusl (pas sur les vêtements d'Ihram).\n\nMettre les vêtements d'Ihram (homme - izaar et rida ; femme - vêtements modestes ordinaires, sans niqab et gants en état d'Ihram).\n\nS'il est temps pour la prière obligatoire - effectuez-la, puis au Miqat faites l'intention pour Umrah/Hajj et récitez la Talbiyah - à partir de ce moment vous êtes en Ihram, et ses interdictions commencent à s'appliquer.";
+
 "into the state of Ihram" = "
 Entrez dans l'état d'Ihram à l'endroit prévu à cet effet (Miqat).
 ";

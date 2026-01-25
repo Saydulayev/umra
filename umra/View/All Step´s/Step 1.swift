@@ -18,7 +18,20 @@ struct Step1: View {
                 .ignoresSafeArea(edges: .bottom)
             
             ScrollView {
-                VStack {
+                VStack(alignment: .leading, spacing: 20) {
+                    // Секция: Подготовка к ихраму
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("preparation_before_ihram_title", bundle: localizationManager.bundle)
+                            .font(.custom("Lato-Black", size: 26))
+                            .padding(.top, 8)
+                        
+                        Text("preparation_before_ihram_text", bundle: localizationManager.bundle)
+                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    }
+                    
+                    Divider()
+                        .padding(.vertical, 8)
+                    
                     Text("into the state of Ihram", bundle: localizationManager.bundle)
                         .font(.custom("Lato-Black", size: 26))
                     

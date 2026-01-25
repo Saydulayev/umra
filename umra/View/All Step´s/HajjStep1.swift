@@ -37,6 +37,19 @@ struct HajjStep1: View {
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
+                    // Секция: Подготовка к ихраму
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("preparation_before_ihram_title", bundle: localizationManager.bundle)
+                            .font(.custom("Lato-Black", size: 26))
+                            .padding(.top, 8)
+                        
+                        Text("preparation_before_ihram_text", bundle: localizationManager.bundle)
+                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    }
+                    
+                    Divider()
+                        .padding(.vertical, 8)
+                    
                     // Секция: Ихрам
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step1_ihram_title", bundle: localizationManager.bundle)

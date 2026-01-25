@@ -21,6 +21,10 @@
 
 
 /* IHRAM */
+/* Preparation before Ihram */
+"preparation_before_ihram_title" = "Vorbereitung vor dem Ihram";
+"preparation_before_ihram_text" = "Vor dem Eintritt in den Ihram-Zustand (d.h. vor der Absicht und dem Beginn der Talbiyah) wird empfohlen:\n\nGhusl (vollständige Waschung) durchführen, dies ist Sunnah.\n\nSich nach der Fitra ordnen: Nägel schneiden, Scham- und Achselhaare entfernen (Männer sollten auch den Schnurrbart schneiden), damit man dies nicht bereits im Ihram tun muss.\n\nMänner sollten nach dem Ghusl Parfüm auf den Körper auftragen (nicht auf die Ihram-Kleidung).\n\nIhram-Kleidung anziehen (Mann - Izar und Rida; Frau - normale bescheidene Kleidung, ohne Niqab und Handschuhe im Ihram-Zustand).\n\nWenn es Zeit für das obligatorische Gebet ist - verrichten Sie es, dann machen Sie am Miqat die Absicht für Umrah/Hajj und sprechen Sie die Talbiyah - ab diesem Moment sind Sie im Ihram, und seine Verbote beginnen zu gelten.";
+
 "into the state of Ihram" = "
 Treten Sie am Ort des Mikats in den Zustand des Ihrams ein.
 ";

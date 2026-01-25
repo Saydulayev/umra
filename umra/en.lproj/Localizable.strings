@@ -21,6 +21,10 @@
 
 
 /* IHRAM */
+/* Preparation before Ihram */
+"preparation_before_ihram_title" = "Preparation before Ihram";
+"preparation_before_ihram_text" = "Before entering the state of Ihram (i.e., before the intention and beginning of Talbiyah), it is recommended:\n\nPerform ghusl (full ablution), this is sunnah.\n\nPrepare yourself according to \"fitrah\": trim nails, remove pubic and underarm hair (men should also trim their mustache), so that you don't have to do this while in Ihram.\n\nMen should apply perfume to the body after ghusl (not on Ihram clothing).\n\nPut on Ihram clothing (men - izaar and rida; women - regular modest clothing, without niqab and gloves while in Ihram).\n\nIf it is time for obligatory prayer - perform it, then at the Miqat make intention for Umrah/Hajj and recite Talbiyah - from this moment you are in Ihram, and its prohibitions begin to apply.";
+
 "into the state of Ihram" = "
 Enter the state of Ihram at the designated place (Miqat).
 ";

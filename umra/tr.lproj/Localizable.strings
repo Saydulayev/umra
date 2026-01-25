@@ -21,6 +21,10 @@
 
 
 /* IHRAM */
+/* Preparation before Ihram */
+"preparation_before_ihram_title" = "İhramdan Önce Hazırlık";
+"preparation_before_ihram_text" = "İhrama girmeden önce (yani niyet etmeden ve telbiyeye başlamadan önce) şunlar tavsiye edilir:\n\nGusül (tam abdest) almak, bu sünnettir.\n\nFıtrata göre kendini düzenlemek: tırnakları kesmek, kasık ve koltuk altı kıllarını temizlemek (erkekler ayrıca bıyığı da kesmelidir), böylece bunu ihramdayken yapmak zorunda kalmazsınız.\n\nErkekler gusülden sonra vücuda koku sürmelidir (ihram kıyafetine değil).\n\nİhram kıyafetini giymek (erkek - izaar ve rida; kadın - normal mütevazı kıyafet, ihram durumunda nikap ve eldiven olmadan).\n\nFarz namaz vakti geldiyse - onu kılın, sonra Mikat'ta Umre/Hac için niyet edin ve telbiyeyi söyleyin - bu andan itibaren ihramdasınız ve yasakları geçerli olmaya başlar.";
+
 "into the state of Ihram" = "
 Mikat noktasında ihrama girin.
 ";

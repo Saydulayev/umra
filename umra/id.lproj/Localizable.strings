@@ -21,6 +21,10 @@
 
 
 /* IHRAM */
+/* Preparation before Ihram */
+"preparation_before_ihram_title" = "Persiapan sebelum Ihram";
+"preparation_before_ihram_text" = "Sebelum memasuki keadaan Ihram (yaitu sebelum niat dan memulai Talbiyah), disarankan:\n\nMelakukan ghusl (mandi wajib penuh), ini adalah sunnah.\n\nMerapikan diri sesuai \"fitrah\": memotong kuku, menghilangkan rambut kemaluan dan ketiak (pria juga harus memotong kumis), agar tidak perlu melakukannya saat sudah dalam Ihram.\n\nPria harus mengoleskan wewangian pada tubuh setelah ghusl (bukan pada pakaian Ihram).\n\nMemakai pakaian Ihram (pria - izaar dan rida; wanita - pakaian sederhana biasa, tanpa niqab dan sarung tangan dalam keadaan Ihram).\n\nJika sudah waktunya shalat wajib - lakukanlah, kemudian di Miqat buat niat untuk Umrah/Hajj dan ucapkan Talbiyah - dari saat ini Anda dalam Ihram, dan larangannya mulai berlaku.";
+
 "into the state of Ihram" = "
 Masuklah ke dalam keadaan Ihram di tempat yang telah ditentukan (Miqat).
 ";
