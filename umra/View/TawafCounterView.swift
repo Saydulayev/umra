@@ -44,72 +44,36 @@ struct TawafCounterView: View {
                 }
 
                 if counter == 7 {
-                    VStack(spacing: 12) {
-                        ZStack {
-                            Circle()
-                                .fill(LinearGradient(
-                                    gradient: Gradient(colors: [Color.green.opacity(0.8), Color.mint]),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                ))
-                                .frame(width: 70, height: 70)
-                                .shadow(color: .green.opacity(0.5), radius: 15, x: 0, y: 5)
-
-                            Image(systemName: "checkmark")
-                                .font(.system(size: 35, weight: .bold))
-                                .foregroundColor(.white)
-                        }
-                        .scaleEffect(showCelebration ? 1.0 : 0.5)
-                        .opacity(showCelebration ? 1.0 : 0.0)
-
+                    HStack(spacing: 12) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .font(.system(size: isIPad ? 28 : 24))
+                            .foregroundStyle(themeManager.selectedTheme.primaryColor)
                         Text("tawaf_finished", bundle: localizationManager.bundle)
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundStyle(
-                                LinearGradient(
-                                    gradient: Gradient(colors: [
-                                        Color.green,
-                                        Color.mint
-                                    ]),
-                                    startPoint: .leading,
-                                    endPoint: .trailing
-                                )
-                            )
-                            .shadow(color: .green.opacity(0.6), radius: 8, x: 0, y: 3)
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 12)
-                            .background(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(
-                                        LinearGradient(
-                                            gradient: Gradient(colors: [
-                                                Color.white.opacity(0.4),
-                                                Color.white.opacity(0.2)
-                                            ]),
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        )
-                                    )
-                                    .shadow(color: .white.opacity(0.3), radius: 10, x: 0, y: 5)
-                            )
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(
-                                        LinearGradient(
-                                            gradient: Gradient(colors: [
-                                                Color.green.opacity(0.5),
-                                                Color.mint.opacity(0.3)
-                                            ]),
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        ),
-                                        lineWidth: 2
-                                    )
-                            )
-                            .scaleEffect(showCelebration ? 1.0 : 0.8)
-                            .opacity(showCelebration ? 1.0 : 0.0)
+                            .font(.system(size: isIPad ? 22 : 18, weight: .semibold))
+                            .foregroundColor(themeManager.selectedTheme.textColor)
                     }
+                    .padding(.horizontal, isIPad ? 24 : 20)
+                    .padding(.vertical, isIPad ? 16 : 14)
+                    .background(
+                        RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
+                            .fill(LinearGradient(
+                                gradient: Gradient(colors: [
+                                    themeManager.selectedTheme.gradientTopColor,
+                                    themeManager.selectedTheme.gradientBottomColor
+                                ]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
+                                    .stroke(themeManager.selectedTheme.primaryColor.opacity(0.4), lineWidth: 1)
+                            )
+                    )
+                    .shadow(color: Color.black.opacity(0.12), radius: 12, x: 0, y: 4)
+                    .scaleEffect(showCelebration ? 1.0 : 0.92)
+                    .opacity(showCelebration ? 1.0 : 0.0)
                     .onAppear {
-                        withAnimation(.spring) {
+                        withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
                             showCelebration = true
                         }
                     }
