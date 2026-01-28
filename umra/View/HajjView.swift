@@ -147,7 +147,7 @@ struct HajjView: View {
                         }
                     }
                 }
-                .sheet(isPresented: $showPrayerTimes) {
+                .fullScreenCover(isPresented: $showPrayerTimes) {
                     PrayerTimeModalView(isPresented: $showPrayerTimes)
                 }
                 LanguageView().hidden()
@@ -354,4 +354,3 @@ private struct StepRow: View {
         .environment(FontManager())
         .environment(PurchaseManager())
 }
-

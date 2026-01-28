@@ -181,7 +181,7 @@ struct ContentView: View {
                     }
                 }
             }
-                .sheet(isPresented: $showPrayerTimes) {
+                .fullScreenCover(isPresented: $showPrayerTimes) {
                     PrayerTimeModalView(isPresented: $showPrayerTimes)
                 }
         }
@@ -381,7 +381,6 @@ private struct StepRow: View {
         .environment(FontManager())
         .environment(PurchaseManager())
 }
-
 
 
 

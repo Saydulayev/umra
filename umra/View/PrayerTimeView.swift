@@ -58,85 +58,133 @@ struct PrayerTimeView: View {
         return islamicDateFormatter.string(from: Date())
     }
 
+    private enum PrayerLayout {
+        case regular
+        case compact
+
+        var isCompact: Bool {
+            self == .compact
+        }
+
+        var titleFontSize: CGFloat {
+            isCompact ? 28 : 36
+        }
+
+        var stackSpacing: CGFloat {
+            isCompact ? 8 : 12
+        }
+
+        var headerPadding: CGFloat {
+            isCompact ? -2 : -5
+        }
+
+        var pickerHorizontalPadding: CGFloat {
+            isCompact ? 12 : 16
+        }
+
+        var rowsHorizontalPadding: CGFloat {
+            isCompact ? 8 : 16
+        }
+    }
+
     var body: some View {
         ZStack {
             themeManager.selectedTheme.lightBackgroundColor
                 .ignoresSafeArea()
-            
-            VStack {
-                HStack {
-                    Text(LocalizedStringKey(prayerCityTitleKey), bundle: localizationManager.bundle)
-                    Text(currentIslamicDate)
-                }
-                .font(.custom("Savoye LET", size: 36))
-                .foregroundStyle(themeManager.selectedTheme.textColor)
-                .padding(-5)
-                Divider()
 
-                Picker("", selection: $prayerCityRaw) {
-                    Text("prayer_mecca", bundle: localizationManager.bundle).tag(PrayerCity.mecca.rawValue)
-                    Text("prayer_medina", bundle: localizationManager.bundle).tag(PrayerCity.medina.rawValue)
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
+            content
+        }
+        .onAppear {
+            UISegmentedControl.appearance().selectedSegmentTintColor = .black
 
-                Text("\(localizedPrayerName(nextPrayerName)) \(NSLocalizedString("prayer_in", bundle: localizationManager.bundle ?? .main, comment: "")) \(timeUntilNextPrayer)")
-                    .cardStyled(theme: themeManager.selectedTheme)
+            UISegmentedControl.appearance().setTitleTextAttributes(
+                [.foregroundColor: UIColor.white],
+                for: .selected
+            )
 
-                Group {
-                    PrayerTimeRow(prayerName: localizedPrayerName("Fajr"), prayerTime: prayerTimes["Fajr"] ?? "")
-                    PrayerTimeRow(prayerName: localizedPrayerName("Sunrise"), prayerTime: prayerTimes["Sunrise"] ?? "")
-                        .capsuleStyled(theme: themeManager.selectedTheme)
-                    PrayerTimeRow(prayerName: localizedPrayerName("Dhuhr"), prayerTime: prayerTimes["Dhuhr"] ?? "")
-                    PrayerTimeRow(prayerName: localizedPrayerName("Asr"), prayerTime: prayerTimes["Asr"] ?? "")
-                    PrayerTimeRow(prayerName: localizedPrayerName("Maghrib"), prayerTime: prayerTimes["Maghrib"] ?? "")
-                    PrayerTimeRow(prayerName: localizedPrayerName("Isha"), prayerTime: prayerTimes["Isha"] ?? "")
-                    PrayerTimeRow(prayerName: localizedPrayerName("Qiyam"), prayerTime: prayerTimes["Qiyam"] ?? "")
-                        .capsuleStyled(theme: themeManager.selectedTheme)
-                }
-                .foregroundStyle(themeManager.selectedTheme.textColor)
-                .padding(.horizontal)
-            }
-            .transparentStyled(theme: themeManager.selectedTheme)
-            .onAppear {
-                UISegmentedControl.appearance().selectedSegmentTintColor = .black
+            UISegmentedControl.appearance().setTitleTextAttributes(
+                [.foregroundColor: UIColor.black],
+                for: .normal
+            )
 
-                UISegmentedControl.appearance().setTitleTextAttributes(
-                    [.foregroundColor: UIColor.white],
-                    for: .selected
-                )
-
-                UISegmentedControl.appearance().setTitleTextAttributes(
-                    [.foregroundColor: UIColor.black],
-                    for: .normal
-                )
-
-                setupPrayerTimes()
-                Task {
-                    await requestNotificationPermission()
-                }
-                startTimer()
+            setupPrayerTimes()
+            Task {
+                await requestNotificationPermission()
             }
-            .onDisappear {
-                timerTask?.cancel()
-                timerTask = nil
-            }
-            .onChange(of: enable30MinNotifications) {
-                updateNotifications()
-            }
-            .onChange(of: enablePrayerTimeNotifications) {
-                updateNotifications()
-            }
-            // Пересоздаём уведомления при изменении тумблера Sunrise
-            .onChange(of: enableSunriseNotifications) {
-                updateNotifications()
-            }
-            .onChange(of: prayerCityRaw) { _, _ in
-                Task { @MainActor in
-                    await updatePrayerTimes()
-                }
+            startTimer()
+        }
+        .onDisappear {
+            timerTask?.cancel()
+            timerTask = nil
+        }
+        .onChange(of: enable30MinNotifications) {
+            updateNotifications()
+        }
+        .onChange(of: enablePrayerTimeNotifications) {
+            updateNotifications()
+        }
+        // Пересоздаём уведомления при изменении тумблера Sunrise
+        .onChange(of: enableSunriseNotifications) {
+            updateNotifications()
+        }
+        .onChange(of: prayerCityRaw) { _, _ in
+            Task { @MainActor in
+                await updatePrayerTimes()
             }
         }
+    }
+
+    private var content: some View {
+        ViewThatFits(in: .vertical) {
+            prayerContent(layout: .regular)
+            prayerContent(layout: .compact)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    private func prayerContent(layout: PrayerLayout) -> some View {
+        VStack(spacing: layout.stackSpacing) {
+            HStack(spacing: 8) {
+                Text(LocalizedStringKey(prayerCityTitleKey), bundle: localizationManager.bundle)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+                Text(currentIslamicDate)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+            }
+            .font(.custom("Savoye LET", size: layout.titleFontSize))
+            .foregroundStyle(themeManager.selectedTheme.textColor)
+            .padding(layout.headerPadding)
+            Divider()
+
+            Picker("", selection: $prayerCityRaw) {
+                Text("prayer_mecca", bundle: localizationManager.bundle).tag(PrayerCity.mecca.rawValue)
+                Text("prayer_medina", bundle: localizationManager.bundle).tag(PrayerCity.medina.rawValue)
+            }
+            .pickerStyle(.segmented)
+            .padding(.horizontal, layout.pickerHorizontalPadding)
+
+            Text("\(localizedPrayerName(nextPrayerName)) \(NSLocalizedString("prayer_in", bundle: localizationManager.bundle ?? .main, comment: "")) \(timeUntilNextPrayer)")
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
+                .cardStyled(theme: themeManager.selectedTheme, compact: layout.isCompact)
+
+            Group {
+                PrayerTimeRow(prayerName: localizedPrayerName("Fajr"), prayerTime: prayerTimes["Fajr"] ?? "", compact: layout.isCompact)
+                PrayerTimeRow(prayerName: localizedPrayerName("Sunrise"), prayerTime: prayerTimes["Sunrise"] ?? "", compact: layout.isCompact)
+                    .capsuleStyled(theme: themeManager.selectedTheme)
+                PrayerTimeRow(prayerName: localizedPrayerName("Dhuhr"), prayerTime: prayerTimes["Dhuhr"] ?? "", compact: layout.isCompact)
+                PrayerTimeRow(prayerName: localizedPrayerName("Asr"), prayerTime: prayerTimes["Asr"] ?? "", compact: layout.isCompact)
+                PrayerTimeRow(prayerName: localizedPrayerName("Maghrib"), prayerTime: prayerTimes["Maghrib"] ?? "", compact: layout.isCompact)
+                PrayerTimeRow(prayerName: localizedPrayerName("Isha"), prayerTime: prayerTimes["Isha"] ?? "", compact: layout.isCompact)
+                PrayerTimeRow(prayerName: localizedPrayerName("Qiyam"), prayerTime: prayerTimes["Qiyam"] ?? "", compact: layout.isCompact)
+                    .capsuleStyled(theme: themeManager.selectedTheme)
+            }
+            .foregroundStyle(themeManager.selectedTheme.textColor)
+            .padding(.horizontal, layout.rowsHorizontalPadding)
+        }
+        .frame(maxWidth: .infinity)
+        .transparentStyled(theme: themeManager.selectedTheme, compact: layout.isCompact)
     }
 
     func setupPrayerTimes() {
@@ -507,18 +555,35 @@ struct PrayerTimeModalView: View {
 struct PrayerTimeRow: View {
     var prayerName: String
     var prayerTime: String
+    var compact: Bool = false
+
+    private var rowFont: Font {
+        compact ? .callout : .title3
+    }
+
+    private var horizontalPadding: CGFloat {
+        compact ? 8 : 10
+    }
+
+    private var verticalPadding: CGFloat {
+        compact ? 3 : 5
+    }
     
     var body: some View {
         HStack {
             Text(prayerName)
-                .font(.title3)
+                .font(rowFont)
                 .fontWeight(.semibold)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
             Spacer()
             Text(prayerTime)
-                .font(.title3)
+                .font(rowFont)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
         }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 5)
+        .padding(.horizontal, horizontalPadding)
+        .padding(.vertical, verticalPadding)
     }
 }
 
@@ -550,14 +615,16 @@ extension View {
 }
 
 extension View {
-    func cardStyled(theme: AppTheme) -> some View {
+    func cardStyled(theme: AppTheme, compact: Bool = false) -> some View {
         let isDarkTheme = theme == .dark
         let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
         let gradientBottom = isDarkTheme ? theme.gradientBottomColor : Color.white
+        let contentPadding: CGFloat = compact ? 12 : 16
+        let verticalPadding: CGFloat = compact ? 16 : 40
         
         return self.font(.headline)
         .foregroundColor(theme.textColor)
-        .padding()
+        .padding(contentPadding)
         .frame(maxWidth: .infinity)
         .background(
             ZStack {
@@ -581,18 +648,21 @@ extension View {
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
         .shadow(color: Color.black.opacity(0.06), radius: 3, x: 0, y: 2)
-        .padding(.vertical, 40)
+        .padding(.vertical, verticalPadding)
         
     }
 }
 
 extension View {
-    func transparentStyled(theme: AppTheme) -> some View {
+    func transparentStyled(theme: AppTheme, compact: Bool = false) -> some View {
         let isDarkTheme = theme == .dark
         let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
+        let innerPadding: CGFloat = compact ? 16 : 25
+        let verticalPadding: CGFloat = compact ? 8 : 12
+        let outerPadding: CGFloat = compact ? 8 : 16
         
-        return self.padding(.vertical)
-            .padding(.all, 25)
+        return self.padding(.vertical, verticalPadding)
+            .padding(innerPadding)
             .background(
                 ZStack {
                     theme.primaryColor.opacity(0.2)
@@ -615,7 +685,7 @@ extension View {
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
             .shadow(color: Color.black.opacity(0.06), radius: 3, x: 0, y: 2)
-            .padding()
+            .padding(outerPadding)
     }
 }
 
