@@ -398,18 +398,33 @@ struct NotificationSettingsView: View {
                     Text("30-Minute Notifications", bundle: localizationManager.bundle)
                         .font(.system(size: 17, weight: .regular))
                         .foregroundColor(textColor)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.85)
+                        .allowsTightening(true)
+                        .truncationMode(.tail)
+                        .layoutPriority(1)
                 }
                 
                 Toggle(isOn: $enablePrayerTimeNotifications) {
                     Text("Prayer Time Notifications", bundle: localizationManager.bundle)
                         .font(.system(size: 17, weight: .regular))
                         .foregroundColor(textColor)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.85)
+                        .allowsTightening(true)
+                        .truncationMode(.tail)
+                        .layoutPriority(1)
                 }
                 
                 Toggle(isOn: $enableSunriseNotifications) {
                     Text("Sunrise Notifications", bundle: localizationManager.bundle)
                         .font(.system(size: 17, weight: .regular))
                         .foregroundColor(textColor)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.85)
+                        .allowsTightening(true)
+                        .truncationMode(.tail)
+                        .layoutPriority(1)
                 }
             }
             .padding()
@@ -425,6 +440,11 @@ struct NotificationSettingsView: View {
             }, label: {
                 HStack(spacing: 8) {
                     Text("Open iOS Notification Settings", bundle: localizationManager.bundle)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.85)
+                        .allowsTightening(true)
+                        .truncationMode(.tail)
+                        .layoutPriority(1)
                     Image(systemName: "gear")
                 }
                 .foregroundColor(themeManager.selectedTheme.primaryColor)
@@ -602,4 +622,3 @@ extension View {
 #Preview {
     PrayerTimeView()
 }
-
