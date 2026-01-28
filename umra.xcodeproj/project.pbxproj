@@ -35,6 +35,7 @@
 		C079318C2B246BAE00B38D01 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C079318B2B246BAE00B38D01 /* StoreKit.framework */; };
 		C07BE9072AA3474600BA3A15 /* hadj_i_umra.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */; };
 		C07BE9262AA34B8900BA3A15 /* CounterTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */; };
+		C07BE92B2AA34B8900BA3A15 /* TawafCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BE92A2AA34B8900BA3A15 /* TawafCounterView.swift */; };
 		C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08EAFD22AF91CFB00C847AC /* textFont.swift */; };
 		C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDB29829F8A00458ACB /* umraApp.swift */; };
 		C0908DE029829F8A00458ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DDF29829F8A00458ACB /* Assets.xcassets */; };
@@ -98,6 +99,7 @@
 		C079318B2B246BAE00B38D01 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hadj_i_umra.pdf; sourceTree = "<group>"; };
 		C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTapView.swift; sourceTree = "<group>"; };
+		C07BE92A2AA34B8900BA3A15 /* TawafCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TawafCounterView.swift; sourceTree = "<group>"; };
 		C08EAFD22AF91CFB00C847AC /* textFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFont.swift; sourceTree = "<group>"; };
 		C0908DD829829F8A00458ACB /* umra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0908DDB29829F8A00458ACB /* umraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = umraApp.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				C008900229E1B09400031176 /* SettingsView.swift */,
 				C24AC7C32D65DD14007F5E5A /* LanguageView */,
 				C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */,
+				C07BE92A2AA34B8900BA3A15 /* TawafCounterView.swift */,
 				C24AC7BF2D65D366007F5E5A /* DonationView */,
 				C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */,
 				C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */,
@@ -445,6 +448,7 @@
 				C0908DF32982A09400458ACB /* Step 3.swift in Sources */,
 				C2E1173C2C999B31002DC520 /* UsefulInfoView.swift in Sources */,
 				C07BE9262AA34B8900BA3A15 /* CounterTapView.swift in Sources */,
+				C07BE92B2AA34B8900BA3A15 /* TawafCounterView.swift in Sources */,
 				C0908DEF2982A07900458ACB /* Step 1.swift in Sources */,
 				C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */,
 				C063ADE329DF2E5B00746D2E /* PlayerView.swift in Sources */,

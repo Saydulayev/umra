@@ -259,6 +259,8 @@
 "reset_string" = "Сбросить";
 "Sa´y finished_string" = "Cа´й закончено";
 "circle_string" = "Прохождение:";
+"tawaf_circle_label" = "Круг:";
+"tawaf_finished" = "Таваф завершён";
 
 "background_color" = "Цвет фона";
 "text_color" = "Цвет текста";
@@ -276,10 +278,10 @@
 "soon_available_text" = "Этот текст был переведен с русского языка на другие языки с использованием ИИ. Если вы заметите ошибку в переводе, пожалуйста, сообщите нам через обратную связь.";
 
 "Notification Settings" = "Настройки уведомлений";
-"30-Minute Notifications" = "Уведомлять за 30 минут до молитвы";
-"Prayer Time Notifications" = "Уведомлять во время молитвы";
-"Sunrise Notifications" = "Уведомлять о восходе солнца";
-"Open iOS Notification Settings" = "Открыть настройки уведомлений iOS";
+"30-Minute Notifications" = "За 30 минут";
+"Prayer Time Notifications" = "Во время намаза";
+"Sunrise Notifications" = "Рассвет";
+"Open iOS Notification Settings" = "Настройки уведомлений iOS";
 "Close" = "Закрыть";
 
 
@@ -463,7 +465,8 @@
 "hajj_screen_title" = "ХАДЖ";
 
 /* Локализация времени намаза */
-"prayer_mecca" = "Мекка,";
+"prayer_mecca" = "Мекка";
+"prayer_medina" = "Медина";
 "prayer_fajr" = "Фаджр";
 "prayer_sunrise" = "Восход";
 "prayer_dhuhr" = "Зухр";

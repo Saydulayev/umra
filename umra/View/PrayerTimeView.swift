@@ -10,6 +10,7 @@ import BackgroundTasks
 import OSLog
 import SwiftUI
 import UserNotifications
+import UIKit
 
 
 struct PrayerTimeView: View {
@@ -28,6 +29,15 @@ struct PrayerTimeView: View {
     @AppStorage("enable30MinNotifications") private var enable30MinNotifications: Bool = true
     @AppStorage("enablePrayerTimeNotifications") private var enablePrayerTimeNotifications: Bool = true
     @AppStorage("enableSunriseNotifications") private var enableSunriseNotifications: Bool = true
+    @AppStorage(UserDefaultsKey.prayerCity) private var prayerCityRaw: String = PrayerCity.mecca.rawValue
+
+    private var currentPrayerCity: PrayerCity {
+        PrayerCity(rawValue: prayerCityRaw) ?? .mecca
+    }
+
+    private var prayerCityTitleKey: String {
+        currentPrayerCity == .mecca ? "prayer_mecca" : "prayer_medina"
+    }
 
     private let islamicDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -55,14 +65,21 @@ struct PrayerTimeView: View {
             
             VStack {
                 HStack {
-                    Text("prayer_mecca", bundle: localizationManager.bundle)
+                    Text(LocalizedStringKey(prayerCityTitleKey), bundle: localizationManager.bundle)
                     Text(currentIslamicDate)
                 }
                 .font(.custom("Savoye LET", size: 36))
                 .foregroundStyle(themeManager.selectedTheme.textColor)
                 .padding(-5)
                 Divider()
-                
+
+                Picker("", selection: $prayerCityRaw) {
+                    Text("prayer_mecca", bundle: localizationManager.bundle).tag(PrayerCity.mecca.rawValue)
+                    Text("prayer_medina", bundle: localizationManager.bundle).tag(PrayerCity.medina.rawValue)
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+
                 Text("\(localizedPrayerName(nextPrayerName)) \(NSLocalizedString("prayer_in", bundle: localizationManager.bundle ?? .main, comment: "")) \(timeUntilNextPrayer)")
                     .cardStyled(theme: themeManager.selectedTheme)
 
@@ -82,6 +99,18 @@ struct PrayerTimeView: View {
             }
             .transparentStyled(theme: themeManager.selectedTheme)
             .onAppear {
+                UISegmentedControl.appearance().selectedSegmentTintColor = .black
+
+                UISegmentedControl.appearance().setTitleTextAttributes(
+                    [.foregroundColor: UIColor.white],
+                    for: .selected
+                )
+
+                UISegmentedControl.appearance().setTitleTextAttributes(
+                    [.foregroundColor: UIColor.black],
+                    for: .normal
+                )
+
                 setupPrayerTimes()
                 Task {
                     await requestNotificationPermission()
@@ -101,6 +130,11 @@ struct PrayerTimeView: View {
             // Пересоздаём уведомления при изменении тумблера Sunrise
             .onChange(of: enableSunriseNotifications) {
                 updateNotifications()
+            }
+            .onChange(of: prayerCityRaw) { _, _ in
+                Task { @MainActor in
+                    await updatePrayerTimes()
+                }
             }
         }
     }
@@ -141,8 +175,9 @@ struct PrayerTimeView: View {
         let tomorrowDateComponents = cal.dateComponents([.year, .month, .day], from: tomorrow)
         
         // Извлекаем примитивные значения для безопасной передачи в Task.detached
-        let latitude = AppConstants.meccaLatitude
-        let longitude = AppConstants.meccaLongitude
+        let city = currentPrayerCity
+        let latitude = city.latitude
+        let longitude = city.longitude
         var params = CalculationMethod.ummAlQura.params
         params.madhab = .shafi
         let finalParams = params
@@ -348,36 +383,54 @@ struct NotificationSettingsView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        VStack {
+        let systemBackground = Color(UIColor.systemBackground)
+        let secondaryBackground = Color(UIColor.secondarySystemBackground)
+        let textColor = Color.primary
+        
+        VStack(spacing: 24) {
             Text("Notification Settings", bundle: localizationManager.bundle)
                 .font(.headline)
-                .padding()
-
-            Toggle(isOn: $enable30MinNotifications, label: {
-                Text("30-Minute Notifications", bundle: localizationManager.bundle)
-            })
-            .padding(.horizontal)
-
-            Toggle(isOn: $enablePrayerTimeNotifications, label: {
-                Text("Prayer Time Notifications", bundle: localizationManager.bundle)
-            })
-            .padding(.horizontal)
+                .foregroundColor(textColor)
+                .padding(.top, 24)
             
-            Toggle(isOn: $enableSunriseNotifications, label: {
-                Text("Sunrise Notifications", bundle: localizationManager.bundle)
-            })
+            VStack(spacing: 16) {
+                Toggle(isOn: $enable30MinNotifications) {
+                    Text("30-Minute Notifications", bundle: localizationManager.bundle)
+                        .font(.system(size: 17, weight: .regular))
+                        .foregroundColor(textColor)
+                }
+                
+                Toggle(isOn: $enablePrayerTimeNotifications) {
+                    Text("Prayer Time Notifications", bundle: localizationManager.bundle)
+                        .font(.system(size: 17, weight: .regular))
+                        .foregroundColor(textColor)
+                }
+                
+                Toggle(isOn: $enableSunriseNotifications) {
+                    Text("Sunrise Notifications", bundle: localizationManager.bundle)
+                        .font(.system(size: 17, weight: .regular))
+                        .foregroundColor(textColor)
+                }
+            }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(secondaryBackground)
+            )
             .padding(.horizontal)
-
+            .tint(themeManager.selectedTheme.primaryColor)
+            
             Button(action: {
                 openSystemNotificationSettings()
             }, label: {
-                HStack {
+                HStack(spacing: 8) {
                     Text("Open iOS Notification Settings", bundle: localizationManager.bundle)
                     Image(systemName: "gear")
                 }
-                    .foregroundStyle(themeManager.selectedTheme.primaryColor)
+                .foregroundColor(themeManager.selectedTheme.primaryColor)
             })
-            .padding(.vertical, 30)
+            .padding(.top, 8)
+            .padding(.horizontal)
             
             Spacer()
             
@@ -385,15 +438,12 @@ struct NotificationSettingsView: View {
                 dismiss()
             }, label: {
                 Text("Close", bundle: localizationManager.bundle)
-                    .foregroundStyle(themeManager.selectedTheme.primaryColor)
+                    .foregroundColor(themeManager.selectedTheme.primaryColor)
             })
-            .padding(.vertical, 30)
+            .padding(.vertical, 24)
         }
-        .lineLimit(1)
-        .minimumScaleFactor(0.5)
-        .foregroundStyle(themeManager.selectedTheme.textColor)
-        .background(themeManager.selectedTheme.lightBackgroundColor)
-        .ignoresSafeArea()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(systemBackground.ignoresSafeArea())
         .presentationDetents([.medium, .large])
         .presentationDragIndicator(.visible)
     }
@@ -552,3 +602,4 @@ extension View {
 #Preview {
     PrayerTimeView()
 }
+

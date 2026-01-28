@@ -49,6 +49,8 @@ enum AppConstants {
     // Вычисление времени молитв
     static let meccaLatitude: Double = 21.4225
     static let meccaLongitude: Double = 39.8262
+    static let medinaLatitude: Double = 24.4672
+    static let medinaLongitude: Double = 39.6111
     
     // Макет сетки (только для iPhone)
     static let gridColumnCount = 2
@@ -68,4 +70,27 @@ enum UserDefaultsKey {
     static let hasRatedApp = "hasRatedApp"
     static let selectedFont = "SelectedFont"
     static let selectedFontSize = "SelectedFontSize"
+    static let tawafCircuitCount = "tawafCircuitCount"
+    static let prayerCity = "prayerCity"
+}
+
+// MARK: - Prayer City
+
+enum PrayerCity: String, CaseIterable {
+    case mecca
+    case medina
+
+    var latitude: Double {
+        switch self {
+        case .mecca: return AppConstants.meccaLatitude
+        case .medina: return AppConstants.medinaLatitude
+        }
+    }
+
+    var longitude: Double {
+        switch self {
+        case .mecca: return AppConstants.meccaLongitude
+        case .medina: return AppConstants.medinaLongitude
+        }
+    }
 }

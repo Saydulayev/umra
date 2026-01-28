@@ -281,6 +281,8 @@ Alemlerin Rabbi olan Allah’a hamdolsun!";
 "reset_string" = "Sıfırla";
 "Sa´y finished_string" = "Sa´y tamamlandı";
 "circle_string" = "Tur:";
+"tawaf_circle_label" = "Tur:";
+"tawaf_finished" = "Tavaf tamamlandı";
 
 "background_color" = "Arka plan rengi";
 "text_color" = "Metin rengi";
@@ -494,7 +496,8 @@ Resulullah (Allah'ın selamı ve bereketi onun üzerine olsun) cenaze namazında
 "hajj_screen_title" = "HAC";
 
 /* Namaz Vakti Yerelleştirme */
-"prayer_mecca" = "Mekke,";
+"prayer_mecca" = "Mekke";
+"prayer_medina" = "Medine";
 "prayer_fajr" = "Fecr";
 "prayer_sunrise" = "Güneş Doğuşu";
 "prayer_dhuhr" = "Öğle";

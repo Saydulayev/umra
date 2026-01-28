@@ -247,6 +247,8 @@ Praise be to Allah, the Lord of the worlds!";
 "reset_string" = "Reset";
 "Sa´y finished_string" = "Sa´y finished";
 "circle_string" = "Walkthrough:";
+"tawaf_circle_label" = "Circuit:";
+"tawaf_finished" = "Tawaf completed";
 
 "background_color" = "Background color";
 "text_color" = "Text color";
@@ -512,7 +514,8 @@ The Messenger of Allah (peace and blessings of Allah be upon him), when performi
 "hajj_screen_title" = "HAJJ";
 
 /* Prayer Time Localization */
-"prayer_mecca" = "Mecca,";
+"prayer_mecca" = "Mecca";
+"prayer_medina" = "Medina";
 "prayer_fajr" = "Fajr";
 "prayer_sunrise" = "Sunrise";
 "prayer_dhuhr" = "Dhuhr";

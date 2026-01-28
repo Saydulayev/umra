@@ -260,6 +260,8 @@ Gepriesen sei Allah, der Herr der Welten!";
 "reset_string" = "Zurücksetzen";
 "Sa´y finished_string" = "Sa´y ist fertig";
 "circle_string" = "Komplettlösung:";
+"tawaf_circle_label" = "Runde:";
+"tawaf_finished" = "Tawaf abgeschlossen";
 
 
 
@@ -533,7 +535,8 @@ Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebe
 "hajj_screen_title" = "HADDSCH";
 
 /* Gebetszeit Lokalisierung */
-"prayer_mecca" = "Mekka,";
+"prayer_mecca" = "Mekka";
+"prayer_medina" = "Medina";
 "prayer_fajr" = "Fajr";
 "prayer_sunrise" = "Sonnenaufgang";
 "prayer_dhuhr" = "Dhuhr";

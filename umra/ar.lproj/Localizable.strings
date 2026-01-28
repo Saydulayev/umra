@@ -222,6 +222,8 @@
 "reset_string" = "إعادة تعيين";
 "Sa´y finished_string" = "انتهى السعي";
 "circle_string" = "السعي:";
+"tawaf_circle_label" = "الشوط:";
+"tawaf_finished" = "تم الطواف";
 
 "background_color" = "لون الخلفية";
 "text_color" = "لون النص";
@@ -284,7 +286,8 @@
 "hajj_screen_title" = "الحج";
 
 /* تخصيص وقت الصلاة */
-"prayer_mecca" = "مكة،";
+"prayer_mecca" = "مكة";
+"prayer_medina" = "المدينة المنورة";
 "prayer_fajr" = "الفجر";
 "prayer_sunrise" = "الشروق";
 "prayer_dhuhr" = "الظهر";

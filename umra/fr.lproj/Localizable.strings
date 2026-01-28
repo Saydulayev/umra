@@ -262,6 +262,8 @@ Louange à Allah, le Seigneur des mondes !";
 "reset_string"="Réinitialiser";
 "Sa´y finished_string"="Sa´y terminé";
 "circle_string"="Tour:";
+"tawaf_circle_label"="Tour:";
+"tawaf_finished"="Tawaf terminé";
 
 "background_color"="Couleur de fond";
 "text_color"="Couleur du texte";
@@ -531,7 +533,8 @@ Le Messager d'Allah (paix et bénédictions sur lui) concluait la prière de Jan
 "hajj_screen_title" = "HAJJ";
 
 /* Localisation de l'heure de prière */
-"prayer_mecca" = "La Mecque,";
+"prayer_mecca" = "La Mecque";
+"prayer_medina" = "Médine";
 "prayer_fajr" = "Fajr";
 "prayer_sunrise" = "Lever du soleil";
 "prayer_dhuhr" = "Dhuhr";

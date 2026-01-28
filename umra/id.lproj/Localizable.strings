@@ -274,6 +274,8 @@ Segala puji bagi Allah, Rabb semesta alam!";
 "reset_string" = "Atur Ulang";
 "Sa´y finished_string" = "Sa'i selesai";
 "circle_string" = "Putaran:";
+"tawaf_circle_label" = "Putaran:";
+"tawaf_finished" = "Tawaf selesai";
 
 "background_color" = "Warna latar belakang";
 "text_color" = "Warna teks";
@@ -544,7 +546,8 @@ Rasulullah ﷺ dalam shalat jenazah terkadang memberi salam sekali, dan terkadan
 "hajj_screen_title" = "HAJI";
 
 /* Lokalisasi Waktu Shalat */
-"prayer_mecca" = "Mekah,";
+"prayer_mecca" = "Mekah";
+"prayer_medina" = "Madinah";
 "prayer_fajr" = "Fajr";
 "prayer_sunrise" = "Terbit";
 "prayer_dhuhr" = "Dhuhr";

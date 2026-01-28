@@ -39,6 +39,8 @@ struct Step2: View {
                         
                         PlayerView(fileName: "7")
                         
+                        TawafCounterView()
+                        
                         Text("Kaaba text4", bundle: localizationManager.bundle)
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
