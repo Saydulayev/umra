@@ -34,6 +34,8 @@ struct SettingsView: View {
 
     private var currentLanguageDisplayName: String {
         switch localizationManager.currentLanguage {
+        case "ar":
+            return "العربية"
         case "ru":
             return "Русский"
         case "en":
@@ -168,6 +170,7 @@ struct SettingsView: View {
                 .foregroundColor(themeManager.selectedTheme.primaryColor),
             message: nil,
             buttons: [
+                .default(Text("العربية")) { localizationManager.currentLanguage = "ar" },
                 .default(Text("Русский")) { localizationManager.currentLanguage = "ru" },
                 .default(Text("English")) { localizationManager.currentLanguage = "en" },
                 .default(Text("Deutsch")) { localizationManager.currentLanguage = "de" },

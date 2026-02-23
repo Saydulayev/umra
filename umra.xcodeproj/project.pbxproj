@@ -123,6 +123,7 @@
 		C24508ED2C9CD3AD003E3E58 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		C2561DF52D5A467800097793 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2884B4D2DE37E8600A3975D /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2A0EDB72F4B556C00A1DE67 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2A68D352CFF1E3C005F3ED8 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		C2B3FBFA2EF83C5A0012B449 /* 15.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 15.mp3; sourceTree = "<group>"; };
 		C2B3FBFB2EF83C5A0012B449 /* 16.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 16.mp3; sourceTree = "<group>"; };
@@ -381,6 +382,7 @@
 				Base,
 				tr,
 				id,
+				ar,
 			);
 			mainGroup = C0908DCF29829F8A00458ACB;
 			packageReferences = (
@@ -483,6 +485,7 @@
 				C06B9C572A08F4AE00549748 /* fr */,
 				C2561DF52D5A467800097793 /* tr */,
 				C2884B4D2DE37E8600A3975D /* id */,
+				C2A0EDB72F4B556C00A1DE67 /* ar */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

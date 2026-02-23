@@ -15,6 +15,7 @@ struct Language: Identifiable {
 
 // Список поддерживаемых языков приложения
 let languages: [Language] = [
+    .init(code: "ar", title: "العربية"),
     .init(code: "de", title: "Deutsch"),
     .init(code: "en", title: "English"),
     .init(code: "fr", title: "Français"),

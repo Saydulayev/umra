@@ -31,6 +31,9 @@ struct LanguageView: View {
             .actionSheet(isPresented: $showingActionSheet) {
                 ActionSheet(title: Text("select_language_settings_string", bundle: localizationManager.bundle)
                     .foregroundColor(themeManager.selectedTheme.primaryColor), message: nil, buttons: [
+                        .default(Text("العربية")) {
+                            localizationManager.currentLanguage = "ar"
+                        },
                         .default(Text("Русский")) {
                             localizationManager.currentLanguage = "ru"
                         },
