@@ -23,9 +23,12 @@ jobs:
 
       - name: Build app (iOS Simulator)
         run: |
+          # Чистая сборка; отключение генерации Swift-символов ассетов избегает ошибок в CI
           xcodebuild build \
             -project umra.xcodeproj \
             -scheme umra \
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0.1' \
             -configuration Debug \
-            CODE_SIGNING_ALLOWED=NO
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS=NO
