@@ -23,11 +23,11 @@ jobs:
 
       - name: Build app (iOS Simulator)
         run: |
-          # Чистая сборка; отключение генерации Swift-символов ассетов избегает ошибок в CI
+          # generic/platform избегает device-specific asset thinning и ошибок actool на headless CI
           xcodebuild build \
             -project umra.xcodeproj \
             -scheme umra \
-            -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0.1' \
+            -destination 'generic/platform=iOS Simulator' \
             -configuration Debug \
             -derivedDataPath build/DerivedData \
             CODE_SIGNING_ALLOWED=NO \
