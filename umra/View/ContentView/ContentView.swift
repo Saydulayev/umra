@@ -325,6 +325,8 @@ private struct ChapterDestinationView: View {
     var body: some View {
         if chapter.title == "title_janaza_guide".localized(bundle: localizationManager.bundle ?? .main) {
             JanazaView()
+        } else if chapter.title == "sunnahs_safar".localized(bundle: localizationManager.bundle ?? .main) {
+            JourneyContentView(chapter: chapter)
         } else {
             ChapterDetailView(chapter: chapter)
         }

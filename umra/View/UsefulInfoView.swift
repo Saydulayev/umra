@@ -39,6 +39,8 @@ struct UsefulInfoView: View {
                         SubChapter(title: "umrah_obligation_evidence".localized(bundle: localizationManager.bundle), content: HajjUmrahObligation.evidenceUmrahObligation(bundle: localizationManager.bundle)),
                         SubChapter(title: "conclusion".localized(bundle: localizationManager.bundle), content: HajjUmrahObligation.concludingEvidence(bundle: localizationManager.bundle)),
                     ]),
+            Chapter(title: "sunnahs_safar".localized(bundle: localizationManager.bundle),
+                    subChapters: []),
             Chapter(title: "title_janaza_guide".localized(bundle: localizationManager.bundle),
                     subChapters: [
                         SubChapter(title: "basic_rules".localized(bundle: localizationManager.bundle),
@@ -267,8 +269,121 @@ struct ChapterDetailView: View {
     }
 }
 
-struct SubChapterDetailView: View {
-    let subChapter: SubChapter
+// MARK: - Formatted content (заголовки зелёные и жирные, цитаты «...» жирные)
+private struct FormattedContentBlock {
+    enum Style {
+        case heading(String)
+        case body(String)
+    }
+    let style: Style
+}
+
+private func parseFormattedContent(_ content: String) -> [FormattedContentBlock] {
+    let blocks = content.components(separatedBy: "\n\n")
+    var result: [FormattedContentBlock] = []
+    let headingPattern = try? NSRegularExpression(pattern: "^\\d+\\)", options: [])
+    
+    for block in blocks {
+        let trimmed = block.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { continue }
+        let lines = trimmed.components(separatedBy: "\n")
+        let firstLine = lines.first ?? trimmed
+        
+        let isHeading = headingPattern?.firstMatch(in: firstLine, range: NSRange(firstLine.startIndex..., in: firstLine)) != nil
+        if isHeading && !lines.isEmpty {
+            result.append(FormattedContentBlock(style: .heading(firstLine)))
+            let rest = lines.dropFirst()
+            if !rest.isEmpty {
+                result.append(FormattedContentBlock(style: .body(rest.joined(separator: "\n"))))
+            }
+        } else {
+            result.append(FormattedContentBlock(style: .body(trimmed)))
+        }
+    }
+    return result
+}
+
+private func containsArabic(_ string: String) -> Bool {
+    string.unicodeScalars.contains { scalar in
+        (0x0600...0x06FF).contains(scalar.value) || (0x0750...0x077F).contains(scalar.value)
+    }
+}
+
+@ViewBuilder
+private func bodyParagraphView(paragraph: String, fontSize: CGFloat, textColor: Color) -> some View {
+    let lines = paragraph.components(separatedBy: "\n")
+    VStack(alignment: .leading, spacing: 6) {
+        ForEach(Array(lines.enumerated()), id: \.offset) { _, line in
+            let lineContent = textWithBoldQuotes(line, fontSize: fontSize, textColor: textColor)
+                .font(.system(size: fontSize))
+                .textSelection(.enabled)
+                .fixedSize(horizontal: false, vertical: true)
+            if containsArabic(line) {
+                lineContent
+                    .padding(.vertical, 10)
+            } else {
+                lineContent
+            }
+        }
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
+}
+
+private func textWithBoldQuotes(_ paragraph: String, fontSize: CGFloat, textColor: Color) -> Text {
+    let parts = paragraph.components(separatedBy: "«")
+    var result = Text(verbatim: "")
+    for (index, part) in parts.enumerated() {
+        if index == 0 {
+            result = result + Text(verbatim: part).foregroundColor(textColor)
+            continue
+        }
+        let subParts = part.components(separatedBy: "»")
+        if subParts.count >= 2 {
+            result = result + Text(verbatim: "«" + subParts[0] + "»").fontWeight(.semibold).foregroundColor(textColor)
+            result = result + Text(verbatim: subParts.dropFirst().joined(separator: "»")).foregroundColor(textColor)
+        } else {
+            result = result + Text(verbatim: "«" + part).foregroundColor(textColor)
+        }
+    }
+    return result
+}
+
+private struct FormattedContentView: View {
+    let content: String
+    @Environment(ThemeManager.self) private var themeManager
+    
+    private var headingGreen: Color {
+        themeManager.selectedTheme == .dark
+            ? Color(red: 0.35, green: 0.75, blue: 0.4)
+            : Color(red: 0.1, green: 0.55, blue: 0.25)
+    }
+    
+    var body: some View {
+        let blocks = parseFormattedContent(content)
+        let fontSize = getDynamicFontSize()
+        let textColor = themeManager.selectedTheme.textColor
+        
+        VStack(alignment: .leading, spacing: 14) {
+            ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
+                switch block.style {
+                case FormattedContentBlock.Style.heading(let text):
+                    Text(text)
+                        .font(.system(size: fontSize + 1, weight: .bold))
+                        .foregroundColor(headingGreen)
+                        .textSelection(.enabled)
+                        .fixedSize(horizontal: false, vertical: true)
+                case FormattedContentBlock.Style.body(let paragraph):
+                    bodyParagraphView(paragraph: paragraph, fontSize: fontSize, textColor: textColor)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+/// Контент раздела «Путешествие» — текст сразу внутри раздела, без подглавы
+struct JourneyContentView: View {
+    let chapter: Chapter
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     
@@ -277,11 +392,39 @@ struct SubChapterDetailView: View {
             themeManager.selectedTheme.backgroundColor
                 .ignoresSafeArea(edges: .bottom)
             ScrollView {
-                Text(subChapter.content)
-                    .font(.system(size: getDynamicFontSize()))
-                    .foregroundStyle(themeManager.selectedTheme.textColor)
+                FormattedContentView(content: SafarSunnahs.content(bundle: localizationManager.bundle))
                     .padding()
-                    .textSelection(.enabled)
+            }
+            .navigationTitle(chapter.title)
+            .toolbar(.hidden, for: .tabBar)
+        }
+    }
+}
+
+struct SubChapterDetailView: View {
+    let subChapter: SubChapter
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    
+    private var useFormattedContent: Bool {
+        subChapter.content.contains("1) ") || subChapter.content.hasPrefix("1)")
+    }
+    
+    var body: some View {
+        ZStack {
+            themeManager.selectedTheme.backgroundColor
+                .ignoresSafeArea(edges: .bottom)
+            ScrollView {
+                if useFormattedContent {
+                    FormattedContentView(content: subChapter.content)
+                        .padding()
+                } else {
+                    Text(subChapter.content)
+                        .font(.system(size: getDynamicFontSize()))
+                        .foregroundStyle(themeManager.selectedTheme.textColor)
+                        .padding()
+                        .textSelection(.enabled)
+                }
             }
             .navigationTitle(subChapter.title)
             .toolbar(.hidden, for: .tabBar)
