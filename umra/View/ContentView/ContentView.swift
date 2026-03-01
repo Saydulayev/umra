@@ -64,8 +64,20 @@ struct ContentView: View {
     
     // MARK: - Navigation
     
+    /// Явно передаём environment в экраны шагов, чтобы избежать краша EnvironmentValues.subscript.getter
+    /// при навигации (особенно на iOS 18+ и в App Store сборках).
     @ViewBuilder
     private func destinationView(for step: UmraStep) -> some View {
+        stepView(for: step)
+            .environment(themeManager)
+            .environment(localizationManager)
+            .environment(userPreferences)
+            .environment(fontManager)
+            .environment(purchaseManager)
+    }
+
+    @ViewBuilder
+    private func stepView(for step: UmraStep) -> some View {
         switch step {
         case .step1:
             Step1()
@@ -155,11 +167,15 @@ struct ContentView: View {
             }
             .navigationDestination(for: SubChapter.self) { subChapter in
                 SubChapterDetailView(subChapter: subChapter)
+                    .environment(themeManager)
+                    .environment(localizationManager)
             }
             .navigationDestination(for: AppDestination.self) { destination in
                 switch destination {
                 case .settings:
                     SettingsView()
+                        .environment(themeManager)
+                        .environment(localizationManager)
                 }
             }
             .toolbar {
@@ -183,6 +199,8 @@ struct ContentView: View {
             }
                 .fullScreenCover(isPresented: $showPrayerTimes) {
                     PrayerTimeModalView(isPresented: $showPrayerTimes)
+                        .environment(themeManager)
+                        .environment(localizationManager)
                 }
         }
     }
