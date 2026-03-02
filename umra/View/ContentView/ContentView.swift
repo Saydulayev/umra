@@ -35,6 +35,8 @@ struct ContentView: View {
     @Environment(UserPreferences.self) private var userPreferences
     @Environment(FontManager.self) private var fontManager
     @Environment(PurchaseManager.self) private var purchaseManager
+    @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
+    @Environment(AudioManager.self) private var audioManager
     @State private var showPrayerTimes = false
     @State private var navigationPath = NavigationPath()
     @State private var stepImageDescriptions: [String: String] = [
@@ -74,6 +76,7 @@ struct ContentView: View {
             .environment(userPreferences)
             .environment(fontManager)
             .environment(purchaseManager)
+            .environment(audioManager)
     }
 
     @ViewBuilder
@@ -176,6 +179,7 @@ struct ContentView: View {
                     SettingsView()
                         .environment(themeManager)
                         .environment(localizationManager)
+                        .environment(purchaseManager)
                 }
             }
             .toolbar {
@@ -201,6 +205,7 @@ struct ContentView: View {
                     PrayerTimeModalView(isPresented: $showPrayerTimes)
                         .environment(themeManager)
                         .environment(localizationManager)
+                        .environment(backgroundTaskManager)
                 }
         }
     }

@@ -28,6 +28,8 @@ struct HajjView: View {
     @Environment(UserPreferences.self) private var userPreferences
     @Environment(FontManager.self) private var fontManager
     @Environment(PurchaseManager.self) private var purchaseManager
+    @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
+    @Environment(AudioManager.self) private var audioManager
     @State private var showPrayerTimes = false
     @State private var navigationPath = NavigationPath()
     @State private var imageDescriptions: [String: String] = [
@@ -50,20 +52,29 @@ struct HajjView: View {
         HajjStepItem(id: 4, imageName: "hajj5", step: .step5, titleKey: "hajj_step5_title")
     ]
     
+    /// Явно передаём environment в экраны шагов, чтобы избежать краша EnvironmentValues.subscript.getter (iOS 18+ / App Store).
     @ViewBuilder
     private func destinationView(for step: HajjStep) -> some View {
-        switch step {
-        case .step1:
-            HajjStep1()
-        case .step2:
-            HajjStep2()
-        case .step3:
-            HajjStep3()
-        case .step4:
-            HajjStep4()
-        case .step5:
-            HajjStep5()
+        Group {
+            switch step {
+            case .step1:
+                HajjStep1()
+            case .step2:
+                HajjStep2()
+            case .step3:
+                HajjStep3()
+            case .step4:
+                HajjStep4()
+            case .step5:
+                HajjStep5()
+            }
         }
+        .environment(themeManager)
+        .environment(localizationManager)
+        .environment(userPreferences)
+        .environment(fontManager)
+        .environment(purchaseManager)
+        .environment(audioManager)
     }
     
     /// Вычисляемое свойство для определения устройства iPad
@@ -126,6 +137,9 @@ struct HajjView: View {
                     switch destination {
                     case .settings:
                         SettingsView()
+                            .environment(themeManager)
+                            .environment(localizationManager)
+                            .environment(purchaseManager)
                     }
                 }
                 .toolbar {
@@ -149,6 +163,9 @@ struct HajjView: View {
                 }
                 .fullScreenCover(isPresented: $showPrayerTimes) {
                     PrayerTimeModalView(isPresented: $showPrayerTimes)
+                        .environment(themeManager)
+                        .environment(localizationManager)
+                        .environment(backgroundTaskManager)
                 }
                 LanguageView().hidden()
             }
