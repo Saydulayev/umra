@@ -20,6 +20,7 @@ enum UmraStep: Hashable, Sendable {
 
 enum AppDestination: Hashable, Sendable {
     case settings
+    case prayerTimes
 }
 
 struct StepItem: Identifiable {
@@ -37,7 +38,6 @@ struct ContentView: View {
     @Environment(PurchaseManager.self) private var purchaseManager
     @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
     @Environment(AudioManager.self) private var audioManager
-    @State private var showPrayerTimes = false
     @State private var navigationPath = NavigationPath()
     @State private var stepImageDescriptions: [String: String] = [
         "img1": "title_ihram_screen",
@@ -180,6 +180,12 @@ struct ContentView: View {
                         .environment(themeManager)
                         .environment(localizationManager)
                         .environment(purchaseManager)
+                case .prayerTimes:
+                    PrayerTimeView()
+                        .environment(themeManager)
+                        .environment(localizationManager)
+                        .environment(backgroundTaskManager)
+                        .toolbar(.hidden, for: .tabBar)
                 }
             }
             .toolbar {
@@ -189,7 +195,7 @@ struct ContentView: View {
                     }
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: { showPrayerTimes = true }) {
+                    NavigationLink(value: AppDestination.prayerTimes) {
                         Image(systemName: "clock")
                             .imageScale(.large)
                             .foregroundColor(.primary)
@@ -201,12 +207,6 @@ struct ContentView: View {
                     }
                 }
             }
-                .fullScreenCover(isPresented: $showPrayerTimes) {
-                    PrayerTimeModalView(isPresented: $showPrayerTimes)
-                        .environment(themeManager)
-                        .environment(localizationManager)
-                        .environment(backgroundTaskManager)
-                }
         }
     }
     

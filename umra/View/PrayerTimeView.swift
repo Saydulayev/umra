@@ -90,7 +90,7 @@ struct PrayerTimeView: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.lightBackgroundColor
-                .ignoresSafeArea()
+                .ignoresSafeArea(edges: .bottom)
 
             content
         }
@@ -522,32 +522,6 @@ struct NotificationSettingsView: View {
         }
         if UIApplication.shared.canOpenURL(settingsURL) {
             UIApplication.shared.open(settingsURL)
-        }
-    }
-}
-
-
-
-
-struct PrayerTimeModalView: View {
-    @Binding var isPresented: Bool
-    @Environment(ThemeManager.self) private var themeManager
-    @Environment(LocalizationManager.self) private var localizationManager
-    
-    var body: some View {
-        NavigationStack {
-            PrayerTimeView()
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            isPresented = false
-                        }, label: {
-                            Image(systemName: "xmark.circle")
-                                .imageScale(.large)
-                                .foregroundStyle(themeManager.selectedTheme.primaryColor)
-                        })
-                    }
-                }
         }
     }
 }

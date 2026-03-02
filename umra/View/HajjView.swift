@@ -30,7 +30,6 @@ struct HajjView: View {
     @Environment(PurchaseManager.self) private var purchaseManager
     @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
     @Environment(AudioManager.self) private var audioManager
-    @State private var showPrayerTimes = false
     @State private var navigationPath = NavigationPath()
     @State private var imageDescriptions: [String: String] = [
         "hajj1": "hajj_step1_title",
@@ -140,6 +139,12 @@ struct HajjView: View {
                             .environment(themeManager)
                             .environment(localizationManager)
                             .environment(purchaseManager)
+                    case .prayerTimes:
+                        PrayerTimeView()
+                            .environment(themeManager)
+                            .environment(localizationManager)
+                            .environment(backgroundTaskManager)
+                            .toolbar(.hidden, for: .tabBar)
                     }
                 }
                 .toolbar {
@@ -149,7 +154,7 @@ struct HajjView: View {
                         }
                     }
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button(action: { showPrayerTimes = true }) {
+                        NavigationLink(value: AppDestination.prayerTimes) {
                             Image(systemName: "clock")
                                 .imageScale(.large)
                                 .foregroundColor(.primary)
@@ -160,12 +165,6 @@ struct HajjView: View {
                                 .foregroundColor(.primary)
                         }
                     }
-                }
-                .fullScreenCover(isPresented: $showPrayerTimes) {
-                    PrayerTimeModalView(isPresented: $showPrayerTimes)
-                        .environment(themeManager)
-                        .environment(localizationManager)
-                        .environment(backgroundTaskManager)
                 }
                 LanguageView().hidden()
             }
