@@ -523,11 +523,10 @@ Le Messager d'Allah (paix et bénédictions sur lui) concluait la prière de Jan
 /* Localisation des thèmes */
 "theme_app_title" = "Thème de l'application";
 "theme_select_title" = "Choisir le thème de l'application";
-"theme_heavenly" = "Ciel";
-"theme_oasis" = "Oasis";
-"theme_gold" = "Or";
-"theme_turquoise" = "Mer";
-"theme_dark" = "Nuit";
+"theme_nur" = "Nur";
+"theme_layl" = "Layl";
+"theme_nur_subtitle" = "Lumière et sérénité";
+"theme_layl_subtitle" = "Confort nocturne";
 "done_button" = "Terminé";
 
 /* Localisation des onglets */
@@ -695,3 +694,13 @@ Attention : ce Tawaf est accompli à un rythme de marche normal du début à la 
 
 
 Qu’Allah, le Très-Haut, accepte votre Haddj !";
+
+
+/* Étapes — en-têtes et libellés */
+"step_prefix" = "ÉTAPE";
+"steps_count_one" = "Étape";
+"steps_count_few" = "Étapes";
+"steps_count_many" = "Étapes";
+"order_label" = "Ordre";
+"umra_title" = "Omra";
+"hajj_title" = "Hajj";

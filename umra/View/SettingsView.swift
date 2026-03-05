@@ -54,13 +54,13 @@ struct SettingsView: View {
     }
 
     private var secondaryTextColor: Color {
-        themeManager.selectedTheme.textColor.opacity(themeManager.selectedTheme == .dark ? 0.7 : 0.6)
+        themeManager.selectedTheme.textColor.opacity(0.6)
     }
     
     var body: some View {
         ZStack {
             themeManager.selectedTheme.lightBackgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             ScrollView {
                 VStack(spacing: contentSpacing) {
                     SettingsSection {
@@ -224,9 +224,7 @@ struct SettingsSection<Content: View>: View {
     }
 
     private var cardBackground: Color {
-        themeManager.selectedTheme == .dark
-            ? Color(UIColor(red: 0.23, green: 0.23, blue: 0.28, alpha: 1))
-            : Color.white
+        themeManager.selectedTheme.cardColor
     }
 
     var body: some View {
@@ -236,13 +234,13 @@ struct SettingsSection<Content: View>: View {
         .background(
             RoundedRectangle(cornerRadius: SettingsMetrics.cornerRadius, style: .continuous)
                 .fill(cardBackground)
-                .shadow(color: Color.black.opacity(themeManager.selectedTheme == .dark ? 0.25 : 0.08),
+                .shadow(color: themeManager.selectedTheme.cardShadowColor,
                         radius: SettingsMetrics.isIPad ? 14 : 10,
                         x: 0,
                         y: 2)
                 .overlay(
                     RoundedRectangle(cornerRadius: SettingsMetrics.cornerRadius, style: .continuous)
-                        .stroke(themeManager.selectedTheme.primaryColor.opacity(0.08), lineWidth: 1)
+                        .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
                 )
         )
     }
@@ -355,54 +353,35 @@ struct ThemePreviewView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
     
+    private var isIPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 themeManager.selectedTheme.lightBackgroundColor
                     .ignoresSafeArea()
                 
-                VStack(spacing: 20) {
+                VStack(spacing: isIPad ? 28 : 20) {
                     Text("theme_select_title", bundle: localizationManager.bundle)
-                        .font(.title2)
-                        .fontWeight(.semibold)
+                        .font(.system(size: isIPad ? 28 : 22, weight: .bold))
                         .foregroundColor(themeManager.selectedTheme.textColor)
-                        .padding(.top)
+                        .padding(.top, isIPad ? 24 : 16)
                     
-                    VStack(spacing: 16) {
+                    VStack(spacing: isIPad ? 16 : 12) {
                         ForEach(AppTheme.allCases, id: \.self) { theme in
-                            Button(action: {
-                                themeManager.selectedTheme = theme
-                                dismiss()
-                            }) {
-                                HStack(spacing: 16) {
-                                    // Мягкий цветной кружок для превью
-                                    Circle()
-                                        .fill(theme.previewColor)
-                                        .frame(width: 50, height: 50)
-                                    
-                                    Text(theme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
-                                        .font(.system(size: 18, weight: .semibold))
-                                        .foregroundColor(themeManager.selectedTheme.textColor)
-                                    
-                                    Spacer()
-                                    
-                                    if themeManager.selectedTheme == theme {
-                                        Image(systemName: "checkmark.circle.fill")
-                                            .font(.system(size: 24))
-                                            .foregroundColor(theme.primaryColor)
-                                    }
+                            Button {
+                                withAnimation(.easeInOut(duration: 0.25)) {
+                                    themeManager.selectedTheme = theme
                                 }
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .fill(themeManager.selectedTheme == .dark ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white)
-                                        .shadow(color: Color.black.opacity(0.15), radius: 8, x: 0, y: 4)
-                                )
+                            } label: {
+                                themeCard(for: theme)
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
                     }
-                    .padding(.horizontal)
+                    .padding(.horizontal, isIPad ? 24 : 16)
                     
                     Spacer()
                 }
@@ -410,9 +389,9 @@ struct ThemePreviewView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
+                    Button {
                         dismiss()
-                    }) {
+                    } label: {
                         Text("done_button", bundle: localizationManager.bundle)
                             .foregroundColor(themeManager.selectedTheme.primaryColor)
                     }
@@ -421,4 +400,55 @@ struct ThemePreviewView: View {
         }
     }
     
+    private func themeCard(for theme: AppTheme) -> some View {
+        let isSelected = themeManager.selectedTheme == theme
+        
+        return HStack(spacing: isIPad ? 18 : 14) {
+            ZStack {
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [theme.primaryColor, theme.primaryColor.opacity(0.7)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .frame(width: isIPad ? 56 : 46, height: isIPad ? 56 : 46)
+                
+                Image(systemName: theme == .dark ? "moon.stars.fill" : "sun.max.fill")
+                    .font(.system(size: isIPad ? 22 : 18, weight: .medium))
+                    .foregroundColor(.white)
+            }
+            
+            VStack(alignment: .leading, spacing: 3) {
+                Text(theme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
+                    .font(.system(size: isIPad ? 20 : 17, weight: .semibold))
+                    .foregroundColor(themeManager.selectedTheme.textColor)
+                
+                Text(theme == .dark ? "theme_layl_subtitle" : "theme_nur_subtitle",
+                     bundle: localizationManager.bundle)
+                    .font(.system(size: isIPad ? 15 : 13))
+                    .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.5))
+            }
+            
+            Spacer()
+            
+            if isSelected {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: isIPad ? 26 : 22))
+                    .foregroundColor(theme.primaryColor)
+            }
+        }
+        .padding(isIPad ? 20 : 16)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(themeManager.selectedTheme.cardColor)
+                .shadow(color: themeManager.selectedTheme.cardShadowColor,
+                        radius: 8, x: 0, y: 2)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(isSelected ? theme.primaryColor.opacity(0.5) : themeManager.selectedTheme.cardBorderColor, lineWidth: isSelected ? 2 : 1)
+                )
+        )
+    }
 }

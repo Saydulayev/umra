@@ -525,11 +525,10 @@ Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebe
 /* Theme Lokalisierung */
 "theme_app_title" = "App-Design";
 "theme_select_title" = "App-Design wählen";
-"theme_heavenly" = "Himmel";
-"theme_oasis" = "Oase";
-"theme_gold" = "Gold";
-"theme_turquoise" = "Meer";
-"theme_dark" = "Nacht";
+"theme_nur" = "Nur";
+"theme_layl" = "Layl";
+"theme_nur_subtitle" = "Licht und Gelassenheit";
+"theme_layl_subtitle" = "Nachtkomfort";
 "done_button" = "Fertig";
 
 /* Tab Lokalisierung */
@@ -697,3 +696,12 @@ Achtung: Dieser Tawaf wird vom Anfang bis zum Ende in normalem Gehtempo vollzoge
 
 
 Möge der Erhabene Allah euren Haddsch annehmen!";
+
+/* Schritte — Überschriften und Labels */
+"step_prefix" = "SCHRITT";
+"steps_count_one" = "Schritt";
+"steps_count_few" = "Schritte";
+"steps_count_many" = "Schritte";
+"order_label" = "Reihenfolge";
+"umra_title" = "Umra";
+"hajj_title" = "Hadsch";

@@ -455,11 +455,10 @@
 /* Локализация тем */
 "theme_app_title" = "Тема приложения";
 "theme_select_title" = "Выберите тему приложения";
-"theme_heavenly" = "Небо";
-"theme_oasis" = "Оазис";
-"theme_gold" = "Золото";
-"theme_turquoise" = "Море";
-"theme_dark" = "Ночь";
+"theme_nur" = "Нур";
+"theme_layl" = "Лейл";
+"theme_nur_subtitle" = "Свет и спокойствие";
+"theme_layl_subtitle" = "Уют ночи";
 "done_button" = "Готово";
 
 /* Локализация табов и экранов */
@@ -627,3 +626,12 @@
 
 
 Да примет Всевышний Аллах ваш хадж!";
+
+/* Шаги — заголовки и лейблы */
+"step_prefix" = "ШАГ";
+"steps_count_one" = "Шаг";
+"steps_count_few" = "Шага";
+"steps_count_many" = "Шагов";
+"order_label" = "Порядок";
+"umra_title" = "Умра";
+"hajj_title" = "Хадж";

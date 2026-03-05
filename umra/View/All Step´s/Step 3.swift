@@ -15,7 +15,7 @@ struct Step3: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             
             ScrollView {
                 VStack {
@@ -39,7 +39,7 @@ struct Step3: View {
                     }
                     .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
                 }
-                .foregroundStyle(themeManager.selectedTheme.textColor)
+                .foregroundStyle(.primary)
                 .padding(.horizontal, 10)
                 LanguageView()
                     .hidden()

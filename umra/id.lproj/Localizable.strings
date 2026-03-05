@@ -536,11 +536,10 @@ Rasulullah ﷺ dalam shalat jenazah terkadang memberi salam sekali, dan terkadan
 /* Lokalisasi Tema */
 "theme_app_title" = "Tema Aplikasi";
 "theme_select_title" = "Pilih Tema Aplikasi";
-"theme_heavenly" = "Langit";
-"theme_oasis" = "Oasis";
-"theme_gold" = "Emas";
-"theme_turquoise" = "Laut";
-"theme_dark" = "Malam";
+"theme_nur" = "Nur";
+"theme_layl" = "Lail";
+"theme_nur_subtitle" = "Cahaya dan ketenangan";
+"theme_layl_subtitle" = "Kenyamanan malam";
 "done_button" = "Selesai";
 
 /* Lokalisasi Tab */
@@ -708,3 +707,13 @@ Perhatian: tawaf ini dilakukan dengan langkah biasa dari awal hingga akhir. Sa�
 
 
 Semoga Allah Yang Mahatinggi menerima ibadah haji Anda!";
+
+
+/* Langkah — judul dan label */
+"step_prefix" = "LANGKAH";
+"steps_count_one" = "Langkah";
+"steps_count_few" = "Langkah";
+"steps_count_many" = "Langkah";
+"order_label" = "Urutan";
+"umra_title" = "Umrah";
+"hajj_title" = "Haji";

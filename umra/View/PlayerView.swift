@@ -110,22 +110,17 @@ struct PlayerView: View {
         VStack {
             HStack {
                 Spacer()
-                controlButton(imageName: "repeat",
-                              isActive: self.isRepeating,
-                              backgroundColors: [.red, .gray]) {
+                playerButton(imageName: "repeat", isActive: isRepeating) {
                     self.isRepeating.toggle()
                     self.audioPlayer?.numberOfLoops = self.isRepeating ? -1 : 0
                 }
 
-                controlButton(imageName: self.isPlaying ? "pause.fill" : "play.fill",
-                              isActive: self.isPlaying,
-                              backgroundColors: [.green, .gray]) {
+                playerButton(imageName: isPlaying ? "pause.fill" : "play.fill", isActive: isPlaying) {
                     if let player = self.audioPlayer {
                         if player.isPlaying {
                             player.pause()
                             self.isPlaying = false
                         } else {
-                            // Гарантируем старт на выбранной скорости
                             player.enableRate = true
                             player.rate = playbackRate
                             audioManager.play(audioPlayer: player)
@@ -134,9 +129,7 @@ struct PlayerView: View {
                     }
                 }
 
-                controlButtonWithText(text: "\(playbackRate)x",
-                                      isActive: playbackRate > 1.0,
-                                      backgroundColors: [.blue, .gray]) {
+                playerButtonWithText(text: "\(playbackRate)x", isActive: playbackRate > 1.0) {
                     cyclePlaybackRate()
                 }
 
@@ -173,20 +166,18 @@ struct PlayerView: View {
 
     // MARK: - UI Components
     
-    func controlButton(imageName: String, isActive: Bool, backgroundColors: [Color], action: @escaping () -> Void) -> some View {
-        Button(action: {
-            action()
-        }) {
+    private func playerButton(imageName: String, isActive: Bool, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
             Image(systemName: imageName)
                 .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
                 .font(.system(size: 16, weight: .bold))
                 .frame(width: 70, height: 70)
                 .background(
                     ZStack {
-                        themeManager.selectedTheme.primaryColor.opacity(0.2)
+                        themeManager.selectedTheme.primaryColor.opacity(0.12)
 
                         Circle()
-                            .foregroundColor(.white)
+                            .foregroundColor(themeManager.selectedTheme.cardColor)
                             .blur(radius: 4)
                             .offset(x: -8, y: -8)
 
@@ -196,18 +187,17 @@ struct PlayerView: View {
                     }
                     .clipShape(Circle())
                     .compositingGroup()
-                    .shadow(color: adaptiveShadowColor(intensity: 0.5), radius: 20, x: 20, y: 20)
+                    .shadow(color: adaptiveShadowColor(intensity: 0.4), radius: 16, x: 12, y: 12)
                 )
         }
         .padding()
     }
 
-    func controlButtonWithText(text: String, isActive: Bool, backgroundColors: [Color], action: @escaping () -> Void) -> some View {
-        Button(action: {
+    private func playerButtonWithText(text: String, isActive: Bool, action: @escaping () -> Void) -> some View {
+        Button {
             action()
-            let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
-            impactFeedbackGenerator.impactOccurred()
-        }) {
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        } label: {
             Text(text)
                 .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
                 .font(.system(size: 16, weight: .bold))
@@ -216,10 +206,10 @@ struct PlayerView: View {
                 .frame(width: 70, height: 70)
                 .background(
                     ZStack {
-                        themeManager.selectedTheme.primaryColor.opacity(0.2)
+                        themeManager.selectedTheme.primaryColor.opacity(0.12)
 
                         Circle()
-                            .foregroundColor(.white)
+                            .foregroundColor(themeManager.selectedTheme.cardColor)
                             .blur(radius: 4)
                             .offset(x: -8, y: -8)
 
@@ -229,7 +219,7 @@ struct PlayerView: View {
                     }
                     .clipShape(Circle())
                     .compositingGroup()
-                    .shadow(color: adaptiveShadowColor(intensity: 0.5), radius: 20, x: 20, y: 20)
+                    .shadow(color: adaptiveShadowColor(intensity: 0.4), radius: 16, x: 12, y: 12)
                 )
         }
         .padding()

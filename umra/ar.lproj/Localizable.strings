@@ -431,11 +431,10 @@
 /* Локализация тем */
 "theme_app_title" = "سمة التطبيق";
 "theme_select_title" = "اختر سمة التطبيق";
-"theme_heavenly" = "السماء";
-"theme_oasis" = "الواحة";
-"theme_gold" = "الذهب";
-"theme_turquoise" = "البحر";
-"theme_dark" = "الليل";
+"theme_nur" = "نور";
+"theme_layl" = "ليل";
+"theme_nur_subtitle" = "نور وسكينة";
+"theme_layl_subtitle" = "راحة الليل";
 "done_button" = "تم";
 
 /* Локализация табов и экранов */
@@ -604,3 +603,13 @@
 
 
 تقبّل الله منكم حجّكم!";
+
+
+/* الخطوات — العناوين والتسميات */
+"step_prefix" = "خطوة";
+"steps_count_one" = "خطوة";
+"steps_count_few" = "خطوات";
+"steps_count_many" = "خطوات";
+"order_label" = "الترتيب";
+"umra_title" = "العمرة";
+"hajj_title" = "الحج";

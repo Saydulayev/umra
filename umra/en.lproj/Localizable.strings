@@ -504,11 +504,10 @@ The Messenger of Allah (peace and blessings of Allah be upon him), when performi
 /* Theme Localization */
 "theme_app_title" = "App Theme";
 "theme_select_title" = "Choose App Theme";
-"theme_heavenly" = "Sky";
-"theme_oasis" = "Oasis";
-"theme_gold" = "Gold";
-"theme_turquoise" = "Sea";
-"theme_dark" = "Night";
+"theme_nur" = "Nur";
+"theme_layl" = "Layl";
+"theme_nur_subtitle" = "Light and serenity";
+"theme_layl_subtitle" = "Night comfort";
 "done_button" = "Done";
 
 /* Tab Localization */
@@ -676,3 +675,12 @@ Attention: this circumambulation of the Kaaba is performed at a normal walking p
 
 
 May Almighty Allah accept your Hajj!";
+
+/* Steps — headers and labels */
+"step_prefix" = "STEP";
+"steps_count_one" = "Step";
+"steps_count_few" = "Steps";
+"steps_count_many" = "Steps";
+"order_label" = "Order";
+"umra_title" = "Umrah";
+"hajj_title" = "Hajj";

@@ -90,12 +90,13 @@ struct PrayerTimeView: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.lightBackgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
 
             content
         }
         .onAppear {
-            UISegmentedControl.appearance().selectedSegmentTintColor = .black
+            let emeraldLight = UIColor(red: 0.063, green: 0.725, blue: 0.506, alpha: 1)
+            UISegmentedControl.appearance().selectedSegmentTintColor = emeraldLight
 
             UISegmentedControl.appearance().setTitleTextAttributes(
                 [.foregroundColor: UIColor.white],
@@ -103,7 +104,7 @@ struct PrayerTimeView: View {
             )
 
             UISegmentedControl.appearance().setTitleTextAttributes(
-                [.foregroundColor: UIColor.black],
+                [.foregroundColor: UIColor.label],
                 for: .normal
             )
 
@@ -431,9 +432,9 @@ struct NotificationSettingsView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        let systemBackground = Color(UIColor.systemBackground)
-        let secondaryBackground = Color(UIColor.secondarySystemBackground)
-        let textColor = Color.primary
+        let systemBackground = themeManager.selectedTheme.backgroundColor
+        let secondaryBackground = themeManager.selectedTheme.cardColor
+        let textColor = themeManager.selectedTheme.textColor
         
         VStack(spacing: 24) {
             Text("Notification Settings", bundle: localizationManager.bundle)
@@ -565,17 +566,14 @@ struct PrayerTimeRow: View {
 
 extension View {
     func capsuleStyled(theme: AppTheme) -> some View {
-        let isDarkTheme = theme == .dark
-        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
-        
         return self.foregroundStyle(theme.textColor)
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
-                    theme.primaryColor.opacity(0.2)
+                    theme.primaryColor.opacity(0.12)
                     
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(backgroundColor)
+                        .foregroundColor(theme.cardColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     
@@ -590,9 +588,6 @@ extension View {
 
 extension View {
     func cardStyled(theme: AppTheme, compact: Bool = false) -> some View {
-        let isDarkTheme = theme == .dark
-        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
-        let gradientBottom = isDarkTheme ? theme.gradientBottomColor : Color.white
         let contentPadding: CGFloat = compact ? 12 : 16
         let verticalPadding: CGFloat = compact ? 16 : 40
         
@@ -602,26 +597,25 @@ extension View {
         .frame(maxWidth: .infinity)
         .background(
             ZStack {
-                theme.primaryColor.opacity(0.1)
+                theme.primaryColor.opacity(0.08)
                 
                 RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(backgroundColor)
+                    .foregroundColor(theme.cardColor)
                     .blur(radius: 4)
                     .offset(x: -8, y: -8)
                 
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, gradientBottom]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
                     .padding(2)
                 
             })
         .overlay(
-            // Профессиональная темная обводка
             RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.black.opacity(0.08), lineWidth: 1)
+                .stroke(Color.black.opacity(0.06), lineWidth: 1)
         )
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
-        .shadow(color: Color.black.opacity(0.06), radius: 3, x: 0, y: 2)
+        .shadow(color: Color.black.opacity(theme == .dark ? 0.20 : 0.12), radius: 20, x: 20, y: 20)
+        .shadow(color: Color.black.opacity(0.04), radius: 3, x: 0, y: 2)
         .padding(.vertical, verticalPadding)
         
     }
@@ -629,8 +623,6 @@ extension View {
 
 extension View {
     func transparentStyled(theme: AppTheme, compact: Bool = false) -> some View {
-        let isDarkTheme = theme == .dark
-        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
         let innerPadding: CGFloat = compact ? 16 : 25
         let verticalPadding: CGFloat = compact ? 8 : 12
         let outerPadding: CGFloat = compact ? 8 : 16
@@ -639,10 +631,10 @@ extension View {
             .padding(innerPadding)
             .background(
                 ZStack {
-                    theme.primaryColor.opacity(0.2)
+                    theme.primaryColor.opacity(0.12)
                     
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(backgroundColor)
+                        .foregroundColor(theme.cardColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     

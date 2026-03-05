@@ -19,7 +19,7 @@ struct ShimmeringText: View {
         Text(text)
             .font(.largeTitle)
             .fontWeight(.bold)
-            .foregroundColor(.gray)
+            .foregroundColor(Color(red: 0.420, green: 0.447, blue: 0.502))
             .multilineTextAlignment(.center)
             .overlay(
                 GeometryReader { geometry in

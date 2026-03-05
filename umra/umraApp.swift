@@ -32,6 +32,7 @@ struct umraApp: App {
                 .environment(fontManager)
                 .environment(backgroundTaskManager)
                 .environment(audioManager)
+                .preferredColorScheme(themeManager.selectedTheme.colorScheme)
         }
     }
 }

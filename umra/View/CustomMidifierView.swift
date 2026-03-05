@@ -38,25 +38,25 @@ extension View {
 
 // MARK: - Восстановленные оригинальные модификаторы изображений
 extension Image {
-    func styledImageWithIndex(index: Int, stepsCount: Int) -> some View {
+    func styledImageWithIndex(index: Int, stepsCount: Int, theme: AppTheme = .light) -> some View {
         ZStack(alignment: .topTrailing) {
             self
                 .resizable()
                 .scaledToFit()
                 .clipShape(Circle())
                 .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
-                .foregroundColor(.black)
+                .foregroundColor(theme.textColor)
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(
                     ZStack {
-                        Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                        theme.primaryColor.opacity(0.2)
                         RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.white)
+                            .foregroundColor(theme.cardColor)
                             .blur(radius: 4)
                             .offset(x: -8, y: -8)
                         RoundedRectangle(cornerRadius: 20)
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8956587315, green: 0.9328896403, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .padding(2)
                     })
                 .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -66,15 +66,16 @@ extension Image {
             Text("\(index + 1)")
                 .font(.caption)
                 .fontWeight(.bold)
+                .foregroundColor(theme.textColor)
                 .padding(8)
-                .background(.white)
+                .background(theme.cardColor)
                 .clipShape(Circle())
                 .offset(x: -25, y: 20)
                 .opacity(index == stepsCount - 1 ? 0 : 1)
         }
     }
     
-    func styledImage() -> some View {
+    func styledImage(theme: AppTheme = .light) -> some View {
         self
             .resizable()
             .scaledToFit()
@@ -84,13 +85,13 @@ extension Image {
             .padding(4)
             .background(
                 ZStack {
-                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                    theme.primaryColor.opacity(0.15)
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
+                        .foregroundColor(theme.cardColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .padding(2)
                 })
             .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -114,14 +115,14 @@ extension Image {
                 .scaledToFit()
                 .clipShape(Circle())
                 .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
-                .foregroundColor(.black)
+                .foregroundColor(theme.textColor)
                 .padding(imagePadding)
                 .frame(maxWidth: .infinity)
                 .background(
                     ZStack {
                         theme.primaryColor.opacity(0.2)
                         RoundedRectangle(cornerRadius: cornerRadius)
-                            .foregroundColor(.white)
+                            .foregroundColor(theme.cardColor)
                             .blur(radius: 4)
                             .offset(x: -8, y: -8)
                     RoundedRectangle(cornerRadius: cornerRadius)
@@ -134,9 +135,9 @@ extension Image {
             
             Text("\(index + 1)")
                 .font(.system(size: indexFontSize, weight: .bold))
-                .foregroundColor(theme == .dark ? .black : .black)
+                .foregroundColor(theme.textColor)
                 .padding(indexPadding)
-                .background(.white)
+                .background(theme.cardColor)
                 .clipShape(Circle())
                 .offset(x: indexOffsetX, y: indexOffsetY)
                 .opacity((hideLastIndex && index == stepsCount - 1) ? 0 : 1)
@@ -155,7 +156,7 @@ extension Image {
             ZStack {
                 theme.primaryColor.opacity(0.1)
                 RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(.white)
+                    .foregroundColor(theme.cardColor)
                     .blur(radius: 4)
                     .offset(x: -8, y: -8)
                     RoundedRectangle(cornerRadius: 20)
@@ -192,10 +193,6 @@ struct StepTextModifier: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        let isDarkTheme = themeManager.selectedTheme == .dark
-        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
-        let gradientBottom = isDarkTheme ? themeManager.selectedTheme.gradientBottomColor : Color.white
-        
         return content
             .padding(customPadding)
             .font(.custom("Amiri Quran", size: dynamicFontSize))
@@ -206,11 +203,11 @@ struct StepTextModifier: ViewModifier {
                 ZStack {
                     themeManager.selectedTheme.textBackgroundColor
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(backgroundColor)
+                        .foregroundColor(themeManager.selectedTheme.cardColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, gradientBottom]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .padding(2)
                 })
             .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -246,10 +243,6 @@ struct CustomTextStyleWithThemeModifier: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        let isDarkTheme = themeManager.selectedTheme == .dark
-        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
-        let gradientBottom = isDarkTheme ? themeManager.selectedTheme.gradientBottomColor : Color.white
-        
         return content
             .font(.system(size: fontSize, weight: .medium, design: .default))
             .foregroundColor(themeManager.selectedTheme.textColor)
@@ -257,13 +250,13 @@ struct CustomTextStyleWithThemeModifier: ViewModifier {
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
-                    themeManager.selectedTheme.primaryColor.opacity(0.2)
+                    themeManager.selectedTheme.primaryColor.opacity(0.12)
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .foregroundColor(backgroundColor)
+                        .foregroundColor(themeManager.selectedTheme.cardColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, gradientBottom]), startPoint: .topLeading, endPoint: .bottomLeading))
+                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomLeading))
                         .padding(2)
                 })
             .adaptiveShadow(radius: isIPad ? 24 : 20, x: isIPad ? 24 : 20, y: isIPad ? 24 : 20, intensity: 0.5)
@@ -274,25 +267,7 @@ struct CustomTextStyleWithThemeModifier: ViewModifier {
 
 extension View {
     func customTextStyle() -> some View {
-        self
-            .font(.system(size: 18, weight: .medium, design: .default))
-            .foregroundColor(Color.black) // Этот метод используется только в старых местах, оставляем черный
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(
-                ZStack {
-                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomLeading))
-                        .padding(2)
-                })
-            .adaptiveShadow(radius: 20, x: 20, y: 20, intensity: 0.5)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .padding(.vertical, 5)
+        self.modifier(CustomTextStyleWithThemeModifier())
     }
     
     // Новый модификатор с поддержкой тем для кнопок в настройках

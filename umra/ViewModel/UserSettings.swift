@@ -10,183 +10,151 @@ import SwiftUI
 
 // MARK: - Theme System
 enum AppTheme: String, CaseIterable, Sendable {
-    case blue = "blue"
-    case green = "green"
-    case gold = "gold"
-    case turquoise = "turquoise"
+    case light = "light"
     case dark = "dark"
+    
+    var colorScheme: ColorScheme {
+        switch self {
+        case .light: return .light
+        case .dark: return .dark
+        }
+    }
     
     func displayName(bundle: Bundle) -> String {
         switch self {
-        case .blue:
-            return NSLocalizedString("theme_heavenly", bundle: bundle, comment: "Heavenly theme")
-        case .green:
-            return NSLocalizedString("theme_oasis", bundle: bundle, comment: "Oasis theme")
-        case .gold:
-            return NSLocalizedString("theme_gold", bundle: bundle, comment: "Gold theme")
-        case .turquoise:
-            return NSLocalizedString("theme_turquoise", bundle: bundle, comment: "Turquoise theme")
+        case .light:
+            return NSLocalizedString("theme_nur", bundle: bundle, comment: "Light theme — Nur")
         case .dark:
-            return NSLocalizedString("theme_dark", bundle: bundle, comment: "Dark theme")
+            return NSLocalizedString("theme_layl", bundle: bundle, comment: "Dark theme — Layl")
         }
     }
+    
+    // MARK: - Primary Accent (Emerald Green)
     
     var primaryColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - более яркий голубой для лучшей видимости обводки
-            return Color(#colorLiteral(red: 0.3, green: 0.6, blue: 0.9, alpha: 1))
-        case .green:
-            // Оазис тема - более яркий зеленый для лучшей видимости обводки
-            return Color(#colorLiteral(red: 0.2, green: 0.7, blue: 0.3, alpha: 1))
-        case .gold:
-            // Золотая тема - золотой цвет для видимости иконок, но светлее для одинакового контраста фона
-            return Color(#colorLiteral(red: 0.7, green: 0.55, blue: 0.25, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - более яркий бирюзовый для лучшей видимости обводки
-            return Color(#colorLiteral(red: 0.1, green: 0.7, blue: 0.7, alpha: 1))
+        case .light:
+            return Color(red: 0.063, green: 0.725, blue: 0.506)  // #10B981
         case .dark:
-            // Темная тема - светло-серый для акцентов
-            return Color(#colorLiteral(red: 0.7, green: 0.7, blue: 0.7, alpha: 1))
+            return Color(red: 0.204, green: 0.827, blue: 0.600)  // #34D399
         }
     }
     
+    // MARK: - Secondary Accent (Premium Gold)
+    
+    var secondaryColor: Color {
+        switch self {
+        case .light:
+            return Color(red: 0.812, green: 0.686, blue: 0.353)  // #CFAF5A
+        case .dark:
+            return Color(red: 0.902, green: 0.784, blue: 0.471)  // #E6C878
+        }
+    }
+    
+    // MARK: - Gradients
+    
     var gradientTopColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - светлый голубой градиент
-            return Color(#colorLiteral(red: 0.94, green: 0.97, blue: 1.0, alpha: 1))
-        case .green:
-            // Оазис тема - светлый зеленый градиент
-            return Color(#colorLiteral(red: 0.95, green: 0.98, blue: 0.95, alpha: 1))
-        case .gold:
-            // Золотая тема - более светлый кремовый градиент для одинакового контраста
-            return Color(#colorLiteral(red: 0.99, green: 0.97, blue: 0.95, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - светлый бирюзовый градиент
-            return Color(#colorLiteral(red: 0.95, green: 0.98, blue: 0.98, alpha: 1))
+        case .light:
+            return Color(red: 0.961, green: 0.961, blue: 0.961)  // #F5F5F5
         case .dark:
-            // Темная тема - темно-серый градиент
-            return Color(#colorLiteral(red: 0.2, green: 0.2, blue: 0.25, alpha: 1))
+            return Color(red: 0.149, green: 0.149, blue: 0.149)  // #262626
         }
     }
     
     var gradientBottomColor: Color {
         switch self {
+        case .light:
+            return Color(red: 0.929, green: 0.929, blue: 0.933)  // #EDEDEE
         case .dark:
-            // Темная тема - еще более темный цвет для градиента
-            return Color(#colorLiteral(red: 0.12, green: 0.12, blue: 0.18, alpha: 1))
-        default:
-            // Для светлых тем - белый
-            return Color.white
+            return Color(red: 0.094, green: 0.094, blue: 0.098)  // #18181A
         }
     }
     
+    // MARK: - Backgrounds
+    
     var backgroundColor: Color {
         switch self {
-        case .blue:
-            return Color(UIColor(red: 0.898, green: 0.933, blue: 1, alpha: 1))
-        case .green:
-            return Color(UIColor(red: 0.9, green: 0.95, blue: 0.9, alpha: 1))
-        case .gold:
-            return Color(UIColor(red: 0.98, green: 0.96, blue: 0.94, alpha: 1))
-        case .turquoise:
-            return Color(UIColor(red: 0.9, green: 0.95, blue: 0.95, alpha: 1))
+        case .light:
+            return Color(red: 0.949, green: 0.949, blue: 0.949)  // #F2F2F2 — чуть темнее, чтобы карточки выделялись
         case .dark:
-            // Темная тема - не слишком черный, темно-серый
-            return Color(UIColor(red: 0.15, green: 0.15, blue: 0.2, alpha: 1))
+            return Color(red: 0.094, green: 0.094, blue: 0.098)  // #18181A — чуть темнее
         }
     }
     
     var lightBackgroundColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - очень светлый голубой с легким оттенком
-            return Color(UIColor(red: 0.99, green: 0.995, blue: 1.0, alpha: 1))
-        case .green:
-            // Оазис тема - очень светлый зеленый с легким оттенком
-            return Color(UIColor(red: 0.99, green: 1.0, blue: 0.99, alpha: 1))
-        case .gold:
-            // Золотая тема - очень светлый теплый кремовый
-            return Color(UIColor(red: 1.0, green: 0.995, blue: 0.98, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - очень светлый бирюзовый с легким оттенком
-            return Color(UIColor(red: 0.99, green: 1.0, blue: 1.0, alpha: 1))
+        case .light:
+            return Color(red: 0.941, green: 0.941, blue: 0.941)  // #F0F0F0
         case .dark:
-            // Темная тема - немного светлее основного фона
-            return Color(UIColor(red: 0.18, green: 0.18, blue: 0.23, alpha: 1))
+            return Color(red: 0.180, green: 0.180, blue: 0.180)  // #2E2E2E
         }
     }
     
     var textBackgroundColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - светлый голубой с хорошим контрастом
-            return Color(#colorLiteral(red: 0.92, green: 0.96, blue: 0.98, alpha: 1))
-        case .green:
-            // Оазис тема - светлый зеленый с хорошим контрастом
-            return Color(#colorLiteral(red: 0.94, green: 0.98, blue: 0.94, alpha: 1))
-        case .gold:
-            // Золотая тема - светлый теплый кремовый с хорошим контрастом
-            return Color(#colorLiteral(red: 0.98, green: 0.96, blue: 0.92, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - светлый бирюзовый с хорошим контрастом
-            return Color(#colorLiteral(red: 0.94, green: 0.98, blue: 0.98, alpha: 1))
+        case .light:
+            return Color(red: 0.929, green: 0.929, blue: 0.933)  // #EDEDEE
         case .dark:
-            // Темная тема - темно-серый фон для текста
-            return Color(#colorLiteral(red: 0.22, green: 0.22, blue: 0.27, alpha: 1))
+            return Color(red: 0.165, green: 0.165, blue: 0.173)  // #2A2A2C
         }
     }
     
-    // Мягкие цвета для превью в выборе темы
+    var cardColor: Color {
+        switch self {
+        case .light:
+            return Color(red: 1.0, green: 1.0, blue: 1.0)        // #FFFFFF
+        case .dark:
+            return Color(red: 0.180, green: 0.180, blue: 0.184)  // #2E2E2F — светлее фона, карточка лучше читается
+        }
+    }
+    
+    var cardBorderColor: Color {
+        switch self {
+        case .light:
+            return Color.black.opacity(0.09)
+        case .dark:
+            return Color.white.opacity(0.12)
+        }
+    }
+    
+    var cardShadowColor: Color {
+        switch self {
+        case .light:
+            return Color.black.opacity(0.10)
+        case .dark:
+            return Color.black.opacity(0.45)
+        }
+    }
+    
+    // MARK: - Preview & Buttons
+    
     var previewColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - мягкий голубой для превью
-            return Color(#colorLiteral(red: 0.5, green: 0.7, blue: 0.9, alpha: 1))
-        case .green:
-            // Оазис тема - мягкий зеленый для превью
-            return Color(#colorLiteral(red: 0.4, green: 0.7, blue: 0.5, alpha: 1))
-        case .gold:
-            // Золотая тема - мягкий золотой для превью
-            return Color(#colorLiteral(red: 0.8, green: 0.7, blue: 0.3, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - мягкий бирюзовый для превью
-            return Color(#colorLiteral(red: 0.3, green: 0.7, blue: 0.7, alpha: 1))
+        case .light:
+            return Color(red: 0.063, green: 0.725, blue: 0.506).opacity(0.12)  // Emerald tint
         case .dark:
-            // Темная тема - темно-серый для превью
-            return Color(#colorLiteral(red: 0.3, green: 0.3, blue: 0.35, alpha: 1))
+            return Color(red: 0.204, green: 0.827, blue: 0.600).opacity(0.12)  // Emerald tint
         }
     }
     
-    // Яркие цвета для активных кнопок плеера
     var activeButtonColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - яркий синий для активных кнопок
-            return Color(#colorLiteral(red: 0.0, green: 0.5, blue: 1.0, alpha: 1))
-        case .green:
-            // Оазис тема - яркий зеленый для активных кнопок
-            return Color(#colorLiteral(red: 0.0, green: 0.8, blue: 0.0, alpha: 1))
-        case .gold:
-            // Золотая тема - яркий золотой для активных кнопок
-            return Color(#colorLiteral(red: 1.0, green: 0.8, blue: 0.0, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - яркий бирюзовый для активных кнопок
-            return Color(#colorLiteral(red: 0.0, green: 0.8, blue: 0.8, alpha: 1))
+        case .light:
+            return Color(red: 0.063, green: 0.725, blue: 0.506)  // #10B981
         case .dark:
-            // Темная тема - светло-серый для активных кнопок
-            return Color(#colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1))
+            return Color(red: 0.204, green: 0.827, blue: 0.600)  // #34D399
         }
     }
     
-    // Цвет текста - белый для темной темы, черный для остальных
+    // MARK: - Text
+    
     var textColor: Color {
         switch self {
+        case .light:
+            return Color(red: 0.110, green: 0.110, blue: 0.118)  // #1C1C1E
         case .dark:
-            return .white
-        default:
-            return .black
+            return Color(red: 0.918, green: 0.918, blue: 0.925)  // #EAEAEC
         }
     }
 }
@@ -210,7 +178,13 @@ class ThemeManager {
     }
     
     init() {
-        selectedTheme = AppTheme(rawValue: UserDefaults.standard.string(forKey: UserDefaultsKey.selectedTheme) ?? "blue") ?? .blue
+        let saved = UserDefaults.standard.string(forKey: UserDefaultsKey.selectedTheme) ?? "light"
+        if let theme = AppTheme(rawValue: saved) {
+            selectedTheme = theme
+        } else {
+            selectedTheme = (saved == "dark") ? .dark : .light
+            UserDefaults.standard.set(selectedTheme.rawValue, forKey: UserDefaultsKey.selectedTheme)
+        }
     }
 }
 

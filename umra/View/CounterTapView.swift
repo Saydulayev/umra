@@ -50,26 +50,19 @@ struct CounterTapView: View {
                             .foregroundStyle(themeManager.selectedTheme.primaryColor)
                         Text("Sa´y finished_string", bundle: localizationManager.bundle)
                             .font(.system(size: isIPad ? 22 : 18, weight: .semibold))
-                            .foregroundColor(themeManager.selectedTheme.textColor)
+                            .foregroundColor(.primary)
                     }
                     .padding(.horizontal, isIPad ? 24 : 20)
                     .padding(.vertical, isIPad ? 16 : 14)
                     .background(
                         RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                            .fill(LinearGradient(
-                                gradient: Gradient(colors: [
-                                    themeManager.selectedTheme.gradientTopColor,
-                                    themeManager.selectedTheme.gradientBottomColor
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            ))
+                            .fill(themeManager.selectedTheme.cardColor)
                             .overlay(
                                 RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
                                     .stroke(themeManager.selectedTheme.primaryColor.opacity(0.4), lineWidth: 1)
                             )
                     )
-                    .shadow(color: Color.black.opacity(0.12), radius: 12, x: 0, y: 4)
+                    .shadow(color: themeManager.selectedTheme.cardShadowColor, radius: 12, x: 0, y: 4)
                     .scaleEffect(showCelebration ? 1.0 : 0.92)
                     .opacity(showCelebration ? 1.0 : 0.0)
                     .onAppear {
@@ -95,17 +88,17 @@ struct CounterTapView: View {
                                     themeManager.selectedTheme.primaryColor.opacity(0.1)
                                     
                                     RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                                        .foregroundColor(.white)
+                                        .foregroundColor(themeManager.selectedTheme.cardColor)
                                         .blur(radius: 4)
                                         .offset(x: -8, y: -8)
                                     
                                     RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .fill(themeManager.selectedTheme.lightBackgroundColor)
                                         .padding(2)
                                     
                                 })
                             .clipShape(RoundedRectangle(cornerRadius: isIPad ? 24 : 20))
-                            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
+                            .shadow(color: themeManager.selectedTheme.cardShadowColor, radius: 20, x: 20, y: 20)
                     }
                     
                     Button(action: {
@@ -122,17 +115,17 @@ struct CounterTapView: View {
                                     themeManager.selectedTheme.primaryColor.opacity(0.1)
                                     
                                     RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                                        .foregroundColor(.white)
+                                        .foregroundColor(themeManager.selectedTheme.cardColor)
                                         .blur(radius: 4)
                                         .offset(x: -8, y: -8)
                                     
                                     RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .fill(themeManager.selectedTheme.lightBackgroundColor)
                                         .padding(2)
                                     
                                 })
                             .clipShape(RoundedRectangle(cornerRadius: isIPad ? 24 : 20))
-                            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
+                            .shadow(color: themeManager.selectedTheme.cardShadowColor, radius: 20, x: 20, y: 20)
                     }
                 }
             }

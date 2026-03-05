@@ -15,7 +15,7 @@ struct Step7: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             
             ScrollView {
                 VStack {
@@ -33,7 +33,7 @@ struct Step7: View {
  ⵈ━══════╗◊╔══════━ⵈ
 """)
                 }
-                .foregroundStyle(themeManager.selectedTheme.textColor)
+                .foregroundStyle(.primary)
                 .padding(10)
                 LanguageView()
                     .hidden()

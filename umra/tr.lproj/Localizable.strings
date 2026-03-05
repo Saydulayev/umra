@@ -486,11 +486,10 @@ Resulullah (Allah'ın selamı ve bereketi onun üzerine olsun) cenaze namazında
 /* Tema Yerelleştirmesi */
 "theme_app_title" = "Uygulama Teması";
 "theme_select_title" = "Uygulama Teması Seçin";
-"theme_heavenly" = "Gök";
-"theme_oasis" = "Vaha";
-"theme_gold" = "Altın";
-"theme_turquoise" = "Deniz";
-"theme_dark" = "Gece";
+"theme_nur" = "Nur";
+"theme_layl" = "Leyl";
+"theme_nur_subtitle" = "Işık ve huzur";
+"theme_layl_subtitle" = "Gece huzuru";
 "done_button" = "Tamam";
 
 /* Sekme Yerelleştirme */
@@ -658,3 +657,12 @@ Dikkat: Bu tavaf, başından sonuna kadar normal yürüyüş temposuyla yapılı
 
 
 Yüce Allah haccınızı kabul etsin!";
+
+/* Adımlar — başlıklar ve etiketler */
+"step_prefix" = "ADIM";
+"steps_count_one" = "Adım";
+"steps_count_few" = "Adım";
+"steps_count_many" = "Adım";
+"order_label" = "Sıra";
+"umra_title" = "Umre";
+"hajj_title" = "Hac";

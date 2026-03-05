@@ -32,8 +32,7 @@ struct LanguageSelectionView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                // Экран приветствия - более мягкий светло-синий фон
-                Color(UIColor(red: 0.92, green: 0.95, blue: 0.98, alpha: 1))
+                themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
                 
                 VStack {
@@ -83,7 +82,7 @@ struct LanguageSelectionView: View {
 
                     if needChevron {
                         Image(systemName: "chevron.down")
-                            .foregroundColor(.gray)
+                            .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.4))
                             .font(.system(size: geo.size.height * 0.025))
                             .padding(.top, 4)
                             .padding(.bottom, geo.size.height * 0.01)
@@ -114,10 +113,10 @@ extension Text {
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
-                    theme.primaryColor.opacity(0.1)
+                    theme.primaryColor.opacity(0.08)
                     
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
+                        .foregroundColor(theme.cardColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     
@@ -135,30 +134,28 @@ extension Text {
                         .padding(2)
                 })
             .overlay(
-                // Профессиональная темная обводка
                 RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.black.opacity(0.1), lineWidth: 1)
+                    .stroke(Color.black.opacity(0.06), lineWidth: 1)
             )
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
+            .shadow(color: Color.black.opacity(theme == .dark ? 0.15 : 0.04), radius: 3, x: 0, y: 2)
             .padding(.horizontal)
     }
     
-    // Специальный стиль для экрана приветствия - всегда классический синий
     func welcomeButtonStyle(fontSize: CGFloat = 18) -> some View {
-        self.font(.system(size: fontSize, weight: .medium))
+        let theme = AppTheme.light
+        return self.font(.system(size: fontSize, weight: .medium))
             .minimumScaleFactor(0.75)
-            .foregroundColor(.black) // Оставляем черный для экрана приветствия
+            .foregroundColor(theme.textColor)
             .padding(.vertical, 16)
             .padding(.horizontal, 8)
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {
-                    // Более контрастный синий цвет для лучшей видимости
-                    Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1)).opacity(0.15)
+                    theme.primaryColor.opacity(0.08)
                     
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
+                        .foregroundColor(theme.cardColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     
@@ -166,8 +163,8 @@ extension Text {
                         .fill(
                             LinearGradient(
                                 gradient: Gradient(colors: [
-                                    Color(#colorLiteral(red: 0.8980392157, green: 0.933333333, blue: 1, alpha: 1)),
-                                    Color.white
+                                    theme.gradientTopColor,
+                                    theme.gradientBottomColor
                                 ]),
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
@@ -176,12 +173,11 @@ extension Text {
                         .padding(2)
                 })
             .overlay(
-                // Профессиональная темная обводка для лучшего контраста
                 RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.black.opacity(0.12), lineWidth: 1)
+                    .stroke(theme.cardBorderColor, lineWidth: 1)
             )
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(color: Color.black.opacity(0.08), radius: 3, x: 0, y: 2)
+            .shadow(color: theme.cardShadowColor, radius: 3, x: 0, y: 2)
             .padding(.horizontal)
     }
 }

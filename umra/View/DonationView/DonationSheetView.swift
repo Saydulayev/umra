@@ -16,24 +16,20 @@ struct NeumorphicBackground: ViewModifier {
     var theme: AppTheme
     
     func body(content: Content) -> some View {
-        let isDarkTheme = theme == .dark
-        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
-        let gradientBottom = isDarkTheme ? theme.gradientBottomColor : Color.white
-        
         return content
             .background(
                 ZStack {
-                    theme.primaryColor.opacity(0.1)
+                    theme.primaryColor.opacity(0.08)
                     
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .foregroundColor(backgroundColor)
+                        .foregroundColor(theme.cardColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .fill(
                             LinearGradient(
-                                gradient: Gradient(colors: [theme.gradientTopColor, gradientBottom]),
+                                gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]),
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             )
@@ -41,7 +37,7 @@ struct NeumorphicBackground: ViewModifier {
                         .padding(2)
                 }
             )
-            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
+            .shadow(color: Color.black.opacity(theme == .dark ? 0.25 : 0.15), radius: 20, x: 20, y: 20)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
     }
 }
@@ -148,7 +144,7 @@ struct DonationSheetView: View {
                                 .font(.system(size: pickerFontSize))
                                 .padding(pickerPadding)
                                 .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
-                                .accentColor(.blue)
+                                .accentColor(themeManager.selectedTheme.primaryColor)
                                 .pickerStyle(MenuPickerStyle())
                             }
                             .padding(.horizontal, pickerContainerPadding)
@@ -192,7 +188,7 @@ struct DonationSheetView: View {
                             .padding(5)
                             .neumorphicBackground(theme: themeManager.selectedTheme)
                             .padding()
-                            .accentColor(.blue)
+                            .accentColor(themeManager.selectedTheme.primaryColor)
                             .pickerStyle(MenuPickerStyle())
                         }
                         

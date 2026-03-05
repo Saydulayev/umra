@@ -52,7 +52,7 @@ struct UsefulInfoView: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
@@ -64,7 +64,7 @@ struct UsefulInfoView: View {
                                     .foregroundStyle(themeManager.selectedTheme.textColor)
                                 Spacer()
                                 Image(systemName: "chevron.right")
-                                    .foregroundStyle(.blue)
+                                    .foregroundStyle(themeManager.selectedTheme.primaryColor)
                             }
                             .customListItemStyle(theme: themeManager.selectedTheme)
                         }
@@ -85,7 +85,7 @@ struct UsefulInfoView: View {
                             .resizable()
                             .frame(width: 40, height: 40)
                             .padding()
-                            .foregroundColor(.blue)
+                            .foregroundColor(themeManager.selectedTheme.primaryColor)
                     }
                     .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
                         VStack {
@@ -109,6 +109,8 @@ struct UsefulInfoView: View {
 
 
 struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
+    var accentColor: Color = Color(red: 0.063, green: 0.725, blue: 0.506)
+    
     func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .leading) {
             Button(action: {
@@ -120,7 +122,7 @@ struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
                     configuration.label
                     Spacer()
                     Image(systemName: "chevron.down")
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(accentColor)
                         .rotationEffect(.degrees(configuration.isExpanded ? 180 : 0))
                 }
             }
@@ -141,7 +143,7 @@ struct JanazaView: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
@@ -167,10 +169,10 @@ struct JanazaView: View {
                             },
                             label: {
                                 Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
-                                    .foregroundStyle(.blue)
+                                    .foregroundStyle(themeManager.selectedTheme.primaryColor)
                             }
                         )
-                        .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: themeManager.selectedTheme.primaryColor))
                     }
 
                     Divider()
@@ -189,10 +191,10 @@ struct JanazaView: View {
                             },
                             label: {
                                 Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
-                                    .foregroundStyle(.blue)
+                                    .foregroundStyle(themeManager.selectedTheme.primaryColor)
                             }
                         )
-                        .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: themeManager.selectedTheme.primaryColor))
                     }
 
                     Divider()
@@ -221,7 +223,7 @@ struct JanazaView: View {
                                 .fontWeight(.bold)
                         }
                     )
-                    .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                    .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: themeManager.selectedTheme.primaryColor))
                 }
                 .padding()
                 .font(.system(size: getDynamicFontSize()))
@@ -242,7 +244,7 @@ struct ChapterDetailView: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     ForEach(chapter.subChapters) { subChapter in
@@ -254,7 +256,7 @@ struct ChapterDetailView: View {
                                     .textSelection(.enabled)
                                 Spacer()
                                 Image(systemName: "chevron.right")
-                                    .foregroundStyle(.blue)
+                                    .foregroundStyle(themeManager.selectedTheme.primaryColor)
                             }
                             .customListItemStyle(theme: themeManager.selectedTheme)
                         }
@@ -353,9 +355,7 @@ private struct FormattedContentView: View {
     @Environment(ThemeManager.self) private var themeManager
     
     private var headingGreen: Color {
-        themeManager.selectedTheme == .dark
-            ? Color(red: 0.35, green: 0.75, blue: 0.4)
-            : Color(red: 0.1, green: 0.55, blue: 0.25)
+        themeManager.selectedTheme.primaryColor
     }
     
     var body: some View {
@@ -390,7 +390,7 @@ struct JourneyContentView: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             ScrollView {
                 FormattedContentView(content: SafarSunnahs.content(bundle: localizationManager.bundle))
                     .padding()
@@ -413,7 +413,7 @@ struct SubChapterDetailView: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             ScrollView {
                 if useFormattedContent {
                     FormattedContentView(content: subChapter.content)
@@ -478,7 +478,7 @@ extension View {
                     theme.primaryColor.opacity(0.1)
                     
                     Rectangle()
-                        .foregroundColor(.white)
+                        .foregroundColor(theme.cardColor)
                         .blur(radius: 4)
                         .offset(x: -8, y: -8)
                     
