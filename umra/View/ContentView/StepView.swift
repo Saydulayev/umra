@@ -74,7 +74,7 @@ struct StepView: View {
                         .fill(themeManager.selectedTheme.cardColor)
                         .overlay(
                             RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                                .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
+                                .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 0.5)
                         )
                         .shadow(color: themeManager.selectedTheme.cardShadowColor,
                                 radius: 10, x: 0, y: 3)

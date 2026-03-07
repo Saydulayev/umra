@@ -34,6 +34,51 @@ extension View {
     func adaptiveShadow(radius: CGFloat, x: CGFloat, y: CGFloat, intensity: Double = 0.5) -> some View {
         modifier(AdaptiveShadowModifier(radius: radius, x: x, y: y, intensity: intensity))
     }
+
+    func standardCardFrame(
+        theme: AppTheme,
+        cornerRadius: CGFloat = 20,
+        borderWidth: CGFloat = 1,
+        fillColor: Color? = nil,
+        shadowRadius: CGFloat = 18,
+        shadowYOffset: CGFloat = 8
+    ) -> some View {
+        modifier(
+            StandardCardFrameModifier(
+                theme: theme,
+                cornerRadius: cornerRadius,
+                borderWidth: borderWidth,
+                fillColor: fillColor,
+                shadowRadius: shadowRadius,
+                shadowYOffset: shadowYOffset
+            )
+        )
+    }
+}
+
+private struct StandardCardFrameModifier: ViewModifier {
+    let theme: AppTheme
+    let cornerRadius: CGFloat
+    let borderWidth: CGFloat
+    let fillColor: Color?
+    let shadowRadius: CGFloat
+    let shadowYOffset: CGFloat
+
+    func body(content: Content) -> some View {
+        content
+            .background(fillColor ?? theme.cardColor)
+            .overlay(
+                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                    .stroke(theme.cardBorderColor, lineWidth: borderWidth)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+            .shadow(
+                color: theme.cardShadowColor.opacity(theme == .dark ? 0.40 : 0.18),
+                radius: shadowRadius,
+                x: 0,
+                y: shadowYOffset
+            )
+    }
 }
 
 // MARK: - Восстановленные оригинальные модификаторы изображений
@@ -48,19 +93,7 @@ extension Image {
                 .foregroundColor(theme.textColor)
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(
-                    ZStack {
-                        theme.primaryColor.opacity(0.2)
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(theme.cardColor)
-                            .blur(radius: 4)
-                            .offset(x: -8, y: -8)
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .padding(2)
-                    })
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .adaptiveShadow(radius: 5, x: 10, y: 10, intensity: 0.5)
+                .standardCardFrame(theme: theme, cornerRadius: 20)
                 .padding()
             
             Text("\(index + 1)")
@@ -83,19 +116,7 @@ extension Image {
             .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
             .frame(width: 90, height: 90)
             .padding(4)
-            .background(
-                ZStack {
-                    theme.primaryColor.opacity(0.15)
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(theme.cardColor)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-                })
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .adaptiveShadow(radius: 5, x: 5, y: 5, intensity: 0.5)
+            .standardCardFrame(theme: theme, cornerRadius: 20)
     }
     
     // Методы для совместимости с StepView с поддержкой тем оформления
@@ -118,19 +139,7 @@ extension Image {
                 .foregroundColor(theme.textColor)
                 .padding(imagePadding)
                 .frame(maxWidth: .infinity)
-                .background(
-                    ZStack {
-                        theme.primaryColor.opacity(0.2)
-                        RoundedRectangle(cornerRadius: cornerRadius)
-                            .foregroundColor(theme.cardColor)
-                            .blur(radius: 4)
-                            .offset(x: -8, y: -8)
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-                    })
-                .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-                .adaptiveShadow(radius: 5, x: 10, y: 10, intensity: 0.5)
+                .standardCardFrame(theme: theme, cornerRadius: cornerRadius)
                 .padding(outerPadding)
             
             Text("\(index + 1)")
@@ -152,19 +161,9 @@ extension Image {
         let imageSize = size * 0.822 // Сохраняем пропорцию 74/90
         
         return ZStack(alignment: .center) {
-            // Фон квадрата
-            ZStack {
-                theme.primaryColor.opacity(0.1)
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(theme.cardColor)
-                    .blur(radius: 4)
-                    .offset(x: -8, y: -8)
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-            }
-            .frame(width: size, height: size)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
+            Color.clear
+                .frame(width: size, height: size)
+                .standardCardFrame(theme: theme, cornerRadius: 20)
             
             // Изображение в круге, точно по центру квадрата
             self
@@ -175,7 +174,6 @@ extension Image {
                 .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
         }
         .frame(width: size, height: size)
-        .adaptiveShadow(radius: 5, x: 5, y: 5, intensity: 0.5)
     }
 }
 
@@ -248,19 +246,7 @@ struct CustomTextStyleWithThemeModifier: ViewModifier {
             .foregroundColor(themeManager.selectedTheme.textColor)
             .padding(padding)
             .frame(maxWidth: .infinity)
-            .background(
-                ZStack {
-                    themeManager.selectedTheme.primaryColor.opacity(0.12)
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .foregroundColor(themeManager.selectedTheme.cardColor)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomLeading))
-                        .padding(2)
-                })
-            .adaptiveShadow(radius: isIPad ? 24 : 20, x: isIPad ? 24 : 20, y: isIPad ? 24 : 20, intensity: 0.5)
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: cornerRadius)
             .padding(.vertical, isIPad ? 8 : 5)
     }
 }

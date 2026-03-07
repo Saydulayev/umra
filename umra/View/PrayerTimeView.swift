@@ -89,7 +89,7 @@ struct PrayerTimeView: View {
 
     var body: some View {
         ZStack {
-            themeManager.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.backgroundColor
                 .ignoresSafeArea()
 
             content
@@ -477,9 +477,12 @@ struct NotificationSettingsView: View {
                 }
             }
             .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(secondaryBackground)
+            .standardCardFrame(
+                theme: themeManager.selectedTheme,
+                cornerRadius: 16,
+                fillColor: secondaryBackground,
+                shadowRadius: 14,
+                shadowYOffset: 6
             )
             .padding(.horizontal)
             .tint(themeManager.selectedTheme.primaryColor)
@@ -568,21 +571,7 @@ extension View {
     func capsuleStyled(theme: AppTheme) -> some View {
         return self.foregroundStyle(theme.textColor)
             .frame(maxWidth: .infinity)
-            .background(
-                ZStack {
-                    theme.primaryColor.opacity(0.12)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(theme.cardColor)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-                    
-                })
-            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .standardCardFrame(theme: theme, cornerRadius: 20)
     }
 }
 
@@ -595,27 +584,7 @@ extension View {
         .foregroundColor(theme.textColor)
         .padding(contentPadding)
         .frame(maxWidth: .infinity)
-        .background(
-            ZStack {
-                theme.primaryColor.opacity(0.08)
-                
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(theme.cardColor)
-                    .blur(radius: 4)
-                    .offset(x: -8, y: -8)
-                
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .padding(2)
-                
-            })
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.black.opacity(0.06), lineWidth: 1)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: Color.black.opacity(theme == .dark ? 0.20 : 0.12), radius: 20, x: 20, y: 20)
-        .shadow(color: Color.black.opacity(0.04), radius: 3, x: 0, y: 2)
+        .standardCardFrame(theme: theme, cornerRadius: 20)
         .padding(.vertical, verticalPadding)
         
     }
@@ -629,28 +598,7 @@ extension View {
         
         return self.padding(.vertical, verticalPadding)
             .padding(innerPadding)
-            .background(
-                ZStack {
-                    theme.primaryColor.opacity(0.12)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(theme.cardColor)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-                    
-                })
-            .overlay(
-                // Профессиональная темная обводка
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.black.opacity(0.08), lineWidth: 1)
-            )
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
-            .shadow(color: Color.black.opacity(0.06), radius: 3, x: 0, y: 2)
+            .standardCardFrame(theme: theme, cornerRadius: 20)
             .padding(outerPadding)
     }
 }

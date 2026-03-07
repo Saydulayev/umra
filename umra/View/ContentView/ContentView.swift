@@ -52,7 +52,7 @@ struct ContentView: View {
         StepItem(id: 4, badgeText: "ISTILAM", badgeColor: Color(red: 0.831, green: 0.635, blue: 0.306), step: .step5, titleKey: "title_black_stone_screen"),   // Amber #D4A24E
         StepItem(id: 5, badgeText: "SA'I", badgeColor: Color(red: 0.392, green: 0.522, blue: 0.478), step: .step6, titleKey: "title_safa_and_marva_screen"),   // Sage #64857A
         StepItem(id: 6, badgeText: "HALQ\nTAQSIR", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step7, titleKey: "title_shave_head_screen"),       // Emerald #10B981
-        StepItem(id: 7, badgeText: "INFO", badgeColor: Color(red: 0.420, green: 0.447, blue: 0.502), step: .useful, titleKey: "Useful")                        // Slate #6B7280
+        StepItem(id: 7, badgeText: "INFO", badgeColor: Color(red: 0.29, green: 0.51, blue: 0.78), step: .useful, titleKey: "Useful")  // Синий — ассоциация с меню «Полезное»
     ]
     
     private var numberedSteps: [StepItem] {
@@ -114,6 +114,10 @@ struct ContentView: View {
     
     private var listPadding: CGFloat {
         isIPad ? 20 : 16
+    }
+    
+    private var listCardCornerRadius: CGFloat {
+        isIPad ? 28 : 24
     }
     
     // MARK: - Body
@@ -201,19 +205,53 @@ struct ContentView: View {
                 }
                 .padding(.horizontal, 16)
             } else {
-                LazyVStack(spacing: listSpacing) {
-                    ForEach(steps) { stepItem in
+                VStack(spacing: 0) {
+                    ForEach(Array(numberedSteps.enumerated()), id: \.element.id) { idx, stepItem in
                         Button {
                             navigationPath.append(stepItem.step)
                         } label: {
                             StepRow(stepItem: stepItem, index: stepItem.id)
                         }
                         .buttonStyle(PlainButtonStyle())
-                        .padding(.horizontal, listPadding)
                         .id("\(stepItem.step)-\(stepItem.id)")
+                        
+                        if idx < numberedSteps.count - 1 {
+                            Divider()
+                                .background(themeManager.selectedTheme.textColor.opacity(0.10))
+                                .padding(.leading, isIPad ? 112 : 92)
+                        }
                     }
                 }
-                .padding(.bottom, 32)
+                .background(themeManager.selectedTheme.cardColor)
+                .overlay(
+                    RoundedRectangle(cornerRadius: listCardCornerRadius, style: .continuous)
+                        .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: listCardCornerRadius, style: .continuous))
+                .shadow(color: themeManager.selectedTheme.cardShadowColor.opacity(themeManager.selectedTheme == .dark ? 0.40 : 0.18),
+                        radius: 18, x: 0, y: 8)
+                .padding(.horizontal, listPadding)
+
+                if let usefulItem = steps.first(where: { $0.step == .useful }) {
+                    Button {
+                        navigationPath.append(usefulItem.step)
+                    } label: {
+                        StepRow(stepItem: usefulItem, index: usefulItem.id)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .background(themeManager.selectedTheme.cardColor)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: listCardCornerRadius, style: .continuous)
+                            .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
+                    )
+                    .clipShape(RoundedRectangle(cornerRadius: listCardCornerRadius, style: .continuous))
+                    .shadow(color: themeManager.selectedTheme.cardShadowColor.opacity(themeManager.selectedTheme == .dark ? 0.40 : 0.18),
+                            radius: 18, x: 0, y: 8)
+                    .padding(.horizontal, listPadding)
+                    .padding(.top, 16)
+                }
+
+                Spacer().frame(height: 32)
             }
         }
     }
@@ -238,7 +276,7 @@ struct ContentView: View {
                     .clipShape(Capsule())
                     .overlay(
                         Capsule()
-                            .stroke(themeManager.selectedTheme.textColor.opacity(0.1), lineWidth: 1)
+                            .stroke(themeManager.selectedTheme.textColor.opacity(0.1), lineWidth: 0.5)
                     )
             }
         }
@@ -409,17 +447,10 @@ private struct StepRow: View {
                 .font(.system(size: isIPad ? 16 : 14, weight: .semibold))
                 .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.25))
         }
-        .padding(isIPad ? 24 : 20)
-        .background(
-            RoundedRectangle(cornerRadius: 32)
-                .fill(themeManager.selectedTheme.cardColor)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 32)
-                        .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
-                )
-                .shadow(color: themeManager.selectedTheme.cardShadowColor,
-                        radius: 12, x: 0, y: 4)
-        )
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
+        .padding(.horizontal, isIPad ? 24 : 20)
+        .padding(.vertical, isIPad ? 16 : 14)
     }
 }
 
@@ -431,8 +462,6 @@ private struct StepRow: View {
         .environment(FontManager())
         .environment(PurchaseManager())
 }
-
-
 
 
 

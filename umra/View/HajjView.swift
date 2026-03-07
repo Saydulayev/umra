@@ -87,6 +87,10 @@ struct HajjView: View {
     private var listPadding: CGFloat {
         isIPad ? 20 : 16
     }
+
+    private var listCardCornerRadius: CGFloat {
+        isIPad ? 28 : 24
+    }
     
     var body: some View {
         mainContentView
@@ -161,18 +165,25 @@ struct HajjView: View {
                 }
                 .padding(.horizontal, 16)
             } else {
-                LazyVStack(spacing: listSpacing) {
-                    ForEach(steps) { stepItem in
+                VStack(spacing: 0) {
+                    ForEach(Array(steps.enumerated()), id: \.element.id) { idx, stepItem in
                         Button {
                             navigationPath.append(stepItem.step)
                         } label: {
                             HajjStepRow(stepItem: stepItem, index: stepItem.id)
                         }
                         .buttonStyle(PlainButtonStyle())
-                        .padding(.horizontal, listPadding)
                         .id("\(stepItem.step)-\(stepItem.id)")
+                        
+                        if idx < steps.count - 1 {
+                            Divider()
+                                .background(themeManager.selectedTheme.textColor.opacity(0.10))
+                                .padding(.leading, isIPad ? 112 : 92)
+                        }
                     }
                 }
+                .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: listCardCornerRadius)
+                .padding(.horizontal, listPadding)
                 .padding(.bottom, 32)
             }
         }
@@ -198,7 +209,7 @@ struct HajjView: View {
                     .clipShape(Capsule())
                     .overlay(
                         Capsule()
-                            .stroke(themeManager.selectedTheme.textColor.opacity(0.1), lineWidth: 1)
+                            .stroke(themeManager.selectedTheme.textColor.opacity(0.1), lineWidth: 0.5)
                     )
             }
         }
@@ -369,17 +380,10 @@ private struct HajjStepRow: View {
                 .font(.system(size: isIPad ? 16 : 14, weight: .semibold))
                 .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.25))
         }
-        .padding(isIPad ? 24 : 20)
-        .background(
-            RoundedRectangle(cornerRadius: 32)
-                .fill(themeManager.selectedTheme.cardColor)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 32)
-                        .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
-                )
-                .shadow(color: themeManager.selectedTheme.cardShadowColor,
-                        radius: 12, x: 0, y: 4)
-        )
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
+        .padding(.horizontal, isIPad ? 24 : 20)
+        .padding(.vertical, isIPad ? 16 : 14)
     }
 }
 

@@ -58,7 +58,7 @@ enum AppTheme: String, CaseIterable, Sendable {
         case .light:
             return Color(red: 0.961, green: 0.961, blue: 0.961)  // #F5F5F5
         case .dark:
-            return Color(red: 0.149, green: 0.149, blue: 0.149)  // #262626
+            return Color(red: 0.11, green: 0.11, blue: 0.115)  // темнее
         }
     }
     
@@ -67,7 +67,7 @@ enum AppTheme: String, CaseIterable, Sendable {
         case .light:
             return Color(red: 0.929, green: 0.929, blue: 0.933)  // #EDEDEE
         case .dark:
-            return Color(red: 0.094, green: 0.094, blue: 0.098)  // #18181A
+            return Color(red: 0.055, green: 0.055, blue: 0.06)  // темнее
         }
     }
     
@@ -78,7 +78,7 @@ enum AppTheme: String, CaseIterable, Sendable {
         case .light:
             return Color(red: 0.949, green: 0.949, blue: 0.949)  // #F2F2F2 — чуть темнее, чтобы карточки выделялись
         case .dark:
-            return Color(red: 0.094, green: 0.094, blue: 0.098)  // #18181A — чуть темнее
+            return Color(red: 0.055, green: 0.055, blue: 0.06)  // темнее
         }
     }
     
@@ -87,7 +87,7 @@ enum AppTheme: String, CaseIterable, Sendable {
         case .light:
             return Color(red: 0.941, green: 0.941, blue: 0.941)  // #F0F0F0
         case .dark:
-            return Color(red: 0.180, green: 0.180, blue: 0.180)  // #2E2E2E
+            return Color(red: 0.12, green: 0.12, blue: 0.125)  // темнее
         }
     }
     
@@ -96,7 +96,7 @@ enum AppTheme: String, CaseIterable, Sendable {
         case .light:
             return Color(red: 0.929, green: 0.929, blue: 0.933)  // #EDEDEE
         case .dark:
-            return Color(red: 0.165, green: 0.165, blue: 0.173)  // #2A2A2C
+            return Color(red: 0.12, green: 0.12, blue: 0.13)  // темнее
         }
     }
     
@@ -105,7 +105,7 @@ enum AppTheme: String, CaseIterable, Sendable {
         case .light:
             return Color(red: 1.0, green: 1.0, blue: 1.0)        // #FFFFFF
         case .dark:
-            return Color(red: 0.180, green: 0.180, blue: 0.184)  // #2E2E2F — светлее фона, карточка лучше читается
+            return Color(red: 0.14, green: 0.14, blue: 0.145)  // темнее, но светлее фона
         }
     }
     
@@ -124,6 +124,16 @@ enum AppTheme: String, CaseIterable, Sendable {
             return Color.black.opacity(0.10)
         case .dark:
             return Color.black.opacity(0.45)
+        }
+    }
+    
+    /// Нейтральная подсветка карточки (вместо зелёного оттенка primaryColor)
+    var cardTintColor: Color {
+        switch self {
+        case .light:
+            return Color.white.opacity(0.6)
+        case .dark:
+            return Color.white.opacity(0.06)
         }
     }
     

@@ -59,7 +59,7 @@ struct SettingsView: View {
     
     var body: some View {
         ZStack {
-            themeManager.selectedTheme.lightBackgroundColor
+            themeManager.selectedTheme.backgroundColor
                 .ignoresSafeArea()
             ScrollView {
                 VStack(spacing: contentSpacing) {
@@ -240,7 +240,7 @@ struct SettingsSection<Content: View>: View {
                         y: 2)
                 .overlay(
                     RoundedRectangle(cornerRadius: SettingsMetrics.cornerRadius, style: .continuous)
-                        .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
+                        .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 0.5)
                 )
         )
     }
@@ -360,7 +360,7 @@ struct ThemePreviewView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                themeManager.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
                 
                 VStack(spacing: isIPad ? 28 : 20) {
@@ -447,7 +447,7 @@ struct ThemePreviewView: View {
                         radius: 8, x: 0, y: 2)
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(isSelected ? theme.primaryColor.opacity(0.5) : themeManager.selectedTheme.cardBorderColor, lineWidth: isSelected ? 2 : 1)
+                        .stroke(isSelected ? theme.primaryColor.opacity(0.5) : themeManager.selectedTheme.cardBorderColor, lineWidth: isSelected ? 2 : 0.5)
                 )
         )
     }

@@ -111,34 +111,7 @@ extension Text {
             .padding(.vertical, 16)
             .padding(.horizontal, 8)
             .frame(maxWidth: .infinity)
-            .background(
-                ZStack {
-                    theme.primaryColor.opacity(0.08)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(theme.cardColor)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    theme.gradientTopColor,
-                                    theme.gradientBottomColor
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .padding(2)
-                })
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.black.opacity(0.06), lineWidth: 1)
-            )
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(color: Color.black.opacity(theme == .dark ? 0.15 : 0.04), radius: 3, x: 0, y: 2)
+            .standardCardFrame(theme: theme, cornerRadius: 20, shadowRadius: 12, shadowYOffset: 4)
             .padding(.horizontal)
     }
     
@@ -150,34 +123,7 @@ extension Text {
             .padding(.vertical, 16)
             .padding(.horizontal, 8)
             .frame(maxWidth: .infinity)
-            .background(
-                ZStack {
-                    theme.primaryColor.opacity(0.08)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(theme.cardColor)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    theme.gradientTopColor,
-                                    theme.gradientBottomColor
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .padding(2)
-                })
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(theme.cardBorderColor, lineWidth: 1)
-            )
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(color: theme.cardShadowColor, radius: 3, x: 0, y: 2)
+            .standardCardFrame(theme: theme, cornerRadius: 20, shadowRadius: 12, shadowYOffset: 4)
             .padding(.horizontal)
     }
 }
@@ -187,6 +133,5 @@ extension Text {
         .environment(ThemeManager())
         .environment(LocalizationManager())
 }
-
 
 

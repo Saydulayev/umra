@@ -17,28 +17,7 @@ struct NeumorphicBackground: ViewModifier {
     
     func body(content: Content) -> some View {
         return content
-            .background(
-                ZStack {
-                    theme.primaryColor.opacity(0.08)
-                    
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .foregroundColor(theme.cardColor)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .padding(2)
-                }
-            )
-            .shadow(color: Color.black.opacity(theme == .dark ? 0.25 : 0.15), radius: 20, x: 20, y: 20)
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .standardCardFrame(theme: theme, cornerRadius: cornerRadius)
     }
 }
 
@@ -109,7 +88,7 @@ struct DonationSheetView: View {
         NavigationStack {
             ZStack {
                 // Фоновый цвет для экрана
-                themeManager.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
                 
                 if isIPad {

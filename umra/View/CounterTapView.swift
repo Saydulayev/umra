@@ -83,22 +83,7 @@ struct CounterTapView: View {
                             .lineSpacing(15)
                             .multilineTextAlignment(.center)
                             .frame(width: buttonWidth, height: buttonHeight)
-                            .background(
-                                ZStack {
-                                    themeManager.selectedTheme.primaryColor.opacity(0.1)
-                                    
-                                    RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                                        .foregroundColor(themeManager.selectedTheme.cardColor)
-                                        .blur(radius: 4)
-                                        .offset(x: -8, y: -8)
-                                    
-                                    RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                                        .fill(themeManager.selectedTheme.lightBackgroundColor)
-                                        .padding(2)
-                                    
-                                })
-                            .clipShape(RoundedRectangle(cornerRadius: isIPad ? 24 : 20))
-                            .shadow(color: themeManager.selectedTheme.cardShadowColor, radius: 20, x: 20, y: 20)
+                            .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: isIPad ? 24 : 20)
                     }
                     
                     Button(action: {
@@ -110,22 +95,7 @@ struct CounterTapView: View {
                             .padding(buttonPadding)
                             .multilineTextAlignment(.center)
                             .frame(width: buttonWidth, height: buttonHeight)
-                            .background(
-                                ZStack {
-                                    themeManager.selectedTheme.primaryColor.opacity(0.1)
-                                    
-                                    RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                                        .foregroundColor(themeManager.selectedTheme.cardColor)
-                                        .blur(radius: 4)
-                                        .offset(x: -8, y: -8)
-                                    
-                                    RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                                        .fill(themeManager.selectedTheme.lightBackgroundColor)
-                                        .padding(2)
-                                    
-                                })
-                            .clipShape(RoundedRectangle(cornerRadius: isIPad ? 24 : 20))
-                            .shadow(color: themeManager.selectedTheme.cardShadowColor, radius: 20, x: 20, y: 20)
+                            .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: isIPad ? 24 : 20)
                     }
                 }
             }
