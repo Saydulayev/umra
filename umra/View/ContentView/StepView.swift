@@ -46,10 +46,10 @@ struct StepView: View {
     }
     
     private var badgeFontSize: CGFloat {
-        let len = badgeText.count
+        let longestLine = badgeText.components(separatedBy: "\n").map(\.count).max() ?? 0
         let base: CGFloat = isIPad ? 14 : 10
-        if len > 6 { return base * 0.78 }
-        if len > 4 { return base * 0.9 }
+        if longestLine > 6 { return base * 0.78 }
+        if longestLine > 4 { return base * 0.9 }
         return base
     }
     
@@ -63,7 +63,8 @@ struct StepView: View {
                         .font(.system(size: badgeFontSize, weight: .bold, design: .rounded))
                         .foregroundColor(badgeColor)
                         .minimumScaleFactor(0.5)
-                        .lineLimit(1)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
                 }
                 .frame(width: badgeDiameter, height: badgeDiameter)
                 .frame(maxWidth: .infinity)

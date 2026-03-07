@@ -47,11 +47,11 @@ struct ContentView: View {
     private let steps: [StepItem] = [
         StepItem(id: 0, badgeText: "IHRAM", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step1, titleKey: "title_ihram_screen"),         // Emerald #10B981
         StepItem(id: 1, badgeText: "TAWAF", badgeColor: Color(red: 0.831, green: 0.635, blue: 0.306), step: .step2, titleKey: "title_round_kaaba_screen"),     // Amber #D4A24E
-        StepItem(id: 2, badgeText: "MAQAM", badgeColor: Color(red: 0.078, green: 0.722, blue: 0.651), step: .step3, titleKey: "title_place_ibrohim_stand_screen"), // Teal #14B8A6
+        StepItem(id: 2, badgeText: "MAQAM\nIBRAHIM", badgeColor: Color(red: 0.078, green: 0.722, blue: 0.651), step: .step3, titleKey: "title_place_ibrohim_stand_screen"), // Teal #14B8A6
         StepItem(id: 3, badgeText: "ZAMZAM", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step4, titleKey: "title_water_zamzam_screen"),   // Emerald #10B981
         StepItem(id: 4, badgeText: "ISTILAM", badgeColor: Color(red: 0.831, green: 0.635, blue: 0.306), step: .step5, titleKey: "title_black_stone_screen"),   // Amber #D4A24E
         StepItem(id: 5, badgeText: "SA'I", badgeColor: Color(red: 0.392, green: 0.522, blue: 0.478), step: .step6, titleKey: "title_safa_and_marva_screen"),   // Sage #64857A
-        StepItem(id: 6, badgeText: "HALQ", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step7, titleKey: "title_shave_head_screen"),       // Emerald #10B981
+        StepItem(id: 6, badgeText: "HALQ\nTAQSIR", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step7, titleKey: "title_shave_head_screen"),       // Emerald #10B981
         StepItem(id: 7, badgeText: "INFO", badgeColor: Color(red: 0.420, green: 0.447, blue: 0.502), step: .useful, titleKey: "Useful")                        // Slate #6B7280
     ]
     
@@ -365,10 +365,10 @@ private struct StepRow: View {
     }
     
     private var badgeFontSize: CGFloat {
-        let textLength = stepItem.badgeText.count
+        let longestLine = stepItem.badgeText.components(separatedBy: "\n").map(\.count).max() ?? 0
         let baseSize: CGFloat = isIPad ? 14 : 10
-        if textLength > 6 { return baseSize * 0.80 }
-        if textLength > 4 { return baseSize * 0.90 }
+        if longestLine > 6 { return baseSize * 0.80 }
+        if longestLine > 4 { return baseSize * 0.90 }
         return baseSize
     }
     
@@ -381,9 +381,9 @@ private struct StepRow: View {
                     .font(.system(size: badgeFontSize, weight: .bold))
                     .tracking(-0.5)
                     .foregroundColor(stepItem.badgeColor)
-                    .minimumScaleFactor(0.6)
+                    .minimumScaleFactor(0.5)
                     .multilineTextAlignment(.center)
-                    .lineLimit(1)
+                    .lineLimit(2)
                     .padding(.horizontal, 4)
             }
             .frame(width: badgeSize, height: badgeSize)
@@ -399,7 +399,8 @@ private struct StepRow: View {
                 Text(LocalizedStringKey(stepItem.titleKey), bundle: localizationManager.bundle)
                     .font(.system(size: isIPad ? 24 : 18, weight: .semibold))
                     .foregroundColor(themeManager.selectedTheme.textColor)
-                    .lineLimit(2)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.75)
             }
             
             Spacer()
