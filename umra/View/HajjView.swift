@@ -40,7 +40,7 @@ struct HajjView: View {
         HajjStepItem(id: 0, badgeText: "TARWIYAH", badgeColor: Color(red: 0.388, green: 0.400, blue: 0.945), step: .step1, titleKey: "hajj_step1_title"),  // Indigo #6366F1
         HajjStepItem(id: 1, badgeText: "ARAFAT", badgeColor: Color(red: 0.545, green: 0.361, blue: 0.965), step: .step2, titleKey: "hajj_step2_title"),     // Violet #8B5CF6
         HajjStepItem(id: 2, badgeText: "NAHR", badgeColor: Color(red: 0.878, green: 0.478, blue: 0.431), step: .step3, titleKey: "hajj_step3_title"),       // Rose #E07A6E
-        HajjStepItem(id: 3, badgeText: "TASHRIQ", badgeColor: Color(red: 0.392, green: 0.522, blue: 0.478), step: .step4, titleKey: "hajj_step4_title"),    // Sage #64857A
+        HajjStepItem(id: 3, badgeText: "TASHRIQ", badgeColor: Color(red: 0.42, green: 0.61, blue: 0.56), step: .step4, titleKey: "hajj_step4_title"),    // Светлый sage #6B9B8E
         HajjStepItem(id: 4, badgeText: "WADA'", badgeColor: Color(red: 0.078, green: 0.722, blue: 0.651), step: .step5, titleKey: "hajj_step5_title")       // Teal #14B8A6
     ]
     

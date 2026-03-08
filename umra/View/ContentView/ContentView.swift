@@ -50,7 +50,7 @@ struct ContentView: View {
         StepItem(id: 2, badgeText: "MAQAM\nIBRAHIM", badgeColor: Color(red: 0.078, green: 0.722, blue: 0.651), step: .step3, titleKey: "title_place_ibrohim_stand_screen"), // Teal #14B8A6
         StepItem(id: 3, badgeText: "ZAMZAM", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step4, titleKey: "title_water_zamzam_screen"),   // Emerald #10B981
         StepItem(id: 4, badgeText: "ISTILAM", badgeColor: Color(red: 0.831, green: 0.635, blue: 0.306), step: .step5, titleKey: "title_black_stone_screen"),   // Amber #D4A24E
-        StepItem(id: 5, badgeText: "SA'I", badgeColor: Color(red: 0.392, green: 0.522, blue: 0.478), step: .step6, titleKey: "title_safa_and_marva_screen"),   // Sage #64857A
+        StepItem(id: 5, badgeText: "SA'I", badgeColor: Color(red: 0.42, green: 0.61, blue: 0.56), step: .step6, titleKey: "title_safa_and_marva_screen"),   // Светлый sage #6B9B8E
         StepItem(id: 6, badgeText: "HALQ\nTAQSIR", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step7, titleKey: "title_shave_head_screen"),       // Emerald #10B981
         StepItem(id: 7, badgeText: "INFO", badgeColor: Color(red: 0.29, green: 0.51, blue: 0.78), step: .useful, titleKey: "Useful")  // Синий — ассоциация с меню «Полезное»
     ]
