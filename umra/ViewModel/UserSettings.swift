@@ -56,18 +56,18 @@ enum AppTheme: String, CaseIterable, Sendable {
     var gradientTopColor: Color {
         switch self {
         case .light:
-            return Color(red: 0.961, green: 0.961, blue: 0.961)  // #F5F5F5
+            return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
-            return Color(red: 0.11, green: 0.11, blue: 0.115)  // темнее
+            return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
         }
     }
     
     var gradientBottomColor: Color {
         switch self {
         case .light:
-            return Color(red: 0.929, green: 0.929, blue: 0.933)  // #EDEDEE
+            return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
-            return Color(red: 0.055, green: 0.055, blue: 0.06)  // темнее
+            return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
         }
     }
     
@@ -76,36 +76,36 @@ enum AppTheme: String, CaseIterable, Sendable {
     var backgroundColor: Color {
         switch self {
         case .light:
-            return Color(red: 0.949, green: 0.949, blue: 0.949)  // #F2F2F2 — чуть темнее, чтобы карточки выделялись
+            return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
-            return Color(red: 0.055, green: 0.055, blue: 0.06)  // темнее
+            return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
         }
     }
     
     var lightBackgroundColor: Color {
         switch self {
         case .light:
-            return Color(red: 0.941, green: 0.941, blue: 0.941)  // #F0F0F0
+            return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
-            return Color(red: 0.12, green: 0.12, blue: 0.125)  // темнее
+            return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
         }
     }
     
     var textBackgroundColor: Color {
         switch self {
         case .light:
-            return Color(red: 0.929, green: 0.929, blue: 0.933)  // #EDEDEE
+            return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
-            return Color(red: 0.12, green: 0.12, blue: 0.13)  // темнее
+            return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
         }
     }
     
     var cardColor: Color {
         switch self {
         case .light:
-            return Color(red: 1.0, green: 1.0, blue: 1.0)        // #FFFFFF
+            return Color(red: 1.0, green: 1.0, blue: 1.0)        // #ffffff
         case .dark:
-            return Color(red: 0.14, green: 0.14, blue: 0.145)  // темнее, но светлее фона
+            return Color(red: 26/255, green: 26/255, blue: 26/255)  // #1a1a1a
         }
     }
     
