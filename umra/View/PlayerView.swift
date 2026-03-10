@@ -98,12 +98,29 @@ struct PlayerView: View {
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "PlayerView")
 
     // MARK: - UI Helpers
-    
-    // Цвет тени - всегда как в темной теме, независимо от системной темы
-    private func adaptiveShadowColor(intensity: Double = 0.5) -> Color {
-        let clamped = min(max(intensity, 0.0), 1.0)
-        // Всегда используем прозрачность как в темной теме (0.55)
-        return Color.black.opacity(clamped * 0.55)
+
+    private var playerControlSize: CGFloat {
+        70
+    }
+
+    private var activeControlBorderColor: Color {
+        themeManager.selectedTheme.activeButtonColor.opacity(themeManager.selectedTheme == .dark ? 0.5 : 0.35)
+    }
+
+    private func playerControl<Content: View>(
+        isActive: Bool,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        content()
+            .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
+            .frame(width: playerControlSize, height: playerControlSize)
+            .standardCircularCardFrame(
+                theme: themeManager.selectedTheme,
+                borderWidth: isActive ? 1.5 : 1,
+                borderColor: isActive ? activeControlBorderColor : nil,
+                shadowRadius: 16,
+                shadowYOffset: 8
+            )
     }
 
     var body: some View {
@@ -168,27 +185,10 @@ struct PlayerView: View {
     
     private func playerButton(imageName: String, isActive: Bool, action: @escaping () -> Void) -> some View {
         Button(action: action) {
-            Image(systemName: imageName)
-                .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
-                .font(.system(size: 16, weight: .bold))
-                .frame(width: 70, height: 70)
-                .background(
-                    ZStack {
-                        themeManager.selectedTheme.primaryColor.opacity(0.12)
-
-                        Circle()
-                            .foregroundColor(themeManager.selectedTheme.cardColor)
-                            .blur(radius: 4)
-                            .offset(x: -8, y: -8)
-
-                        Circle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .padding(2)
-                    }
-                    .clipShape(Circle())
-                    .compositingGroup()
-                    .shadow(color: adaptiveShadowColor(intensity: 0.4), radius: 16, x: 12, y: 12)
-                )
+            playerControl(isActive: isActive) {
+                Image(systemName: imageName)
+                    .font(.system(size: 16, weight: .bold))
+            }
         }
         .padding()
     }
@@ -198,29 +198,12 @@ struct PlayerView: View {
             action()
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         } label: {
-            Text(text)
-                .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
-                .font(.system(size: 16, weight: .bold))
-                .lineLimit(1)
-                .minimumScaleFactor(0.5)
-                .frame(width: 70, height: 70)
-                .background(
-                    ZStack {
-                        themeManager.selectedTheme.primaryColor.opacity(0.12)
-
-                        Circle()
-                            .foregroundColor(themeManager.selectedTheme.cardColor)
-                            .blur(radius: 4)
-                            .offset(x: -8, y: -8)
-
-                        Circle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .padding(2)
-                    }
-                    .clipShape(Circle())
-                    .compositingGroup()
-                    .shadow(color: adaptiveShadowColor(intensity: 0.4), radius: 16, x: 12, y: 12)
-                )
+            playerControl(isActive: isActive) {
+                Text(text)
+                    .font(.system(size: 16, weight: .bold))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+            }
         }
         .padding()
     }

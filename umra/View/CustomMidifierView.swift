@@ -56,6 +56,26 @@ extension View {
             )
         )
     }
+
+    func standardCircularCardFrame(
+        theme: AppTheme,
+        borderWidth: CGFloat = 1,
+        borderColor: Color? = nil,
+        fillColor: Color? = nil,
+        shadowRadius: CGFloat = 16,
+        shadowYOffset: CGFloat = 8
+    ) -> some View {
+        modifier(
+            StandardCircularCardFrameModifier(
+                theme: theme,
+                borderWidth: borderWidth,
+                borderColor: borderColor,
+                fillColor: fillColor,
+                shadowRadius: shadowRadius,
+                shadowYOffset: shadowYOffset
+            )
+        )
+    }
 }
 
 private struct StandardCardFrameModifier: ViewModifier {
@@ -79,6 +99,31 @@ private struct StandardCardFrameModifier: ViewModifier {
                     .stroke(borderColor ?? theme.cardBorderColor, lineWidth: borderWidth)
             )
             .clipShape(shape)
+            .shadow(
+                color: theme.cardFrameShadowColor,
+                radius: shadowRadius,
+                x: 0,
+                y: shadowYOffset
+            )
+    }
+}
+
+private struct StandardCircularCardFrameModifier: ViewModifier {
+    let theme: AppTheme
+    let borderWidth: CGFloat
+    let borderColor: Color?
+    let fillColor: Color?
+    let shadowRadius: CGFloat
+    let shadowYOffset: CGFloat
+
+    func body(content: Content) -> some View {
+        content
+            .background(Circle().fill(fillColor ?? theme.cardColor))
+            .overlay(
+                Circle()
+                    .stroke(borderColor ?? theme.cardBorderColor, lineWidth: borderWidth)
+            )
+            .clipShape(Circle())
             .shadow(
                 color: theme.cardFrameShadowColor,
                 radius: shadowRadius,
