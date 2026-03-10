@@ -188,35 +188,36 @@ extension Image {
 // MARK: - Модификаторы для текста
 struct StepTextModifier: ViewModifier {
     @Environment(ThemeManager.self) private var themeManager
+
+    private var isIPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
     
     private var dynamicFontSize: CGFloat {
-        UIDevice.current.userInterfaceIdiom == .pad ? 58 : 38
+        isIPad ? 58 : 38
     }
     
     private var customPadding: CGFloat {
-        UIDevice.current.userInterfaceIdiom == .pad ? 32 : 16
+        isIPad ? 32 : 16
+    }
+
+    private var cardCornerRadius: CGFloat {
+        isIPad ? 24 : 20
     }
     
     func body(content: Content) -> some View {
-        return content
+        content
             .padding(customPadding)
             .font(.custom("Amiri Quran", size: dynamicFontSize))
             .lineSpacing(15)
             .multilineTextAlignment(.center)
+            .foregroundStyle(themeManager.selectedTheme.textColor)
             .frame(maxWidth: .infinity)
-            .background(
-                ZStack {
-                    themeManager.selectedTheme.textBackgroundColor
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(themeManager.selectedTheme.cardColor)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .padding(2)
-                })
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .adaptiveShadow(radius: 20, x: 20, y: 20, intensity: 0.5)
+            .standardCardFrame(
+                theme: themeManager.selectedTheme,
+                cornerRadius: cardCornerRadius,
+                borderWidth: 1
+            )
             .padding()
     }
 }
