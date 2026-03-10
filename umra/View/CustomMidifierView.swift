@@ -39,6 +39,7 @@ extension View {
         theme: AppTheme,
         cornerRadius: CGFloat = 20,
         borderWidth: CGFloat = 1,
+        borderColor: Color? = nil,
         fillColor: Color? = nil,
         shadowRadius: CGFloat = 18,
         shadowYOffset: CGFloat = 8
@@ -48,6 +49,7 @@ extension View {
                 theme: theme,
                 cornerRadius: cornerRadius,
                 borderWidth: borderWidth,
+                borderColor: borderColor,
                 fillColor: fillColor,
                 shadowRadius: shadowRadius,
                 shadowYOffset: shadowYOffset
@@ -60,20 +62,25 @@ private struct StandardCardFrameModifier: ViewModifier {
     let theme: AppTheme
     let cornerRadius: CGFloat
     let borderWidth: CGFloat
+    let borderColor: Color?
     let fillColor: Color?
     let shadowRadius: CGFloat
     let shadowYOffset: CGFloat
 
+    private var shape: RoundedRectangle {
+        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+    }
+
     func body(content: Content) -> some View {
         content
-            .background(fillColor ?? theme.cardColor)
+            .background(shape.fill(fillColor ?? theme.cardColor))
             .overlay(
-                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .stroke(theme.cardBorderColor, lineWidth: borderWidth)
+                shape
+                    .stroke(borderColor ?? theme.cardBorderColor, lineWidth: borderWidth)
             )
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+            .clipShape(shape)
             .shadow(
-                color: theme.cardShadowColor.opacity(theme == .dark ? 0.40 : 0.18),
+                color: theme.cardFrameShadowColor,
                 radius: shadowRadius,
                 x: 0,
                 y: shadowYOffset

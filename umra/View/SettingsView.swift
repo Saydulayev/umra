@@ -231,17 +231,13 @@ struct SettingsSection<Content: View>: View {
         VStack(spacing: 0) {
             content
         }
-        .background(
-            RoundedRectangle(cornerRadius: SettingsMetrics.cornerRadius, style: .continuous)
-                .fill(cardBackground)
-                .shadow(color: themeManager.selectedTheme.cardShadowColor,
-                        radius: SettingsMetrics.isIPad ? 14 : 10,
-                        x: 0,
-                        y: 2)
-                .overlay(
-                    RoundedRectangle(cornerRadius: SettingsMetrics.cornerRadius, style: .continuous)
-                        .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 0.5)
-                )
+        .standardCardFrame(
+            theme: themeManager.selectedTheme,
+            cornerRadius: SettingsMetrics.cornerRadius,
+            borderWidth: 1,
+            fillColor: cardBackground,
+            shadowRadius: SettingsMetrics.isIPad ? 14 : 10,
+            shadowYOffset: 2
         )
     }
 }
@@ -440,15 +436,13 @@ struct ThemePreviewView: View {
             }
         }
         .padding(isIPad ? 20 : 16)
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(themeManager.selectedTheme.cardColor)
-                .shadow(color: themeManager.selectedTheme.cardShadowColor,
-                        radius: 8, x: 0, y: 2)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(isSelected ? theme.primaryColor.opacity(0.5) : themeManager.selectedTheme.cardBorderColor, lineWidth: isSelected ? 2 : 0.5)
-                )
+        .standardCardFrame(
+            theme: themeManager.selectedTheme,
+            cornerRadius: 20,
+            borderWidth: isSelected ? 2 : 1,
+            borderColor: isSelected ? theme.primaryColor.opacity(0.5) : nil,
+            shadowRadius: 8,
+            shadowYOffset: 2
         )
     }
 }

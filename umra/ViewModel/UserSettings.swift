@@ -112,12 +112,21 @@ enum AppTheme: String, CaseIterable, Sendable {
     var cardBorderColor: Color {
         switch self {
         case .light:
-            return Color.black.opacity(0.09)
+            return Color.black.opacity(0.14)
         case .dark:
             return Color.white.opacity(0.12)
         }
     }
     
+    var cardFrameShadowColor: Color {
+        switch self {
+        case .light:
+            return Color.black.opacity(0.08)
+        case .dark:
+            return Color.black.opacity(0.18)
+        }
+    }
+
     var cardShadowColor: Color {
         switch self {
         case .light:
@@ -261,6 +270,5 @@ class UserPreferences {
         hasRatedApp = UserDefaults.standard.bool(forKey: UserDefaultsKey.hasRatedApp)
     }
 }
-
 
 

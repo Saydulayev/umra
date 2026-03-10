@@ -222,14 +222,11 @@ struct ContentView: View {
                         }
                     }
                 }
-                .background(themeManager.selectedTheme.cardColor)
-                .overlay(
-                    RoundedRectangle(cornerRadius: listCardCornerRadius, style: .continuous)
-                        .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
+                .standardCardFrame(
+                    theme: themeManager.selectedTheme,
+                    cornerRadius: listCardCornerRadius,
+                    borderWidth: 1
                 )
-                .clipShape(RoundedRectangle(cornerRadius: listCardCornerRadius, style: .continuous))
-                .shadow(color: themeManager.selectedTheme.cardShadowColor.opacity(themeManager.selectedTheme == .dark ? 0.40 : 0.18),
-                        radius: 18, x: 0, y: 8)
                 .padding(.horizontal, listPadding)
 
                 if let usefulItem = steps.first(where: { $0.step == .useful }) {
@@ -239,14 +236,11 @@ struct ContentView: View {
                         StepRow(stepItem: usefulItem, index: usefulItem.id)
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .background(themeManager.selectedTheme.cardColor)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: listCardCornerRadius, style: .continuous)
-                            .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
+                    .standardCardFrame(
+                        theme: themeManager.selectedTheme,
+                        cornerRadius: listCardCornerRadius,
+                        borderWidth: 1
                     )
-                    .clipShape(RoundedRectangle(cornerRadius: listCardCornerRadius, style: .continuous))
-                    .shadow(color: themeManager.selectedTheme.cardShadowColor.opacity(themeManager.selectedTheme == .dark ? 0.40 : 0.18),
-                            radius: 18, x: 0, y: 8)
                     .padding(.horizontal, listPadding)
                     .padding(.top, 16)
                 }
@@ -462,8 +456,6 @@ private struct StepRow: View {
         .environment(FontManager())
         .environment(PurchaseManager())
 }
-
-
 
 
 

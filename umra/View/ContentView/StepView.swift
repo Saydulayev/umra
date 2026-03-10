@@ -69,15 +69,12 @@ struct StepView: View {
                 .frame(width: badgeDiameter, height: badgeDiameter)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, isIPad ? 16 : 12)
-                .background(
-                    RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                        .fill(themeManager.selectedTheme.cardColor)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: isIPad ? 24 : 20)
-                                .stroke(themeManager.selectedTheme.cardBorderColor, lineWidth: 0.5)
-                        )
-                        .shadow(color: themeManager.selectedTheme.cardShadowColor,
-                                radius: 10, x: 0, y: 3)
+                .standardCardFrame(
+                    theme: themeManager.selectedTheme,
+                    cornerRadius: isIPad ? 24 : 20,
+                    borderWidth: 1,
+                    shadowRadius: 10,
+                    shadowYOffset: 3
                 )
                 
                 if let index, !(hideLastIndex && index == stepsCount - 1) {
