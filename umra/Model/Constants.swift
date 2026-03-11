@@ -71,6 +71,7 @@ enum UserDefaultsKey {
     static let selectedFont = "SelectedFont"
     static let selectedFontSize = "SelectedFontSize"
     static let tawafCircuitCount = "tawafCircuitCount"
+    static let saiRoundCount = "saiRoundCount"
     static let prayerCity = "prayerCity"
 }
 
