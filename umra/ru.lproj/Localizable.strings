@@ -457,8 +457,10 @@
 "theme_select_title" = "Выберите тему приложения";
 "theme_nur" = "Нур";
 "theme_layl" = "Лейл";
+"theme_emerald" = "Изумруд";
 "theme_nur_subtitle" = "Свет и спокойствие";
 "theme_layl_subtitle" = "Уют ночи";
+"theme_emerald_subtitle" = "Мягкое тонированное свечение";
 "done_button" = "Готово";
 
 /* Локализация табов и экранов */

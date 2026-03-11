@@ -433,8 +433,10 @@
 "theme_select_title" = "اختر سمة التطبيق";
 "theme_nur" = "نور";
 "theme_layl" = "ليل";
+"theme_emerald" = "زمرد";
 "theme_nur_subtitle" = "نور وسكينة";
 "theme_layl_subtitle" = "راحة الليل";
+"theme_emerald_subtitle" = "وهج هادئ ملوّن";
 "done_button" = "تم";
 
 /* Локализация табов и экранов */

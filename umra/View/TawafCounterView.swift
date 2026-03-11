@@ -132,15 +132,15 @@ struct RitualCounterCard: View {
     }
 
     private var statusBackground: Color {
-        statusColor.opacity(theme == .dark ? 0.20 : 0.12)
+        statusColor.opacity(theme.isDarkAppearance ? 0.20 : 0.12)
     }
 
-    private var cardBorderColor: Color {
-        theme.cardBorderColor
+    private var counterCardShadowRadius: CGFloat {
+        theme.usesTintedArabicCards ? (isIPad ? 18 : 14) : 18
     }
 
-    private var cardShadowColor: Color {
-        isCompleted ? theme.secondaryColor.opacity(0.14) : theme.cardShadowColor
+    private var counterCardShadowYOffset: CGFloat {
+        theme.usesTintedArabicCards ? (isIPad ? 10 : 6) : 8
     }
 
     private var accentGradient: LinearGradient {
@@ -249,12 +249,13 @@ struct RitualCounterCard: View {
             }
             .padding(.horizontal, horizontalPadding)
             .padding(.vertical, verticalPadding)
-            .background(cardBackground)
-            .overlay(
-                RoundedRectangle(cornerRadius: cardCornerRadius, style: .continuous)
-                    .stroke(cardBorderColor, lineWidth: 1)
+            .standardCardFrame(
+                theme: theme,
+                cornerRadius: cardCornerRadius,
+                borderWidth: 1,
+                shadowRadius: counterCardShadowRadius,
+                shadowYOffset: counterCardShadowYOffset
             )
-            .shadow(color: cardShadowColor, radius: isIPad ? 18 : 14, x: 0, y: isIPad ? 10 : 6)
             .padding(.horizontal, outerHorizontalPadding)
             .padding(.vertical, isIPad ? 18 : 14)
             .animation(.spring(response: 0.35, dampingFraction: 0.82), value: counter)
@@ -294,26 +295,6 @@ struct RitualCounterCard: View {
             }
         }
         .frame(maxWidth: .infinity)
-    }
-
-    private var cardBackground: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: cardCornerRadius, style: .continuous)
-                .fill(theme.cardColor)
-
-            Circle()
-                .fill(theme.primaryColor.opacity(theme == .dark ? 0.16 : 0.08))
-                .frame(width: isIPad ? 220 : 170, height: isIPad ? 220 : 170)
-                .blur(radius: isIPad ? 28 : 20)
-                .offset(x: isIPad ? 90 : 68, y: isIPad ? -80 : -60)
-
-            Circle()
-                .fill(theme.secondaryColor.opacity(theme == .dark ? 0.12 : 0.07))
-                .frame(width: isIPad ? 180 : 130, height: isIPad ? 180 : 130)
-                .blur(radius: isIPad ? 30 : 22)
-                .offset(x: isIPad ? -80 : -56, y: isIPad ? 90 : 72)
-        }
-        .clipShape(RoundedRectangle(cornerRadius: cardCornerRadius, style: .continuous))
     }
 
     private func localizedText(_ key: String) -> Text {

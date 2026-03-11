@@ -527,8 +527,10 @@ Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebe
 "theme_select_title" = "App-Design wählen";
 "theme_nur" = "Nur";
 "theme_layl" = "Layl";
+"theme_emerald" = "Smaragd";
 "theme_nur_subtitle" = "Licht und Gelassenheit";
 "theme_layl_subtitle" = "Nachtkomfort";
+"theme_emerald_subtitle" = "Sanftes getöntes Leuchten";
 "done_button" = "Fertig";
 
 /* Tab Lokalisierung */

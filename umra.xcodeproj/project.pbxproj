@@ -50,6 +50,7 @@
 		C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DFA2982A0BC00458ACB /* Step 7.swift */; };
 		C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */; };
 		C0BG00012CFF1F3C005F3ED9 /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BG00022CFF1F3C005F3ED9 /* BackgroundTaskManager.swift */; };
+		C2154FD22F61C40100216322 /* KFGQPC Uthmanic Script HAFS Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2154FD12F61C40100216322 /* KFGQPC Uthmanic Script HAFS Regular.otf */; };
 		C22958FD2E87F4B2006762B3 /* GlassIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = C22958FC2E87F4B2006762B3 /* GlassIcon.icon */; };
 		C24508EA2C9CD39D003E3E58 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508E92C9CD39D003E3E58 /* 1.png */; };
 		C24508EC2C9CD3A6003E3E58 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508EB2C9CD3A6003E3E58 /* 2.png */; };
@@ -117,6 +118,7 @@
 		C0BG00022CFF1F3C005F3ED9 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		C0DC35E12A0687DF002527D7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0DC35E22A068F21002527D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2154FD12F61C40100216322 /* KFGQPC Uthmanic Script HAFS Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KFGQPC Uthmanic Script HAFS Regular.otf"; sourceTree = "<group>"; };
 		C22958FC2E87F4B2006762B3 /* GlassIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = GlassIcon.icon; sourceTree = "<group>"; };
 		C24508E92C9CD39D003E3E58 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		C24508EB2C9CD3A6003E3E58 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		C036BC802997A5190000FD8E /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				C2154FD12F61C40100216322 /* KFGQPC Uthmanic Script HAFS Regular.otf */,
 				C036BC8A2997AD350000FD8E /* Lato-Black.ttf */,
 				C036BC842997A8E40000FD8E /* Lato-Italic.ttf */,
 				C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */,
@@ -431,6 +434,7 @@
 				C063ADFB29DF2FC700746D2E /* 9.mp3 in Resources */,
 				C063ADF329DF2FC700746D2E /* 2.mp3 in Resources */,
 				C036BC852997A8E40000FD8E /* Lato-Italic.ttf in Resources */,
+				C2154FD22F61C40100216322 /* KFGQPC Uthmanic Script HAFS Regular.otf in Resources */,
 				C0908DE029829F8A00458ACB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

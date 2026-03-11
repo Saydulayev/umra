@@ -205,11 +205,15 @@ struct HajjView: View {
                     .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.5))
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
-                    .background(themeManager.selectedTheme.cardColor)
-                    .clipShape(Capsule())
-                    .overlay(
-                        Capsule()
-                            .stroke(themeManager.selectedTheme.textColor.opacity(0.1), lineWidth: 0.5)
+                    .standardCapsuleCardFrame(
+                        theme: themeManager.selectedTheme,
+                        borderWidth: 0.5,
+                        borderColor: themeManager.selectedTheme.usesTintedArabicCards
+                            ? nil
+                            : themeManager.selectedTheme.textColor.opacity(0.1),
+                        fillColor: themeManager.selectedTheme.cardColor,
+                        shadowRadius: themeManager.selectedTheme.usesTintedArabicCards ? 8 : 0,
+                        shadowYOffset: themeManager.selectedTheme.usesTintedArabicCards ? 2 : 0
                     )
             }
         }

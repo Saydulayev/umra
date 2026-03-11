@@ -104,7 +104,7 @@ struct PlayerView: View {
     }
 
     private var activeControlBorderColor: Color {
-        themeManager.selectedTheme.activeButtonColor.opacity(themeManager.selectedTheme == .dark ? 0.5 : 0.35)
+        themeManager.selectedTheme.activeButtonColor.opacity(themeManager.selectedTheme.isDarkAppearance ? 0.5 : 0.35)
     }
 
     private func playerControl<Content: View>(

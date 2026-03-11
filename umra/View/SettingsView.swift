@@ -268,7 +268,7 @@ struct SettingsRow<Accessory: View>: View {
     }
 
     private var iconBackground: Color {
-        accentColor.opacity(themeManager.selectedTheme == .dark ? 0.25 : 0.15)
+        accentColor.opacity(themeManager.selectedTheme.isDarkAppearance ? 0.25 : 0.15)
     }
 
     var body: some View {
@@ -404,14 +404,14 @@ struct ThemePreviewView: View {
                 Circle()
                     .fill(
                         LinearGradient(
-                            colors: [theme.primaryColor, theme.primaryColor.opacity(0.7)],
+                            colors: [theme.primaryColor, theme.secondaryColor.opacity(0.78)],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )
                     )
                     .frame(width: isIPad ? 56 : 46, height: isIPad ? 56 : 46)
                 
-                Image(systemName: theme == .dark ? "moon.stars.fill" : "sun.max.fill")
+                Image(systemName: theme.iconName)
                     .font(.system(size: isIPad ? 22 : 18, weight: .medium))
                     .foregroundColor(.white)
             }
@@ -421,8 +421,7 @@ struct ThemePreviewView: View {
                     .font(.system(size: isIPad ? 20 : 17, weight: .semibold))
                     .foregroundColor(themeManager.selectedTheme.textColor)
                 
-                Text(theme == .dark ? "theme_layl_subtitle" : "theme_nur_subtitle",
-                     bundle: localizationManager.bundle)
+                Text(LocalizedStringKey(theme.subtitleKey), bundle: localizationManager.bundle)
                     .font(.system(size: isIPad ? 15 : 13))
                     .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.5))
             }

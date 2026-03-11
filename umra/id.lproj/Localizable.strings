@@ -538,8 +538,10 @@ Rasulullah ﷺ dalam shalat jenazah terkadang memberi salam sekali, dan terkadan
 "theme_select_title" = "Pilih Tema Aplikasi";
 "theme_nur" = "Nur";
 "theme_layl" = "Lail";
+"theme_emerald" = "Zamrud";
 "theme_nur_subtitle" = "Cahaya dan ketenangan";
 "theme_layl_subtitle" = "Kenyamanan malam";
+"theme_emerald_subtitle" = "Pijar lembut berwarna";
 "done_button" = "Selesai";
 
 /* Lokalisasi Tab */

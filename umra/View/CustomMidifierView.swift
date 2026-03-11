@@ -76,6 +76,185 @@ extension View {
             )
         )
     }
+
+    func standardCapsuleCardFrame(
+        theme: AppTheme,
+        borderWidth: CGFloat = 1,
+        borderColor: Color? = nil,
+        fillColor: Color? = nil,
+        shadowRadius: CGFloat = 8,
+        shadowYOffset: CGFloat = 2
+    ) -> some View {
+        modifier(
+            StandardCapsuleCardFrameModifier(
+                theme: theme,
+                borderWidth: borderWidth,
+                borderColor: borderColor,
+                fillColor: fillColor,
+                shadowRadius: shadowRadius,
+                shadowYOffset: shadowYOffset
+            )
+        )
+    }
+}
+
+private struct EmeraldRoundedCardBackground: View {
+    let theme: AppTheme
+    let cornerRadius: CGFloat
+    let fillColor: Color
+
+    private var shape: RoundedRectangle {
+        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+    }
+
+    var body: some View {
+        shape
+            .fill(fillColor.opacity(theme.isDarkAppearance ? 0.94 : 0.97))
+            .overlay {
+                shape
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                theme.cardTintColor.opacity(theme.isDarkAppearance ? 0.18 : 0.28),
+                                theme.primaryColor.opacity(theme.isDarkAppearance ? 0.07 : 0.03)
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+            }
+            .overlay {
+                shape
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                theme.primaryColor.opacity(theme.isDarkAppearance ? 0.16 : 0.06),
+                                Color.clear
+                            ],
+                            center: .topTrailing,
+                            startRadius: 12,
+                            endRadius: 180
+                        )
+                    )
+            }
+            .overlay {
+                shape
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                theme.secondaryColor.opacity(theme.isDarkAppearance ? 0.10 : 0.04),
+                                Color.clear
+                            ],
+                            center: .bottomLeading,
+                            startRadius: 12,
+                            endRadius: 150
+                        )
+                    )
+            }
+            .overlay {
+                shape
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                Color.white.opacity(theme.isDarkAppearance ? 0.05 : 0.10),
+                                Color.clear
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .center
+                        )
+                    )
+            }
+            .clipShape(shape)
+    }
+}
+
+private struct EmeraldCircularCardBackground: View {
+    let theme: AppTheme
+    let fillColor: Color
+
+    var body: some View {
+        Circle()
+            .fill(fillColor.opacity(theme.isDarkAppearance ? 0.94 : 0.97))
+            .overlay {
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                theme.cardTintColor.opacity(theme.isDarkAppearance ? 0.18 : 0.26),
+                                theme.primaryColor.opacity(theme.isDarkAppearance ? 0.10 : 0.04)
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+            }
+            .overlay {
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                theme.primaryColor.opacity(theme.isDarkAppearance ? 0.16 : 0.07),
+                                Color.clear
+                            ],
+                            center: .topTrailing,
+                            startRadius: 4,
+                            endRadius: 64
+                        )
+                    )
+            }
+            .overlay {
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                theme.secondaryColor.opacity(theme.isDarkAppearance ? 0.10 : 0.04),
+                                Color.clear
+                            ],
+                            center: .bottomLeading,
+                            startRadius: 4,
+                            endRadius: 58
+                        )
+                    )
+            }
+            .clipShape(Circle())
+    }
+}
+
+private struct EmeraldCapsuleCardBackground: View {
+    let theme: AppTheme
+    let fillColor: Color
+
+    var body: some View {
+        Capsule()
+            .fill(fillColor.opacity(theme.isDarkAppearance ? 0.94 : 0.97))
+            .overlay {
+                Capsule()
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                theme.cardTintColor.opacity(theme.isDarkAppearance ? 0.16 : 0.24),
+                                theme.primaryColor.opacity(theme.isDarkAppearance ? 0.08 : 0.03)
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+            }
+            .overlay {
+                Capsule()
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                Color.white.opacity(theme.isDarkAppearance ? 0.05 : 0.10),
+                                Color.clear
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottom
+                        )
+                    )
+            }
+            .clipShape(Capsule())
+    }
 }
 
 private struct StandardCardFrameModifier: ViewModifier {
@@ -91,12 +270,37 @@ private struct StandardCardFrameModifier: ViewModifier {
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
     }
 
+    private var resolvedFillColor: Color {
+        fillColor ?? theme.cardColor
+    }
+
+    private var resolvedBorderColor: Color {
+        if let borderColor {
+            return borderColor
+        }
+        return theme.usesTintedArabicCards
+            ? theme.cardBorderColor.opacity(theme.isDarkAppearance ? 0.92 : 0.76)
+            : theme.cardBorderColor
+    }
+
     func body(content: Content) -> some View {
         content
-            .background(shape.fill(fillColor ?? theme.cardColor))
+            .background(
+                Group {
+                    if theme.usesTintedArabicCards {
+                        EmeraldRoundedCardBackground(
+                            theme: theme,
+                            cornerRadius: cornerRadius,
+                            fillColor: resolvedFillColor
+                        )
+                    } else {
+                        shape.fill(resolvedFillColor)
+                    }
+                }
+            )
             .overlay(
                 shape
-                    .stroke(borderColor ?? theme.cardBorderColor, lineWidth: borderWidth)
+                    .stroke(resolvedBorderColor, lineWidth: borderWidth)
             )
             .clipShape(shape)
             .shadow(
@@ -116,14 +320,81 @@ private struct StandardCircularCardFrameModifier: ViewModifier {
     let shadowRadius: CGFloat
     let shadowYOffset: CGFloat
 
+    private var resolvedFillColor: Color {
+        fillColor ?? theme.cardColor
+    }
+
+    private var resolvedBorderColor: Color {
+        if let borderColor {
+            return borderColor
+        }
+        return theme.usesTintedArabicCards
+            ? theme.cardBorderColor.opacity(theme.isDarkAppearance ? 0.92 : 0.76)
+            : theme.cardBorderColor
+    }
+
     func body(content: Content) -> some View {
         content
-            .background(Circle().fill(fillColor ?? theme.cardColor))
+            .background(
+                Group {
+                    if theme.usesTintedArabicCards {
+                        EmeraldCircularCardBackground(theme: theme, fillColor: resolvedFillColor)
+                    } else {
+                        Circle().fill(resolvedFillColor)
+                    }
+                }
+            )
             .overlay(
                 Circle()
-                    .stroke(borderColor ?? theme.cardBorderColor, lineWidth: borderWidth)
+                    .stroke(resolvedBorderColor, lineWidth: borderWidth)
             )
             .clipShape(Circle())
+            .shadow(
+                color: theme.cardFrameShadowColor,
+                radius: shadowRadius,
+                x: 0,
+                y: shadowYOffset
+            )
+    }
+}
+
+private struct StandardCapsuleCardFrameModifier: ViewModifier {
+    let theme: AppTheme
+    let borderWidth: CGFloat
+    let borderColor: Color?
+    let fillColor: Color?
+    let shadowRadius: CGFloat
+    let shadowYOffset: CGFloat
+
+    private var resolvedFillColor: Color {
+        fillColor ?? theme.cardColor
+    }
+
+    private var resolvedBorderColor: Color {
+        if let borderColor {
+            return borderColor
+        }
+        return theme.usesTintedArabicCards
+            ? theme.cardBorderColor.opacity(theme.isDarkAppearance ? 0.92 : 0.76)
+            : theme.cardBorderColor
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .background(
+                Group {
+                    if theme.usesTintedArabicCards {
+                        EmeraldCapsuleCardBackground(theme: theme, fillColor: resolvedFillColor)
+                    } else {
+                        Capsule().fill(resolvedFillColor)
+                    }
+                }
+            )
+            .overlay(
+                Capsule()
+                    .stroke(resolvedBorderColor, lineWidth: borderWidth)
+            )
+            .clipShape(Capsule())
             .shadow(
                 color: theme.cardFrameShadowColor,
                 radius: shadowRadius,
@@ -243,11 +514,15 @@ struct StepTextModifier: ViewModifier {
     }
     
     private var customPadding: CGFloat {
-        isIPad ? 32 : 16
+        theme.usesTintedArabicCards ? (isIPad ? 28 : 18) : (isIPad ? 32 : 16)
     }
 
     private var cardCornerRadius: CGFloat {
         isIPad ? 24 : 20
+    }
+
+    private var theme: AppTheme {
+        themeManager.selectedTheme
     }
     
     func body(content: Content) -> some View {
@@ -256,14 +531,17 @@ struct StepTextModifier: ViewModifier {
             .font(.custom("Amiri Quran", size: dynamicFontSize))
             .lineSpacing(15)
             .multilineTextAlignment(.center)
-            .foregroundStyle(themeManager.selectedTheme.textColor)
+            .foregroundStyle(theme.textColor)
             .frame(maxWidth: .infinity)
             .standardCardFrame(
-                theme: themeManager.selectedTheme,
+                theme: theme,
                 cornerRadius: cardCornerRadius,
-                borderWidth: 1
+                borderWidth: 1,
+                shadowRadius: theme.usesTintedArabicCards ? (isIPad ? 15 : 11) : 18,
+                shadowYOffset: theme.usesTintedArabicCards ? (isIPad ? 8 : 4) : 8
             )
-            .padding()
+            .padding(theme.usesTintedArabicCards ? .horizontal : .all, theme.usesTintedArabicCards ? (isIPad ? 20 : 12) : 16)
+            .padding(.vertical, theme.usesTintedArabicCards ? (isIPad ? 10 : 6) : 0)
     }
 }
 
