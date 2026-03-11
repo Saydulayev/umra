@@ -528,7 +528,7 @@ struct StepTextModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(customPadding)
-            .font(.custom("Amiri Quran", size: dynamicFontSize))
+            .font(.custom("KFGQPC Uthman Taha Naskh", size: dynamicFontSize))
             .lineSpacing(15)
             .multilineTextAlignment(.center)
             .foregroundStyle(theme.textColor)

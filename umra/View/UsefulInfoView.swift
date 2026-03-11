@@ -366,7 +366,7 @@ private func bodyParagraphView(paragraph: String, fontSize: CGFloat, textColor: 
     VStack(alignment: .leading, spacing: 6) {
         ForEach(Array(lines.enumerated()), id: \.offset) { _, line in
             let lineContent = textWithBoldQuotes(line, fontSize: fontSize, textColor: textColor)
-                .font(.system(size: fontSize))
+                .font(containsArabic(line) ? .custom("KFGQPC Uthman Taha Naskh", size: fontSize) : .system(size: fontSize))
                 .textSelection(.enabled)
                 .fixedSize(horizontal: false, vertical: true)
             if containsArabic(line) {
