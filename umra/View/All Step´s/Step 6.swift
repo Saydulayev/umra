@@ -49,9 +49,10 @@ struct Step6: View {
                         اَلله أَكْبَرُ الله أَكْبَرُ الله اَكْبَرُ، لٰا إِلَهَ إِلَّا اللهُ وَحْدَهُ لٰا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَ لَهُ الْحَمْدُ، يُحْيِي وَ يُمِيتُ ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، لَا إِلٰهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، أَنْجَزَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ.
                         """)
                         .customTextforArabic()
-                        CounterTapView()
-                            
+
                         PlayerView(fileName: "10")
+
+                        CounterTapView()
                         
                         Text("Remembrance of Allah during the Sa'i of Safa and Marwa.", bundle: localizationManager.bundle)
                         

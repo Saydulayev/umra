@@ -91,10 +91,6 @@ struct RitualCounterCard: View {
         counter >= RitualCounterKind.targetCount
     }
 
-    private var progress: CGFloat {
-        min(CGFloat(counter) / CGFloat(RitualCounterKind.targetCount), 1)
-    }
-
     private var cardCornerRadius: CGFloat {
         isIPad ? 30 : 24
     }
@@ -107,6 +103,10 @@ struct RitualCounterCard: View {
         isIPad ? 26 : 20
     }
 
+    private var outerHorizontalPadding: CGFloat {
+        isIPad ? 20 : 16
+    }
+
     private var titleFontSize: CGFloat {
         isIPad ? 28 : 22
     }
@@ -117,10 +117,6 @@ struct RitualCounterCard: View {
 
     private var buttonFontSize: CGFloat {
         isIPad ? 18 : 16
-    }
-
-    private var progressRingSize: CGFloat {
-        isIPad ? 168 : 136
     }
 
     private var stepIndicatorSize: CGFloat {
@@ -140,7 +136,7 @@ struct RitualCounterCard: View {
     }
 
     private var cardBorderColor: Color {
-        statusColor.opacity(theme == .dark ? 0.34 : 0.18)
+        theme.cardBorderColor
     }
 
     private var cardShadowColor: Color {
@@ -199,17 +195,7 @@ struct RitualCounterCard: View {
                         )
                 }
 
-                ViewThatFits(in: .horizontal) {
-                    HStack(alignment: .center, spacing: isIPad ? 22 : 18) {
-                        progressRing
-                        progressDetails(centered: false)
-                    }
-
-                    VStack(spacing: isIPad ? 20 : 16) {
-                        progressRing
-                        progressDetails(centered: true)
-                    }
-                }
+                progressDetails
 
                 HStack(spacing: isIPad ? 14 : 10) {
                     Button(action: incrementCounter) {
@@ -269,6 +255,7 @@ struct RitualCounterCard: View {
                     .stroke(cardBorderColor, lineWidth: 1)
             )
             .shadow(color: cardShadowColor, radius: isIPad ? 18 : 14, x: 0, y: isIPad ? 10 : 6)
+            .padding(.horizontal, outerHorizontalPadding)
             .padding(.vertical, isIPad ? 18 : 14)
             .animation(.spring(response: 0.35, dampingFraction: 0.82), value: counter)
             .onAppear {
@@ -284,14 +271,8 @@ struct RitualCounterCard: View {
         }
     }
 
-    @ViewBuilder
-    private func progressDetails(centered: Bool) -> some View {
-        VStack(alignment: centered ? .center : .leading, spacing: isIPad ? 16 : 12) {
-            localizedText(kind.progressLabelKey)
-                .font(.system(size: isIPad ? 16 : 14, weight: .medium))
-                .foregroundStyle(theme.textColor.opacity(0.72))
-                .multilineTextAlignment(centered ? .center : .leading)
-
+    private var progressDetails: some View {
+        VStack(spacing: isIPad ? 14 : 10) {
             HStack(spacing: isIPad ? 8 : 6) {
                 ForEach(1...RitualCounterKind.targetCount, id: \.self) { step in
                     ZStack {
@@ -311,59 +292,8 @@ struct RitualCounterCard: View {
                     .frame(width: stepIndicatorSize, height: stepIndicatorSize)
                 }
             }
-
-            HStack(spacing: 10) {
-                Text("\(counter)")
-                    .font(.system(size: isIPad ? 30 : 24, weight: .bold, design: .rounded))
-                    .monospacedDigit()
-                    .foregroundStyle(statusColor)
-                    .contentTransition(.numericText(value: Double(counter)))
-
-                Text("/ \(RitualCounterKind.targetCount)")
-                    .font(.system(size: isIPad ? 18 : 15, weight: .medium, design: .rounded))
-                    .foregroundStyle(theme.textColor.opacity(0.58))
-                    .monospacedDigit()
-            }
         }
-        .frame(maxWidth: .infinity, alignment: centered ? .center : .leading)
-    }
-
-    private var progressRing: some View {
-        ZStack {
-            Circle()
-                .fill(theme.primaryColor.opacity(theme == .dark ? 0.12 : 0.08))
-                .frame(width: progressRingSize, height: progressRingSize)
-                .blur(radius: isIPad ? 18 : 14)
-
-            Circle()
-                .stroke(theme.primaryColor.opacity(0.12), lineWidth: isIPad ? 13 : 11)
-
-            Circle()
-                .trim(from: 0, to: max(progress, 0.001))
-                .stroke(
-                    accentGradient,
-                    style: StrokeStyle(lineWidth: isIPad ? 13 : 11, lineCap: .round)
-                )
-                .rotationEffect(.degrees(-90))
-
-            Circle()
-                .fill(theme.cardColor)
-                .padding(isIPad ? 18 : 14)
-
-            VStack(spacing: 4) {
-                Text("\(counter)")
-                    .font(.system(size: isIPad ? 38 : 32, weight: .bold, design: .rounded))
-                    .monospacedDigit()
-                    .foregroundStyle(theme.textColor)
-                    .contentTransition(.numericText(value: Double(counter)))
-                Text("/ \(RitualCounterKind.targetCount)")
-                    .font(.system(size: isIPad ? 16 : 14, weight: .medium, design: .rounded))
-                    .foregroundStyle(theme.textColor.opacity(0.55))
-                    .monospacedDigit()
-            }
-        }
-        .frame(width: progressRingSize, height: progressRingSize)
-        .scaleEffect(showCompletionHighlight ? 1.03 : 1.0)
+        .frame(maxWidth: .infinity)
     }
 
     private var cardBackground: some View {
