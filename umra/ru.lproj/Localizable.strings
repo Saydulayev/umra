@@ -455,6 +455,8 @@
 /* Локализация тем */
 "theme_app_title" = "Тема приложения";
 "theme_select_title" = "Выберите тему приложения";
+"theme_auto" = "Авто";
+"theme_auto_subtitle" = "Следует системной теме";
 "theme_nur" = "Нур";
 "theme_layl" = "Лейл";
 "theme_emerald" = "Изумруд";

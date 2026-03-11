@@ -7,23 +7,25 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 
 // MARK: - Theme System
 enum AppTheme: String, CaseIterable, Sendable {
+    case auto = "auto"
     case light = "light"
     case dark = "dark"
     case emerald = "emerald"
     
     var colorScheme: ColorScheme {
         switch self {
-        case .light: return .light
+        case .auto, .light: return .light
         case .dark, .emerald: return .dark
         }
     }
 
     var isDarkAppearance: Bool {
         switch self {
-        case .light:
+        case .auto, .light:
             return false
         case .dark, .emerald:
             return true
@@ -36,6 +38,8 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     func displayName(bundle: Bundle) -> String {
         switch self {
+        case .auto:
+            return NSLocalizedString("theme_auto", bundle: bundle, comment: "Automatic theme")
         case .light:
             return NSLocalizedString("theme_nur", bundle: bundle, comment: "Light theme — Nur")
         case .dark:
@@ -47,6 +51,8 @@ enum AppTheme: String, CaseIterable, Sendable {
 
     var subtitleKey: String {
         switch self {
+        case .auto:
+            return "theme_auto_subtitle"
         case .light:
             return "theme_nur_subtitle"
         case .dark:
@@ -58,6 +64,8 @@ enum AppTheme: String, CaseIterable, Sendable {
 
     var iconName: String {
         switch self {
+        case .auto:
+            return "circle.lefthalf.filled"
         case .light:
             return "sun.max.fill"
         case .dark:
@@ -71,6 +79,8 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var primaryColor: Color {
         switch self {
+        case .auto:
+            return Color(red: 0.125, green: 0.639, blue: 0.553)
         case .light:
             return Color(red: 0.063, green: 0.725, blue: 0.506)  // #10B981
         case .dark:
@@ -84,6 +94,8 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var secondaryColor: Color {
         switch self {
+        case .auto:
+            return Color(red: 0.612, green: 0.675, blue: 0.827)
         case .light:
             return Color(red: 0.812, green: 0.686, blue: 0.353)  // #CFAF5A
         case .dark:
@@ -97,7 +109,7 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var gradientTopColor: Color {
         switch self {
-        case .light:
+        case .auto, .light:
             return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
             return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
@@ -108,7 +120,7 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var gradientBottomColor: Color {
         switch self {
-        case .light:
+        case .auto, .light:
             return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
             return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
@@ -121,7 +133,7 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var backgroundColor: Color {
         switch self {
-        case .light:
+        case .auto, .light:
             return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
             return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
@@ -132,7 +144,7 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var lightBackgroundColor: Color {
         switch self {
-        case .light:
+        case .auto, .light:
             return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
             return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
@@ -143,7 +155,7 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var textBackgroundColor: Color {
         switch self {
-        case .light:
+        case .auto, .light:
             return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
             return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
@@ -154,7 +166,7 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var cardColor: Color {
         switch self {
-        case .light:
+        case .auto, .light:
             return Color(red: 1.0, green: 1.0, blue: 1.0)        // #ffffff
         case .dark:
             return Color(red: 26/255, green: 26/255, blue: 26/255)  // #1a1a1a
@@ -165,7 +177,7 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var cardBorderColor: Color {
         switch self {
-        case .light:
+        case .auto, .light:
             return Color.black.opacity(0.14)
         case .dark:
             return Color.white.opacity(0.12)
@@ -176,7 +188,7 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var cardFrameShadowColor: Color {
         switch self {
-        case .light:
+        case .auto, .light:
             return Color.black.opacity(0.08)
         case .dark:
             return Color.black.opacity(0.18)
@@ -187,7 +199,7 @@ enum AppTheme: String, CaseIterable, Sendable {
 
     var cardShadowColor: Color {
         switch self {
-        case .light:
+        case .auto, .light:
             return Color.black.opacity(0.10)
         case .dark:
             return Color.black.opacity(0.45)
@@ -199,7 +211,7 @@ enum AppTheme: String, CaseIterable, Sendable {
     /// Нейтральная подсветка карточки (вместо зелёного оттенка primaryColor)
     var cardTintColor: Color {
         switch self {
-        case .light:
+        case .auto, .light:
             return Color.white.opacity(0.6)
         case .dark:
             return Color.white.opacity(0.06)
@@ -212,6 +224,8 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var previewColor: Color {
         switch self {
+        case .auto:
+            return Color(red: 0.125, green: 0.639, blue: 0.553).opacity(0.14)
         case .light:
             return Color(red: 0.063, green: 0.725, blue: 0.506).opacity(0.12)  // Emerald tint
         case .dark:
@@ -223,6 +237,8 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var activeButtonColor: Color {
         switch self {
+        case .auto:
+            return Color(red: 0.125, green: 0.639, blue: 0.553)
         case .light:
             return Color(red: 0.063, green: 0.725, blue: 0.506)  // #10B981
         case .dark:
@@ -236,7 +252,7 @@ enum AppTheme: String, CaseIterable, Sendable {
     
     var textColor: Color {
         switch self {
-        case .light:
+        case .auto, .light:
             return Color(red: 0.110, green: 0.110, blue: 0.118)  // #1C1C1E
         case .dark:
             return Color(red: 0.918, green: 0.918, blue: 0.925)  // #EAEAEC
@@ -258,19 +274,63 @@ extension String {
 @MainActor
 @Observable
 class ThemeManager {
-    var selectedTheme: AppTheme {
+    private(set) var selectedTheme: AppTheme
+
+    var themePreference: AppTheme {
         didSet {
-            UserDefaults.standard.set(selectedTheme.rawValue, forKey: UserDefaultsKey.selectedTheme)
+            UserDefaults.standard.set(themePreference.rawValue, forKey: UserDefaultsKey.selectedTheme)
+            selectedTheme = Self.resolveTheme(preference: themePreference, systemColorScheme: systemColorScheme)
         }
     }
+
+    private var systemColorScheme: ColorScheme
     
     init() {
-        let saved = UserDefaults.standard.string(forKey: UserDefaultsKey.selectedTheme) ?? "light"
-        if let theme = AppTheme(rawValue: saved) {
-            selectedTheme = theme
-        } else {
-            selectedTheme = (saved == "dark") ? .dark : .light
-            UserDefaults.standard.set(selectedTheme.rawValue, forKey: UserDefaultsKey.selectedTheme)
+        let saved = UserDefaults.standard.string(forKey: UserDefaultsKey.selectedTheme) ?? AppTheme.auto.rawValue
+        let resolvedSavedTheme = AppTheme(rawValue: saved) ?? ((saved == AppTheme.dark.rawValue) ? .dark : .auto)
+        let initialSystemColorScheme = Self.currentSystemColorScheme()
+
+        systemColorScheme = initialSystemColorScheme
+        themePreference = resolvedSavedTheme
+        selectedTheme = Self.resolveTheme(preference: resolvedSavedTheme, systemColorScheme: initialSystemColorScheme)
+
+        if AppTheme(rawValue: saved) == nil {
+            UserDefaults.standard.set(themePreference.rawValue, forKey: UserDefaultsKey.selectedTheme)
+        }
+    }
+
+    var preferredColorScheme: ColorScheme? {
+        switch themePreference {
+        case .auto:
+            return nil
+        case .light:
+            return .light
+        case .dark, .emerald:
+            return .dark
+        }
+    }
+
+    func updateSystemColorScheme(_ colorScheme: ColorScheme) {
+        guard systemColorScheme != colorScheme else { return }
+        systemColorScheme = colorScheme
+        selectedTheme = Self.resolveTheme(preference: themePreference, systemColorScheme: colorScheme)
+    }
+
+    private static func resolveTheme(preference: AppTheme, systemColorScheme: ColorScheme) -> AppTheme {
+        switch preference {
+        case .auto:
+            return systemColorScheme == .dark ? .dark : .light
+        case .light, .dark, .emerald:
+            return preference
+        }
+    }
+
+    private static func currentSystemColorScheme() -> ColorScheme {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .dark:
+            return .dark
+        default:
+            return .light
         }
     }
 }
@@ -338,4 +398,3 @@ class UserPreferences {
         hasRatedApp = UserDefaults.standard.bool(forKey: UserDefaultsKey.hasRatedApp)
     }
 }
-

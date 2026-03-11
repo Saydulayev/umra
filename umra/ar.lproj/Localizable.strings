@@ -431,6 +431,8 @@
 /* Локализация тем */
 "theme_app_title" = "سمة التطبيق";
 "theme_select_title" = "اختر سمة التطبيق";
+"theme_auto" = "تلقائي";
+"theme_auto_subtitle" = "يتبع مظهر النظام";
 "theme_nur" = "نور";
 "theme_layl" = "ليل";
 "theme_emerald" = "زمرد";

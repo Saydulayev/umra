@@ -523,6 +523,8 @@ Le Messager d'Allah (paix et bénédictions sur lui) concluait la prière de Jan
 /* Localisation des thèmes */
 "theme_app_title" = "Thème de l'application";
 "theme_select_title" = "Choisir le thème de l'application";
+"theme_auto" = "Auto";
+"theme_auto_subtitle" = "Suit l’apparence du système";
 "theme_nur" = "Nur";
 "theme_layl" = "Layl";
 "theme_emerald" = "Émeraude";

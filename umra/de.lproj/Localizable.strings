@@ -525,6 +525,8 @@ Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebe
 /* Theme Lokalisierung */
 "theme_app_title" = "App-Design";
 "theme_select_title" = "App-Design wählen";
+"theme_auto" = "Auto";
+"theme_auto_subtitle" = "Folgt dem Systemdesign";
 "theme_nur" = "Nur";
 "theme_layl" = "Layl";
 "theme_emerald" = "Smaragd";

@@ -24,7 +24,7 @@ struct umraApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            ThemeRootView()
                 .environment(purchaseManager)
                 .environment(themeManager)
                 .environment(localizationManager)
@@ -32,8 +32,23 @@ struct umraApp: App {
                 .environment(fontManager)
                 .environment(backgroundTaskManager)
                 .environment(audioManager)
-                .preferredColorScheme(themeManager.selectedTheme.colorScheme)
         }
+    }
+}
+
+private struct ThemeRootView: View {
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(\.colorScheme) private var systemColorScheme
+
+    var body: some View {
+        MainTabView()
+            .onAppear {
+                themeManager.updateSystemColorScheme(systemColorScheme)
+            }
+            .onChange(of: systemColorScheme) { _, newValue in
+                themeManager.updateSystemColorScheme(newValue)
+            }
+            .preferredColorScheme(themeManager.preferredColorScheme)
     }
 }
 
@@ -76,4 +91,3 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         task.setTaskCompleted(success: true)
     }
 }
-

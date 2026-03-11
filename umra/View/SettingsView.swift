@@ -126,7 +126,7 @@ struct SettingsView: View {
                                         Circle()
                                             .fill(themeManager.selectedTheme.primaryColor)
                                             .frame(width: isIPad ? 24 : 18, height: isIPad ? 24 : 18)
-                                        Text(themeManager.selectedTheme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
+                                        Text(themeManager.themePreference.displayName(bundle: localizationManager.bundle ?? Bundle.main))
                                             .font(.system(size: SettingsMetrics.isIPad ? 18 : 14, weight: .medium))
                                             .foregroundColor(secondaryTextColor)
                                     }
@@ -369,7 +369,7 @@ struct ThemePreviewView: View {
                         ForEach(AppTheme.allCases, id: \.self) { theme in
                             Button {
                                 withAnimation(.easeInOut(duration: 0.25)) {
-                                    themeManager.selectedTheme = theme
+                                    themeManager.themePreference = theme
                                 }
                             } label: {
                                 themeCard(for: theme)
@@ -397,7 +397,7 @@ struct ThemePreviewView: View {
     }
     
     private func themeCard(for theme: AppTheme) -> some View {
-        let isSelected = themeManager.selectedTheme == theme
+        let isSelected = themeManager.themePreference == theme
         
         return HStack(spacing: isIPad ? 18 : 14) {
             ZStack {
