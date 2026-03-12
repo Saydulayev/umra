@@ -66,7 +66,7 @@ struct UsefulInfoView: View {
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    ForEach(chapters.enumerated(), id: \.element.id) { idx, chapter in
+                    ForEach(Array(chapters.enumerated()), id: \.element.id) { idx, chapter in
                         NavigationLink(value: chapter) {
                             HStack {
                                 Text(chapter.title)
@@ -283,7 +283,7 @@ struct ChapterDetailView: View {
                 .ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    ForEach(chapter.subChapters.enumerated(), id: \.element.id) { idx, subChapter in
+                    ForEach(Array(chapter.subChapters.enumerated()), id: \.element.id) { idx, subChapter in
                         NavigationLink(value: subChapter) {
                             HStack {
                                 Text(subChapter.title)
@@ -364,7 +364,7 @@ private func containsArabic(_ string: String) -> Bool {
 private func bodyParagraphView(paragraph: String, fontSize: CGFloat, textColor: Color) -> some View {
     let lines = paragraph.components(separatedBy: "\n")
     VStack(alignment: .leading, spacing: 6) {
-        ForEach(lines.enumerated(), id: \.offset) { _, line in
+        ForEach(Array(lines.enumerated()), id: \.offset) { _, line in
             let lineContent = textWithBoldQuotes(line, fontSize: fontSize, textColor: textColor)
                 .font(containsArabic(line) ? .custom("KFGQPC Uthman Taha Naskh", size: fontSize) : .system(size: fontSize))
                 .textSelection(.enabled)
@@ -413,7 +413,7 @@ private struct FormattedContentView: View {
         let textColor = themeManager.selectedTheme.textColor
         
         VStack(alignment: .leading, spacing: 14) {
-            ForEach(blocks.enumerated(), id: \.offset) { _, block in
+            ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
                 switch block.style {
                 case FormattedContentBlock.Style.heading(let text):
                     Text(text)

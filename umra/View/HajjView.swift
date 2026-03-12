@@ -153,7 +153,7 @@ struct HajjView: View {
             stepsHeader
 
             VStack(spacing: 0) {
-                ForEach(steps.enumerated(), id: \.element.id) { idx, stepItem in
+                ForEach(Array(steps.enumerated()), id: \.element.id) { idx, stepItem in
                     Button {
                         navigationPath.append(stepItem.step)
                     } label: {
