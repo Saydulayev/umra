@@ -17,8 +17,9 @@ struct SettingsView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
     
-    // URL App Store - гарантированно валидный
-    private let appStoreURL = URL(string: "https://apps.apple.com/app/id1673683355")!
+    private var appStoreURL: URL? {
+        URL(string: "https://apps.apple.com/app/id1673683355")
+    }
     
     private var isIPad: Bool {
         UIDevice.current.userInterfaceIdiom == .pad
@@ -75,7 +76,7 @@ struct SettingsView: View {
 
                         SettingsDivider()
 
-                        Button(action: { showSafariView.toggle() }) {
+                        Button(action: { if appStoreURL != nil { showSafariView = true } }) {
                             SettingsRow(
                                 icon: "star",
                                 title: Text("text_button_rate_the_app_string", bundle: localizationManager.bundle),
@@ -157,7 +158,11 @@ struct SettingsView: View {
         }
         .navigationBarTitle(Text("settings_string", bundle: localizationManager.bundle), displayMode: .inline)
         .sheet(isPresented: $showSafariView) {
-            SafariView(url: appStoreURL)
+            if let url = appStoreURL {
+                SafariView(url: url)
+            } else {
+                EmptyView()
+            }
         }
         .sheet(isPresented: $showNotificationSettingsSheet) {
             NotificationSettingsView()

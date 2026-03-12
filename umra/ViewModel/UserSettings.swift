@@ -372,6 +372,22 @@ class LocalizationManager {
     func localized(_ key: String) -> String {
         NSLocalizedString(key, bundle: bundle ?? .main, comment: "")
     }
+
+    /// Извлекает только заголовок без даты из строки локализации (разделители: « — », « - », « – »).
+    func extractTitleOnly(from key: String) -> String {
+        let fullText = localized(key)
+        let separators = [" — ", " - ", " – ", " —", " — "]
+        for separator in separators {
+            let components = fullText.components(separatedBy: separator)
+            if components.count == 2 {
+                let title = components[1].trimmingCharacters(in: .whitespaces)
+                if !title.isEmpty {
+                    return title
+                }
+            }
+        }
+        return fullText
+    }
 }
 
 // MARK: - User Preferences Manager

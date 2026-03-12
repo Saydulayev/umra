@@ -11,25 +11,7 @@ struct HajjStep4: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(FontManager.self) private var fontManager
-    
-    /// Извлекает только заголовок без даты из строки локализации
-    private func extractTitleOnly(from key: String) -> String {
-        let fullText = localizationManager.localized(key)
-        // Пробуем разные варианты разделителей: длинное тире, обычное тире, дефис
-        let separators = [" — ", " - ", " – ", " —", " — "]
-        for separator in separators {
-            let components = fullText.components(separatedBy: separator)
-            if components.count == 2 {
-                let title = components[1].trimmingCharacters(in: .whitespaces)
-                if !title.isEmpty {
-                    return title
-                }
-            }
-        }
-        // Если разделитель не найден, возвращаем всю строку
-        return fullText
-    }
-    
+
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
@@ -63,7 +45,7 @@ struct HajjStep4: View {
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
-                .navigationTitle(Text(extractTitleOnly(from: "hajj_step4_title")))
+                .navigationTitle(Text(localizationManager.extractTitleOnly(from: "hajj_step4_title")))
                 .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
