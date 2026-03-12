@@ -40,7 +40,7 @@ struct HajjStep2: View {
                     // Секция: Арафат
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step2_arafat_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step2_arafat_text", bundle: localizationManager.bundle)
@@ -53,7 +53,7 @@ struct HajjStep2: View {
                     // Секция: Стояние на Арафате
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step2_standing_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         VStack(alignment: .leading, spacing: 10) {
@@ -85,7 +85,7 @@ struct HajjStep2: View {
                     // Секция: Муздалифа
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step2_muzdalifah_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step2_muzdalifah_text", bundle: localizationManager.bundle)
@@ -98,7 +98,7 @@ struct HajjStep2: View {
                     // Секция: Ночёвка
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step2_night_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step2_night_text", bundle: localizationManager.bundle)

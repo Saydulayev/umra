@@ -384,12 +384,6 @@ class UserPreferences {
         }
     }
     
-    var isGridView: Bool {
-        didSet {
-            UserDefaults.standard.set(isGridView, forKey: UserDefaultsKey.isGridView)
-        }
-    }
-    
     var hasRatedApp: Bool {
         didSet {
             UserDefaults.standard.set(hasRatedApp, forKey: UserDefaultsKey.hasRatedApp)
@@ -398,7 +392,6 @@ class UserPreferences {
     
     init() {
         hasSelectedLanguage = UserDefaults.standard.bool(forKey: UserDefaultsKey.hasSelectedLanguage)
-        isGridView = UserDefaults.standard.bool(forKey: UserDefaultsKey.isGridView) || UIDevice.current.userInterfaceIdiom == .pad
         hasRatedApp = UserDefaults.standard.bool(forKey: UserDefaultsKey.hasRatedApp)
     }
 }

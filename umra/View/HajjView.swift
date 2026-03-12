@@ -71,15 +71,7 @@ struct HajjView: View {
     private var isIPad: Bool {
         UIDevice.current.userInterfaceIdiom == .pad
     }
-    
-    private var dynamicFontSize: CGFloat {
-        10
-    }
-    
-    private var gridSpacing: CGFloat {
-        20
-    }
-    
+
     private var listSpacing: CGFloat {
         isIPad ? 14 : 12
     }
@@ -159,34 +151,27 @@ struct HajjView: View {
     private var content: some View {
         VStack(spacing: 0) {
             stepsHeader
-            
-            if !isIPad && userPreferences.isGridView {
-                LazyVGrid(columns: gridColumns, spacing: gridSpacing) {
-                    stepsGridView(showIndex: true, fontSize: dynamicFontSize)
-                }
-                .padding(.horizontal, 16)
-            } else {
-                VStack(spacing: 0) {
-                    ForEach(Array(steps.enumerated()), id: \.element.id) { idx, stepItem in
-                        Button {
-                            navigationPath.append(stepItem.step)
-                        } label: {
-                            HajjStepRow(stepItem: stepItem, index: stepItem.id)
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                        .id("\(stepItem.step)-\(stepItem.id)")
-                        
-                        if idx < steps.count - 1 {
-                            Divider()
-                                .background(themeManager.selectedTheme.textColor.opacity(0.10))
-                                .padding(.leading, isIPad ? 112 : 92)
-                        }
+
+            VStack(spacing: 0) {
+                ForEach(Array(steps.enumerated()), id: \.element.id) { idx, stepItem in
+                    Button {
+                        navigationPath.append(stepItem.step)
+                    } label: {
+                        HajjStepRow(stepItem: stepItem, index: stepItem.id)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .id("\(stepItem.step)-\(stepItem.id)")
+
+                    if idx < steps.count - 1 {
+                        Divider()
+                            .background(themeManager.selectedTheme.textColor.opacity(0.10))
+                            .padding(.leading, isIPad ? 112 : 92)
                     }
                 }
-                .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: listCardCornerRadius)
-                .padding(.horizontal, listPadding)
-                .padding(.bottom, 32)
             }
+            .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: listCardCornerRadius)
+            .padding(.horizontal, listPadding)
+            .padding(.bottom, 32)
         }
     }
     
@@ -195,80 +180,12 @@ struct HajjView: View {
             Text("hajj_title", bundle: localizationManager.bundle)
                 .font(.system(size: isIPad ? 36 : 28, weight: .bold))
                 .foregroundStyle(themeManager.selectedTheme.textColor)
-            
+
             Spacer()
-            
-            Button {
-                userPreferences.isGridView.toggle()
-            } label: {
-                Text("order_label", bundle: localizationManager.bundle)
-                    .font(.system(size: isIPad ? 16 : 14))
-                    .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.5))
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .standardCapsuleCardFrame(
-                        theme: themeManager.selectedTheme,
-                        borderWidth: 0.5,
-                        borderColor: themeManager.selectedTheme.usesTintedArabicCards
-                            ? nil
-                            : themeManager.selectedTheme.textColor.opacity(0.1),
-                        fillColor: themeManager.selectedTheme.cardColor,
-                        shadowRadius: themeManager.selectedTheme.usesTintedArabicCards ? 8 : 0,
-                        shadowYOffset: themeManager.selectedTheme.usesTintedArabicCards ? 2 : 0
-                    )
-            }
         }
         .padding(.horizontal, isIPad ? 24 : 24)
         .padding(.top, 12)
         .padding(.bottom, 24)
-    }
-    
-    private func stepsWord(_ count: Int) -> String {
-        let mod10 = count % 10
-        let mod100 = count % 100
-        if mod100 >= 11 && mod100 <= 19 {
-            return localizationManager.localized("steps_count_many")
-        }
-        if mod10 == 1 {
-            return localizationManager.localized("steps_count_one")
-        }
-        if mod10 >= 2 && mod10 <= 4 {
-            return localizationManager.localized("steps_count_few")
-        }
-        return localizationManager.localized("steps_count_many")
-    }
-    
-    private func stepsGridView(showIndex: Bool, fontSize: CGFloat) -> some View {
-        ForEach(steps) { stepItem in
-            Button {
-                navigationPath.append(stepItem.step)
-            } label: {
-                StepView(
-                    badgeText: stepItem.badgeText,
-                    badgeColor: stepItem.badgeColor,
-                    titleKey: LocalizedStringKey(stepItem.titleKey),
-                    stringKey: stepItem.titleKey,
-                    index: showIndex ? stepItem.id : nil,
-                    fontSize: fontSize,
-                    stepsCount: steps.count,
-                    hideLastIndex: false
-                )
-                .foregroundStyle(themeManager.selectedTheme.textColor)
-            }
-            .buttonStyle(PlainButtonStyle())
-            .id("\(stepItem.step)-\(stepItem.id)")
-        }
-    }
-    
-    private var gridColumns: [GridItem] {
-        let screenWidth = UIScreen.main.bounds.width
-        let columnCount = AppConstants.gridColumnCount
-        let spacing = AppConstants.gridColumnSpacing
-        let horizontalPadding: CGFloat = 32
-        let availableWidth = screenWidth - horizontalPadding
-        let totalSpacing = CGFloat(columnCount - 1) * spacing
-        let columnWidth = (availableWidth - totalSpacing) / CGFloat(columnCount)
-        return Array(repeating: GridItem(.fixed(columnWidth)), count: columnCount)
     }
     
     /// Запуск таймера для запроса отзыва

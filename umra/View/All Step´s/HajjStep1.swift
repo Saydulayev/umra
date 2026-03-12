@@ -40,7 +40,7 @@ struct HajjStep1: View {
                     // Секция: Подготовка к ихраму
                     VStack(alignment: .leading, spacing: 12) {
                         Text("preparation_before_ihram_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("preparation_before_ihram_text", bundle: localizationManager.bundle)
@@ -53,7 +53,7 @@ struct HajjStep1: View {
                     // Секция: Ихрам
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step1_ihram_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         VStack(alignment: .leading, spacing: 10) {
@@ -102,7 +102,7 @@ struct HajjStep1: View {
                     // Секция: Тальбия
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step1_talbiyah_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         VStack(alignment: .leading, spacing: 10) {
@@ -134,7 +134,7 @@ struct HajjStep1: View {
                     // Секция: Мина
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step1_mina_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step1_mina_text", bundle: localizationManager.bundle)

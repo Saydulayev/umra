@@ -40,7 +40,7 @@ struct HajjStep3: View {
                     // Секция: Фаджр
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_fajr_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step3_fajr_text", bundle: localizationManager.bundle)
@@ -53,7 +53,7 @@ struct HajjStep3: View {
                     // Секция: Аль-Маш'ар-аль-Харам
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_mashaar_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step3_mashaar_text", bundle: localizationManager.bundle)
@@ -66,7 +66,7 @@ struct HajjStep3: View {
                     // Секция: Мина
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_mina_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step3_mina_text", bundle: localizationManager.bundle)
@@ -79,7 +79,7 @@ struct HajjStep3: View {
                     // Секция: Бросание камешков
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_jamarat_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step3_jamarat_text", bundle: localizationManager.bundle)
@@ -92,7 +92,7 @@ struct HajjStep3: View {
                     // Секция: Частичный выход
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_partial_exit_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step3_partial_exit_text", bundle: localizationManager.bundle)
@@ -105,7 +105,7 @@ struct HajjStep3: View {
                     // Секция: Жертвоприношение
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_sacrifice_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step3_sacrifice_text", bundle: localizationManager.bundle)
@@ -118,7 +118,7 @@ struct HajjStep3: View {
                     // Секция: Бритьё
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_shaving_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step3_shaving_text", bundle: localizationManager.bundle)
@@ -131,7 +131,7 @@ struct HajjStep3: View {
                     // Секция: Таваф
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_tawaf_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step3_tawaf_text", bundle: localizationManager.bundle)
@@ -144,7 +144,7 @@ struct HajjStep3: View {
                     // Секция: Внимание для тех, кто не смог совершить обход
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_attention_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step3_attention_text", bundle: localizationManager.bundle)
@@ -157,7 +157,7 @@ struct HajjStep3: View {
                     // Секция: Полный выход
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_full_exit_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step3_full_exit_text", bundle: localizationManager.bundle)
@@ -170,7 +170,7 @@ struct HajjStep3: View {
                     // Секция: Возвращение
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step3_return_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
                             .padding(.top, 8)
                         
                         Text("hajj_step3_return_text", bundle: localizationManager.bundle)

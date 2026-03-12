@@ -84,7 +84,6 @@ enum UserDefaultsKey {
     static let selectedTheme = "selectedTheme"
     static let selectedLanguage = "selectedLanguage"
     static let hasSelectedLanguage = "hasSelectedLanguage"
-    static let isGridView = "isGridView"
     static let hasRatedApp = "hasRatedApp"
     static let selectedFont = "SelectedFont"
     static let selectedFontSize = "SelectedFontSize"

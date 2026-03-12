@@ -15,6 +15,11 @@ class FontManager {
     var dynamicFontSize: CGFloat {
         UIDevice.current.userInterfaceIdiom == .pad ? 30 : 20
     }
+
+    /// Размер шрифта для заголовков секций (адаптивно iPad/iPhone)
+    var sectionTitleFontSize: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 28 : 26
+    }
     
     var fonts: [String] = [
         "Arial",
