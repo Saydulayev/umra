@@ -30,6 +30,7 @@ struct LanguageSelectionView: View {
     @Environment(LocalizationManager.self) private var localizationManager
 
     var body: some View {
+        // GeometryReader используется осознанно для адаптивных отступов и размеров от высоты/ширины экрана.
         GeometryReader { geo in
             ZStack {
                 themeManager.selectedTheme.backgroundColor

@@ -22,6 +22,7 @@ struct ShimmeringText: View {
             .foregroundStyle(Color(red: 0.420, green: 0.447, blue: 0.502))
             .multilineTextAlignment(.center)
             .overlay(
+                // GeometryReader используется осознанно для размера градиента шиммера относительно текста.
                 GeometryReader { geometry in
                     ZStack {
                         let gradient = LinearGradient(
