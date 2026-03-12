@@ -21,39 +21,25 @@ struct LanguageView: View {
             }) {
                 HStack {
                     Image(systemName: "globe")
-                        .foregroundColor(themeManager.selectedTheme.primaryColor)
+                        .foregroundStyle(themeManager.selectedTheme.primaryColor)
                     Text("select_language_settings_string", bundle: localizationManager.bundle)
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
                     Spacer()
                 }
                 .customTextStyleWithTheme()
             }
-            .actionSheet(isPresented: $showingActionSheet) {
-                ActionSheet(title: Text("select_language_settings_string", bundle: localizationManager.bundle)
-                    .foregroundColor(themeManager.selectedTheme.primaryColor), message: nil, buttons: [
-                        .default(Text("العربية")) {
-                            localizationManager.currentLanguage = "ar"
-                        },
-                        .default(Text("Русский")) {
-                            localizationManager.currentLanguage = "ru"
-                        },
-                        .default(Text("English")) {
-                            localizationManager.currentLanguage = "en"
-                        },
-                        .default(Text("Deutsch")) {
-                            localizationManager.currentLanguage = "de"
-                        },
-                        .default(Text("Français")) {
-                            localizationManager.currentLanguage = "fr"
-                        },
-                        .default(Text("Türkçe")) {
-                            localizationManager.currentLanguage = "tr"
-                        },
-                        .default(Text("Bahasa Indonesia")) {
-                            localizationManager.currentLanguage = "id"
-                        },
-                        .cancel()
-                    ])
+            .confirmationDialog(
+                Text("select_language_settings_string", bundle: localizationManager.bundle),
+                isPresented: $showingActionSheet
+            ) {
+                Button("العربية") { localizationManager.currentLanguage = "ar" }
+                Button("Русский") { localizationManager.currentLanguage = "ru" }
+                Button("English") { localizationManager.currentLanguage = "en" }
+                Button("Deutsch") { localizationManager.currentLanguage = "de" }
+                Button("Français") { localizationManager.currentLanguage = "fr" }
+                Button("Türkçe") { localizationManager.currentLanguage = "tr" }
+                Button("Bahasa Indonesia") { localizationManager.currentLanguage = "id" }
+                Button("Cancel", role: .cancel) {}
             }
         }
     }

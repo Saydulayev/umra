@@ -270,6 +270,15 @@ struct RitualCounterCard: View {
             LanguageView()
                 .hidden()
         }
+        .sensoryFeedback(.success, trigger: counter) { old, new in
+            new >= RitualCounterKind.targetCount && old < RitualCounterKind.targetCount
+        }
+        .sensoryFeedback(.impact(flexibility: .rigid), trigger: counter) { _, new in
+            new == 0
+        }
+        .sensoryFeedback(.impact(weight: .light), trigger: counter) { old, new in
+            new > 0 && new < RitualCounterKind.targetCount && new > old
+        }
     }
 
     private var progressDetails: some View {
@@ -317,17 +326,10 @@ struct RitualCounterCard: View {
 
     private func handleCounterChange(from oldValue: Int, to newValue: Int) {
         if newValue >= RitualCounterKind.targetCount && oldValue < RitualCounterKind.targetCount {
-            UINotificationFeedbackGenerator().notificationOccurred(.success)
             withAnimation(.spring(response: 0.4, dampingFraction: 0.74)) {
                 showCompletionHighlight = true
             }
             return
-        }
-
-        if newValue == 0 {
-            UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
-        } else {
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
         }
 
         if newValue < RitualCounterKind.targetCount {

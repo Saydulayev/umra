@@ -197,7 +197,9 @@ struct PrayerTimeView: View {
     func startTimer() {
         timerTask = Task { @MainActor in
             while !Task.isCancelled {
-                await updatePrayerTimes()
+                if let prayers = storedPrayerTimes {
+                    updateCountdownToNextPrayer(prayers: prayers)
+                }
                 do {
                     try await Task.sleep(for: .seconds(1))
                 } catch {
@@ -258,13 +260,6 @@ struct PrayerTimeView: View {
 
         let maghribToFajrInterval = tomorrowPrayers.fajr.timeIntervalSince(todayPrayers.maghrib)
         let lastThirdStart = todayPrayers.maghrib.addingTimeInterval(2 * maghribToFajrInterval / 3)
-
-        let prayerTimeFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            formatter.timeZone = TimeZone(identifier: "Asia/Riyadh")
-            return formatter
-        }()
 
         let newPrayerTimes: [String: String] = [
             "Fajr": prayerTimeFormatter.string(from: todayPrayers.fajr),
@@ -439,14 +434,14 @@ struct NotificationSettingsView: View {
         VStack(spacing: 24) {
             Text("Notification Settings", bundle: localizationManager.bundle)
                 .font(.headline)
-                .foregroundColor(textColor)
+                .foregroundStyle(textColor)
                 .padding(.top, 24)
             
             VStack(spacing: 16) {
                 Toggle(isOn: $enable30MinNotifications) {
                     Text("30-Minute Notifications", bundle: localizationManager.bundle)
                         .font(.system(size: 17, weight: .regular))
-                        .foregroundColor(textColor)
+                        .foregroundStyle(textColor)
                         .lineLimit(1)
                         .minimumScaleFactor(0.85)
                         .allowsTightening(true)
@@ -457,7 +452,7 @@ struct NotificationSettingsView: View {
                 Toggle(isOn: $enablePrayerTimeNotifications) {
                     Text("Prayer Time Notifications", bundle: localizationManager.bundle)
                         .font(.system(size: 17, weight: .regular))
-                        .foregroundColor(textColor)
+                        .foregroundStyle(textColor)
                         .lineLimit(1)
                         .minimumScaleFactor(0.85)
                         .allowsTightening(true)
@@ -468,7 +463,7 @@ struct NotificationSettingsView: View {
                 Toggle(isOn: $enableSunriseNotifications) {
                     Text("Sunrise Notifications", bundle: localizationManager.bundle)
                         .font(.system(size: 17, weight: .regular))
-                        .foregroundColor(textColor)
+                        .foregroundStyle(textColor)
                         .lineLimit(1)
                         .minimumScaleFactor(0.85)
                         .allowsTightening(true)
@@ -499,7 +494,7 @@ struct NotificationSettingsView: View {
                         .layoutPriority(1)
                     Image(systemName: "gear")
                 }
-                .foregroundColor(themeManager.selectedTheme.primaryColor)
+                .foregroundStyle(themeManager.selectedTheme.primaryColor)
             })
             .padding(.top, 8)
             .padding(.horizontal)
@@ -510,7 +505,7 @@ struct NotificationSettingsView: View {
                 dismiss()
             }, label: {
                 Text("Close", bundle: localizationManager.bundle)
-                    .foregroundColor(themeManager.selectedTheme.primaryColor)
+                    .foregroundStyle(themeManager.selectedTheme.primaryColor)
             })
             .padding(.vertical, 24)
         }
@@ -581,7 +576,7 @@ extension View {
         let verticalPadding: CGFloat = compact ? 16 : 40
         
         return self.font(.headline)
-        .foregroundColor(theme.textColor)
+        .foregroundStyle(theme.textColor)
         .padding(contentPadding)
         .frame(maxWidth: .infinity)
         .standardCardFrame(theme: theme, cornerRadius: 20)

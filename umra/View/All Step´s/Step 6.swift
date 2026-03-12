@@ -84,7 +84,7 @@ struct Step6: View {
                     .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .topBarTrailing) {
                     CustomToolbar(
                         selectedFont: Bindable(fontManager).selectedFont,
                         fonts: fontManager.fonts

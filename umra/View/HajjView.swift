@@ -134,16 +134,18 @@ struct HajjView: View {
                     }
                 }
                 .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    ToolbarItemGroup(placement: .topBarTrailing) {
                         NavigationLink(value: AppDestination.prayerTimes) {
                             Image(systemName: "clock")
                                 .imageScale(.large)
-                                .foregroundColor(.primary)
+                                .foregroundStyle(.primary)
+                                .accessibilityLabel("Prayer Times")
                         }
                         NavigationLink(value: AppDestination.settings) {
                             Image(systemName: "gearshape")
                                 .imageScale(.large)
-                                .foregroundColor(.primary)
+                                .foregroundStyle(.primary)
+                                .accessibilityLabel("Settings")
                         }
                     }
                 }
@@ -193,7 +195,7 @@ struct HajjView: View {
         HStack {
             Text("hajj_title", bundle: localizationManager.bundle)
                 .font(.system(size: isIPad ? 36 : 28, weight: .bold))
-                .foregroundColor(themeManager.selectedTheme.textColor)
+                .foregroundStyle(themeManager.selectedTheme.textColor)
             
             Spacer()
             
@@ -202,7 +204,7 @@ struct HajjView: View {
             } label: {
                 Text("order_label", bundle: localizationManager.bundle)
                     .font(.system(size: isIPad ? 16 : 14))
-                    .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.5))
+                    .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.5))
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
                     .standardCapsuleCardFrame(
@@ -350,7 +352,7 @@ private struct HajjStepRow: View {
                 Text(stepItem.badgeText)
                     .font(.system(size: badgeFontSize, weight: .bold))
                     .tracking(-0.5)
-                    .foregroundColor(stepItem.badgeColor)
+                    .foregroundStyle(stepItem.badgeColor)
                     .minimumScaleFactor(0.6)
                     .multilineTextAlignment(.center)
                     .lineLimit(1)
@@ -362,12 +364,12 @@ private struct HajjStepRow: View {
                 Text("\(NSLocalizedString("step_prefix", bundle: localizationManager.bundle ?? .main, comment: "")) \(index + 1)")
                     .font(.system(size: isIPad ? 14 : 11, weight: .medium))
                     .tracking(0.5)
-                    .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.4))
+                    .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.4))
                     .textCase(.uppercase)
                 
                 Text(parsedTitle.name)
                     .font(.system(size: isIPad ? 24 : 18, weight: .semibold))
-                    .foregroundColor(themeManager.selectedTheme.textColor)
+                    .foregroundStyle(themeManager.selectedTheme.textColor)
                     .lineLimit(1)
                     .minimumScaleFactor(0.75)
                 
@@ -382,7 +384,7 @@ private struct HajjStepRow: View {
             
             Image(systemName: "chevron.right")
                 .font(.system(size: isIPad ? 16 : 14, weight: .semibold))
-                .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.25))
+                .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())

@@ -112,7 +112,7 @@ struct PlayerView: View {
         @ViewBuilder content: () -> Content
     ) -> some View {
         content()
-            .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
+            .foregroundStyle(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
             .frame(width: playerControlSize, height: playerControlSize)
             .standardCircularCardFrame(
                 theme: themeManager.selectedTheme,
@@ -196,7 +196,6 @@ struct PlayerView: View {
     private func playerButtonWithText(text: String, isActive: Bool, action: @escaping () -> Void) -> some View {
         Button {
             action()
-            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         } label: {
             playerControl(isActive: isActive) {
                 Text(text)
@@ -205,6 +204,7 @@ struct PlayerView: View {
                     .minimumScaleFactor(0.5)
             }
         }
+        .sensoryFeedback(.impact(weight: .medium), trigger: playbackRate)
         .padding()
     }
 

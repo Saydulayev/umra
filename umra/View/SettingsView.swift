@@ -105,13 +105,23 @@ struct SettingsView: View {
                                 accessory: {
                                     Text(currentLanguageDisplayName)
                                         .font(.system(size: SettingsMetrics.isIPad ? 18 : 14, weight: .medium))
-                                        .foregroundColor(secondaryTextColor)
+                                        .foregroundStyle(secondaryTextColor)
                                 }
                             )
                         }
                         .buttonStyle(.plain)
-                        .actionSheet(isPresented: $showLanguageActionSheet) {
-                            languageActionSheet
+                        .confirmationDialog(
+                            Text("select_language_settings_string", bundle: localizationManager.bundle),
+                            isPresented: $showLanguageActionSheet
+                        ) {
+                            Button("العربية") { localizationManager.currentLanguage = "ar" }
+                            Button("Русский") { localizationManager.currentLanguage = "ru" }
+                            Button("English") { localizationManager.currentLanguage = "en" }
+                            Button("Deutsch") { localizationManager.currentLanguage = "de" }
+                            Button("Français") { localizationManager.currentLanguage = "fr" }
+                            Button("Türkçe") { localizationManager.currentLanguage = "tr" }
+                            Button("Bahasa Indonesia") { localizationManager.currentLanguage = "id" }
+                            Button("Cancel", role: .cancel) {}
                         }
 
                         SettingsDivider()
@@ -128,7 +138,7 @@ struct SettingsView: View {
                                             .frame(width: isIPad ? 24 : 18, height: isIPad ? 24 : 18)
                                         Text(themeManager.themePreference.displayName(bundle: localizationManager.bundle ?? Bundle.main))
                                             .font(.system(size: SettingsMetrics.isIPad ? 18 : 14, weight: .medium))
-                                            .foregroundColor(secondaryTextColor)
+                                            .foregroundStyle(secondaryTextColor)
                                     }
                                 }
                             )
@@ -164,23 +174,6 @@ struct SettingsView: View {
         }
     }
 
-    private var languageActionSheet: ActionSheet {
-        ActionSheet(
-            title: Text("select_language_settings_string", bundle: localizationManager.bundle)
-                .foregroundColor(themeManager.selectedTheme.primaryColor),
-            message: nil,
-            buttons: [
-                .default(Text("العربية")) { localizationManager.currentLanguage = "ar" },
-                .default(Text("Русский")) { localizationManager.currentLanguage = "ru" },
-                .default(Text("English")) { localizationManager.currentLanguage = "en" },
-                .default(Text("Deutsch")) { localizationManager.currentLanguage = "de" },
-                .default(Text("Français")) { localizationManager.currentLanguage = "fr" },
-                .default(Text("Türkçe")) { localizationManager.currentLanguage = "tr" },
-                .default(Text("Bahasa Indonesia")) { localizationManager.currentLanguage = "id" },
-                .cancel()
-            ]
-        )
-    }
 }
 
 // MARK: - Settings Components
@@ -278,14 +271,14 @@ struct SettingsRow<Accessory: View>: View {
                     .fill(iconBackground)
                 Image(systemName: icon)
                     .font(.system(size: SettingsMetrics.iconSize, weight: .semibold))
-                    .foregroundColor(accentColor)
+                    .foregroundStyle(accentColor)
             }
             .frame(width: SettingsMetrics.iconContainerSize, height: SettingsMetrics.iconContainerSize)
 
             VStack(alignment: .leading, spacing: 3) {
                 title
                     .font(.system(size: SettingsMetrics.isIPad ? 20 : 16, weight: .semibold))
-                    .foregroundColor(themeManager.selectedTheme.textColor)
+                    .foregroundStyle(themeManager.selectedTheme.textColor)
                     .lineLimit(1)
                     .minimumScaleFactor(0.85)
                     .allowsTightening(true)
@@ -293,7 +286,7 @@ struct SettingsRow<Accessory: View>: View {
                 if let subtitle {
                     subtitle
                         .font(.system(size: SettingsMetrics.isIPad ? 15 : 12))
-                        .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.6))
+                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.6))
                 }
             }
 
@@ -304,7 +297,7 @@ struct SettingsRow<Accessory: View>: View {
                 if showsChevron {
                     Image(systemName: "chevron.right")
                         .font(.system(size: SettingsMetrics.isIPad ? 16 : 14, weight: .semibold))
-                        .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.45))
+                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.45))
                 }
             }
         }
@@ -362,7 +355,7 @@ struct ThemePreviewView: View {
                 VStack(spacing: isIPad ? 28 : 20) {
                     Text("theme_select_title", bundle: localizationManager.bundle)
                         .font(.system(size: isIPad ? 28 : 22, weight: .bold))
-                        .foregroundColor(themeManager.selectedTheme.textColor)
+                        .foregroundStyle(themeManager.selectedTheme.textColor)
                         .padding(.top, isIPad ? 24 : 16)
                     
                     VStack(spacing: isIPad ? 16 : 12) {
@@ -384,12 +377,12 @@ struct ThemePreviewView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         dismiss()
                     } label: {
                         Text("done_button", bundle: localizationManager.bundle)
-                            .foregroundColor(themeManager.selectedTheme.primaryColor)
+                            .foregroundStyle(themeManager.selectedTheme.primaryColor)
                     }
                 }
             }
@@ -413,17 +406,17 @@ struct ThemePreviewView: View {
                 
                 Image(systemName: theme.iconName)
                     .font(.system(size: isIPad ? 22 : 18, weight: .medium))
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
             }
             
             VStack(alignment: .leading, spacing: 3) {
                 Text(theme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
                     .font(.system(size: isIPad ? 20 : 17, weight: .semibold))
-                    .foregroundColor(themeManager.selectedTheme.textColor)
+                    .foregroundStyle(themeManager.selectedTheme.textColor)
                 
                 Text(LocalizedStringKey(theme.subtitleKey), bundle: localizationManager.bundle)
                     .font(.system(size: isIPad ? 15 : 13))
-                    .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.5))
+                    .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.5))
             }
             
             Spacer()
@@ -431,7 +424,7 @@ struct ThemePreviewView: View {
             if isSelected {
                 Image(systemName: "checkmark.circle.fill")
                     .font(.system(size: isIPad ? 26 : 22))
-                    .foregroundColor(theme.primaryColor)
+                    .foregroundStyle(theme.primaryColor)
             }
         }
         .padding(isIPad ? 20 : 16)

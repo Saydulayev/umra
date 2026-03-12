@@ -82,7 +82,7 @@ struct LanguageSelectionView: View {
 
                     if needChevron {
                         Image(systemName: "chevron.down")
-                            .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.4))
+                            .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.4))
                             .font(.system(size: geo.size.height * 0.025))
                             .padding(.top, 4)
                             .padding(.bottom, geo.size.height * 0.01)
@@ -107,7 +107,7 @@ extension Text {
     func buttonStyle(fontSize: CGFloat = 18, theme: AppTheme) -> some View {
         self.font(.system(size: fontSize, weight: .medium))
             .minimumScaleFactor(0.75)
-            .foregroundColor(theme.textColor)
+            .foregroundStyle(theme.textColor)
             .padding(.vertical, 16)
             .padding(.horizontal, 8)
             .frame(maxWidth: .infinity)
@@ -119,7 +119,7 @@ extension Text {
         let theme = AppTheme.light
         return self.font(.system(size: fontSize, weight: .medium))
             .minimumScaleFactor(0.75)
-            .foregroundColor(theme.textColor)
+            .foregroundStyle(theme.textColor)
             .padding(.vertical, 16)
             .padding(.horizontal, 8)
             .frame(maxWidth: .infinity)

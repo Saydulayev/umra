@@ -108,7 +108,7 @@ struct UsefulInfoView: View {
                             .resizable()
                             .frame(width: 40, height: 40)
                             .padding()
-                            .foregroundColor(usefulInfoAccentBlue)
+                            .foregroundStyle(usefulInfoAccentBlue)
                     }
                     .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
                         VStack {
@@ -385,15 +385,15 @@ private func textWithBoldQuotes(_ paragraph: String, fontSize: CGFloat, textColo
     var result = Text(verbatim: "")
     for (index, part) in parts.enumerated() {
         if index == 0 {
-            result = result + Text(verbatim: part).foregroundColor(textColor)
+            result = result + Text(verbatim: part).foregroundStyle(textColor)
             continue
         }
         let subParts = part.components(separatedBy: "»")
         if subParts.count >= 2 {
-            result = result + Text(verbatim: "«" + subParts[0] + "»").fontWeight(.semibold).foregroundColor(textColor)
-            result = result + Text(verbatim: subParts.dropFirst().joined(separator: "»")).foregroundColor(textColor)
+            result = result + Text(verbatim: "«" + subParts[0] + "»").fontWeight(.semibold).foregroundStyle(textColor)
+            result = result + Text(verbatim: subParts.dropFirst().joined(separator: "»")).foregroundStyle(textColor)
         } else {
-            result = result + Text(verbatim: "«" + part).foregroundColor(textColor)
+            result = result + Text(verbatim: "«" + part).foregroundStyle(textColor)
         }
     }
     return result
@@ -418,7 +418,7 @@ private struct FormattedContentView: View {
                 case FormattedContentBlock.Style.heading(let text):
                     Text(text)
                         .font(.system(size: fontSize + 1, weight: .bold))
-                        .foregroundColor(headingColor)
+                        .foregroundStyle(headingColor)
                         .textSelection(.enabled)
                         .fixedSize(horizontal: false, vertical: true)
                 case FormattedContentBlock.Style.body(let paragraph):

@@ -61,7 +61,7 @@ struct StepView: View {
                         .fill(badgeColor.opacity(0.15))
                     Text(badgeText)
                         .font(.system(size: badgeFontSize, weight: .bold, design: .rounded))
-                        .foregroundColor(badgeColor)
+                        .foregroundStyle(badgeColor)
                         .minimumScaleFactor(0.5)
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
@@ -80,7 +80,7 @@ struct StepView: View {
                 if let index, !(hideLastIndex && index == stepsCount - 1) {
                     Text("\(index + 1)")
                         .font(.system(size: isIPad ? 14 : 11, weight: .bold))
-                        .foregroundColor(themeManager.selectedTheme.textColor)
+                        .foregroundStyle(themeManager.selectedTheme.textColor)
                         .padding(isIPad ? 9 : 7)
                         .background(
                             Circle()
@@ -94,7 +94,7 @@ struct StepView: View {
             VStack(spacing: 3) {
                 Text(parsedTitle.name)
                     .font(.custom("Lato-Black", size: fontSize))
-                    .foregroundColor(themeManager.selectedTheme.textColor)
+                    .foregroundStyle(themeManager.selectedTheme.textColor)
                     .multilineTextAlignment(.center)
                 if let date = parsedTitle.date {
                     Text(date)

@@ -43,7 +43,7 @@ struct Step5: View {
             }
             .scrollBounceBehavior(.basedOnSize)
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .topBarTrailing) {
                     CustomToolbar(
                         selectedFont: Bindable(fontManager).selectedFont,
                         fonts: fontManager.fonts

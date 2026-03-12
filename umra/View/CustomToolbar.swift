@@ -24,7 +24,7 @@ struct CustomToolbar: View {
                     }
                 }
             } label: {
-                Image(systemName: "textformat").imageScale(.large).foregroundColor(.primary)
+                Image(systemName: "textformat").imageScale(.large).foregroundStyle(.primary)
             }
         }
     }

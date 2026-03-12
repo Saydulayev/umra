@@ -97,7 +97,7 @@ struct DonationSheetView: View {
                         // Заголовок
                         Text("Contribution to Application Development", bundle: localizationManager.bundle)
                             .font(.system(size: titleFontSize, weight: .medium))
-                            .foregroundColor(themeManager.selectedTheme.textColor)
+                            .foregroundStyle(themeManager.selectedTheme.textColor)
                             .padding(titlePadding)
                             .frame(maxWidth: .infinity)
                             .neumorphicBackground(cornerRadius: titleCornerRadius, theme: themeManager.selectedTheme)
@@ -147,7 +147,7 @@ struct DonationSheetView: View {
                     // Оригинальная структура для iPhone
                     Text("Contribution to Application Development", bundle: localizationManager.bundle)
                         .font(.system(size: 16))
-                        .foregroundColor(themeManager.selectedTheme.textColor)
+                        .foregroundStyle(themeManager.selectedTheme.textColor)
                         .padding()
                         .frame(maxWidth: .infinity)
                         .neumorphicBackground(theme: themeManager.selectedTheme)
@@ -183,7 +183,7 @@ struct DonationSheetView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
                         isPresented = false
                     }, label: {
@@ -213,7 +213,7 @@ struct DonationSheetView: View {
         } label: {
             Text("_donate_button", bundle: localizationManager.bundle)
                 .font(.system(size: buttonFontSize, weight: .medium))
-                .foregroundColor(themeManager.selectedTheme.textColor)
+                .foregroundStyle(themeManager.selectedTheme.textColor)
                 .frame(maxWidth: .infinity)
                 .padding(buttonPadding)
                 .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
@@ -238,7 +238,7 @@ struct DonationSheetView: View {
                 } else {
                     Text("_donate_button", bundle: localizationManager.bundle)
                         .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(themeManager.selectedTheme.textColor)
+                        .foregroundStyle(themeManager.selectedTheme.textColor)
                         .padding()
                 }
             }
