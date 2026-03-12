@@ -40,7 +40,7 @@
 		C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDB29829F8A00458ACB /* umraApp.swift */; };
 		C0908DE029829F8A00458ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DDF29829F8A00458ACB /* Assets.xcassets */; };
 		C0908DE329829F8A00458ACB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DE229829F8A00458ACB /* Preview Assets.xcassets */; };
-		C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */; };
+		C0908DEC2982A02E00458ACB /* CustomModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEB2982A02E00458ACB /* CustomModifierView.swift */; };
 		C0908DEF2982A07900458ACB /* Step 1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEE2982A07900458ACB /* Step 1.swift */; };
 		C0908DF12982A08B00458ACB /* Step 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF02982A08B00458ACB /* Step 2.swift */; };
 		C0908DF32982A09400458ACB /* Step 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF22982A09400458ACB /* Step 3.swift */; };
@@ -106,7 +106,7 @@
 		C0908DDB29829F8A00458ACB /* umraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = umraApp.swift; sourceTree = "<group>"; };
 		C0908DDF29829F8A00458ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0908DE229829F8A00458ACB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMidifierView.swift; sourceTree = "<group>"; };
+		C0908DEB2982A02E00458ACB /* CustomModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifierView.swift; sourceTree = "<group>"; };
 		C0908DEE2982A07900458ACB /* Step 1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 1.swift"; sourceTree = "<group>"; };
 		C0908DF02982A08B00458ACB /* Step 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 2.swift"; sourceTree = "<group>"; };
 		C0908DF22982A09400458ACB /* Step 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 3.swift"; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 				C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */,
 				C07BE92A2AA34B8900BA3A15 /* TawafCounterView.swift */,
 				C24AC7BF2D65D366007F5E5A /* DonationView */,
-				C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */,
+				C0908DEB2982A02E00458ACB /* CustomModifierView.swift */,
 				C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */,
 				C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */,
 				C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */,
@@ -461,7 +461,7 @@
 				C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */,
 				C077B4782B20D41D00086594 /* StoreKit.swift in Sources */,
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
-				C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */,
+				C0908DEC2982A02E00458ACB /* CustomModifierView.swift in Sources */,
 				C356ADBE74C524FC1934C6C8 /* Constants.swift in Sources */,
 				C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */,
 				C2A68D362CFF1E3C005F3ED8 /* UserSettings.swift in Sources */,

@@ -7,10 +7,16 @@
 
 import SwiftUI
 
+enum MainTab: String, CaseIterable {
+    case umra
+    case hajj
+}
+
 struct MainTabView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
-    
+    @State private var selectedTab: MainTab = .umra
+
     private var umraTabLabel: String {
         localizationManager.localized("tab_umra")
     }
@@ -18,7 +24,7 @@ struct MainTabView: View {
     private var hajjTabLabel: String {
         localizationManager.localized("tab_hajj")
     }
-    
+
     var body: some View {
         ZStack {
             if localizationManager.hasSelectedLanguage {
@@ -44,16 +50,18 @@ struct MainTabView: View {
     
     @ViewBuilder
     private var tabViewContent: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             ContentView()
                 .tabItem {
                     Label(umraTabLabel, systemImage: "u.circle.fill")
                 }
-            
+                .tag(MainTab.umra)
+
             HajjView()
                 .tabItem {
                     Label(hajjTabLabel, systemImage: "h.circle.fill")
                 }
+                .tag(MainTab.hajj)
         }
         .environment(\.horizontalSizeClass, .compact)
         .onAppear {

@@ -367,7 +367,7 @@ struct ThemePreviewView: View {
                             } label: {
                                 themeCard(for: theme)
                             }
-                            .buttonStyle(PlainButtonStyle())
+                            .buttonStyle(.plain)
                         }
                     }
                     .padding(.horizontal, isIPad ? 24 : 16)

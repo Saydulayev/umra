@@ -199,7 +199,7 @@ struct ContentView: View {
                     } label: {
                         StepRow(stepItem: stepItem, index: stepItem.id)
                     }
-                    .buttonStyle(PlainButtonStyle())
+                    .buttonStyle(.plain)
                     .id("\(stepItem.step)-\(stepItem.id)")
 
                     if idx < numberedSteps.count - 1 {
@@ -222,7 +222,7 @@ struct ContentView: View {
                 } label: {
                     StepRow(stepItem: usefulItem, index: usefulItem.id)
                 }
-                .buttonStyle(PlainButtonStyle())
+                .buttonStyle(.plain)
                 .standardCardFrame(
                     theme: themeManager.selectedTheme,
                     cornerRadius: listCardCornerRadius,

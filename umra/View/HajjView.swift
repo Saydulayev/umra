@@ -159,7 +159,7 @@ struct HajjView: View {
                     } label: {
                         HajjStepRow(stepItem: stepItem, index: stepItem.id)
                     }
-                    .buttonStyle(PlainButtonStyle())
+                    .buttonStyle(.plain)
                     .id("\(stepItem.step)-\(stepItem.id)")
 
                     if idx < steps.count - 1 {

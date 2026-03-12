@@ -1,5 +1,5 @@
 //
-//  CustomMidifierView.swift
+//  CustomModifierView.swift
 //  umra
 //
 //  Created by Akhmed on 26.01.23.
@@ -298,10 +298,10 @@ private struct StandardCardFrameModifier: ViewModifier {
                     }
                 }
             )
-            .overlay(
+            .overlay(alignment: .center) {
                 shape
                     .stroke(resolvedBorderColor, lineWidth: borderWidth)
-            )
+            }
             .clipShape(shape)
             .shadow(
                 color: theme.cardFrameShadowColor,
@@ -344,10 +344,10 @@ private struct StandardCircularCardFrameModifier: ViewModifier {
                     }
                 }
             )
-            .overlay(
+            .overlay(alignment: .center) {
                 Circle()
                     .stroke(resolvedBorderColor, lineWidth: borderWidth)
-            )
+            }
             .clipShape(Circle())
             .shadow(
                 color: theme.cardFrameShadowColor,
@@ -390,10 +390,10 @@ private struct StandardCapsuleCardFrameModifier: ViewModifier {
                     }
                 }
             )
-            .overlay(
+            .overlay(alignment: .center) {
                 Capsule()
                     .stroke(resolvedBorderColor, lineWidth: borderWidth)
-            )
+            }
             .clipShape(Capsule())
             .shadow(
                 color: theme.cardFrameShadowColor,

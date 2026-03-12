@@ -82,7 +82,7 @@ struct UsefulInfoView: View {
                             .padding(.horizontal, listPadding)
                             .padding(.vertical, 16)
                         }
-                        .buttonStyle(PlainButtonStyle())
+                        .buttonStyle(.plain)
                         
                         if idx < chapters.count - 1 {
                             Divider()
@@ -300,7 +300,7 @@ struct ChapterDetailView: View {
                             .padding(.horizontal, listPadding)
                             .padding(.vertical, 16)
                         }
-                        .buttonStyle(PlainButtonStyle())
+                        .buttonStyle(.plain)
                         
                         if idx < chapter.subChapters.count - 1 {
                             Divider()
