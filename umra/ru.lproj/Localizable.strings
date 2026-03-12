@@ -464,6 +464,7 @@
 "theme_layl_subtitle" = "Уют ночи";
 "theme_emerald_subtitle" = "Мягкое тонированное свечение";
 "done_button" = "Готово";
+"select_font" = "Выберите шрифт";
 
 /* Локализация табов и экранов */
 "tab_umra" = "Умра";

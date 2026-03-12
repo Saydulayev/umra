@@ -440,6 +440,7 @@
 "theme_layl_subtitle" = "راحة الليل";
 "theme_emerald_subtitle" = "وهج هادئ ملوّن";
 "done_button" = "تم";
+"select_font" = "اختر الخط";
 
 /* Локализация табов и экранов */
 "tab_umra" = "العمرة";

@@ -534,6 +534,7 @@ Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebe
 "theme_layl_subtitle" = "Nachtkomfort";
 "theme_emerald_subtitle" = "Sanftes getöntes Leuchten";
 "done_button" = "Fertig";
+"select_font" = "Schrift wählen";
 
 /* Tab Lokalisierung */
 "tab_umra" = "Umra";

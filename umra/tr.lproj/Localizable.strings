@@ -495,6 +495,7 @@ Resulullah (Allah'ın selamı ve bereketi onun üzerine olsun) cenaze namazında
 "theme_layl_subtitle" = "Gece huzuru";
 "theme_emerald_subtitle" = "Yumuşak tonlu ışıltı";
 "done_button" = "Tamam";
+"select_font" = "Yazı tipi seç";
 
 /* Sekme Yerelleştirme */
 "tab_umra" = "Umre";

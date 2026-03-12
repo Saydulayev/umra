@@ -532,6 +532,7 @@ Le Messager d'Allah (paix et bénédictions sur lui) concluait la prière de Jan
 "theme_layl_subtitle" = "Confort nocturne";
 "theme_emerald_subtitle" = "Lueur teintée et douce";
 "done_button" = "Terminé";
+"select_font" = "Choisir la police";
 
 /* Localisation des onglets */
 "tab_umra" = "Omra";

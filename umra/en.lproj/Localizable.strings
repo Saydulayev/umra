@@ -513,6 +513,7 @@ The Messenger of Allah (peace and blessings of Allah be upon him), when performi
 "theme_layl_subtitle" = "Night comfort";
 "theme_emerald_subtitle" = "Soft tinted glow";
 "done_button" = "Done";
+"select_font" = "Select Font";
 
 /* Tab Localization */
 "tab_umra" = "Umrah";
