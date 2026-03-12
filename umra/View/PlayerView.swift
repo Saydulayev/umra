@@ -127,12 +127,12 @@ struct PlayerView: View {
         VStack {
             HStack {
                 Spacer()
-                playerButton(imageName: "repeat", isActive: isRepeating) {
+                playerButton(imageName: "repeat", accessibilityLabel: "Repeat", isActive: isRepeating) {
                     self.isRepeating.toggle()
                     self.audioPlayer?.numberOfLoops = self.isRepeating ? -1 : 0
                 }
 
-                playerButton(imageName: isPlaying ? "pause.fill" : "play.fill", isActive: isPlaying) {
+                playerButton(imageName: isPlaying ? "pause.fill" : "play.fill", accessibilityLabel: isPlaying ? "Pause" : "Play", isActive: isPlaying) {
                     if let player = self.audioPlayer {
                         if player.isPlaying {
                             player.pause()
@@ -183,13 +183,14 @@ struct PlayerView: View {
 
     // MARK: - UI Components
     
-    private func playerButton(imageName: String, isActive: Bool, action: @escaping () -> Void) -> some View {
+    private func playerButton(imageName: String, accessibilityLabel: String, isActive: Bool, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             playerControl(isActive: isActive) {
                 Image(systemName: imageName)
                     .font(.system(size: 16, weight: .bold))
             }
         }
+        .accessibilityLabel(accessibilityLabel)
         .padding()
     }
 

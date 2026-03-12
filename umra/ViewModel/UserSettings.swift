@@ -368,6 +368,10 @@ class LocalizationManager {
         }
         bundle = resultBundle
     }
+
+    func localized(_ key: String) -> String {
+        NSLocalizedString(key, bundle: bundle ?? .main, comment: "")
+    }
 }
 
 // MARK: - User Preferences Manager

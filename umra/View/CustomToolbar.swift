@@ -26,6 +26,7 @@ struct CustomToolbar: View {
             } label: {
                 Image(systemName: "textformat").imageScale(.large).foregroundStyle(.primary)
             }
+            .accessibilityLabel("Select Font")
         }
     }
 }

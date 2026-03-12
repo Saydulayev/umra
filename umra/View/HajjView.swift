@@ -149,11 +149,10 @@ struct HajjView: View {
                         }
                     }
                 }
-                LanguageView().hidden()
             }
         }
     }
-    
+
     // MARK: - View Builders
     
     @ViewBuilder
@@ -228,15 +227,15 @@ struct HajjView: View {
         let mod10 = count % 10
         let mod100 = count % 100
         if mod100 >= 11 && mod100 <= 19 {
-            return NSLocalizedString("steps_count_many", bundle: localizationManager.bundle ?? .main, comment: "")
+            return localizationManager.localized("steps_count_many")
         }
         if mod10 == 1 {
-            return NSLocalizedString("steps_count_one", bundle: localizationManager.bundle ?? .main, comment: "")
+            return localizationManager.localized("steps_count_one")
         }
         if mod10 >= 2 && mod10 <= 4 {
-            return NSLocalizedString("steps_count_few", bundle: localizationManager.bundle ?? .main, comment: "")
+            return localizationManager.localized("steps_count_few")
         }
-        return NSLocalizedString("steps_count_many", bundle: localizationManager.bundle ?? .main, comment: "")
+        return localizationManager.localized("steps_count_many")
     }
     
     private func stepsGridView(showIndex: Bool, fontSize: CGFloat) -> some View {
@@ -329,7 +328,7 @@ private struct HajjStepRow: View {
     }
     
     private var parsedTitle: (name: String, date: String?) {
-        let fullText = NSLocalizedString(stepItem.titleKey, bundle: localizationManager.bundle ?? .main, comment: "")
+        let fullText = localizationManager.localized(stepItem.titleKey)
         let separators = [" — ", " - ", " – ", " —", " — "]
         for separator in separators {
             let components = fullText.components(separatedBy: separator)
@@ -361,7 +360,7 @@ private struct HajjStepRow: View {
             .frame(width: badgeSize, height: badgeSize)
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("\(NSLocalizedString("step_prefix", bundle: localizationManager.bundle ?? .main, comment: "")) \(index + 1)")
+                Text("\(localizationManager.localized("step_prefix")) \(index + 1)")
                     .font(.system(size: isIPad ? 14 : 11, weight: .medium))
                     .tracking(0.5)
                     .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.4))

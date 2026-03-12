@@ -361,7 +361,7 @@ struct ThemePreviewView: View {
                     VStack(spacing: isIPad ? 16 : 12) {
                         ForEach(AppTheme.allCases, id: \.self) { theme in
                             Button {
-                                withAnimation(.easeInOut(duration: 0.25)) {
+                                withAnimation(AppAnimation.settingsToggle) {
                                     themeManager.themePreference = theme
                                 }
                             } label: {

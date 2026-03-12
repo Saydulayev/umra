@@ -12,11 +12,11 @@ struct MainTabView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     
     private var umraTabLabel: String {
-        NSLocalizedString("tab_umra", bundle: localizationManager.bundle ?? .main, comment: "")
+        localizationManager.localized("tab_umra")
     }
-    
+
     private var hajjTabLabel: String {
-        NSLocalizedString("tab_hajj", bundle: localizationManager.bundle ?? .main, comment: "")
+        localizationManager.localized("tab_hajj")
     }
     
     var body: some View {

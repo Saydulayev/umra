@@ -14,7 +14,7 @@ struct HajjStep2: View {
     
     /// Извлекает только заголовок без даты из строки локализации
     private func extractTitleOnly(from key: String) -> String {
-        let fullText = NSLocalizedString(key, bundle: localizationManager.bundle ?? .main, comment: "")
+        let fullText = localizationManager.localized(key)
         // Пробуем разные варианты разделителей: длинное тире, обычное тире, дефис
         let separators = [" — ", " - ", " – ", " —", " — "]
         for separator in separators {

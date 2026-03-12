@@ -43,7 +43,7 @@ struct ShimmeringText: View {
             )
             .onAppear {
                 withAnimation(
-                    Animation.linear(duration: 3.0)
+                    Animation.linear(duration: AppAnimation.shimmerDuration)
                         .repeatForever(autoreverses: false)
                 ) {
                     isAnimating = true

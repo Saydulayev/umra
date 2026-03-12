@@ -34,6 +34,24 @@ enum ProductID: String, CaseIterable {
     }
 }
 
+// MARK: - Animation Constants
+
+enum AppAnimation {
+    // Counter animations
+    static let counterIncrement = Animation.spring(response: 0.30, dampingFraction: 0.78)
+    static let counterDecrement = Animation.spring(response: 0.28, dampingFraction: 0.82)
+    static let counterCard    = Animation.spring(response: 0.35, dampingFraction: 0.82)
+
+    // Completion animations
+    static let completionShow = Animation.spring(response: 0.40, dampingFraction: 0.74)
+    static let completionHide = Animation.spring(response: 0.30, dampingFraction: 0.82)
+    static let completionHighlight = Animation.spring(response: 0.38, dampingFraction: 0.76)
+
+    // UI animations
+    static let shimmerDuration: Double = 3.0
+    static let settingsToggle = Animation.easeInOut(duration: 0.25)
+}
+
 // MARK: - App Constants
 
 enum AppConstants {

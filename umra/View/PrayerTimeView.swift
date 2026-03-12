@@ -165,7 +165,7 @@ struct PrayerTimeView: View {
             .pickerStyle(.segmented)
             .padding(.horizontal, layout.pickerHorizontalPadding)
 
-            Text("\(localizedPrayerName(nextPrayerName)) \(NSLocalizedString("prayer_in", bundle: localizationManager.bundle ?? .main, comment: "")) \(timeUntilNextPrayer)")
+            Text("\(localizedPrayerName(nextPrayerName)) \(localizationManager.localized("prayer_in")) \(timeUntilNextPrayer)")
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
                 .cardStyled(theme: themeManager.selectedTheme, compact: layout.isCompact)
@@ -330,7 +330,7 @@ struct PrayerTimeView: View {
         default:
             return prayerName
         }
-        return NSLocalizedString(key, bundle: localizationManager.bundle ?? .main, comment: "")
+        return localizationManager.localized(key)
     }
 
     func requestNotificationPermission() async {
@@ -366,7 +366,7 @@ struct PrayerTimeView: View {
                 let content = UNMutableNotificationContent()
                 let localizedName = localizedPrayerName(prayerName)
                 content.title = localizedName
-                content.body = String(format: NSLocalizedString("prayer_time_for", bundle: localizationManager.bundle ?? .main, comment: ""), localizedName)
+                content.body = String(format: localizationManager.localized("prayer_time_for"), localizedName)
                 content.sound = UNNotificationSound.default
 
                 let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: prayerTime)
@@ -385,8 +385,8 @@ struct PrayerTimeView: View {
             if enable30MinNotifications {
                 let content30MinBefore = UNMutableNotificationContent()
                 let localizedName = localizedPrayerName(prayerName)
-                content30MinBefore.title = NSLocalizedString("prayer_prepare_for_next", bundle: localizationManager.bundle ?? .main, comment: "")
-                content30MinBefore.body = String(format: NSLocalizedString("prayer_time_in_30_minutes", bundle: localizationManager.bundle ?? .main, comment: ""), localizedName)
+                content30MinBefore.title = localizationManager.localized("prayer_prepare_for_next")
+                content30MinBefore.body = String(format: localizationManager.localized("prayer_time_in_30_minutes"), localizedName)
                 content30MinBefore.sound = UNNotificationSound.default
 
                 let prayerTime30MinBefore = prayerTime.addingTimeInterval(-AppConstants.notification30MinutesInterval)

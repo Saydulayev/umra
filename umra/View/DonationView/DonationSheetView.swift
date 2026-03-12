@@ -191,6 +191,7 @@ struct DonationSheetView: View {
                             .imageScale(.large)
                             .foregroundStyle(themeManager.selectedTheme.primaryColor)
                     })
+                    .accessibilityLabel("Close")
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

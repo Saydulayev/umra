@@ -178,7 +178,7 @@ struct RitualCounterCard: View {
                                 .fill(statusBackground)
                         )
                         .scaleEffect(showCompletionHighlight ? 1.0 : 0.97)
-                        .animation(.spring(response: 0.38, dampingFraction: 0.76), value: showCompletionHighlight)
+                        .animation(AppAnimation.completionHighlight, value: showCompletionHighlight)
                     }
 
                     Spacer(minLength: 12)
@@ -258,7 +258,7 @@ struct RitualCounterCard: View {
             )
             .padding(.horizontal, outerHorizontalPadding)
             .padding(.vertical, isIPad ? 18 : 14)
-            .animation(.spring(response: 0.35, dampingFraction: 0.82), value: counter)
+            .animation(AppAnimation.counterCard, value: counter)
             .onAppear {
                 showCompletionHighlight = isCompleted
             }
@@ -266,9 +266,6 @@ struct RitualCounterCard: View {
                 handleCounterChange(from: oldValue, to: newValue)
             }
             .accessibilityElement(children: .contain)
-
-            LanguageView()
-                .hidden()
         }
         .sensoryFeedback(.success, trigger: counter) { old, new in
             new >= RitualCounterKind.targetCount && old < RitualCounterKind.targetCount
@@ -312,28 +309,28 @@ struct RitualCounterCard: View {
 
     private func incrementCounter() {
         guard counter < RitualCounterKind.targetCount else { return }
-        withAnimation(.spring(response: 0.30, dampingFraction: 0.78)) {
+        withAnimation(AppAnimation.counterIncrement) {
             counter += 1
         }
     }
 
     private func resetCounter() {
         guard counter > 0 else { return }
-        withAnimation(.spring(response: 0.28, dampingFraction: 0.82)) {
+        withAnimation(AppAnimation.counterDecrement) {
             counter = 0
         }
     }
 
     private func handleCounterChange(from oldValue: Int, to newValue: Int) {
         if newValue >= RitualCounterKind.targetCount && oldValue < RitualCounterKind.targetCount {
-            withAnimation(.spring(response: 0.4, dampingFraction: 0.74)) {
+            withAnimation(AppAnimation.completionShow) {
                 showCompletionHighlight = true
             }
             return
         }
 
         if newValue < RitualCounterKind.targetCount {
-            withAnimation(.spring(response: 0.3, dampingFraction: 0.82)) {
+            withAnimation(AppAnimation.completionHide) {
                 showCompletionHighlight = false
             }
         }
