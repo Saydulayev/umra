@@ -47,10 +47,8 @@ struct Step2: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 10)
-                LanguageView()
-                    .hidden()
-                    .navigationTitle(Text("title_round_kaaba_screen", bundle: localizationManager.bundle))
-                    .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(Text("title_round_kaaba_screen", bundle: localizationManager.bundle))
+                .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {

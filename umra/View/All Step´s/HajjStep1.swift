@@ -144,10 +144,8 @@ struct HajjStep1: View {
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
-                LanguageView()
-                    .hidden()
-                    .navigationTitle(Text(extractTitleOnly(from: "hajj_step1_title")))
-                    .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(Text(extractTitleOnly(from: "hajj_step1_title")))
+                .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {

@@ -35,10 +35,8 @@ struct Step7: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(10)
-                LanguageView()
-                    .hidden()
-                    .navigationTitle(Text("title_shave_head_screen", bundle: localizationManager.bundle))
-                    .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(Text("title_shave_head_screen", bundle: localizationManager.bundle))
+                .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {

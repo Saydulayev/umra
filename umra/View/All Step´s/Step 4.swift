@@ -29,10 +29,8 @@ struct Step4: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 10)
-                LanguageView()
-                    .hidden()
-                    .navigationTitle(Text("title_water_zamzam_screen", bundle: localizationManager.bundle))
-                    .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(Text("title_water_zamzam_screen", bundle: localizationManager.bundle))
+                .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {

@@ -36,10 +36,8 @@ struct Step5: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 10)
-                LanguageView()
-                    .hidden()
-                    .navigationTitle(Text("title_black_stone_screen", bundle: localizationManager.bundle))
-                    .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(Text("title_black_stone_screen", bundle: localizationManager.bundle))
+                .navigationBarTitleDisplayMode(.inline)
             }
             .scrollBounceBehavior(.basedOnSize)
             .toolbar {
