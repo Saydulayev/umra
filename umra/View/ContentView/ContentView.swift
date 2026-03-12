@@ -193,7 +193,7 @@ struct ContentView: View {
             stepsHeader
 
             VStack(spacing: 0) {
-                ForEach(Array(numberedSteps.enumerated()), id: \.element.id) { idx, stepItem in
+                ForEach(numberedSteps.enumerated(), id: \.element.id) { idx, stepItem in
                     Button {
                         navigationPath.append(stepItem.step)
                     } label: {

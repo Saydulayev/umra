@@ -60,7 +60,8 @@ struct StepView: View {
                     Circle()
                         .fill(badgeColor.opacity(0.15))
                     Text(badgeText)
-                        .font(.system(size: badgeFontSize, weight: .bold, design: .rounded))
+                        .font(.system(size: badgeFontSize, design: .rounded))
+                        .bold()
                         .foregroundStyle(badgeColor)
                         .minimumScaleFactor(0.5)
                         .multilineTextAlignment(.center)
@@ -79,7 +80,8 @@ struct StepView: View {
                 
                 if let index, !(hideLastIndex && index == stepsCount - 1) {
                     Text("\(index + 1)")
-                        .font(.system(size: isIPad ? 14 : 11, weight: .bold))
+                        .font(.system(size: isIPad ? 14 : 11))
+                        .bold()
                         .foregroundStyle(themeManager.selectedTheme.textColor)
                         .padding(isIPad ? 9 : 7)
                         .background(

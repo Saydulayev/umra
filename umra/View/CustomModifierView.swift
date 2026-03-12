@@ -421,7 +421,7 @@ extension Image {
             
             Text("\(index + 1)")
                 .font(.caption)
-                .fontWeight(.bold)
+                .bold()
                 .foregroundStyle(theme.textColor)
                 .padding(8)
                 .background(theme.cardColor)
@@ -466,7 +466,8 @@ extension Image {
                 .padding(outerPadding)
             
             Text("\(index + 1)")
-                .font(.system(size: indexFontSize, weight: .bold))
+                .font(.system(size: indexFontSize))
+                .bold()
                 .foregroundStyle(theme.textColor)
                 .padding(indexPadding)
                 .background(theme.cardColor)
