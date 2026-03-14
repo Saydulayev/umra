@@ -32,7 +32,7 @@ struct Step5: View {
                         
                         PlayerView(fileName: "6")
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    .font(fontManager.bodyFont)
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 10)

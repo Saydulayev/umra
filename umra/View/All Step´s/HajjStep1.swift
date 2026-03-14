@@ -26,7 +26,7 @@ struct HajjStep1: View {
                             .padding(.top, 8)
                         
                         Text("preparation_before_ihram_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -40,7 +40,7 @@ struct HajjStep1: View {
                         
                         VStack(alignment: .leading, spacing: 10) {
                             Text("hajj_step1_ihram_text", bundle: localizationManager.bundle)
-                                .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                                .font(fontManager.bodyFont)
                             
                             VStack(alignment: .leading, spacing: 6) {
                                 Text("hajj_step1_ihram_arabic", bundle: localizationManager.bundle)
@@ -51,11 +51,11 @@ struct HajjStep1: View {
                                 PlayerView(fileName: "14")
                                 
                                 Text("hajj_step1_ihram_transliteration", bundle: localizationManager.bundle)
-                                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                                    .font(fontManager.bodyFont)
                                     .italic()
                                 
                                 Text("hajj_step1_ihram_translation", bundle: localizationManager.bundle)
-                                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                                    .font(fontManager.bodyFont)
                             }
                             .padding(.leading, 12)
                             
@@ -68,11 +68,11 @@ struct HajjStep1: View {
                                 PlayerView(fileName: "15")
                                 
                                 Text("hajj_step1_ihram_dua_transliteration", bundle: localizationManager.bundle)
-                                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                                    .font(fontManager.bodyFont)
                                     .italic()
                                 
                                 Text("hajj_step1_ihram_dua_translation", bundle: localizationManager.bundle)
-                                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                                    .font(fontManager.bodyFont)
                             }
                             .padding(.leading, 12)
                         }
@@ -89,7 +89,7 @@ struct HajjStep1: View {
                         
                         VStack(alignment: .leading, spacing: 10) {
                             Text("hajj_step1_talbiyah_text", bundle: localizationManager.bundle)
-                                .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                                .font(fontManager.bodyFont)
                             
                             VStack(alignment: .leading, spacing: 6) {
                                 Text("hajj_step1_talbiyah_arabic", bundle: localizationManager.bundle)
@@ -100,11 +100,11 @@ struct HajjStep1: View {
                                 PlayerView(fileName: "3")
                                 
                                 Text("hajj_step1_talbiyah_transliteration", bundle: localizationManager.bundle)
-                                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                                    .font(fontManager.bodyFont)
                                     .italic()
                                 
                                 Text("hajj_step1_talbiyah_translation", bundle: localizationManager.bundle)
-                                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                                    .font(fontManager.bodyFont)
                             }
                             .padding(.leading, 12)
                         }
@@ -120,7 +120,7 @@ struct HajjStep1: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step1_mina_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                 }
                 .foregroundStyle(.primary)

@@ -42,7 +42,7 @@ struct Step6: View {
                         
                         Text("We begin with that string", bundle: localizationManager.bundle)
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    .font(fontManager.bodyFont)
                     
                     Group {
                         Text("""
@@ -74,7 +74,7 @@ struct Step6: View {
                         
                         Text("Du'a upon exiting the Sacred Mosque.", bundle: localizationManager.bundle)
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    .font(fontManager.bodyFont)
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 10)

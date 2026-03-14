@@ -26,7 +26,7 @@ struct Step1: View {
                             .padding(.top, 8)
                         
                         Text("preparation_before_ihram_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -56,7 +56,7 @@ struct Step1: View {
                         
                         Text("O Allah, this Umrah is without any ostentation or fame", bundle: localizationManager.bundle)
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    .font(fontManager.bodyFont)
                     
                     Group {
                         Text("""
@@ -119,7 +119,7 @@ struct Step1: View {
                         }
                         
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    .font(fontManager.bodyFont)
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 10)

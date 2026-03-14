@@ -26,7 +26,7 @@ struct HajjStep4: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step4_stay_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -39,7 +39,7 @@ struct HajjStep4: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step4_jamarat_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                 }
                 .foregroundStyle(.primary)

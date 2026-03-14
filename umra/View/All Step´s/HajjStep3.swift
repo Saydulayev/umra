@@ -26,7 +26,7 @@ struct HajjStep3: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step3_fajr_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -39,7 +39,7 @@ struct HajjStep3: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step3_mashaar_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -52,7 +52,7 @@ struct HajjStep3: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step3_mina_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -65,7 +65,7 @@ struct HajjStep3: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step3_jamarat_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -78,7 +78,7 @@ struct HajjStep3: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step3_partial_exit_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -91,7 +91,7 @@ struct HajjStep3: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step3_sacrifice_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -104,7 +104,7 @@ struct HajjStep3: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step3_shaving_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -117,7 +117,7 @@ struct HajjStep3: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step3_tawaf_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -130,7 +130,7 @@ struct HajjStep3: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step3_attention_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -143,7 +143,7 @@ struct HajjStep3: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step3_full_exit_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                     
                     Divider()
@@ -156,7 +156,7 @@ struct HajjStep3: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step3_return_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                 }
                 .foregroundStyle(.primary)

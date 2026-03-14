@@ -16,9 +16,21 @@ class FontManager {
         selectedFontSize
     }
 
+    /// Шрифт для основного текста шагов (учитывает выбранный шрифт и размер)
+    var bodyFont: Font {
+        selectedFont == "Lato-Black"
+            ? .system(size: dynamicFontSize, weight: .light, design: .serif).italic()
+            : .custom(selectedFont, size: dynamicFontSize)
+    }
+
     /// Размер шрифта для заголовков секций (адаптивно iPad/iPhone)
     var sectionTitleFontSize: CGFloat {
         UIDevice.current.userInterfaceIdiom == .pad ? 28 : 26
+    }
+
+    /// Шрифт для заголовков секций
+    var sectionTitleFont: Font {
+        .custom("Lato-Black", size: sectionTitleFontSize)
     }
     
     var fonts: [String] = [

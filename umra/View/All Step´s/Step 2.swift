@@ -43,7 +43,7 @@ struct Step2: View {
                         
                         Text("Kaaba text4", bundle: localizationManager.bundle)
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    .font(fontManager.bodyFont)
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 10)

@@ -26,7 +26,7 @@ struct HajjStep5: View {
                             .padding(.top, 8)
                         
                         Text("hajj_step5_farewell_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                            .font(fontManager.bodyFont)
                     }
                 }
                 .foregroundStyle(.primary)
