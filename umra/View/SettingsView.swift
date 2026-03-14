@@ -21,16 +21,13 @@ struct SettingsView: View {
         URL(string: "https://apps.apple.com/app/id1673683355")
     }
     
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
     
     private var contentSpacing: CGFloat {
-        isIPad ? 24 : 16
+        AppConstants.isIPad ? 24 : 16
     }
     
     private var contentPadding: CGFloat {
-        isIPad ? 32 : 16
+        AppConstants.isIPad ? 32 : 16
     }
 
     private var currentLanguageDisplayName: String {
@@ -105,7 +102,7 @@ struct SettingsView: View {
                                 accentColor: themeManager.selectedTheme.primaryColor,
                                 accessory: {
                                     Text(currentLanguageDisplayName)
-                                        .font(.system(size: SettingsMetrics.isIPad ? 18 : 14, weight: .medium))
+                                        .font(.system(size: AppConstants.isIPad ? 18 : 14, weight: .medium))
                                         .foregroundStyle(secondaryTextColor)
                                 }
                             )
@@ -136,9 +133,9 @@ struct SettingsView: View {
                                     HStack(spacing: 8) {
                                         Circle()
                                             .fill(themeManager.selectedTheme.primaryColor)
-                                            .frame(width: isIPad ? 24 : 18, height: isIPad ? 24 : 18)
+                                            .frame(width: AppConstants.isIPad ? 24 : 18, height: AppConstants.isIPad ? 24 : 18)
                                         Text(themeManager.themePreference.displayName(bundle: localizationManager.bundle ?? Bundle.main))
-                                            .font(.system(size: SettingsMetrics.isIPad ? 18 : 14, weight: .medium))
+                                            .font(.system(size: AppConstants.isIPad ? 18 : 14, weight: .medium))
                                             .foregroundStyle(secondaryTextColor)
                                     }
                                 }
@@ -185,32 +182,28 @@ struct SettingsView: View {
 // MARK: - Settings Components
 
 private enum SettingsMetrics {
-    static var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
-
     static var rowHorizontalPadding: CGFloat {
-        isIPad ? 20 : 16
+        AppConstants.isIPad ? 20 : 16
     }
 
     static var rowVerticalPadding: CGFloat {
-        isIPad ? 16 : 12
+        AppConstants.isIPad ? 16 : 12
     }
 
     static var rowSpacing: CGFloat {
-        isIPad ? 16 : 12
+        AppConstants.isIPad ? 16 : 12
     }
 
     static var iconContainerSize: CGFloat {
-        isIPad ? 46 : 38
+        AppConstants.isIPad ? 46 : 38
     }
 
     static var iconSize: CGFloat {
-        isIPad ? 22 : 18
+        AppConstants.isIPad ? 22 : 18
     }
 
     static var cornerRadius: CGFloat {
-        isIPad ? 24 : 18
+        AppConstants.isIPad ? 24 : 18
     }
 }
 
@@ -235,7 +228,7 @@ struct SettingsSection<Content: View>: View {
             cornerRadius: SettingsMetrics.cornerRadius,
             borderWidth: 1,
             fillColor: cardBackground,
-            shadowRadius: SettingsMetrics.isIPad ? 14 : 10,
+            shadowRadius: AppConstants.isIPad ? 14 : 10,
             shadowYOffset: 2
         )
     }
@@ -283,7 +276,7 @@ struct SettingsRow<Accessory: View>: View {
 
             VStack(alignment: .leading, spacing: 3) {
                 title
-                    .font(.system(size: SettingsMetrics.isIPad ? 20 : 16, weight: .semibold))
+                    .font(.system(size: AppConstants.isIPad ? 20 : 16, weight: .semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
                     .lineLimit(1)
                     .minimumScaleFactor(0.85)
@@ -291,7 +284,7 @@ struct SettingsRow<Accessory: View>: View {
                     .truncationMode(.tail)
                 if let subtitle {
                     subtitle
-                        .font(.system(size: SettingsMetrics.isIPad ? 15 : 12))
+                        .font(.system(size: AppConstants.isIPad ? 15 : 12))
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.6))
                 }
             }
@@ -302,7 +295,7 @@ struct SettingsRow<Accessory: View>: View {
                 accessory
                 if showsChevron {
                     Image(systemName: "chevron.right")
-                        .font(.system(size: SettingsMetrics.isIPad ? 16 : 14, weight: .semibold))
+                        .font(.system(size: AppConstants.isIPad ? 16 : 14, weight: .semibold))
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.45))
                 }
             }
@@ -348,9 +341,6 @@ struct ThemePreviewView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
     
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
     
     var body: some View {
         NavigationStack {
@@ -358,13 +348,13 @@ struct ThemePreviewView: View {
                 themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
                 
-                VStack(spacing: isIPad ? 28 : 20) {
+                VStack(spacing: AppConstants.isIPad ? 28 : 20) {
                     Text("theme_select_title", bundle: localizationManager.bundle)
-                        .font(.system(size: isIPad ? 28 : 22, weight: .bold))
+                        .font(.system(size: AppConstants.isIPad ? 28 : 22, weight: .bold))
                         .foregroundStyle(themeManager.selectedTheme.textColor)
-                        .padding(.top, isIPad ? 24 : 16)
+                        .padding(.top, AppConstants.isIPad ? 24 : 16)
                     
-                    VStack(spacing: isIPad ? 16 : 12) {
+                    VStack(spacing: AppConstants.isIPad ? 16 : 12) {
                         ForEach(AppTheme.allCases, id: \.self) { theme in
                             Button {
                                 withAnimation(AppAnimation.settingsToggle) {
@@ -376,7 +366,7 @@ struct ThemePreviewView: View {
                             .buttonStyle(.plain)
                         }
                     }
-                    .padding(.horizontal, isIPad ? 24 : 16)
+                    .padding(.horizontal, AppConstants.isIPad ? 24 : 16)
                     
                     Spacer()
                 }
@@ -398,7 +388,7 @@ struct ThemePreviewView: View {
     private func themeCard(for theme: AppTheme) -> some View {
         let isSelected = themeManager.themePreference == theme
         
-        return HStack(spacing: isIPad ? 18 : 14) {
+        return HStack(spacing: AppConstants.isIPad ? 18 : 14) {
             ZStack {
                 Circle()
                     .fill(
@@ -408,20 +398,20 @@ struct ThemePreviewView: View {
                             endPoint: .bottomTrailing
                         )
                     )
-                    .frame(width: isIPad ? 56 : 46, height: isIPad ? 56 : 46)
+                    .frame(width: AppConstants.isIPad ? 56 : 46, height: AppConstants.isIPad ? 56 : 46)
                 
                 Image(systemName: theme.iconName)
-                    .font(.system(size: isIPad ? 22 : 18, weight: .medium))
+                    .font(.system(size: AppConstants.isIPad ? 22 : 18, weight: .medium))
                     .foregroundStyle(.white)
             }
             
             VStack(alignment: .leading, spacing: 3) {
                 Text(theme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
-                    .font(.system(size: isIPad ? 20 : 17, weight: .semibold))
+                    .font(.system(size: AppConstants.isIPad ? 20 : 17, weight: .semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
                 
                 Text(LocalizedStringKey(theme.subtitleKey), bundle: localizationManager.bundle)
-                    .font(.system(size: isIPad ? 15 : 13))
+                    .font(.system(size: AppConstants.isIPad ? 15 : 13))
                     .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.5))
             }
             
@@ -429,11 +419,11 @@ struct ThemePreviewView: View {
             
             if isSelected {
                 Image(systemName: "checkmark.circle.fill")
-                    .font(.system(size: isIPad ? 26 : 22))
+                    .font(.system(size: AppConstants.isIPad ? 26 : 22))
                     .foregroundStyle(theme.primaryColor)
             }
         }
-        .padding(isIPad ? 20 : 16)
+        .padding(AppConstants.isIPad ? 20 : 16)
         .standardCardFrame(
             theme: themeManager.selectedTheme,
             cornerRadius: 20,

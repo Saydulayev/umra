@@ -444,14 +444,13 @@ extension Image {
     
     // Методы для совместимости с StepView с поддержкой тем оформления
     func styledImageWithIndexAndTheme(index: Int, stepsCount: Int, theme: AppTheme, hideLastIndex: Bool = true) -> some View {
-        let isIPad = UIDevice.current.userInterfaceIdiom == .pad
-        let imagePadding: CGFloat = isIPad ? 16 : 12
-        let outerPadding: CGFloat = isIPad ? 16 : 12
-        let indexFontSize: CGFloat = isIPad ? 16 : 12
-        let indexPadding: CGFloat = isIPad ? 10 : 8
-        let indexOffsetX: CGFloat = isIPad ? -25 : -20
-        let indexOffsetY: CGFloat = isIPad ? 20 : 15
-        let cornerRadius: CGFloat = isIPad ? 24 : 20
+        let imagePadding: CGFloat = AppConstants.isIPad ? 16 : 12
+        let outerPadding: CGFloat = AppConstants.isIPad ? 16 : 12
+        let indexFontSize: CGFloat = AppConstants.isIPad ? 16 : 12
+        let indexPadding: CGFloat = AppConstants.isIPad ? 10 : 8
+        let indexOffsetX: CGFloat = AppConstants.isIPad ? -25 : -20
+        let indexOffsetY: CGFloat = AppConstants.isIPad ? 20 : 15
+        let cornerRadius: CGFloat = AppConstants.isIPad ? 24 : 20
         
         return ZStack(alignment: .topTrailing) {
             self
@@ -506,20 +505,17 @@ extension Image {
 struct StepTextModifier: ViewModifier {
     @Environment(ThemeManager.self) private var themeManager
 
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
     
     private var dynamicFontSize: CGFloat {
-        isIPad ? 58 : 38
+        AppConstants.isIPad ? 58 : 38
     }
     
     private var customPadding: CGFloat {
-        theme.usesTintedArabicCards ? (isIPad ? 28 : 18) : (isIPad ? 32 : 16)
+        theme.usesTintedArabicCards ? (AppConstants.isIPad ? 28 : 18) : (AppConstants.isIPad ? 32 : 16)
     }
 
     private var cardCornerRadius: CGFloat {
-        isIPad ? 24 : 20
+        AppConstants.isIPad ? 24 : 20
     }
 
     private var theme: AppTheme {
@@ -538,11 +534,11 @@ struct StepTextModifier: ViewModifier {
                 theme: theme,
                 cornerRadius: cardCornerRadius,
                 borderWidth: 1,
-                shadowRadius: theme.usesTintedArabicCards ? (isIPad ? 15 : 11) : 18,
-                shadowYOffset: theme.usesTintedArabicCards ? (isIPad ? 8 : 4) : 8
+                shadowRadius: theme.usesTintedArabicCards ? (AppConstants.isIPad ? 15 : 11) : 18,
+                shadowYOffset: theme.usesTintedArabicCards ? (AppConstants.isIPad ? 8 : 4) : 8
             )
-            .padding(theme.usesTintedArabicCards ? .horizontal : .all, theme.usesTintedArabicCards ? (isIPad ? 20 : 12) : 16)
-            .padding(.vertical, theme.usesTintedArabicCards ? (isIPad ? 10 : 6) : 0)
+            .padding(theme.usesTintedArabicCards ? .horizontal : .all, theme.usesTintedArabicCards ? (AppConstants.isIPad ? 20 : 12) : 16)
+            .padding(.vertical, theme.usesTintedArabicCards ? (AppConstants.isIPad ? 10 : 6) : 0)
     }
 }
 
@@ -557,20 +553,17 @@ struct CustomTextStyleWithThemeModifier: ViewModifier {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(FontManager.self) private var fontManager
 
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
 
     private var fontSize: CGFloat {
         fontManager.dynamicFontSize
     }
     
     private var padding: CGFloat {
-        isIPad ? 24 : 16
+        AppConstants.isIPad ? 24 : 16
     }
     
     private var cornerRadius: CGFloat {
-        isIPad ? 24 : 20
+        AppConstants.isIPad ? 24 : 20
     }
     
     func body(content: Content) -> some View {
@@ -580,7 +573,7 @@ struct CustomTextStyleWithThemeModifier: ViewModifier {
             .padding(padding)
             .frame(maxWidth: .infinity)
             .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: cornerRadius)
-            .padding(.vertical, isIPad ? 8 : 5)
+            .padding(.vertical, AppConstants.isIPad ? 8 : 5)
     }
 }
 

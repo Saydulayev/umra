@@ -96,20 +96,17 @@ struct ContentView: View {
     
     // MARK: - Computed Properties
     
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
 
     private var listSpacing: CGFloat {
-        isIPad ? 14 : 12
+        AppConstants.isIPad ? 14 : 12
     }
     
     private var listPadding: CGFloat {
-        isIPad ? 20 : 16
+        AppConstants.isIPad ? 20 : 16
     }
     
     private var listCardCornerRadius: CGFloat {
-        isIPad ? 28 : 24
+        AppConstants.isIPad ? 28 : 24
     }
     
     // MARK: - Body
@@ -205,7 +202,7 @@ struct ContentView: View {
                     if idx < numberedSteps.count - 1 {
                         Divider()
                             .background(themeManager.selectedTheme.textColor.opacity(0.10))
-                            .padding(.leading, isIPad ? 112 : 92)
+                            .padding(.leading, AppConstants.isIPad ? 112 : 92)
                     }
                 }
             }
@@ -239,12 +236,12 @@ struct ContentView: View {
     private var stepsHeader: some View {
         HStack {
             Text("umra_title", bundle: localizationManager.bundle)
-                .font(.system(size: isIPad ? 36 : 28, weight: .bold))
+                .font(.system(size: AppConstants.isIPad ? 36 : 28, weight: .bold))
                 .foregroundStyle(themeManager.selectedTheme.textColor)
 
             Spacer()
         }
-        .padding(.horizontal, isIPad ? 24 : 24)
+        .padding(.horizontal, AppConstants.isIPad ? 24 : 24)
         .padding(.top, 12)
         .padding(.bottom, 24)
     }
@@ -308,24 +305,21 @@ private struct StepRow: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
     
     private var badgeSize: CGFloat {
-        isIPad ? 72 : 56
+        AppConstants.isIPad ? 72 : 56
     }
     
     private var badgeFontSize: CGFloat {
         let longestLine = stepItem.badgeText.components(separatedBy: "\n").map(\.count).max() ?? 0
-        let baseSize: CGFloat = isIPad ? 14 : 10
+        let baseSize: CGFloat = AppConstants.isIPad ? 14 : 10
         if longestLine > 6 { return baseSize * 0.80 }
         if longestLine > 4 { return baseSize * 0.90 }
         return baseSize
     }
     
     var body: some View {
-        HStack(spacing: isIPad ? 20 : 16) {
+        HStack(spacing: AppConstants.isIPad ? 20 : 16) {
             ZStack {
                 Circle()
                     .fill(stepItem.badgeColor.opacity(0.15))
@@ -343,13 +337,13 @@ private struct StepRow: View {
             VStack(alignment: .leading, spacing: 4) {
                 if stepItem.step != .useful {
                     Text("\(localizationManager.localized("step_prefix")) \(index + 1)")
-                        .font(.system(size: isIPad ? 14 : 11, weight: .medium))
+                        .font(.system(size: AppConstants.isIPad ? 14 : 11, weight: .medium))
                         .tracking(0.5)
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.4))
                         .textCase(.uppercase)
                 }
                 Text(LocalizedStringKey(stepItem.titleKey), bundle: localizationManager.bundle)
-                    .font(.system(size: isIPad ? 24 : 18, weight: .semibold))
+                    .font(.system(size: AppConstants.isIPad ? 24 : 18, weight: .semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
                     .lineLimit(2)
                     .fixedSize(horizontal: false, vertical: true)
@@ -358,13 +352,13 @@ private struct StepRow: View {
             Spacer()
             
             Image(systemName: "chevron.right")
-                .font(.system(size: isIPad ? 16 : 14, weight: .semibold))
+                .font(.system(size: AppConstants.isIPad ? 16 : 14, weight: .semibold))
                 .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
-        .padding(.horizontal, isIPad ? 24 : 20)
-        .padding(.vertical, isIPad ? 16 : 14)
+        .padding(.horizontal, AppConstants.isIPad ? 24 : 20)
+        .padding(.vertical, AppConstants.isIPad ? 16 : 14)
     }
 }
 

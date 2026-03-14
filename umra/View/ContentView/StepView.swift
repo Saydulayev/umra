@@ -37,17 +37,14 @@ struct StepView: View {
         return (name: fullText, date: nil)
     }
     
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
     
     private var badgeDiameter: CGFloat {
-        isIPad ? 80 : 60
+        AppConstants.isIPad ? 80 : 60
     }
     
     private var badgeFontSize: CGFloat {
         let longestLine = badgeText.components(separatedBy: "\n").map(\.count).max() ?? 0
-        let base: CGFloat = isIPad ? 14 : 10
+        let base: CGFloat = AppConstants.isIPad ? 14 : 10
         if longestLine > 6 { return base * 0.78 }
         if longestLine > 4 { return base * 0.9 }
         return base
@@ -69,10 +66,10 @@ struct StepView: View {
                 }
                 .frame(width: badgeDiameter, height: badgeDiameter)
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, isIPad ? 16 : 12)
+                .padding(.vertical, AppConstants.isIPad ? 16 : 12)
                 .standardCardFrame(
                     theme: themeManager.selectedTheme,
-                    cornerRadius: isIPad ? 24 : 20,
+                    cornerRadius: AppConstants.isIPad ? 24 : 20,
                     borderWidth: 1,
                     shadowRadius: 10,
                     shadowYOffset: 3
@@ -80,16 +77,16 @@ struct StepView: View {
                 
                 if let index, !(hideLastIndex && index == stepsCount - 1) {
                     Text("\(index + 1)")
-                        .font(.system(size: isIPad ? 14 : 11))
+                        .font(.system(size: AppConstants.isIPad ? 14 : 11))
                         .bold()
                         .foregroundStyle(themeManager.selectedTheme.textColor)
-                        .padding(isIPad ? 9 : 7)
+                        .padding(AppConstants.isIPad ? 9 : 7)
                         .background(
                             Circle()
                                 .fill(themeManager.selectedTheme.cardColor)
                                 .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 1)
                         )
-                        .offset(x: isIPad ? -8 : -4, y: isIPad ? 8 : 4)
+                        .offset(x: AppConstants.isIPad ? -8 : -4, y: AppConstants.isIPad ? 8 : 4)
                 }
             }
             

@@ -55,6 +55,9 @@ enum AppAnimation {
 // MARK: - App Constants
 
 enum AppConstants {
+    // Тип устройства — вычисляется один раз при запуске
+    static let isIPad: Bool = UIDevice.current.userInterfaceIdiom == .pad
+
     // Константы таймера
     static let reviewRequestTimeInterval: TimeInterval = 300 // 5 минут
     

@@ -40,44 +40,41 @@ struct DonationSheetView: View {
     
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "DonationSheetView")
     
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
     
     private var titleFontSize: CGFloat {
-        isIPad ? 24 : 16
+        AppConstants.isIPad ? 24 : 16
     }
     
     private var titlePadding: CGFloat {
-        isIPad ? 24 : 16
+        AppConstants.isIPad ? 24 : 16
     }
     
     private var titleCornerRadius: CGFloat {
-        isIPad ? 24 : 20
+        AppConstants.isIPad ? 24 : 20
     }
     
     private var pickerFontSize: CGFloat {
-        isIPad ? 28 : 20
+        AppConstants.isIPad ? 28 : 20
     }
     
     private var pickerPadding: CGFloat {
-        isIPad ? 12 : 5
+        AppConstants.isIPad ? 12 : 5
     }
     
     private var pickerContainerPadding: CGFloat {
-        isIPad ? 24 : 16
+        AppConstants.isIPad ? 24 : 16
     }
     
     private var buttonFontSize: CGFloat {
-        isIPad ? 24 : 18
+        AppConstants.isIPad ? 24 : 18
     }
     
     private var buttonPadding: CGFloat {
-        isIPad ? 24 : 16
+        AppConstants.isIPad ? 24 : 16
     }
     
     private var buttonCornerRadius: CGFloat {
-        isIPad ? 24 : 20
+        AppConstants.isIPad ? 24 : 20
     }
     
     private var productPrices: [String: String] {
@@ -91,7 +88,7 @@ struct DonationSheetView: View {
                 themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
                 
-                VStack(spacing: isIPad ? 32 : 24) {
+                VStack(spacing: AppConstants.isIPad ? 32 : 24) {
                     Text("Contribution to Application Development", bundle: localizationManager.bundle)
                         .font(.system(size: titleFontSize, weight: .medium))
                         .foregroundStyle(themeManager.selectedTheme.textColor)
@@ -101,11 +98,11 @@ struct DonationSheetView: View {
                         .frame(maxWidth: .infinity)
                         .neumorphicBackground(cornerRadius: titleCornerRadius, theme: themeManager.selectedTheme)
                         .padding(.horizontal, pickerContainerPadding)
-                        .padding(.top, isIPad ? 24 : 16)
+                        .padding(.top, AppConstants.isIPad ? 24 : 16)
 
                     Spacer()
 
-                    HStack(spacing: isIPad ? 16 : 12) {
+                    HStack(spacing: AppConstants.isIPad ? 16 : 12) {
                         Text("select_the_amount", bundle: localizationManager.bundle)
                             .font(.system(size: titleFontSize, weight: .medium))
                             .foregroundStyle(themeManager.selectedTheme.textColor)
@@ -133,10 +130,10 @@ struct DonationSheetView: View {
                             .padding(buttonPadding)
                             .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
                             .padding(.horizontal, pickerContainerPadding)
-                            .padding(.bottom, isIPad ? 32 : 16)
+                            .padding(.bottom, AppConstants.isIPad ? 32 : 16)
                     } else {
                         donateButton
-                            .padding(.bottom, isIPad ? 32 : 16)
+                            .padding(.bottom, AppConstants.isIPad ? 32 : 16)
                     }
                 }
             }

@@ -79,9 +79,6 @@ struct RitualCounterCard: View {
         _counter = AppStorage(wrappedValue: 0, kind.storageKey)
     }
 
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
 
     private var theme: AppTheme {
         themeManager.selectedTheme
@@ -92,39 +89,39 @@ struct RitualCounterCard: View {
     }
 
     private var cardCornerRadius: CGFloat {
-        isIPad ? 30 : 24
+        AppConstants.isIPad ? 30 : 24
     }
 
     private var horizontalPadding: CGFloat {
-        isIPad ? 28 : 22
+        AppConstants.isIPad ? 28 : 22
     }
 
     private var verticalPadding: CGFloat {
-        isIPad ? 26 : 20
+        AppConstants.isIPad ? 26 : 20
     }
 
     private var outerHorizontalPadding: CGFloat {
-        isIPad ? 20 : 16
+        AppConstants.isIPad ? 20 : 16
     }
 
     private var titleFontSize: CGFloat {
-        isIPad ? 28 : 22
+        AppConstants.isIPad ? 28 : 22
     }
 
     private var statusFontSize: CGFloat {
-        isIPad ? 17 : 14
+        AppConstants.isIPad ? 17 : 14
     }
 
     private var buttonFontSize: CGFloat {
-        isIPad ? 18 : 16
+        AppConstants.isIPad ? 18 : 16
     }
 
     private var stepIndicatorSize: CGFloat {
-        isIPad ? 34 : 28
+        AppConstants.isIPad ? 34 : 28
     }
 
     private var buttonHeight: CGFloat {
-        isIPad ? 60 : 54
+        AppConstants.isIPad ? 60 : 54
     }
 
     private var statusColor: Color {
@@ -136,11 +133,11 @@ struct RitualCounterCard: View {
     }
 
     private var counterCardShadowRadius: CGFloat {
-        theme.usesTintedArabicCards ? (isIPad ? 18 : 14) : 18
+        theme.usesTintedArabicCards ? (AppConstants.isIPad ? 18 : 14) : 18
     }
 
     private var counterCardShadowYOffset: CGFloat {
-        theme.usesTintedArabicCards ? (isIPad ? 10 : 6) : 8
+        theme.usesTintedArabicCards ? (AppConstants.isIPad ? 10 : 6) : 8
     }
 
     private var accentGradient: LinearGradient {
@@ -156,7 +153,7 @@ struct RitualCounterCard: View {
 
     var body: some View {
         ZStack {
-            VStack(spacing: isIPad ? 22 : 18) {
+            VStack(spacing: AppConstants.isIPad ? 22 : 18) {
                 HStack(alignment: .top, spacing: 12) {
                     VStack(alignment: .leading, spacing: 10) {
                         localizedText(kind.titleKey)
@@ -165,14 +162,14 @@ struct RitualCounterCard: View {
 
                         HStack(spacing: 8) {
                             Image(systemName: isCompleted ? "checkmark.circle.fill" : kind.iconName)
-                                .font(.system(size: isIPad ? 16 : 14, weight: .semibold))
+                                .font(.system(size: AppConstants.isIPad ? 16 : 14, weight: .semibold))
                             localizedText(isCompleted ? kind.completionKey : kind.progressLabelKey)
                                 .font(.system(size: statusFontSize, weight: .semibold))
                                 .lineLimit(2)
                         }
                         .foregroundStyle(statusColor)
-                        .padding(.horizontal, isIPad ? 14 : 12)
-                        .padding(.vertical, isIPad ? 10 : 8)
+                        .padding(.horizontal, AppConstants.isIPad ? 14 : 12)
+                        .padding(.vertical, AppConstants.isIPad ? 10 : 8)
                         .background(
                             Capsule(style: .continuous)
                                 .fill(statusBackground)
@@ -184,11 +181,11 @@ struct RitualCounterCard: View {
                     Spacer(minLength: 12)
 
                     Text("\(counter)/\(RitualCounterKind.targetCount)")
-                        .font(.system(size: isIPad ? 22 : 18, weight: .bold, design: .rounded))
+                        .font(.system(size: AppConstants.isIPad ? 22 : 18, weight: .bold, design: .rounded))
                         .monospacedDigit()
                         .foregroundStyle(statusColor)
-                        .padding(.horizontal, isIPad ? 14 : 12)
-                        .padding(.vertical, isIPad ? 12 : 10)
+                        .padding(.horizontal, AppConstants.isIPad ? 14 : 12)
+                        .padding(.vertical, AppConstants.isIPad ? 12 : 10)
                         .background(
                             Capsule(style: .continuous)
                                 .fill(statusBackground.opacity(0.9))
@@ -197,11 +194,11 @@ struct RitualCounterCard: View {
 
                 progressDetails
 
-                HStack(spacing: isIPad ? 14 : 10) {
+                HStack(spacing: AppConstants.isIPad ? 14 : 10) {
                     Button(action: incrementCounter) {
                         HStack(spacing: 10) {
                             Image(systemName: isCompleted ? "checkmark.circle.fill" : "plus.circle.fill")
-                                .font(.system(size: isIPad ? 18 : 16, weight: .semibold))
+                                .font(.system(size: AppConstants.isIPad ? 18 : 16, weight: .semibold))
                             Text("add_string", bundle: localizationManager.bundle)
                                 .font(.system(size: buttonFontSize, weight: .semibold))
                                 .lineLimit(1)
@@ -216,9 +213,9 @@ struct RitualCounterCard: View {
                         )
                         .shadow(
                             color: theme.primaryColor.opacity(isCompleted ? 0.0 : 0.24),
-                            radius: isIPad ? 14 : 10,
+                            radius: AppConstants.isIPad ? 14 : 10,
                             x: 0,
-                            y: isIPad ? 10 : 6
+                            y: AppConstants.isIPad ? 10 : 6
                         )
                     }
                     .buttonStyle(.plain)
@@ -227,7 +224,7 @@ struct RitualCounterCard: View {
                     Button(action: resetCounter) {
                         HStack(spacing: 8) {
                             Image(systemName: "arrow.counterclockwise")
-                                .font(.system(size: isIPad ? 16 : 15, weight: .semibold))
+                                .font(.system(size: AppConstants.isIPad ? 16 : 15, weight: .semibold))
                             Text("reset_string", bundle: localizationManager.bundle)
                                 .font(.system(size: buttonFontSize, weight: .semibold))
                                 .lineLimit(1)
@@ -241,8 +238,8 @@ struct RitualCounterCard: View {
                             cornerRadius: buttonHeight / 2,
                             borderWidth: 1,
                             borderColor: theme.cardBorderColor.opacity(counter == 0 ? 0.7 : 1.0),
-                            shadowRadius: isIPad ? 12 : 10,
-                            shadowYOffset: isIPad ? 6 : 4
+                            shadowRadius: AppConstants.isIPad ? 12 : 10,
+                            shadowYOffset: AppConstants.isIPad ? 6 : 4
                         )
                     }
                     .buttonStyle(.plain)
@@ -259,7 +256,7 @@ struct RitualCounterCard: View {
                 shadowYOffset: counterCardShadowYOffset
             )
             .padding(.horizontal, outerHorizontalPadding)
-            .padding(.vertical, isIPad ? 18 : 14)
+            .padding(.vertical, AppConstants.isIPad ? 18 : 14)
             .animation(AppAnimation.counterCard, value: counter)
             .onAppear {
                 showCompletionHighlight = isCompleted
@@ -281,8 +278,8 @@ struct RitualCounterCard: View {
     }
 
     private var progressDetails: some View {
-        VStack(spacing: isIPad ? 14 : 10) {
-            HStack(spacing: isIPad ? 8 : 6) {
+        VStack(spacing: AppConstants.isIPad ? 14 : 10) {
+            HStack(spacing: AppConstants.isIPad ? 8 : 6) {
                 ForEach(1...RitualCounterKind.targetCount, id: \.self) { step in
                     ZStack {
                         Circle()
@@ -295,7 +292,7 @@ struct RitualCounterCard: View {
                             )
 
                         Text("\(step)")
-                            .font(.system(size: isIPad ? 13 : 11, weight: .bold, design: .rounded))
+                            .font(.system(size: AppConstants.isIPad ? 13 : 11, weight: .bold, design: .rounded))
                             .foregroundStyle(step <= counter ? Color.white : theme.textColor.opacity(0.66))
                     }
                     .frame(width: stepIndicatorSize, height: stepIndicatorSize)
