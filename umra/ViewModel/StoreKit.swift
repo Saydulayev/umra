@@ -10,22 +10,6 @@ import StoreKit
 import OSLog
 import UIKit
 
-// MARK: - Task Holder
-
-actor TaskHolder {
-    private var task: Task<Void, Never>?
-    
-    func setTask(_ newTask: Task<Void, Never>?) {
-        task?.cancel()
-        task = newTask
-    }
-    
-    func cancel() {
-        task?.cancel()
-        task = nil
-    }
-}
-
 // MARK: - Purchase Manager
 
 @MainActor
@@ -40,30 +24,24 @@ class PurchaseManager {
 
     // Идентификаторы продуктов
     private let productIds: [String] = ProductID.allProductIDs
-    
+
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "PurchaseManager")
-    private nonisolated let updateListenerTask = TaskHolder()
+    @ObservationIgnored private nonisolated(unsafe) var listenerTask: Task<Void, Never>?
 
     init() {
         logger.info("PurchaseManager initialized")
-        Task {
-            await updateListenerTask.setTask(listenForTransactions())
-        }
+        listenerTask = listenForTransactions()
         Task { @MainActor in
             logger.debug("Starting product request")
             await loadProducts()
             logger.debug("Product request completed")
-            // Проверяем текущие транзакции при запуске
             await checkCurrentTransactions()
         }
     }
-    
+
     deinit {
         logger.info("PurchaseManager deinitializing")
-        let taskHolder = updateListenerTask
-        Task.detached {
-            await taskHolder.cancel()
-        }
+        listenerTask?.cancel()
     }
     
     // MARK: - Product Management
