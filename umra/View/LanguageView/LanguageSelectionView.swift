@@ -51,6 +51,9 @@ struct LanguageSelectionView: View {
                             maxWidth: min(geo.size.width * 0.7, 400),
                             maxHeight: min(geo.size.height * 0.25, 400)
                         )
+                        .padding(16)
+                        .background(Color.white, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+                        .shadow(color: .black.opacity(0.12), radius: 12, y: 4)
                         .padding(.bottom, geo.size.height * 0.05)
                     
                     Spacer(minLength: geo.size.height * 0.02)
@@ -71,7 +74,7 @@ struct LanguageSelectionView: View {
                                 ForEach(languages) { lang in
                                     Button(action: { selectLanguage(lang.code) }) {
                                         Text(lang.title)
-                                            .welcomeButtonStyle(fontSize: buttonFontSize)
+                                            .welcomeButtonStyle(fontSize: buttonFontSize, theme: themeManager.selectedTheme)
                                     }
                                 }
                             }
@@ -116,9 +119,8 @@ extension Text {
             .padding(.horizontal)
     }
     
-    func welcomeButtonStyle(fontSize: CGFloat = 18) -> some View {
-        let theme = AppTheme.light
-        return self.font(.system(size: fontSize, weight: .medium))
+    func welcomeButtonStyle(fontSize: CGFloat = 18, theme: AppTheme) -> some View {
+        self.font(.system(size: fontSize, weight: .medium))
             .minimumScaleFactor(0.75)
             .foregroundStyle(theme.textColor)
             .padding(.vertical, 16)
