@@ -10,6 +10,7 @@ import SwiftUI
 struct ShimmeringText: View {
     @State private var shimmerOffset: CGFloat = -2.0
     @State private var isAnimating = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     
     // Текст приветствия и размер шрифта
     var text: String = "WELCOME TO THE UMRA GUIDE"
@@ -43,6 +44,7 @@ struct ShimmeringText: View {
                         .multilineTextAlignment(.center)
             )
             .onAppear {
+                guard !reduceMotion else { return }
                 withAnimation(
                     Animation.linear(duration: AppAnimation.shimmerDuration)
                         .repeatForever(autoreverses: false)
