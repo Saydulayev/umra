@@ -121,14 +121,14 @@ struct DonationSheetView: View {
                         .font(.system(size: pickerFontSize))
                         .padding(pickerPadding)
                         .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
-                        .accentColor(themeManager.selectedTheme.primaryColor)
+                        .tint(themeManager.selectedTheme.primaryColor)
                         .pickerStyle(MenuPickerStyle())
                     }
                     .padding(.horizontal, pickerContainerPadding)
 
                     if isLoading {
                         ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                            .progressViewStyle(CircularProgressViewStyle(tint: themeManager.selectedTheme.textColor))
                             .frame(maxWidth: .infinity)
                             .padding(buttonPadding)
                             .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
