@@ -156,7 +156,8 @@ struct SettingsView: View {
             }
             .scrollIndicators(.hidden)
         }
-        .navigationBarTitle(Text("settings_string", bundle: localizationManager.bundle), displayMode: .inline)
+        .navigationTitle(Text("settings_string", bundle: localizationManager.bundle))
+        .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showSafariView) {
             if let url = appStoreURL {
                 SafariView(url: url)

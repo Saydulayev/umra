@@ -381,22 +381,31 @@ private func bodyParagraphView(paragraph: String, fontSize: CGFloat, textColor: 
 }
 
 private func textWithBoldQuotes(_ paragraph: String, fontSize: CGFloat, textColor: Color) -> Text {
+    var attributed = AttributedString()
     let parts = paragraph.components(separatedBy: "«")
-    var result = Text(verbatim: "")
     for (index, part) in parts.enumerated() {
         if index == 0 {
-            result = result + Text(verbatim: part).foregroundStyle(textColor)
+            var segment = AttributedString(part)
+            segment.foregroundColor = textColor
+            attributed.append(segment)
             continue
         }
         let subParts = part.components(separatedBy: "»")
         if subParts.count >= 2 {
-            result = result + Text(verbatim: "«" + subParts[0] + "»").fontWeight(.semibold).foregroundStyle(textColor)
-            result = result + Text(verbatim: subParts.dropFirst().joined(separator: "»")).foregroundStyle(textColor)
+            var quoteSegment = AttributedString("«\(subParts[0])»")
+            quoteSegment.foregroundColor = textColor
+            quoteSegment.font = .system(size: fontSize, weight: .semibold)
+            attributed.append(quoteSegment)
+            var rest = AttributedString(subParts.dropFirst().joined(separator: "»"))
+            rest.foregroundColor = textColor
+            attributed.append(rest)
         } else {
-            result = result + Text(verbatim: "«" + part).foregroundStyle(textColor)
+            var segment = AttributedString("«\(part)")
+            segment.foregroundColor = textColor
+            attributed.append(segment)
         }
     }
-    return result
+    return Text(attributed)
 }
 
 private struct FormattedContentView: View {
