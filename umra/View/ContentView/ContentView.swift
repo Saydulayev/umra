@@ -351,8 +351,8 @@ private struct StepRow: View {
                 Text(LocalizedStringKey(stepItem.titleKey), bundle: localizationManager.bundle)
                     .font(.system(size: isIPad ? 24 : 18, weight: .semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.75)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             
             Spacer()

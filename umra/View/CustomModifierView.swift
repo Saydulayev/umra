@@ -555,13 +555,14 @@ extension View {
 // MARK: - Модификатор для кнопок в настройках с поддержкой тем
 struct CustomTextStyleWithThemeModifier: ViewModifier {
     @Environment(ThemeManager.self) private var themeManager
-    
+    @Environment(FontManager.self) private var fontManager
+
     private var isIPad: Bool {
         UIDevice.current.userInterfaceIdiom == .pad
     }
-    
+
     private var fontSize: CGFloat {
-        isIPad ? 24 : 18
+        fontManager.dynamicFontSize
     }
     
     private var padding: CGFloat {

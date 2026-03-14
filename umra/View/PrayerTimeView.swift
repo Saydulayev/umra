@@ -139,19 +139,33 @@ struct PrayerTimeView: View {
         ViewThatFits(in: .vertical) {
             prayerContent(layout: .regular)
             prayerContent(layout: .compact)
+            ScrollView {
+                prayerContent(layout: .compact)
+            }
+            .scrollIndicators(.hidden)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     private func prayerContent(layout: PrayerLayout) -> some View {
         VStack(spacing: layout.stackSpacing) {
-            HStack(spacing: 8) {
-                Text(LocalizedStringKey(prayerCityTitleKey), bundle: localizationManager.bundle)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.7)
-                Text(currentIslamicDate)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.7)
+            ViewThatFits {
+                HStack(spacing: 8) {
+                    Text(LocalizedStringKey(prayerCityTitleKey), bundle: localizationManager.bundle)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                    Text(currentIslamicDate)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                }
+                VStack(spacing: 2) {
+                    Text(LocalizedStringKey(prayerCityTitleKey), bundle: localizationManager.bundle)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                    Text(currentIslamicDate)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                }
             }
             .font(.custom("Savoye LET", size: layout.titleFontSize))
             .foregroundStyle(themeManager.selectedTheme.textColor)
@@ -166,8 +180,8 @@ struct PrayerTimeView: View {
             .padding(.horizontal, layout.pickerHorizontalPadding)
 
             Text("\(localizedPrayerName(nextPrayerName)) \(localizationManager.localized("prayer_in")) \(timeUntilNextPrayer)")
-                .lineLimit(1)
-                .minimumScaleFactor(0.8)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
                 .cardStyled(theme: themeManager.selectedTheme, compact: layout.isCompact)
 
             Group {
@@ -431,76 +445,68 @@ struct NotificationSettingsView: View {
         let secondaryBackground = themeManager.selectedTheme.cardColor
         let textColor = themeManager.selectedTheme.textColor
         
-        VStack(spacing: 24) {
-            Text("Notification Settings", bundle: localizationManager.bundle)
-                .font(.headline)
-                .foregroundStyle(textColor)
-                .padding(.top, 24)
-            
-            VStack(spacing: 16) {
-                Toggle(isOn: $enable30MinNotifications) {
-                    Text("30-Minute Notifications", bundle: localizationManager.bundle)
-                        .font(.system(size: 17, weight: .regular))
+        VStack(spacing: 0) {
+            ScrollView {
+                VStack(spacing: 24) {
+                    Text("Notification Settings", bundle: localizationManager.bundle)
+                        .font(.headline)
                         .foregroundStyle(textColor)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.85)
-                        .allowsTightening(true)
-                        .truncationMode(.tail)
-                        .layoutPriority(1)
+                        .padding(.top, 24)
+
+                    VStack(spacing: 16) {
+                        Toggle(isOn: $enable30MinNotifications) {
+                            Text("30-Minute Notifications", bundle: localizationManager.bundle)
+                                .font(.body)
+                                .foregroundStyle(textColor)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+
+                        Toggle(isOn: $enablePrayerTimeNotifications) {
+                            Text("Prayer Time Notifications", bundle: localizationManager.bundle)
+                                .font(.body)
+                                .foregroundStyle(textColor)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+
+                        Toggle(isOn: $enableSunriseNotifications) {
+                            Text("Sunrise Notifications", bundle: localizationManager.bundle)
+                                .font(.body)
+                                .foregroundStyle(textColor)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
+                    .padding()
+                    .standardCardFrame(
+                        theme: themeManager.selectedTheme,
+                        cornerRadius: 16,
+                        fillColor: secondaryBackground,
+                        shadowRadius: 14,
+                        shadowYOffset: 6
+                    )
+                    .padding(.horizontal)
+                    .tint(themeManager.selectedTheme.primaryColor)
+
+                    Button(action: {
+                        openSystemNotificationSettings()
+                    }, label: {
+                        HStack(alignment: .top, spacing: 8) {
+                            Text("Open iOS Notification Settings", bundle: localizationManager.bundle)
+                                .multilineTextAlignment(.leading)
+                                .fixedSize(horizontal: false, vertical: true)
+                            Image(systemName: "gear")
+                        }
+                        .foregroundStyle(themeManager.selectedTheme.primaryColor)
+                    })
+                    .padding(.top, 8)
+                    .padding(.horizontal)
                 }
-                
-                Toggle(isOn: $enablePrayerTimeNotifications) {
-                    Text("Prayer Time Notifications", bundle: localizationManager.bundle)
-                        .font(.system(size: 17, weight: .regular))
-                        .foregroundStyle(textColor)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.85)
-                        .allowsTightening(true)
-                        .truncationMode(.tail)
-                        .layoutPriority(1)
-                }
-                
-                Toggle(isOn: $enableSunriseNotifications) {
-                    Text("Sunrise Notifications", bundle: localizationManager.bundle)
-                        .font(.system(size: 17, weight: .regular))
-                        .foregroundStyle(textColor)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.85)
-                        .allowsTightening(true)
-                        .truncationMode(.tail)
-                        .layoutPriority(1)
-                }
+                .frame(maxWidth: .infinity)
+                .padding(.bottom, 16)
             }
-            .padding()
-            .standardCardFrame(
-                theme: themeManager.selectedTheme,
-                cornerRadius: 16,
-                fillColor: secondaryBackground,
-                shadowRadius: 14,
-                shadowYOffset: 6
-            )
-            .padding(.horizontal)
-            .tint(themeManager.selectedTheme.primaryColor)
-            
-            Button(action: {
-                openSystemNotificationSettings()
-            }, label: {
-                HStack(spacing: 8) {
-                    Text("Open iOS Notification Settings", bundle: localizationManager.bundle)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.85)
-                        .allowsTightening(true)
-                        .truncationMode(.tail)
-                        .layoutPriority(1)
-                    Image(systemName: "gear")
-                }
-                .foregroundStyle(themeManager.selectedTheme.primaryColor)
-            })
-            .padding(.top, 8)
-            .padding(.horizontal)
-            
-            Spacer()
-            
+            .scrollIndicators(.hidden)
+
+            Divider()
+
             Button(action: {
                 dismiss()
             }, label: {

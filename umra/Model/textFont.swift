@@ -13,7 +13,7 @@ class FontManager {
     
     // Вычисляемое свойство для динамического размера шрифта
     var dynamicFontSize: CGFloat {
-        UIDevice.current.userInterfaceIdiom == .pad ? 30 : 20
+        selectedFontSize
     }
 
     /// Размер шрифта для заголовков секций (адаптивно iPad/iPhone)
@@ -67,6 +67,7 @@ class FontManager {
     
     init() {
         self.selectedFont = UserDefaults.standard.string(forKey: UserDefaultsKey.selectedFont) ?? "Lato-Black"
-        self.selectedFontSize = UserDefaults.standard.object(forKey: UserDefaultsKey.selectedFontSize) as? CGFloat ?? 20
+        let deviceDefault: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 20
+        self.selectedFontSize = UserDefaults.standard.object(forKey: UserDefaultsKey.selectedFontSize) as? CGFloat ?? deviceDefault
     }
 }

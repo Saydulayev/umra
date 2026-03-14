@@ -286,8 +286,8 @@ private struct HajjStepRow: View {
                 Text(parsedTitle.name)
                     .font(.system(size: isIPad ? 24 : 18, weight: .semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.75)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
                 
                 if let date = parsedTitle.date {
                     Text(date)

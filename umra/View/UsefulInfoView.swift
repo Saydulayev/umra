@@ -116,9 +116,9 @@ struct UsefulInfoView: View {
                                 .font(.body)
                                 .padding()
                                 .multilineTextAlignment(.center)
-                                .frame(width: 350, height: 150)
+                                .fixedSize(horizontal: false, vertical: true)
                         }
-                        .frame(width: 350, height: 200)
+                        .frame(maxWidth: 350)
                         .presentationCompactAdaptation(.popover)
                     }
                 }

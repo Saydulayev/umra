@@ -205,6 +205,7 @@ struct RitualCounterCard: View {
                             Text("add_string", bundle: localizationManager.bundle)
                                 .font(.system(size: buttonFontSize, weight: .semibold))
                                 .lineLimit(1)
+                                .minimumScaleFactor(0.75)
                         }
                         .foregroundStyle(Color.white)
                         .frame(maxWidth: .infinity)
@@ -230,6 +231,7 @@ struct RitualCounterCard: View {
                             Text("reset_string", bundle: localizationManager.bundle)
                                 .font(.system(size: buttonFontSize, weight: .semibold))
                                 .lineLimit(1)
+                                .minimumScaleFactor(0.75)
                         }
                         .foregroundStyle(theme.textColor)
                         .frame(maxWidth: .infinity)
