@@ -68,6 +68,7 @@ class FontManager {
     init() {
         self.selectedFont = UserDefaults.standard.string(forKey: UserDefaultsKey.selectedFont) ?? "Lato-Black"
         let deviceDefault: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 20
-        self.selectedFontSize = UserDefaults.standard.object(forKey: UserDefaultsKey.selectedFontSize) as? CGFloat ?? deviceDefault
+        let stored = UserDefaults.standard.double(forKey: UserDefaultsKey.selectedFontSize)
+        self.selectedFontSize = stored == 0 ? deviceDefault : CGFloat(stored)
     }
 }

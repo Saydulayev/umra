@@ -118,14 +118,14 @@ struct PrayerTimeView: View {
             timerTask?.cancel()
             timerTask = nil
         }
-        .onChange(of: enable30MinNotifications) {
+        .onChange(of: enable30MinNotifications) { _, _ in
             updateNotifications()
         }
-        .onChange(of: enablePrayerTimeNotifications) {
+        .onChange(of: enablePrayerTimeNotifications) { _, _ in
             updateNotifications()
         }
         // Пересоздаём уведомления при изменении тумблера Sunrise
-        .onChange(of: enableSunriseNotifications) {
+        .onChange(of: enableSunriseNotifications) { _, _ in
             updateNotifications()
         }
         .onChange(of: prayerCityRaw) { _, _ in
