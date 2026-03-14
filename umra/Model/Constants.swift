@@ -34,9 +34,30 @@ enum ProductID: String, CaseIterable {
     }
 }
 
+// MARK: - Animation Constants
+
+enum AppAnimation {
+    // Counter animations
+    static let counterIncrement = Animation.spring(response: 0.30, dampingFraction: 0.78)
+    static let counterDecrement = Animation.spring(response: 0.28, dampingFraction: 0.82)
+    static let counterCard    = Animation.spring(response: 0.35, dampingFraction: 0.82)
+
+    // Completion animations
+    static let completionShow = Animation.spring(response: 0.40, dampingFraction: 0.74)
+    static let completionHide = Animation.spring(response: 0.30, dampingFraction: 0.82)
+    static let completionHighlight = Animation.spring(response: 0.38, dampingFraction: 0.76)
+
+    // UI animations
+    static let shimmerDuration: Double = 3.0
+    static let settingsToggle = Animation.easeInOut(duration: 0.25)
+}
+
 // MARK: - App Constants
 
 enum AppConstants {
+    // Тип устройства — вычисляется один раз при запуске
+    static let isIPad: Bool = UIDevice.current.userInterfaceIdiom == .pad
+
     // Константы таймера
     static let reviewRequestTimeInterval: TimeInterval = 300 // 5 минут
     
@@ -66,11 +87,11 @@ enum UserDefaultsKey {
     static let selectedTheme = "selectedTheme"
     static let selectedLanguage = "selectedLanguage"
     static let hasSelectedLanguage = "hasSelectedLanguage"
-    static let isGridView = "isGridView"
     static let hasRatedApp = "hasRatedApp"
     static let selectedFont = "SelectedFont"
     static let selectedFontSize = "SelectedFontSize"
     static let tawafCircuitCount = "tawafCircuitCount"
+    static let saiRoundCount = "saiRoundCount"
     static let prayerCity = "prayerCity"
 }
 

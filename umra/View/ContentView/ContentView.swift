@@ -20,11 +20,13 @@ enum UmraStep: Hashable, Sendable {
 
 enum AppDestination: Hashable, Sendable {
     case settings
+    case prayerTimes
 }
 
 struct StepItem: Identifiable {
     let id: Int
-    let imageName: String
+    let badgeText: String
+    let badgeColor: Color
     let step: UmraStep
     let titleKey: String
 }
@@ -35,37 +37,30 @@ struct ContentView: View {
     @Environment(UserPreferences.self) private var userPreferences
     @Environment(FontManager.self) private var fontManager
     @Environment(PurchaseManager.self) private var purchaseManager
-    @State private var showPrayerTimes = false
+    @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
+    @Environment(AudioManager.self) private var audioManager
     @State private var navigationPath = NavigationPath()
-    @State private var stepImageDescriptions: [String: String] = [
-        "img1": "title_ihram_screen",
-        "img2": "title_round_kaaba_screen",
-        "img3": "title_place_ibrohim_stand_screen",
-        "img4": "title_water_zamzam_screen",
-        "img5": "title_black_stone_screen",
-        "img6": "title_safa_and_marva_screen",
-        "img7": "title_shave_head_screen",
-        "img8": "Useful"
-    ]
     @State private var usageTime: TimeInterval = 0
     @State private var usageTimerTask: Task<Void, Never>?
     @Environment(\.requestReview) var requestReview
     
     private let steps: [StepItem] = [
-        StepItem(id: 0, imageName: "img1", step: .step1, titleKey: "title_ihram_screen"),
-        StepItem(id: 1, imageName: "img2", step: .step2, titleKey: "title_round_kaaba_screen"),
-        StepItem(id: 2, imageName: "img3", step: .step3, titleKey: "title_place_ibrohim_stand_screen"),
-        StepItem(id: 3, imageName: "img4", step: .step4, titleKey: "title_water_zamzam_screen"),
-        StepItem(id: 4, imageName: "img5", step: .step5, titleKey: "title_black_stone_screen"),
-        StepItem(id: 5, imageName: "img6", step: .step6, titleKey: "title_safa_and_marva_screen"),
-        StepItem(id: 6, imageName: "img7", step: .step7, titleKey: "title_shave_head_screen"),
-        StepItem(id: 7, imageName: "img8", step: .useful, titleKey: "Useful")
+        StepItem(id: 0, badgeText: "IHRAM", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step1, titleKey: "title_ihram_screen"),         // Emerald #10B981
+        StepItem(id: 1, badgeText: "TAWAF", badgeColor: Color(red: 0.831, green: 0.635, blue: 0.306), step: .step2, titleKey: "title_round_kaaba_screen"),     // Amber #D4A24E
+        StepItem(id: 2, badgeText: "MAQAM\nIBRAHIM", badgeColor: Color(red: 0.078, green: 0.722, blue: 0.651), step: .step3, titleKey: "title_place_ibrohim_stand_screen"), // Teal #14B8A6
+        StepItem(id: 3, badgeText: "ZAMZAM", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step4, titleKey: "title_water_zamzam_screen"),   // Emerald #10B981
+        StepItem(id: 4, badgeText: "ISTILAM", badgeColor: Color(red: 0.831, green: 0.635, blue: 0.306), step: .step5, titleKey: "title_black_stone_screen"),   // Amber #D4A24E
+        StepItem(id: 5, badgeText: "SA'I", badgeColor: Color(red: 0.42, green: 0.61, blue: 0.56), step: .step6, titleKey: "title_safa_and_marva_screen"),   // Светлый sage #6B9B8E
+        StepItem(id: 6, badgeText: "HALQ\nTAQSIR", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step7, titleKey: "title_shave_head_screen"),       // Emerald #10B981
+        StepItem(id: 7, badgeText: "INFO", badgeColor: Color(red: 0.29, green: 0.51, blue: 0.78), step: .useful, titleKey: "Useful")  // Синий — ассоциация с меню «Полезное»
     ]
+    
+    private var numberedSteps: [StepItem] {
+        steps.filter { $0.step != .useful }
+    }
     
     // MARK: - Navigation
     
-    /// Явно передаём environment в экраны шагов, чтобы избежать краша EnvironmentValues.subscript.getter
-    /// при навигации (особенно на iOS 18+ и в App Store сборках).
     @ViewBuilder
     private func destinationView(for step: UmraStep) -> some View {
         stepView(for: step)
@@ -74,6 +69,7 @@ struct ContentView: View {
             .environment(userPreferences)
             .environment(fontManager)
             .environment(purchaseManager)
+            .environment(audioManager)
     }
 
     @ViewBuilder
@@ -100,29 +96,17 @@ struct ContentView: View {
     
     // MARK: - Computed Properties
     
-    /// Вычисляемое свойство для определения устройства iPad
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
-    
-    /// Динамический размер шрифта для сетки (только для iPhone)
-    private var dynamicFontSize: CGFloat {
-        10
-    }
-    
-    /// Spacing для сетки (только для iPhone)
-    private var gridSpacing: CGFloat {
-        20
-    }
-    
-    /// Адаптивный spacing для списка
+
     private var listSpacing: CGFloat {
-        isIPad ? 12 : 8
+        AppConstants.isIPad ? 14 : 12
     }
     
-    /// Адаптивный padding для списка
     private var listPadding: CGFloat {
-        isIPad ? 16 : 8
+        AppConstants.isIPad ? 20 : 16
+    }
+    
+    private var listCardCornerRadius: CGFloat {
+        AppConstants.isIPad ? 28 : 24
     }
     
     // MARK: - Body
@@ -132,31 +116,25 @@ struct ContentView: View {
             .onAppear(perform: startTimer)
             .onDisappear(perform: stopTimer)
             .onChange(of: navigationPath.count) { oldValue, newValue in
-                // Если путь навигации пуст, значит мы вернулись на главный экран
                 if newValue == 0 && oldValue > 0 {
-                    // Сбрасываем путь навигации при возврате на главный экран
                     navigationPath = NavigationPath()
                 }
             }
     }
 
-    
-    /// Основное содержимое экрана
     private var mainContentView: some View {
         NavigationStack(path: $navigationPath) {
             ZStack {
-                // Применяем тему к фону, но сохраняем оригинальный вид
                 themeManager.selectedTheme.backgroundColor
-                    .ignoresSafeArea(edges: .bottom)
+                    .ignoresSafeArea()
                 
                 ScrollView {
                     content
                         .padding(.vertical, 8)
                 }
                 .scrollIndicators(.hidden)
-                LanguageView().hidden()
             }
-            .navigationBarTitle(Text("main_screen_name_string", bundle: localizationManager.bundle), displayMode: .inline)
+            .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: UmraStep.self) { step in
                 destinationView(for: step)
             }
@@ -176,107 +154,96 @@ struct ContentView: View {
                     SettingsView()
                         .environment(themeManager)
                         .environment(localizationManager)
+                        .environment(purchaseManager)
+                case .prayerTimes:
+                    PrayerTimeView()
+                        .environment(themeManager)
+                        .environment(localizationManager)
+                        .environment(backgroundTaskManager)
+                        .toolbar(.hidden, for: .tabBar)
                 }
             }
             .toolbar {
-                if !isIPad {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        gridToggleButton
-                    }
-                }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: { showPrayerTimes = true }) {
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    NavigationLink(value: AppDestination.prayerTimes) {
                         Image(systemName: "clock")
                             .imageScale(.large)
-                            .foregroundColor(.primary)
+                            .foregroundStyle(.primary)
+                            .accessibilityLabel("Prayer Times")
                     }
                     NavigationLink(value: AppDestination.settings) {
                         Image(systemName: "gearshape")
                             .imageScale(.large)
-                            .foregroundColor(.primary)
+                            .foregroundStyle(.primary)
+                            .accessibilityLabel("Settings")
                     }
                 }
             }
-                .fullScreenCover(isPresented: $showPrayerTimes) {
-                    PrayerTimeModalView(isPresented: $showPrayerTimes)
-                        .environment(themeManager)
-                        .environment(localizationManager)
-                }
-        }
-    }
-    
-    /// Кнопка для переключения между списком и сеткой (не отображается на iPad)
-    private var gridToggleButton: some View {
-        Button(action: { userPreferences.isGridView.toggle() }) {
-            Image(systemName: userPreferences.isGridView ? "list.bullet" : "square.grid.2x2")
-                .imageScale(.large)
-                .foregroundColor(.primary)
         }
     }
     
     // MARK: - View Builders
     
-    /// Отображение контента в виде сетки или списка
     @ViewBuilder
     private var content: some View {
-        // На iPad всегда используем режим списка, на iPhone - в зависимости от настройки
-        if !isIPad && userPreferences.isGridView {
-            LazyVGrid(columns: gridColumns, spacing: gridSpacing) {
-                stepsView(showIndex: true, fontSize: dynamicFontSize)
-            }
-            .padding(.horizontal, 16)
-        } else {
-            LazyVStack(spacing: listSpacing) {
-                ForEach(steps) { stepItem in
+        VStack(spacing: 0) {
+            stepsHeader
+
+            VStack(spacing: 0) {
+                ForEach(Array(numberedSteps.enumerated()), id: \.element.id) { idx, stepItem in
                     Button {
                         navigationPath.append(stepItem.step)
                     } label: {
-                        StepRow(step: (stepItem.imageName, stepItem.step, stepItem.titleKey), index: stepItem.id)
+                        StepRow(stepItem: stepItem, index: stepItem.id)
                     }
-                    .buttonStyle(PlainButtonStyle())
-                    .padding(.horizontal, listPadding)
+                    .buttonStyle(.plain)
                     .id("\(stepItem.step)-\(stepItem.id)")
+
+                    if idx < numberedSteps.count - 1 {
+                        Divider()
+                            .background(themeManager.selectedTheme.textColor.opacity(0.10))
+                            .padding(.leading, AppConstants.isIPad ? 112 : 92)
+                    }
                 }
             }
-            .padding(.vertical, isIPad ? 16 : 10)
-        }
-    }
-    
-    /// Для сетки: отображение шагов через отдельный View StepView
-    private func stepsView(showIndex: Bool, fontSize: CGFloat) -> some View {
-        ForEach(steps) { stepItem in
-            Button {
-                navigationPath.append(stepItem.step)
-            } label: {
-                StepView(
-                    imageName: stepItem.imageName,
-                    titleKey: LocalizedStringKey(stepItem.titleKey),
-                    stringKey: stepItem.titleKey,
-                    index: showIndex ? stepItem.id : nil,
-                    fontSize: fontSize,
-                    stepsCount: steps.count,
-                    hideLastIndex: true,
-                    imageDescriptions: $stepImageDescriptions
+            .standardCardFrame(
+                theme: themeManager.selectedTheme,
+                cornerRadius: listCardCornerRadius,
+                borderWidth: 1
+            )
+            .padding(.horizontal, listPadding)
+
+            if let usefulItem = steps.first(where: { $0.step == .useful }) {
+                Button {
+                    navigationPath.append(usefulItem.step)
+                } label: {
+                    StepRow(stepItem: usefulItem, index: usefulItem.id)
+                }
+                .buttonStyle(.plain)
+                .standardCardFrame(
+                    theme: themeManager.selectedTheme,
+                    cornerRadius: listCardCornerRadius,
+                    borderWidth: 1
                 )
-                .foregroundStyle(themeManager.selectedTheme.textColor)
+                .padding(.horizontal, listPadding)
+                .padding(.top, 16)
             }
-            .buttonStyle(PlainButtonStyle())
-            .id("\(stepItem.step)-\(stepItem.id)")
+
+            Spacer().frame(height: 32)
         }
     }
     
-    // MARK: - Grid Configuration
-    
-    /// Создание столбцов для LazyVGrid (только для iPhone)
-    private var gridColumns: [GridItem] {
-        let screenWidth = UIScreen.main.bounds.width
-        let columnCount = AppConstants.gridColumnCount
-        let spacing = AppConstants.gridColumnSpacing
-        let horizontalPadding: CGFloat = 32
-        let availableWidth = screenWidth - horizontalPadding
-        let totalSpacing = CGFloat(columnCount - 1) * spacing
-        let columnWidth = (availableWidth - totalSpacing) / CGFloat(columnCount)
-        return Array(repeating: GridItem(.fixed(columnWidth)), count: columnCount)
+    private var stepsHeader: some View {
+        HStack {
+            Text("umra_title", bundle: localizationManager.bundle)
+                .font(.system(size: AppConstants.isIPad ? 36 : 28, weight: .bold))
+                .foregroundStyle(themeManager.selectedTheme.textColor)
+
+            Spacer()
+        }
+        .padding(.horizontal, AppConstants.isIPad ? 24 : 24)
+        .padding(.top, 12)
+        .padding(.bottom, 24)
     }
     
     // MARK: - Timer Management
@@ -317,7 +284,6 @@ struct ContentView: View {
 
 // MARK: - Supporting Views
 
-/// Вспомогательный view для навигации к Chapter
 private struct ChapterDestinationView: View {
     let chapter: Chapter
     @Environment(LocalizationManager.self) private var localizationManager
@@ -325,69 +291,74 @@ private struct ChapterDestinationView: View {
     var body: some View {
         if chapter.title == "title_janaza_guide".localized(bundle: localizationManager.bundle ?? .main) {
             JanazaView()
+        } else if chapter.title == "sunnahs_safar".localized(bundle: localizationManager.bundle ?? .main) {
+            JourneyContentView(chapter: chapter)
         } else {
             ChapterDetailView(chapter: chapter)
         }
     }
 }
 
-/// Отдельный View для отображения строки шага в списке
 private struct StepRow: View {
-    var step: (String, UmraStep, String)
-    var index: Int
+    let stepItem: StepItem
+    let index: Int
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
+    
+    private var badgeSize: CGFloat {
+        AppConstants.isIPad ? 72 : 56
     }
     
-    private var imageSize: CGFloat {
-        isIPad ? 120 : 90
-    }
-    
-    private var fontSize: CGFloat {
-        isIPad ? 24 : 18
-    }
-    
-    private var spacing: CGFloat {
-        isIPad ? 20 : 15
-    }
-    
-    private var padding: CGFloat {
-        isIPad ? 20 : 12
-    }
-    
-    private var cornerRadius: CGFloat {
-        isIPad ? 20 : 16
+    private var badgeFontSize: CGFloat {
+        let longestLine = stepItem.badgeText.components(separatedBy: "\n").map(\.count).max() ?? 0
+        let baseSize: CGFloat = AppConstants.isIPad ? 14 : 10
+        if longestLine > 6 { return baseSize * 0.80 }
+        if longestLine > 4 { return baseSize * 0.90 }
+        return baseSize
     }
     
     var body: some View {
-        HStack(spacing: spacing) {
-            Image(step.0)
-                .styledImageWithThemeColorsForList(theme: themeManager.selectedTheme, size: imageSize)
-            VStack(alignment: .leading, spacing: 6) {
-                Text(LocalizedStringKey(step.2), bundle: localizationManager.bundle)
-                    .font(.system(size: fontSize, weight: .semibold))
-                    .foregroundColor(themeManager.selectedTheme.textColor)
+        HStack(spacing: AppConstants.isIPad ? 20 : 16) {
+            ZStack {
+                Circle()
+                    .fill(stepItem.badgeColor.opacity(0.15))
+                Text(stepItem.badgeText)
+                    .font(.system(size: badgeFontSize, weight: .bold))
+                    .tracking(-0.5)
+                    .foregroundStyle(stepItem.badgeColor)
+                    .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+                    .padding(.horizontal, 4)
             }
+            .frame(width: badgeSize, height: badgeSize)
+            
+            VStack(alignment: .leading, spacing: 4) {
+                if stepItem.step != .useful {
+                    Text("\(localizationManager.localized("step_prefix")) \(index + 1)")
+                        .font(.system(size: AppConstants.isIPad ? 14 : 11, weight: .medium))
+                        .tracking(0.5)
+                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.4))
+                        .textCase(.uppercase)
+                }
+                Text(LocalizedStringKey(stepItem.titleKey), bundle: localizationManager.bundle)
+                    .font(.system(size: AppConstants.isIPad ? 24 : 18, weight: .semibold))
+                    .foregroundStyle(themeManager.selectedTheme.textColor)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            
             Spacer()
+            
             Image(systemName: "chevron.right")
-                .font(.system(size: isIPad ? 18 : 14, weight: .semibold))
-                .foregroundColor(themeManager.selectedTheme.textColor)
-                .frame(width: isIPad ? 32 : 24, height: isIPad ? 32 : 24)
-                .background(
-                    Circle()
-                        .fill(Color.blue.opacity(0.1))
-                )
+                .font(.system(size: AppConstants.isIPad ? 16 : 14, weight: .semibold))
+                .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
         }
-        .padding(.vertical, padding)
-        .padding(.horizontal, padding)
-        .background(
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .fill(themeManager.selectedTheme == .dark ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white)
-                .shadow(color: Color.black.opacity(0.08), radius: isIPad ? 12 : 8, x: 0, y: 2)
-        )
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
+        .padding(.horizontal, AppConstants.isIPad ? 24 : 20)
+        .padding(.vertical, AppConstants.isIPad ? 16 : 14)
     }
 }
 
@@ -399,11 +370,6 @@ private struct StepRow: View {
         .environment(FontManager())
         .environment(PurchaseManager())
 }
-
-
-
-
-
 
 
 

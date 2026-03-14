@@ -17,19 +17,17 @@ struct SettingsView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
     
-    // URL App Store - гарантированно валидный
-    private let appStoreURL = URL(string: "https://apps.apple.com/app/id1673683355")!
-    
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
+    private var appStoreURL: URL? {
+        URL(string: "https://apps.apple.com/app/id1673683355")
     }
     
+    
     private var contentSpacing: CGFloat {
-        isIPad ? 24 : 16
+        AppConstants.isIPad ? 24 : 16
     }
     
     private var contentPadding: CGFloat {
-        isIPad ? 32 : 16
+        AppConstants.isIPad ? 32 : 16
     }
 
     private var currentLanguageDisplayName: String {
@@ -54,13 +52,13 @@ struct SettingsView: View {
     }
 
     private var secondaryTextColor: Color {
-        themeManager.selectedTheme.textColor.opacity(themeManager.selectedTheme == .dark ? 0.7 : 0.6)
+        themeManager.selectedTheme.textColor.opacity(0.6)
     }
     
     var body: some View {
         ZStack {
-            themeManager.selectedTheme.lightBackgroundColor
-                .ignoresSafeArea(edges: .bottom)
+            themeManager.selectedTheme.backgroundColor
+                .ignoresSafeArea()
             ScrollView {
                 VStack(spacing: contentSpacing) {
                     SettingsSection {
@@ -75,7 +73,7 @@ struct SettingsView: View {
 
                         SettingsDivider()
 
-                        Button(action: { showSafariView.toggle() }) {
+                        Button(action: { if appStoreURL != nil { showSafariView = true } }) {
                             SettingsRow(
                                 icon: "star",
                                 title: Text("text_button_rate_the_app_string", bundle: localizationManager.bundle),
@@ -104,14 +102,24 @@ struct SettingsView: View {
                                 accentColor: themeManager.selectedTheme.primaryColor,
                                 accessory: {
                                     Text(currentLanguageDisplayName)
-                                        .font(.system(size: SettingsMetrics.isIPad ? 18 : 14, weight: .medium))
-                                        .foregroundColor(secondaryTextColor)
+                                        .font(.system(size: AppConstants.isIPad ? 18 : 14, weight: .medium))
+                                        .foregroundStyle(secondaryTextColor)
                                 }
                             )
                         }
                         .buttonStyle(.plain)
-                        .actionSheet(isPresented: $showLanguageActionSheet) {
-                            languageActionSheet
+                        .confirmationDialog(
+                            Text("select_language_settings_string", bundle: localizationManager.bundle),
+                            isPresented: $showLanguageActionSheet
+                        ) {
+                            Button("العربية") { localizationManager.currentLanguage = "ar" }
+                            Button("Русский") { localizationManager.currentLanguage = "ru" }
+                            Button("English") { localizationManager.currentLanguage = "en" }
+                            Button("Deutsch") { localizationManager.currentLanguage = "de" }
+                            Button("Français") { localizationManager.currentLanguage = "fr" }
+                            Button("Türkçe") { localizationManager.currentLanguage = "tr" }
+                            Button("Bahasa Indonesia") { localizationManager.currentLanguage = "id" }
+                            Button("Cancel", role: .cancel) {}
                         }
 
                         SettingsDivider()
@@ -125,10 +133,10 @@ struct SettingsView: View {
                                     HStack(spacing: 8) {
                                         Circle()
                                             .fill(themeManager.selectedTheme.primaryColor)
-                                            .frame(width: isIPad ? 24 : 18, height: isIPad ? 24 : 18)
-                                        Text(themeManager.selectedTheme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
-                                            .font(.system(size: SettingsMetrics.isIPad ? 18 : 14, weight: .medium))
-                                            .foregroundColor(secondaryTextColor)
+                                            .frame(width: AppConstants.isIPad ? 24 : 18, height: AppConstants.isIPad ? 24 : 18)
+                                        Text(themeManager.themePreference.displayName(bundle: localizationManager.bundle ?? Bundle.main))
+                                            .font(.system(size: AppConstants.isIPad ? 18 : 14, weight: .medium))
+                                            .foregroundStyle(secondaryTextColor)
                                     }
                                 }
                             )
@@ -145,9 +153,14 @@ struct SettingsView: View {
             }
             .scrollIndicators(.hidden)
         }
-        .navigationBarTitle(Text("settings_string", bundle: localizationManager.bundle), displayMode: .inline)
+        .navigationTitle(Text("settings_string", bundle: localizationManager.bundle))
+        .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showSafariView) {
-            SafariView(url: appStoreURL)
+            if let url = appStoreURL {
+                SafariView(url: url)
+            } else {
+                EmptyView()
+            }
         }
         .sheet(isPresented: $showNotificationSettingsSheet) {
             NotificationSettingsView()
@@ -164,54 +177,33 @@ struct SettingsView: View {
         }
     }
 
-    private var languageActionSheet: ActionSheet {
-        ActionSheet(
-            title: Text("select_language_settings_string", bundle: localizationManager.bundle)
-                .foregroundColor(themeManager.selectedTheme.primaryColor),
-            message: nil,
-            buttons: [
-                .default(Text("العربية")) { localizationManager.currentLanguage = "ar" },
-                .default(Text("Русский")) { localizationManager.currentLanguage = "ru" },
-                .default(Text("English")) { localizationManager.currentLanguage = "en" },
-                .default(Text("Deutsch")) { localizationManager.currentLanguage = "de" },
-                .default(Text("Français")) { localizationManager.currentLanguage = "fr" },
-                .default(Text("Türkçe")) { localizationManager.currentLanguage = "tr" },
-                .default(Text("Bahasa Indonesia")) { localizationManager.currentLanguage = "id" },
-                .cancel()
-            ]
-        )
-    }
 }
 
 // MARK: - Settings Components
 
 private enum SettingsMetrics {
-    static var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
-
     static var rowHorizontalPadding: CGFloat {
-        isIPad ? 20 : 16
+        AppConstants.isIPad ? 20 : 16
     }
 
     static var rowVerticalPadding: CGFloat {
-        isIPad ? 16 : 12
+        AppConstants.isIPad ? 16 : 12
     }
 
     static var rowSpacing: CGFloat {
-        isIPad ? 16 : 12
+        AppConstants.isIPad ? 16 : 12
     }
 
     static var iconContainerSize: CGFloat {
-        isIPad ? 46 : 38
+        AppConstants.isIPad ? 46 : 38
     }
 
     static var iconSize: CGFloat {
-        isIPad ? 22 : 18
+        AppConstants.isIPad ? 22 : 18
     }
 
     static var cornerRadius: CGFloat {
-        isIPad ? 24 : 18
+        AppConstants.isIPad ? 24 : 18
     }
 }
 
@@ -224,26 +216,20 @@ struct SettingsSection<Content: View>: View {
     }
 
     private var cardBackground: Color {
-        themeManager.selectedTheme == .dark
-            ? Color(UIColor(red: 0.23, green: 0.23, blue: 0.28, alpha: 1))
-            : Color.white
+        themeManager.selectedTheme.cardColor
     }
 
     var body: some View {
         VStack(spacing: 0) {
             content
         }
-        .background(
-            RoundedRectangle(cornerRadius: SettingsMetrics.cornerRadius, style: .continuous)
-                .fill(cardBackground)
-                .shadow(color: Color.black.opacity(themeManager.selectedTheme == .dark ? 0.25 : 0.08),
-                        radius: SettingsMetrics.isIPad ? 14 : 10,
-                        x: 0,
-                        y: 2)
-                .overlay(
-                    RoundedRectangle(cornerRadius: SettingsMetrics.cornerRadius, style: .continuous)
-                        .stroke(themeManager.selectedTheme.primaryColor.opacity(0.08), lineWidth: 1)
-                )
+        .standardCardFrame(
+            theme: themeManager.selectedTheme,
+            cornerRadius: SettingsMetrics.cornerRadius,
+            borderWidth: 1,
+            fillColor: cardBackground,
+            shadowRadius: AppConstants.isIPad ? 14 : 10,
+            shadowYOffset: 2
         )
     }
 }
@@ -274,7 +260,7 @@ struct SettingsRow<Accessory: View>: View {
     }
 
     private var iconBackground: Color {
-        accentColor.opacity(themeManager.selectedTheme == .dark ? 0.25 : 0.15)
+        accentColor.opacity(themeManager.selectedTheme.isDarkAppearance ? 0.25 : 0.15)
     }
 
     var body: some View {
@@ -284,22 +270,22 @@ struct SettingsRow<Accessory: View>: View {
                     .fill(iconBackground)
                 Image(systemName: icon)
                     .font(.system(size: SettingsMetrics.iconSize, weight: .semibold))
-                    .foregroundColor(accentColor)
+                    .foregroundStyle(accentColor)
             }
             .frame(width: SettingsMetrics.iconContainerSize, height: SettingsMetrics.iconContainerSize)
 
             VStack(alignment: .leading, spacing: 3) {
                 title
-                    .font(.system(size: SettingsMetrics.isIPad ? 20 : 16, weight: .semibold))
-                    .foregroundColor(themeManager.selectedTheme.textColor)
+                    .font(.system(size: AppConstants.isIPad ? 20 : 16, weight: .semibold))
+                    .foregroundStyle(themeManager.selectedTheme.textColor)
                     .lineLimit(1)
                     .minimumScaleFactor(0.85)
                     .allowsTightening(true)
                     .truncationMode(.tail)
                 if let subtitle {
                     subtitle
-                        .font(.system(size: SettingsMetrics.isIPad ? 15 : 12))
-                        .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.6))
+                        .font(.system(size: AppConstants.isIPad ? 15 : 12))
+                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.6))
                 }
             }
 
@@ -309,8 +295,8 @@ struct SettingsRow<Accessory: View>: View {
                 accessory
                 if showsChevron {
                     Image(systemName: "chevron.right")
-                        .font(.system(size: SettingsMetrics.isIPad ? 16 : 14, weight: .semibold))
-                        .foregroundColor(themeManager.selectedTheme.textColor.opacity(0.45))
+                        .font(.system(size: AppConstants.isIPad ? 16 : 14, weight: .semibold))
+                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.45))
                 }
             }
         }
@@ -355,70 +341,96 @@ struct ThemePreviewView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
     
+    
     var body: some View {
         NavigationStack {
             ZStack {
-                themeManager.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
                 
-                VStack(spacing: 20) {
+                VStack(spacing: AppConstants.isIPad ? 28 : 20) {
                     Text("theme_select_title", bundle: localizationManager.bundle)
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(themeManager.selectedTheme.textColor)
-                        .padding(.top)
+                        .font(.system(size: AppConstants.isIPad ? 28 : 22, weight: .bold))
+                        .foregroundStyle(themeManager.selectedTheme.textColor)
+                        .padding(.top, AppConstants.isIPad ? 24 : 16)
                     
-                    VStack(spacing: 16) {
+                    VStack(spacing: AppConstants.isIPad ? 16 : 12) {
                         ForEach(AppTheme.allCases, id: \.self) { theme in
-                            Button(action: {
-                                themeManager.selectedTheme = theme
-                                dismiss()
-                            }) {
-                                HStack(spacing: 16) {
-                                    // Мягкий цветной кружок для превью
-                                    Circle()
-                                        .fill(theme.previewColor)
-                                        .frame(width: 50, height: 50)
-                                    
-                                    Text(theme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
-                                        .font(.system(size: 18, weight: .semibold))
-                                        .foregroundColor(themeManager.selectedTheme.textColor)
-                                    
-                                    Spacer()
-                                    
-                                    if themeManager.selectedTheme == theme {
-                                        Image(systemName: "checkmark.circle.fill")
-                                            .font(.system(size: 24))
-                                            .foregroundColor(theme.primaryColor)
-                                    }
+                            Button {
+                                withAnimation(AppAnimation.settingsToggle) {
+                                    themeManager.themePreference = theme
                                 }
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .fill(themeManager.selectedTheme == .dark ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white)
-                                        .shadow(color: Color.black.opacity(0.15), radius: 8, x: 0, y: 4)
-                                )
+                            } label: {
+                                themeCard(for: theme)
                             }
-                            .buttonStyle(PlainButtonStyle())
+                            .buttonStyle(.plain)
                         }
                     }
-                    .padding(.horizontal)
+                    .padding(.horizontal, AppConstants.isIPad ? 24 : 16)
                     
                     Spacer()
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
                         dismiss()
-                    }) {
+                    } label: {
                         Text("done_button", bundle: localizationManager.bundle)
-                            .foregroundColor(themeManager.selectedTheme.primaryColor)
+                            .foregroundStyle(themeManager.selectedTheme.primaryColor)
                     }
                 }
             }
         }
     }
     
+    private func themeCard(for theme: AppTheme) -> some View {
+        let isSelected = themeManager.themePreference == theme
+        
+        return HStack(spacing: AppConstants.isIPad ? 18 : 14) {
+            ZStack {
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [theme.primaryColor, theme.secondaryColor.opacity(0.78)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .frame(width: AppConstants.isIPad ? 56 : 46, height: AppConstants.isIPad ? 56 : 46)
+                
+                Image(systemName: theme.iconName)
+                    .font(.system(size: AppConstants.isIPad ? 22 : 18, weight: .medium))
+                    .foregroundStyle(.white)
+            }
+            
+            VStack(alignment: .leading, spacing: 3) {
+                Text(theme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
+                    .font(.system(size: AppConstants.isIPad ? 20 : 17, weight: .semibold))
+                    .foregroundStyle(themeManager.selectedTheme.textColor)
+                
+                Text(LocalizedStringKey(theme.subtitleKey), bundle: localizationManager.bundle)
+                    .font(.system(size: AppConstants.isIPad ? 15 : 13))
+                    .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.5))
+            }
+            
+            Spacer()
+            
+            if isSelected {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: AppConstants.isIPad ? 26 : 22))
+                    .foregroundStyle(theme.primaryColor)
+            }
+        }
+        .padding(AppConstants.isIPad ? 20 : 16)
+        .standardCardFrame(
+            theme: themeManager.selectedTheme,
+            cornerRadius: 20,
+            borderWidth: isSelected ? 2 : 1,
+            borderColor: isSelected ? theme.primaryColor.opacity(0.5) : nil,
+            shadowRadius: 8,
+            shadowYOffset: 2
+        )
+    }
 }

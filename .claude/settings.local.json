@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/saydulayev/.claude/skills/**)",
+      "Read(//Users/saydulayev/.agents/skills/swiftui-pro/**)",
+      "Bash(rm -rf ~/.claude/skills/swiftui-pro)",
+      "Bash(rm -rf ~/Library/Developer/Xcode/CodingAssistant/ClaudeAgentConfig/skills/swiftui-pro)",
+      "Bash(rm -rf ~/.agents/skills/swiftui-pro)",
+      "Bash(mkdir -p ~/Library/Developer/Xcode/CodingAssistant/ClaudeAgentConfig/skills)",
+      "Bash(cp -r /tmp/swiftui-agent-skill/swiftui-pro ~/Library/Developer/Xcode/CodingAssistant/ClaudeAgentConfig/skills/)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i '' 's/\\\\.navigationBarTrailing/.topBarTrailing/g' \"$f\")",
+      "Bash(sed -i '' 's/\\\\.foregroundColor\\(\\\\.primary\\)/.foregroundStyle\\(.primary\\)/g' \"$f\")",
+      "Bash(echo \"Done: $f\")",
+      "Bash(done)"
+    ]
+  }
+}

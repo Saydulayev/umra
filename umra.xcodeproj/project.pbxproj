@@ -40,7 +40,7 @@
 		C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDB29829F8A00458ACB /* umraApp.swift */; };
 		C0908DE029829F8A00458ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DDF29829F8A00458ACB /* Assets.xcassets */; };
 		C0908DE329829F8A00458ACB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DE229829F8A00458ACB /* Preview Assets.xcassets */; };
-		C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */; };
+		C0908DEC2982A02E00458ACB /* CustomModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEB2982A02E00458ACB /* CustomModifierView.swift */; };
 		C0908DEF2982A07900458ACB /* Step 1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEE2982A07900458ACB /* Step 1.swift */; };
 		C0908DF12982A08B00458ACB /* Step 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF02982A08B00458ACB /* Step 2.swift */; };
 		C0908DF32982A09400458ACB /* Step 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF22982A09400458ACB /* Step 3.swift */; };
@@ -50,6 +50,7 @@
 		C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DFA2982A0BC00458ACB /* Step 7.swift */; };
 		C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */; };
 		C0BG00012CFF1F3C005F3ED9 /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BG00022CFF1F3C005F3ED9 /* BackgroundTaskManager.swift */; };
+		C21550242F61CE3700216322 /* KFGQPC Uthman Taha Naskh Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C21550232F61CE3700216322 /* KFGQPC Uthman Taha Naskh Regular.ttf */; };
 		C22958FD2E87F4B2006762B3 /* GlassIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = C22958FC2E87F4B2006762B3 /* GlassIcon.icon */; };
 		C24508EA2C9CD39D003E3E58 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508E92C9CD39D003E3E58 /* 1.png */; };
 		C24508EC2C9CD3A6003E3E58 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508EB2C9CD3A6003E3E58 /* 2.png */; };
@@ -105,7 +106,7 @@
 		C0908DDB29829F8A00458ACB /* umraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = umraApp.swift; sourceTree = "<group>"; };
 		C0908DDF29829F8A00458ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0908DE229829F8A00458ACB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMidifierView.swift; sourceTree = "<group>"; };
+		C0908DEB2982A02E00458ACB /* CustomModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifierView.swift; sourceTree = "<group>"; };
 		C0908DEE2982A07900458ACB /* Step 1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 1.swift"; sourceTree = "<group>"; };
 		C0908DF02982A08B00458ACB /* Step 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 2.swift"; sourceTree = "<group>"; };
 		C0908DF22982A09400458ACB /* Step 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 3.swift"; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		C0BG00022CFF1F3C005F3ED9 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		C0DC35E12A0687DF002527D7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0DC35E22A068F21002527D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C21550232F61CE3700216322 /* KFGQPC Uthman Taha Naskh Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KFGQPC Uthman Taha Naskh Regular.ttf"; sourceTree = "<group>"; };
 		C22958FC2E87F4B2006762B3 /* GlassIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = GlassIcon.icon; sourceTree = "<group>"; };
 		C24508E92C9CD39D003E3E58 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		C24508EB2C9CD3A6003E3E58 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
@@ -169,7 +171,7 @@
 				C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */,
 				C07BE92A2AA34B8900BA3A15 /* TawafCounterView.swift */,
 				C24AC7BF2D65D366007F5E5A /* DonationView */,
-				C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */,
+				C0908DEB2982A02E00458ACB /* CustomModifierView.swift */,
 				C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */,
 				C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */,
 				C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */,
@@ -203,6 +205,7 @@
 		C036BC802997A5190000FD8E /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				C21550232F61CE3700216322 /* KFGQPC Uthman Taha Naskh Regular.ttf */,
 				C036BC8A2997AD350000FD8E /* Lato-Black.ttf */,
 				C036BC842997A8E40000FD8E /* Lato-Italic.ttf */,
 				C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */,
@@ -416,6 +419,7 @@
 				C2B3FBFF2EF83C5A0012B449 /* 15.mp3 in Resources */,
 				C063ADFA29DF2FC700746D2E /* 13.mp3 in Resources */,
 				C24508EA2C9CD39D003E3E58 /* 1.png in Resources */,
+				C21550242F61CE3700216322 /* KFGQPC Uthman Taha Naskh Regular.ttf in Resources */,
 				C063ADF429DF2FC700746D2E /* 12.mp3 in Resources */,
 				C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */,
 				C24508EC2C9CD3A6003E3E58 /* 2.png in Resources */,
@@ -457,7 +461,7 @@
 				C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */,
 				C077B4782B20D41D00086594 /* StoreKit.swift in Sources */,
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
-				C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */,
+				C0908DEC2982A02E00458ACB /* CustomModifierView.swift in Sources */,
 				C356ADBE74C524FC1934C6C8 /* Constants.swift in Sources */,
 				C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */,
 				C2A68D362CFF1E3C005F3ED8 /* UserSettings.swift in Sources */,
@@ -627,7 +631,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = GlassIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"umra/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -641,7 +645,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 4.3.2;
+				MARKETING_VERSION = 4.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "saydulayev.wien-gmail.com.umra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -662,7 +666,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"umra/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -676,7 +680,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 4.3.2;
+				MARKETING_VERSION = 4.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "saydulayev.wien-gmail.com.umra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

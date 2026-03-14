@@ -15,7 +15,7 @@ struct Step6: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             
             ScrollView {
                 VStack {
@@ -42,16 +42,17 @@ struct Step6: View {
                         
                         Text("We begin with that string", bundle: localizationManager.bundle)
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    .font(fontManager.bodyFont)
                     
                     Group {
                         Text("""
                         اَلله أَكْبَرُ الله أَكْبَرُ الله اَكْبَرُ، لٰا إِلَهَ إِلَّا اللهُ وَحْدَهُ لٰا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَ لَهُ الْحَمْدُ، يُحْيِي وَ يُمِيتُ ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، لَا إِلٰهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، أَنْجَزَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ.
                         """)
                         .customTextforArabic()
-                        CounterTapView()
-                            
+
                         PlayerView(fileName: "10")
+
+                        CounterTapView()
                         
                         Text("Remembrance of Allah during the Sa'i of Safa and Marwa.", bundle: localizationManager.bundle)
                         
@@ -73,17 +74,15 @@ struct Step6: View {
                         
                         Text("Du'a upon exiting the Sacred Mosque.", bundle: localizationManager.bundle)
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    .font(fontManager.bodyFont)
                 }
-                .foregroundStyle(themeManager.selectedTheme.textColor)
+                .foregroundStyle(.primary)
                 .padding(.horizontal, 10)
-                LanguageView()
-                    .hidden()
-                    .navigationTitle(Text("title_safa_and_marva_screen", bundle: localizationManager.bundle))
-                    .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(Text("title_safa_and_marva_screen", bundle: localizationManager.bundle))
+                .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .topBarTrailing) {
                     CustomToolbar(
                         selectedFont: Bindable(fontManager).selectedFont,
                         fonts: fontManager.fonts

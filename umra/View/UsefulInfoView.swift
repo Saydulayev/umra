@@ -7,14 +7,17 @@
 
 import SwiftUI
 
+/// Синий акцент раздела «Полезное» — лучше ассоциируется с меню
+private let usefulInfoAccentBlue = Color(red: 0.29, green: 0.51, blue: 0.78)
 
 // MARK: - UsefulInfoView
 struct UsefulInfoView: View {
     @State private var isInfoPresented = false
+    @State private var chapters: [Chapter] = []
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
-    
-    var chapters: [Chapter] {
+
+    private func buildChapters() -> [Chapter] {
         [
             Chapter(title: "etiquette_manners".localized(bundle: localizationManager.bundle),
                     subChapters: [
@@ -39,6 +42,8 @@ struct UsefulInfoView: View {
                         SubChapter(title: "umrah_obligation_evidence".localized(bundle: localizationManager.bundle), content: HajjUmrahObligation.evidenceUmrahObligation(bundle: localizationManager.bundle)),
                         SubChapter(title: "conclusion".localized(bundle: localizationManager.bundle), content: HajjUmrahObligation.concludingEvidence(bundle: localizationManager.bundle)),
                     ]),
+            Chapter(title: "sunnahs_safar".localized(bundle: localizationManager.bundle),
+                    subChapters: []),
             Chapter(title: "title_janaza_guide".localized(bundle: localizationManager.bundle),
                     subChapters: [
                         SubChapter(title: "basic_rules".localized(bundle: localizationManager.bundle),
@@ -47,14 +52,22 @@ struct UsefulInfoView: View {
         ]
     }
     
+    private var listPadding: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16
+    }
+
+    private var listCardCornerRadius: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 28 : 24
+    }
+    
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    ForEach(chapters) { chapter in
+                    ForEach(Array(chapters.enumerated()), id: \.element.id) { idx, chapter in
                         NavigationLink(value: chapter) {
                             HStack {
                                 Text(chapter.title)
@@ -62,14 +75,27 @@ struct UsefulInfoView: View {
                                     .foregroundStyle(themeManager.selectedTheme.textColor)
                                 Spacer()
                                 Image(systemName: "chevron.right")
-                                    .foregroundStyle(.blue)
+                                    .font(.system(size: 14, weight: .semibold))
+                                    .foregroundStyle(usefulInfoAccentBlue.opacity(0.9))
                             }
-                            .customListItemStyle(theme: themeManager.selectedTheme)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .contentShape(Rectangle())
+                            .padding(.horizontal, listPadding)
+                            .padding(.vertical, 16)
                         }
-                        .buttonStyle(PlainButtonStyle())
-                        Divider()
+                        .buttonStyle(.plain)
+                        
+                        if idx < chapters.count - 1 {
+                            Divider()
+                                .background(themeManager.selectedTheme.textColor.opacity(0.10))
+                                .padding(.leading, listPadding)
+                        }
                     }
                 }
+                .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: listCardCornerRadius)
+                .padding(.horizontal, listPadding)
+                .padding(.top, 8)
+                .padding(.bottom, 32)
             }
             
             VStack {
@@ -83,17 +109,18 @@ struct UsefulInfoView: View {
                             .resizable()
                             .frame(width: 40, height: 40)
                             .padding()
-                            .foregroundColor(.blue)
+                            .foregroundStyle(usefulInfoAccentBlue)
                     }
+                    .accessibilityLabel(Text("info_button_label", bundle: localizationManager.bundle))
                     .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
                         VStack {
                             Text("soon_available_text".localized(bundle: localizationManager.bundle))
                                 .font(.body)
                                 .padding()
                                 .multilineTextAlignment(.center)
-                                .frame(width: 350, height: 150)
+                                .fixedSize(horizontal: false, vertical: true)
                         }
-                        .frame(width: 350, height: 200)
+                        .frame(maxWidth: 350)
                         .presentationCompactAdaptation(.popover)
                     }
                 }
@@ -102,11 +129,19 @@ struct UsefulInfoView: View {
         .navigationTitle("useful_info_title".localized(bundle: localizationManager.bundle))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
+        .onAppear {
+            if chapters.isEmpty { chapters = buildChapters() }
+        }
+        .onChange(of: localizationManager.currentLanguage) { _, _ in
+            chapters = buildChapters()
+        }
     }
 }
 
 
 struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
+    var accentColor: Color = Color(red: 0.063, green: 0.725, blue: 0.506)
+    
     func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .leading) {
             Button(action: {
@@ -118,7 +153,7 @@ struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
                     configuration.label
                     Spacer()
                     Image(systemName: "chevron.down")
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(accentColor)
                         .rotationEffect(.degrees(configuration.isExpanded ? 180 : 0))
                 }
             }
@@ -136,10 +171,14 @@ struct JanazaView: View {
     @State private var isSecondTakbirExpanded = false
     @State private var isThirdTakbirExpanded = false
 
+    private var contentPadding: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16
+    }
+    
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
@@ -165,10 +204,10 @@ struct JanazaView: View {
                             },
                             label: {
                                 Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
-                                    .foregroundStyle(.blue)
+                                    .foregroundStyle(usefulInfoAccentBlue)
                             }
                         )
-                        .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentBlue))
                     }
 
                     Divider()
@@ -187,10 +226,10 @@ struct JanazaView: View {
                             },
                             label: {
                                 Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
-                                    .foregroundStyle(.blue)
+                                    .foregroundStyle(usefulInfoAccentBlue)
                             }
                         )
-                        .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentBlue))
                     }
 
                     Divider()
@@ -219,12 +258,13 @@ struct JanazaView: View {
                                 .fontWeight(.bold)
                         }
                     )
-                    .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                    .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentBlue))
                 }
-                .padding()
+                .padding(contentPadding)
                 .font(.system(size: getDynamicFontSize()))
                 .foregroundStyle(themeManager.selectedTheme.textColor)
                 .textSelection(.enabled)
+                .padding(.bottom, 32)
             }
             .navigationTitle(JanazaPrayerGuide.title(bundle: localizationManager.bundle))
             .toolbar(.hidden, for: .tabBar)
@@ -237,13 +277,21 @@ struct ChapterDetailView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     
+    private var listPadding: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16
+    }
+
+    private var listCardCornerRadius: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 28 : 24
+    }
+    
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    ForEach(chapter.subChapters) { subChapter in
+                    ForEach(Array(chapter.subChapters.enumerated()), id: \.element.id) { idx, subChapter in
                         NavigationLink(value: subChapter) {
                             HStack {
                                 Text(subChapter.title)
@@ -252,18 +300,175 @@ struct ChapterDetailView: View {
                                     .textSelection(.enabled)
                                 Spacer()
                                 Image(systemName: "chevron.right")
-                                    .foregroundStyle(.blue)
+                                    .font(.system(size: 14, weight: .semibold))
+                                    .foregroundStyle(usefulInfoAccentBlue.opacity(0.9))
                             }
-                            .customListItemStyle(theme: themeManager.selectedTheme)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .contentShape(Rectangle())
+                            .padding(.horizontal, listPadding)
+                            .padding(.vertical, 16)
                         }
-                        .buttonStyle(PlainButtonStyle())
-                        Divider()
+                        .buttonStyle(.plain)
+                        
+                        if idx < chapter.subChapters.count - 1 {
+                            Divider()
+                                .background(themeManager.selectedTheme.textColor.opacity(0.10))
+                                .padding(.leading, listPadding)
+                        }
                     }
                 }
+                .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: listCardCornerRadius)
+                .padding(.horizontal, listPadding)
+                .padding(.top, 8)
+                .padding(.bottom, 32)
             }
         }
         .navigationTitle(chapter.title)
         .toolbar(.hidden, for: .tabBar)
+    }
+}
+
+// MARK: - Formatted content (заголовки зелёные и жирные, цитаты «...» жирные)
+private struct FormattedContentBlock {
+    enum Style {
+        case heading(String)
+        case body(String)
+    }
+    let style: Style
+}
+
+private func parseFormattedContent(_ content: String) -> [FormattedContentBlock] {
+    let blocks = content.components(separatedBy: "\n\n")
+    var result: [FormattedContentBlock] = []
+    let headingPattern = try? NSRegularExpression(pattern: "^\\d+\\)", options: [])
+    
+    for block in blocks {
+        let trimmed = block.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { continue }
+        let lines = trimmed.components(separatedBy: "\n")
+        let firstLine = lines.first ?? trimmed
+        
+        let isHeading = headingPattern?.firstMatch(in: firstLine, range: NSRange(firstLine.startIndex..., in: firstLine)) != nil
+        if isHeading && !lines.isEmpty {
+            result.append(FormattedContentBlock(style: .heading(firstLine)))
+            let rest = lines.dropFirst()
+            if !rest.isEmpty {
+                result.append(FormattedContentBlock(style: .body(rest.joined(separator: "\n"))))
+            }
+        } else {
+            result.append(FormattedContentBlock(style: .body(trimmed)))
+        }
+    }
+    return result
+}
+
+private func containsArabic(_ string: String) -> Bool {
+    string.unicodeScalars.contains { scalar in
+        (0x0600...0x06FF).contains(scalar.value) || (0x0750...0x077F).contains(scalar.value)
+    }
+}
+
+@ViewBuilder
+private func bodyParagraphView(paragraph: String, fontSize: CGFloat, textColor: Color) -> some View {
+    let lines = paragraph.components(separatedBy: "\n")
+    VStack(alignment: .leading, spacing: 6) {
+        ForEach(Array(lines.enumerated()), id: \.offset) { _, line in
+            let lineContent = textWithBoldQuotes(line, fontSize: fontSize, textColor: textColor)
+                .font(containsArabic(line) ? .custom("KFGQPC Uthman Taha Naskh", size: fontSize) : .system(size: fontSize))
+                .textSelection(.enabled)
+                .fixedSize(horizontal: false, vertical: true)
+            if containsArabic(line) {
+                lineContent
+                    .padding(.vertical, 10)
+            } else {
+                lineContent
+            }
+        }
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
+}
+
+private func textWithBoldQuotes(_ paragraph: String, fontSize: CGFloat, textColor: Color) -> Text {
+    var attributed = AttributedString()
+    let parts = paragraph.components(separatedBy: "«")
+    for (index, part) in parts.enumerated() {
+        if index == 0 {
+            var segment = AttributedString(part)
+            segment.foregroundColor = textColor
+            attributed.append(segment)
+            continue
+        }
+        let subParts = part.components(separatedBy: "»")
+        if subParts.count >= 2 {
+            var quoteSegment = AttributedString("«\(subParts[0])»")
+            quoteSegment.foregroundColor = textColor
+            quoteSegment.font = .system(size: fontSize, weight: .semibold)
+            attributed.append(quoteSegment)
+            var rest = AttributedString(subParts.dropFirst().joined(separator: "»"))
+            rest.foregroundColor = textColor
+            attributed.append(rest)
+        } else {
+            var segment = AttributedString("«\(part)")
+            segment.foregroundColor = textColor
+            attributed.append(segment)
+        }
+    }
+    return Text(attributed)
+}
+
+private struct FormattedContentView: View {
+    let content: String
+    @Environment(ThemeManager.self) private var themeManager
+    
+    private var headingColor: Color {
+        usefulInfoAccentBlue
+    }
+    
+    var body: some View {
+        let blocks = parseFormattedContent(content)
+        let fontSize = getDynamicFontSize()
+        let textColor = themeManager.selectedTheme.textColor
+        
+        VStack(alignment: .leading, spacing: 14) {
+            ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
+                switch block.style {
+                case FormattedContentBlock.Style.heading(let text):
+                    Text(text)
+                        .font(.system(size: fontSize + 1, weight: .bold))
+                        .foregroundStyle(headingColor)
+                        .textSelection(.enabled)
+                        .fixedSize(horizontal: false, vertical: true)
+                case FormattedContentBlock.Style.body(let paragraph):
+                    bodyParagraphView(paragraph: paragraph, fontSize: fontSize, textColor: textColor)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+/// Контент раздела «Путешествие» — текст сразу внутри раздела, без подглавы
+struct JourneyContentView: View {
+    let chapter: Chapter
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    
+    private var contentPadding: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16
+    }
+    
+    var body: some View {
+        ZStack {
+            themeManager.selectedTheme.backgroundColor
+                .ignoresSafeArea()
+            ScrollView {
+                FormattedContentView(content: SafarSunnahs.content(bundle: localizationManager.bundle))
+                    .padding(contentPadding)
+                    .padding(.bottom, 32)
+            }
+            .navigationTitle(chapter.title)
+            .toolbar(.hidden, for: .tabBar)
+        }
     }
 }
 
@@ -272,16 +477,32 @@ struct SubChapterDetailView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     
+    private var useFormattedContent: Bool {
+        subChapter.content.contains("1) ") || subChapter.content.hasPrefix("1)")
+    }
+    
+    private var contentPadding: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16
+    }
+    
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             ScrollView {
-                Text(subChapter.content)
-                    .font(.system(size: getDynamicFontSize()))
-                    .foregroundStyle(themeManager.selectedTheme.textColor)
-                    .padding()
-                    .textSelection(.enabled)
+                Group {
+                    if useFormattedContent {
+                        FormattedContentView(content: subChapter.content)
+                    } else {
+                        Text(subChapter.content)
+                            .font(.system(size: getDynamicFontSize()))
+                            .foregroundStyle(themeManager.selectedTheme.textColor)
+                            .textSelection(.enabled)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(contentPadding)
+                .padding(.bottom, 32)
             }
             .navigationTitle(subChapter.title)
             .toolbar(.hidden, for: .tabBar)
@@ -330,25 +551,6 @@ extension View {
         self
             .padding()
             .frame(maxWidth: .infinity)
-            .background(
-                ZStack {
-                    theme.primaryColor.opacity(0.1)
-                    
-                    Rectangle()
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    Rectangle()
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomLeading))
-                })
-            .overlay(
-                // Профессиональная темная обводка для лучшего разделения
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.black.opacity(0.1), lineWidth: 1)
-            )
-            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
-            .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .standardCardFrame(theme: theme, cornerRadius: 8)
     }
 }

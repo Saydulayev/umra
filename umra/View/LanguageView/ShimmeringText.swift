@@ -10,6 +10,7 @@ import SwiftUI
 struct ShimmeringText: View {
     @State private var shimmerOffset: CGFloat = -2.0
     @State private var isAnimating = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     
     // Текст приветствия и размер шрифта
     var text: String = "WELCOME TO THE UMRA GUIDE"
@@ -18,10 +19,11 @@ struct ShimmeringText: View {
     var body: some View {
         Text(text)
             .font(.largeTitle)
-            .fontWeight(.bold)
-            .foregroundColor(.gray)
+            .bold()
+            .foregroundStyle(Color(red: 0.420, green: 0.447, blue: 0.502))
             .multilineTextAlignment(.center)
             .overlay(
+                // GeometryReader используется осознанно для размера градиента шиммера относительно текста.
                 GeometryReader { geometry in
                     ZStack {
                         let gradient = LinearGradient(
@@ -38,12 +40,13 @@ struct ShimmeringText: View {
                 }
                 .mask(Text(text)
                         .font(.largeTitle)
-                        .fontWeight(.bold))
+                        .bold())
                         .multilineTextAlignment(.center)
             )
             .onAppear {
+                guard !reduceMotion else { return }
                 withAnimation(
-                    Animation.linear(duration: 3.0)
+                    Animation.linear(duration: AppAnimation.shimmerDuration)
                         .repeatForever(autoreverses: false)
                 ) {
                     isAnimating = true

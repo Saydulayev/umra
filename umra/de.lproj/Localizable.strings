@@ -11,7 +11,7 @@
 "main_screen_name_string" = "UMRA";
 "title_black_stone_screen" = "Zurück zum schwarzen Stein";
 "title_ihram_screen" = "Ihram";
-"title_place_ibrohim_stand_screen" = "Ort des Propheten Ibrahims Stand";
+"title_place_ibrohim_stand_screen" = "Maqam Ibrahim";
 "title_round_kaaba_screen" = "Tawaf";
 "title_safa_and_marva_screen" = "Safa und Marwa";
 "title_settings_screen" = "Einstellungen";
@@ -314,7 +314,10 @@ Gepriesen sei Allah, der Herr der Welten!";
 "umrah_obligation_evidence" = "Beweise für die Verpflichtung der Umrah";
 "conclusion" = "Schlussfolgerung";
 
-
+/* Reise — Sunnahs beim Aufbruch zur Reise */
+"sunnahs_safar" = "Reise";
+"safar_sunnahs_subtitle" = "Einige Sunnahs beim Aufbruch zur Reise";
+"safar_sunnahs_content" = "Einige Sunnahs im Zusammenhang mit dem Aufbruch zur Reise:\n\n1) Bittgebet zu Allah vor dem Reiseantritt\nEs wird von Ibn 'Umar (möge Allah mit beiden zufrieden sein) überliefert, dass der Gesandte Allahs (Allahs Segen und Frieden seien auf ihm), wenn er sein Reittier für eine Reise bestieg, dreimal die Worte «Allah ist der Größte, Allahu Akbar» sprach und dann sagte: «Preis sei Dem, Der uns dies dienstbar gemacht hat, denn aus eigener Kraft hätten wir es nicht vermocht. Und wahrlich, zu unserem Herrn werden wir zurückkehren. O Allah, wir bitten Dich auf dieser unserer Reise um Rechtschaffenheit und Gottesfurcht sowie um Taten, an denen Du Wohlgefallen hast. O Allah, erleichtere uns diese Reise und verkürze für uns ihre Entfernung. O Allah, Du bist der Begleiter auf dieser Reise und der Beschützer der Familie. O Allah, ich suche Zuflucht bei Dir vor den Mühen der Reise, vor der Traurigkeit über das, was man sehen kann, und vor jedem Übel, das Vermögen und Familie treffen kann!»\nسُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ\n\nSubhana-llazi sakhkhara lana haza, wa ma kunna lahu muqrinin, wa inna ila Rabbina la-munqalibun!\nاللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى وَمِنْ الْعَمَلِ مَا تَرْضَى اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ وَالْخَلِيفَةُ فِي الْأَهْلِ اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ وَكَآبَةِ الْمَنْظَرِ وَسُوءِ الْمُنْقَلِبِ فِي الْمَالِ وَالْأَهْلِ\n\nAllahumma, inna nas'aluka fi safarina hazal-birra, wat-taqwa, wa minal-'amali ma tarda! Allahumma, hawwin 'alayna safarana haza, watwi 'anna bu'dahu! Allahumma, Antas-sahibu fis-safari wal-khalifatu fil-ahli, Allahumma, inni a'uzu bika min wa'tha'is-safari, wa kaabatil-manzari, wa su'il-munqalabi fil-mali wal-ahli!\nBei der Rückkehr wiederholte er diese Worte und fügte hinzu:\nآيِبُونَ تَائِبُونَ عَابِدُونَ لِرَبِّنَا حَامِدُونَ\n\nAyibuna, taibuna, 'abiduna li-Rabbina hamidun\n«Wir kehren zurück, wir bereuen, wir dienen und lobpreisen unseren Herrn». (Sahih Muslim, 1342)\n\nEs wird berichtet, dass 'Ali ibn Rabi'a sagte: «Ich sah einst, wie man 'Ali ibn Abi Talib ein Reittier brachte, damit er aufsteigen konnte. Als er den Fuß in den Steigbügel setzte, sprach er:\nبِسْمِ اللَّهِ\n\n«Im Namen Allahs» (Bismi-LLAH), und als er sich aufgerichtet hatte, sagte er:\nسُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ\n«Preis sei Dem, Der uns dies dienstbar gemacht hat; aus eigener Kraft hätten wir es nicht vermocht, und wahrlich, zu unserem Herrn kehren wir zurück». Dann sprach er dreimal: «Alles Lob gebührt Allah» (الْحَمْدُ لِلَّهِ) und «Allah ist der Größte» (الله أكبر), und sagte danach:\n«Gepriesen seist Du! Wahrlich, ich habe mir selbst Unrecht zugefügt, so vergib mir, denn niemand vergibt die Sünden außer Dir!»\nسُبْحَانَكَ إِنِّي قَدْ ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ\n\nSubhana-ka! Inni zalamtu nafsi, faghfir li, fa-innahu la yaghfiru adh-dhunuba illa Ant!\nDanach lachte er. Man fragte ihn: «O Befehlshaber der Gläubigen, warum lachst du?» Er antwortete: «Ich sah den Propheten (Allahs Segen und Frieden seien auf ihm), wie er genau das tat, was ich gerade getan habe, und dann lachte er. Da fragte ich ihn: 'O Gesandter Allahs, warum lachst du?' Er sagte: 'Wahrlich, dein Herr liebt es, wenn Sein Diener sagt:\nرَبِّ اغْفِرْ لِي ذُنُوبِي إِنَّهُ لَا يَغْفِرُ الذُّنُوبَ غَيْرُك\n\n«Mein Herr, vergib mir meine Sünden, denn niemand vergibt Sünden außer Dir!»\nRabbi ighfir li dhunubi, innahu la yaghfiru adh-dhunuba ghayruk!\n- und Er sagt: «Er weiß, dass niemand die Sünden vergibt außer Mir»'.» (Sunan at-Tirmidhi, 3446; von Schaich al-Albani als sahih eingestuft)\n\n2) Am Donnerstag aufbrechen; nachts reisen\nEs wird von Ka'b ibn Malik (möge Allah mit ihm zufrieden sein) überliefert, dass «der Prophet (Allahs Segen und Frieden seien auf ihm) am Donnerstag zum Feldzug von Tabuk aufbrach und es allgemein liebte, donnerstags aufzubrechen». (Sahih al-Bukhari, 2949)\nVon Anas wird überliefert, dass der Gesandte Allahs (Allahs Segen und Frieden seien auf ihm) sagte: «Ihr solltet nachts reisen, denn in der Nacht wird die Erde zusammengerollt». (Sahih al-Jami', 4064)\n\n3) Reisegefährten suchen und einen von ihnen als Leiter bestimmen, dem man gehorcht\nVon Ibn 'Umar wird überliefert, dass der Gesandte Allahs (Allahs Segen und Frieden seien auf ihm) sagte: «Wenn die Menschen wüssten, was ich über das Alleinreisen weiß, würde kein Reiter nachts allein aufbrechen». (Al-Bukhari, 2998)\nVon Abu Sa'id und Abu Hurayrah wird überliefert, dass der Gesandte Allahs (Allahs Segen und Frieden seien auf ihm) sagte: «Wenn drei Personen auf Reisen gehen, sollen sie einen von sich als Leiter bestimmen». (Sahih al-Jami', 500)\n\n4) Allah bei Anstiegen verherrlichen und Ihn beim Abstieg in Täler und Schluchten preisen\nEs wird berichtet, dass Jabir ibn 'Abdullah (möge Allah mit beiden zufrieden sein) sagte: «Wenn wir anstiegen, sagten wir: «Allah ist der Größte», und wenn wir abstiegen, sagten wir: «Gepriesen ist Allah»». (Sahih al-Bukhari, 2993)\n\n5) Gebete zusammenlegen und verkürzen\nVon Anas (möge Allah mit ihm zufrieden sein) wird überliefert: «Der Gesandte Allahs (Allahs Segen und Frieden seien auf ihm) legte auf Reisen das Maghrib- und das 'Isha-Gebet zusammen». (Sahih al-Bukhari, 1108)\nVon Anas (möge Allah mit ihm zufrieden sein) wird auch überliefert: «Wir zogen mit dem Propheten (Allahs Segen und Frieden seien auf ihm) von Madinah nach Makkah, und er betete jeweils zwei Rak'ah, bis wir nach Madinah zurückkehrten». (Sahih al-Bukhari, 1081)\n\n6) Freiwillige Gebete unterlassen, außer Witr, Duha und 2 Rak'ah vor dem Fajr-Gebet\nAbu Qatadah berichtete, dass «der Gesandte Allahs (Allahs Segen und Frieden seien auf ihm) auf Reisen zwei Rak'ah vor dem verpflichtenden Fajr-Gebet betete». (Muslim, 680)\nUmm Hani berichtete ebenfalls, dass «der Prophet (Allahs Segen und Frieden seien auf ihm) am Tag der Eroberung von Makkah acht Rak'ah Duha-Gebet verrichtete». Zu dieser Zeit war er Reisender. (Al-Bukhari, 357; Muslim, 336)\nIbn 'Umar berichtete außerdem, dass «der Prophet (Allahs Segen und Frieden seien auf ihm) auf Reisen das Witr-Gebet im Sitzen auf seinem Reittier verrichtete». (Al-Bukhari, 1000)\n\n7) Freiwillige Gebete im Sitzen auf dem Reittier oder Transportmittel verrichten\nIbn 'Umar berichtete, dass «der Prophet (Allahs Segen und Frieden seien auf ihm) auf Reisen das Witr-Gebet im Sitzen auf seinem Reittier verrichtete». (Al-Bukhari, 1000)\n\n8) Auf Reisen vermehrt Bittgebete zu Allah sprechen\nDer Gesandte Allahs (Allahs Segen und Frieden seien auf ihm) sagte: «Drei Bittgebete werden erhört: das Bittgebet des Unterdrückten, das Bittgebet des Reisenden und das Bittgebet eines Elternteils gegen sein Kind». (Al-Bukhari, 481)\n\n9) Das entfernen, was den Reisenden auf dem Weg schadet\nVon Abu Hurayrah (möge Allah mit ihm zufrieden sein) wird überliefert, dass der Gesandte Allahs (Allahs Segen und Frieden seien auf ihm) sagte: «Der Glaube hat mehr als siebzig (oder sechzig) Zweige. Der beste davon ist das Aussprechen: «Es gibt keinen anbetungswürdigen Gott außer Allah», und der geringste davon ist das Entfernen von Schaden vom Weg. Schamhaftigkeit (haya') ist ebenfalls ein Zweig des Glaubens». (Mukhtasar Sahih Muslim, 31)\n\n10) Bittgebet beim Aufenthalt an einem Ort\nEs wird berichtet, dass Khawlah bint Hakim sagte: «Ich hörte den Gesandten Allahs (Allahs Segen und Frieden seien auf ihm) sagen: 'Wenn ein Mensch irgendwo Halt macht und sagt:\n«Ich suche Zuflucht in den vollkommenen Worten Allahs vor dem Übel dessen, was Er erschaffen hat!»\nأَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ\nA'uzu bikalimati-LLahi-t-tammati min sharri ma khalaq! - dann wird ihm nichts schaden, bis er diesen Ort verlässt.'» (Muslim, 2708)\n\n11) Nach Erfüllung des Reisezwecks zügig zurückkehren\nVon Abu Hurayrah wird überliefert, dass der Gesandte Allahs (Allahs Segen und Frieden seien auf ihm) sagte: «Reisen ist ein Teil der Mühsal; es nimmt einem von euch einen Teil von Essen, Trinken und Schlaf. Wenn jemand von euch den Zweck seiner Reise erfüllt hat, soll er rasch zu seiner Familie zurückkehren». (Al-Bukhari, 1804; Muslim, 1927)\n\n12) Tagsüber zur Familie zurückkehren\nEs wird berichtet, dass Anas sagte: «Der Gesandte Allahs (Allahs Segen und Frieden seien auf ihm) kehrte nicht nachts zu seiner Familie zurück; gewöhnlich kehrte er morgens oder abends zurück». (Al-Bukhari, 1800; Muslim, 1928)\n\n13) Nach der Rückkehr von der Reise 2 Rak'ah beten\nEs wird berichtet, dass Ka'b ibn Malik (möge Allah mit ihm zufrieden sein) sagte: «Wenn der Gesandte Allahs (Allahs Segen und Frieden seien auf ihm) von einer Reise nach Madinah zurückkehrte, ging er zuerst in die Moschee, verrichtete zwei Rak'ah und setzte sich danach eine Zeit lang zu den Menschen». (Sahih al-Bukhari, 4418)\n";
 
 /* Texts for Etiquette Manners */
 "etiquette_manners_text1" = "Das Wichtigste für jemanden, der Hajj und ‘Umrah verrichtet, ist die Aufrichtigkeit gegenüber Allah. Er muss sich von Heuchelei und dem Verlangen nach Ruhm befreien, um die Belohnung für diesen Hajj und diese ‘Umrah zu erhalten.
@@ -522,12 +525,16 @@ Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebe
 /* Theme Lokalisierung */
 "theme_app_title" = "App-Design";
 "theme_select_title" = "App-Design wählen";
-"theme_heavenly" = "Himmel";
-"theme_oasis" = "Oase";
-"theme_gold" = "Gold";
-"theme_turquoise" = "Meer";
-"theme_dark" = "Nacht";
+"theme_auto" = "Auto";
+"theme_auto_subtitle" = "Folgt dem Systemdesign";
+"theme_nur" = "Nur";
+"theme_layl" = "Layl";
+"theme_emerald" = "Smaragd";
+"theme_nur_subtitle" = "Licht und Gelassenheit";
+"theme_layl_subtitle" = "Nachtkomfort";
+"theme_emerald_subtitle" = "Sanftes getöntes Leuchten";
 "done_button" = "Fertig";
+"select_font" = "Schrift wählen";
 
 /* Tab Lokalisierung */
 "tab_umra" = "Umra";
@@ -694,3 +701,18 @@ Achtung: Dieser Tawaf wird vom Anfang bis zum Ende in normalem Gehtempo vollzoge
 
 
 Möge der Erhabene Allah euren Haddsch annehmen!";
+
+/* Schritte — Überschriften und Labels */
+"step_prefix" = "SCHRITT";
+"steps_count_one" = "Schritt";
+"steps_count_few" = "Schritte";
+"steps_count_many" = "Schritte";
+"order_label" = "Reihenfolge";
+"umra_title" = "Umra";
+"hajj_title" = "Hadsch";
+
+"info_button_label" = "for
+de.lproj
+.lproj";
+
+"info_button_label" = "Information";

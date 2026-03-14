@@ -14,47 +14,42 @@ struct UserDefault<T> {
     let key: String
     let defaultValue: T
     private let userDefaults: UserDefaults
-    
+
     init(key: String, defaultValue: T, userDefaults: UserDefaults = .standard) {
         self.key = key
         self.defaultValue = defaultValue
         self.userDefaults = userDefaults
     }
-    
+
     var wrappedValue: T {
         get {
-            // Поддержка RawRepresentable типов (например, enum с String)
-            if let rawRepresentableType = T.self as? any RawRepresentable.Type,
-               let rawValue = userDefaults.string(forKey: key) {
-                // Пытаемся создать значение из rawValue
-                if let value = rawRepresentableType.init(rawValue: rawValue as! rawRepresentableType.RawValue) as? T {
+            // Поддержка RawRepresentable типов (например, enum с String или Int)
+            if let rawRepresentableType = T.self as? any RawRepresentable.Type {
+                if let rawString = userDefaults.string(forKey: key),
+                   let typedRaw = rawString as? rawRepresentableType.RawValue,
+                   let value = rawRepresentableType.init(rawValue: typedRaw) as? T {
                     return value
                 }
+                return defaultValue
             }
-            
+
             // Поддержка Bool
             if T.self == Bool.self {
-                // Проверяем, есть ли значение в UserDefaults
-                if userDefaults.object(forKey: key) != nil {
-                    return userDefaults.bool(forKey: key) as! T
-                }
-                return defaultValue
+                guard userDefaults.object(forKey: key) != nil else { return defaultValue }
+                return (userDefaults.bool(forKey: key) as? T) ?? defaultValue
             }
-            
+
             // Поддержка String
             if T.self == String.self {
-                return (userDefaults.string(forKey: key) ?? defaultValue as! String) as! T
+                return (userDefaults.string(forKey: key) as? T) ?? defaultValue
             }
-            
-            // Поддержка CGFloat
+
+            // Поддержка CGFloat — хранится как Double в UserDefaults
             if T.self == CGFloat.self {
-                if let value = userDefaults.object(forKey: key) as? CGFloat {
-                    return value as! T
-                }
-                return defaultValue
+                guard userDefaults.object(forKey: key) != nil else { return defaultValue }
+                return (CGFloat(userDefaults.double(forKey: key)) as? T) ?? defaultValue
             }
-            
-            // Для других типов пытаемся получить как объект
+
             return userDefaults.object(forKey: key) as? T ?? defaultValue
         }
         set {
@@ -68,26 +63,23 @@ struct UserDefault<T> {
                 }
                 return
             }
-            
-            // Поддержка Bool
+
             if let boolValue = newValue as? Bool {
                 userDefaults.set(boolValue, forKey: key)
                 return
             }
-            
-            // Поддержка String
+
             if let stringValue = newValue as? String {
                 userDefaults.set(stringValue, forKey: key)
                 return
             }
-            
-            // Поддержка CGFloat
+
+            // CGFloat сохраняем явно как Double для надёжного чтения
             if let cgFloatValue = newValue as? CGFloat {
-                userDefaults.set(cgFloatValue, forKey: key)
+                userDefaults.set(Double(cgFloatValue), forKey: key)
                 return
             }
-            
-            // Для других типов сохраняем как объект
+
             userDefaults.set(newValue, forKey: key)
         }
     }

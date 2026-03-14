@@ -7,17 +7,24 @@
 
 import SwiftUI
 
+enum MainTab: String, CaseIterable {
+    case umra
+    case hajj
+}
+
 struct MainTabView: View {
+    @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
-    
+    @State private var selectedTab: MainTab = .umra
+
     private var umraTabLabel: String {
-        NSLocalizedString("tab_umra", bundle: localizationManager.bundle ?? .main, comment: "")
+        localizationManager.localized("tab_umra")
     }
-    
+
     private var hajjTabLabel: String {
-        NSLocalizedString("tab_hajj", bundle: localizationManager.bundle ?? .main, comment: "")
+        localizationManager.localized("tab_hajj")
     }
-    
+
     var body: some View {
         ZStack {
             if localizationManager.hasSelectedLanguage {
@@ -43,16 +50,18 @@ struct MainTabView: View {
     
     @ViewBuilder
     private var tabViewContent: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             ContentView()
                 .tabItem {
                     Label(umraTabLabel, systemImage: "u.circle.fill")
                 }
-            
+                .tag(MainTab.umra)
+
             HajjView()
                 .tabItem {
                     Label(hajjTabLabel, systemImage: "h.circle.fill")
                 }
+                .tag(MainTab.hajj)
         }
         .environment(\.horizontalSizeClass, .compact)
         .onAppear {
@@ -66,8 +75,15 @@ struct MainTabView: View {
     private func setupTabBarAppearance() {
         let appearance = UITabBarAppearance()
         appearance.configureWithTransparentBackground()
-        // Используем secondary цвет с прозрачностью для полупрозрачного эффекта
-        appearance.backgroundColor = UIColor.secondarySystemBackground.withAlphaComponent(0.8)
+        let bgColor = UIColor(themeManager.selectedTheme.cardColor).withAlphaComponent(0.85)
+        appearance.backgroundColor = bgColor
+        
+        let emerald = UIColor(themeManager.selectedTheme.primaryColor)
+        let normal = UIColor(themeManager.selectedTheme.textColor).withAlphaComponent(0.4)
+        appearance.stackedLayoutAppearance.selected.iconColor = emerald
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: emerald]
+        appearance.stackedLayoutAppearance.normal.iconColor = normal
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: normal]
         
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance

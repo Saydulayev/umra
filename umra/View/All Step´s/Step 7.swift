@@ -15,7 +15,7 @@ struct Step7: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             
             ScrollView {
                 VStack {
@@ -26,22 +26,20 @@ struct Step7: View {
                         Text("Men shorten or shave their hair.", bundle: localizationManager.bundle)
                         Text("Du'a at the end.", bundle: localizationManager.bundle)
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    .font(fontManager.bodyFont)
                     
                     Text("""
 
  ⵈ━══════╗◊╔══════━ⵈ
 """)
                 }
-                .foregroundStyle(themeManager.selectedTheme.textColor)
+                .foregroundStyle(.primary)
                 .padding(10)
-                LanguageView()
-                    .hidden()
-                    .navigationTitle(Text("title_shave_head_screen", bundle: localizationManager.bundle))
-                    .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(Text("title_shave_head_screen", bundle: localizationManager.bundle))
+                .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .topBarTrailing) {
                     CustomToolbar(
                         selectedFont: Bindable(fontManager).selectedFont,
                         fonts: fontManager.fonts

@@ -15,7 +15,7 @@ struct Step2: View {
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             
             ScrollView {
                 VStack {
@@ -43,17 +43,15 @@ struct Step2: View {
                         
                         Text("Kaaba text4", bundle: localizationManager.bundle)
                     }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    .font(fontManager.bodyFont)
                 }
-                .foregroundStyle(themeManager.selectedTheme.textColor)
+                .foregroundStyle(.primary)
                 .padding(.horizontal, 10)
-                LanguageView()
-                    .hidden()
-                    .navigationTitle(Text("title_round_kaaba_screen", bundle: localizationManager.bundle))
-                    .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(Text("title_round_kaaba_screen", bundle: localizationManager.bundle))
+                .navigationBarTitleDisplayMode(.inline)
             }
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .topBarTrailing) {
                     CustomToolbar(
                         selectedFont: Bindable(fontManager).selectedFont,
                         fonts: fontManager.fonts
