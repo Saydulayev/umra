@@ -39,7 +39,7 @@ struct PrayerTimeView: View {
         currentPrayerCity == .mecca ? "prayer_mecca" : "prayer_medina"
     }
 
-    private let islamicDateFormatter: DateFormatter = {
+    private static let islamicDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .islamicUmmAlQura)
         formatter.locale = Locale(identifier: "en_EN")
@@ -47,7 +47,7 @@ struct PrayerTimeView: View {
         return formatter
     }()
 
-    private let prayerTimeFormatter: DateFormatter = {
+    private static let prayerTimeFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         formatter.timeZone = TimeZone(identifier: "Asia/Riyadh")
@@ -55,7 +55,7 @@ struct PrayerTimeView: View {
     }()
 
     var currentIslamicDate: String {
-        return islamicDateFormatter.string(from: Date())
+        return Self.islamicDateFormatter.string(from: Date())
     }
 
     private enum PrayerLayout {
@@ -276,13 +276,13 @@ struct PrayerTimeView: View {
         let lastThirdStart = todayPrayers.maghrib.addingTimeInterval(2 * maghribToFajrInterval / 3)
 
         let newPrayerTimes: [String: String] = [
-            "Fajr": prayerTimeFormatter.string(from: todayPrayers.fajr),
-            "Sunrise": prayerTimeFormatter.string(from: todayPrayers.sunrise),
-            "Dhuhr": prayerTimeFormatter.string(from: todayPrayers.dhuhr),
-            "Asr": prayerTimeFormatter.string(from: todayPrayers.asr),
-            "Maghrib": prayerTimeFormatter.string(from: todayPrayers.maghrib),
-            "Isha": prayerTimeFormatter.string(from: todayPrayers.isha),
-            "Qiyam": prayerTimeFormatter.string(from: lastThirdStart)
+            "Fajr": Self.prayerTimeFormatter.string(from: todayPrayers.fajr),
+            "Sunrise": Self.prayerTimeFormatter.string(from: todayPrayers.sunrise),
+            "Dhuhr": Self.prayerTimeFormatter.string(from: todayPrayers.dhuhr),
+            "Asr": Self.prayerTimeFormatter.string(from: todayPrayers.asr),
+            "Maghrib": Self.prayerTimeFormatter.string(from: todayPrayers.maghrib),
+            "Isha": Self.prayerTimeFormatter.string(from: todayPrayers.isha),
+            "Qiyam": Self.prayerTimeFormatter.string(from: lastThirdStart)
         ]
 
         self.prayerTimes = newPrayerTimes
