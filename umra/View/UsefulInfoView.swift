@@ -111,6 +111,7 @@ struct UsefulInfoView: View {
                             .padding()
                             .foregroundStyle(usefulInfoAccentBlue)
                     }
+                    .accessibilityLabel(Text("info_button_label", bundle: localizationManager.bundle))
                     .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
                         VStack {
                             Text("soon_available_text".localized(bundle: localizationManager.bundle))
