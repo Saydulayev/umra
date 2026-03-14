@@ -13,10 +13,11 @@ private let usefulInfoAccentBlue = Color(red: 0.29, green: 0.51, blue: 0.78)
 // MARK: - UsefulInfoView
 struct UsefulInfoView: View {
     @State private var isInfoPresented = false
+    @State private var chapters: [Chapter] = []
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
-    
-    var chapters: [Chapter] {
+
+    private func buildChapters() -> [Chapter] {
         [
             Chapter(title: "etiquette_manners".localized(bundle: localizationManager.bundle),
                     subChapters: [
@@ -127,6 +128,12 @@ struct UsefulInfoView: View {
         .navigationTitle("useful_info_title".localized(bundle: localizationManager.bundle))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
+        .onAppear {
+            if chapters.isEmpty { chapters = buildChapters() }
+        }
+        .onChange(of: localizationManager.currentLanguage) { _, _ in
+            chapters = buildChapters()
+        }
     }
 }
 

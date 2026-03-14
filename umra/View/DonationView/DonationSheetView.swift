@@ -154,10 +154,10 @@ struct DonationSheetView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-        .alert(isPresented: $showError) {
-            Alert(title: Text("Ошибка"),
-                  message: Text("Покупка не удалась. Пожалуйста, попробуйте снова."),
-                  dismissButton: .default(Text("OK")))
+        .alert("Ошибка", isPresented: $showError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("Покупка не удалась. Пожалуйста, попробуйте снова.")
         }
     }
     

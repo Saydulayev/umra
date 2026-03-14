@@ -106,39 +106,39 @@ struct HajjView: View {
                         .padding(.vertical, 8)
                 }
                 .scrollIndicators(.hidden)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationDestination(for: HajjStep.self) { step in
-                    destinationView(for: step)
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: HajjStep.self) { step in
+                destinationView(for: step)
+            }
+            .navigationDestination(for: AppDestination.self) { destination in
+                switch destination {
+                case .settings:
+                    SettingsView()
+                        .environment(themeManager)
+                        .environment(localizationManager)
+                        .environment(purchaseManager)
+                case .prayerTimes:
+                    PrayerTimeView()
+                        .environment(themeManager)
+                        .environment(localizationManager)
+                        .environment(backgroundTaskManager)
+                        .toolbar(.hidden, for: .tabBar)
                 }
-                .navigationDestination(for: AppDestination.self) { destination in
-                    switch destination {
-                    case .settings:
-                        SettingsView()
-                            .environment(themeManager)
-                            .environment(localizationManager)
-                            .environment(purchaseManager)
-                    case .prayerTimes:
-                        PrayerTimeView()
-                            .environment(themeManager)
-                            .environment(localizationManager)
-                            .environment(backgroundTaskManager)
-                            .toolbar(.hidden, for: .tabBar)
+            }
+            .toolbar {
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    NavigationLink(value: AppDestination.prayerTimes) {
+                        Image(systemName: "clock")
+                            .imageScale(.large)
+                            .foregroundStyle(.primary)
+                            .accessibilityLabel("Prayer Times")
                     }
-                }
-                .toolbar {
-                    ToolbarItemGroup(placement: .topBarTrailing) {
-                        NavigationLink(value: AppDestination.prayerTimes) {
-                            Image(systemName: "clock")
-                                .imageScale(.large)
-                                .foregroundStyle(.primary)
-                                .accessibilityLabel("Prayer Times")
-                        }
-                        NavigationLink(value: AppDestination.settings) {
-                            Image(systemName: "gearshape")
-                                .imageScale(.large)
-                                .foregroundStyle(.primary)
-                                .accessibilityLabel("Settings")
-                        }
+                    NavigationLink(value: AppDestination.settings) {
+                        Image(systemName: "gearshape")
+                            .imageScale(.large)
+                            .foregroundStyle(.primary)
+                            .accessibilityLabel("Settings")
                     }
                 }
             }
