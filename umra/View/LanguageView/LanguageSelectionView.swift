@@ -13,19 +13,18 @@ struct Language: Identifiable {
     var id: String { code }
 }
 
-// Список поддерживаемых языков приложения
-let languages: [Language] = [
-    .init(code: "ar", title: "العربية"),
-    .init(code: "de", title: "Deutsch"),
-    .init(code: "en", title: "English"),
-    .init(code: "fr", title: "Français"),
-    .init(code: "ru", title: "Русский"),
-    .init(code: "tr", title: "Türkçe"),
-    .init(code: "id", title: "Bahasa Indonesia"),
-    // Добавляйте новые языки сюда
-]
-
 struct LanguageSelectionView: View {
+    // Список поддерживаемых языков приложения
+    private static let languages: [Language] = [
+        .init(code: "ar", title: "العربية"),
+        .init(code: "de", title: "Deutsch"),
+        .init(code: "en", title: "English"),
+        .init(code: "fr", title: "Français"),
+        .init(code: "ru", title: "Русский"),
+        .init(code: "tr", title: "Türkçe"),
+        .init(code: "id", title: "Bahasa Indonesia"),
+        // Добавляйте новые языки сюда
+    ]
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
 
@@ -66,12 +65,12 @@ struct LanguageSelectionView: View {
                     let maxListHeight = geo.size.height * 0.36
                     let maxVisibleButtons = Int(maxListHeight / buttonFullHeight)
                     // Показываем индикатор прокрутки, если языков больше, чем помещается на экране
-                    let needChevron = languages.count > maxVisibleButtons
+                    let needChevron = Self.languages.count > maxVisibleButtons
 
                     ZStack(alignment: .bottom) {
                         ScrollView {
                             VStack(spacing: buttonSpacing) {
-                                ForEach(languages) { lang in
+                                ForEach(Self.languages) { lang in
                                     Button(action: { selectLanguage(lang.code) }) {
                                         Text(lang.title)
                                             .welcomeButtonStyle(fontSize: buttonFontSize, theme: themeManager.selectedTheme)

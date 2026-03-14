@@ -578,11 +578,6 @@ struct CustomTextStyleWithThemeModifier: ViewModifier {
 }
 
 extension View {
-    func customTextStyle() -> some View {
-        self.modifier(CustomTextStyleWithThemeModifier())
-    }
-    
-    // Новый модификатор с поддержкой тем для кнопок в настройках
     func customTextStyleWithTheme() -> some View {
         self.modifier(CustomTextStyleWithThemeModifier())
     }

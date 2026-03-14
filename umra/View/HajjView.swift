@@ -240,7 +240,7 @@ private struct HajjStepRow: View {
     
     private var parsedTitle: (name: String, date: String?) {
         let fullText = localizationManager.localized(stepItem.titleKey)
-        let separators = [" — ", " - ", " – ", " —", " — "]
+        let separators = [" — ", " - ", " – ", " —"]
         for separator in separators {
             let components = fullText.components(separatedBy: separator)
             if components.count == 2 {

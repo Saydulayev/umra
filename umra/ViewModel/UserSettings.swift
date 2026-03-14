@@ -376,7 +376,7 @@ class LocalizationManager {
     /// Извлекает только заголовок без даты из строки локализации (разделители: « — », « - », « – »).
     func extractTitleOnly(from key: String) -> String {
         let fullText = localized(key)
-        let separators = [" — ", " - ", " – ", " —", " — "]
+        let separators = [" — ", " - ", " – ", " —"]
         for separator in separators {
             let components = fullText.components(separatedBy: separator)
             if components.count == 2 {

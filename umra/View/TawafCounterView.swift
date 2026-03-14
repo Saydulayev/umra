@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct TawafCounterView: View {
     var body: some View {
@@ -78,7 +77,6 @@ struct RitualCounterCard: View {
         self.kind = kind
         _counter = AppStorage(wrappedValue: 0, kind.storageKey)
     }
-
 
     private var theme: AppTheme {
         themeManager.selectedTheme
