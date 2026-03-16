@@ -13,7 +13,7 @@ struct ShimmeringText: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     
     // Текст приветствия и размер шрифта
-    var text: String = "WELCOME TO THE UMRA GUIDE"
+    var text: String = "UMRA GUIDE"
     var fontSize: CGFloat = 32
     
     var body: some View {
