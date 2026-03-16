@@ -340,97 +340,132 @@ struct ThemePreviewView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
-    
-    
+
     var body: some View {
-        NavigationStack {
-            ZStack {
-                themeManager.selectedTheme.backgroundColor
-                    .ignoresSafeArea()
-                
-                VStack(spacing: AppConstants.isIPad ? 28 : 20) {
-                    Text("theme_select_title", bundle: localizationManager.bundle)
-                        .font(.system(size: AppConstants.isIPad ? 28 : 22, weight: .bold))
-                        .foregroundStyle(themeManager.selectedTheme.textColor)
-                        .padding(.top, AppConstants.isIPad ? 24 : 16)
-                    
-                    VStack(spacing: AppConstants.isIPad ? 16 : 12) {
-                        ForEach(AppTheme.allCases, id: \.self) { theme in
-                            Button {
-                                withAnimation(AppAnimation.settingsToggle) {
-                                    themeManager.themePreference = theme
-                                }
-                            } label: {
-                                themeCard(for: theme)
-                            }
-                            .buttonStyle(.plain)
-                        }
-                    }
-                    .padding(.horizontal, AppConstants.isIPad ? 24 : 16)
-                    
-                    Spacer()
-                }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("done_button", bundle: localizationManager.bundle)
-                            .foregroundStyle(themeManager.selectedTheme.primaryColor)
-                    }
-                }
-            }
-        }
-    }
-    
-    private func themeCard(for theme: AppTheme) -> some View {
-        let isSelected = themeManager.themePreference == theme
-        
-        return HStack(spacing: AppConstants.isIPad ? 18 : 14) {
-            ZStack {
-                Circle()
-                    .fill(
-                        LinearGradient(
-                            colors: [theme.primaryColor, theme.secondaryColor.opacity(0.78)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .frame(width: AppConstants.isIPad ? 56 : 46, height: AppConstants.isIPad ? 56 : 46)
-                
-                Image(systemName: theme.iconName)
-                    .font(.system(size: AppConstants.isIPad ? 22 : 18, weight: .medium))
-                    .foregroundStyle(.white)
-            }
-            
-            VStack(alignment: .leading, spacing: 3) {
-                Text(theme.displayName(bundle: localizationManager.bundle ?? Bundle.main))
+        VStack(spacing: 0) {
+            HStack {
+                Text("theme_select_title", bundle: localizationManager.bundle)
                     .font(.system(size: AppConstants.isIPad ? 20 : 17, weight: .semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
-                
-                Text(LocalizedStringKey(theme.subtitleKey), bundle: localizationManager.bundle)
-                    .font(.system(size: AppConstants.isIPad ? 15 : 13))
-                    .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.5))
+                Spacer()
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.system(size: AppConstants.isIPad ? 28 : 26))
+                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
+                }
+                .accessibilityLabel(Text("done_button", bundle: localizationManager.bundle))
             }
-            
-            Spacer()
-            
-            if isSelected {
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.system(size: AppConstants.isIPad ? 26 : 22))
-                    .foregroundStyle(theme.primaryColor)
+            .padding(.horizontal, AppConstants.isIPad ? 28 : 20)
+            .padding(.top, AppConstants.isIPad ? 28 : 22)
+            .padding(.bottom, AppConstants.isIPad ? 20 : 16)
+
+            VStack(spacing: 0) {
+                ForEach(Array(AppTheme.allCases.enumerated()), id: \.element) { index, theme in
+                    themeRow(for: theme)
+
+                    if index < AppTheme.allCases.count - 1 {
+                        Divider()
+                            .padding(.leading, AppConstants.isIPad ? 52 : 44)
+                            .foregroundStyle(themeManager.selectedTheme.cardBorderColor)
+                    }
+                }
             }
+            .background(themeManager.selectedTheme.cardColor)
+            .clipShape(RoundedRectangle(cornerRadius: 18))
+            .overlay {
+                RoundedRectangle(cornerRadius: 18)
+                    .strokeBorder(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
+            }
+            .padding(.horizontal, AppConstants.isIPad ? 28 : 16)
+            .padding(.bottom, AppConstants.isIPad ? 32 : 24)
         }
-        .padding(AppConstants.isIPad ? 20 : 16)
-        .standardCardFrame(
-            theme: themeManager.selectedTheme,
-            cornerRadius: 20,
-            borderWidth: isSelected ? 2 : 1,
-            borderColor: isSelected ? theme.primaryColor.opacity(0.5) : nil,
-            shadowRadius: 8,
-            shadowYOffset: 2
-        )
+        .presentationDetents([.height(AppConstants.isIPad ? 400 : 340)])
+        .presentationDragIndicator(.visible)
+        .presentationCornerRadius(28)
+        .presentationBackground(themeManager.selectedTheme.backgroundColor)
+    }
+
+    private func themeRow(for theme: AppTheme) -> some View {
+        let isSelected = themeManager.themePreference == theme
+
+        return Button {
+            withAnimation(AppAnimation.settingsToggle) {
+                themeManager.themePreference = theme
+            }
+        } label: {
+            HStack(spacing: AppConstants.isIPad ? 14 : 12) {
+                themeCircle(for: theme)
+
+                Text(theme.displayName(bundle: localizationManager.bundle ?? .main))
+                    .font(.system(size: AppConstants.isIPad ? 17 : 16, weight: .regular))
+                    .foregroundStyle(themeManager.selectedTheme.textColor)
+
+                Spacer()
+
+                if isSelected {
+                    Image(systemName: "checkmark")
+                        .font(.system(size: AppConstants.isIPad ? 15 : 14, weight: .semibold))
+                        .foregroundStyle(themeManager.selectedTheme.primaryColor)
+                        .transition(.scale.combined(with: .opacity))
+                }
+            }
+            .padding(.horizontal, AppConstants.isIPad ? 18 : 16)
+            .padding(.vertical, AppConstants.isIPad ? 16 : 14)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(theme.displayName(bundle: localizationManager.bundle ?? .main))
+        .accessibilityAddTraits(isSelected ? [.isButton, .isSelected] : .isButton)
+    }
+
+    @ViewBuilder
+    private func themeCircle(for theme: AppTheme) -> some View {
+        let size: CGFloat = AppConstants.isIPad ? 22 : 18
+        switch theme {
+        case .auto:
+            // Половина светлая, половина тёмная — отражает адаптацию к системе
+            Circle()
+                .fill(LinearGradient(
+                    colors: [AppTheme.light.backgroundColor, AppTheme.dark.backgroundColor],
+                    startPoint: .leading,
+                    endPoint: .trailing
+                ))
+                .frame(width: size, height: size)
+                .overlay {
+                    Circle().strokeBorder(themeManager.selectedTheme.cardBorderColor, lineWidth: 0.5)
+                }
+        case .light:
+            // Белый → зелёный — чистый светлый тон
+            Circle()
+                .fill(LinearGradient(
+                    colors: [Color.white, theme.primaryColor],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ))
+                .frame(width: size, height: size)
+                .overlay {
+                    Circle().strokeBorder(themeManager.selectedTheme.cardBorderColor, lineWidth: 0.5)
+                }
+        case .dark:
+            // Глубокий тёмный → изумруд — ночной акцент
+            Circle()
+                .fill(LinearGradient(
+                    colors: [AppTheme.dark.backgroundColor, theme.primaryColor],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ))
+                .frame(width: size, height: size)
+        case .emerald:
+            // Изумруд → золото — премиальный акцент
+            Circle()
+                .fill(LinearGradient(
+                    colors: [theme.primaryColor, theme.secondaryColor],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ))
+                .frame(width: size, height: size)
+        }
     }
 }
