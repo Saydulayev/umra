@@ -44,11 +44,27 @@ private struct ThemeRootView: View {
         MainTabView()
             .onAppear {
                 themeManager.updateSystemColorScheme(systemColorScheme)
+                applyWindowInterfaceStyle()
             }
             .onChange(of: systemColorScheme) { _, newValue in
                 themeManager.updateSystemColorScheme(newValue)
             }
+            .onChange(of: themeManager.themePreference) {
+                applyWindowInterfaceStyle()
+            }
             .preferredColorScheme(themeManager.preferredColorScheme)
+    }
+
+    private func applyWindowInterfaceStyle() {
+        let style: UIUserInterfaceStyle = switch themeManager.themePreference {
+        case .auto:           .unspecified
+        case .light:          .light
+        case .dark, .emerald: .dark
+        }
+        UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .forEach { $0.overrideUserInterfaceStyle = style }
     }
 }
 

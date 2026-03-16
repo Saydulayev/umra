@@ -248,7 +248,7 @@ Gepriesen sei Allah, der Herr der Welten!";
     "text_button_rate_the_app_string" = "Bewerte die App";
     "support_the_developer_string" = "SUPPORT THE DEVELOPER";
     "text_button_support_string" = "Entwickler unterstützen";
-    "select_language_settings_string" = "Sprache auswählen";
+    "select_language_settings_string" = "Sprache";
     "settings_string" = "Einstellungen";
 //    <string name="select_language_string">Выберите язык</string>
 //    <string name="russian_string">Русский</string>
@@ -523,7 +523,7 @@ Es wird überliefert, dass als 'Abdullah ibn Abi Aufa das Janaza-Gebet für sein
 Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebet sowohl mit einer als auch mit zwei Verabschiedungen, wobei er jedoch häufiger nur eine Verabschiedung ausführte.";
 
 /* Theme Lokalisierung */
-"theme_app_title" = "App-Design";
+"theme_app_title" = "Darstellung";
 "theme_select_title" = "App-Design wählen";
 "theme_auto" = "Auto";
 "theme_auto_subtitle" = "Folgt dem Systemdesign";

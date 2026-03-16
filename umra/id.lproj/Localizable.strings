@@ -262,7 +262,7 @@ Segala puji bagi Allah, Rabb semesta alam!";
     "text_button_rate_the_app_string" = "Beri Nilai Aplikasi";
     "support_the_developer_string" = "DUKUNG PENGEMBANG";
     "text_button_support_string" = "Dukung Pengembang";
-    "select_language_settings_string" = "Pilih Bahasa";
+    "select_language_settings_string" = "Bahasa";
     "settings_string" = "Pengaturan";
 //    <string name="select_language_string">Выберите язык</string>
 //    <string name="russian_string">Русский</string>
@@ -534,7 +534,7 @@ Diriwayatkan bahwa ‘Abdullah bin Abi Awfa ketika melaksanakan shalat jenazah a
 Rasulullah ﷺ dalam shalat jenazah terkadang memberi salam sekali, dan terkadang dua kali. Namun, yang lebih sering beliau lakukan adalah salam sekali.";
 
 /* Lokalisasi Tema */
-"theme_app_title" = "Tema Aplikasi";
+"theme_app_title" = "Tampilan";
 "theme_select_title" = "Pilih Tema Aplikasi";
 "theme_auto" = "Otomatis";
 "theme_auto_subtitle" = "Mengikuti tema sistem";

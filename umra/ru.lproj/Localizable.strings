@@ -247,7 +247,7 @@
     "text_button_rate_the_app_string" = "Оценить приложение";
     "support_the_developer_string" = "SUPPORT THE DEVELOPER";
     "text_button_support_string" = "Поддержать разработчика";
-    "select_language_settings_string" = "Выбрать язык";
+    "select_language_settings_string" = "Язык";
     "settings_string" = "Настройки";
 //    <string name="select_language_string">Выберите язык</string>
 //    <string name="russian_string">Русский</string>
@@ -453,7 +453,7 @@
 Посланник Аллаха (мир ему и благословение Аллаха), совершая молитву джаназа, делал и одно, и два приветствия, но одно приветствие он делал чаще.";
 
 /* Локализация тем */
-"theme_app_title" = "Тема приложения";
+"theme_app_title" = "Тема";
 "theme_select_title" = "Выберите тему приложения";
 "theme_auto" = "Авто";
 "theme_auto_subtitle" = "Следует системной теме";

@@ -235,7 +235,7 @@ Praise be to Allah, the Lord of the worlds!";
     "text_button_rate_the_app_string" = "Evaluate the app";
     "support_the_developer_string" = "SUPPORT THE DEVELOPER";
     "text_button_support_string" = "Support the developer";
-    "select_language_settings_string" = "Select language";
+    "select_language_settings_string" = "Language";
     "settings_string" = "Settings";
 //    <string name="select_language_string">Выберите язык</string>
 //    <string name="russian_string">Русский</string>
@@ -502,7 +502,7 @@ It is reported that when 'Abdullah ibn Abu Awfa performed the funeral prayer ove
 The Messenger of Allah (peace and blessings of Allah be upon him), when performing the funeral prayer, did both one and two salutations, but he did one salutation more frequently.";
 
 /* Theme Localization */
-"theme_app_title" = "App Theme";
+"theme_app_title" = "Appearance";
 "theme_select_title" = "Choose App Theme";
 "theme_auto" = "Auto";
 "theme_auto_subtitle" = "Follows system appearance";

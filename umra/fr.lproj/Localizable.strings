@@ -250,7 +250,7 @@ Louange à Allah, le Seigneur des mondes !";
 "text_button_rate_the_app_string"="Évaluer l'application";
 "support_the_developer_string"="SOUTENIR LE DÉVELOPPEUR";
 "text_button_support_string"="Soutenir le développeur";
-"select_language_settings_string"="Choisir la langue";
+"select_language_settings_string" = "Langue";
 "settings_string"="Paramètres";
 //    <string name="select_language_string">Выберите язык</string>
 //    <string name="russian_string">Русский</string>
@@ -521,7 +521,7 @@ Il est rapporté que lorsque 'Abdullah ibn Abi Awfa a accompli la prière de Jan
 Le Messager d'Allah (paix et bénédictions sur lui) concluait la prière de Janaza tantôt avec une salutation, tantôt avec deux salutations, mais il le faisait plus fréquemment avec une seule.";
 
 /* Localisation des thèmes */
-"theme_app_title" = "Thème de l'application";
+"theme_app_title" = "Apparence";
 "theme_select_title" = "Choisir le thème de l'application";
 "theme_auto" = "Auto";
 "theme_auto_subtitle" = "Suit l’apparence du système";

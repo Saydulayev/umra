@@ -223,7 +223,7 @@
 "text_button_rate_the_app_string" = "تقييم التطبيق";
 "support_the_developer_string" = "دعم المطوّر";
 "text_button_support_string" = "دعم المطوّر";
-"select_language_settings_string" = "اختيار اللغة";
+"select_language_settings_string" = "اللغة";
 "settings_string" = "الإعدادات";
 //    <string name="select_language_string">Выберите язык</string>
 //    <string name="russian_string">Русский</string>
@@ -429,7 +429,7 @@
 وكان رسول الله ﷺ في صلاة الجنازة يفعل هذا وهذا، غير أنه كان يسلّم مرة واحدة في الغالب.";
 
 /* Локализация тем */
-"theme_app_title" = "سمة التطبيق";
+"theme_app_title" = "المظهر";
 "theme_select_title" = "اختر سمة التطبيق";
 "theme_auto" = "تلقائي";
 "theme_auto_subtitle" = "يتبع مظهر النظام";

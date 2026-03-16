@@ -67,26 +67,46 @@ struct MainTabView: View {
         .onAppear {
             setupTabBarAppearance()
         }
-        .toolbarBackground(.ultraThinMaterial, for: .tabBar)
-        .toolbarBackground(.visible, for: .tabBar)
+        .onChange(of: themeManager.themePreference) {
+            setupTabBarAppearance()
+        }
     }
 
-    /// Настройка внешнего вида TabBar с blur эффектом
     private func setupTabBarAppearance() {
+        let isDark = themeManager.selectedTheme.isDarkAppearance
+        let blurStyle: UIBlurEffect.Style = isDark ? .systemUltraThinMaterialDark : .systemUltraThinMaterialLight
+
         let appearance = UITabBarAppearance()
         appearance.configureWithTransparentBackground()
-        let bgColor = UIColor(themeManager.selectedTheme.cardColor).withAlphaComponent(0.85)
-        appearance.backgroundColor = bgColor
-        
-        let emerald = UIColor(themeManager.selectedTheme.primaryColor)
-        let normal = UIColor(themeManager.selectedTheme.textColor).withAlphaComponent(0.4)
-        appearance.stackedLayoutAppearance.selected.iconColor = emerald
-        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: emerald]
-        appearance.stackedLayoutAppearance.normal.iconColor = normal
-        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: normal]
-        
+        appearance.backgroundEffect = UIBlurEffect(style: blurStyle)
+        appearance.backgroundColor = UIColor(themeManager.selectedTheme.cardColor).withAlphaComponent(0.85)
+
+        let primary = UIColor(themeManager.selectedTheme.primaryColor)
+        let inactive = UIColor(themeManager.selectedTheme.textColor).withAlphaComponent(0.4)
+        appearance.stackedLayoutAppearance.selected.iconColor = primary
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: primary]
+        appearance.stackedLayoutAppearance.normal.iconColor = inactive
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: inactive]
+
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
         UITabBar.appearance().isTranslucent = true
+
+        // Обновляем уже существующий UITabBarController (UITabBar.appearance() затрагивает только новые инстансы)
+        for scene in UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }) {
+            for window in scene.windows {
+                applyAppearance(appearance, to: window.rootViewController)
+            }
+        }
+    }
+
+    private func applyAppearance(_ appearance: UITabBarAppearance, to viewController: UIViewController?) {
+        guard let vc = viewController else { return }
+        if let tabBarVC = vc as? UITabBarController {
+            tabBarVC.tabBar.standardAppearance = appearance
+            tabBarVC.tabBar.scrollEdgeAppearance = appearance
+        }
+        vc.children.forEach { applyAppearance(appearance, to: $0) }
+        applyAppearance(appearance, to: vc.presentedViewController)
     }
 }
