@@ -23,10 +23,14 @@ struct LanguageSelectionView: View {
         .init(code: "ru", title: "Русский"),
         .init(code: "tr", title: "Türkçe"),
         .init(code: "id", title: "Bahasa Indonesia"),
-        // Добавляйте новые языки сюда
     ]
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    @State private var titleVisible = false
+    @State private var logoVisible = false
+    @State private var listVisible = false
 
     var body: some View {
         // GeometryReader используется осознанно для адаптивных отступов и размеров от высоты/ширины экрана.
@@ -34,15 +38,17 @@ struct LanguageSelectionView: View {
             ZStack {
                 themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
-                
+
                 VStack {
                     ShimmeringText()
                         .font(.largeTitle)
                         .minimumScaleFactor(0.7)
                         .padding(.bottom, geo.size.height * 0.02)
-                    
+                        .opacity(titleVisible ? 1 : 0)
+                        .offset(y: titleVisible ? 0 : -16)
+
                     Spacer(minLength: geo.size.height * 0.03)
-                    
+
                     Image("WelcomeImage")
                         .resizable()
                         .scaledToFit()
@@ -54,9 +60,11 @@ struct LanguageSelectionView: View {
                         .background(Color.white, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
                         .shadow(color: .black.opacity(0.12), radius: 12, y: 4)
                         .padding(.bottom, geo.size.height * 0.05)
-                    
+                        .opacity(logoVisible ? 1 : 0)
+                        .scaleEffect(logoVisible ? 1 : 0.88)
+
                     Spacer(minLength: geo.size.height * 0.02)
-                    
+
                     // Вычисляем размеры для адаптивного отображения списка языков
                     let buttonFontSize = geo.size.height * 0.025
                     let buttonVerticalPadding: CGFloat = 16
@@ -82,6 +90,8 @@ struct LanguageSelectionView: View {
                         .scrollIndicators(.hidden)
                         .frame(maxHeight: maxListHeight)
                     }
+                    .opacity(listVisible ? 1 : 0)
+                    .offset(y: listVisible ? 0 : 24)
 
                     if needChevron {
                         Image(systemName: "chevron.down")
@@ -96,6 +106,24 @@ struct LanguageSelectionView: View {
                 .padding(.horizontal, geo.size.width > 500 ? 64 : 16)
                 .padding(.top, geo.size.height > 800 ? 48 : 16)
                 .padding(.bottom, geo.size.height > 800 ? 32 : 12)
+            }
+        }
+        .onAppear {
+            guard !reduceMotion else {
+                titleVisible = true
+                logoVisible = true
+                listVisible = true
+                return
+            }
+            let spring = Animation.spring(response: 0.6, dampingFraction: 0.8)
+            withAnimation(spring) {
+                titleVisible = true
+            }
+            withAnimation(spring.delay(0.15)) {
+                logoVisible = true
+            }
+            withAnimation(spring.delay(0.3)) {
+                listVisible = true
             }
         }
     }
