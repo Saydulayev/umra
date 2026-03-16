@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct ShimmeringText: View {
-    @State private var shimmerOffset: CGFloat = -2.0
     @State private var isAnimating = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    
-    // Текст приветствия и размер шрифта
+
     var text: String = "UMRA GUIDE"
-    var fontSize: CGFloat = 32
-    
-    var body: some View {
+    var foregroundColor: Color = Color(red: 0.420, green: 0.447, blue: 0.502)
+
+    // Единый источник правды для шрифта — исключает расхождение между
+    // отображаемым текстом и маской шиммера.
+    private var baseText: Text {
         Text(text)
             .font(.largeTitle)
             .bold()
-            .foregroundStyle(Color(red: 0.420, green: 0.447, blue: 0.502))
+    }
+
+    var body: some View {
+        baseText
+            .foregroundStyle(foregroundColor)
             .multilineTextAlignment(.center)
             .overlay(
                 // GeometryReader используется осознанно для размера градиента шиммера относительно текста.
@@ -38,26 +42,25 @@ struct ShimmeringText: View {
                             .frame(width: geometry.size.width * 1.5, height: geometry.size.height * 2)
                     }
                 }
-                .mask(Text(text)
-                        .font(.largeTitle)
-                        .bold())
-                        .multilineTextAlignment(.center)
+                .mask(baseText)
             )
             .onAppear {
                 guard !reduceMotion else { return }
-                withAnimation(
-                    Animation.linear(duration: AppAnimation.shimmerDuration)
-                        .repeatForever(autoreverses: false)
-                ) {
-                    isAnimating = true
+                // DispatchQueue.main.async выводит анимацию за пределы текущего
+                // animation context родительского вью, иначе spring-транзакция
+                // из LanguageSelectionView.onAppear перекрывает repeatForever.
+                DispatchQueue.main.async {
+                    withAnimation(
+                        Animation.linear(duration: AppAnimation.shimmerDuration)
+                            .repeatForever(autoreverses: false)
+                    ) {
+                        isAnimating = true
+                    }
                 }
             }
     }
-    
-    // Ширина эффекта мерцания для плавной анимации
-    private var shimmerWidth: CGFloat {
-        return 2.0
-    }
+
+    private var shimmerWidth: CGFloat { 2.0 }
 }
 
 #Preview {
