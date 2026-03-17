@@ -28,10 +28,6 @@ struct Step7: View {
                     }
                     .font(fontManager.bodyFont)
                     
-                    Text("""
-
- ⵈ━══════╗◊╔══════━ⵈ
-""")
                 }
                 .foregroundStyle(.primary)
                 .padding(10)
