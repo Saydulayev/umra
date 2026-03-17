@@ -8,27 +8,12 @@
 import SwiftUI
 
 enum UmraStep: Hashable, Sendable {
-    case step1
-    case step2
-    case step3
-    case step4
-    case step5
-    case step6
-    case step7
-    case useful
+    case step1, step2, step3, step4, step5, step6, step7, useful
 }
 
 enum AppDestination: Hashable, Sendable {
     case settings
     case prayerTimes
-}
-
-struct StepItem: Identifiable {
-    let id: Int
-    let badgeText: String
-    let badgeColor: Color
-    let step: UmraStep
-    let titleKey: String
 }
 
 struct ContentView: View {
@@ -40,27 +25,26 @@ struct ContentView: View {
     @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
     @Environment(AudioManager.self) private var audioManager
     @State private var navigationPath = NavigationPath()
-    @State private var usageTime: TimeInterval = 0
-    @State private var usageTimerTask: Task<Void, Never>?
-    @Environment(\.requestReview) var requestReview
-    
-    private let steps: [StepItem] = [
-        StepItem(id: 0, badgeText: "IHRAM", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step1, titleKey: "title_ihram_screen"),         // Emerald #10B981
-        StepItem(id: 1, badgeText: "TAWAF", badgeColor: Color(red: 0.831, green: 0.635, blue: 0.306), step: .step2, titleKey: "title_round_kaaba_screen"),     // Amber #D4A24E
-        StepItem(id: 2, badgeText: "MAQAM\nIBRAHIM", badgeColor: Color(red: 0.078, green: 0.722, blue: 0.651), step: .step3, titleKey: "title_place_ibrohim_stand_screen"), // Teal #14B8A6
-        StepItem(id: 3, badgeText: "ZAMZAM", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step4, titleKey: "title_water_zamzam_screen"),   // Emerald #10B981
-        StepItem(id: 4, badgeText: "ISTILAM", badgeColor: Color(red: 0.831, green: 0.635, blue: 0.306), step: .step5, titleKey: "title_black_stone_screen"),   // Amber #D4A24E
-        StepItem(id: 5, badgeText: "SA'I", badgeColor: Color(red: 0.42, green: 0.61, blue: 0.56), step: .step6, titleKey: "title_safa_and_marva_screen"),   // Светлый sage #6B9B8E
-        StepItem(id: 6, badgeText: "HALQ\nTAQSIR", badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), step: .step7, titleKey: "title_shave_head_screen"),       // Emerald #10B981
-        StepItem(id: 7, badgeText: "INFO", badgeColor: Color(red: 0.29, green: 0.51, blue: 0.78), step: .useful, titleKey: "Useful")  // Синий — ассоциация с меню «Полезное»
+
+    private let steps: [GuideStepItem] = [
+        GuideStepItem(id: 0, badgeText: "IHRAM",         badgeColor: Color(red: 0.055, green: 0.647, blue: 0.914), titleKey: "title_ihram_screen"),          // Sky Blue
+        GuideStepItem(id: 1, badgeText: "TAWAF",         badgeColor: Color(red: 0.831, green: 0.635, blue: 0.306), titleKey: "title_round_kaaba_screen"),     // Amber
+        GuideStepItem(id: 2, badgeText: "MAQAM\nIBRAHIM", badgeColor: Color(red: 0.078, green: 0.722, blue: 0.651), titleKey: "title_place_ibrohim_stand_screen"), // Teal
+        GuideStepItem(id: 3, badgeText: "ZAMZAM",        badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), titleKey: "title_water_zamzam_screen"),    // Emerald
+        GuideStepItem(id: 4, badgeText: "ISTILAM",       badgeColor: Color(red: 0.878, green: 0.478, blue: 0.431), titleKey: "title_black_stone_screen"),     // Rose
+        GuideStepItem(id: 5, badgeText: "SA'I",          badgeColor: Color(red: 0.42,  green: 0.61,  blue: 0.56),  titleKey: "title_safa_and_marva_screen"),  // Sage
+        GuideStepItem(id: 6, badgeText: "HALQ\nTAQSIR",  badgeColor: Color(red: 0.545, green: 0.361, blue: 0.965), titleKey: "title_shave_head_screen"),      // Violet
+        GuideStepItem(id: 7, badgeText: "INFO",          badgeColor: Color(red: 0.29,  green: 0.51,  blue: 0.78),  titleKey: "Useful", showStepNumber: false), // Blue
     ]
-    
-    private var numberedSteps: [StepItem] {
-        steps.filter { $0.step != .useful }
+
+    private let umraNavigation: [UmraStep] = [.step1, .step2, .step3, .step4, .step5, .step6, .step7, .useful]
+
+    private var numberedSteps: [GuideStepItem] {
+        steps.filter { $0.showStepNumber }
     }
-    
+
     // MARK: - Navigation
-    
+
     @ViewBuilder
     private func destinationView(for step: UmraStep) -> some View {
         stepView(for: step)
@@ -75,46 +59,27 @@ struct ContentView: View {
     @ViewBuilder
     private func stepView(for step: UmraStep) -> some View {
         switch step {
-        case .step1:
-            Step1()
-        case .step2:
-            Step2()
-        case .step3:
-            Step3()
-        case .step4:
-            Step4()
-        case .step5:
-            Step5()
-        case .step6:
-            Step6()
-        case .step7:
-            Step7()
-        case .useful:
-            UsefulInfoView()
+        case .step1: Step1()
+        case .step2: Step2()
+        case .step3: Step3()
+        case .step4: Step4()
+        case .step5: Step5()
+        case .step6: Step6()
+        case .step7: Step7()
+        case .useful: UsefulInfoView()
         }
     }
-    
-    // MARK: - Computed Properties
-    
 
-    private var listSpacing: CGFloat {
-        AppConstants.isIPad ? 14 : 12
-    }
-    
-    private var listPadding: CGFloat {
-        AppConstants.isIPad ? 20 : 16
-    }
-    
-    private var listCardCornerRadius: CGFloat {
-        AppConstants.isIPad ? 28 : 24
-    }
-    
+    // MARK: - Computed Properties
+
+    private var listPadding: CGFloat { AppConstants.isIPad ? 20 : 16 }
+    private var listCardCornerRadius: CGFloat { AppConstants.isIPad ? 28 : 24 }
+
     // MARK: - Body
-    
+
     var body: some View {
         mainContentView
-            .onAppear(perform: startTimer)
-            .onDisappear(perform: stopTimer)
+            .reviewTimer()
             .onChange(of: navigationPath.count) { oldValue, newValue in
                 if newValue == 0 && oldValue > 0 {
                     navigationPath = NavigationPath()
@@ -127,14 +92,13 @@ struct ContentView: View {
             ZStack {
                 themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
-                
                 ScrollView {
                     content
                         .padding(.vertical, 8)
                 }
                 .scrollIndicators(.hidden)
             }
-            .navigationBarTitleDisplayMode(.inline)
+            .guideNavigation(titleKey: "umra_title")
             .navigationDestination(for: UmraStep.self) { step in
                 destinationView(for: step)
             }
@@ -148,42 +112,11 @@ struct ContentView: View {
                     .environment(themeManager)
                     .environment(localizationManager)
             }
-            .navigationDestination(for: AppDestination.self) { destination in
-                switch destination {
-                case .settings:
-                    SettingsView()
-                        .environment(themeManager)
-                        .environment(localizationManager)
-                        .environment(purchaseManager)
-                case .prayerTimes:
-                    PrayerTimeView()
-                        .environment(themeManager)
-                        .environment(localizationManager)
-                        .environment(backgroundTaskManager)
-                        .toolbar(.hidden, for: .tabBar)
-                }
-            }
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    NavigationLink(value: AppDestination.prayerTimes) {
-                        Image(systemName: "clock")
-                            .imageScale(.large)
-                            .foregroundStyle(.primary)
-                            .accessibilityLabel("Prayer Times")
-                    }
-                    NavigationLink(value: AppDestination.settings) {
-                        Image(systemName: "gearshape")
-                            .imageScale(.large)
-                            .foregroundStyle(.primary)
-                            .accessibilityLabel("Settings")
-                    }
-                }
-            }
         }
     }
-    
+
     // MARK: - View Builders
-    
+
     @ViewBuilder
     private var content: some View {
         VStack(spacing: 0) {
@@ -192,12 +125,12 @@ struct ContentView: View {
             VStack(spacing: 0) {
                 ForEach(Array(numberedSteps.enumerated()), id: \.element.id) { idx, stepItem in
                     Button {
-                        navigationPath.append(stepItem.step)
+                        navigationPath.append(umraNavigation[stepItem.id])
                     } label: {
-                        StepRow(stepItem: stepItem, index: stepItem.id)
+                        GuideStepRow(item: stepItem, index: stepItem.id)
                     }
-                    .buttonStyle(.plain)
-                    .id("\(stepItem.step)-\(stepItem.id)")
+                    .pressableRowStyle()
+                    .id("\(stepItem.id)")
 
                     if idx < numberedSteps.count - 1 {
                         Divider()
@@ -213,13 +146,13 @@ struct ContentView: View {
             )
             .padding(.horizontal, listPadding)
 
-            if let usefulItem = steps.first(where: { $0.step == .useful }) {
+            if let usefulItem = steps.first(where: { !$0.showStepNumber }) {
                 Button {
-                    navigationPath.append(usefulItem.step)
+                    navigationPath.append(UmraStep.useful)
                 } label: {
-                    StepRow(stepItem: usefulItem, index: usefulItem.id)
+                    GuideStepRow(item: usefulItem, index: usefulItem.id)
                 }
-                .buttonStyle(.plain)
+                .pressableRowStyle()
                 .standardCardFrame(
                     theme: themeManager.selectedTheme,
                     cornerRadius: listCardCornerRadius,
@@ -232,53 +165,17 @@ struct ContentView: View {
             Spacer().frame(height: 32)
         }
     }
-    
+
     private var stepsHeader: some View {
         HStack {
             Text("umra_title", bundle: localizationManager.bundle)
                 .font(.largeTitle.weight(.bold))
                 .foregroundStyle(themeManager.selectedTheme.textColor)
-
             Spacer()
         }
-        .padding(.horizontal, AppConstants.isIPad ? 24 : 24)
+        .padding(.horizontal, 24)
         .padding(.top, 12)
         .padding(.bottom, 24)
-    }
-    
-    // MARK: - Timer Management
-    
-    /// Запуск таймера для запроса отзыва
-    private func startTimer() {
-        guard !userPreferences.hasRatedApp else { return }
-        usageTimerTask = Task { @MainActor in
-            while !Task.isCancelled {
-                usageTime += 1
-                if usageTime >= AppConstants.reviewRequestTimeInterval {
-                    stopTimer()
-                    requestReviewIfNeeded()
-                    break
-                }
-                do {
-                    try await Task.sleep(for: .seconds(1))
-                } catch {
-                    break
-                }
-            }
-        }
-    }
-    
-    /// Остановка таймера
-    private func stopTimer() {
-        usageTimerTask?.cancel()
-        usageTimerTask = nil
-    }
-    
-    /// Запрос отзыва, если это необходимо
-    private func requestReviewIfNeeded() {
-        guard !userPreferences.hasRatedApp else { return }
-        requestReview()
-        userPreferences.hasRatedApp = true
     }
 }
 
@@ -287,7 +184,7 @@ struct ContentView: View {
 private struct ChapterDestinationView: View {
     let chapter: Chapter
     @Environment(LocalizationManager.self) private var localizationManager
-    
+
     var body: some View {
         if chapter.title == "title_janaza_guide".localized(bundle: localizationManager.bundle ?? .main) {
             JanazaView()
@@ -299,68 +196,6 @@ private struct ChapterDestinationView: View {
     }
 }
 
-private struct StepRow: View {
-    let stepItem: StepItem
-    let index: Int
-    @Environment(ThemeManager.self) private var themeManager
-    @Environment(LocalizationManager.self) private var localizationManager
-    
-    
-    private var badgeSize: CGFloat {
-        AppConstants.isIPad ? 72 : 56
-    }
-    
-    private var badgeFontSize: CGFloat {
-        let longestLine = stepItem.badgeText.components(separatedBy: "\n").map(\.count).max() ?? 0
-        let baseSize: CGFloat = AppConstants.isIPad ? 14 : 10
-        if longestLine > 6 { return baseSize * 0.80 }
-        if longestLine > 4 { return baseSize * 0.90 }
-        return baseSize
-    }
-    
-    var body: some View {
-        HStack(spacing: AppConstants.isIPad ? 20 : 16) {
-            ZStack {
-                Circle()
-                    .fill(stepItem.badgeColor.opacity(0.15))
-                Text(stepItem.badgeText)
-                    .font(.system(size: badgeFontSize, weight: .bold))
-                    .tracking(-0.5)
-                    .foregroundStyle(stepItem.badgeColor)
-                    .minimumScaleFactor(0.5)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
-                    .padding(.horizontal, 4)
-            }
-            .frame(width: badgeSize, height: badgeSize)
-            
-            VStack(alignment: .leading, spacing: 4) {
-                if stepItem.step != .useful {
-                    Text("\(localizationManager.localized("step_prefix")) \(index + 1)")
-                        .font(.caption.weight(.medium))
-                        .tracking(0.5)
-                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.4))
-                        .textCase(.uppercase)
-                }
-                Text(LocalizedStringKey(stepItem.titleKey), bundle: localizationManager.bundle)
-                    .font(.title3.weight(.semibold))
-                    .foregroundStyle(themeManager.selectedTheme.textColor)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-            
-            Spacer()
-            
-            Image(systemName: "chevron.right")
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .contentShape(Rectangle())
-        .padding(.horizontal, AppConstants.isIPad ? 24 : 20)
-        .padding(.vertical, AppConstants.isIPad ? 16 : 14)
-    }
-}
-
 #Preview {
     ContentView()
         .environment(ThemeManager())
@@ -369,29 +204,3 @@ private struct StepRow: View {
         .environment(FontManager())
         .environment(PurchaseManager())
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

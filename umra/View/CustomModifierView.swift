@@ -499,6 +499,207 @@ extension Image {
 }
 
 
+// MARK: - PressableRowButtonStyle
+
+struct PressableRowButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.97 : 1.0)
+            .opacity(configuration.isPressed ? 0.75 : 1.0)
+            .animation(.easeInOut(duration: 0.12), value: configuration.isPressed)
+    }
+}
+
+extension View {
+    func pressableRowStyle() -> some View {
+        buttonStyle(PressableRowButtonStyle())
+    }
+}
+
+// MARK: - GuideStepItem
+
+struct GuideStepItem: Identifiable {
+    let id: Int
+    let badgeText: String
+    let badgeColor: Color
+    let titleKey: String
+    var showStepNumber: Bool = true
+    var showDate: Bool = false
+}
+
+// MARK: - GuideStepRow
+
+struct GuideStepRow: View {
+    let item: GuideStepItem
+    let index: Int
+
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+
+    private var badgeSize: CGFloat { AppConstants.isIPad ? 72 : 56 }
+
+    private var badgeFontSize: CGFloat {
+        let longestLine = item.badgeText.components(separatedBy: "\n").map(\.count).max() ?? 0
+        let base: CGFloat = AppConstants.isIPad ? 14 : 10
+        if longestLine > 6 { return base * 0.80 }
+        if longestLine > 4 { return base * 0.90 }
+        return base
+    }
+
+    var body: some View {
+        HStack(spacing: AppConstants.isIPad ? 20 : 16) {
+            ZStack {
+                Circle()
+                    .fill(item.badgeColor.opacity(0.15))
+                Text(item.badgeText)
+                    .font(.system(size: badgeFontSize, weight: .bold))
+                    .tracking(-0.5)
+                    .foregroundStyle(item.badgeColor)
+                    .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+                    .padding(.horizontal, 4)
+            }
+            .frame(width: badgeSize, height: badgeSize)
+
+            VStack(alignment: .leading, spacing: 4) {
+                if item.showStepNumber {
+                    Text("\(localizationManager.localized("step_prefix")) \(index + 1)")
+                        .font(.caption.weight(.medium))
+                        .tracking(0.5)
+                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.4))
+                        .textCase(.uppercase)
+                }
+                let parsed = localizationManager.parseTitleComponents(from: item.titleKey)
+                Text(parsed.name)
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(themeManager.selectedTheme.textColor)
+                    .fixedSize(horizontal: false, vertical: true)
+                if item.showDate, let date = parsed.date {
+                    Text(date)
+                        .font(.footnote)
+                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.45))
+                }
+            }
+
+            Spacer()
+
+            Image(systemName: "chevron.right")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
+        .padding(.horizontal, AppConstants.isIPad ? 24 : 20)
+        .padding(.vertical, AppConstants.isIPad ? 16 : 14)
+    }
+}
+
+// MARK: - ReviewTimerModifier
+
+struct ReviewTimerModifier: ViewModifier {
+    @Environment(UserPreferences.self) private var userPreferences
+    @Environment(\.requestReview) private var requestReview
+    @State private var usageTime: TimeInterval = 0
+    @State private var usageTimerTask: Task<Void, Never>?
+
+    func body(content: Content) -> some View {
+        content
+            .onAppear(perform: startTimer)
+            .onDisappear(perform: stopTimer)
+    }
+
+    private func startTimer() {
+        guard !userPreferences.hasRatedApp else { return }
+        usageTimerTask = Task { @MainActor in
+            while !Task.isCancelled {
+                usageTime += 1
+                if usageTime >= AppConstants.reviewRequestTimeInterval {
+                    stopTimer()
+                    requestReviewIfNeeded()
+                    break
+                }
+                do {
+                    try await Task.sleep(for: .seconds(1))
+                } catch {
+                    break
+                }
+            }
+        }
+    }
+
+    private func stopTimer() {
+        usageTimerTask?.cancel()
+        usageTimerTask = nil
+    }
+
+    private func requestReviewIfNeeded() {
+        guard !userPreferences.hasRatedApp else { return }
+        requestReview()
+        userPreferences.hasRatedApp = true
+    }
+}
+
+extension View {
+    func reviewTimer() -> some View {
+        modifier(ReviewTimerModifier())
+    }
+}
+
+// MARK: - GuideNavigationModifier
+
+struct GuideNavigationModifier: ViewModifier {
+    let titleKey: String
+
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(PurchaseManager.self) private var purchaseManager
+    @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
+
+    func body(content: Content) -> some View {
+        content
+            .navigationTitle(Text(LocalizedStringKey(titleKey), bundle: localizationManager.bundle))
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: AppDestination.self) { destination in
+                switch destination {
+                case .settings:
+                    SettingsView()
+                        .environment(themeManager)
+                        .environment(localizationManager)
+                        .environment(purchaseManager)
+                case .prayerTimes:
+                    PrayerTimeView()
+                        .environment(themeManager)
+                        .environment(localizationManager)
+                        .environment(backgroundTaskManager)
+                        .toolbar(.hidden, for: .tabBar)
+                }
+            }
+            .toolbar {
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    NavigationLink(value: AppDestination.prayerTimes) {
+                        Image(systemName: "clock")
+                            .imageScale(.large)
+                            .foregroundStyle(.primary)
+                            .accessibilityLabel("Prayer Times")
+                    }
+                    NavigationLink(value: AppDestination.settings) {
+                        Image(systemName: "gearshape")
+                            .imageScale(.large)
+                            .foregroundStyle(.primary)
+                            .accessibilityLabel("Settings")
+                    }
+                }
+            }
+    }
+}
+
+extension View {
+    func guideNavigation(titleKey: String) -> some View {
+        modifier(GuideNavigationModifier(titleKey: titleKey))
+    }
+}
+
 // MARK: - Модификаторы для текста
 struct StepTextModifier: ViewModifier {
     @Environment(ThemeManager.self) private var themeManager

@@ -388,6 +388,25 @@ class LocalizationManager {
         }
         return fullText
     }
+
+    /// Разбивает строку локализации на (name, date?) компоненты.
+    /// Разделитель: « — », « - », « – » — дата слева, название справа.
+    /// Если разделителя нет — возвращает (fullText, nil).
+    func parseTitleComponents(from key: String) -> (name: String, date: String?) {
+        let fullText = localized(key)
+        let separators = [" — ", " - ", " – ", " —"]
+        for separator in separators {
+            let components = fullText.components(separatedBy: separator)
+            if components.count == 2 {
+                let date = components[0].trimmingCharacters(in: .whitespaces)
+                let name = components[1].trimmingCharacters(in: .whitespaces)
+                if !date.isEmpty && !name.isEmpty {
+                    return (name: name, date: date)
+                }
+            }
+        }
+        return (name: fullText, date: nil)
+    }
 }
 
 // MARK: - User Preferences Manager

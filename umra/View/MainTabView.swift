@@ -47,7 +47,7 @@ struct MainTabView: View {
         }
         .animation(.smooth, value: localizationManager.hasSelectedLanguage)
     }
-    
+
     @ViewBuilder
     private var tabViewContent: some View {
         TabView(selection: $selectedTab) {
@@ -92,21 +92,22 @@ struct MainTabView: View {
         UITabBar.appearance().scrollEdgeAppearance = appearance
         UITabBar.appearance().isTranslucent = true
 
-        // Обновляем уже существующий UITabBarController (UITabBar.appearance() затрагивает только новые инстансы)
+        // UITabBar.appearance() применяется только к новым инстансам,
+        // поэтому обновляем существующий UITabBar напрямую.
         for scene in UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }) {
             for window in scene.windows {
-                applyAppearance(appearance, to: window.rootViewController)
+                updateTabBar(in: window.rootViewController, appearance: appearance)
             }
         }
     }
 
-    private func applyAppearance(_ appearance: UITabBarAppearance, to viewController: UIViewController?) {
-        guard let vc = viewController else { return }
+    private func updateTabBar(in vc: UIViewController?, appearance: UITabBarAppearance) {
+        guard let vc else { return }
         if let tabBarVC = vc as? UITabBarController {
             tabBarVC.tabBar.standardAppearance = appearance
             tabBarVC.tabBar.scrollEdgeAppearance = appearance
         }
-        vc.children.forEach { applyAppearance(appearance, to: $0) }
-        applyAppearance(appearance, to: vc.presentedViewController)
+        vc.children.forEach { updateTabBar(in: $0, appearance: appearance) }
+        updateTabBar(in: vc.presentedViewController, appearance: appearance)
     }
 }

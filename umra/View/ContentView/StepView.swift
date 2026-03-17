@@ -22,19 +22,7 @@ struct StepView: View {
     @Environment(FontManager.self) private var fontManager
 
     private var parsedTitle: (name: String, date: String?) {
-        let fullText = localizationManager.localized(stringKey)
-        let separators = [" — ", " - ", " – ", " —"]
-        for separator in separators {
-            let components = fullText.components(separatedBy: separator)
-            if components.count == 2 {
-                let date = components[0].trimmingCharacters(in: .whitespaces)
-                let name = components[1].trimmingCharacters(in: .whitespaces)
-                if !date.isEmpty && !name.isEmpty {
-                    return (name: name, date: date)
-                }
-            }
-        }
-        return (name: fullText, date: nil)
+        localizationManager.parseTitleComponents(from: stringKey)
     }
     
     
