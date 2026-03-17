@@ -236,7 +236,7 @@ struct ContentView: View {
     private var stepsHeader: some View {
         HStack {
             Text("umra_title", bundle: localizationManager.bundle)
-                .font(.system(size: AppConstants.isIPad ? 36 : 28, weight: .bold))
+                .font(.largeTitle.weight(.bold))
                 .foregroundStyle(themeManager.selectedTheme.textColor)
 
             Spacer()
@@ -337,22 +337,21 @@ private struct StepRow: View {
             VStack(alignment: .leading, spacing: 4) {
                 if stepItem.step != .useful {
                     Text("\(localizationManager.localized("step_prefix")) \(index + 1)")
-                        .font(.system(size: AppConstants.isIPad ? 14 : 11, weight: .medium))
+                        .font(.caption.weight(.medium))
                         .tracking(0.5)
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.4))
                         .textCase(.uppercase)
                 }
                 Text(LocalizedStringKey(stepItem.titleKey), bundle: localizationManager.bundle)
-                    .font(.system(size: AppConstants.isIPad ? 24 : 18, weight: .semibold))
+                    .font(.title3.weight(.semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
-                    .lineLimit(2)
                     .fixedSize(horizontal: false, vertical: true)
             }
             
             Spacer()
             
             Image(systemName: "chevron.right")
-                .font(.system(size: AppConstants.isIPad ? 16 : 14, weight: .semibold))
+                .font(.subheadline.weight(.semibold))
                 .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
         }
         .frame(maxWidth: .infinity, alignment: .leading)

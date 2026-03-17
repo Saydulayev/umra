@@ -22,7 +22,7 @@ struct Step1: View {
                     // Секция: Подготовка к ихраму
                     VStack(alignment: .leading, spacing: 12) {
                         Text("preparation_before_ihram_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
+                            .font(.custom("Lato-Black", size: 26, relativeTo: .title2))
                             .padding(.top, 8)
                         
                         Text("preparation_before_ihram_text", bundle: localizationManager.bundle)
@@ -33,7 +33,7 @@ struct Step1: View {
                         .padding(.vertical, 8)
                     
                     Text("into the state of Ihram", bundle: localizationManager.bundle)
-                        .font(.custom("Lato-Black", size: 26))
+                        .font(.custom("Lato-Black", size: 26, relativeTo: .title2))
                     
                     Group {
                         Text("When entering the state of Ihram, say:", bundle: localizationManager.bundle)
@@ -82,7 +82,7 @@ struct Step1: View {
                             Text("entering the Sacred Mosque", bundle: localizationManager.bundle)
                             
                             Text("Conditioning for Hajj or Umrah.", bundle: localizationManager.bundle)
-                                .font(.custom("Lato-Black", size: 26))
+                                .font(.custom("Lato-Black", size: 26, relativeTo: .title2))
                             
                             Text("If a pilgrim fears that some reason may prevent them from completing the Hajj", bundle: localizationManager.bundle)
                             
@@ -98,7 +98,7 @@ struct Step1: View {
                         
                         Group {
                             Text("Umrah for parents", bundle: localizationManager.bundle)
-                                .font(.custom("Lato-Black", size: 26))
+                                .font(.custom("Lato-Black", size: 26, relativeTo: .title2))
                             
                             Text("Umrah for parents explanation", bundle: localizationManager.bundle)
                             

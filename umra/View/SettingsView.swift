@@ -102,7 +102,7 @@ struct SettingsView: View {
                                 accentColor: themeManager.selectedTheme.primaryColor,
                                 accessory: {
                                     Text(currentLanguageDisplayName)
-                                        .font(.system(size: AppConstants.isIPad ? 18 : 14, weight: .medium))
+                                        .font(.subheadline.weight(.medium))
                                         .foregroundStyle(secondaryTextColor)
                                 }
                             )
@@ -135,7 +135,7 @@ struct SettingsView: View {
                                             .fill(themeManager.selectedTheme.primaryColor)
                                             .frame(width: AppConstants.isIPad ? 24 : 18, height: AppConstants.isIPad ? 24 : 18)
                                         Text(themeManager.themePreference.displayName(bundle: localizationManager.bundle ?? Bundle.main))
-                                            .font(.system(size: AppConstants.isIPad ? 18 : 14, weight: .medium))
+                                            .font(.subheadline.weight(.medium))
                                             .foregroundStyle(secondaryTextColor)
                                     }
                                 }
@@ -276,7 +276,7 @@ struct SettingsRow<Accessory: View>: View {
 
             VStack(alignment: .leading, spacing: 3) {
                 title
-                    .font(.system(size: AppConstants.isIPad ? 20 : 16, weight: .semibold))
+                    .font(.callout.weight(.semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
                     .lineLimit(1)
                     .minimumScaleFactor(0.85)
@@ -284,7 +284,7 @@ struct SettingsRow<Accessory: View>: View {
                     .truncationMode(.tail)
                 if let subtitle {
                     subtitle
-                        .font(.system(size: AppConstants.isIPad ? 15 : 12))
+                        .font(.footnote)
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.6))
                 }
             }
@@ -295,7 +295,7 @@ struct SettingsRow<Accessory: View>: View {
                 accessory
                 if showsChevron {
                     Image(systemName: "chevron.right")
-                        .font(.system(size: AppConstants.isIPad ? 16 : 14, weight: .semibold))
+                        .font(.subheadline.weight(.semibold))
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.45))
                 }
             }
@@ -345,14 +345,14 @@ struct ThemePreviewView: View {
         VStack(spacing: 0) {
             HStack {
                 Text("theme_select_title", bundle: localizationManager.bundle)
-                    .font(.system(size: AppConstants.isIPad ? 20 : 17, weight: .semibold))
+                    .font(.headline)
                     .foregroundStyle(themeManager.selectedTheme.textColor)
                 Spacer()
                 Button {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark.circle.fill")
-                        .font(.system(size: AppConstants.isIPad ? 28 : 26))
+                        .font(.title2)
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
                 }
                 .accessibilityLabel(Text("done_button", bundle: localizationManager.bundle))
@@ -399,14 +399,14 @@ struct ThemePreviewView: View {
                 themeCircle(for: theme)
 
                 Text(theme.displayName(bundle: localizationManager.bundle ?? .main))
-                    .font(.system(size: AppConstants.isIPad ? 17 : 16, weight: .regular))
+                    .font(.body)
                     .foregroundStyle(themeManager.selectedTheme.textColor)
 
                 Spacer()
 
                 if isSelected {
                     Image(systemName: "checkmark")
-                        .font(.system(size: AppConstants.isIPad ? 15 : 14, weight: .semibold))
+                        .font(.caption.weight(.semibold))
                         .foregroundStyle(themeManager.selectedTheme.primaryColor)
                         .transition(.scale.combined(with: .opacity))
                 }

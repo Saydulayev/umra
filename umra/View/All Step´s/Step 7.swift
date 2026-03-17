@@ -20,7 +20,7 @@ struct Step7: View {
             ScrollView {
                 VStack {
                     Text("Shaving the head string", bundle: localizationManager.bundle)
-                        .font(.custom("Lato-Black", size: 26))
+                        .font(.custom("Lato-Black", size: 26, relativeTo: .title2))
                     
                     Group {
                         Text("Men shorten or shave their hair.", bundle: localizationManager.bundle)

@@ -175,7 +175,7 @@ struct HajjView: View {
     private var stepsHeader: some View {
         HStack {
             Text("hajj_title", bundle: localizationManager.bundle)
-                .font(.system(size: AppConstants.isIPad ? 36 : 28, weight: .bold))
+                .font(.largeTitle.weight(.bold))
                 .foregroundStyle(themeManager.selectedTheme.textColor)
 
             Spacer()
@@ -272,20 +272,19 @@ private struct HajjStepRow: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 Text("\(localizationManager.localized("step_prefix")) \(index + 1)")
-                    .font(.system(size: AppConstants.isIPad ? 14 : 11, weight: .medium))
+                    .font(.caption.weight(.medium))
                     .tracking(0.5)
                     .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.4))
                     .textCase(.uppercase)
-                
+
                 Text(parsedTitle.name)
-                    .font(.system(size: AppConstants.isIPad ? 24 : 18, weight: .semibold))
+                    .font(.title3.weight(.semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
-                    .lineLimit(2)
                     .fixedSize(horizontal: false, vertical: true)
-                
+
                 if let date = parsedTitle.date {
                     Text(date)
-                        .font(.system(size: AppConstants.isIPad ? 15 : 12))
+                        .font(.footnote)
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.45))
                 }
             }
@@ -293,7 +292,7 @@ private struct HajjStepRow: View {
             Spacer()
             
             Image(systemName: "chevron.right")
-                .font(.system(size: AppConstants.isIPad ? 16 : 14, weight: .semibold))
+                .font(.subheadline.weight(.semibold))
                 .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
         }
         .frame(maxWidth: .infinity, alignment: .leading)

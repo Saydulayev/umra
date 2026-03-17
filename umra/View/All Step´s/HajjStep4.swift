@@ -22,7 +22,7 @@ struct HajjStep4: View {
                     // Секция: Пребывание в Мине
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step4_stay_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
+                            .font(fontManager.sectionTitleFont)
                             .padding(.top, 8)
                         
                         Text("hajj_step4_stay_text", bundle: localizationManager.bundle)
@@ -35,7 +35,7 @@ struct HajjStep4: View {
                     // Секция: Бросание камешков
                     VStack(alignment: .leading, spacing: 12) {
                         Text("hajj_step4_jamarat_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: fontManager.sectionTitleFontSize))
+                            .font(fontManager.sectionTitleFont)
                             .padding(.top, 8)
                         
                         Text("hajj_step4_jamarat_text", bundle: localizationManager.bundle)

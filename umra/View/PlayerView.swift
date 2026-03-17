@@ -99,9 +99,7 @@ struct PlayerView: View {
 
     // MARK: - UI Helpers
 
-    private var playerControlSize: CGFloat {
-        70
-    }
+    private var playerControlSize: CGFloat { 70 }
 
     private var activeControlBorderColor: Color {
         themeManager.selectedTheme.activeButtonColor.opacity(themeManager.selectedTheme.isDarkAppearance ? 0.5 : 0.35)
@@ -187,7 +185,7 @@ struct PlayerView: View {
         Button(action: action) {
             playerControl(isActive: isActive) {
                 Image(systemName: imageName)
-                    .font(.system(size: 16, weight: .bold))
+                    .font(.body.weight(.bold))
             }
         }
         .accessibilityLabel(accessibilityLabel)
@@ -200,7 +198,7 @@ struct PlayerView: View {
         } label: {
             playerControl(isActive: isActive) {
                 Text(text)
-                    .font(.system(size: 16, weight: .bold))
+                    .font(.caption.weight(.bold))
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
             }

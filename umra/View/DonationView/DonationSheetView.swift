@@ -41,10 +41,6 @@ struct DonationSheetView: View {
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "DonationSheetView")
     
     
-    private var titleFontSize: CGFloat {
-        AppConstants.isIPad ? 24 : 16
-    }
-    
     private var titlePadding: CGFloat {
         AppConstants.isIPad ? 24 : 16
     }
@@ -53,20 +49,12 @@ struct DonationSheetView: View {
         AppConstants.isIPad ? 24 : 20
     }
     
-    private var pickerFontSize: CGFloat {
-        AppConstants.isIPad ? 28 : 20
-    }
-    
     private var pickerPadding: CGFloat {
         AppConstants.isIPad ? 12 : 5
     }
     
     private var pickerContainerPadding: CGFloat {
         AppConstants.isIPad ? 24 : 16
-    }
-    
-    private var buttonFontSize: CGFloat {
-        AppConstants.isIPad ? 24 : 18
     }
     
     private var buttonPadding: CGFloat {
@@ -84,58 +72,58 @@ struct DonationSheetView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                // Фоновый цвет для экрана
                 themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
-                
-                VStack(spacing: AppConstants.isIPad ? 32 : 24) {
-                    Text("Contribution to Application Development", bundle: localizationManager.bundle)
-                        .font(.system(size: titleFontSize, weight: .medium))
-                        .foregroundStyle(themeManager.selectedTheme.textColor)
-                        .multilineTextAlignment(.center)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(titlePadding)
-                        .frame(maxWidth: .infinity)
-                        .neumorphicBackground(cornerRadius: titleCornerRadius, theme: themeManager.selectedTheme)
-                        .padding(.horizontal, pickerContainerPadding)
-                        .padding(.top, AppConstants.isIPad ? 24 : 16)
 
-                    Spacer()
-
-                    HStack(spacing: AppConstants.isIPad ? 16 : 12) {
-                        Text("select_the_amount", bundle: localizationManager.bundle)
-                            .font(.system(size: titleFontSize, weight: .medium))
+                ScrollView {
+                    VStack(spacing: AppConstants.isIPad ? 32 : 24) {
+                        Text("Contribution to Application Development", bundle: localizationManager.bundle)
+                            .font(.callout.weight(.medium))
                             .foregroundStyle(themeManager.selectedTheme.textColor)
+                            .multilineTextAlignment(.center)
                             .fixedSize(horizontal: false, vertical: true)
-
-                        Picker("Выберите сумму", selection: $selectedProductID) {
-                            ForEach(ProductID.allCases, id: \.rawValue) { productID in
-                                Text(productID.displayPrice)
-                                    .font(.system(size: pickerFontSize))
-                                    .tag(productID.rawValue)
-                            }
-                        }
-                        .font(.system(size: pickerFontSize))
-                        .padding(pickerPadding)
-                        .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
-                        .tint(themeManager.selectedTheme.primaryColor)
-                        .pickerStyle(MenuPickerStyle())
-                    }
-                    .padding(.horizontal, pickerContainerPadding)
-
-                    if isLoading {
-                        ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: themeManager.selectedTheme.textColor))
+                            .padding(titlePadding)
                             .frame(maxWidth: .infinity)
-                            .padding(buttonPadding)
-                            .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
+                            .neumorphicBackground(cornerRadius: titleCornerRadius, theme: themeManager.selectedTheme)
                             .padding(.horizontal, pickerContainerPadding)
-                            .padding(.bottom, AppConstants.isIPad ? 32 : 16)
-                    } else {
-                        donateButton
-                            .padding(.bottom, AppConstants.isIPad ? 32 : 16)
+                            .padding(.top, AppConstants.isIPad ? 24 : 16)
+
+                        HStack(spacing: AppConstants.isIPad ? 16 : 12) {
+                            Text("select_the_amount", bundle: localizationManager.bundle)
+                                .font(.callout.weight(.medium))
+                                .foregroundStyle(themeManager.selectedTheme.textColor)
+                                .fixedSize(horizontal: false, vertical: true)
+
+                            Picker("Выберите сумму", selection: $selectedProductID) {
+                                ForEach(ProductID.allCases, id: \.rawValue) { productID in
+                                    Text(productID.displayPrice)
+                                        .font(.title3)
+                                        .tag(productID.rawValue)
+                                }
+                            }
+                            .font(.title3)
+                            .padding(pickerPadding)
+                            .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
+                            .tint(themeManager.selectedTheme.primaryColor)
+                            .pickerStyle(MenuPickerStyle())
+                        }
+                        .padding(.horizontal, pickerContainerPadding)
+
+                        if isLoading {
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: themeManager.selectedTheme.textColor))
+                                .frame(maxWidth: .infinity)
+                                .padding(buttonPadding)
+                                .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
+                                .padding(.horizontal, pickerContainerPadding)
+                                .padding(.bottom, AppConstants.isIPad ? 32 : 16)
+                        } else {
+                            donateButton
+                                .padding(.bottom, AppConstants.isIPad ? 32 : 16)
+                        }
                     }
                 }
+                .scrollBounceBehavior(.basedOnSize)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -168,7 +156,7 @@ struct DonationSheetView: View {
             }
         } label: {
             Text("_donate_button", bundle: localizationManager.bundle)
-                .font(.system(size: buttonFontSize, weight: .medium))
+                .font(.title3.weight(.medium))
                 .foregroundStyle(themeManager.selectedTheme.textColor)
                 .frame(maxWidth: .infinity)
                 .padding(buttonPadding)

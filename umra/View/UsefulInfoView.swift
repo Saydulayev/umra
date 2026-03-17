@@ -71,11 +71,11 @@ struct UsefulInfoView: View {
                         NavigationLink(value: chapter) {
                             HStack {
                                 Text(chapter.title)
-                                    .font(.system(size: getDynamicFontSize()))
+                                    .font(.body)
                                     .foregroundStyle(themeManager.selectedTheme.textColor)
                                 Spacer()
                                 Image(systemName: "chevron.right")
-                                    .font(.system(size: 14, weight: .semibold))
+                                    .font(.caption.weight(.semibold))
                                     .foregroundStyle(usefulInfoAccentBlue.opacity(0.9))
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -261,7 +261,7 @@ struct JanazaView: View {
                     .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentBlue))
                 }
                 .padding(contentPadding)
-                .font(.system(size: getDynamicFontSize()))
+                .font(.body)
                 .foregroundStyle(themeManager.selectedTheme.textColor)
                 .textSelection(.enabled)
                 .padding(.bottom, 32)
@@ -295,12 +295,12 @@ struct ChapterDetailView: View {
                         NavigationLink(value: subChapter) {
                             HStack {
                                 Text(subChapter.title)
-                                    .font(.system(size: getDynamicFontSize()))
+                                    .font(.body)
                                     .foregroundStyle(themeManager.selectedTheme.textColor)
                                     .textSelection(.enabled)
                                 Spacer()
                                 Image(systemName: "chevron.right")
-                                    .font(.system(size: 14, weight: .semibold))
+                                    .font(.caption.weight(.semibold))
                                     .foregroundStyle(usefulInfoAccentBlue.opacity(0.9))
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -369,12 +369,12 @@ private func containsArabic(_ string: String) -> Bool {
 }
 
 @ViewBuilder
-private func bodyParagraphView(paragraph: String, fontSize: CGFloat, textColor: Color) -> some View {
+private func bodyParagraphView(paragraph: String, textColor: Color) -> some View {
     let lines = paragraph.components(separatedBy: "\n")
     VStack(alignment: .leading, spacing: 6) {
         ForEach(Array(lines.enumerated()), id: \.offset) { _, line in
-            let lineContent = textWithBoldQuotes(line, fontSize: fontSize, textColor: textColor)
-                .font(containsArabic(line) ? .custom("KFGQPC Uthman Taha Naskh", size: fontSize) : .system(size: fontSize))
+            let lineContent = textWithBoldQuotes(line, textColor: textColor)
+                .font(containsArabic(line) ? .custom("KFGQPC Uthman Taha Naskh", size: 20, relativeTo: .body) : .body)
                 .textSelection(.enabled)
                 .fixedSize(horizontal: false, vertical: true)
             if containsArabic(line) {
@@ -388,7 +388,7 @@ private func bodyParagraphView(paragraph: String, fontSize: CGFloat, textColor: 
     .frame(maxWidth: .infinity, alignment: .leading)
 }
 
-private func textWithBoldQuotes(_ paragraph: String, fontSize: CGFloat, textColor: Color) -> Text {
+private func textWithBoldQuotes(_ paragraph: String, textColor: Color) -> Text {
     var attributed = AttributedString()
     let parts = paragraph.components(separatedBy: "«")
     for (index, part) in parts.enumerated() {
@@ -402,7 +402,7 @@ private func textWithBoldQuotes(_ paragraph: String, fontSize: CGFloat, textColo
         if subParts.count >= 2 {
             var quoteSegment = AttributedString("«\(subParts[0])»")
             quoteSegment.foregroundColor = textColor
-            quoteSegment.font = .system(size: fontSize, weight: .semibold)
+            quoteSegment.font = .body.weight(.semibold)
             attributed.append(quoteSegment)
             var rest = AttributedString(subParts.dropFirst().joined(separator: "»"))
             rest.foregroundColor = textColor
@@ -426,20 +426,19 @@ private struct FormattedContentView: View {
     
     var body: some View {
         let blocks = parseFormattedContent(content)
-        let fontSize = getDynamicFontSize()
         let textColor = themeManager.selectedTheme.textColor
-        
+
         VStack(alignment: .leading, spacing: 14) {
             ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
                 switch block.style {
                 case FormattedContentBlock.Style.heading(let text):
                     Text(text)
-                        .font(.system(size: fontSize + 1, weight: .bold))
+                        .font(.headline)
                         .foregroundStyle(headingColor)
                         .textSelection(.enabled)
                         .fixedSize(horizontal: false, vertical: true)
                 case FormattedContentBlock.Style.body(let paragraph):
-                    bodyParagraphView(paragraph: paragraph, fontSize: fontSize, textColor: textColor)
+                    bodyParagraphView(paragraph: paragraph, textColor: textColor)
                 }
             }
         }
@@ -495,7 +494,7 @@ struct SubChapterDetailView: View {
                         FormattedContentView(content: subChapter.content)
                     } else {
                         Text(subChapter.content)
-                            .font(.system(size: getDynamicFontSize()))
+                            .font(.body)
                             .foregroundStyle(themeManager.selectedTheme.textColor)
                             .textSelection(.enabled)
                     }
@@ -510,9 +509,6 @@ struct SubChapterDetailView: View {
     }
 }
 
-func getDynamicFontSize(forPad: CGFloat = 30, forPhone: CGFloat = 20) -> CGFloat {
-    UIDevice.current.userInterfaceIdiom == .pad ? forPad : forPhone
-}
 
 struct Chapter: Identifiable, Hashable, Sendable {
     let id = UUID()

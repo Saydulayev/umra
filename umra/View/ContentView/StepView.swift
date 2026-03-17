@@ -77,8 +77,7 @@ struct StepView: View {
                 
                 if let index, !(hideLastIndex && index == stepsCount - 1) {
                     Text("\(index + 1)")
-                        .font(.system(size: AppConstants.isIPad ? 14 : 11))
-                        .bold()
+                        .font(.caption.bold())
                         .foregroundStyle(themeManager.selectedTheme.textColor)
                         .padding(AppConstants.isIPad ? 9 : 7)
                         .background(
@@ -92,12 +91,12 @@ struct StepView: View {
             
             VStack(spacing: 3) {
                 Text(parsedTitle.name)
-                    .font(.custom("Lato-Black", size: fontSize))
+                    .font(.custom("Lato-Black", size: fontSize, relativeTo: .title2))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
                     .multilineTextAlignment(.center)
                 if let date = parsedTitle.date {
                     Text(date)
-                        .font(.system(size: fontSize * 0.6, weight: .regular))
+                        .font(.footnote)
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.7))
                         .multilineTextAlignment(.center)
                 }

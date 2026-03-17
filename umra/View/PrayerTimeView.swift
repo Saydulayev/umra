@@ -66,8 +66,10 @@ struct PrayerTimeView: View {
             self == .compact
         }
 
-        var titleFontSize: CGFloat {
-            isCompact ? 28 : 36
+        var titleFont: Font {
+            isCompact
+                ? .custom("Savoye LET", size: 28, relativeTo: .title)
+                : .custom("Savoye LET", size: 36, relativeTo: .largeTitle)
         }
 
         var stackSpacing: CGFloat {
@@ -167,7 +169,7 @@ struct PrayerTimeView: View {
                         .minimumScaleFactor(0.7)
                 }
             }
-            .font(.custom("Savoye LET", size: layout.titleFontSize))
+            .font(layout.titleFont)
             .foregroundStyle(themeManager.selectedTheme.textColor)
             .padding(layout.headerPadding)
             Divider()
@@ -536,10 +538,6 @@ struct PrayerTimeRow: View {
     var prayerTime: String
     var compact: Bool = false
 
-    private var rowFont: Font {
-        compact ? .callout : .title3
-    }
-
     private var horizontalPadding: CGFloat {
         compact ? 8 : 10
     }
@@ -551,13 +549,13 @@ struct PrayerTimeRow: View {
     var body: some View {
         HStack {
             Text(prayerName)
-                .font(rowFont)
+                .font(.callout)
                 .fontWeight(.semibold)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
             Spacer()
             Text(prayerTime)
-                .font(rowFont)
+                .font(.callout)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
         }

@@ -446,7 +446,6 @@ extension Image {
     func styledImageWithIndexAndTheme(index: Int, stepsCount: Int, theme: AppTheme, hideLastIndex: Bool = true) -> some View {
         let imagePadding: CGFloat = AppConstants.isIPad ? 16 : 12
         let outerPadding: CGFloat = AppConstants.isIPad ? 16 : 12
-        let indexFontSize: CGFloat = AppConstants.isIPad ? 16 : 12
         let indexPadding: CGFloat = AppConstants.isIPad ? 10 : 8
         let indexOffsetX: CGFloat = AppConstants.isIPad ? -25 : -20
         let indexOffsetY: CGFloat = AppConstants.isIPad ? 20 : 15
@@ -465,8 +464,7 @@ extension Image {
                 .padding(outerPadding)
             
             Text("\(index + 1)")
-                .font(.system(size: indexFontSize))
-                .bold()
+                .font(.caption.bold())
                 .foregroundStyle(theme.textColor)
                 .padding(indexPadding)
                 .background(theme.cardColor)
@@ -525,7 +523,7 @@ struct StepTextModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(customPadding)
-            .font(.custom("KFGQPC Uthman Taha Naskh", size: dynamicFontSize))
+            .font(.custom("KFGQPC Uthman Taha Naskh", size: dynamicFontSize, relativeTo: .body))
             .lineSpacing(15)
             .multilineTextAlignment(.center)
             .foregroundStyle(theme.textColor)
@@ -554,21 +552,17 @@ struct CustomTextStyleWithThemeModifier: ViewModifier {
     @Environment(FontManager.self) private var fontManager
 
 
-    private var fontSize: CGFloat {
-        fontManager.dynamicFontSize
-    }
-    
     private var padding: CGFloat {
         AppConstants.isIPad ? 24 : 16
     }
-    
+
     private var cornerRadius: CGFloat {
         AppConstants.isIPad ? 24 : 20
     }
-    
+
     func body(content: Content) -> some View {
         return content
-            .font(.system(size: fontSize, weight: .medium, design: .default))
+            .font(fontManager.bodyFont)
             .foregroundStyle(themeManager.selectedTheme.textColor)
             .padding(padding)
             .frame(maxWidth: .infinity)

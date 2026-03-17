@@ -102,18 +102,6 @@ struct RitualCounterCard: View {
         AppConstants.isIPad ? 20 : 16
     }
 
-    private var titleFontSize: CGFloat {
-        AppConstants.isIPad ? 28 : 22
-    }
-
-    private var statusFontSize: CGFloat {
-        AppConstants.isIPad ? 17 : 14
-    }
-
-    private var buttonFontSize: CGFloat {
-        AppConstants.isIPad ? 18 : 16
-    }
-
     private var stepIndicatorSize: CGFloat {
         AppConstants.isIPad ? 34 : 28
     }
@@ -155,14 +143,13 @@ struct RitualCounterCard: View {
                 HStack(alignment: .top, spacing: 12) {
                     VStack(alignment: .leading, spacing: 10) {
                         localizedText(kind.titleKey)
-                            .font(.custom("Lato-Black", size: titleFontSize))
+                            .font(.custom("Lato-Black", size: 22, relativeTo: .title2))
                             .foregroundStyle(theme.textColor)
 
                         HStack(spacing: 8) {
                             Image(systemName: isCompleted ? "checkmark.circle.fill" : kind.iconName)
-                                .font(.system(size: AppConstants.isIPad ? 16 : 14, weight: .semibold))
                             localizedText(isCompleted ? kind.completionKey : kind.progressLabelKey)
-                                .font(.system(size: statusFontSize, weight: .semibold))
+                                .font(.subheadline.weight(.semibold))
                                 .lineLimit(2)
                         }
                         .foregroundStyle(statusColor)
@@ -179,7 +166,7 @@ struct RitualCounterCard: View {
                     Spacer(minLength: 12)
 
                     Text("\(counter)/\(RitualCounterKind.targetCount)")
-                        .font(.system(size: AppConstants.isIPad ? 22 : 18, weight: .bold, design: .rounded))
+                        .font(.system(.title3, design: .rounded).weight(.bold))
                         .monospacedDigit()
                         .foregroundStyle(statusColor)
                         .padding(.horizontal, AppConstants.isIPad ? 14 : 12)
@@ -196,9 +183,8 @@ struct RitualCounterCard: View {
                     Button(action: incrementCounter) {
                         HStack(spacing: 10) {
                             Image(systemName: isCompleted ? "checkmark.circle.fill" : "plus.circle.fill")
-                                .font(.system(size: AppConstants.isIPad ? 18 : 16, weight: .semibold))
                             Text("add_string", bundle: localizationManager.bundle)
-                                .font(.system(size: buttonFontSize, weight: .semibold))
+                                .font(.callout.weight(.semibold))
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.75)
                         }
@@ -222,9 +208,8 @@ struct RitualCounterCard: View {
                     Button(action: resetCounter) {
                         HStack(spacing: 8) {
                             Image(systemName: "arrow.counterclockwise")
-                                .font(.system(size: AppConstants.isIPad ? 16 : 15, weight: .semibold))
                             Text("reset_string", bundle: localizationManager.bundle)
-                                .font(.system(size: buttonFontSize, weight: .semibold))
+                                .font(.callout.weight(.semibold))
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.75)
                         }
@@ -290,7 +275,7 @@ struct RitualCounterCard: View {
                             )
 
                         Text("\(step)")
-                            .font(.system(size: AppConstants.isIPad ? 13 : 11, weight: .bold, design: .rounded))
+                            .font(.system(.caption2, design: .rounded).weight(.bold))
                             .foregroundStyle(step <= counter ? Color.white : theme.textColor.opacity(0.66))
                     }
                     .frame(width: stepIndicatorSize, height: stepIndicatorSize)
