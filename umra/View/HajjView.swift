@@ -22,11 +22,11 @@ struct HajjView: View {
     @State private var navigationPath = NavigationPath()
 
     private let steps: [GuideStepItem] = [
-        GuideStepItem(id: 0, badgeText: "TARWIYAH", badgeColor: Color(red: 0.388, green: 0.400, blue: 0.945), titleKey: "hajj_step1_title", showDate: true), // Indigo
-        GuideStepItem(id: 1, badgeText: "ARAFAT",   badgeColor: Color(red: 0.545, green: 0.361, blue: 0.965), titleKey: "hajj_step2_title", showDate: true), // Violet
-        GuideStepItem(id: 2, badgeText: "NAHR",     badgeColor: Color(red: 0.878, green: 0.478, blue: 0.431), titleKey: "hajj_step3_title", showDate: true), // Rose
-        GuideStepItem(id: 3, badgeText: "TASHRIQ",  badgeColor: Color(red: 0.42,  green: 0.61,  blue: 0.56),  titleKey: "hajj_step4_title", showDate: true), // Sage
-        GuideStepItem(id: 4, badgeText: "WADA'",    badgeColor: Color(red: 0.078, green: 0.722, blue: 0.651), titleKey: "hajj_step5_title", showDate: true), // Teal
+        GuideStepItem(id: 0, badgeText: "TARWIYAH", titleKey: "hajj_step1_title", showDate: true),
+        GuideStepItem(id: 1, badgeText: "ARAFAT",   titleKey: "hajj_step2_title", showDate: true),
+        GuideStepItem(id: 2, badgeText: "NAHR",     titleKey: "hajj_step3_title", showDate: true),
+        GuideStepItem(id: 3, badgeText: "TASHRIQ",  titleKey: "hajj_step4_title", showDate: true),
+        GuideStepItem(id: 4, badgeText: "WADA'",    titleKey: "hajj_step5_title", showDate: true),
     ]
 
     private let hajjNavigation: [HajjStep] = [.step1, .step2, .step3, .step4, .step5]

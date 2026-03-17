@@ -521,10 +521,10 @@ extension View {
 struct GuideStepItem: Identifiable {
     let id: Int
     let badgeText: String
-    let badgeColor: Color
     let titleKey: String
     var showStepNumber: Bool = true
     var showDate: Bool = false
+    var symbolName: String? = nil
 }
 
 // MARK: - GuideStepRow
@@ -537,6 +537,7 @@ struct GuideStepRow: View {
     @Environment(LocalizationManager.self) private var localizationManager
 
     private var badgeSize: CGFloat { AppConstants.isIPad ? 72 : 56 }
+    private var badgeColor: Color { themeManager.selectedTheme.primaryColor }
 
     private var badgeFontSize: CGFloat {
         let longestLine = item.badgeText.components(separatedBy: "\n").map(\.count).max() ?? 0
@@ -550,29 +551,36 @@ struct GuideStepRow: View {
         HStack(spacing: AppConstants.isIPad ? 20 : 16) {
             ZStack {
                 Circle()
-                    .fill(item.badgeColor.opacity(0.15))
-                Text(item.badgeText)
-                    .font(.system(size: badgeFontSize, weight: .bold))
-                    .tracking(-0.5)
-                    .foregroundStyle(item.badgeColor)
-                    .minimumScaleFactor(0.5)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
-                    .padding(.horizontal, 4)
+                    .fill(badgeColor.opacity(0.12))
+                if let symbol = item.symbolName {
+                    Image(systemName: symbol)
+                        .font(.system(size: AppConstants.isIPad ? 28 : 22, weight: .medium))
+                        .foregroundStyle(badgeColor)
+                        .symbolRenderingMode(.hierarchical)
+                } else {
+                    Text(item.badgeText)
+                        .font(.system(size: badgeFontSize, weight: .bold))
+                        .tracking(-0.5)
+                        .foregroundStyle(badgeColor)
+                        .minimumScaleFactor(0.5)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                        .padding(.horizontal, 4)
+                }
             }
             .frame(width: badgeSize, height: badgeSize)
 
             VStack(alignment: .leading, spacing: 4) {
                 if item.showStepNumber {
                     Text("\(localizationManager.localized("step_prefix")) \(index + 1)")
-                        .font(.caption.weight(.medium))
+                        .font(.caption)
                         .tracking(0.5)
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.4))
                         .textCase(.uppercase)
                 }
                 let parsed = localizationManager.parseTitleComponents(from: item.titleKey)
                 Text(parsed.name)
-                    .font(.title3.weight(.semibold))
+                    .font(.body.weight(.medium))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
                     .fixedSize(horizontal: false, vertical: true)
                 if item.showDate, let date = parsed.date {

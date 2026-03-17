@@ -9,14 +9,13 @@ import SwiftUI
 
 struct StepView: View {
     let badgeText: String
-    let badgeColor: Color
     let titleKey: LocalizedStringKey
     let stringKey: String
     let index: Int?
     let fontSize: CGFloat
     let stepsCount: Int
     let hideLastIndex: Bool
-    
+
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(FontManager.self) private var fontManager
@@ -24,12 +23,11 @@ struct StepView: View {
     private var parsedTitle: (name: String, date: String?) {
         localizationManager.parseTitleComponents(from: stringKey)
     }
-    
-    
+
     private var badgeDiameter: CGFloat {
         AppConstants.isIPad ? 80 : 60
     }
-    
+
     private var badgeFontSize: CGFloat {
         let longestLine = badgeText.components(separatedBy: "\n").map(\.count).max() ?? 0
         let base: CGFloat = AppConstants.isIPad ? 14 : 10
@@ -37,13 +35,17 @@ struct StepView: View {
         if longestLine > 4 { return base * 0.9 }
         return base
     }
-    
+
+    private var badgeColor: Color {
+        themeManager.selectedTheme.primaryColor
+    }
+
     var body: some View {
         VStack(spacing: 6) {
             ZStack(alignment: .topTrailing) {
                 ZStack {
                     Circle()
-                        .fill(badgeColor.opacity(0.15))
+                        .fill(badgeColor.opacity(0.12))
                     Text(badgeText)
                         .font(.system(size: badgeFontSize, design: .rounded))
                         .bold()

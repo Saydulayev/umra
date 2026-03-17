@@ -27,14 +27,14 @@ struct ContentView: View {
     @State private var navigationPath = NavigationPath()
 
     private let steps: [GuideStepItem] = [
-        GuideStepItem(id: 0, badgeText: "IHRAM",         badgeColor: Color(red: 0.055, green: 0.647, blue: 0.914), titleKey: "title_ihram_screen"),          // Sky Blue
-        GuideStepItem(id: 1, badgeText: "TAWAF",         badgeColor: Color(red: 0.831, green: 0.635, blue: 0.306), titleKey: "title_round_kaaba_screen"),     // Amber
-        GuideStepItem(id: 2, badgeText: "MAQAM\nIBRAHIM", badgeColor: Color(red: 0.078, green: 0.722, blue: 0.651), titleKey: "title_place_ibrohim_stand_screen"), // Teal
-        GuideStepItem(id: 3, badgeText: "ZAMZAM",        badgeColor: Color(red: 0.063, green: 0.725, blue: 0.506), titleKey: "title_water_zamzam_screen"),    // Emerald
-        GuideStepItem(id: 4, badgeText: "ISTILAM",       badgeColor: Color(red: 0.878, green: 0.478, blue: 0.431), titleKey: "title_black_stone_screen"),     // Rose
-        GuideStepItem(id: 5, badgeText: "SA'I",          badgeColor: Color(red: 0.42,  green: 0.61,  blue: 0.56),  titleKey: "title_safa_and_marva_screen"),  // Sage
-        GuideStepItem(id: 6, badgeText: "HALQ\nTAQSIR",  badgeColor: Color(red: 0.545, green: 0.361, blue: 0.965), titleKey: "title_shave_head_screen"),      // Violet
-        GuideStepItem(id: 7, badgeText: "INFO",          badgeColor: Color(red: 0.29,  green: 0.51,  blue: 0.78),  titleKey: "Useful", showStepNumber: false), // Blue
+        GuideStepItem(id: 0, badgeText: "IHRAM",          titleKey: "title_ihram_screen"),
+        GuideStepItem(id: 1, badgeText: "TAWAF",          titleKey: "title_round_kaaba_screen"),
+        GuideStepItem(id: 2, badgeText: "MAQAM\nIBRAHIM", titleKey: "title_place_ibrohim_stand_screen"),
+        GuideStepItem(id: 3, badgeText: "ZAMZAM",         titleKey: "title_water_zamzam_screen"),
+        GuideStepItem(id: 4, badgeText: "ISTILAM",        titleKey: "title_black_stone_screen"),
+        GuideStepItem(id: 5, badgeText: "SA'I",           titleKey: "title_safa_and_marva_screen"),
+        GuideStepItem(id: 6, badgeText: "HALQ\nTAQSIR",  titleKey: "title_shave_head_screen"),
+        GuideStepItem(id: 7, badgeText: "INFO",           titleKey: "Useful", showStepNumber: false, symbolName: "info.circle.fill"),
     ]
 
     private let umraNavigation: [UmraStep] = [.step1, .step2, .step3, .step4, .step5, .step6, .step7, .useful]
