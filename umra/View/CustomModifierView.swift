@@ -580,7 +580,7 @@ struct GuideStepRow: View {
                 }
                 let parsed = localizationManager.parseTitleComponents(from: item.titleKey)
                 Text(parsed.name)
-                    .font(.body.weight(.medium))
+                    .font(.body.weight(.semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
                     .fixedSize(horizontal: false, vertical: true)
                 if item.showDate, let date = parsed.date {
