@@ -16,7 +16,6 @@
 		C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC882997AD040000FD8E /* Lato-Bold.ttf */; };
 		C036BC8B2997AD350000FD8E /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC8A2997AD350000FD8E /* Lato-Black.ttf */; };
 		C041C7A02BB06739007381FB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C041C79F2BB06739007381FB /* .gitignore */; };
-		C05648EF2BB5AA8700E12230 /* hadj_proroka.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C05648EE2BB5AA8700E12230 /* hadj_proroka.pdf */; };
 		C063ADE329DF2E5B00746D2E /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063ADE229DF2E5B00746D2E /* PlayerView.swift */; };
 		C063ADF229DF2FC700746D2E /* 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE529DF2FC400746D2E /* 5.mp3 */; };
 		C063ADF329DF2FC700746D2E /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE629DF2FC500746D2E /* 2.mp3 */; };
@@ -33,7 +32,6 @@
 		C063ADFE29DF2FC700746D2E /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADF129DF2FC700746D2E /* 8.mp3 */; };
 		C077B4782B20D41D00086594 /* StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077B4772B20D41D00086594 /* StoreKit.swift */; };
 		C079318C2B246BAE00B38D01 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C079318B2B246BAE00B38D01 /* StoreKit.framework */; };
-		C07BE9072AA3474600BA3A15 /* hadj_i_umra.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */; };
 		C07BE9262AA34B8900BA3A15 /* CounterTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */; };
 		C07BE92B2AA34B8900BA3A15 /* TawafCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BE92A2AA34B8900BA3A15 /* TawafCounterView.swift */; };
 		C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08EAFD22AF91CFB00C847AC /* textFont.swift */; };
@@ -78,7 +76,6 @@
 		C036BC882997AD040000FD8E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		C036BC8A2997AD350000FD8E /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		C041C79F2BB06739007381FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		C05648EE2BB5AA8700E12230 /* hadj_proroka.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hadj_proroka.pdf; sourceTree = "<group>"; };
 		C063ADE229DF2E5B00746D2E /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C063ADE529DF2FC400746D2E /* 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5.mp3; sourceTree = "<group>"; };
 		C063ADE629DF2FC500746D2E /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
@@ -98,7 +95,6 @@
 		C077B4772B20D41D00086594 /* StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKit.swift; sourceTree = "<group>"; };
 		C07931892B24627100B38D01 /* InAppPurchase.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = InAppPurchase.storekit; sourceTree = "<group>"; };
 		C079318B2B246BAE00B38D01 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hadj_i_umra.pdf; sourceTree = "<group>"; };
 		C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTapView.swift; sourceTree = "<group>"; };
 		C07BE92A2AA34B8900BA3A15 /* TawafCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TawafCounterView.swift; sourceTree = "<group>"; };
 		C08EAFD22AF91CFB00C847AC /* textFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFont.swift; sourceTree = "<group>"; };
@@ -237,15 +233,6 @@
 			path = MP3Voice;
 			sourceTree = "<group>";
 		};
-		C075CB1B2A137ED600D4C842 /* PDF */ = {
-			isa = PBXGroup;
-			children = (
-				C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */,
-				C05648EE2BB5AA8700E12230 /* hadj_proroka.pdf */,
-			);
-			path = PDF;
-			sourceTree = "<group>";
-		};
 		C079318A2B246BAE00B38D01 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,7 +280,6 @@
 				C025CE9B2A03E4300052188D /* Localizable.strings */,
 				C036BC802997A5190000FD8E /* Font */,
 				C063ADE429DF2ED500746D2E /* MP3Voice */,
-				C075CB1B2A137ED600D4C842 /* PDF */,
 				C07BE9082AA3477E00BA3A15 /* Screensh. */,
 				C0908DDF29829F8A00458ACB /* Assets.xcassets */,
 				C22958FC2E87F4B2006762B3 /* GlassIcon.icon */,
@@ -423,9 +409,7 @@
 				C063ADF429DF2FC700746D2E /* 12.mp3 in Resources */,
 				C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */,
 				C24508EC2C9CD3A6003E3E58 /* 2.png in Resources */,
-				C05648EF2BB5AA8700E12230 /* hadj_proroka.pdf in Resources */,
 				C063ADF729DF2FC700746D2E /* 7.mp3 in Resources */,
-				C07BE9072AA3474600BA3A15 /* hadj_i_umra.pdf in Resources */,
 				C036BC872997AAFA0000FD8E /* Lato-BlackItalic.ttf in Resources */,
 				C063ADF629DF2FC700746D2E /* 10.mp3 in Resources */,
 				C063ADF829DF2FC700746D2E /* 6.mp3 in Resources */,
