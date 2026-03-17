@@ -104,6 +104,8 @@ struct SettingsView: View {
                                     Text(currentLanguageDisplayName)
                                         .font(.subheadline.weight(.medium))
                                         .foregroundStyle(secondaryTextColor)
+                                        .lineLimit(1)
+                                        .minimumScaleFactor(0.75)
                                 }
                             )
                         }
@@ -137,6 +139,8 @@ struct SettingsView: View {
                                         Text(themeManager.themePreference.displayName(bundle: localizationManager.bundle ?? Bundle.main))
                                             .font(.subheadline.weight(.medium))
                                             .foregroundStyle(secondaryTextColor)
+                                            .lineLimit(1)
+                                            .minimumScaleFactor(0.75)
                                     }
                                 }
                             )
@@ -264,7 +268,7 @@ struct SettingsRow<Accessory: View>: View {
     }
 
     var body: some View {
-        HStack(spacing: SettingsMetrics.rowSpacing) {
+        HStack(alignment: .top, spacing: SettingsMetrics.rowSpacing) {
             ZStack {
                 Circle()
                     .fill(iconBackground)
@@ -278,14 +282,12 @@ struct SettingsRow<Accessory: View>: View {
                 title
                     .font(.callout.weight(.semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.85)
-                    .allowsTightening(true)
-                    .truncationMode(.tail)
+                    .fixedSize(horizontal: false, vertical: true)
                 if let subtitle {
                     subtitle
                         .font(.footnote)
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.6))
+                        .fixedSize(horizontal: false, vertical: true)
                 }
             }
 
@@ -299,6 +301,7 @@ struct SettingsRow<Accessory: View>: View {
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.45))
                 }
             }
+            .padding(.top, 2)
         }
         .padding(.horizontal, SettingsMetrics.rowHorizontalPadding)
         .padding(.vertical, SettingsMetrics.rowVerticalPadding)
@@ -342,46 +345,49 @@ struct ThemePreviewView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Text("theme_select_title", bundle: localizationManager.bundle)
-                    .font(.headline)
-                    .foregroundStyle(themeManager.selectedTheme.textColor)
-                Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title2)
-                        .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
-                }
-                .accessibilityLabel(Text("done_button", bundle: localizationManager.bundle))
-            }
-            .padding(.horizontal, AppConstants.isIPad ? 28 : 20)
-            .padding(.top, AppConstants.isIPad ? 28 : 22)
-            .padding(.bottom, AppConstants.isIPad ? 20 : 16)
-
+        ScrollView {
             VStack(spacing: 0) {
-                ForEach(Array(AppTheme.allCases.enumerated()), id: \.element) { index, theme in
-                    themeRow(for: theme)
+                HStack {
+                    Text("theme_select_title", bundle: localizationManager.bundle)
+                        .font(.headline)
+                        .foregroundStyle(themeManager.selectedTheme.textColor)
+                    Spacer()
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.title2)
+                            .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
+                    }
+                    .accessibilityLabel(Text("done_button", bundle: localizationManager.bundle))
+                }
+                .padding(.horizontal, AppConstants.isIPad ? 28 : 20)
+                .padding(.top, AppConstants.isIPad ? 28 : 22)
+                .padding(.bottom, AppConstants.isIPad ? 20 : 16)
 
-                    if index < AppTheme.allCases.count - 1 {
-                        Divider()
-                            .padding(.leading, AppConstants.isIPad ? 52 : 44)
-                            .foregroundStyle(themeManager.selectedTheme.cardBorderColor)
+                VStack(spacing: 0) {
+                    ForEach(Array(AppTheme.allCases.enumerated()), id: \.element) { index, theme in
+                        themeRow(for: theme)
+
+                        if index < AppTheme.allCases.count - 1 {
+                            Divider()
+                                .padding(.leading, AppConstants.isIPad ? 52 : 44)
+                                .foregroundStyle(themeManager.selectedTheme.cardBorderColor)
+                        }
                     }
                 }
+                .background(themeManager.selectedTheme.cardColor)
+                .clipShape(RoundedRectangle(cornerRadius: 18))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 18)
+                        .strokeBorder(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
+                }
+                .padding(.horizontal, AppConstants.isIPad ? 28 : 16)
+                .padding(.bottom, AppConstants.isIPad ? 32 : 24)
             }
-            .background(themeManager.selectedTheme.cardColor)
-            .clipShape(RoundedRectangle(cornerRadius: 18))
-            .overlay {
-                RoundedRectangle(cornerRadius: 18)
-                    .strokeBorder(themeManager.selectedTheme.cardBorderColor, lineWidth: 1)
-            }
-            .padding(.horizontal, AppConstants.isIPad ? 28 : 16)
-            .padding(.bottom, AppConstants.isIPad ? 32 : 24)
         }
-        .presentationDetents([.height(AppConstants.isIPad ? 400 : 340)])
+        .scrollBounceBehavior(.basedOnSize)
+        .presentationDetents([.medium, .large])
         .presentationDragIndicator(.visible)
         .presentationCornerRadius(28)
         .presentationBackground(themeManager.selectedTheme.backgroundColor)
