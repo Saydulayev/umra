@@ -657,8 +657,6 @@ extension View {
 // MARK: - GuideNavigationModifier
 
 struct GuideNavigationModifier: ViewModifier {
-    let titleKey: String
-
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(PurchaseManager.self) private var purchaseManager
@@ -666,7 +664,6 @@ struct GuideNavigationModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .navigationTitle(Text(LocalizedStringKey(titleKey), bundle: localizationManager.bundle))
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: AppDestination.self) { destination in
                 switch destination {
@@ -703,8 +700,8 @@ struct GuideNavigationModifier: ViewModifier {
 }
 
 extension View {
-    func guideNavigation(titleKey: String) -> some View {
-        modifier(GuideNavigationModifier(titleKey: titleKey))
+    func guideNavigation() -> some View {
+        modifier(GuideNavigationModifier())
     }
 }
 

@@ -80,7 +80,7 @@ struct HajjView: View {
                 }
                 .scrollIndicators(.hidden)
             }
-            .guideNavigation(titleKey: "hajj_title")
+            .guideNavigation()
             .navigationDestination(for: HajjStep.self) { step in
                 destinationView(for: step)
             }

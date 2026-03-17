@@ -98,7 +98,7 @@ struct ContentView: View {
                 }
                 .scrollIndicators(.hidden)
             }
-            .guideNavigation(titleKey: "umra_title")
+            .guideNavigation()
             .navigationDestination(for: UmraStep.self) { step in
                 destinationView(for: step)
             }
