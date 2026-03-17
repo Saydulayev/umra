@@ -310,13 +310,9 @@ struct SettingsRow<Accessory: View>: View {
 }
 
 struct SettingsDivider: View {
-    private var leadingInset: CGFloat {
-        SettingsMetrics.rowHorizontalPadding + SettingsMetrics.iconContainerSize + SettingsMetrics.rowSpacing
-    }
-
     var body: some View {
         Divider()
-            .padding(.leading, leadingInset)
+            .padding(.horizontal, SettingsMetrics.rowHorizontalPadding)
     }
 }
 
@@ -370,7 +366,7 @@ struct ThemePreviewView: View {
 
                         if index < AppTheme.allCases.count - 1 {
                             Divider()
-                                .padding(.leading, AppConstants.isIPad ? 52 : 44)
+                                .padding(.horizontal, AppConstants.isIPad ? 20 : 16)
                                 .foregroundStyle(themeManager.selectedTheme.cardBorderColor)
                         }
                     }

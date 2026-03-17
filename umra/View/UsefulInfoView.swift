@@ -87,7 +87,7 @@ struct UsefulInfoView: View {
                         if idx < chapters.count - 1 {
                             Divider()
                                 .background(themeManager.selectedTheme.textColor.opacity(0.10))
-                                .padding(.leading, listPadding)
+                                .padding(.horizontal, listPadding)
                         }
                     }
                 }
@@ -313,7 +313,7 @@ struct ChapterDetailView: View {
                         if idx < chapter.subChapters.count - 1 {
                             Divider()
                                 .background(themeManager.selectedTheme.textColor.opacity(0.10))
-                                .padding(.leading, listPadding)
+                                .padding(.horizontal, listPadding)
                         }
                     }
                 }

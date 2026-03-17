@@ -107,7 +107,7 @@ struct HajjView: View {
                     if idx < steps.count - 1 {
                         Divider()
                             .background(themeManager.selectedTheme.textColor.opacity(0.10))
-                            .padding(.leading, AppConstants.isIPad ? 112 : 92)
+                            .padding(.horizontal, AppConstants.isIPad ? 24 : 20)
                     }
                 }
             }
