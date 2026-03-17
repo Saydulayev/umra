@@ -20,7 +20,7 @@ struct Step2: View {
             ScrollView {
                 VStack {
                     Text("Kaaba text1", bundle: localizationManager.bundle)
-                        .font(.custom("Lato-Black", size: 26, relativeTo: .title2))
+                        .font(fontManager.sectionTitleFont)
                     
                     Group {
                         Text("Kaaba text2", bundle: localizationManager.bundle)

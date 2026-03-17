@@ -68,6 +68,7 @@ enum RitualCounterKind {
 struct RitualCounterCard: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     @AppStorage private var counter: Int
     @State private var showCompletionHighlight = false
 
@@ -143,7 +144,7 @@ struct RitualCounterCard: View {
                 HStack(alignment: .top, spacing: 12) {
                     VStack(alignment: .leading, spacing: 10) {
                         localizedText(kind.titleKey)
-                            .font(.custom("Lato-Black", size: 22, relativeTo: .title2))
+                            .font(fontManager.sectionTitleFont)
                             .foregroundStyle(theme.textColor)
 
                         HStack(spacing: 8) {

@@ -91,7 +91,7 @@ class FontManager {
         } else {
             self.selectedFont = storedFont!
         }
-        let deviceDefault: CGFloat = AppConstants.isIPad ? 30 : 20
+        let deviceDefault: CGFloat = AppConstants.isIPad ? 24 : 17
         let stored = UserDefaults.standard.double(forKey: UserDefaultsKey.selectedFontSize)
         self.selectedFontSize = stored == 0 ? deviceDefault : CGFloat(stored)
     }

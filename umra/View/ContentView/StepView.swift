@@ -79,7 +79,7 @@ struct StepView: View {
             
             VStack(spacing: 3) {
                 Text(parsedTitle.name)
-                    .font(.custom("Lato-Black", size: fontSize, relativeTo: .title2))
+                    .font(fontManager.sectionTitleFont)
                     .foregroundStyle(themeManager.selectedTheme.textColor)
                     .multilineTextAlignment(.center)
                 if let date = parsedTitle.date {
