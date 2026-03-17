@@ -75,55 +75,62 @@ struct DonationSheetView: View {
                 themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
 
-                ScrollView {
-                    VStack(spacing: AppConstants.isIPad ? 32 : 24) {
-                        Text("Contribution to Application Development", bundle: localizationManager.bundle)
-                            .font(.callout.weight(.medium))
-                            .foregroundStyle(themeManager.selectedTheme.textColor)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(titlePadding)
-                            .frame(maxWidth: .infinity)
-                            .neumorphicBackground(cornerRadius: titleCornerRadius, theme: themeManager.selectedTheme)
-                            .padding(.horizontal, pickerContainerPadding)
-                            .padding(.top, AppConstants.isIPad ? 24 : 16)
+                GeometryReader { geo in
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            Spacer()
 
-                        HStack(spacing: AppConstants.isIPad ? 16 : 12) {
-                            Text("select_the_amount", bundle: localizationManager.bundle)
+                            Text("Contribution to Application Development", bundle: localizationManager.bundle)
                                 .font(.callout.weight(.medium))
                                 .foregroundStyle(themeManager.selectedTheme.textColor)
+                                .multilineTextAlignment(.center)
                                 .fixedSize(horizontal: false, vertical: true)
+                                .padding(titlePadding)
+                                .frame(maxWidth: .infinity)
+                                .neumorphicBackground(cornerRadius: titleCornerRadius, theme: themeManager.selectedTheme)
+                                .padding(.horizontal, pickerContainerPadding)
 
-                            Picker("Выберите сумму", selection: $selectedProductID) {
-                                ForEach(ProductID.allCases, id: \.rawValue) { productID in
-                                    Text(productID.displayPrice)
-                                        .font(.title3)
-                                        .tag(productID.rawValue)
+                            Spacer()
+
+                            VStack(spacing: AppConstants.isIPad ? 24 : 16) {
+                                HStack(spacing: AppConstants.isIPad ? 16 : 12) {
+                                    Text("select_the_amount", bundle: localizationManager.bundle)
+                                        .font(.callout.weight(.medium))
+                                        .foregroundStyle(themeManager.selectedTheme.textColor)
+                                        .fixedSize(horizontal: false, vertical: true)
+
+                                    Picker("Выберите сумму", selection: $selectedProductID) {
+                                        ForEach(ProductID.allCases, id: \.rawValue) { productID in
+                                            Text(productID.displayPrice)
+                                                .font(.title3)
+                                                .tag(productID.rawValue)
+                                        }
+                                    }
+                                    .font(.title3)
+                                    .padding(pickerPadding)
+                                    .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
+                                    .tint(themeManager.selectedTheme.primaryColor)
+                                    .pickerStyle(MenuPickerStyle())
+                                }
+                                .padding(.horizontal, pickerContainerPadding)
+
+                                if isLoading {
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle(tint: themeManager.selectedTheme.textColor))
+                                        .frame(maxWidth: .infinity)
+                                        .padding(buttonPadding)
+                                        .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
+                                        .padding(.horizontal, pickerContainerPadding)
+                                } else {
+                                    donateButton
                                 }
                             }
-                            .font(.title3)
-                            .padding(pickerPadding)
-                            .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
-                            .tint(themeManager.selectedTheme.primaryColor)
-                            .pickerStyle(MenuPickerStyle())
+                            .padding(.bottom, AppConstants.isIPad ? 40 : 32)
                         }
-                        .padding(.horizontal, pickerContainerPadding)
-
-                        if isLoading {
-                            ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle(tint: themeManager.selectedTheme.textColor))
-                                .frame(maxWidth: .infinity)
-                                .padding(buttonPadding)
-                                .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
-                                .padding(.horizontal, pickerContainerPadding)
-                                .padding(.bottom, AppConstants.isIPad ? 32 : 16)
-                        } else {
-                            donateButton
-                                .padding(.bottom, AppConstants.isIPad ? 32 : 16)
-                        }
+                        .frame(minHeight: geo.size.height)
                     }
+                    .scrollBounceBehavior(.basedOnSize)
                 }
-                .scrollBounceBehavior(.basedOnSize)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
