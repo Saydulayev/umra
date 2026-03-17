@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-/// Синий акцент раздела «Полезное» — лучше ассоциируется с меню
-private let usefulInfoAccentBlue = Color(red: 0.29, green: 0.51, blue: 0.78)
+private let usefulInfoAccentGreen = Color(red: 0.063, green: 0.725, blue: 0.506)
 
 // MARK: - UsefulInfoView
 struct UsefulInfoView: View {
@@ -76,7 +75,7 @@ struct UsefulInfoView: View {
                                 Spacer()
                                 Image(systemName: "chevron.right")
                                     .font(.caption.weight(.semibold))
-                                    .foregroundStyle(usefulInfoAccentBlue.opacity(0.9))
+                                    .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .contentShape(Rectangle())
@@ -84,7 +83,7 @@ struct UsefulInfoView: View {
                             .padding(.vertical, 16)
                         }
                         .buttonStyle(.plain)
-                        
+
                         if idx < chapters.count - 1 {
                             Divider()
                                 .background(themeManager.selectedTheme.textColor.opacity(0.10))
@@ -109,7 +108,7 @@ struct UsefulInfoView: View {
                             .resizable()
                             .frame(width: 40, height: 40)
                             .padding()
-                            .foregroundStyle(usefulInfoAccentBlue)
+                            .foregroundStyle(usefulInfoAccentGreen)
                     }
                     .accessibilityLabel(Text("info_button_label", bundle: localizationManager.bundle))
                     .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
@@ -205,10 +204,10 @@ struct JanazaView: View {
                             },
                             label: {
                                 Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
-                                    .foregroundStyle(usefulInfoAccentBlue)
+                                    .foregroundStyle(usefulInfoAccentGreen)
                             }
                         )
-                        .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentBlue))
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentGreen))
                     }
 
                     Divider()
@@ -227,10 +226,10 @@ struct JanazaView: View {
                             },
                             label: {
                                 Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
-                                    .foregroundStyle(usefulInfoAccentBlue)
+                                    .foregroundStyle(usefulInfoAccentGreen)
                             }
                         )
-                        .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentBlue))
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentGreen))
                     }
 
                     Divider()
@@ -259,7 +258,7 @@ struct JanazaView: View {
                                 .fontWeight(.bold)
                         }
                     )
-                    .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentBlue))
+                    .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentGreen))
                 }
                 .padding(contentPadding)
                 .font(.body)
@@ -302,7 +301,7 @@ struct ChapterDetailView: View {
                                 Spacer()
                                 Image(systemName: "chevron.right")
                                     .font(.caption.weight(.semibold))
-                                    .foregroundStyle(usefulInfoAccentBlue.opacity(0.9))
+                                    .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .contentShape(Rectangle())
@@ -310,7 +309,7 @@ struct ChapterDetailView: View {
                             .padding(.vertical, 16)
                         }
                         .buttonStyle(.plain)
-                        
+
                         if idx < chapter.subChapters.count - 1 {
                             Divider()
                                 .background(themeManager.selectedTheme.textColor.opacity(0.10))
@@ -422,7 +421,7 @@ private struct FormattedContentView: View {
     @Environment(ThemeManager.self) private var themeManager
     
     private var headingColor: Color {
-        usefulInfoAccentBlue
+        usefulInfoAccentGreen
     }
     
     var body: some View {
