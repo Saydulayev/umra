@@ -113,14 +113,15 @@ struct UsefulInfoView: View {
                     }
                     .accessibilityLabel(Text("info_button_label", bundle: localizationManager.bundle))
                     .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
-                        VStack {
+                        ScrollView {
                             Text("soon_available_text".localized(bundle: localizationManager.bundle))
                                 .font(.body)
-                                .padding()
                                 .multilineTextAlignment(.center)
-                                .fixedSize(horizontal: false, vertical: true)
+                                .padding()
+                                .frame(width: 280)
+                                .fixedSize(horizontal: true, vertical: true)
                         }
-                        .frame(maxWidth: 350)
+                        .frame(maxHeight: 300)
                         .presentationCompactAdaptation(.popover)
                     }
                 }
