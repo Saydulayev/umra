@@ -442,10 +442,10 @@ struct ThemePreviewView: View {
                     Circle().strokeBorder(themeManager.selectedTheme.cardBorderColor, lineWidth: 0.5)
                 }
         case .light:
-            // Белый → зелёный — чистый светлый тон
+            // Белый → светло-серый — чистый нейтральный светлый тон
             Circle()
                 .fill(LinearGradient(
-                    colors: [Color.white, theme.primaryColor],
+                    colors: [Color.white, Color(red: 0.88, green: 0.88, blue: 0.90)],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 ))
@@ -454,19 +454,19 @@ struct ThemePreviewView: View {
                     Circle().strokeBorder(themeManager.selectedTheme.cardBorderColor, lineWidth: 0.5)
                 }
         case .dark:
-            // Глубокий тёмный → изумруд — ночной акцент
+            // Тёмный → угольный — нейтральный ночной тон
             Circle()
                 .fill(LinearGradient(
-                    colors: [AppTheme.dark.backgroundColor, theme.primaryColor],
+                    colors: [AppTheme.dark.backgroundColor, Color(red: 0.18, green: 0.18, blue: 0.20)],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 ))
                 .frame(width: size, height: size)
         case .emerald:
-            // Изумруд → золото — премиальный акцент
+            // Тёмный изумрудный фон → зелёный акцент
             Circle()
                 .fill(LinearGradient(
-                    colors: [theme.primaryColor, theme.secondaryColor],
+                    colors: [AppTheme.emerald.backgroundColor, theme.primaryColor],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 ))
