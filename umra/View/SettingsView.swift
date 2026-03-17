@@ -268,7 +268,7 @@ struct SettingsRow<Accessory: View>: View {
     }
 
     var body: some View {
-        HStack(alignment: .top, spacing: SettingsMetrics.rowSpacing) {
+        HStack(alignment: .center, spacing: SettingsMetrics.rowSpacing) {
             ZStack {
                 Circle()
                     .fill(iconBackground)
@@ -301,7 +301,6 @@ struct SettingsRow<Accessory: View>: View {
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.45))
                 }
             }
-            .padding(.top, 2)
         }
         .padding(.horizontal, SettingsMetrics.rowHorizontalPadding)
         .padding(.vertical, SettingsMetrics.rowVerticalPadding)
