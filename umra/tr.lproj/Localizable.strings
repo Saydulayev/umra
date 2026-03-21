@@ -9,14 +9,14 @@
 
 "app_name" = "Umre";
 "main_screen_name_string" = "UMRE";
-"title_black_stone_screen" = "Hacerü'l-Esved'e Dönüş";
+"title_black_stone_screen" = "Hacerü'l-Esved";
 "title_ihram_screen" = "Ihram";
 "title_place_ibrohim_stand_screen" = "Makam İbrahim";
 "title_round_kaaba_screen" = "Kâbe'yi Tavaf";
 "title_safa_and_marva_screen" = "Safa ve Merve";
 "title_settings_screen" = "Ayarlar";
 "title_shave_head_screen" = "Saç Tıraşı";
-"title_water_zamzam_screen" = "Zemzem İçme";
+"title_water_zamzam_screen" = "Zemzem";
 "title_link_book_screen" = "Kitaplar";
 
 
@@ -298,10 +298,11 @@ Alemlerin Rabbi olan Allah’a hamdolsun!";
 "Useful" = "Faydalı";
 "soon_available_text" = "Bu metin yapay zeka kullanılarak Rusçadan diğer dillere çevrildi. Çeviride bir hata fark ederseniz, lütfen geri bildirim yoluyla bize bildirin.";
 
-"Notification Settings" = "Bildirim Ayarları";
-"30-Minute Notifications" = "Namazdan 30 dakika önce bildirim gönder";
-"Prayer Time Notifications" = "Namaz vakti bildirimi gönder";
-"Sunrise Notifications" = "Güneş doğuşu bildirimi gönder";
+"Notification Settings" = "Bildirimler";
+"Prayer Notification Settings" = "Namaz Bildirimleri";
+"30-Minute Notifications" = "30 dakika önce";
+"Prayer Time Notifications" = "Namaz vakti";
+"Sunrise Notifications" = "Güneş doğuşu";
 "Open iOS Notification Settings" = "iOS Bildirim Ayarlarını Aç";
 "Close" = "Kapat";
 

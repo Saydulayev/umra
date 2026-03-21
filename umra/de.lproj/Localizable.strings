@@ -9,14 +9,14 @@
 
 "app_name" = "Umra";
 "main_screen_name_string" = "UMRA";
-"title_black_stone_screen" = "Zurück zum schwarzen Stein";
+"title_black_stone_screen" = "Schwarzer Stein";
 "title_ihram_screen" = "Ihram";
 "title_place_ibrohim_stand_screen" = "Maqam Ibrahim";
 "title_round_kaaba_screen" = "Tawaf";
 "title_safa_and_marva_screen" = "Safa und Marwa";
 "title_settings_screen" = "Einstellungen";
-"title_shave_head_screen" = "Kopf rasieren oder Haare kürzen";
-"title_water_zamzam_screen" = "Trinken des Zamzam-Wassers";
+"title_shave_head_screen" = "Kopf rasieren";
+"title_water_zamzam_screen" = "Zamzam";
 "title_link_book_screen" = "Bücher";
 
 
@@ -281,10 +281,11 @@ Gepriesen sei Allah, der Herr der Welten!";
 "soon_available_text" = "Dieser Text wurde mit KI aus dem Russischen übersetzt. Wenn Sie Fehler oder Ungenauigkeiten bemerken, lassen Sie es uns bitte über das Feedback wissen.";
 
 
-"Notification Settings" = "Benachrichtigungseinstellungen";
-"30-Minute Notifications" = "30 Minuten vorher benachrichtigen";
-"Prayer Time Notifications" = "Benachrichtigen zur Gebetszeit";
-"Sunrise Notifications" = "Benachrichtigen bei Sonnenaufgang";
+"Notification Settings" = "Benachrichtigungen";
+"Prayer Notification Settings" = "Gebetsbenachrichtigungen";
+"30-Minute Notifications" = "30 Minuten vorher";
+"Prayer Time Notifications" = "Zur Gebetszeit";
+"Sunrise Notifications" = "Sonnenaufgang";
 "Open iOS Notification Settings" = "iOS-Benachrichtigungseinstellungen öffnen";
 "Close" = "Schließen";
 

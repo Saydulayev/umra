@@ -9,14 +9,14 @@
 
 "app_name" = "Umra";
 "main_screen_name_string" = "العمرة";
-"title_black_stone_screen" = "العودة إلى الحجر الأسود";
+"title_black_stone_screen" = "الحجر الأسود";
 "title_ihram_screen" = "الإحرام";
 "title_place_ibrohim_stand_screen" = "مقام إبراهيم";
 "title_round_kaaba_screen" = "الطواف حول الكعبة";
 "title_safa_and_marva_screen" = "الصفا والمروة";
 "title_settings_screen" = "الإعدادات";
 "title_shave_head_screen" = "حلق الرأس";
-"title_water_zamzam_screen" = "شرب ماء زمزم";
+"title_water_zamzam_screen" = "زمزم";
 "title_link_book_screen" = "الكتب";
 
 
@@ -252,7 +252,8 @@
 "Useful" = "مفيد";
 "soon_available_text" = "تمت ترجمة هذا النص من اللغة الروسية إلى لغات أخرى باستخدام الذكاء الاصطناعي. إذا لاحظت خطأً في الترجمة، فيُرجى إبلاغنا عبر قسم الملاحظات.";
 
-"Notification Settings" = "إعدادات الإشعارات";
+"Notification Settings" = "الإشعارات";
+"Prayer Notification Settings" = "إشعارات الصلاة";
 "30-Minute Notifications" = "قبل 30 دقيقة";
 "Prayer Time Notifications" = "وقت الصلاة";
 "Sunrise Notifications" = "الشروق";

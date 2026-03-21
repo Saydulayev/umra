@@ -9,14 +9,14 @@
 
 "app_name" = "Umrah";
 "main_screen_name_string" = "UMRAH";
-"title_black_stone_screen" = "Kembali ke Hajar Aswad";
+"title_black_stone_screen" = "Hajar Aswad";
 "title_ihram_screen" = "Ihram";
 "title_place_ibrohim_stand_screen" = "Maqam Ibrahim";
 "title_round_kaaba_screen" = "Tawaf Ka'bah";
 "title_safa_and_marva_screen" = "Safa dan Marwah";
 "title_settings_screen" = "Pengaturan";
 "title_shave_head_screen" = "Mencukur Rambut";
-"title_water_zamzam_screen" = "Meminum Air Zamzam";
+"title_water_zamzam_screen" = "Zamzam";
 "title_link_book_screen" = "Buku";
 
 
@@ -291,10 +291,11 @@ Segala puji bagi Allah, Rabb semesta alam!";
 "Useful" = "Berguna";
 "soon_available_text" = "Teks ini diterjemahkan dari bahasa Rusia ke bahasa lain menggunakan AI. Jika Anda menemukan kesalahan terjemahan, mohon beri tahu kami melalui fitur masukan.";
 
-"Notification Settings" = "Pengaturan Notifikasi";
-"30-Minute Notifications" = "Notifikasi 30 menit sebelum waktu shalat";
-"Prayer Time Notifications" = "Notifikasi saat masuk waktu shalat";
-"Sunrise Notifications" = "Notifikasi waktu matahari terbit";
+"Notification Settings" = "Notifikasi";
+"Prayer Notification Settings" = "Notifikasi Shalat";
+"30-Minute Notifications" = "30 menit sebelumnya";
+"Prayer Time Notifications" = "Waktu shalat";
+"Sunrise Notifications" = "Matahari terbit";
 "Open iOS Notification Settings" = "Buka pengaturan notifikasi iOS";
 "Close" = "Tutup";
 

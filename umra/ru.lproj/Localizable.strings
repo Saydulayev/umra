@@ -9,14 +9,14 @@
 
 "app_name" = "Umra";
 "main_screen_name_string" = "УМРА";
-"title_black_stone_screen" = "Возврат к Черному камню";
+"title_black_stone_screen" = "Черный камень";
 "title_ihram_screen" = "Ихрам";
 "title_place_ibrohim_stand_screen" = "Макам Ибрахим";
 "title_round_kaaba_screen" = "Обход Каабы";
 "title_safa_and_marva_screen" = "Сафа и Марва";
 "title_settings_screen" = "Настройки";
 "title_shave_head_screen" = "Бритье головы";
-"title_water_zamzam_screen" = "Питье воды Замзам";
+"title_water_zamzam_screen" = "Замзам";
 "title_link_book_screen" = "Книги";
 
 
@@ -277,7 +277,8 @@
 "Useful" = "Полезное";
 "soon_available_text" = "Этот текст был переведен с русского языка на другие языки с использованием ИИ. Если вы заметите ошибку в переводе, пожалуйста, сообщите нам через обратную связь.";
 
-"Notification Settings" = "Настройки уведомлений";
+"Notification Settings" = "Уведомления";
+"Prayer Notification Settings" = "Уведомления о намазе";
 "30-Minute Notifications" = "За 30 минут";
 "Prayer Time Notifications" = "Во время намаза";
 "Sunrise Notifications" = "Рассвет";

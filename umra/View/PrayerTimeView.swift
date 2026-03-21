@@ -450,7 +450,7 @@ struct NotificationSettingsView: View {
         VStack(spacing: 0) {
             ScrollView {
                 VStack(spacing: 24) {
-                    Text("Notification Settings", bundle: localizationManager.bundle)
+                    Text("Prayer Notification Settings", bundle: localizationManager.bundle)
                         .font(.headline)
                         .foregroundStyle(textColor)
                         .padding(.top, 24)

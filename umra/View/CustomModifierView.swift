@@ -551,7 +551,8 @@ struct GuideStepRow: View {
         HStack(spacing: AppConstants.isIPad ? 20 : 16) {
             ZStack {
                 Circle()
-                    .fill(badgeColor.opacity(0.12))
+                    .fill(themeManager.selectedTheme.cardColor)
+                    .shadow(color: themeManager.selectedTheme.cardShadowColor, radius: 4, x: 0, y: 2)
                 if let symbol = item.symbolName {
                     Image(systemName: symbol)
                         .font(.system(size: AppConstants.isIPad ? 28 : 22, weight: .medium))
