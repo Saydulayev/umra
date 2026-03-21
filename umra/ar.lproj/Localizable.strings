@@ -434,8 +434,8 @@
 "theme_select_title" = "اختر سمة التطبيق";
 "theme_auto" = "تلقائي";
 "theme_auto_subtitle" = "يتبع مظهر النظام";
-"theme_nur" = "نور";
-"theme_layl" = "ليل";
+"theme_nur" = "فاتح";
+"theme_layl" = "داكن";
 "theme_emerald" = "زمرد";
 "theme_nur_subtitle" = "نور وسكينة";
 "theme_layl_subtitle" = "راحة الليل";

@@ -458,8 +458,8 @@
 "theme_select_title" = "Выберите тему приложения";
 "theme_auto" = "Авто";
 "theme_auto_subtitle" = "Следует системной теме";
-"theme_nur" = "Нур";
-"theme_layl" = "Лейл";
+"theme_nur" = "Светлая";
+"theme_layl" = "Тёмная";
 "theme_emerald" = "Изумруд";
 "theme_nur_subtitle" = "Свет и спокойствие";
 "theme_layl_subtitle" = "Уют ночи";

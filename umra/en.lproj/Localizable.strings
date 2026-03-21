@@ -507,8 +507,8 @@ The Messenger of Allah (peace and blessings of Allah be upon him), when performi
 "theme_select_title" = "Choose App Theme";
 "theme_auto" = "Auto";
 "theme_auto_subtitle" = "Follows system appearance";
-"theme_nur" = "Nur";
-"theme_layl" = "Layl";
+"theme_nur" = "Light";
+"theme_layl" = "Dark";
 "theme_emerald" = "Emerald";
 "theme_nur_subtitle" = "Light and serenity";
 "theme_layl_subtitle" = "Night comfort";

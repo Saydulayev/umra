@@ -489,8 +489,8 @@ Resulullah (Allah'ın selamı ve bereketi onun üzerine olsun) cenaze namazında
 "theme_select_title" = "Uygulama Teması Seçin";
 "theme_auto" = "Otomatik";
 "theme_auto_subtitle" = "Sistem temasını takip eder";
-"theme_nur" = "Nur";
-"theme_layl" = "Leyl";
+"theme_nur" = "Açık";
+"theme_layl" = "Koyu";
 "theme_emerald" = "Zümrüt";
 "theme_nur_subtitle" = "Işık ve huzur";
 "theme_layl_subtitle" = "Gece huzuru";
