@@ -221,8 +221,7 @@
 "text_button_feedback_string" = "التواصل";
 "evaluate_the_app_string" = "تقييم التطبيق";
 "text_button_rate_the_app_string" = "تقييم التطبيق";
-"support_the_developer_string" = "دعم المطوّر";
-"text_button_support_string" = "دعم المطوّر";
+"text_button_support_string" = "دعم التطبيق";
 "select_language_settings_string" = "اللغة";
 "settings_string" = "الإعدادات";
 //    <string name="select_language_string">Выберите язык</string>
@@ -246,6 +245,8 @@
 
 "_donate_button" = "دعم";
 "select_the_amount" = "اختر المبلغ:";
+"purchase_error_title" = "خطأ";
+"purchase_error_message" = "فشلت عملية الشراء. يرجى المحاولة مرة أخرى.";
 
 "Contribution to Application Development" = "لقد جعلنا هذا التطبيق مجانيًا ليكون نافعًا للجميع. وإذا رغبت، يمكنك المساهمة وأن تكون جزءًا من هذا الخير. تبرعك اختياري تمامًا، ولمرة واحدة، ولا يرتبط باشتراك أو بميزات إضافية.";
 

@@ -246,8 +246,7 @@ Gepriesen sei Allah, der Herr der Welten!";
     "text_button_feedback_string" = "Feedback";
     "evaluate_the_app_string" = "EVALUATE THE APP";
     "text_button_rate_the_app_string" = "Bewerte die App";
-    "support_the_developer_string" = "SUPPORT THE DEVELOPER";
-    "text_button_support_string" = "Entwickler unterstützen";
+    "text_button_support_string" = "App unterstützen";
     "select_language_settings_string" = "Sprache";
     "settings_string" = "Einstellungen";
 //    <string name="select_language_string">Выберите язык</string>
@@ -273,6 +272,8 @@ Gepriesen sei Allah, der Herr der Welten!";
 
 "_donate_button" = "Unterstützen";
 "select_the_amount" = "Wählen Sie den Betrag:";
+"purchase_error_title" = "Fehler";
+"purchase_error_message" = "Kauf fehlgeschlagen. Bitte versuche es erneut.";
 
 "Contribution to Application Development" = "Wir haben diese App kostenlos gemacht, damit sie allen nützt. Wenn Sie den Wunsch verspüren, können Sie etwas beitragen und Teil dieses Guten werden. Ihre Spende ist vollkommen freiwillig, einmalig und steht in keinem Zusammenhang mit einem Abonnement oder zusätzlichen Funktionen.";
 

@@ -260,8 +260,7 @@ Segala puji bagi Allah, Rabb semesta alam!";
     "text_button_feedback_string" = "Kirim Masukan";
     "evaluate_the_app_string" = "NILAI APLIKASI";
     "text_button_rate_the_app_string" = "Beri Nilai Aplikasi";
-    "support_the_developer_string" = "DUKUNG PENGEMBANG";
-    "text_button_support_string" = "Dukung Pengembang";
+    "text_button_support_string" = "Dukung Aplikasi";
     "select_language_settings_string" = "Bahasa";
     "settings_string" = "Pengaturan";
 //    <string name="select_language_string">Выберите язык</string>
@@ -285,6 +284,8 @@ Segala puji bagi Allah, Rabb semesta alam!";
 
 "_donate_button" = "Dukung";
 "select_the_amount" = "Pilih jumlah:";
+"purchase_error_title" = "Kesalahan";
+"purchase_error_message" = "Pembelian gagal. Silakan coba lagi.";
 
 "Contribution to Application Development" = "Kami membuat aplikasi ini gratis agar bisa bermanfaat untuk semua orang. Jika ada keinginan di hati, Anda dapat berkontribusi dan menjadi bagian dari kebaikan ini. Donasi Anda sepenuhnya sukarela, sekali saja, dan tidak terkait dengan langganan atau fitur tambahan apa pun.";
 

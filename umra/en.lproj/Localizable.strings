@@ -233,8 +233,7 @@ Praise be to Allah, the Lord of the worlds!";
     "text_button_feedback_string" = "Feedback";
     "evaluate_the_app_string" = "EVALUATE THE APP";
     "text_button_rate_the_app_string" = "Evaluate the app";
-    "support_the_developer_string" = "SUPPORT THE DEVELOPER";
-    "text_button_support_string" = "Support the developer";
+    "text_button_support_string" = "Support the App";
     "select_language_settings_string" = "Language";
     "settings_string" = "Settings";
 //    <string name="select_language_string">Выберите язык</string>
@@ -258,6 +257,8 @@ Praise be to Allah, the Lord of the worlds!";
 
 "_donate_button" = "Support";
 "select_the_amount" = "Select the amount:";
+"purchase_error_title" = "Error";
+"purchase_error_message" = "Purchase failed. Please try again.";
 
 "Contribution to Application Development" = "We made this app free so that it can benefit everyone. If you feel the desire, you may contribute and become part of this goodness. Your donation is entirely voluntary, one-time, and not connected to any subscription or additional features.";
 

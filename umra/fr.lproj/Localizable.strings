@@ -248,8 +248,7 @@ Louange à Allah, le Seigneur des mondes !";
 "text_button_feedback_string"="Retour d'information";
 "evaluate_the_app_string"="ÉVALUER L'APPLICATION";
 "text_button_rate_the_app_string"="Évaluer l'application";
-"support_the_developer_string"="SOUTENIR LE DÉVELOPPEUR";
-"text_button_support_string"="Soutenir le développeur";
+"text_button_support_string"="Soutenir l'application";
 "select_language_settings_string" = "Langue";
 "settings_string"="Paramètres";
 //    <string name="select_language_string">Выберите язык</string>
@@ -273,6 +272,8 @@ Louange à Allah, le Seigneur des mondes !";
 
 "_donate_button"="Soutenir";
 "select_the_amount"="Choisissez le montant:";
+"purchase_error_title"="Erreur";
+"purchase_error_message"="L'achat a échoué. Veuillez réessayer.";
 
 "Contribution to Application Development" = "Nous avons créé cette application gratuitement afin qu’elle profite à tous. Si vous en avez le désir, vous pouvez contribuer et faire partie de ce bien. Votre don est entièrement volontaire, unique, et n’est lié à aucun abonnement ni à des fonctionnalités supplémentaires.";
 

@@ -267,8 +267,7 @@ Alemlerin Rabbi olan Allah’a hamdolsun!";
 "text_button_feedback_string" = "Geri Bildirim";
 "evaluate_the_app_string" = "UYGULAMAYI DEĞERLENDİRİN";
 "text_button_rate_the_app_string" = "Uygulamayı Değerlendir";
-"support_the_developer_string" = "GELİŞTİRİCİYİ DESTEKLEYİN";
-"text_button_support_string" = "Geliştiriciyi Destekle";
+"text_button_support_string" = "Uygulamayı Destekle";
 "select_language_settings_string" = "Dil";
 "settings_string" = "Ayarlar";
 //    <string name="select_language_string">Выберите язык</string>
@@ -292,6 +291,8 @@ Alemlerin Rabbi olan Allah’a hamdolsun!";
 
 "_donate_button" = "Destekle";
 "select_the_amount" = "Miktarı seçin:";
+"purchase_error_title" = "Hata";
+"purchase_error_message" = "Satın alma başarısız oldu. Lütfen tekrar deneyin.";
 
 "Contribution to Application Development" = "Bu uygulamayı herkes faydalansın diye ücretsiz yaptık. Eğer içinizde bir istek olursa, katkıda bulunabilir ve bu hayrın bir parçası olabilirsiniz. Bağışınız tamamen gönüllüdür, tek seferliktir ve herhangi bir abonelikle veya ek özelliklerle bağlantılı değildir.";
 

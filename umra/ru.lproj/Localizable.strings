@@ -245,8 +245,7 @@
     "text_button_feedback_string" = "Обратная связь";
     "evaluate_the_app_string" = "EVALUATE THE APP";
     "text_button_rate_the_app_string" = "Оценить приложение";
-    "support_the_developer_string" = "SUPPORT THE DEVELOPER";
-    "text_button_support_string" = "Поддержать разработчика";
+    "text_button_support_string" = "Поддержать приложение";
     "select_language_settings_string" = "Язык";
     "settings_string" = "Настройки";
 //    <string name="select_language_string">Выберите язык</string>
@@ -270,6 +269,8 @@
 
 "_donate_button" = "Поддержать";
 "select_the_amount" = "Выберите сумму:";
+"purchase_error_title" = "Ошибка";
+"purchase_error_message" = "Покупка не удалась. Пожалуйста, попробуйте снова.";
 
 "Contribution to Application Development" = "Мы сделали это приложение бесплатным, чтобы оно приносило пользу всем. Если у вас будет желание, вы можете внести свой вклад и стать частью этого добра. Ваше пожертвование — полностью добровольное, одноразовое и не связано с подпиской или дополнительными функциями.";
 

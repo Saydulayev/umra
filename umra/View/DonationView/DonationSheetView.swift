@@ -144,12 +144,16 @@ struct DonationSheetView: View {
                     .accessibilityLabel("Close")
                 }
             }
+            .navigationTitle(Text("text_button_support_string", bundle: localizationManager.bundle))
             .navigationBarTitleDisplayMode(.inline)
         }
-        .alert("Ошибка", isPresented: $showError) {
+        .alert(
+            Text("purchase_error_title", bundle: localizationManager.bundle),
+            isPresented: $showError
+        ) {
             Button("OK", role: .cancel) {}
         } message: {
-            Text("Покупка не удалась. Пожалуйста, попробуйте снова.")
+            Text("purchase_error_message", bundle: localizationManager.bundle)
         }
     }
     
