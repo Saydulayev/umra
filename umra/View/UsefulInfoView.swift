@@ -171,10 +171,8 @@ struct JanazaView: View {
     @State private var isSecondTakbirExpanded = false
     @State private var isThirdTakbirExpanded = false
 
-    private var contentPadding: CGFloat {
-        UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16
-    }
-    
+    private let contentPadding: CGFloat = 20
+
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
@@ -452,10 +450,8 @@ struct JourneyContentView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     
-    private var contentPadding: CGFloat {
-        UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16
-    }
-    
+    private let contentPadding: CGFloat = 20
+
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
@@ -480,10 +476,8 @@ struct SubChapterDetailView: View {
         subChapter.content.contains("1) ") || subChapter.content.hasPrefix("1)")
     }
     
-    private var contentPadding: CGFloat {
-        UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16
-    }
-    
+    private let contentPadding: CGFloat = 20
+
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
