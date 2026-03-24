@@ -30,7 +30,7 @@ struct Step7: View {
                     
                 }
                 .foregroundStyle(.primary)
-                .padding(10)
+                .padding(.horizontal, 20)
                 .navigationTitle(Text("title_shave_head_screen", bundle: localizationManager.bundle))
                 .navigationBarTitleDisplayMode(.inline)
             }

@@ -77,7 +77,7 @@ struct Step6: View {
                     .font(fontManager.bodyFont)
                 }
                 .foregroundStyle(.primary)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 20)
                 .navigationTitle(Text("title_safa_and_marva_screen", bundle: localizationManager.bundle))
                 .navigationBarTitleDisplayMode(.inline)
             }

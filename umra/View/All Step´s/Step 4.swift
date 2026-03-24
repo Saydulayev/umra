@@ -28,7 +28,7 @@ struct Step4: View {
                     .font(fontManager.bodyFont)
                 }
                 .foregroundStyle(.primary)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 20)
                 .navigationTitle(Text("title_water_zamzam_screen", bundle: localizationManager.bundle))
                 .navigationBarTitleDisplayMode(.inline)
             }

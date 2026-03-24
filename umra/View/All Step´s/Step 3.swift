@@ -40,7 +40,7 @@ struct Step3: View {
                     .font(fontManager.bodyFont)
                 }
                 .foregroundStyle(.primary)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 20)
                 .navigationTitle(Text("title_place_ibrohim_stand_screen", bundle: localizationManager.bundle))
                 .navigationBarTitleDisplayMode(.inline)
             }

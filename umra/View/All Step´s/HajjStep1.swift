@@ -124,7 +124,7 @@ struct HajjStep1: View {
                     }
                 }
                 .foregroundStyle(.primary)
-                .padding(.horizontal, 16)
+                .padding(.horizontal, 20)
                 .padding(.vertical, 12)
                 .navigationTitle(Text(localizationManager.extractTitleOnly(from: "hajj_step1_title")))
                 .navigationBarTitleDisplayMode(.inline)

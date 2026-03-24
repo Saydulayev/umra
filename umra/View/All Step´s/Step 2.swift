@@ -46,7 +46,7 @@ struct Step2: View {
                     .font(fontManager.bodyFont)
                 }
                 .foregroundStyle(.primary)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 20)
                 .navigationTitle(Text("title_round_kaaba_screen", bundle: localizationManager.bundle))
                 .navigationBarTitleDisplayMode(.inline)
             }
