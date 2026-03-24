@@ -6,10 +6,8 @@
 //
 
 import SwiftUI
-import SafariServices
 
 struct SettingsView: View {
-    @State private var showSafariView = false
     @State private var showNotificationSettingsSheet = false
     @State private var showThemeSelectionSheet = false
     @State private var showLanguageActionSheet = false
@@ -17,8 +15,8 @@ struct SettingsView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(\.dismiss) var dismiss
     
-    private var appStoreURL: URL? {
-        URL(string: "https://apps.apple.com/app/id1673683355")
+    private var appStoreReviewURL: URL? {
+        URL(string: "https://apps.apple.com/app/id1673683355?action=write-review")
     }
     
     
@@ -73,7 +71,11 @@ struct SettingsView: View {
 
                         SettingsDivider()
 
-                        Button(action: { if appStoreURL != nil { showSafariView = true } }) {
+                        Button(action: {
+                            if let url = appStoreReviewURL {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
                             SettingsRow(
                                 icon: "star",
                                 title: Text("text_button_rate_the_app_string", bundle: localizationManager.bundle),
@@ -159,13 +161,6 @@ struct SettingsView: View {
         }
         .navigationTitle(Text("settings_string", bundle: localizationManager.bundle))
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $showSafariView) {
-            if let url = appStoreURL {
-                SafariView(url: url)
-            } else {
-                EmptyView()
-            }
-        }
         .sheet(isPresented: $showNotificationSettingsSheet) {
             NotificationSettingsView()
         }
@@ -317,18 +312,6 @@ struct SettingsDivider: View {
 }
 
 
-
-
-struct SafariView: UIViewControllerRepresentable {
-    let url: URL
-    
-    func makeUIViewController(context: Context) -> SFSafariViewController {
-        let safariView = SFSafariViewController(url: url)
-        return safariView
-    }
-    
-    func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {}
-}
 
 
 
