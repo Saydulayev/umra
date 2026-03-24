@@ -162,19 +162,7 @@ struct HajjStep3: View {
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 12)
-                .navigationTitle(Text(localizationManager.extractTitleOnly(from: "hajj_step3_title")))
-                .navigationBarTitleDisplayMode(.inline)
             }
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    CustomToolbar(
-                        selectedFont: Bindable(fontManager).selectedFont,
-                        fonts: fontManager.fonts
-                    )
-                    .environment(themeManager)
-                }
-            }
-            .toolbar(.hidden, for: .tabBar)
         }
     }
 }

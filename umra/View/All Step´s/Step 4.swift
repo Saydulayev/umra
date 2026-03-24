@@ -29,19 +29,7 @@ struct Step4: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
-                .navigationTitle(Text("title_water_zamzam_screen", bundle: localizationManager.bundle))
-                .navigationBarTitleDisplayMode(.inline)
             }
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    CustomToolbar(
-                        selectedFont: Bindable(fontManager).selectedFont,
-                        fonts: fontManager.fonts
-                    )
-                    .environment(themeManager) 
-                }
-            }
-            .toolbar(.hidden, for: .tabBar)
         }
     }
 }

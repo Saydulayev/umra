@@ -31,19 +31,7 @@ struct Step7: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
-                .navigationTitle(Text("title_shave_head_screen", bundle: localizationManager.bundle))
-                .navigationBarTitleDisplayMode(.inline)
             }
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    CustomToolbar(
-                        selectedFont: Bindable(fontManager).selectedFont,
-                        fonts: fontManager.fonts
-                    )
-                    .environment(themeManager) 
-                }
-            }
-            .toolbar(.hidden, for: .tabBar)
         }
     }
 }

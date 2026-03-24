@@ -36,20 +36,8 @@ struct Step5: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
-                .navigationTitle(Text("title_black_stone_screen", bundle: localizationManager.bundle))
-                .navigationBarTitleDisplayMode(.inline)
             }
             .scrollBounceBehavior(.basedOnSize)
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    CustomToolbar(
-                        selectedFont: Bindable(fontManager).selectedFont,
-                        fonts: fontManager.fonts
-                    )
-                    .environment(themeManager) 
-                }
-            }
-            .toolbar(.hidden, for: .tabBar)
         }
     }
 }

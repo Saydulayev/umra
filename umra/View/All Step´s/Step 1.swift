@@ -123,19 +123,7 @@ struct Step1: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
-                .navigationTitle(Text("title_ihram_screen", bundle: localizationManager.bundle))
-                .navigationBarTitleDisplayMode(.inline)
             }
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    CustomToolbar(
-                        selectedFont: Bindable(fontManager).selectedFont,
-                        fonts: fontManager.fonts
-                    )
-                    .environment(themeManager)
-                }
-            }
-            .toolbar(.hidden, for: .tabBar)
         }
     }
 }

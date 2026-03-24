@@ -35,21 +35,13 @@ struct HajjView: View {
 
     @ViewBuilder
     private func destinationView(for step: HajjStep) -> some View {
-        Group {
-            switch step {
-            case .step1: HajjStep1()
-            case .step2: HajjStep2()
-            case .step3: HajjStep3()
-            case .step4: HajjStep4()
-            case .step5: HajjStep5()
-            }
-        }
-        .environment(themeManager)
-        .environment(localizationManager)
-        .environment(userPreferences)
-        .environment(fontManager)
-        .environment(purchaseManager)
-        .environment(audioManager)
+        HajjPageView(startingAt: step)
+            .environment(themeManager)
+            .environment(localizationManager)
+            .environment(userPreferences)
+            .environment(fontManager)
+            .environment(purchaseManager)
+            .environment(audioManager)
     }
 
     // MARK: - Computed Properties

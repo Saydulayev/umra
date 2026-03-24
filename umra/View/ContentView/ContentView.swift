@@ -47,27 +47,19 @@ struct ContentView: View {
 
     @ViewBuilder
     private func destinationView(for step: UmraStep) -> some View {
-        stepView(for: step)
-            .environment(themeManager)
-            .environment(localizationManager)
-            .environment(userPreferences)
-            .environment(fontManager)
-            .environment(purchaseManager)
-            .environment(audioManager)
-    }
-
-    @ViewBuilder
-    private func stepView(for step: UmraStep) -> some View {
-        switch step {
-        case .step1: Step1()
-        case .step2: Step2()
-        case .step3: Step3()
-        case .step4: Step4()
-        case .step5: Step5()
-        case .step6: Step6()
-        case .step7: Step7()
-        case .useful: UsefulInfoView()
+        Group {
+            if step == .useful {
+                UsefulInfoView()
+            } else {
+                UmrahPageView(startingAt: step)
+            }
         }
+        .environment(themeManager)
+        .environment(localizationManager)
+        .environment(userPreferences)
+        .environment(fontManager)
+        .environment(purchaseManager)
+        .environment(audioManager)
     }
 
     // MARK: - Computed Properties

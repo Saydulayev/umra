@@ -59,6 +59,7 @@
 		C2B3FBFF2EF83C5A0012B449 /* 15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2B3FBFA2EF83C5A0012B449 /* 15.mp3 */; };
 		C2E1173C2C999B31002DC520 /* UsefulInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */; };
 		C2H4JJV22E87F4B2006762B4 /* HajjView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2H4JJV12E87F4B2006762B3 /* HajjView.swift */; };
+		C2HJPGV22E87F4B2006762BA /* HajjPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJPGV12E87F4B2006762BA /* HajjPageView.swift */; };
 		C2HJST112E87F4B2006762B7 /* HajjStep1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJST102E87F4B2006762B8 /* HajjStep1.swift */; };
 		C2HJST212E87F4B2006762B9 /* HajjStep2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJST202E87F4B2006762C0 /* HajjStep2.swift */; };
 		C2HJST312E87F4B2006762C1 /* HajjStep3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJST302E87F4B2006762C2 /* HajjStep3.swift */; };
@@ -128,6 +129,7 @@
 		C2B3FBFC2EF83C5A0012B449 /* 14.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 14.mp3; sourceTree = "<group>"; };
 		C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulInfoView.swift; sourceTree = "<group>"; };
 		C2H4JJV12E87F4B2006762B3 /* HajjView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjView.swift; sourceTree = "<group>"; };
+		C2HJPGV12E87F4B2006762BA /* HajjPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjPageView.swift; sourceTree = "<group>"; };
 		C2HJST102E87F4B2006762B8 /* HajjStep1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjStep1.swift; sourceTree = "<group>"; };
 		C2HJST202E87F4B2006762C0 /* HajjStep2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjStep2.swift; sourceTree = "<group>"; };
 		C2HJST302E87F4B2006762C2 /* HajjStep3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjStep3.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */,
 				C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */,
 				C2H4JJV12E87F4B2006762B3 /* HajjView.swift */,
+				C2HJPGV12E87F4B2006762BA /* HajjPageView.swift */,
 				C2M4INT2B2E87F4B2006762B5 /* MainTabView.swift */,
 				C0908DED2982A05B00458ACB /* All Step´s */,
 			);
@@ -452,6 +455,7 @@
 				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,
 				C0BG00012CFF1F3C005F3ED9 /* BackgroundTaskManager.swift in Sources */,
 				C2H4JJV22E87F4B2006762B4 /* HajjView.swift in Sources */,
+				C2HJPGV22E87F4B2006762BA /* HajjPageView.swift in Sources */,
 				C2M4INT2C2E87F4B2006762B6 /* MainTabView.swift in Sources */,
 				C2HJST112E87F4B2006762B7 /* HajjStep1.swift in Sources */,
 				C2HJST212E87F4B2006762B9 /* HajjStep2.swift in Sources */,
