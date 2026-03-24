@@ -378,7 +378,7 @@ Alemlerin Rabbi olan Allah’a hamdolsun!";
 
 "title_janaza_guide" = "Cenaze Namazı";
 "basic_rules" = "Cenaze Namazı Kılavuzu";
-"janaza_basic_rules" = "📌 Cenaze namazının temel kuralları.
+"janaza_basic_rules" = "Cenaze namazının temel kuralları.
 
 Namaz ayakta kılınır, rükû ve secde yapılmaz. Dört tekbirden («Allahu Ekber») oluşur.
 
@@ -436,35 +436,35 @@ Allahumma ighfir lahu, warhamhu, wa ‘afihi, wa‘fu ‘anhu, wa akrim nuzulahu
 
 
 "dua_variations_title" = "Merhuma Göre Dua Çeşitleri";
-"dua_variations_text" = "📌 Eğer vefat eden kişi bir erkekse  
+"dua_variations_text" = "Eğer vefat eden kişi bir erkekse  
 - Aşağıdaki formu kullanın: لَهُ (lahu)  
 
 اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،  
 
 (Allahumma ighfir lahu, warhamhu.)  
 
-📌 Eğer vefat eden kişi bir kadınsa  
+Eğer vefat eden kişi bir kadınsa  
 - Erkek formunun yerine kadın formunu kullanın: لَهَا (laha)  
 
 اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،  
 
 (Allahumma ighfir laha, warhamha.)  
 
-📌 Eğer vefat edenler birden fazla erkekse  
+Eğer vefat edenler birden fazla erkekse  
 - Erkek çoğul formunu kullanın: لَهُمْ (lahum)  
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،  
 
 (Allahumma ighfir lahum, warhamhum.)  
 
-📌 Eğer vefat edenler birden fazla kadınsa  
+Eğer vefat edenler birden fazla kadınsa  
 - Kadın çoğul formunu kullanın: لَهُنَّ (lahunna)  
 
 اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،  
 
 (Allahumma ighfir lahunna, warhamhunna.)  
 
-📌 Eğer vefat eden kişinin cinsiyeti bilinmiyorsa veya vefat edenler birden fazla olup hem erkekler hem kadınlar varsa, şu formu kullanın: لَهُمْ (lahum). 
+Eğer vefat eden kişinin cinsiyeti bilinmiyorsa veya vefat edenler birden fazla olup hem erkekler hem kadınlar varsa, şu formu kullanın: لَهُمْ (lahum). 
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،  
 
@@ -481,7 +481,7 @@ Bir dua yapılabilir, ancak zorunlu değildir.";
 Rivayet edilir ki, Abdullah ibn Abi Awfa kızının cenaze namazını kıldığında dört kez tekbir getirmiştir. Dördüncü tekbirden sonra, iki tekbir arasındaki süre kadar bekleyerek kızının bağışlanması için Allah’a dua etmiş ve onun için niyazda bulunmuştur. Daha sonra şöyle demiştir: «Resulullah (Allah’ın selamı ve bereketi onun üzerine olsun) da böyle yapardı.» (al-Hakim 1/512. Bkz. “Sahih Sunan İbn Mace” 1220.)";
 
 "taslim_title" = "Namazın Sonlandırılması (Teslim)";
-"taslim_text" = "📌 Teslim, sağ tarafa bir kez veya sağa ve sola iki kez verilebilir.  
+"taslim_text" = "Teslim, sağ tarafa bir kez veya sağa ve sola iki kez verilebilir.  
 
 Resulullah (Allah'ın selamı ve bereketi onun üzerine olsun) cenaze namazında bazen bir, bazen de iki selam verirdi, ancak çoğunlukla tek selamla bitirirdi.";
 

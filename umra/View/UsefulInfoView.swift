@@ -192,7 +192,7 @@ struct JanazaView: View {
                         Divider()
                         Text(JanazaPrayerGuide.secondTakbirTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
-                        Text(JanazaPrayerGuide.secondTakbirText(bundle: localizationManager.bundle))
+                        MixedArabicContentView(text: JanazaPrayerGuide.secondTakbirText(bundle: localizationManager.bundle))
                             .padding(.bottom)
                         DisclosureGroup(
                             isExpanded: $isDuaExpanded,
@@ -213,7 +213,7 @@ struct JanazaView: View {
                     Group {
                         Text(JanazaPrayerGuide.thirdTakbirTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
-                        Text(JanazaPrayerGuide.thirdTakbirText(bundle: localizationManager.bundle))
+                        MixedArabicContentView(text: JanazaPrayerGuide.thirdTakbirText(bundle: localizationManager.bundle))
                             .padding(.bottom)
                         
                         DisclosureGroup(
@@ -242,13 +242,15 @@ struct JanazaView: View {
                         Text(JanazaPrayerGuide.taslimTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
                         Text(JanazaPrayerGuide.taslimText(bundle: localizationManager.bundle))
+                            .font(.body)
                     }
                     Divider()
-                    
+
                     DisclosureGroup(
                         isExpanded: $isSecondTakbirExpanded,
                         content: {
                             Text(JanazaPrayerGuide.duaVariationsText(bundle: localizationManager.bundle))
+                                .font(.body)
                                 .padding(.vertical)
                         },
                         label: {
@@ -366,20 +368,41 @@ private func containsArabic(_ string: String) -> Bool {
     }
 }
 
+private func isLongArabicText(_ text: String) -> Bool {
+    guard containsArabic(text) else { return false }
+    // Must be predominantly Arabic (>70% of non-whitespace chars)
+    let nonWhitespace = text.unicodeScalars.filter { !CharacterSet.whitespaces.contains($0) }
+    guard !nonWhitespace.isEmpty else { return false }
+    let arabicCharCount = nonWhitespace.filter {
+        (0x0600...0x06FF).contains($0.value) || (0x0750...0x077F).contains($0.value)
+    }.count
+    guard Double(arabicCharCount) / Double(nonWhitespace.count) > 0.70 else { return false }
+    // Must have more than 3 Arabic words
+    let arabicWordCount = text.components(separatedBy: .whitespaces)
+        .filter { containsArabic($0) }
+        .count
+    return arabicWordCount > 3
+}
+
 @ViewBuilder
 private func bodyParagraphView(paragraph: String, textColor: Color) -> some View {
     let lines = paragraph.components(separatedBy: "\n")
     VStack(alignment: .leading, spacing: 6) {
         ForEach(Array(lines.enumerated()), id: \.offset) { _, line in
-            let lineContent = textWithBoldQuotes(line, textColor: textColor)
-                .font(containsArabic(line) ? .custom("KFGQPC Uthman Taha Naskh", size: 20, relativeTo: .body) : .body)
-                .textSelection(.enabled)
-                .fixedSize(horizontal: false, vertical: true)
-            if containsArabic(line) {
-                lineContent
-                    .padding(.vertical, 10)
+            if isLongArabicText(line) {
+                Text(line)
+                    .customTextforArabic()
             } else {
-                lineContent
+                let lineContent = textWithBoldQuotes(line, textColor: textColor)
+                    .font(containsArabic(line) ? .custom("KFGQPC Uthman Taha Naskh", size: 20, relativeTo: .body) : .body)
+                    .textSelection(.enabled)
+                    .fixedSize(horizontal: false, vertical: true)
+                if containsArabic(line) {
+                    lineContent
+                        .padding(.vertical, 10)
+                } else {
+                    lineContent
+                }
             }
         }
     }
@@ -438,6 +461,25 @@ private struct FormattedContentView: View {
                 case FormattedContentBlock.Style.body(let paragraph):
                     bodyParagraphView(paragraph: paragraph, textColor: textColor)
                 }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+private struct MixedArabicContentView: View {
+    let text: String
+    @Environment(ThemeManager.self) private var themeManager
+
+    var body: some View {
+        let blocks = text.components(separatedBy: "\n\n")
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+        let textColor = themeManager.selectedTheme.textColor
+
+        VStack(alignment: .leading, spacing: 12) {
+            ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
+                bodyParagraphView(paragraph: block, textColor: textColor)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

@@ -398,7 +398,7 @@ Commenting on this hadith, Ibn Khuzaymah, may Allah have mercy on him, said: «T
 
 "title_janaza_guide" = "Janazah Prayer";
 "basic_rules" = "Guide to Janazah Prayer";
-"janaza_basic_rules" = "📌 Essential Rules of the Janazah Prayer (Funeral Prayer).
+"janaza_basic_rules" = "Essential Rules of the Janazah Prayer (Funeral Prayer).
 
 The prayer is performed while standing, without bowing (ruku') or prostration (sujood). It consists of four takbirs (saying 'Allahu Akbar').
 
@@ -453,35 +453,35 @@ Allahumma ighfir lahu, warhamhu, wa ‘afihi, wa‘fu ‘anhu, wa akrim nuzulahu
 "Awf ibn Malik reported: 'One day, the Messenger of Allah (peace and blessings be upon him) performed the Janazah prayer, and I memorized his supplication for the deceased. He said: «O Allah! Forgive him, have mercy on him, grant him relief, and grant him a noble reception. Make his grave spacious and wash him with water, snow, and hail. Cleanse him from sins as a white garment is cleansed from dirt. Grant him a home better than his home, a family better than his family, and a spouse better than his spouse. Admit him into Paradise and protect him from the punishment of the grave and the torment of the Fire!» - Abu ‘Abdur-Rahman said: 'I even wished to be in the place of the deceased.' (Sahih Muslim 2/663)";
 
 "dua_variations_title" = "Dua variations depending on the deceased";
-"dua_variations_text" = "📌 If the deceased is one man
+"dua_variations_text" = "If the deceased is one man
 - Use the form: لَهُ (lahu)
 
 اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
 
 (Allahumma ghfur lahu, wa-rhamhu.)
 
-📌 If the deceased is one woman
+If the deceased is one woman
 - Replace all masculine forms with feminine: لَهَا (laha)
 
 اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،
 
 (Allahumma ghfur laha, wa-rhamha.)
 
-📌 If there are several deceased (only men)
+If there are several deceased (only men)
 - Use the masculine plural form: لَهُمْ (lahum)
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
 
 (Allahumma ghfur lahum, wa-rhamhum.)
 
-📌 If there are several deceased (only women)
+If there are several deceased (only women)
 - Use the feminine plural form: لَهُنَّ (lahunna)
 
 اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،
 
 (Allahumma ghfur lahunna, wa-rhamhunna.)
 
-📌 If the gender of the deceased is unknown, or if there are multiple deceased (both men and women), use the form: لَهُمْ (lahum).
+If the gender of the deceased is unknown, or if there are multiple deceased (both men and women), use the form: لَهُمْ (lahum).
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
 
@@ -499,7 +499,7 @@ You can make a supplication, but it is not obligatory.";
 It is reported that when 'Abdullah ibn Abu Awfa performed the funeral prayer over his daughter, he pronounced the takbir four times. After the fourth takbir, he stood for the same amount of time as between two takbirs, asking Allah for forgiveness for his daughter and supplicating for her, and then said: 'This is what the Messenger of Allah (peace and blessings of Allah be upon him) used to do.' Al-Hakim 1/512. See 'Sahih Sunan Ibn Majah' 1220.";
 
 "taslim_title" = "Conclusion of the prayer (taslim)";
-"taslim_text" = "📌 You can say the taslim once to the right or twice (to the right and to the left).
+"taslim_text" = "You can say the taslim once to the right or twice (to the right and to the left).
 
 The Messenger of Allah (peace and blessings of Allah be upon him), when performing the funeral prayer, did both one and two salutations, but he did one salutation more frequently.";
 

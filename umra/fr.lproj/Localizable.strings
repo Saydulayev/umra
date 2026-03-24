@@ -414,7 +414,7 @@ En commentant ce hadith, Ibn Khuzayma, qu’Allah lui fasse miséricorde, a dit 
 
 "title_janaza_guide" = "Prière de Janaza";
 "basic_rules" = "Guide de la prière de Janaza";
-"janaza_basic_rules" = "📌 Règles essentielles de la prière de Janaza (Prière funéraire).
+"janaza_basic_rules" = "Règles essentielles de la prière de Janaza (Prière funéraire).
 
 La prière est effectuée en position debout, sans inclinaison (ruku‘) ni prosternation (sujud). Elle comprend quatre takbirs (prononciation de «Allahu Akbar»).
 
@@ -472,35 +472,35 @@ Allahumma ighfir lahu, warhamhu, wa 'afihi, wa‘fu 'anhu, wa akrim nuzulahu, wa
 
 
 "dua_variations_title" = "Variantes du Dua selon le défunt";
-"dua_variations_text" = "📌 Si le défunt est un homme  
+"dua_variations_text" = "Si le défunt est un homme  
 - Utilisez la forme : لَهُ (lahu)  
 
 اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،  
 
 (Allahumma ighfir lahu, warhamhu.)  
 
-📌 Si la défunte est une femme  
+Si la défunte est une femme  
 - Remplacez toutes les formes masculines par la forme féminine : لَهَا (laha)  
 
 اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،  
 
 (Allahumma ighfir laha, warhamha.)  
 
-📌 Si les défunts sont plusieurs hommes  
+Si les défunts sont plusieurs hommes  
 - Utilisez la forme du pluriel masculin : لَهُمْ (lahum)  
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،  
 
 (Allahumma ighfir lahum, warhamhum.)  
 
-📌 Si les défuntes sont plusieurs femmes  
+Si les défuntes sont plusieurs femmes  
 - Utilisez la forme du pluriel féminin : لَهُنَّ (lahunna)  
 
 اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،  
 
 (Allahumma ighfir lahunna, warhamhunna.)  
 
-📌 Si le genre du défunt est inconnu ou s'il y a plusieurs défunts (hommes et femmes ensemble), utilisez la forme : لَهُمْ (lahum).  
+Si le genre du défunt est inconnu ou s'il y a plusieurs défunts (hommes et femmes ensemble), utilisez la forme : لَهُمْ (lahum).  
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،  
 
@@ -518,7 +518,7 @@ Une invocation peut être faite, mais elle n'est pas obligatoire.";
 Il est rapporté que lorsque 'Abdullah ibn Abi Awfa a accompli la prière de Janaza pour sa fille, il a prononcé le takbir quatre fois. Après le quatrième takbir, il est resté debout pendant un laps de temps équivalent à celui entre deux takbirs, invoquant Allah pour le pardon de sa fille et faisant des supplications pour elle, puis il a dit : « C'est ainsi qu'agissait aussi le Messager d'Allah (paix et bénédictions sur lui). »  (al-Hakim 1/512. Voir « Sahih Sunan Ibn Majah » 1220.)";
 
 "taslim_title" = "Conclusion de la prière (Taslim)";
-"taslim_text" = "📌 Le taslim peut être prononcé une seule fois vers la droite ou deux fois (vers la droite et vers la gauche).
+"taslim_text" = "Le taslim peut être prononcé une seule fois vers la droite ou deux fois (vers la droite et vers la gauche).
 
 Le Messager d'Allah (paix et bénédictions sur lui) concluait la prière de Janaza tantôt avec une salutation, tantôt avec deux salutations, mais il le faisait plus fréquemment avec une seule.";
 

@@ -431,7 +431,7 @@ Setelah menyebutkan hadis ini, Ibnu Khuzaimah (semoga Allah merahmatinya) berkat
 
 "title_janaza_guide" = "Panduan Sholat Jenazah";
 "basic_rules" = "Panduan Dasar Sholat Jenazah";
-"janaza_basic_rules" = "📌 Tata cara dasar sholat jenazah (shalat untuk mayit).
+"janaza_basic_rules" = "Tata cara dasar sholat jenazah (shalat untuk mayit).
 
 Sholat ini dilakukan dalam posisi berdiri, tanpa ruku' dan sujud, dan terdiri dari empat kali takbir (mengucap ‘Allahu Akbar’).
 
@@ -484,35 +484,35 @@ Allahummaghfir lahu, warhamhu, wa 'afihi, wa'fu 'anhu, wa akrim nuzulahu, wa was
 "translate_third_takbir_text" = "Auf bin Malik meriwayatkan: “Rasulullah ﷺ melaksanakan shalat jenazah, dan aku menghafal doanya: «Ya Allah! Ampunilah dia, rahmatilah dia, bebaskan dia, muliakan tempat tinggalnya, lapangkan kuburnya, mandikan dia dengan air, salju dan embun. Bersihkan dia dari dosa sebagaimana Engkau membersihkan kain putih dari kotoran. Gantikan untuknya rumah yang lebih baik, keluarga yang lebih baik, pasangan yang lebih baik. Masukkan dia ke surga dan lindungi dia dari siksa kubur dan api neraka.»” (HR. Muslim, 2/663)";
 
 "dua_variations_title" = "Variasi Doa Sesuai Jenazah";
-"dua_variations_text" = "📌 Jika jenazah satu laki-laki:
+"dua_variations_text" = "Jika jenazah satu laki-laki:
 - Gunakan bentuk: لَهُ (lahu)
 
 اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
 
 (Allahummaghfir lahu, warhamhu.)
 
-📌 Jika jenazah satu perempuan:
+Jika jenazah satu perempuan:
 - Ganti semua bentuk maskulin dengan feminin: لَهَا (laha)
 
 اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،
 
 (Allahummaghfir laha, warhamha.)
 
-📌 Jika jenazah beberapa orang laki-laki:
+Jika jenazah beberapa orang laki-laki:
 - Gunakan bentuk jamak maskulin: لَهُمْ (lahum)
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
 
 (Allahummaghfir lahum, warhamhum.)
 
-📌 Jika jenazah beberapa perempuan:
+Jika jenazah beberapa perempuan:
 - Gunakan bentuk jamak feminin: لَهُنَّ (lahunna)
 
 اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،
 
 (Allahummaghfir lahunna, warhamhunna.)
 
-📌 Jika tidak diketahui jenis kelamin atau jenazah campuran:
+Jika tidak diketahui jenis kelamin atau jenazah campuran:
 - Gunakan bentuk umum: لَهُمْ (lahum)
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
@@ -531,7 +531,7 @@ Boleh membaca doa tambahan, namun tidak wajib.";
 Diriwayatkan bahwa ‘Abdullah bin Abi Awfa ketika melaksanakan shalat jenazah atas putrinya, beliau mengucapkan empat takbir. Setelah takbir keempat, beliau berdiri selama waktu yang sama antara dua takbir sebelumnya sambil berdoa memohonkan ampunan untuk putrinya. Lalu ia berkata: “Demikianlah yang dilakukan oleh Rasulullah ﷺ.” (HR. Al-Hakim, 1/512; Lihat Shahih Sunan Ibnu Majah, 1220)";
 
 "taslim_title" = "Penyelesaian Sholat (Taslim)";
-"taslim_text" = "📌 Taslim bisa dilakukan sekali ke kanan, atau dua kali (ke kanan dan ke kiri).
+"taslim_text" = "Taslim bisa dilakukan sekali ke kanan, atau dua kali (ke kanan dan ke kiri).
 
 Rasulullah ﷺ dalam shalat jenazah terkadang memberi salam sekali, dan terkadang dua kali. Namun, yang lebih sering beliau lakukan adalah salam sekali.";
 

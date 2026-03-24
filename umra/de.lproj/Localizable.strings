@@ -416,7 +416,7 @@ Zu diesem Hadith sagte Ibn Khuzaymah, möge Allah sich seiner erbarmen: «Die Wo
 
 "title_janaza_guide" = "Janaza-Gebet";
 "basic_rules" = "Leitfaden für das Janaza-Gebet";
-"janaza_basic_rules" = "📌 Grundregeln des Janaza-Gebets (Totengebet).
+"janaza_basic_rules" = "Grundregeln des Janaza-Gebets (Totengebet).
 
 Das Gebet wird stehend verrichtet, ohne Verbeugungen (Ruku‘) oder Niederwerfungen (Sujud). Es besteht aus vier Takbirs (Ausspruch von „Allahu Akbar“).
 
@@ -473,35 +473,35 @@ Allahumma ighfir lahu, warhamhu, wa 'afihi, wa‘fu 'anhu, wa akrim nuzulahu, wa
 
 
 "dua_variations_title" = "Varianten des Dua je nach Verstorbenem";
-"dua_variations_text" = "📌 Wenn der Verstorbene ein einzelner Mann ist
+"dua_variations_text" = "Wenn der Verstorbene ein einzelner Mann ist
 - Verwenden Sie die Form: لَهُ (lahu)
 
 اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
 
 (Allahumma ighfir lahu, warhamhu.)
 
-📌 Wenn die Verstorbene eine einzelne Frau ist
+Wenn die Verstorbene eine einzelne Frau ist
 - Ersetzen Sie alle männlichen Formen durch die weibliche Form: لَهَا (laha)
 
 اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،
 
 (Allahumma ighfir laha, warhamha.)
 
-📌 Wenn die Verstorbenen mehrere Männer sind
+Wenn die Verstorbenen mehrere Männer sind
 - Verwenden Sie die männliche Pluralform: لَهُمْ (lahum)
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
 
 (Allahumma ighfir lahum, warhamhum.)
 
-📌 Wenn die Verstorbenen mehrere Frauen sind
+Wenn die Verstorbenen mehrere Frauen sind
 - Verwenden Sie die weibliche Pluralform: لَهُنَّ (lahunna)
 
 اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،
 
 (Allahumma ighfir lahunna, warhamhunna.)
 
-📌 Wenn das Geschlecht des Verstorbenen unbekannt ist oder es mehrere Verstorbene gibt (Männer und Frauen zusammen), verwenden Sie die Form: لَهُمْ (lahum).
+Wenn das Geschlecht des Verstorbenen unbekannt ist oder es mehrere Verstorbene gibt (Männer und Frauen zusammen), verwenden Sie die Form: لَهُمْ (lahum).
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
 
@@ -520,7 +520,7 @@ Es wird überliefert, dass als 'Abdullah ibn Abi Aufa das Janaza-Gebet für sein
 (al-Hakim 1/512. Siehe „Sahih Sunan Ibn Majah“ 1220.)";
 
 "taslim_title" = "Beendigung des Gebets (Taslim)";
-"taslim_text" = "📌 Der Taslim kann entweder einmal nach rechts oder zweimal (nach rechts und links) ausgesprochen werden.
+"taslim_text" = "Der Taslim kann entweder einmal nach rechts oder zweimal (nach rechts und links) ausgesprochen werden.
 
 Der Gesandte Allahs (Friede und Segen seien auf ihm) verrichtete das Janaza-Gebet sowohl mit einer als auch mit zwei Verabschiedungen, wobei er jedoch häufiger nur eine Verabschiedung ausführte.";
 
