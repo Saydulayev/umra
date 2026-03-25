@@ -706,6 +706,33 @@ extension View {
     }
 }
 
+// MARK: - Обёртка для страниц шагов (Умра / Хадж)
+
+struct StepScrollView<Content: View>: View {
+    @Environment(ThemeManager.self) private var themeManager
+    private let content: Content
+
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+
+    var body: some View {
+        ZStack {
+            themeManager.selectedTheme.backgroundColor
+                .ignoresSafeArea()
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    content
+                }
+                .foregroundStyle(.primary)
+                .padding(.horizontal, 20)
+                .padding(.top, 12)
+                .padding(.bottom, 40)
+            }
+        }
+    }
+}
+
 // MARK: - Модификаторы для текста
 struct StepTextModifier: ViewModifier {
     @Environment(ThemeManager.self) private var themeManager

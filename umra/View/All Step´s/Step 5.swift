@@ -8,38 +8,25 @@
 import SwiftUI
 
 struct Step5: View {
-    @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(FontManager.self) private var fontManager
-    
+
     var body: some View {
-        ZStack {
-            themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea()
-            
-            ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Return to the Black Stone.", bundle: localizationManager.bundle)
-                        .font(fontManager.sectionTitleFont)
-                    
-                    Group {
-                        Text("Return to the Black Stone, recite the Takbir.", bundle: localizationManager.bundle)
-                        Spacer()
-                        
-                        Text("Allah is great.", bundle: localizationManager.bundle)
-                        Text("الله أكبر‎")
-                            .customTextforArabic()
-                        
-                        PlayerView(fileName: "6")
-                    }
-                    .font(fontManager.bodyFont)
-                }
-                .foregroundStyle(.primary)
-                .padding(.horizontal, 20)
-                .padding(.top, 12)
-                .padding(.bottom, 40)
+        StepScrollView {
+            Text("Return to the Black Stone.", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
+
+            Group {
+                Text("Return to the Black Stone, recite the Takbir.", bundle: localizationManager.bundle)
+                Spacer()
+
+                Text("Allah is great.", bundle: localizationManager.bundle)
+                Text("الله أكبر‎")
+                    .customTextforArabic()
+
+                PlayerView(fileName: "6")
             }
-            .scrollBounceBehavior(.basedOnSize)
+            .font(fontManager.bodyFont)
         }
     }
 }
