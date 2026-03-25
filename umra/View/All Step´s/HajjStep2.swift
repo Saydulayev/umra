@@ -14,24 +14,22 @@ struct HajjStep2: View {
     var body: some View {
         StepScrollView {
             // Секция: Арафат
-            VStack(alignment: .leading, spacing: 12) {
-                Text("hajj_step2_arafat_title", bundle: localizationManager.bundle)
-                    .font(fontManager.sectionTitleFont)
-                    .padding(.top, 8)
+            Text("hajj_step2_arafat_title", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
 
+            Group {
                 Text("hajj_step2_arafat_text", bundle: localizationManager.bundle)
-                    .font(fontManager.bodyFont)
             }
+            .font(fontManager.bodyFont)
 
             Divider()
                 .padding(.vertical, 8)
 
             // Секция: Стояние на Арафате
-            VStack(alignment: .leading, spacing: 12) {
-                Text("hajj_step2_standing_title", bundle: localizationManager.bundle)
-                    .font(fontManager.sectionTitleFont)
-                    .padding(.top, 8)
+            Text("hajj_step2_standing_title", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
 
+            Group {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("hajj_step2_standing_text", bundle: localizationManager.bundle)
                         .font(fontManager.bodyFont)
@@ -54,32 +52,31 @@ struct HajjStep2: View {
                     .padding(.leading, 12)
                 }
             }
+            .font(fontManager.bodyFont)
 
             Divider()
                 .padding(.vertical, 8)
 
             // Секция: Муздалифа
-            VStack(alignment: .leading, spacing: 12) {
-                Text("hajj_step2_muzdalifah_title", bundle: localizationManager.bundle)
-                    .font(fontManager.sectionTitleFont)
-                    .padding(.top, 8)
+            Text("hajj_step2_muzdalifah_title", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
 
+            Group {
                 Text("hajj_step2_muzdalifah_text", bundle: localizationManager.bundle)
-                    .font(fontManager.bodyFont)
             }
+            .font(fontManager.bodyFont)
 
             Divider()
                 .padding(.vertical, 8)
 
             // Секция: Ночёвка
-            VStack(alignment: .leading, spacing: 12) {
-                Text("hajj_step2_night_title", bundle: localizationManager.bundle)
-                    .font(fontManager.sectionTitleFont)
-                    .padding(.top, 8)
+            Text("hajj_step2_night_title", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
 
+            Group {
                 Text("hajj_step2_night_text", bundle: localizationManager.bundle)
-                    .font(fontManager.bodyFont)
             }
+            .font(fontManager.bodyFont)
         }
     }
 }

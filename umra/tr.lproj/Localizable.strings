@@ -22,7 +22,8 @@
 
 /* IHRAM */
 /* Preparation before Ihram */
-"preparation_before_ihram_title" = "İhramdan Önce Hazırlık";
+"preparation_before_ihram_title" = "
+İhramdan Önce Hazırlık";
 "preparation_before_ihram_text" = "İhrama girmeden önce (yani niyet etmeden ve telbiyeye başlamadan önce) şunlar tavsiye edilir:\n\nGusül (tam abdest) almak, bu sünnettir.\n\nFıtrata göre kendini düzenlemek: tırnakları kesmek, kasık ve koltuk altı kıllarını temizlemek (erkekler ayrıca bıyığı da kesmelidir), böylece bunu ihramdayken yapmak zorunda kalmazsınız.\n\nErkekler gusülden sonra vücuda koku sürmelidir (ihram kıyafetine değil).\n\nİhram kıyafetini giymek (erkek - izaar ve rida; kadın - normal mütevazı kıyafet, ihram durumunda nikap ve eldiven olmadan).\n\nFarz namaz vakti geldiyse - onu kılın, sonra Mikat'ta Umre/Hac için niyet edin ve telbiyeyi söyleyin - bu andan itibaren ihramdasınız ve yasakları geçerli olmaya başlar.";
 
 "into the state of Ihram" = "
@@ -558,7 +559,8 @@ Geceyi Mina vadisinde geçirin.";
 /* HAC – Adım 2: 9 Zilhicce */
 "hajj_step2_title" = "9 Zilhicce — Arafat Vakfesi Günü";
 
-"hajj_step2_arafat_title" = "Arafat vadisine geçiş";
+"hajj_step2_arafat_title" = "
+Arafat vadisine geçiş";
 "hajj_step2_arafat_text" = "Mina vadisinde sabah namazını (Fecr) kılın, güneş doğduktan sonra Arafat vadisine doğru yola çıkın. Telbiyeyi ve tekbiri («Allahu ekber» sözlerini) sürekli olarak söyleyin.
 
 Mümkünse Arafat yakınındaki Nemire mevkiinde durun ve öğle vaktine kadar orada kalın. Ardından Arafat’tan önce bulunan Uranâ Vadisi’ne yönelin.
@@ -585,7 +587,8 @@ Ayrıca aşağıdaki duayı okumak özellikle tavsiye edilir:";
 /* HAC – Adım 3: 10 Zilhicce */
 "hajj_step3_title" = "10 Zilhicce — Kurban Günü";
 
-"hajj_step3_fajr_title" = "Fecr";
+"hajj_step3_fajr_title" = "
+Fecr";
 "hajj_step3_fajr_text" = "Müzdelife’de sabah namazını (Fecr) vakti girer girmez en erken zamanında kılın.";
 
 "hajj_step3_mashaar_title" = "el-Meş‘ar el-Haram’a geçiş";
@@ -633,7 +636,8 @@ Dikkat! Bu tavaf, başından sonuna kadar normal yürüyüş temposuyla yapılı
 /* HAC – Adım 4: 11, 12 ve 13 Zilhicce */
 "hajj_step4_title" = "11, 12 ve 13 Zilhicce — Teşrik Günleri";
 
-"hajj_step4_stay_title" = "Mina’da kalış";
+"hajj_step4_stay_title" = "
+Mina’da kalış";
 "hajj_step4_stay_text" = "Üç gün boyunca (Teşrik günleri) Mina’daki konaklama yerinizde geceleyin.";
 
 "hajj_step4_jamarat_title" = "Üç Cemre’ye taş atma";
@@ -654,7 +658,8 @@ Taşları Büyük Cemre’ye birer birer atın. Her taş atışında «Allahu ek
 Bu ibadet Teşrik günlerinin üçünde de yerine getirilir. 13 Zilhicce günü taş atmayı tamamladıktan sonra Mekke’ye dönün.";
 
 /* HAC – Adım 5: Veda tavafı */
-"hajj_step5_title" = "Kâbe’nin Veda Tavafı";
+"hajj_step5_title" = "
+Kâbe’nin Veda Tavafı";
 
 "hajj_step5_farewell_text" = "Eve dönmeden önce Kâbe’nin Veda Tavafı’nı yapmak gerekir. Bunun için ihram elbiselerini giymek şart değildir.
 

@@ -14,22 +14,16 @@ struct Step1: View {
     var body: some View {
         StepScrollView {
             // Секция: Подготовка к ихраму
-            VStack(alignment: .leading, spacing: 12) {
+            Group {
                 Text("preparation_before_ihram_title", bundle: localizationManager.bundle)
                     .font(fontManager.sectionTitleFont)
-                    .padding(.top, 8)
 
                 Text("preparation_before_ihram_text", bundle: localizationManager.bundle)
                     .font(fontManager.bodyFont)
-            }
 
-            Divider()
-                .padding(.vertical, 8)
-
-            Text("into the state of Ihram", bundle: localizationManager.bundle)
-                .font(fontManager.sectionTitleFont)
-
-            Group {
+                Text("into the state of Ihram", bundle: localizationManager.bundle)
+                    .font(fontManager.sectionTitleFont)
+                
                 Text("When entering the state of Ihram, say:", bundle: localizationManager.bundle)
 
                 Text("""

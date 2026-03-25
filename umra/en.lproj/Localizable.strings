@@ -22,7 +22,8 @@
 
 /* IHRAM */
 /* Preparation before Ihram */
-"preparation_before_ihram_title" = "Preparation before Ihram";
+"preparation_before_ihram_title" = "
+Preparation before Ihram";
 "preparation_before_ihram_text" = "Before entering the state of Ihram (i.e., before the intention and beginning of Talbiyah), it is recommended:\n\nPerform ghusl (full ablution), this is sunnah.\n\nPrepare yourself according to \"fitrah\": trim nails, remove pubic and underarm hair (men should also trim their mustache), so that you don't have to do this while in Ihram.\n\nMen should apply perfume to the body after ghusl (not on Ihram clothing).\n\nPut on Ihram clothing (men - izaar and rida; women - regular modest clothing, without niqab and gloves while in Ihram).\n\nIf it is time for obligatory prayer - perform it, then at the Miqat make intention for Umrah/Hajj and recite Talbiyah - from this moment you are in Ihram, and its prohibitions begin to apply.";
 
 "into the state of Ihram" = "
@@ -576,7 +577,8 @@ Spend the night in the Valley of Mina.";
 /* HAJJ – Step 2: 9th of Dhu al-Hijjah */
 "hajj_step2_title" = "9th of Dhu al-Hijjah — Day of Standing at ‘Arafat";
 
-"hajj_step2_arafat_title" = "Proceeding to the Valley of ‘Arafat";
+"hajj_step2_arafat_title" = "
+Proceeding to the Valley of ‘Arafat";
 "hajj_step2_arafat_text" = "Perform the dawn prayer (fajr) in the Valley of Mina, and after sunrise proceed to the Valley of ‘Arafat. Continuously recite the Talbiyah and the Takbir (the words “Allahu Akbar”).
 
 If possible, stop at the place called Namirah near ‘Arafat and remain there until noon. Then proceed to the valley of ‘Uranah (before ‘Arafat).
@@ -603,7 +605,8 @@ It is also highly recommended to recite the following supplication:";
 /* HAJJ – Step 3: 10th of Dhu al-Hijjah */
 "hajj_step3_title" = "10th of Dhu al-Hijjah — Day of Sacrifice";
 
-"hajj_step3_fajr_title" = "Fajr";
+"hajj_step3_fajr_title" = "
+Fajr";
 "hajj_step3_fajr_text" = "Perform the dawn prayer (fajr) in Muzdalifah at the earliest time prescribed for it.";
 
 "hajj_step3_mashaar_title" = "Proceeding to al-Mash‘ar al-Haram";
@@ -651,7 +654,8 @@ Attention! This circumambulation of the Kaaba is performed at a normal walking p
 /* HAJJ – Step 4: 11th, 12th, and 13th of Dhu al-Hijjah */
 "hajj_step4_title" = "11th, 12th, 13th of Dhu al-Hijjah — Days of at-Tashriq";
 
-"hajj_step4_stay_title" = "Staying in Mina";
+"hajj_step4_stay_title" = "
+Staying in Mina";
 "hajj_step4_stay_text" = "During the three days (Ayyam at-Tashriq), spend the nights at your place of residence in Mina.";
 
 "hajj_step4_jamarat_title" = "Throwing Pebbles at the Three Pillars";
@@ -672,7 +676,8 @@ Throw the pebbles at the Large Pillar one by one. With each throw of a pebble, p
 This rite is performed on all three days of at-Tashriq. After completing the throwing of pebbles on the 13th of Dhu al-Hijjah, return to Mecca.";
 
 /* HAJJ – Step 5: Farewell Circumambulation */
-"hajj_step5_title" = "Farewell Tawaf of the Kaaba";
+"hajj_step5_title" = "
+Farewell Tawaf of the Kaaba";
 
 "hajj_step5_farewell_text" = "Before departing for home, one should perform the farewell circumambulation of the Kaaba. There is no need to wear the ihram garments.
 

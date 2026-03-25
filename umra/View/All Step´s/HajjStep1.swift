@@ -14,24 +14,22 @@ struct HajjStep1: View {
     var body: some View {
         StepScrollView {
             // Секция: Подготовка к ихраму
-            VStack(alignment: .leading, spacing: 12) {
-                Text("preparation_before_ihram_title", bundle: localizationManager.bundle)
-                    .font(fontManager.sectionTitleFont)
-                    .padding(.top, 8)
+            Text("preparation_before_ihram_title", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
 
+            Group {
                 Text("preparation_before_ihram_text", bundle: localizationManager.bundle)
-                    .font(fontManager.bodyFont)
             }
+            .font(fontManager.bodyFont)
 
             Divider()
                 .padding(.vertical, 8)
 
             // Секция: Ихрам
-            VStack(alignment: .leading, spacing: 12) {
-                Text("hajj_step1_ihram_title", bundle: localizationManager.bundle)
-                    .font(fontManager.sectionTitleFont)
-                    .padding(.top, 8)
+            Text("hajj_step1_ihram_title", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
 
+            Group {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("hajj_step1_ihram_text", bundle: localizationManager.bundle)
                         .font(fontManager.bodyFont)
@@ -71,16 +69,16 @@ struct HajjStep1: View {
                     .padding(.leading, 12)
                 }
             }
+            .font(fontManager.bodyFont)
 
             Divider()
                 .padding(.vertical, 8)
 
             // Секция: Тальбия
-            VStack(alignment: .leading, spacing: 12) {
-                Text("hajj_step1_talbiyah_title", bundle: localizationManager.bundle)
-                    .font(fontManager.sectionTitleFont)
-                    .padding(.top, 8)
+            Text("hajj_step1_talbiyah_title", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
 
+            Group {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("hajj_step1_talbiyah_text", bundle: localizationManager.bundle)
                         .font(fontManager.bodyFont)
@@ -103,19 +101,19 @@ struct HajjStep1: View {
                     .padding(.leading, 12)
                 }
             }
+            .font(fontManager.bodyFont)
 
             Divider()
                 .padding(.vertical, 8)
 
             // Секция: Мина
-            VStack(alignment: .leading, spacing: 12) {
-                Text("hajj_step1_mina_title", bundle: localizationManager.bundle)
-                    .font(fontManager.sectionTitleFont)
-                    .padding(.top, 8)
+            Text("hajj_step1_mina_title", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
 
+            Group {
                 Text("hajj_step1_mina_text", bundle: localizationManager.bundle)
-                    .font(fontManager.bodyFont)
             }
+            .font(fontManager.bodyFont)
         }
     }
 }

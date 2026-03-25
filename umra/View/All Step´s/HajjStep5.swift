@@ -14,14 +14,13 @@ struct HajjStep5: View {
     var body: some View {
         StepScrollView {
             // Секция: Прощальный обход
-            VStack(alignment: .leading, spacing: 12) {
-                Text("hajj_step5_title", bundle: localizationManager.bundle)
-                    .font(fontManager.sectionTitleFont)
-                    .padding(.top, 8)
+            Text("hajj_step5_title", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
 
+            Group {
                 Text("hajj_step5_farewell_text", bundle: localizationManager.bundle)
-                    .font(fontManager.bodyFont)
             }
+            .font(fontManager.bodyFont)
         }
     }
 }

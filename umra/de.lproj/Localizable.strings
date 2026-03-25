@@ -22,7 +22,8 @@
 
 /* IHRAM */
 /* Preparation before Ihram */
-"preparation_before_ihram_title" = "Vorbereitung vor dem Ihram";
+"preparation_before_ihram_title" = "
+Vorbereitung vor dem Ihram";
 "preparation_before_ihram_text" = "Vor dem Eintritt in den Ihram-Zustand (d.h. vor der Absicht und dem Beginn der Talbiyah) wird empfohlen:\n\nGhusl (vollständige Waschung) durchführen, dies ist Sunnah.\n\nSich nach der Fitra ordnen: Nägel schneiden, Scham- und Achselhaare entfernen (Männer sollten auch den Schnurrbart schneiden), damit man dies nicht bereits im Ihram tun muss.\n\nMänner sollten nach dem Ghusl Parfüm auf den Körper auftragen (nicht auf die Ihram-Kleidung).\n\nIhram-Kleidung anziehen (Mann - Izar und Rida; Frau - normale bescheidene Kleidung, ohne Niqab und Handschuhe im Ihram-Zustand).\n\nWenn es Zeit für das obligatorische Gebet ist - verrichten Sie es, dann machen Sie am Miqat die Absicht für Umrah/Hajj und sprechen Sie die Talbiyah - ab diesem Moment sind Sie im Ihram, und seine Verbote beginnen zu gelten.";
 
 "into the state of Ihram" = "
@@ -597,7 +598,8 @@ Verbringt die Nacht im Tal von Mina.";
 /* HAJJ – Schritt 2: 9. Dhu al-Hiddscha */
 "hajj_step2_title" = "9. Dhu al-Hiddscha — Tag des Stehens auf ‘Arafat";
 
-"hajj_step2_arafat_title" = "Weiterreise ins Tal von ‘Arafat";
+"hajj_step2_arafat_title" = "
+Weiterreise ins Tal von ‘Arafat";
 "hajj_step2_arafat_text" = "Verrichtet das Morgengebet (Fadschr) im Tal von Mina und begebt euch nach Sonnenaufgang ins Tal von ‘Arafat. Sprecht fortwährend die Talbiya und den Takbir (die Worte „Allahu akbar“).
 
 Wenn möglich, haltet euch an dem Ort Namira in der Nähe von ‘Arafat auf und bleibt dort bis zum Mittag. Anschließend begebt euch zum Wadi ‘Urana (vor ‘Arafat).
@@ -624,7 +626,8 @@ Es ist außerdem sehr empfohlen, folgendes Bittgebet zu sprechen:";
 /* HAJJ – Schritt 3: 10. Dhu al-Hiddscha */
 "hajj_step3_title" = "10. Dhu al-Hiddscha — Tag des Opfers";
 
-"hajj_step3_fajr_title" = "Fadschr";
+"hajj_step3_fajr_title" = "
+Fadschr";
 "hajj_step3_fajr_text" = "Verrichtet das Morgengebet (Fadschr) in Muzdalifa zur frühestmöglichen dafür vorgesehenen Zeit.";
 
 "hajj_step3_mashaar_title" = "Weiterreise nach al-Masch‘ar al-Haram";
@@ -672,7 +675,8 @@ Achtung! Dieser Tawaf wird vom Anfang bis zum Ende in normalem Gehtempo vollzoge
 /* HAJJ – Schritt 4: 11., 12. und 13. Dhu al-Hiddscha */
 "hajj_step4_title" = "11., 12. und 13. Dhu al-Hiddscha — Tage der at-Taschriq";
 
-"hajj_step4_stay_title" = "Aufenthalt in Mina";
+"hajj_step4_stay_title" = "
+Aufenthalt in Mina";
 "hajj_step4_stay_text" = "Während der drei Tage (Ayyam at-Taschriq) verbringt die Nächte an eurem Aufenthaltsort in Mina.";
 
 "hajj_step4_jamarat_title" = "Werfen der Steinchen auf die drei Säulen";
@@ -693,7 +697,8 @@ Werft die Steinchen einzeln auf die Große Säule. Bei jedem Wurf sprecht die Wo
 Dieses Ritual wird an allen drei Tagen der at-Taschriq vollzogen. Nach dem Abschluss des Werfens der Steinchen am 13. Dhu al-Hiddscha kehrt nach Mekka zurück.";
 
 /* HAJJ – Schritt 5: Abschieds-Tawaf */
-"hajj_step5_title" = "Abschieds-Tawaf der Kaaba";
+"hajj_step5_title" = "
+Abschieds-Tawaf der Kaaba";
 
 "hajj_step5_farewell_text" = "Bevor ihr die Heimreise antretet, sollt ihr den Abschieds-Tawaf der Kaaba vollziehen. Das Anlegen der Ihram-Gewänder ist hierfür nicht erforderlich.
 

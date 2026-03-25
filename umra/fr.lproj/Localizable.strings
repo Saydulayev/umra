@@ -22,7 +22,8 @@
 
 /* IHRAM */
 /* Preparation before Ihram */
-"preparation_before_ihram_title" = "Préparation avant l'Ihram";
+"preparation_before_ihram_title" = "
+Préparation avant l'Ihram";
 "preparation_before_ihram_text" = "Avant d'entrer dans l'état d'Ihram (c'est-à-dire avant l'intention et le début de la Talbiyah), il est recommandé :\n\nEffectuer le ghusl (ablution complète), c'est une sunnah.\n\nSe préparer selon la fitra : couper les ongles, enlever les poils pubiens et sous les aisselles (l'homme doit aussi couper la moustache), afin de ne pas avoir à le faire déjà en Ihram.\n\nL'homme doit appliquer du parfum sur le corps après le ghusl (pas sur les vêtements d'Ihram).\n\nMettre les vêtements d'Ihram (homme - izaar et rida ; femme - vêtements modestes ordinaires, sans niqab et gants en état d'Ihram).\n\nS'il est temps pour la prière obligatoire - effectuez-la, puis au Miqat faites l'intention pour Umrah/Hajj et récitez la Talbiyah - à partir de ce moment vous êtes en Ihram, et ses interdictions commencent à s'appliquer.";
 
 "into the state of Ihram" = "
@@ -595,7 +596,8 @@ Passez la nuit dans la vallée de Mina.";
 /* HAJJ – Étape 2 : 9 Dhou al-Hidjdja */
 "hajj_step2_title" = "9 Dhou al-Hidjdja — Jour de la station à ‘Arafat";
 
-"hajj_step2_arafat_title" = "Déplacement vers la vallée de ‘Arafat";
+"hajj_step2_arafat_title" = "
+Déplacement vers la vallée de ‘Arafat";
 "hajj_step2_arafat_text" = "Accomplissez la prière de l’aube (Fadjr) dans la vallée de Mina, puis après le lever du soleil, dirigez-vous vers la vallée de ‘Arafat. Récitez continuellement la Talbiya et le Takbir (les paroles « Allahou akbar »).
 
 Si possible, arrêtez-vous à l’endroit appelé Namira, près de ‘Arafat, et restez-y jusqu’à midi. Ensuite, dirigez-vous vers le Wadi ‘Ourana (avant ‘Arafat).
@@ -622,7 +624,8 @@ Il est également fortement recommandé de réciter l’invocation suivante :";
 /* HAJJ – Étape 3 : 10 Dhou al-Hidjdja */
 "hajj_step3_title" = "10 Dhou al-Hidjdja — Jour du sacrifice";
 
-"hajj_step3_fajr_title" = "Fadjr";
+"hajj_step3_fajr_title" = "
+Fadjr";
 "hajj_step3_fajr_text" = "Accomplissez la prière de l’aube (Fadjr) à Mouzdalifa au tout début du temps qui lui est prescrit.";
 
 "hajj_step3_mashaar_title" = "Déplacement vers al-Mach‘ar al-Haram";
@@ -670,7 +673,8 @@ Attention ! Ce Tawaf est accompli à un rythme de marche normal du début à la 
 /* HAJJ – Étape 4 : 11, 12 et 13 Dhou al-Hidjdja */
 "hajj_step4_title" = "11, 12 et 13 Dhou al-Hidjdja — Jours d’at-Tachriq";
 
-"hajj_step4_stay_title" = "Séjour à Mina";
+"hajj_step4_stay_title" = "
+Séjour à Mina";
 "hajj_step4_stay_text" = "Pendant les trois jours (Ayyam at-Tachriq), passez la nuit à votre lieu de résidence à Mina.";
 
 "hajj_step4_jamarat_title" = "Jet des cailloux sur les trois stèles";
@@ -691,7 +695,8 @@ Jetez les cailloux sur la Grande Stèle un par un. À chaque jet, prononcez les 
 Ce rite est accompli durant les trois jours d’at-Tachriq. Après avoir achevé le jet des cailloux le 13 Dhou al-Hidjdja, retournez à La Mecque.";
 
 /* HAJJ – Étape 5 : Tawaf d’adieu */
-"hajj_step5_title" = "Tawaf d’adieu de la Kaaba";
+"hajj_step5_title" = "
+Tawaf d’adieu de la Kaaba";
 
 "hajj_step5_farewell_text" = "Avant de rentrer chez vous, il convient d’accomplir le Tawaf d’adieu de la Kaaba. Il n’est pas nécessaire de revêtir les vêtements de l’Ihram.
 

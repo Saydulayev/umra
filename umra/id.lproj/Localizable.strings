@@ -22,7 +22,8 @@
 
 /* IHRAM */
 /* Preparation before Ihram */
-"preparation_before_ihram_title" = "Persiapan sebelum Ihram";
+"preparation_before_ihram_title" = "
+Persiapan sebelum Ihram";
 "preparation_before_ihram_text" = "Sebelum memasuki keadaan Ihram (yaitu sebelum niat dan memulai Talbiyah), disarankan:\n\nMelakukan ghusl (mandi wajib penuh), ini adalah sunnah.\n\nMerapikan diri sesuai \"fitrah\": memotong kuku, menghilangkan rambut kemaluan dan ketiak (pria juga harus memotong kumis), agar tidak perlu melakukannya saat sudah dalam Ihram.\n\nPria harus mengoleskan wewangian pada tubuh setelah ghusl (bukan pada pakaian Ihram).\n\nMemakai pakaian Ihram (pria - izaar dan rida; wanita - pakaian sederhana biasa, tanpa niqab dan sarung tangan dalam keadaan Ihram).\n\nJika sudah waktunya shalat wajib - lakukanlah, kemudian di Miqat buat niat untuk Umrah/Hajj dan ucapkan Talbiyah - dari saat ini Anda dalam Ihram, dan larangannya mulai berlaku.";
 
 "into the state of Ihram" = "
@@ -608,7 +609,8 @@ Bermalamlah di lembah Mina.";
 /* HAJI – Langkah 2: 9 Zulhijah */
 "hajj_step2_title" = "9 Zulhijah — Hari Wukuf di Arafah";
 
-"hajj_step2_arafat_title" = "Perjalanan menuju lembah Arafah";
+"hajj_step2_arafat_title" = "
+Perjalanan menuju lembah Arafah";
 "hajj_step2_arafat_text" = "Laksanakan salat Subuh di lembah Mina, kemudian setelah matahari terbit berangkatlah menuju lembah Arafah. Terus-meneruslah melafalkan Talbiyah dan Takbir (ucapan «Allahu akbar»).
 
 Jika memungkinkan, berhentilah di tempat bernama Namirah yang terletak dekat Arafah dan tinggallah di sana hingga waktu Zuhur. Setelah itu, pergilah menuju Wadi ‘Uranah (sebelum Arafah).
@@ -635,7 +637,8 @@ Selain itu, sangat dianjurkan untuk membaca doa berikut:";
 /* HAJI – Langkah 3: 10 Zulhijah */
 "hajj_step3_title" = "10 Zulhijah — Hari Penyembelihan Kurban";
 
-"hajj_step3_fajr_title" = "Subuh";
+"hajj_step3_fajr_title" = "
+Subuh";
 "hajj_step3_fajr_text" = "Laksanakan salat Subuh di Muzdalifah pada waktu paling awal yang telah ditetapkan untuknya.";
 
 "hajj_step3_mashaar_title" = "Perjalanan menuju al-Masy‘ar al-Haram";
@@ -683,7 +686,8 @@ Perhatian! Tawaf ini dilakukan dengan langkah biasa dari awal hingga akhir.";
 /* HAJI – Langkah 4: 11, 12 dan 13 Zulhijah */
 "hajj_step4_title" = "11, 12 dan 13 Zulhijah — Hari-hari Tasyrik";
 
-"hajj_step4_stay_title" = "Tinggal di Mina";
+"hajj_step4_stay_title" = "
+Tinggal di Mina";
 "hajj_step4_stay_text" = "Selama tiga hari (hari-hari Tasyrik), bermalamlah di tempat tinggal Anda di Mina.";
 
 "hajj_step4_jamarat_title" = "Melempar kerikil ke tiga Jumrah";
@@ -704,7 +708,8 @@ Lemparkan kerikil ke Jumrah Besar satu per satu. Setiap kali melempar kerikil, u
 Ibadah ini dilaksanakan selama tiga hari Tasyrik. Setelah menyelesaikan pelemparan kerikil pada tanggal 13 Zulhijah, kembalilah ke Mekah.";
 
 /* HAJI – Langkah 5: Tawaf Perpisahan */
-"hajj_step5_title" = "Tawaf Perpisahan Ka‘bah";
+"hajj_step5_title" = "
+Tawaf Perpisahan Ka‘bah";
 
 "hajj_step5_farewell_text" = "Sebelum kembali ke tanah air, hendaknya melaksanakan tawaf perpisahan Ka‘bah. Tidak perlu mengenakan pakaian ihram.
 
