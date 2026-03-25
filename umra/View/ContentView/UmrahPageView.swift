@@ -43,6 +43,14 @@ struct UmrahPageView: View {
             }
         }
         .toolbar(.hidden, for: .tabBar)
+        .onAppear { updatePageIndicatorColors() }
+        .onChange(of: themeManager.selectedTheme.isDarkAppearance) { updatePageIndicatorColors() }
+    }
+
+    private func updatePageIndicatorColors() {
+        let theme = themeManager.selectedTheme
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(theme.primaryColor)
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(theme.textColor).withAlphaComponent(0.3)
     }
 
     private var titleKey: LocalizedStringKey {
