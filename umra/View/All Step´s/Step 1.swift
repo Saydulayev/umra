@@ -123,6 +123,7 @@ struct Step1: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
+                .padding(.vertical, 12)
             }
         }
     }

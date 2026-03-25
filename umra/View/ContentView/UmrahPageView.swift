@@ -29,6 +29,7 @@ struct UmrahPageView: View {
                 Step7().tag(UmraStep.step7)
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
+            .ignoresSafeArea(edges: .bottom)
         }
         .navigationTitle(Text(titleKey, bundle: localizationManager.bundle))
         .navigationBarTitleDisplayMode(.inline)

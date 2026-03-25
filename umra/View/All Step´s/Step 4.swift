@@ -18,7 +18,7 @@ struct Step4: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                VStack {
+                VStack(alignment: .leading, spacing: 20) {
                     Text("Drinking Zamzam water.", bundle: localizationManager.bundle)
                         .font(fontManager.sectionTitleFont)
                     
@@ -29,6 +29,7 @@ struct Step4: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
+                .padding(.vertical, 12)
             }
         }
     }

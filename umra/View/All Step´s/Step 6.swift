@@ -18,7 +18,7 @@ struct Step6: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                VStack {
+                VStack(alignment: .leading, spacing: 20) {
                     Text("Safa and Marwa", bundle: localizationManager.bundle)
                         .font(fontManager.sectionTitleFont)
                     
@@ -78,6 +78,7 @@ struct Step6: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
+                .padding(.vertical, 12)
             }
         }
     }

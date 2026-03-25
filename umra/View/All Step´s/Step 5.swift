@@ -18,7 +18,7 @@ struct Step5: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                VStack {
+                VStack(alignment: .leading, spacing: 20) {
                     Text("Return to the Black Stone.", bundle: localizationManager.bundle)
                         .font(fontManager.sectionTitleFont)
                     
@@ -36,6 +36,7 @@ struct Step5: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
+                .padding(.vertical, 12)
             }
             .scrollBounceBehavior(.basedOnSize)
         }

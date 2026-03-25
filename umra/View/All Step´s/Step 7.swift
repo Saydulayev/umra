@@ -18,7 +18,7 @@ struct Step7: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                VStack {
+                VStack(alignment: .leading, spacing: 20) {
                     Text("Shaving the head string", bundle: localizationManager.bundle)
                         .font(fontManager.sectionTitleFont)
                     
@@ -31,6 +31,7 @@ struct Step7: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
+                .padding(.vertical, 12)
             }
         }
     }

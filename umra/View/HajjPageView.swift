@@ -27,6 +27,7 @@ struct HajjPageView: View {
                 HajjStep5().tag(HajjStep.step5)
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
+            .ignoresSafeArea(edges: .bottom)
         }
         .navigationTitle(localizationManager.extractTitleOnly(from: currentStepKey))
         .navigationBarTitleDisplayMode(.inline)
