@@ -30,6 +30,7 @@ struct PrayerTimeView: View {
     @AppStorage("enablePrayerTimeNotifications") private var enablePrayerTimeNotifications: Bool = true
     @AppStorage("enableSunriseNotifications") private var enableSunriseNotifications: Bool = true
     @AppStorage(UserDefaultsKey.prayerCity) private var prayerCityRaw: String = PrayerCity.mecca.rawValue
+    @State private var showNotificationSettings = false
 
     private var currentPrayerCity: PrayerCity {
         PrayerCity(rawValue: prayerCityRaw) ?? .mecca
@@ -134,6 +135,19 @@ struct PrayerTimeView: View {
             Task { @MainActor in
                 await updatePrayerTimes()
             }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showNotificationSettings = true
+                } label: {
+                    Image(systemName: "bell.badge")
+                        .imageScale(.large)
+                }
+            }
+        }
+        .sheet(isPresented: $showNotificationSettings) {
+            NotificationSettingsView()
         }
     }
 
