@@ -89,7 +89,8 @@ struct HajjStep2: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
-                .padding(.vertical, 12)
+                .padding(.top, 12)
+                .padding(.bottom, 40)
             }
         }
     }
