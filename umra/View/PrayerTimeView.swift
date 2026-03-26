@@ -22,6 +22,7 @@ struct PrayerTimeView: View {
     @State private var storedPrayerTimes: PrayerTimes? = nil
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
     
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "PrayerTimeView")
@@ -101,13 +102,14 @@ struct PrayerTimeView: View {
             let emeraldLight = UIColor(red: 0.063, green: 0.725, blue: 0.506, alpha: 1)
             UISegmentedControl.appearance().selectedSegmentTintColor = emeraldLight
 
+            let segmentFont = UIFont.systemFont(ofSize: AppConstants.isIPad ? 17 : 13, weight: .medium)
             UISegmentedControl.appearance().setTitleTextAttributes(
-                [.foregroundColor: UIColor.white],
+                [.foregroundColor: UIColor.white, .font: segmentFont],
                 for: .selected
             )
 
             UISegmentedControl.appearance().setTitleTextAttributes(
-                [.foregroundColor: UIColor.label],
+                [.foregroundColor: UIColor.label, .font: segmentFont],
                 for: .normal
             )
 
@@ -198,7 +200,7 @@ struct PrayerTimeView: View {
             Text("\(localizedPrayerName(nextPrayerName)) \(localizationManager.localized("prayer_in")) \(timeUntilNextPrayer)")
                 .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)
-                .cardStyled(theme: themeManager.selectedTheme, compact: layout.isCompact)
+                .cardStyled(theme: themeManager.selectedTheme, compact: layout.isCompact, fontManager: fontManager)
 
             Group {
                 PrayerTimeRow(prayerName: localizedPrayerName("Fajr"), prayerTime: prayerTimes["Fajr"] ?? "", compact: layout.isCompact)
@@ -454,6 +456,7 @@ struct NotificationSettingsView: View {
 
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -465,28 +468,28 @@ struct NotificationSettingsView: View {
             ScrollView {
                 VStack(spacing: 24) {
                     Text("Prayer Notification Settings", bundle: localizationManager.bundle)
-                        .font(.headline)
+                        .font(fontManager.sectionTitleFont)
                         .foregroundStyle(textColor)
                         .padding(.top, 24)
 
                     VStack(spacing: 16) {
                         Toggle(isOn: $enable30MinNotifications) {
                             Text("30-Minute Notifications", bundle: localizationManager.bundle)
-                                .font(.body)
+                                .font(fontManager.bodyFont)
                                 .foregroundStyle(textColor)
                                 .fixedSize(horizontal: false, vertical: true)
                         }
 
                         Toggle(isOn: $enablePrayerTimeNotifications) {
                             Text("Prayer Time Notifications", bundle: localizationManager.bundle)
-                                .font(.body)
+                                .font(fontManager.bodyFont)
                                 .foregroundStyle(textColor)
                                 .fixedSize(horizontal: false, vertical: true)
                         }
 
                         Toggle(isOn: $enableSunriseNotifications) {
                             Text("Sunrise Notifications", bundle: localizationManager.bundle)
-                                .font(.body)
+                                .font(fontManager.bodyFont)
                                 .foregroundStyle(textColor)
                                 .fixedSize(horizontal: false, vertical: true)
                         }
@@ -552,6 +555,8 @@ struct PrayerTimeRow: View {
     var prayerTime: String
     var compact: Bool = false
 
+    @Environment(FontManager.self) private var fontManager
+
     private var horizontalPadding: CGFloat {
         compact ? 8 : 10
     }
@@ -559,17 +564,16 @@ struct PrayerTimeRow: View {
     private var verticalPadding: CGFloat {
         compact ? 3 : 5
     }
-    
+
     var body: some View {
         HStack {
             Text(prayerName)
-                .font(.callout)
-                .fontWeight(.semibold)
+                .font(fontManager.bodyFont.weight(.semibold))
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
             Spacer()
             Text(prayerTime)
-                .font(.callout)
+                .font(fontManager.bodyFont)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
         }
@@ -589,17 +593,16 @@ extension View {
 }
 
 extension View {
-    func cardStyled(theme: AppTheme, compact: Bool = false) -> some View {
+    func cardStyled(theme: AppTheme, compact: Bool = false, fontManager: FontManager) -> some View {
         let contentPadding: CGFloat = compact ? 12 : 16
         let verticalPadding: CGFloat = compact ? 16 : 40
-        
-        return self.font(.headline)
+
+        return self.font(fontManager.bodyFont.weight(.semibold))
         .foregroundStyle(theme.textColor)
         .padding(contentPadding)
         .frame(maxWidth: .infinity)
         .standardCardFrame(theme: theme, cornerRadius: 20)
         .padding(.vertical, verticalPadding)
-        
     }
 }
 

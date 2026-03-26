@@ -15,6 +15,7 @@ struct UsefulInfoView: View {
     @State private var chapters: [Chapter] = []
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
 
     private func buildChapters() -> [Chapter] {
         [
@@ -70,7 +71,7 @@ struct UsefulInfoView: View {
                         NavigationLink(value: chapter) {
                             HStack {
                                 Text(chapter.title)
-                                    .font(.body)
+                                    .font(fontManager.bodyFont)
                                     .foregroundStyle(themeManager.selectedTheme.textColor)
                                 Spacer()
                                 Image(systemName: "chevron.right")
@@ -167,6 +168,7 @@ struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
 struct JanazaView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     @State private var isDuaExpanded = false
     @State private var isSecondTakbirExpanded = false
     @State private var isThirdTakbirExpanded = false
@@ -201,7 +203,7 @@ struct JanazaView: View {
                                     .padding(.vertical)
                             },
                             label: {
-                                Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
+                                Text("translate_text", bundle: localizationManager.bundle)            .font(fontManager.sectionTitleFont)
                                     .foregroundStyle(usefulInfoAccentGreen)
                             }
                         )
@@ -223,7 +225,7 @@ struct JanazaView: View {
                                     .padding(.vertical)
                             },
                             label: {
-                                Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
+                                Text("translate_text", bundle: localizationManager.bundle)            .font(fontManager.sectionTitleFont)
                                     .foregroundStyle(usefulInfoAccentGreen)
                             }
                         )
@@ -242,7 +244,7 @@ struct JanazaView: View {
                         Text(JanazaPrayerGuide.taslimTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
                         Text(JanazaPrayerGuide.taslimText(bundle: localizationManager.bundle))
-                            .font(.body)
+                            .font(fontManager.bodyFont)
                     }
                     Divider()
 
@@ -250,7 +252,7 @@ struct JanazaView: View {
                         isExpanded: $isSecondTakbirExpanded,
                         content: {
                             Text(JanazaPrayerGuide.duaVariationsText(bundle: localizationManager.bundle))
-                                .font(.body)
+                                .font(fontManager.bodyFont)
                                 .padding(.vertical)
                         },
                         label: {
@@ -261,7 +263,7 @@ struct JanazaView: View {
                     .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentGreen))
                 }
                 .padding(contentPadding)
-                .font(.body)
+                .font(fontManager.bodyFont)
                 .foregroundStyle(themeManager.selectedTheme.textColor)
                 .textSelection(.enabled)
                 .padding(.bottom, 32)
@@ -276,6 +278,7 @@ struct ChapterDetailView: View {
     let chapter: Chapter
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     
     private var listPadding: CGFloat {
         UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16
@@ -295,7 +298,7 @@ struct ChapterDetailView: View {
                         NavigationLink(value: subChapter) {
                             HStack {
                                 Text(subChapter.title)
-                                    .font(.body)
+                                    .font(fontManager.bodyFont)
                                     .foregroundStyle(themeManager.selectedTheme.textColor)
                                     .textSelection(.enabled)
                                 Spacer()
@@ -384,8 +387,8 @@ private func isLongArabicText(_ text: String) -> Bool {
     return arabicWordCount > 3
 }
 
-@ViewBuilder
-private func bodyParagraphView(paragraph: String, textColor: Color) -> some View {
+@MainActor @ViewBuilder
+private func bodyParagraphView(paragraph: String, textColor: Color, fontManager: FontManager) -> some View {
     let lines = paragraph.components(separatedBy: "\n")
     VStack(alignment: .leading, spacing: 6) {
         ForEach(Array(lines.enumerated()), id: \.offset) { _, line in
@@ -393,8 +396,8 @@ private func bodyParagraphView(paragraph: String, textColor: Color) -> some View
                 Text(line)
                     .customTextforArabic()
             } else {
-                let lineContent = textWithBoldQuotes(line, textColor: textColor)
-                    .font(containsArabic(line) ? .custom("KFGQPC Uthman Taha Naskh", size: 20, relativeTo: .body) : .body)
+                let lineContent = textWithBoldQuotes(line, textColor: textColor, fontManager: fontManager)
+                    .font(containsArabic(line) ? .custom("KFGQPC Uthman Taha Naskh", size: fontManager.dynamicFontSize, relativeTo: .body) : fontManager.bodyFont)
                     .textSelection(.enabled)
                     .fixedSize(horizontal: false, vertical: true)
                 if containsArabic(line) {
@@ -409,7 +412,8 @@ private func bodyParagraphView(paragraph: String, textColor: Color) -> some View
     .frame(maxWidth: .infinity, alignment: .leading)
 }
 
-private func textWithBoldQuotes(_ paragraph: String, textColor: Color) -> Text {
+@MainActor
+private func textWithBoldQuotes(_ paragraph: String, textColor: Color, fontManager: FontManager) -> Text {
     var attributed = AttributedString()
     let parts = paragraph.components(separatedBy: "«")
     for (index, part) in parts.enumerated() {
@@ -423,7 +427,7 @@ private func textWithBoldQuotes(_ paragraph: String, textColor: Color) -> Text {
         if subParts.count >= 2 {
             var quoteSegment = AttributedString("«\(subParts[0])»")
             quoteSegment.foregroundColor = textColor
-            quoteSegment.font = .body.weight(.semibold)
+            quoteSegment.font = fontManager.bodyFont.weight(.semibold)
             attributed.append(quoteSegment)
             var rest = AttributedString(subParts.dropFirst().joined(separator: "»"))
             rest.foregroundColor = textColor
@@ -440,6 +444,7 @@ private func textWithBoldQuotes(_ paragraph: String, textColor: Color) -> Text {
 private struct FormattedContentView: View {
     let content: String
     @Environment(ThemeManager.self) private var themeManager
+    @Environment(FontManager.self) private var fontManager
     
     private var headingColor: Color {
         themeManager.selectedTheme.textColor
@@ -454,12 +459,12 @@ private struct FormattedContentView: View {
                 switch block.style {
                 case FormattedContentBlock.Style.heading(let text):
                     Text(text)
-                        .font(.headline)
+                        .font(AppConstants.isIPad ? fontManager.sectionTitleFont : .headline)
                         .foregroundStyle(headingColor)
                         .textSelection(.enabled)
                         .fixedSize(horizontal: false, vertical: true)
                 case FormattedContentBlock.Style.body(let paragraph):
-                    bodyParagraphView(paragraph: paragraph, textColor: textColor)
+                    bodyParagraphView(paragraph: paragraph, textColor: textColor, fontManager: fontManager)
                 }
             }
         }
@@ -470,6 +475,7 @@ private struct FormattedContentView: View {
 private struct MixedArabicContentView: View {
     let text: String
     @Environment(ThemeManager.self) private var themeManager
+    @Environment(FontManager.self) private var fontManager
 
     var body: some View {
         let blocks = text.components(separatedBy: "\n\n")
@@ -479,7 +485,7 @@ private struct MixedArabicContentView: View {
 
         VStack(alignment: .leading, spacing: 12) {
             ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
-                bodyParagraphView(paragraph: block, textColor: textColor)
+                bodyParagraphView(paragraph: block, textColor: textColor, fontManager: fontManager)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -513,6 +519,7 @@ struct SubChapterDetailView: View {
     let subChapter: SubChapter
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     
     private var useFormattedContent: Bool {
         subChapter.content.contains("1) ") || subChapter.content.hasPrefix("1)")
@@ -530,7 +537,7 @@ struct SubChapterDetailView: View {
                         FormattedContentView(content: subChapter.content)
                     } else {
                         Text(subChapter.content)
-                            .font(.body)
+                            .font(fontManager.bodyFont)
                             .foregroundStyle(themeManager.selectedTheme.textColor)
                             .textSelection(.enabled)
                     }

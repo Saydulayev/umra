@@ -165,6 +165,7 @@ struct PlayerView: View {
             )
         }
         .padding()
+        .frame(maxWidth: .infinity)
         .onAppear {
             coordinator.onFinishPlaying = {
                 self.isPlaying = false

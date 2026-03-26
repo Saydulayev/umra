@@ -13,6 +13,7 @@ struct SettingsView: View {
     @State private var showLanguageActionSheet = false
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     @Environment(\.dismiss) var dismiss
     
     private var appStoreReviewURL: URL? {
@@ -104,7 +105,7 @@ struct SettingsView: View {
                                 accentColor: themeManager.selectedTheme.primaryColor,
                                 accessory: {
                                     Text(currentLanguageDisplayName)
-                                        .font(.subheadline.weight(.medium))
+                                        .font(fontManager.bodyFont.weight(.medium))
                                         .foregroundStyle(secondaryTextColor)
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.75)
@@ -139,7 +140,7 @@ struct SettingsView: View {
                                             .fill(themeManager.selectedTheme.primaryColor)
                                             .frame(width: AppConstants.isIPad ? 24 : 18, height: AppConstants.isIPad ? 24 : 18)
                                         Text(themeManager.themePreference.displayName(bundle: localizationManager.bundle ?? Bundle.main))
-                                            .font(.subheadline.weight(.medium))
+                                            .font(fontManager.bodyFont.weight(.medium))
                                             .foregroundStyle(secondaryTextColor)
                                             .lineLimit(1)
                                             .minimumScaleFactor(0.75)
@@ -235,6 +236,7 @@ struct SettingsSection<Content: View>: View {
 
 struct SettingsRow<Accessory: View>: View {
     @Environment(ThemeManager.self) private var themeManager
+    @Environment(FontManager.self) private var fontManager
     let icon: String
     let title: Text
     let subtitle: Text?
@@ -275,12 +277,12 @@ struct SettingsRow<Accessory: View>: View {
 
             VStack(alignment: .leading, spacing: 3) {
                 title
-                    .font(.callout.weight(.semibold))
+                    .font(fontManager.bodyFont.weight(.semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
                     .fixedSize(horizontal: false, vertical: true)
                 if let subtitle {
                     subtitle
-                        .font(.footnote)
+                        .font(AppConstants.isIPad ? fontManager.bodyFont : .footnote)
                         .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.6))
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -320,6 +322,7 @@ struct SettingsDivider: View {
 struct ThemePreviewView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -327,7 +330,7 @@ struct ThemePreviewView: View {
             VStack(spacing: 0) {
                 HStack {
                     Text("theme_select_title", bundle: localizationManager.bundle)
-                        .font(.headline)
+                        .font(fontManager.sectionTitleFont)
                         .foregroundStyle(themeManager.selectedTheme.textColor)
                     Spacer()
                     Button {
@@ -383,7 +386,7 @@ struct ThemePreviewView: View {
                 themeCircle(for: theme)
 
                 Text(theme.displayName(bundle: localizationManager.bundle ?? .main))
-                    .font(.body)
+                    .font(fontManager.bodyFont)
                     .foregroundStyle(themeManager.selectedTheme.textColor)
 
                 Spacer()

@@ -33,6 +33,7 @@ struct DonationSheetView: View {
     @Binding var isPurchased: Bool
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     @Environment(PurchaseManager.self) private var purchaseManager
     @State private var selectedProductID = ProductID.umrahSunnah1.rawValue
     @State private var isLoading = false
@@ -81,7 +82,7 @@ struct DonationSheetView: View {
                             Spacer()
 
                             Text("Contribution to Application Development", bundle: localizationManager.bundle)
-                                .font(.callout.weight(.medium))
+                                .font(fontManager.bodyFont.weight(.medium))
                                 .foregroundStyle(themeManager.selectedTheme.textColor)
                                 .multilineTextAlignment(.center)
                                 .fixedSize(horizontal: false, vertical: true)
@@ -95,7 +96,7 @@ struct DonationSheetView: View {
                             VStack(spacing: AppConstants.isIPad ? 24 : 16) {
                                 HStack(spacing: AppConstants.isIPad ? 16 : 12) {
                                     Text("select_the_amount", bundle: localizationManager.bundle)
-                                        .font(.callout.weight(.medium))
+                                        .font(fontManager.bodyFont.weight(.medium))
                                         .foregroundStyle(themeManager.selectedTheme.textColor)
                                         .fixedSize(horizontal: false, vertical: true)
 

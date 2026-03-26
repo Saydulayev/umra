@@ -535,6 +535,7 @@ struct GuideStepRow: View {
 
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     private var badgeSize: CGFloat { AppConstants.isIPad ? 72 : 56 }
     private var badgeColor: Color { themeManager.selectedTheme.primaryColor }
 
@@ -580,7 +581,7 @@ struct GuideStepRow: View {
                 }
                 let parsed = localizationManager.parseTitleComponents(from: item.titleKey)
                 Text(parsed.name)
-                    .font(.body.weight(.semibold))
+                    .font(fontManager.bodyFont.weight(.semibold))
                     .foregroundStyle(themeManager.selectedTheme.textColor)
                     .fixedSize(horizontal: false, vertical: true)
                 if item.showDate, let date = parsed.date {
