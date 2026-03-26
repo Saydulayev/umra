@@ -106,8 +106,7 @@ Labbayka Allahumma bi-'umrah 'an (nama orang) - «Ya Allah, aku melaksanakan umr
 
 
 /* KAABA */
-"Kaaba text1" = "
-Tawaf Ka'bah";
+"Kaaba text1" = "Tawaf Ka'bah";
 
 "Kaaba text2" = "
 Mulailah melakukan tawaf (mengelilingi Ka'bah) sebanyak tujuh putaran. 
@@ -131,8 +130,7 @@ Satu putaran dihitung mulai dari Hajar Aswad sampai kembali ke Hajar Aswad. Seti
 
 
 /* Namaz after Tawaf around the Kaaba. */
-"Prayer after Tawaf of Kaaba." = "
-Shalat setelah Tawaf Ka'bah.";
+"Prayer after Tawaf of Kaaba." = "Shalat setelah Tawaf Ka'bah.";
 
 "Having completed seven circuits around the Kaaba" = "
 Setelah menyelesaikan tawaf sebanyak tujuh putaran mengelilingi Ka'bah, laki-laki hendaknya menutup kembali pundak kanannya. Kemudian pergilah menuju Maqam Ibrahim sambil membaca:";
@@ -146,8 +144,7 @@ Jika memungkinkan, lakukanlah shalat dua rakaat di belakang Maqam Ibrahim. Jika 
 Setelah menyelesaikan shalat dua rakaat ini, pergilah menuju sumur Zamzam.";
 
 /* Drinking Zamzam water. */
-"Drinking Zamzam water." = "
-Meminum Air Zamzam.";
+"Drinking Zamzam water." = "Meminum Air Zamzam.";
 
 "Zamzam text" = "
 Minumlah air Zamzam dan siramkanlah sebagiannya ke kepala.
@@ -161,8 +158,7 @@ Asy-Syaukani berkata: “Dalam hadis ini terdapat dalil bahwa minum air Zamzam m
 Imam An-Nawawi mengatakan: “Makna hadis ini adalah bahwa siapa pun yang minum air ini dengan tujuan tertentu, maka ia akan memperolehnya. Sesungguhnya para ulama dan orang-orang saleh telah membuktikan manfaat air Zamzam dalam memenuhi kebutuhan duniawi maupun ukhrawi mereka, dan mereka memperolehnya atas rahmat Allah Ta'ala.” (Tahdzib al-Asma wal-Lughat, 3/139).";
 
 /* Return to the Black Stone. */
-"Return to the Black Stone." = "
-Kembali ke Hajar Aswad.";
+"Return to the Black Stone." = "Kembali ke Hajar Aswad.";
 
 "Return to the Black Stone, recite the Takbir." = "
 Kembalilah menuju Hajar Aswad sambil mengucapkan takbir, lalu sentuh dan ciumlah sebagaimana telah dijelaskan sebelumnya. Jika tidak memungkinkan, cukup tunjukkan ke arahnya dengan tangan sambil mengucapkan takbir. Allah Maha Besar.";
@@ -172,8 +168,7 @@ Allahu Akbar.
 ";
 
 /* Safa and Marwa */
-"Safa and Marwa" = "
-Safa dan Marwah";
+"Safa and Marwa" = "Safa dan Marwah";
 
 "Head towards the hill of Safa" = "
 Bergeraklah menuju bukit Safa untuk melaksanakan Sa'i (berjalan antara Safa dan Marwah) sebanyak tujuh kali. Mulailah Sa'i dari bukit Safa.
@@ -226,8 +221,7 @@ Doa ketika keluar dari Masjidil Haram. Setelah menyelesaikan perjalanan ketujuh 
 Ya Allah, limpahkanlah salawat dan salam kepada Nabi Muhammad! Ya Allah, sesungguhnya aku memohon kepada-Mu dari karunia-Mu!";
 
 /* Shaving of the head or trimming of the hair. */
-"Shaving the head string" = "
-Mencukur atau Memendekkan Rambut.";
+"Shaving the head string" = "Mencukur atau Memendekkan Rambut.";
 
 "Men shorten or shave their hair." = "
 Selanjutnya, laki-laki hendaknya mencukur atau merapikan rambutnya secara merata, sementara wanita cukup memotong sebagian rambutnya sepanjang sepertiga ruas jari.
@@ -609,8 +603,7 @@ Bermalamlah di lembah Mina.";
 /* HAJI – Langkah 2: 9 Zulhijah */
 "hajj_step2_title" = "9 Zulhijah — Hari Wukuf di Arafah";
 
-"hajj_step2_arafat_title" = "
-Perjalanan menuju lembah Arafah";
+"hajj_step2_arafat_title" = "Perjalanan menuju lembah Arafah";
 "hajj_step2_arafat_text" = "Laksanakan salat Subuh di lembah Mina, kemudian setelah matahari terbit berangkatlah menuju lembah Arafah. Terus-meneruslah melafalkan Talbiyah dan Takbir (ucapan «Allahu akbar»).
 
 Jika memungkinkan, berhentilah di tempat bernama Namirah yang terletak dekat Arafah dan tinggallah di sana hingga waktu Zuhur. Setelah itu, pergilah menuju Wadi ‘Uranah (sebelum Arafah).
@@ -637,8 +630,7 @@ Selain itu, sangat dianjurkan untuk membaca doa berikut:";
 /* HAJI – Langkah 3: 10 Zulhijah */
 "hajj_step3_title" = "10 Zulhijah — Hari Penyembelihan Kurban";
 
-"hajj_step3_fajr_title" = "
-Subuh";
+"hajj_step3_fajr_title" = "Subuh";
 "hajj_step3_fajr_text" = "Laksanakan salat Subuh di Muzdalifah pada waktu paling awal yang telah ditetapkan untuknya.";
 
 "hajj_step3_mashaar_title" = "Perjalanan menuju al-Masy‘ar al-Haram";
@@ -686,8 +678,7 @@ Perhatian! Tawaf ini dilakukan dengan langkah biasa dari awal hingga akhir.";
 /* HAJI – Langkah 4: 11, 12 dan 13 Zulhijah */
 "hajj_step4_title" = "11, 12 dan 13 Zulhijah — Hari-hari Tasyrik";
 
-"hajj_step4_stay_title" = "
-Tinggal di Mina";
+"hajj_step4_stay_title" = "Tinggal di Mina";
 "hajj_step4_stay_text" = "Selama tiga hari (hari-hari Tasyrik), bermalamlah di tempat tinggal Anda di Mina.";
 
 "hajj_step4_jamarat_title" = "Melempar kerikil ke tiga Jumrah";
@@ -708,8 +699,7 @@ Lemparkan kerikil ke Jumrah Besar satu per satu. Setiap kali melempar kerikil, u
 Ibadah ini dilaksanakan selama tiga hari Tasyrik. Setelah menyelesaikan pelemparan kerikil pada tanggal 13 Zulhijah, kembalilah ke Mekah.";
 
 /* HAJI – Langkah 5: Tawaf Perpisahan */
-"hajj_step5_title" = "
-Tawaf Perpisahan Ka‘bah";
+"hajj_step5_title" = "Tawaf Perpisahan Ka‘bah";
 
 "hajj_step5_farewell_text" = "Sebelum kembali ke tanah air, hendaknya melaksanakan tawaf perpisahan Ka‘bah. Tidak perlu mengenakan pakaian ihram.
 

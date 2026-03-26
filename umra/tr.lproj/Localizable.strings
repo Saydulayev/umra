@@ -107,8 +107,7 @@ Labbayka Allahumma bi-'umrah 'an (kişi adı) - «Ey Allah'ım! (kişi adı) iç
 
 
 /* KAABA */
-"Kaaba text1" = "
-Kâbe’yi Tavaf";
+"Kaaba text1" = "Kâbe’yi Tavaf";
 "Kaaba text2" = "
 Kâbe etrafında yedi kez tavaf etmeye başlayın (Tavaf).
 Bu tavafın başlangıcından bitimine kadar erkekler sağ omuzlarını açık bırakmalıdır.
@@ -128,8 +127,7 @@ Eğer Kara Taş’a dokunmak ve öpmek mümkün değilse, o zaman ona yönelin, 
 
 
 /* Namaz after Tawaf around the Kaaba. */
-"Prayer after Tawaf of Kaaba." = "
-Kâbe'yi tavaf ettikten sonra namaz";
+"Prayer after Tawaf of Kaaba." = "Kâbe'yi tavaf ettikten sonra namaz";
 
 "Having completed seven circuits around the Kaaba" = "
 Kâbe etrafında yedi turu tamamladıktan sonra, erkekler sağ omuzlarını kapatır. Sonra İbrahim makamına yönelin ve şunu söyleyin:
@@ -147,8 +145,7 @@ Namazı tamamladıktan sonra Zemzem suyu kaynağına yönelin.";
 
 
 /* Drinking Zamzam water. */
-"Drinking Zamzam water." = "
-Zemzem Suyu İçme.";
+"Drinking Zamzam water." = "Zemzem Suyu İçme.";
 
 "Zamzam text" = "
 Suyu için ve başınıza dökün.
@@ -164,8 +161,7 @@ en-Nevevî şöyle demiştir: “Bu hadisin anlamı şudur ki, bir kişi Zemzem 
 
 
 /* Return to the Black Stone. */
-"Return to the Black Stone." = "
-Hacerü'l-Esved'e Dönüş.";
+"Return to the Black Stone." = "Hacerü'l-Esved'e Dönüş.";
 
 "Return to the Black Stone, recite the Takbir." = "
 Hacerü'l-Esved'e dönün, tekbir getirin ve daha önce açıklandığı gibi ona dokunun. Veya ona elinizle işaret edin ve tekbir getirin. Allah en büyüktür.";
@@ -174,8 +170,7 @@ Hacerü'l-Esved'e dönün, tekbir getirin ve daha önce açıklandığı gibi on
 Allahu Akbar.";
 
 /* Safa and Marwa */
-"Safa and Marwa" = "
-Safa ve Merve";
+"Safa and Marwa" = "Safa ve Merve";
 
 "Head towards the hill of Safa" = "
 Safa ve Merve tepeleri arasında yedi kez gerçekleştirilen sa‘y ibadetini yerine getirmek için Safa tepesine gidin. Sa‘y ibadetine Safa tepesinden başlayın.
@@ -229,8 +224,7 @@ Mescid-i Haram’dan çıkarken yapılan dua: Yedinci turun sonunda Merve tepesi
 
 
 /* Shaving of the head or trimming of the hair. */
-"Shaving the head string" = "
-Başı tıraş etmek veya saçları kısaltmak.";
+"Shaving the head string" = "Başı tıraş etmek veya saçları kısaltmak.";
 
 "Men shorten or shave their hair." = "
 Daha sonra erkekler başındaki saçları eşit şekilde kısaltır veya tamamen tıraş eder, kadınlar ise saçlarından bir parmak boğumu kadar keser.
@@ -559,8 +553,7 @@ Geceyi Mina vadisinde geçirin.";
 /* HAC – Adım 2: 9 Zilhicce */
 "hajj_step2_title" = "9 Zilhicce — Arafat Vakfesi Günü";
 
-"hajj_step2_arafat_title" = "
-Arafat vadisine geçiş";
+"hajj_step2_arafat_title" = "Arafat vadisine geçiş";
 "hajj_step2_arafat_text" = "Mina vadisinde sabah namazını (Fecr) kılın, güneş doğduktan sonra Arafat vadisine doğru yola çıkın. Telbiyeyi ve tekbiri («Allahu ekber» sözlerini) sürekli olarak söyleyin.
 
 Mümkünse Arafat yakınındaki Nemire mevkiinde durun ve öğle vaktine kadar orada kalın. Ardından Arafat’tan önce bulunan Uranâ Vadisi’ne yönelin.
@@ -587,8 +580,7 @@ Ayrıca aşağıdaki duayı okumak özellikle tavsiye edilir:";
 /* HAC – Adım 3: 10 Zilhicce */
 "hajj_step3_title" = "10 Zilhicce — Kurban Günü";
 
-"hajj_step3_fajr_title" = "
-Fecr";
+"hajj_step3_fajr_title" = "Fecr";
 "hajj_step3_fajr_text" = "Müzdelife’de sabah namazını (Fecr) vakti girer girmez en erken zamanında kılın.";
 
 "hajj_step3_mashaar_title" = "el-Meş‘ar el-Haram’a geçiş";
@@ -636,8 +628,7 @@ Dikkat! Bu tavaf, başından sonuna kadar normal yürüyüş temposuyla yapılı
 /* HAC – Adım 4: 11, 12 ve 13 Zilhicce */
 "hajj_step4_title" = "11, 12 ve 13 Zilhicce — Teşrik Günleri";
 
-"hajj_step4_stay_title" = "
-Mina’da kalış";
+"hajj_step4_stay_title" = "Mina’da kalış";
 "hajj_step4_stay_text" = "Üç gün boyunca (Teşrik günleri) Mina’daki konaklama yerinizde geceleyin.";
 
 "hajj_step4_jamarat_title" = "Üç Cemre’ye taş atma";
@@ -658,8 +649,7 @@ Taşları Büyük Cemre’ye birer birer atın. Her taş atışında «Allahu ek
 Bu ibadet Teşrik günlerinin üçünde de yerine getirilir. 13 Zilhicce günü taş atmayı tamamladıktan sonra Mekke’ye dönün.";
 
 /* HAC – Adım 5: Veda tavafı */
-"hajj_step5_title" = "
-Kâbe’nin Veda Tavafı";
+"hajj_step5_title" = "Kâbe’nin Veda Tavafı";
 
 "hajj_step5_farewell_text" = "Eve dönmeden önce Kâbe’nin Veda Tavafı’nı yapmak gerekir. Bunun için ihram elbiselerini giymek şart değildir.
 

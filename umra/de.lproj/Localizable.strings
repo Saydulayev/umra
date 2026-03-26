@@ -99,8 +99,7 @@ Labbayka Allahumma bi-'umrah 'an (Personen Name) - «O Allah, ich vollziehe 'umr
 
 
 /* KAABA */
-"Kaaba text1" = "
-Die Umrundung der Kaaba";
+"Kaaba text1" = "Die Umrundung der Kaaba";
 "Kaaba text2" = "
 Beginnen Sie mit der siebenfachen Umrundung der Kaaba (Tawaf).
 Während der gesamten Umrundung des Kaaba, angefangen von ihrem Anfang bis zu ihrem Abschluss, sollten Männer ihre rechte Schulter entblößen.
@@ -123,8 +122,7 @@ Unser Herr! Gib uns Gutes in dieser Welt und Gutes im Jenseits und schütze uns 
 
 
 /* Namaz after Tawaf around the Kaaba. */
-"Prayer after Tawaf of Kaaba." = "
-Gebet nach der Umkreisung der Kaaba.";
+"Prayer after Tawaf of Kaaba." = "Gebet nach der Umkreisung der Kaaba.";
 
 "Having completed seven circuits around the Kaaba" = "
 Nachdem der Pilger die siebenfache Umkreisung um die Kaaba abgeschlossen hat, bedeckt der Mann seine rechte Schulter. Dann begibt er sich zum Ort, an dem Ibrahim stand, und sagt:
@@ -141,8 +139,7 @@ In der ersten Rak'ah nach der Rezitation von Surah Al-Fatiha, lies Surah Al-Kafi
 Nach dem Gebet begebe dich zur Quelle des Zamzam-Wassers.";
 
 /* Drinking Zamzam water. */
-"Drinking Zamzam water." = "
-Trinken des Zamzam-Wassers.";
+"Drinking Zamzam water." = "Trinken des Zamzam-Wassers.";
 "Zamzam text" = "
 Trinke das Wasser und gieße es dir auf den Kopf.
     
@@ -153,8 +150,7 @@ Nach Jabir (möge Allah mit ihm zufrieden sein) sagte der Gesandte Allahs (Fried
 Al-Shawkani sagte: «In diesem Hadith ist der Beweis enthalten, dass das Trinken von Zamzam-Wasser dem Trinker Nutzen bringt, egal mit welcher Absicht er es trinkt, ob es sich um Angelegenheiten in dieser Welt oder im Jenseits handelt. Denn die Worte: «Fördert das Erreichen dessen, wofür es getrunken wird» sind allgemein gehalten.» Siehe «Nail al-Autar» (5/105). Al-Nawawi sagte: «Die Bedeutung dieses Hadiths besteht darin, dass jemand, der dieses Wasser für etwas Bestimmtes trinkt, dies auch erhält. Wahrlich, Gelehrte und Rechtschaffene haben dies ausprobiert, um ihre Bedürfnisse in Bezug auf diese Welt und das Jenseits zu erfüllen, und haben dies durch die Gnade des Allmächtigen Allah erreicht.» Siehe «Tahzib al-Asma' wa-l-Lughaat» (3/139).";
 
 /* Return to the Black Stone. */
-"Return to the Black Stone." = "
-Kehrt zurück zum schwarzen Stein.";
+"Return to the Black Stone." = "Kehrt zurück zum schwarzen Stein.";
 "Return to the Black Stone, recite the Takbir." = "
 Kehrt zum Schwarzen Stein zurück, sagt Takbir und berührt ihn wie zuvor erklärt wurde. Oder zeigt mit der Hand darauf und sagt Takbir. Allah ist groß.";
 "Allah is great." = "
@@ -162,8 +158,7 @@ Allahu Akbar.
 ";
 
 /* Safa and Marwa */
-"Safa and Marwa" = "
-Safa und Marwa";
+"Safa and Marwa" = "Safa und Marwa";
 "Head towards the hill of Safa" = "
 Gehen Sie zum Hügel von Safa, um die sieben Runden zwischen den Hügeln von Safa und Marwa (Sa'y) zu absolvieren. Beginnen Sie den Sa'y am Hügel von Safa.
     
@@ -213,8 +208,7 @@ Das Gebet beim Verlassen der Heiligen Moschee. Nachdem du die siebte Runde auf d
 Oh Allah, segne Muhammad und schenke ihm Frieden! Oh Allah, wahrlich, ich bitte Dich um Deine Gnade!";
 
 /* Shaving of the head or trimming of the hair. */
-"Shaving the head string" = "
-Das Rasieren des Kopfes oder das Kürzen der Haare.";
+"Shaving the head string" = "Das Rasieren des Kopfes oder das Kürzen der Haare.";
 "Men shorten or shave their hair." = "
 Dann schneidet der Mann seine Haare auf dem Kopf gleichmäßig ab oder rasiert sie ganz ab, während die Frau eine Haarsträhne abschneidet, die etwa so dick ist wie ein Daumen.
 
@@ -598,8 +592,7 @@ Verbringt die Nacht im Tal von Mina.";
 /* HAJJ – Schritt 2: 9. Dhu al-Hiddscha */
 "hajj_step2_title" = "9. Dhu al-Hiddscha — Tag des Stehens auf ‘Arafat";
 
-"hajj_step2_arafat_title" = "
-Weiterreise ins Tal von ‘Arafat";
+"hajj_step2_arafat_title" = "Weiterreise ins Tal von ‘Arafat";
 "hajj_step2_arafat_text" = "Verrichtet das Morgengebet (Fadschr) im Tal von Mina und begebt euch nach Sonnenaufgang ins Tal von ‘Arafat. Sprecht fortwährend die Talbiya und den Takbir (die Worte „Allahu akbar“).
 
 Wenn möglich, haltet euch an dem Ort Namira in der Nähe von ‘Arafat auf und bleibt dort bis zum Mittag. Anschließend begebt euch zum Wadi ‘Urana (vor ‘Arafat).
@@ -626,8 +619,7 @@ Es ist außerdem sehr empfohlen, folgendes Bittgebet zu sprechen:";
 /* HAJJ – Schritt 3: 10. Dhu al-Hiddscha */
 "hajj_step3_title" = "10. Dhu al-Hiddscha — Tag des Opfers";
 
-"hajj_step3_fajr_title" = "
-Fadschr";
+"hajj_step3_fajr_title" = "Fadschr";
 "hajj_step3_fajr_text" = "Verrichtet das Morgengebet (Fadschr) in Muzdalifa zur frühestmöglichen dafür vorgesehenen Zeit.";
 
 "hajj_step3_mashaar_title" = "Weiterreise nach al-Masch‘ar al-Haram";
@@ -675,8 +667,7 @@ Achtung! Dieser Tawaf wird vom Anfang bis zum Ende in normalem Gehtempo vollzoge
 /* HAJJ – Schritt 4: 11., 12. und 13. Dhu al-Hiddscha */
 "hajj_step4_title" = "11., 12. und 13. Dhu al-Hiddscha — Tage der at-Taschriq";
 
-"hajj_step4_stay_title" = "
-Aufenthalt in Mina";
+"hajj_step4_stay_title" = "Aufenthalt in Mina";
 "hajj_step4_stay_text" = "Während der drei Tage (Ayyam at-Taschriq) verbringt die Nächte an eurem Aufenthaltsort in Mina.";
 
 "hajj_step4_jamarat_title" = "Werfen der Steinchen auf die drei Säulen";
@@ -697,8 +688,7 @@ Werft die Steinchen einzeln auf die Große Säule. Bei jedem Wurf sprecht die Wo
 Dieses Ritual wird an allen drei Tagen der at-Taschriq vollzogen. Nach dem Abschluss des Werfens der Steinchen am 13. Dhu al-Hiddscha kehrt nach Mekka zurück.";
 
 /* HAJJ – Schritt 5: Abschieds-Tawaf */
-"hajj_step5_title" = "
-Abschieds-Tawaf der Kaaba";
+"hajj_step5_title" = "Abschieds-Tawaf der Kaaba";
 
 "hajj_step5_farewell_text" = "Bevor ihr die Heimreise antretet, sollt ihr den Abschieds-Tawaf der Kaaba vollziehen. Das Anlegen der Ihram-Gewänder ist hierfür nicht erforderlich.
 

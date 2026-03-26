@@ -97,8 +97,7 @@ Labbayka Allahumma bi-'umrah 'an (person's name) - «O Allah, I am performing 'u
 
 
 /* KAABA */
-"Kaaba text1" = "
-Circumambulation (Tawaf) around the Kaaba.";
+"Kaaba text1" = "Circumambulation (Tawaf) around the Kaaba.";
 "Kaaba text2" = "
 Begin the sevenfold circumambulation (Tawaf) around the Kaaba.
 From the beginning of this tawaf until its completion, men should bare their right shoulder.
@@ -118,8 +117,7 @@ If it is not possible to touch and kiss the Black Stone, then face it, point to 
 
 
 /* Namaz after Tawaf around the Kaaba. */
-"Prayer after Tawaf of Kaaba." = "
-Prayer after completing Tawaf around the Kaaba";
+"Prayer after Tawaf of Kaaba." = "Prayer after completing Tawaf around the Kaaba";
 
 "Having completed seven circuits around the Kaaba" = "
 Having completed the seven rounds around the Kaaba, the man covers his right shoulder. Then head towards the place of Ibrahim's standing and say:
@@ -134,8 +132,7 @@ If possible, at the Station of Ibrahim or any place in the Sacred Mosque, perfor
 In the first rak'ah after reciting Surah 1 «Al-Fatihah = The Opening», recite Surah 109 «Al-Kafirun = The Disbelievers», and in the second rak'ah after Surah «Al-Fatihah», recite Surah 112 «Al-Ikhlas = The Purity of Faith». After completing the prayer, head to the Zamzam water source.";
 
 /* Drinking Zamzam water. */
-"Drinking Zamzam water." = "
-Drinking Zamzam water.";
+"Drinking Zamzam water." = "Drinking Zamzam water.";
 "Zamzam text" = "
 Drink water and pour it over your head.
     
@@ -147,8 +144,7 @@ Ash-Shawkani said: «This hadith contains evidence that drinking Zamzam water is
 An-Nawawi said: «The meaning of this hadith is that whoever drinks this water for a specific purpose, will attain it. Truly, scholars and righteous people have tried this to achieve their needs, whether in this world or the Hereafter, and they have received it by the grace of Almighty Allah.» See «Tahzib al-asma wa al-lughat» (3/139).";
 
 /* Return to the Black Stone. */
-"Return to the Black Stone." = "
-Return to the Black Stone.";
+"Return to the Black Stone." = "Return to the Black Stone.";
 "Return to the Black Stone, recite the Takbir." = "
 Return to the Black Stone, saying takbir, and touch it with your hand as explained earlier, or point to it with your hand and say takbir. Allah is Great.";
 "Allah is great." = "
@@ -156,8 +152,7 @@ Allahu Akbar.
 ";
 
 /* Safa and Marwa */
-"Safa and Marwa" = "
-Safa and Marwa";
+"Safa and Marwa" = "Safa and Marwa";
 "Head towards the hill of Safa" = "
 Go to the hill of Safa to perform the seven rounds of the ritual walk (sa‘y) between the hills of Safa and Marwa. Begin the sa‘y at the hill of Safa.
     
@@ -202,8 +197,7 @@ Prayer upon exiting the Sacred Mosque. After completing the seventh circuit on t
 O Allah, bless Muhammad and grant him peace! O Allah, indeed, I ask You for Your Mercy!";
 
 /* Shaving of the head or trimming of the hair. */
-"Shaving the head string" = "
-Shaving the head or trimming the hair.";
+"Shaving the head string" = "Shaving the head or trimming the hair.";
 "Men shorten or shave their hair." = "
 Then the man evenly trims his hair on his head or shaves it off, while the woman cuts a lock of hair equivalent to the length of a finger joint.
 
@@ -577,8 +571,7 @@ Spend the night in the Valley of Mina.";
 /* HAJJ – Step 2: 9th of Dhu al-Hijjah */
 "hajj_step2_title" = "9th of Dhu al-Hijjah — Day of Standing at ‘Arafat";
 
-"hajj_step2_arafat_title" = "
-Proceeding to the Valley of ‘Arafat";
+"hajj_step2_arafat_title" = "Proceeding to the Valley of ‘Arafat";
 "hajj_step2_arafat_text" = "Perform the dawn prayer (fajr) in the Valley of Mina, and after sunrise proceed to the Valley of ‘Arafat. Continuously recite the Talbiyah and the Takbir (the words “Allahu Akbar”).
 
 If possible, stop at the place called Namirah near ‘Arafat and remain there until noon. Then proceed to the valley of ‘Uranah (before ‘Arafat).
@@ -605,8 +598,7 @@ It is also highly recommended to recite the following supplication:";
 /* HAJJ – Step 3: 10th of Dhu al-Hijjah */
 "hajj_step3_title" = "10th of Dhu al-Hijjah — Day of Sacrifice";
 
-"hajj_step3_fajr_title" = "
-Fajr";
+"hajj_step3_fajr_title" = "Fajr";
 "hajj_step3_fajr_text" = "Perform the dawn prayer (fajr) in Muzdalifah at the earliest time prescribed for it.";
 
 "hajj_step3_mashaar_title" = "Proceeding to al-Mash‘ar al-Haram";
@@ -654,8 +646,7 @@ Attention! This circumambulation of the Kaaba is performed at a normal walking p
 /* HAJJ – Step 4: 11th, 12th, and 13th of Dhu al-Hijjah */
 "hajj_step4_title" = "11th, 12th, 13th of Dhu al-Hijjah — Days of at-Tashriq";
 
-"hajj_step4_stay_title" = "
-Staying in Mina";
+"hajj_step4_stay_title" = "Staying in Mina";
 "hajj_step4_stay_text" = "During the three days (Ayyam at-Tashriq), spend the nights at your place of residence in Mina.";
 
 "hajj_step4_jamarat_title" = "Throwing Pebbles at the Three Pillars";
@@ -676,8 +667,7 @@ Throw the pebbles at the Large Pillar one by one. With each throw of a pebble, p
 This rite is performed on all three days of at-Tashriq. After completing the throwing of pebbles on the 13th of Dhu al-Hijjah, return to Mecca.";
 
 /* HAJJ – Step 5: Farewell Circumambulation */
-"hajj_step5_title" = "
-Farewell Tawaf of the Kaaba";
+"hajj_step5_title" = "Farewell Tawaf of the Kaaba";
 
 "hajj_step5_farewell_text" = "Before departing for home, one should perform the farewell circumambulation of the Kaaba. There is no need to wear the ihram garments.
 

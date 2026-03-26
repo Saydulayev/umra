@@ -725,7 +725,7 @@ struct StepScrollView<Content: View>: View {
                 }
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 20)
-                .padding(.top, 12)
+                .padding(.top, 28)
                 .padding(.bottom, 40)
             }
         }
