@@ -442,7 +442,7 @@ private struct FormattedContentView: View {
     @Environment(ThemeManager.self) private var themeManager
     
     private var headingColor: Color {
-        usefulInfoAccentGreen
+        themeManager.selectedTheme.textColor
     }
     
     var body: some View {

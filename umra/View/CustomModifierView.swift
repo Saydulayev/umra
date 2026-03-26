@@ -535,7 +535,6 @@ struct GuideStepRow: View {
 
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
-
     private var badgeSize: CGFloat { AppConstants.isIPad ? 72 : 56 }
     private var badgeColor: Color { themeManager.selectedTheme.primaryColor }
 
@@ -551,18 +550,18 @@ struct GuideStepRow: View {
         HStack(spacing: AppConstants.isIPad ? 20 : 16) {
             ZStack {
                 Circle()
-                    .fill(themeManager.selectedTheme.cardColor)
-                    .shadow(color: themeManager.selectedTheme.cardShadowColor, radius: 4, x: 0, y: 2)
+                    .fill(badgeColor)
+                    .shadow(color: badgeColor.opacity(0.20), radius: 4, x: 0, y: 2)
                 if let symbol = item.symbolName {
                     Image(systemName: symbol)
                         .font(.system(size: AppConstants.isIPad ? 28 : 22, weight: .medium))
-                        .foregroundStyle(badgeColor)
+                        .foregroundStyle(.black)
                         .symbolRenderingMode(.hierarchical)
                 } else {
                     Text(item.badgeText)
                         .font(.system(size: badgeFontSize, weight: .bold))
                         .tracking(-0.5)
-                        .foregroundStyle(badgeColor)
+                        .foregroundStyle(.black)
                         .minimumScaleFactor(0.5)
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
