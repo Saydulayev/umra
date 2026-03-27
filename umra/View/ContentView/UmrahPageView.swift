@@ -56,7 +56,7 @@ struct UmrahPageView: View {
                 ))
 
                 pageIndicator
-                    .padding(.bottom, 12)
+                    .padding(.bottom, -8)
             }
         }
         .navigationTitle(Text(titleKey, bundle: localizationManager.bundle))

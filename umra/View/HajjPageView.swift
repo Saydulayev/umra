@@ -50,7 +50,7 @@ struct HajjPageView: View {
                 ))
 
                 pageIndicator
-                    .padding(.bottom, 12)
+                    .padding(.bottom, -8)
             }
         }
         .navigationTitle(localizationManager.extractTitleOnly(from: currentStepKey))
