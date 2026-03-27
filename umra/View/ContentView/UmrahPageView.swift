@@ -22,38 +22,43 @@ struct UmrahPageView: View {
                 themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
 
-                ScrollView(.horizontal) {
-                    HStack(spacing: 0) {
-                        Step1()
-                            .frame(width: geo.size.width)
-                            .id(UmraStep.step1)
-                        Step2()
-                            .frame(width: geo.size.width)
-                            .id(UmraStep.step2)
-                        Step3()
-                            .frame(width: geo.size.width)
-                            .id(UmraStep.step3)
-                        Step4()
-                            .frame(width: geo.size.width)
-                            .id(UmraStep.step4)
-                        Step5()
-                            .frame(width: geo.size.width)
-                            .id(UmraStep.step5)
-                        Step6()
-                            .frame(width: geo.size.width)
-                            .id(UmraStep.step6)
-                        Step7()
-                            .frame(width: geo.size.width)
-                            .id(UmraStep.step7)
+                ScrollViewReader { proxy in
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 0) {
+                            Step1()
+                                .frame(width: geo.size.width)
+                                .id(UmraStep.step1)
+                            Step2()
+                                .frame(width: geo.size.width)
+                                .id(UmraStep.step2)
+                            Step3()
+                                .frame(width: geo.size.width)
+                                .id(UmraStep.step3)
+                            Step4()
+                                .frame(width: geo.size.width)
+                                .id(UmraStep.step4)
+                            Step5()
+                                .frame(width: geo.size.width)
+                                .id(UmraStep.step5)
+                            Step6()
+                                .frame(width: geo.size.width)
+                                .id(UmraStep.step6)
+                            Step7()
+                                .frame(width: geo.size.width)
+                                .id(UmraStep.step7)
+                        }
+                        .scrollTargetLayout()
                     }
-                    .scrollTargetLayout()
+                    .scrollTargetBehavior(.paging)
+                    .scrollIndicators(.hidden)
+                    .scrollPosition(id: Binding<UmraStep?>(
+                        get: { currentStep },
+                        set: { if let v = $0 { currentStep = v } }
+                    ))
+                    .onAppear {
+                        proxy.scrollTo(currentStep, anchor: .leading)
+                    }
                 }
-                .scrollTargetBehavior(.paging)
-                .scrollIndicators(.hidden)
-                .scrollPosition(id: Binding<UmraStep?>(
-                    get: { currentStep },
-                    set: { if let v = $0 { currentStep = v } }
-                ))
 
                 pageIndicator
                     .padding(.bottom, -8)

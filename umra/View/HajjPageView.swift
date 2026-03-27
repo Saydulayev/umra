@@ -22,32 +22,37 @@ struct HajjPageView: View {
                 themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
 
-                ScrollView(.horizontal) {
-                    HStack(spacing: 0) {
-                        HajjStep1()
-                            .frame(width: geo.size.width)
-                            .id(HajjStep.step1)
-                        HajjStep2()
-                            .frame(width: geo.size.width)
-                            .id(HajjStep.step2)
-                        HajjStep3()
-                            .frame(width: geo.size.width)
-                            .id(HajjStep.step3)
-                        HajjStep4()
-                            .frame(width: geo.size.width)
-                            .id(HajjStep.step4)
-                        HajjStep5()
-                            .frame(width: geo.size.width)
-                            .id(HajjStep.step5)
+                ScrollViewReader { proxy in
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 0) {
+                            HajjStep1()
+                                .frame(width: geo.size.width)
+                                .id(HajjStep.step1)
+                            HajjStep2()
+                                .frame(width: geo.size.width)
+                                .id(HajjStep.step2)
+                            HajjStep3()
+                                .frame(width: geo.size.width)
+                                .id(HajjStep.step3)
+                            HajjStep4()
+                                .frame(width: geo.size.width)
+                                .id(HajjStep.step4)
+                            HajjStep5()
+                                .frame(width: geo.size.width)
+                                .id(HajjStep.step5)
+                        }
+                        .scrollTargetLayout()
                     }
-                    .scrollTargetLayout()
+                    .scrollTargetBehavior(.paging)
+                    .scrollIndicators(.hidden)
+                    .scrollPosition(id: Binding<HajjStep?>(
+                        get: { currentStep },
+                        set: { if let v = $0 { currentStep = v } }
+                    ))
+                    .onAppear {
+                        proxy.scrollTo(currentStep, anchor: .leading)
+                    }
                 }
-                .scrollTargetBehavior(.paging)
-                .scrollIndicators(.hidden)
-                .scrollPosition(id: Binding<HajjStep?>(
-                    get: { currentStep },
-                    set: { if let v = $0 { currentStep = v } }
-                ))
 
                 pageIndicator
                     .padding(.bottom, -8)
