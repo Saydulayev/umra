@@ -18,7 +18,8 @@
       "Bash(for file:*)",
       "Bash(echo \"=== $file ===\")",
       "Read(//Users/saydulayev/Desktop/for GitHub/umra/**)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(xcodebuild -project umra.xcodeproj -scheme umra -configuration Debug -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build)"
     ]
   }
 }

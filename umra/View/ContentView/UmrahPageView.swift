@@ -1,6 +1,5 @@
 //
 //  UmrahPageView.swift
-//  umra
 //
 
 import SwiftUI
@@ -11,25 +10,54 @@ struct UmrahPageView: View {
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(FontManager.self) private var fontManager
 
+    private let allSteps: [UmraStep] = [.step1, .step2, .step3, .step4, .step5, .step6, .step7]
+
     init(startingAt step: UmraStep) {
         _currentStep = State(initialValue: step)
     }
 
     var body: some View {
-        ZStack {
-            themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea()
-            TabView(selection: $currentStep) {
-                Step1().tag(UmraStep.step1)
-                Step2().tag(UmraStep.step2)
-                Step3().tag(UmraStep.step3)
-                Step4().tag(UmraStep.step4)
-                Step5().tag(UmraStep.step5)
-                Step6().tag(UmraStep.step6)
-                Step7().tag(UmraStep.step7)
+        GeometryReader { geo in
+            ZStack(alignment: .bottom) {
+                themeManager.selectedTheme.backgroundColor
+                    .ignoresSafeArea()
+
+                ScrollView(.horizontal) {
+                    HStack(spacing: 0) {
+                        Step1()
+                            .frame(width: geo.size.width)
+                            .id(UmraStep.step1)
+                        Step2()
+                            .frame(width: geo.size.width)
+                            .id(UmraStep.step2)
+                        Step3()
+                            .frame(width: geo.size.width)
+                            .id(UmraStep.step3)
+                        Step4()
+                            .frame(width: geo.size.width)
+                            .id(UmraStep.step4)
+                        Step5()
+                            .frame(width: geo.size.width)
+                            .id(UmraStep.step5)
+                        Step6()
+                            .frame(width: geo.size.width)
+                            .id(UmraStep.step6)
+                        Step7()
+                            .frame(width: geo.size.width)
+                            .id(UmraStep.step7)
+                    }
+                    .scrollTargetLayout()
+                }
+                .scrollTargetBehavior(.paging)
+                .scrollIndicators(.hidden)
+                .scrollPosition(id: Binding<UmraStep?>(
+                    get: { currentStep },
+                    set: { if let v = $0 { currentStep = v } }
+                ))
+
+                pageIndicator
+                    .padding(.bottom, 12)
             }
-            .tabViewStyle(.page(indexDisplayMode: .always))
-            .ignoresSafeArea(edges: .bottom)
         }
         .navigationTitle(Text(titleKey, bundle: localizationManager.bundle))
         .navigationBarTitleDisplayMode(.inline)
@@ -43,14 +71,20 @@ struct UmrahPageView: View {
             }
         }
         .toolbar(.hidden, for: .tabBar)
-        .onAppear { updatePageIndicatorColors() }
-        .onChange(of: themeManager.selectedTheme.isDarkAppearance) { updatePageIndicatorColors() }
     }
 
-    private func updatePageIndicatorColors() {
-        let theme = themeManager.selectedTheme
-        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(theme.primaryColor)
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor(theme.textColor).withAlphaComponent(0.3)
+    private var pageIndicator: some View {
+        HStack(spacing: 8) {
+            ForEach(allSteps.indices, id: \.self) { index in
+                Circle()
+                    .fill(currentStep == allSteps[index]
+                          ? themeManager.selectedTheme.primaryColor
+                          : themeManager.selectedTheme.textColor.opacity(0.3))
+                    .frame(width: currentStep == allSteps[index] ? 8 : 6,
+                           height: currentStep == allSteps[index] ? 8 : 6)
+                    .animation(.easeInOut(duration: 0.2), value: currentStep)
+            }
+        }
     }
 
     private var titleKey: LocalizedStringKey {
