@@ -158,6 +158,7 @@ struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
                         .rotationEffect(.degrees(configuration.isExpanded ? 180 : 0))
                 }
             }
+            .buttonStyle(.plain)
             if configuration.isExpanded {
                 configuration.content
             }
@@ -203,7 +204,9 @@ struct JanazaView: View {
                                     .padding(.vertical)
                             },
                             label: {
-                                Text("translate_text", bundle: localizationManager.bundle)            .font(fontManager.sectionTitleFont)
+                                Text("translate_text", bundle: localizationManager.bundle)
+                                    .font(fontManager.bodyFont)
+                                    .fontWeight(.semibold)
                                     .foregroundStyle(usefulInfoAccentGreen)
                             }
                         )
@@ -217,7 +220,7 @@ struct JanazaView: View {
                             .fontWeight(.bold)
                         MixedArabicContentView(text: JanazaPrayerGuide.thirdTakbirText(bundle: localizationManager.bundle))
                             .padding(.bottom)
-                        
+
                         DisclosureGroup(
                             isExpanded: $isThirdTakbirExpanded,
                             content: {
@@ -225,7 +228,9 @@ struct JanazaView: View {
                                     .padding(.vertical)
                             },
                             label: {
-                                Text("translate_text", bundle: localizationManager.bundle)            .font(fontManager.sectionTitleFont)
+                                Text("translate_text", bundle: localizationManager.bundle)
+                                    .font(fontManager.bodyFont)
+                                    .fontWeight(.semibold)
                                     .foregroundStyle(usefulInfoAccentGreen)
                             }
                         )
@@ -257,7 +262,9 @@ struct JanazaView: View {
                         },
                         label: {
                             Text(JanazaPrayerGuide.duaVariationsTitle(bundle: localizationManager.bundle))
-                                .fontWeight(.bold)
+                                .font(fontManager.bodyFont)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(usefulInfoAccentGreen)
                         }
                     )
                     .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentGreen))
