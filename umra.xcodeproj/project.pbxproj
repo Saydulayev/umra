@@ -53,6 +53,8 @@
 		C24508EA2C9CD39D003E3E58 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508E92C9CD39D003E3E58 /* 1.png */; };
 		C24508EC2C9CD3A6003E3E58 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508EB2C9CD3A6003E3E58 /* 2.png */; };
 		C24508EE2C9CD3AD003E3E58 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508ED2C9CD3AD003E3E58 /* 3.png */; };
+		C285B1E62F7B341A009A5DD9 /* DuaBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = C285B1E52F7B341A009A5DD9 /* DuaBook.swift */; };
+		C285B1E82F7B342D009A5DD9 /* DuaBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C285B1E72F7B342D009A5DD9 /* DuaBookView.swift */; };
 		C2A68D362CFF1E3C005F3ED8 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A68D352CFF1E3C005F3ED8 /* UserSettings.swift */; };
 		C2B3FBFD2EF83C5A0012B449 /* 14.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2B3FBFC2EF83C5A0012B449 /* 14.mp3 */; };
 		C2B3FBFE2EF83C5A0012B449 /* 16.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2B3FBFB2EF83C5A0012B449 /* 16.mp3 */; };
@@ -121,6 +123,8 @@
 		C24508EB2C9CD3A6003E3E58 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		C24508ED2C9CD3AD003E3E58 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		C2561DF52D5A467800097793 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C285B1E52F7B341A009A5DD9 /* DuaBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaBook.swift; sourceTree = "<group>"; };
+		C285B1E72F7B342D009A5DD9 /* DuaBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaBookView.swift; sourceTree = "<group>"; };
 		C2884B4D2DE37E8600A3975D /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2A0EDB72F4B556C00A1DE67 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2A68D352CFF1E3C005F3ED8 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 		C008900129E1AE0C00031176 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C285B1E72F7B342D009A5DD9 /* DuaBookView.swift */,
 				C24AC7BA2D65CB0C007F5E5A /* ContentView */,
 				C063ADE229DF2E5B00746D2E /* PlayerView.swift */,
 				C008900229E1B09400031176 /* SettingsView.swift */,
@@ -194,6 +199,7 @@
 		C024683D2BDF961100CE5A6B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C285B1E52F7B341A009A5DD9 /* DuaBook.swift */,
 				C356ADBE64C524FC1934C6C7 /* Constants.swift */,
 				C08EAFD22AF91CFB00C847AC /* textFont.swift */,
 				C24AC7C42D65E4F3007F5E5A /* UsefulText */,
@@ -451,10 +457,12 @@
 				C0908DEC2982A02E00458ACB /* CustomModifierView.swift in Sources */,
 				C356ADBE74C524FC1934C6C8 /* Constants.swift in Sources */,
 				C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */,
+				C285B1E62F7B341A009A5DD9 /* DuaBook.swift in Sources */,
 				C2A68D362CFF1E3C005F3ED8 /* UserSettings.swift in Sources */,
 				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,
 				C0BG00012CFF1F3C005F3ED9 /* BackgroundTaskManager.swift in Sources */,
 				C2H4JJV22E87F4B2006762B4 /* HajjView.swift in Sources */,
+				C285B1E82F7B342D009A5DD9 /* DuaBookView.swift in Sources */,
 				C2HJPGV22E87F4B2006762BA /* HajjPageView.swift in Sources */,
 				C2M4INT2C2E87F4B2006762B6 /* MainTabView.swift in Sources */,
 				C2HJST112E87F4B2006762B7 /* HajjStep1.swift in Sources */,

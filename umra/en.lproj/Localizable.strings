@@ -692,3 +692,60 @@ en.lproj
 .lproj";
 
 "info_button_label" = "Information";
+
+/* Tab */
+"tab_dua" = "Duas";
+
+/* Dua Book — Navigation & Categories */
+"dua_book_nav_title" = "Du\u02bfa Book";
+"dua_category_umrah" = "Umrah";
+"dua_category_hajj" = "Hajj";
+
+/* Dua Book — Detail Labels */
+"dua_detail_translit_label" = "Transliteration";
+"dua_detail_trans_label" = "Translation";
+
+/* Dua Book — Umrah Duas */
+"dua_niyyah_umrah_title" = "Intention for Umrah";
+"dua_niyyah_umrah_trans" = "Here I am, O Allah, performing Umrah.";
+
+"dua_ihram_umrah_title" = "Du\u02bfa of Ihram (Umrah)";
+"dua_ihram_umrah_trans" = "O Allah, this Umrah is free from showing off and seeking fame!";
+
+"dua_talbiyah_title" = "Talbiyah";
+"dua_talbiyah_trans" = "Here I am before You, O Allah! Here I am! Here I am, You have no partner! Here I am! Truly, all praise, all blessings, and sovereignty belong to You! You have no partner!";
+
+"dua_masjid_enter_title" = "Du\u02bfa upon Entering the Mosque";
+"dua_masjid_enter_trans" = "O Allah, bless Muhammad and grant him peace! O Allah, open for me the gates of Your mercy!";
+
+"dua_condition_title" = "Du\u02bfa of Stipulation";
+"dua_condition_trans" = "O Allah, my place of exiting Ihram is wherever You detain me.";
+
+"dua_allahu_akbar_title" = "Takbir (Tawaf)";
+"dua_allahu_akbar_trans" = "Allah is the Greatest!";
+
+"dua_rabbana_title" = "Du\u02bfa between the Corners";
+"dua_rabbana_trans" = "Our Lord, grant us good in this world and good in the Hereafter, and protect us from the torment of the Fire!";
+
+"dua_maqam_ibrahim_title" = "Verse of Maqam Ibrahim";
+"dua_maqam_ibrahim_trans" = "\u00abAnd take, [O believers], from the standing place of Ibrahim a place of prayer.\u00bb (Al-Baqarah: 125)";
+
+"dua_safa_ayah_title" = "Verse of Safa and Marwa";
+"dua_safa_ayah_trans" = "\u00abIndeed, as-Safa and al-Marwah are among the symbols of Allah. So whoever makes Hajj to the House or performs Umrah — there is no blame upon him for walking between them. And whoever volunteers good — then indeed, Allah is appreciative and Knowing.\u00bb (Al-Baqarah: 158)";
+
+"dua_nabdau_title" = "We Begin with What Allah Began";
+"dua_nabdau_trans" = "We begin with that which Allah began.";
+
+"dua_zikr_safa_title" = "Dhikr on Safa and Marwa";
+"dua_zikr_safa_trans" = "Allah is the Greatest! Allah is the Greatest! Allah is the Greatest! There is no deity except Allah, alone, without any partner! To Him belongs dominion and to Him belongs praise. He gives life and causes death, and He has power over all things. There is no deity except Allah alone, without any partner! He fulfilled His promise, aided His servant, and alone defeated the allied tribes.";
+
+"dua_rabbi_ighfir_title" = "Du\u02bfa during Sa\u02bfi";
+"dua_rabbi_ighfir_trans" = "O Lord, forgive and have mercy, for You are the Most Mighty and Most Generous!";
+
+"dua_masjid_exit_title" = "Du\u02bfa upon Exiting the Mosque";
+"dua_masjid_exit_trans" = "O Allah, bless Muhammad and grant him peace! O Allah, I ask You of Your Bounty!";
+
+/* Dua Book — Hajj Duas (titles only; translations reuse existing hajj_step keys) */
+"dua_niyyah_hajj_title" = "Intention for Hajj";
+"dua_ihram_hajj_title" = "Du\u02bfa of Ihram (Hajj)";
+"dua_arafat_title" = "Du\u02bfa on Arafat";

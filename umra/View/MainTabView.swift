@@ -62,6 +62,7 @@ struct MainTabView: View {
                     Label(hajjTabLabel, systemImage: "h.circle.fill")
                 }
                 .tag(MainTab.hajj)
+
         }
         .environment(\.horizontalSizeClass, .compact)
         .onAppear {

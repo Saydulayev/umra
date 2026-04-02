@@ -716,3 +716,60 @@ fr.lproj
 .lproj";
 
 "info_button_label" = "Informations";
+
+/* Onglet */
+"tab_dua" = "Douas";
+
+/* Livre des Douas — Navigation & Catégories */
+"dua_book_nav_title" = "Livre des Douas";
+"dua_category_umrah" = "Oumra";
+"dua_category_hajj" = "Hajj";
+
+/* Livre des Douas — Étiquettes */
+"dua_detail_translit_label" = "Translittération";
+"dua_detail_trans_label" = "Traduction";
+
+/* Livre des Douas — Douas de l'Oumra */
+"dua_niyyah_umrah_title" = "Intention pour la Oumra";
+"dua_niyyah_umrah_trans" = "Me voici devant Toi, ô Allah, pour accomplir la Oumra.";
+
+"dua_ihram_umrah_title" = "Doua de l'Ihram (Oumra)";
+"dua_ihram_umrah_trans" = "Ô Allah, cette Oumra est exempte d'ostentation et de recherche de la gloire !";
+
+"dua_talbiyah_title" = "Talbiyah";
+"dua_talbiyah_trans" = "Me voici, ô Allah ! Me voici ! Me voici, Tu n'as pas d'associé ! Me voici ! En vérité, toute louange, toute grâce et toute souveraineté T'appartiennent ! Tu n'as pas d'associé !";
+
+"dua_masjid_enter_title" = "Doua à l'entrée de la mosquée";
+"dua_masjid_enter_trans" = "Ô Allah, bénis Muhammad et accorde-lui la paix ! Ô Allah, ouvre-moi les portes de Ta miséricorde !";
+
+"dua_condition_title" = "Doua de stipulation";
+"dua_condition_trans" = "Ô Allah, le lieu où je sors de l'Ihram est là où Tu m'auras retenu.";
+
+"dua_allahu_akbar_title" = "Takbir (Tawaf)";
+"dua_allahu_akbar_trans" = "Allah est le Plus Grand !";
+
+"dua_rabbana_title" = "Doua entre les coins";
+"dua_rabbana_trans" = "Notre Seigneur, accorde-nous du bien dans ce monde et du bien dans l'Au-delà, et protège-nous du châtiment du Feu !";
+
+"dua_maqam_ibrahim_title" = "Verset du Maqam Ibrahim";
+"dua_maqam_ibrahim_trans" = "«Prenez le maqam Ibrahim comme lieu de prière.» (Al-Baqara : 125)";
+
+"dua_safa_ayah_title" = "Verset de Safa et Marwa";
+"dua_safa_ayah_trans" = "«Certes, as-Safa et al-Marwa font partie des symboles d'Allah. Quiconque fait le Hajj à la Maison ou la Oumra ne commet pas de péché en faisant le va-et-vient entre eux. Et quiconque fait spontanément le bien — Allah est Reconnaissant et Omniscient.» (Al-Baqara : 158)";
+
+"dua_nabdau_title" = "Nous commençons par ce qu'Allah a commencé";
+"dua_nabdau_trans" = "Nous commençons par ce qu'Allah a commencé.";
+
+"dua_zikr_safa_title" = "Dhikr sur Safa et Marwa";
+"dua_zikr_safa_trans" = "Allah est le Plus Grand ! Allah est le Plus Grand ! Allah est le Plus Grand ! Il n'y a de divinité qu'Allah, Seul, sans associé ! À Lui appartient la souveraineté et à Lui revient la louange. Il donne la vie et fait mourir, et Il est Omnipuissant. Il n'y a de divinité qu'Allah, Seul, sans associé ! Il a accompli Sa promesse, secouru Son serviteur et défait Seul les coalisés.";
+
+"dua_rabbi_ighfir_title" = "Doua pendant le Sa'i";
+"dua_rabbi_ighfir_trans" = "Seigneur, pardonne et fais miséricorde, car Tu es le Plus Puissant et le Plus Généreux !";
+
+"dua_masjid_exit_title" = "Doua à la sortie de la mosquée";
+"dua_masjid_exit_trans" = "Ô Allah, bénis Muhammad et accorde-lui la paix ! Ô Allah, je Te demande de Ta grâce !";
+
+/* Livre des Douas — Douas du Hajj (titres seulement) */
+"dua_niyyah_hajj_title" = "Intention pour le Hajj";
+"dua_ihram_hajj_title" = "Doua de l'Ihram (Hajj)";
+"dua_arafat_title" = "Doua à Arafat";

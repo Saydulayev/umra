@@ -14,6 +14,7 @@ enum UmraStep: Hashable, Sendable {
 enum AppDestination: Hashable, Sendable {
     case settings
     case prayerTimes
+    case duaBook
 }
 
 struct ContentView: View {

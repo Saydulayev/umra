@@ -725,3 +725,60 @@ id.lproj
 .lproj";
 
 "info_button_label" = "Informasi";
+
+/* Tab */
+"tab_dua" = "Doa";
+
+/* Buku Doa — Navigasi & Kategori */
+"dua_book_nav_title" = "Buku Doa";
+"dua_category_umrah" = "Umrah";
+"dua_category_hajj" = "Haji";
+
+/* Buku Doa — Label */
+"dua_detail_translit_label" = "Transliterasi";
+"dua_detail_trans_label" = "Terjemahan";
+
+/* Buku Doa — Doa Umrah */
+"dua_niyyah_umrah_title" = "Niat Umrah";
+"dua_niyyah_umrah_trans" = "Ku penuhi panggilan-Mu ya Allah untuk melaksanakan Umrah.";
+
+"dua_ihram_umrah_title" = "Doa Ihram (Umrah)";
+"dua_ihram_umrah_trans" = "Ya Allah, Umrah ini bebas dari riya dan mencari ketenaran!";
+
+"dua_talbiyah_title" = "Talbiyah";
+"dua_talbiyah_trans" = "Ku penuhi panggilan-Mu ya Allah! Ku penuhi panggilan-Mu! Ku penuhi panggilan-Mu, tiada sekutu bagi-Mu! Ku penuhi panggilan-Mu! Sesungguhnya segala puji, nikmat dan kekuasaan milik-Mu! Tiada sekutu bagi-Mu!";
+
+"dua_masjid_enter_title" = "Doa Masuk Masjid";
+"dua_masjid_enter_trans" = "Ya Allah, limpahkan shalawat kepada Muhammad dan berikanlah salam! Ya Allah, bukakanlah untukku pintu-pintu rahmat-Mu!";
+
+"dua_condition_title" = "Doa Persyaratan";
+"dua_condition_trans" = "Ya Allah, tempat keluarku dari ihram adalah di mana pun Engkau menahanku.";
+
+"dua_allahu_akbar_title" = "Takbir (Tawaf)";
+"dua_allahu_akbar_trans" = "Allah Maha Besar!";
+
+"dua_rabbana_title" = "Doa Antara Dua Sudut";
+"dua_rabbana_trans" = "Ya Tuhan kami, berikanlah kepada kami kebaikan di dunia dan kebaikan di akhirat, dan jauhkanlah kami dari siksa neraka!";
+
+"dua_maqam_ibrahim_title" = "Ayat Maqam Ibrahim";
+"dua_maqam_ibrahim_trans" = "«Dan jadikanlah maqam Ibrahim sebagai tempat shalat.» (Al-Baqarah: 125)";
+
+"dua_safa_ayah_title" = "Ayat Shafa dan Marwah";
+"dua_safa_ayah_trans" = "«Sesungguhnya Shafa dan Marwah adalah sebagian dari syiar Allah. Maka barangsiapa yang beribadah haji ke Baitullah atau berumrah, maka tidak ada dosa baginya mengerjakan sa'i antara keduanya. Dan barangsiapa yang mengerjakan suatu kebajikan dengan rela hati, maka sesungguhnya Allah Maha Mensyukuri kebaikan lagi Maha Mengetahui.» (Al-Baqarah: 158)";
+
+"dua_nabdau_title" = "Kami Memulai dengan Apa yang Telah Dimulai Allah";
+"dua_nabdau_trans" = "Kami memulai dengan apa yang telah dimulai oleh Allah.";
+
+"dua_zikr_safa_title" = "Dzikir di Shafa dan Marwah";
+"dua_zikr_safa_trans" = "Allah Maha Besar! Allah Maha Besar! Allah Maha Besar! Tidak ada ilah kecuali Allah semata, tidak ada sekutu bagi-Nya! Bagi-Nya kerajaan dan bagi-Nya pujian. Dia yang menghidupkan dan mematikan, dan Dia Maha Kuasa atas segalanya. Tidak ada ilah kecuali Allah semata, tidak ada sekutu bagi-Nya! Dia telah menepati janji-Nya, menolong hamba-Nya, dan mengalahkan pasukan-pasukan sendirian.";
+
+"dua_rabbi_ighfir_title" = "Doa Saat Sa'i";
+"dua_rabbi_ighfir_trans" = "Ya Tuhan, ampunilah dan rahmatilah, sesungguhnya Engkau Maha Mulia dan Maha Dermawan!";
+
+"dua_masjid_exit_title" = "Doa Keluar Masjid";
+"dua_masjid_exit_trans" = "Ya Allah, limpahkan shalawat kepada Muhammad dan berikanlah salam! Ya Allah, sesungguhnya aku memohon kepada-Mu karunia-Mu!";
+
+/* Buku Doa — Doa Haji (hanya judul) */
+"dua_niyyah_hajj_title" = "Niat Haji";
+"dua_ihram_hajj_title" = "Doa Ihram (Haji)";
+"dua_arafat_title" = "Doa di Arafah";

@@ -660,6 +660,7 @@ extension View {
 struct GuideNavigationModifier: ViewModifier {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     @Environment(PurchaseManager.self) private var purchaseManager
     @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
 
@@ -679,9 +680,23 @@ struct GuideNavigationModifier: ViewModifier {
                         .environment(localizationManager)
                         .environment(backgroundTaskManager)
                         .toolbar(.hidden, for: .tabBar)
+                case .duaBook:
+                    DuaBookView()
+                        .environment(themeManager)
+                        .environment(localizationManager)
+                        .environment(fontManager)
+                        .toolbar(.hidden, for: .tabBar)
                 }
             }
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink(value: AppDestination.duaBook) {
+                        Image(systemName: "book")
+                            .imageScale(.large)
+                            .foregroundStyle(.primary)
+                            .accessibilityLabel("Dua Book")
+                    }
+                }
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     NavigationLink(value: AppDestination.prayerTimes) {
                         Image(systemName: "clock")

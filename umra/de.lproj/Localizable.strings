@@ -713,3 +713,60 @@ de.lproj
 .lproj";
 
 "info_button_label" = "Information";
+
+/* Tab */
+"tab_dua" = "Duas";
+
+/* Dua-Buch — Navigation & Kategorien */
+"dua_book_nav_title" = "Dua-Buch";
+"dua_category_umrah" = "Umrah";
+"dua_category_hajj" = "Hajj";
+
+/* Dua-Buch — Beschriftungen */
+"dua_detail_translit_label" = "Transliteration";
+"dua_detail_trans_label" = "Übersetzung";
+
+/* Dua-Buch — Umrah-Duas */
+"dua_niyyah_umrah_title" = "Absicht für Umrah";
+"dua_niyyah_umrah_trans" = "Hier bin ich, o Allah, um Umrah zu verrichten.";
+
+"dua_ihram_umrah_title" = "Dua des Ihrams (Umrah)";
+"dua_ihram_umrah_trans" = "O Allah, diese Umrah ist frei von Prahlerei und Ruhmesgier!";
+
+"dua_talbiyah_title" = "Talbiyah";
+"dua_talbiyah_trans" = "Hier bin ich, o Allah! Hier bin ich! Hier bin ich, Du hast keinen Partner! Hier bin ich! Wahrlich, aller Lobpreis, alle Gunst und die Herrschaft gehören Dir! Du hast keinen Partner!";
+
+"dua_masjid_enter_title" = "Dua beim Betreten der Moschee";
+"dua_masjid_enter_trans" = "O Allah, segne Muhammad und schenke ihm Frieden! O Allah, öffne mir die Tore Deiner Barmherzigkeit!";
+
+"dua_condition_title" = "Dua der Bedingung";
+"dua_condition_trans" = "O Allah, mein Ort des Austretens aus dem Ihram ist dort, wo Du mich aufhältst.";
+
+"dua_allahu_akbar_title" = "Takbir (Tawaf)";
+"dua_allahu_akbar_trans" = "Allah ist der Größte!";
+
+"dua_rabbana_title" = "Dua zwischen den Ecken";
+"dua_rabbana_trans" = "Unser Herr, gib uns Gutes in dieser Welt und Gutes im Jenseits, und schütze uns vor der Strafe des Feuers!";
+
+"dua_maqam_ibrahim_title" = "Vers des Maqam Ibrahim";
+"dua_maqam_ibrahim_trans" = "«Und nehmt euch die Gebetsstätte Ibrahims zum Gebetsplatz.» (Al-Baqara: 125)";
+
+"dua_safa_ayah_title" = "Vers von Safa und Marwa";
+"dua_safa_ayah_trans" = "«Wahrlich, as-Safa und al-Marwa gehören zu den Zeichen Allahs. Wer das Haus besucht oder Umrah verrichtet, dem ist es kein Vergehen, zwischen ihnen zu gehen. Und wer freiwillig Gutes tut — Allah ist Dankend, Allwissend.» (Al-Baqara: 158)";
+
+"dua_nabdau_title" = "Wir beginnen mit dem, womit Allah begann";
+"dua_nabdau_trans" = "Wir beginnen mit dem, womit Allah begann.";
+
+"dua_zikr_safa_title" = "Dhikr auf Safa und Marwa";
+"dua_zikr_safa_trans" = "Allah ist der Größte! Allah ist der Größte! Allah ist der Größte! Es gibt keine Gottheit außer Allah, dem Einzigen, ohne Partner! Ihm gehört die Herrschaft und Ihm gebührt der Lobpreis. Er gibt Leben und lässt sterben, und Er hat Macht über alle Dinge. Es gibt keine Gottheit außer Allah, dem Einzigen, ohne Partner! Er erfüllte Sein Versprechen, half Seinem Diener und besiegte allein die verbündeten Stämme.";
+
+"dua_rabbi_ighfir_title" = "Dua während des Sa'i";
+"dua_rabbi_ighfir_trans" = "Herr, vergib und erbarme Dich, denn Du bist der Mächtigste und Großzügigste!";
+
+"dua_masjid_exit_title" = "Dua beim Verlassen der Moschee";
+"dua_masjid_exit_trans" = "O Allah, segne Muhammad und schenke ihm Frieden! O Allah, ich bitte Dich um Deine Gunst!";
+
+/* Dua-Buch — Hajj-Duas (nur Titel) */
+"dua_niyyah_hajj_title" = "Absicht für Hajj";
+"dua_ihram_hajj_title" = "Dua des Ihrams (Hajj)";
+"dua_arafat_title" = "Dua auf Arafat";
