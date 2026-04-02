@@ -688,46 +688,73 @@ tr.lproj
 "dua_detail_trans_label" = "Anlam";
 
 /* Dua Kitabı — Umre Duaları */
+
 "dua_niyyah_umrah_title" = "Umre Niyeti";
-"dua_niyyah_umrah_trans" = "Buyur Allah'ım, Umre için buradayım.";
+"dua_niyyah_umrah_trans" = "Buyur, ey Allah’ım, huzurundayım, [umre yapmak üzere].";
+"dua_niyyah_umrah_translit" = "Labbayka Allahumma bi-´umrah.";
+
 
 "dua_ihram_umrah_title" = "İhram Duası (Umre)";
-"dua_ihram_umrah_trans" = "Allah'ım, bu Umre'de gösteriş ve şöhret yoktur!";
+"dua_ihram_umrah_trans" = "Ey Allah’ım! Bu umre, gösteriş ve şöhret için değildir!";
+"dua_ihram_umrah_translit" = "Allahumma hazihi 'umrah, la riya'a fiha wa la sum'ah.";
+
 
 "dua_talbiyah_title" = "Telbiye";
-"dua_talbiyah_trans" = "Buyur Allah'ım, buyur! Buyur, senin ortağın yoktur, buyur! Şüphesiz hamd sana aittir, nimet sana aittir, mülk sana aittir. Senin ortağın yoktur!";
+"dua_talbiyah_trans" = "Buyur Allah’ım, buyur! Buyur, Senin hiçbir ortağın yoktur! Buyur! Şüphesiz hamd, nimet ve mülk yalnızca Sana aittir! Senin hiçbir ortağın yoktur!";
+"dua_talbiyah_translit" = "Labbayka Allahumma labbayk! Labbayka laa shariika laka labbayka! Innal hamda wanni'mata laka wal mulk, laa shariika lak";
+
 
 "dua_masjid_enter_title" = "Mescide Giriş Duası";
-"dua_masjid_enter_trans" = "Allah'ım, Muhammed'e salat ve selam eyle! Allah'ım, rahmet kapılarını bana aç!";
+"dua_masjid_enter_trans" = "Ey Allah’ım! Muhammed’e salât ve selam eyle! Ey Allah’ım! Bana rahmet kapılarını aç!";
+"dua_masjid_enter_translit" = "Allahumma, solli ´ala Muhammadin wa sallim! Allahumma - ftah li abwaba rohmati-ka!";
+
 
 "dua_condition_title" = "Şartlandırma Duası";
-"dua_condition_trans" = "Allah'ım, ihramdan çıkacağım yer, beni alıkoyduğun yerdir.";
+"dua_condition_trans" = "Ey Allah’ım! Eğer beni bir şey engellerse, ihramdan çıkışım burada olsun.";
+"dua_condition_translit" = "Allahumma mahilli haysu habastani";
+
 
 "dua_allahu_akbar_title" = "Tekbir (Tavaf)";
 "dua_allahu_akbar_trans" = "Allah en büyüktür!";
+"dua_allahu_akbar_translit" = "Allahu Akbar";
+
 
 "dua_rabbana_title" = "Köşeler Arası Dua";
-"dua_rabbana_trans" = "Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver ve bizi ateşin azabından koru!";
+"dua_rabbana_trans" = "Rabbimiz! Bize dünyada iyilik ver, ahirette de iyilik ver ve bizi ateşin azabından koru!";
+"dua_rabbana_translit" = "Rabbana, atina fid-dunya hasanatan wa fil-akhiroti hasanatan wa qina azaba-n-nar";
+
 
 "dua_maqam_ibrahim_title" = "Makam-ı İbrahim Ayeti";
-"dua_maqam_ibrahim_trans" = "«İbrahim'in makamından bir namaz yeri edinin.» (Bakara: 125)";
+"dua_maqam_ibrahim_trans" = "Ve İbrahim’in makamını namaz yeri edinin (Bakara Suresi, 125. ayet).";
+"dua_maqam_ibrahim_translit" = "Wa-ttahizu mim-maqomi Ibrohima musollya.";
+
 
 "dua_safa_ayah_title" = "Safa ve Merve Ayeti";
-"dua_safa_ayah_trans" = "«Şüphesiz Safa ile Merve, Allah'ın işaretlerindendir. Kim Beyt'i hacceder ya da umre yaparsa, onları tavaf etmesinde bir günah yoktur. Kim de gönüllü bir iyilik yaparsa, şüphesiz Allah Şâkir'dir, Alîm'dir.» (Bakara: 158)";
+"dua_safa_ayah_trans" = "Şüphesiz ki Safa ve Merve, Allah’ın sembollerindendir. Bu nedenle, kim Beytullah’a hac veya umre için gelirse, onların arasında yürüyerek geçmesinde kendisine bir günah yoktur. Kim gönülden bir iyilik yaparsa, şüphesiz Allah, şükrün karşılığını verendir, bilendir. (Bakara Suresi, 158. Ayet).";
+"dua_safa_ayah_translit" = "Inna Ssofaa wal-Marwata min sha’aaa’iril laah, faman hajjal Baita awi’tamaro falaa junaaha ‘alaihi ayyatt´owwafa bihimaa, wa man tat´owwa’a hoyron fa-inna-LLAha Shakirun ´alim.";
 
-"dua_nabdau_title" = "Biz Allah'ın Başladığı ile Başlıyoruz";
-"dua_nabdau_trans" = "Biz, Allah'ın başladığı ile başlıyoruz.";
+
+"dua_nabdau_title" = "Biz Allah’ın Başladığı ile Başlıyoruz";
+"dua_nabdau_trans" = "Biz, Allah’ın başladığı ile başlıyoruz.";
+"dua_nabdau_translit" = "Nabdau bima badaa-Llahu bihi";
+
 
 "dua_zikr_safa_title" = "Safa ve Merve Zikri";
-"dua_zikr_safa_trans" = "Allahu Ekber! Allahu Ekber! Allahu Ekber! Allah'tan başka ilah yoktur, O tektir, ortağı yoktur! Mülk O'nundur, hamd O'nadır. O diriltir ve öldürür, O her şeye kadirdir. Allah'tan başka ilah yoktur, O tektir, ortağı yoktur! Vaadini yerine getirdi, kuluna yardım etti ve yalnız başına ahzabı bozguna uğrattı.";
+"dua_zikr_safa_trans" = "Allah en büyüktür! Allah en büyüktür! Allah en büyüktür! Allah’tan başka ilah yoktur, O tektir ve O’nun ortağı yoktur! Mülk O’nundur, hamd O’na aittir. O, diriltir ve öldürür. O, her şeye kadirdir! Allah’tan başka ilah yoktur, O tektir ve O’nun ortağı yoktur! O, vaadini yerine getirdi, kuluna yardım etti ve düşman birliklerini tek başına mağlup etti.";
+"dua_zikr_safa_translit" = "Allahu Akbar! Allahu Akbar! Allahu Akbar! La ilaha illa-Llahu wahdahu la sharika lahu. Lahul mulku wa lahul hamdu yuhyi wa yumitu wa huwa 'ala kulli shay'in qodir. La ilaha illa-Llahu wahdahu la sharika lah, anjaza wa'dahu, wa nasaro 'abdahu, wa hazamal ahzaba wahdahu.";
+
 
 "dua_rabbi_ighfir_title" = "Sa'y Sırasında Dua";
-"dua_rabbi_ighfir_trans" = "Rabbim, bağışla ve merhamet et; şüphesiz Sen en aziz ve en kerim olansın!";
+"dua_rabbi_ighfir_trans" = "Ey Rabbim! Beni bağışla ve merhamet et! Şüphesiz Sen, en yüce ve en cömert olansın!";
+"dua_rabbi_ighfir_translit" = "Rabbi-ghfir wa rham, innaka anta a´azzul-akram";
+
 
 "dua_masjid_exit_title" = "Mescidden Çıkış Duası";
-"dua_masjid_exit_trans" = "Allah'ım, Muhammed'e salat ve selam eyle! Allah'ım, fadlından istiyorum!";
+"dua_masjid_exit_trans" = "Ey Allah’ım! Muhammed’e salât ve selam eyle! Ey Allah’ım! Şüphesiz, Senin lütfunu diliyorum!";
+"dua_masjid_exit_translit" = "Allahumma solli 'ala Muhammadin wa sallim! Allahumma, inni as'aluka min fadlika!";
 
 /* Dua Kitabı — Hac Duaları (yalnızca başlıklar) */
 "dua_niyyah_hajj_title" = "Hac Niyeti";
+"dua_niyyah_hajj_trans" = "Buyur, ey Allah’ım, huzurundayım, [hac yapmak üzere].";
 "dua_ihram_hajj_title" = "İhram Duası (Hac)";
 "dua_arafat_title" = "Arafat Duası";

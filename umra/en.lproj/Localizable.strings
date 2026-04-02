@@ -697,7 +697,7 @@ en.lproj
 "tab_dua" = "Duas";
 
 /* Dua Book — Navigation & Categories */
-"dua_book_nav_title" = "Du\u02bfa Book";
+"dua_book_nav_title" = "Du'a Book";
 "dua_category_umrah" = "Umrah";
 "dua_category_hajj" = "Hajj";
 
@@ -706,46 +706,73 @@ en.lproj
 "dua_detail_trans_label" = "Translation";
 
 /* Dua Book — Umrah Duas */
-"dua_niyyah_umrah_title" = "Intention for Umrah";
-"dua_niyyah_umrah_trans" = "Here I am, O Allah, performing Umrah.";
 
-"dua_ihram_umrah_title" = "Du\u02bfa of Ihram (Umrah)";
-"dua_ihram_umrah_trans" = "O Allah, this Umrah is free from showing off and seeking fame!";
+"dua_niyyah_umrah_title" = "Intention for Umrah";
+"dua_niyyah_umrah_trans" = "Here I am before You, O Allah, [performing] Umrah.";
+"dua_niyyah_umrah_translit" = "Labbayka Allahumma bi-´umrah.";
+
+
+"dua_ihram_umrah_title" = "Du'a of Ihram (Umrah)";
+"dua_ihram_umrah_trans" = "O Allah, this Umrah - there is no showing off or seeking fame in it!";
+"dua_ihram_umrah_translit" = "Allahumma hazihi 'umrah, la riya'a fiha wa la sum'ah.";
+
 
 "dua_talbiyah_title" = "Talbiyah";
-"dua_talbiyah_trans" = "Here I am before You, O Allah! Here I am! Here I am, You have no partner! Here I am! Truly, all praise, all blessings, and sovereignty belong to You! You have no partner!";
+"dua_talbiyah_trans" = "Here I am, O Allah, here I am! Here I am, there is no partner for You, here I am! Verily, all praise, grace, and sovereignty belong to You. You have no partner.";
+"dua_talbiyah_translit" = "Labbayka Allahumma labbayk! Labbayka laa shariika laka labbayka! Innal hamda wanni'mata laka wal mulk, laa shariika lak";
 
-"dua_masjid_enter_title" = "Du\u02bfa upon Entering the Mosque";
+
+"dua_masjid_enter_title" = "Du'a upon Entering the Mosque";
 "dua_masjid_enter_trans" = "O Allah, bless Muhammad and grant him peace! O Allah, open for me the gates of Your mercy!";
+"dua_masjid_enter_translit" = "Allahumma, solli ´ala Muhammadin wa sallim! Allahumma - ftah li abwaba rohmati-ka!";
 
-"dua_condition_title" = "Du\u02bfa of Stipulation";
-"dua_condition_trans" = "O Allah, my place of exiting Ihram is wherever You detain me.";
+
+"dua_condition_title" = "Du'a of Stipulation";
+"dua_condition_trans" = "O Allah, my place of entering into Ihram is wherever You have detained me.";
+"dua_condition_translit" = "Allahumma mahilli haysu habastani";
+
 
 "dua_allahu_akbar_title" = "Takbir (Tawaf)";
 "dua_allahu_akbar_trans" = "Allah is the Greatest!";
+"dua_allahu_akbar_translit" = "Allahu Akbar";
 
-"dua_rabbana_title" = "Du\u02bfa between the Corners";
-"dua_rabbana_trans" = "Our Lord, grant us good in this world and good in the Hereafter, and protect us from the torment of the Fire!";
+
+"dua_rabbana_title" = "Du'a between the Corners";
+"dua_rabbana_trans" = "Our Lord, grant us the good of this world and the good of the Hereafter, and protect us from the torment of the Fire!";
+"dua_rabbana_translit" = "Rabbana, atina fid-dunya hasanatan wa fil-akhiroti hasanatan wa qina azaba-n-nar";
+
 
 "dua_maqam_ibrahim_title" = "Verse of Maqam Ibrahim";
-"dua_maqam_ibrahim_trans" = "\u00abAnd take, [O believers], from the standing place of Ibrahim a place of prayer.\u00bb (Al-Baqarah: 125)";
+"dua_maqam_ibrahim_trans" = "And take, [O believers], from the standing place of Ibrahim a place of prayer. (Surah Al-Baqarah, verse 125).";
+"dua_maqam_ibrahim_translit" = "Wa-ttahizu mim-maqomi Ibrohima musollya.";
+
 
 "dua_safa_ayah_title" = "Verse of Safa and Marwa";
-"dua_safa_ayah_trans" = "\u00abIndeed, as-Safa and al-Marwah are among the symbols of Allah. So whoever makes Hajj to the House or performs Umrah — there is no blame upon him for walking between them. And whoever volunteers good — then indeed, Allah is appreciative and Knowing.\u00bb (Al-Baqarah: 158)";
+"dua_safa_ayah_trans" = "Indeed, as-Safa and al-Marwah are among the symbols of Allah. So whoever makes Hajj to the House or performs 'umrah - there is no blame upon him for walking between them. And whoever volunteers good - then indeed, Allah is appreciative and Knowing. (Surah Al-Baqarah, verse 158).";
+"dua_safa_ayah_translit" = "Inna Ssofaa wal-Marwata min sha’aaa’iril laah, faman hajjal Baita awi’tamaro falaa junaaha ‘alaihi ayyatt´owwafa bihimaa, wa man tat´owwa’a hoyron fa-inna-LLAha Shakirun ´alim.";
+
 
 "dua_nabdau_title" = "We Begin with What Allah Began";
-"dua_nabdau_trans" = "We begin with that which Allah began.";
+"dua_nabdau_trans" = "We begin with that with which Allah began.";
+"dua_nabdau_translit" = "Nabdau bima badaa-Llahu bihi";
+
 
 "dua_zikr_safa_title" = "Dhikr on Safa and Marwa";
-"dua_zikr_safa_trans" = "Allah is the Greatest! Allah is the Greatest! Allah is the Greatest! There is no deity except Allah, alone, without any partner! To Him belongs dominion and to Him belongs praise. He gives life and causes death, and He has power over all things. There is no deity except Allah alone, without any partner! He fulfilled His promise, aided His servant, and alone defeated the allied tribes.";
+"dua_zikr_safa_trans" = "Allah is the Greatest, Allah is the Greatest, Allah is the Greatest! There is no deity except Allah, the One without any partners! To Him belongs the power and to Him belongs all praise. He gives life and causes death, and He has power over all things. There is no deity except Allah, the One without any partners! He fulfilled His promise, aided His servant, and alone defeated the hostile tribes.";
+"dua_zikr_safa_translit" = "Allahu Akbar! Allahu Akbar! Allahu Akbar! La ilaha illa-Llahu wahdahu la sharika lahu. Lahul mulku wa lahul hamdu yuhyi wa yumitu wa huwa 'ala kulli shay'in qodir. La ilaha illa-Llahu wahdahu la sharika lah, anjaza wa'dahu, wa nasaro 'abdahu, wa hazamal ahzaba wahdahu";
 
-"dua_rabbi_ighfir_title" = "Du\u02bfa during Sa\u02bfi";
-"dua_rabbi_ighfir_trans" = "O Lord, forgive and have mercy, for You are the Most Mighty and Most Generous!";
 
-"dua_masjid_exit_title" = "Du\u02bfa upon Exiting the Mosque";
-"dua_masjid_exit_trans" = "O Allah, bless Muhammad and grant him peace! O Allah, I ask You of Your Bounty!";
+"dua_rabbi_ighfir_title" = "Du'a during Sa'i";
+"dua_rabbi_ighfir_trans" = "O Lord, forgive and have mercy, for You are the Most Great and Generous!";
+"dua_rabbi_ighfir_translit" = "Rabbi-ghfir wa rham, innaka anta a´azzul-akram";
+
+
+"dua_masjid_exit_title" = "Du'a upon Exiting the Mosque";
+"dua_masjid_exit_trans" = "O Allah, bless Muhammad and grant him peace! O Allah, indeed, I ask You for Your Mercy!";
+"dua_masjid_exit_translit" = "Allahumma solli 'ala Muhammadin wa sallim! Allahumma, inni as'aluka min fadlika!";
 
 /* Dua Book — Hajj Duas (titles only; translations reuse existing hajj_step keys) */
 "dua_niyyah_hajj_title" = "Intention for Hajj";
-"dua_ihram_hajj_title" = "Du\u02bfa of Ihram (Hajj)";
-"dua_arafat_title" = "Du\u02bfa on Arafat";
+"dua_niyyah_hajj_trans" = "Here I am before You, O Allah, [performing] Hajj.";
+"dua_ihram_hajj_title" = "Du'a of Ihram (Hajj)";
+"dua_arafat_title" = "Du'a on Arafat";

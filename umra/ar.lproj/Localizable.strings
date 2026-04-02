@@ -674,7 +674,24 @@ ar.lproj
 "dua_masjid_exit_title" = "دعاء الخروج من المسجد";
 "dua_masjid_exit_trans" = "اللهم صل على محمد وسلم! اللهم إني أسألك من فضلك!";
 
+"dua_niyyah_umrah_translit" = "Labbayka Allāhumma bi-ʿumrah";
+"dua_ihram_umrah_translit" = "Allāhumma hādhihi ʿumratun lā riyāʾa fī-hā wa lā sumʿah";
+"dua_talbiyah_translit" = "Labbayka Allāhumma labbayk! Labbayka lā sharīka laka labbayk!\nInna l-ḥamda, wa n-niʿmata, laka wa l-mulk, lā sharīka lak";
+"dua_masjid_enter_translit" = "Allāhumma ṣalli ʿalā Muḥammadin wa sallim!\nAllāhumma ftaḥ lī abwāba raḥmatik";
+"dua_condition_translit" = "Allāhumma maḥillī ḥaythu ḥabastanī";
+"dua_rabbana_translit" = "Rabbanā ātinā fi d-dunyā ḥasanatan wa fi l-ākhirati ḥasanatan\nwa qinā ʿadhāba n-nār";
+"dua_maqam_ibrahim_translit" = "Wa-ttakhidhū min maqāmi Ibrāhīma muṣallā";
+"dua_safa_ayah_translit" = "Inna ṣ-Ṣafā wa l-Marwata min shaʿāʾiri Llāh, fa-man ḥajja l-bayta\nawi ʿtamara fa-lā junāḥa ʿalayhi an yaṭṭawwafa bi-himā,\nwa man taṭawwaʿa khayran fa-inna Llāha shākirun ʿalīm";
+"dua_nabdau_translit" = "Nabdaʾu bi-mā badaʾa Llāhu bihi";
+"dua_zikr_safa_translit" = "Allāhu Akbar! Allāhu Akbar! Allāhu Akbar!\nLā ilāha illa Llāhu waḥdahu lā sharīka lahu,\nlahu l-mulku wa lahu l-ḥamdu, yuḥyī wa yumītu,\nwa huwa ʿalā kulli shayʾin qadīr.\nLā ilāha illa Llāhu waḥdahu lā sharīka lahu,\nanjaza waʿdahu, wa naṣara ʿabdahu, wa hazama l-aḥzāba waḥdah";
+"dua_rabbi_ighfir_translit" = "Rabbi ghfir wa rḥam, innaka anta l-Aʿazzu l-Akram";
+"dua_masjid_exit_translit" = "Allāhumma ṣalli ʿalā Muḥammadin wa sallim!\nAllāhumma innī asʾaluka min faḍlik";
+"dua_niyyah_hajj_translit" = "Labbayka Allāhumma bi-ḥajj";
+"dua_ihram_hajj_translit" = "Allāhumma hādhihi ḥijjatun lā riyāʾa fī-hā wa lā sumʿah";
+"dua_arafat_translit" = "Lā ilāha illa Llāhu waḥdahu lā sharīka lahu,\nlahu l-mulku wa lahu l-ḥamdu,\nwa huwa ʿalā kulli shayʾin qadīr";
+
 /* كتاب الدعاء — أدعية الحج (العناوين فقط) */
 "dua_niyyah_hajj_title" = "نية الحج";
+"dua_niyyah_hajj_trans" = "لَبَّيْكَ اللَّهُمَّ بِحَجٍّ";
 "dua_ihram_hajj_title" = "دعاء الإحرام (حج)";
 "dua_arafat_title" = "دعاء عرفة";

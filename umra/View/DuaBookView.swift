@@ -224,6 +224,7 @@ private struct DuaSinglePage: View {
     @Environment(FontManager.self) private var fontManager
 
     private let contentPadding: CGFloat = 20
+    private var showsSupportingText: Bool { localizationManager.currentLanguage != "ar" }
 
     var body: some View {
         ZStack {
@@ -244,43 +245,45 @@ private struct DuaSinglePage: View {
                             .padding(.top, 16)
                     }
 
-                    // Транслитерация
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(localizationManager.localized("dua_detail_translit_label"))
-                            .font(.caption.weight(.semibold))
-                            .foregroundStyle(themeManager.selectedTheme.primaryColor)
-                            .textCase(.uppercase)
+                    if showsSupportingText {
+                        // Транслитерация
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text(localizationManager.localized("dua_detail_translit_label"))
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(themeManager.selectedTheme.primaryColor)
+                                .textCase(.uppercase)
 
-                        Text(dua.transliteration)
-                            .font(fontManager.bodyFont.italic())
-                            .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.85))
-                            .lineSpacing(4)
-                            .textSelection(.enabled)
+                            Text(localizationManager.localized(dua.transliterationKey))
+                                .font(fontManager.bodyFont.italic())
+                                .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.85))
+                                .lineSpacing(4)
+                                .textSelection(.enabled)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(contentPadding)
+                        .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: 20)
+                        .padding(.horizontal, contentPadding)
+                        .padding(.top, 16)
+
+                        // Перевод
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text(localizationManager.localized("dua_detail_trans_label"))
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(themeManager.selectedTheme.primaryColor)
+                                .textCase(.uppercase)
+
+                            Text(localizationManager.localized(dua.translationKey))
+                                .font(fontManager.bodyFont)
+                                .foregroundStyle(themeManager.selectedTheme.textColor)
+                                .lineSpacing(4)
+                                .textSelection(.enabled)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(contentPadding)
+                        .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: 20)
+                        .padding(.horizontal, contentPadding)
+                        .padding(.top, 16)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(contentPadding)
-                    .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: 20)
-                    .padding(.horizontal, contentPadding)
-                    .padding(.top, 16)
-
-                    // Перевод
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(localizationManager.localized("dua_detail_trans_label"))
-                            .font(.caption.weight(.semibold))
-                            .foregroundStyle(themeManager.selectedTheme.primaryColor)
-                            .textCase(.uppercase)
-
-                        Text(localizationManager.localized(dua.translationKey))
-                            .font(fontManager.bodyFont)
-                            .foregroundStyle(themeManager.selectedTheme.textColor)
-                            .lineSpacing(4)
-                            .textSelection(.enabled)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(contentPadding)
-                    .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: 20)
-                    .padding(.horizontal, contentPadding)
-                    .padding(.top, 16)
 
                     Spacer(minLength: 48)
                 }

@@ -739,46 +739,73 @@ id.lproj
 "dua_detail_trans_label" = "Terjemahan";
 
 /* Buku Doa — Doa Umrah */
+
 "dua_niyyah_umrah_title" = "Niat Umrah";
-"dua_niyyah_umrah_trans" = "Ku penuhi panggilan-Mu ya Allah untuk melaksanakan Umrah.";
+"dua_niyyah_umrah_trans" = "Aku memenuhi panggilan-Mu, ya Allah, [untuk menunaikan] umrah.";
+"dua_niyyah_umrah_translit" = "Labbayk Allahumma bi 'Umrah.";
+
 
 "dua_ihram_umrah_title" = "Doa Ihram (Umrah)";
-"dua_ihram_umrah_trans" = "Ya Allah, Umrah ini bebas dari riya dan mencari ketenaran!";
+"dua_ihram_umrah_trans" = "Ya Allah, Umrah ini tidak ada unsur riya (pamer) di dalamnya dan tidak pula untuk mencari ketenaran!";
+"dua_ihram_umrah_translit" = "Allahumma hadzihil 'Umrata la riyaa-a fiiha wa laa sum'ah.";
+
 
 "dua_talbiyah_title" = "Talbiyah";
-"dua_talbiyah_trans" = "Ku penuhi panggilan-Mu ya Allah! Ku penuhi panggilan-Mu! Ku penuhi panggilan-Mu, tiada sekutu bagi-Mu! Ku penuhi panggilan-Mu! Sesungguhnya segala puji, nikmat dan kekuasaan milik-Mu! Tiada sekutu bagi-Mu!";
+"dua_talbiyah_trans" = "Aku memenuhi panggilan-Mu, ya Allah! Aku memenuhi panggilan-Mu! Aku memenuhi panggilan-Mu, tiada sekutu bagi-Mu! Aku memenuhi panggilan-Mu! Sesungguhnya segala puji, nikmat, dan kekuasaan hanya milik-Mu. Tiada sekutu bagi-Mu!";
+"dua_talbiyah_translit" = "Labbayk Allahumma labbayk! Labbayka laa syariika laka labbayk! Innal hamda wan-ni'mata laka wal-mulk, laa syariika lak.";
+
 
 "dua_masjid_enter_title" = "Doa Masuk Masjid";
-"dua_masjid_enter_trans" = "Ya Allah, limpahkan shalawat kepada Muhammad dan berikanlah salam! Ya Allah, bukakanlah untukku pintu-pintu rahmat-Mu!";
+"dua_masjid_enter_trans" = "Ya Allah, limpahkanlah salawat dan salam kepada Nabi Muhammad! Ya Allah, bukakanlah untukku pintu-pintu rahmat-Mu!";
+"dua_masjid_enter_translit" = "Allahumma shalli 'alaa Muhammadin wa sallim! Allahummaftah lii abwaaba rahmatik!";
+
 
 "dua_condition_title" = "Doa Persyaratan";
-"dua_condition_trans" = "Ya Allah, tempat keluarku dari ihram adalah di mana pun Engkau menahanku.";
+"dua_condition_trans" = "Ya Allah, tempat bertahallul-ku adalah di mana saja Engkau menahanku.";
+"dua_condition_translit" = "Allahumma mahilli haitsu habastani";
+
 
 "dua_allahu_akbar_title" = "Takbir (Tawaf)";
 "dua_allahu_akbar_trans" = "Allah Maha Besar!";
+"dua_allahu_akbar_translit" = "Allahu Akbar";
+
 
 "dua_rabbana_title" = "Doa Antara Dua Sudut";
-"dua_rabbana_trans" = "Ya Tuhan kami, berikanlah kepada kami kebaikan di dunia dan kebaikan di akhirat, dan jauhkanlah kami dari siksa neraka!";
+"dua_rabbana_trans" = "Ya Tuhan kami, berilah kami kebaikan di dunia dan kebaikan di akhirat, serta lindungilah kami dari siksa api neraka!";
+"dua_rabbana_translit" = "Rabbanaa aatina fid-dunyaa hasanah wa fil-aakhirati hasanah wa qinaa 'adzaaban-naar";
+
 
 "dua_maqam_ibrahim_title" = "Ayat Maqam Ibrahim";
-"dua_maqam_ibrahim_trans" = "«Dan jadikanlah maqam Ibrahim sebagai tempat shalat.» (Al-Baqarah: 125)";
+"dua_maqam_ibrahim_trans" = "Jadikanlah Maqam Ibrahim sebagai tempat shalat. (QS. Al-Baqarah [2]: 125).";
+"dua_maqam_ibrahim_translit" = "Wat-takhidzu mim-maqaami Ibraahiima mushallaa.";
 
-"dua_safa_ayah_title" = "Ayat Shafa dan Marwah";
-"dua_safa_ayah_trans" = "«Sesungguhnya Shafa dan Marwah adalah sebagian dari syiar Allah. Maka barangsiapa yang beribadah haji ke Baitullah atau berumrah, maka tidak ada dosa baginya mengerjakan sa'i antara keduanya. Dan barangsiapa yang mengerjakan suatu kebajikan dengan rela hati, maka sesungguhnya Allah Maha Mensyukuri kebaikan lagi Maha Mengetahui.» (Al-Baqarah: 158)";
 
-"dua_nabdau_title" = "Kami Memulai dengan Apa yang Telah Dimulai Allah";
+"dua_safa_ayah_title" = "Ayat Safa dan Marwah";
+"dua_safa_ayah_trans" = "Sesungguhnya Safa dan Marwah adalah sebagian dari syi’ar-syi’ar Allah. Maka barangsiapa beribadah haji ke Baitullah atau berumrah, maka tidak ada dosa baginya mengerjakan Sa'i antara keduanya. Barangsiapa yang dengan sukarela mengerjakan kebajikan, maka sesungguhnya Allah Maha Mensyukuri lagi Maha Mengetahui. (QS. Al-Baqarah [2]: 158)";
+"dua_safa_ayah_translit" = "Innaṣ-ṣafā wal-marwata min sya‘ā`irillāh, faman ḥajja l-baita awi'-tamara falā junāḥa ‘alaihi ay-yaṭṭawwafa bihimā, wa man taṭawwa‘a khairan fa innallāha syākirun ‘alīm.";
+
+
+"dua_nabdau_title" = "Kami Memulai dengan Apa yang Dimulai Allah";
 "dua_nabdau_trans" = "Kami memulai dengan apa yang telah dimulai oleh Allah.";
+"dua_nabdau_translit" = "Nabda`u bimā bada`allāhu bihi.";
 
-"dua_zikr_safa_title" = "Dzikir di Shafa dan Marwah";
-"dua_zikr_safa_trans" = "Allah Maha Besar! Allah Maha Besar! Allah Maha Besar! Tidak ada ilah kecuali Allah semata, tidak ada sekutu bagi-Nya! Bagi-Nya kerajaan dan bagi-Nya pujian. Dia yang menghidupkan dan mematikan, dan Dia Maha Kuasa atas segalanya. Tidak ada ilah kecuali Allah semata, tidak ada sekutu bagi-Nya! Dia telah menepati janji-Nya, menolong hamba-Nya, dan mengalahkan pasukan-pasukan sendirian.";
+
+"dua_zikr_safa_title" = "Dzikir di Safa dan Marwah";
+"dua_zikr_safa_trans" = "Allah Maha Besar, Allah Maha Besar, Allah Maha Besar! Tiada Tuhan selain Allah semata, tiada sekutu bagi-Nya! Milik-Nya segala kerajaan dan pujian. Dia yang menghidupkan dan mematikan, dan Dia Maha Kuasa atas segala sesuatu! Tiada Tuhan selain Allah semata, tiada sekutu bagi-Nya! Dialah yang menepati janji-Nya, menolong hamba-Nya, dan menghancurkan golongan musuh sendirian.";
+"dua_zikr_safa_translit" = "Allāhu akbar! Allāhu akbar! Allāhu akbar! Lā ilāha illallāhu waḥdahu lā syarīka lah. Lahul-mulku wa lahul-ḥamdu yuḥyī wa yumītu wa huwa ‘alā kulli syai’in qadīr. Lā ilāha illallāhu waḥdahu lā syarīka lah, anjaza wa‘dah, wa naṣara ‘abdah, wa hazamal-aḥzāba waḥdah.";
+
 
 "dua_rabbi_ighfir_title" = "Doa Saat Sa'i";
-"dua_rabbi_ighfir_trans" = "Ya Tuhan, ampunilah dan rahmatilah, sesungguhnya Engkau Maha Mulia dan Maha Dermawan!";
+"dua_rabbi_ighfir_trans" = "Ya Rabb, ampunilah dan rahmatilah aku, sesungguhnya Engkaulah Yang Maha Perkasa lagi Maha Mulia.";
+"dua_rabbi_ighfir_translit" = "Rabbighfir warḥam, innaka antal-a‘azzul-akram.";
+
 
 "dua_masjid_exit_title" = "Doa Keluar Masjid";
-"dua_masjid_exit_trans" = "Ya Allah, limpahkan shalawat kepada Muhammad dan berikanlah salam! Ya Allah, sesungguhnya aku memohon kepada-Mu karunia-Mu!";
+"dua_masjid_exit_trans" = "Ya Allah, limpahkanlah salawat dan salam kepada Nabi Muhammad! Ya Allah, sesungguhnya aku memohon kepada-Mu dari karunia-Mu!";
+"dua_masjid_exit_translit" = "Allāhumma ṣalli ‘alā Muḥammadin wa sallim! Allāhumma innī as'aluka min faḍlik!";
 
 /* Buku Doa — Doa Haji (hanya judul) */
 "dua_niyyah_hajj_title" = "Niat Haji";
+"dua_niyyah_hajj_trans" = "Aku memenuhi panggilan-Mu, ya Allah, [untuk menunaikan] haji.";
 "dua_ihram_hajj_title" = "Doa Ihram (Haji)";
 "dua_arafat_title" = "Doa di Arafah";
