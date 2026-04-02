@@ -114,6 +114,27 @@ struct HajjStep1: View {
                 Text("hajj_step1_mina_text", bundle: localizationManager.bundle)
             }
             .font(fontManager.bodyFont)
+
+            Divider()
+                .padding(.vertical, 8)
+
+            // Секция: Обусловливание
+            Text("Conditioning for Hajj or Umrah.", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
+
+            Group {
+                Text("If a pilgrim fears that some reason may prevent them from completing the Hajj", bundle: localizationManager.bundle)
+
+                Text("""
+اَللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي
+""")
+                .customTextforArabic()
+
+                PlayerView(fileName: "5")
+
+                Text("Ihram text1", bundle: localizationManager.bundle)
+            }
+            .font(fontManager.bodyFont)
         }
     }
 }

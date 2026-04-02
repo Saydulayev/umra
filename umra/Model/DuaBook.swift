@@ -172,6 +172,14 @@ enum DuaBookData {
                 audioFile: "15"
             ),
             Dua(
+                id: "condition_hajj",
+                arabic: "اَللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي",
+                transliteration: "Allāhumma maḥillī ḥaythu ḥabastanī",
+                titleKey: "dua_condition_title",
+                translationKey: "dua_condition_trans",
+                audioFile: "5"
+            ),
+            Dua(
                 id: "talbiyah_hajj",
                 arabic: "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ،\nإِنَّ الْحَمْدَ، وَالنِّعْمَةَ، لَكَ وَالْمُلْكَ، لاَ شَرِيكَ لَكَ",
                 transliteration: "Labbayka Allāhumma labbayk! Labbayka lā sharīka laka labbayk!\nInna l-ḥamda, wa n-niʿmata, laka wa l-mulk, lā sharīka lak",
