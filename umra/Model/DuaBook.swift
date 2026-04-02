@@ -5,6 +5,13 @@
 
 import Foundation
 
+// MARK: - Navigation
+
+struct DuaPageNavigation: Hashable {
+    let category: DuaCategory
+    let selectedDuaId: String
+}
+
 // MARK: - Dua Model
 
 struct Dua: Identifiable, Hashable, Sendable {

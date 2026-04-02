@@ -69,8 +69,8 @@ struct DuaBookView: View {
         .navigationDestination(for: DuaCategory.self) { category in
             DuaCategoryView(category: category)
         }
-        .navigationDestination(for: Dua.self) { dua in
-            DuaDetailView(dua: dua)
+        .navigationDestination(for: DuaPageNavigation.self) { nav in
+            DuaPageView(navigation: nav)
         }
         .toolbar(.hidden, for: .tabBar)
     }
@@ -96,7 +96,7 @@ struct DuaCategoryView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     ForEach(Array(category.duas.enumerated()), id: \.element.id) { idx, dua in
-                        NavigationLink(value: dua) {
+                        NavigationLink(value: DuaPageNavigation(category: category, selectedDuaId: dua.id)) {
                             HStack(spacing: 12) {
                                 Text(dua.arabic)
                                     .font(.custom("KFGQPC Uthman Taha Naskh", size: 18))
@@ -142,9 +142,81 @@ struct DuaCategoryView: View {
     }
 }
 
-// MARK: - DuaDetailView (арабский + транслитерация + перевод + аудио)
+// MARK: - DuaPageView (постраничный просмотр дуа)
 
-struct DuaDetailView: View {
+struct DuaPageView: View {
+    let duas: [Dua]
+    @State private var currentDuaId: String
+
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+
+    init(navigation: DuaPageNavigation) {
+        self.duas = navigation.category.duas
+        _currentDuaId = State(initialValue: navigation.selectedDuaId)
+    }
+
+    private var currentDua: Dua? {
+        duas.first { $0.id == currentDuaId }
+    }
+
+    var body: some View {
+        GeometryReader { geo in
+            ZStack(alignment: .bottom) {
+                themeManager.selectedTheme.backgroundColor
+                    .ignoresSafeArea()
+
+                ScrollViewReader { proxy in
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 0) {
+                            ForEach(duas) { dua in
+                                DuaSinglePage(dua: dua)
+                                    .frame(width: geo.size.width)
+                                    .id(dua.id)
+                            }
+                        }
+                        .scrollTargetLayout()
+                    }
+                    .scrollTargetBehavior(.paging)
+                    .scrollIndicators(.hidden)
+                    .scrollPosition(id: Binding<String?>(
+                        get: { currentDuaId },
+                        set: { if let v = $0 { currentDuaId = v } }
+                    ))
+                    .onAppear {
+                        proxy.scrollTo(currentDuaId, anchor: .leading)
+                    }
+                }
+
+                if duas.count > 1 {
+                    pageIndicator
+                        .padding(.bottom, -8)
+                }
+            }
+        }
+        .navigationTitle(currentDua.map { localizationManager.localized($0.titleKey) } ?? "")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
+    }
+
+    private var pageIndicator: some View {
+        HStack(spacing: 8) {
+            ForEach(duas) { dua in
+                Circle()
+                    .fill(currentDuaId == dua.id
+                          ? themeManager.selectedTheme.primaryColor
+                          : themeManager.selectedTheme.textColor.opacity(0.3))
+                    .frame(width: currentDuaId == dua.id ? 8 : 6,
+                           height: currentDuaId == dua.id ? 8 : 6)
+                    .animation(.easeInOut(duration: 0.2), value: currentDuaId)
+            }
+        }
+    }
+}
+
+// MARK: - DuaSinglePage (содержимое одной дуа)
+
+private struct DuaSinglePage: View {
     let dua: Dua
 
     @Environment(ThemeManager.self) private var themeManager
@@ -210,12 +282,9 @@ struct DuaDetailView: View {
                     .padding(.horizontal, contentPadding)
                     .padding(.top, 16)
 
-                    Spacer(minLength: 32)
+                    Spacer(minLength: 48)
                 }
             }
         }
-        .navigationTitle(localizationManager.localized(dua.titleKey))
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar(.hidden, for: .tabBar)
     }
 }
