@@ -8,20 +8,26 @@
 import SwiftUI
 
 struct ShimmeringText: View {
-    @State private var shimmerOffset: CGFloat = -2.0
     @State private var isAnimating = false
-    
-    // Текст приветствия и размер шрифта
-    var text: String = "WELCOME TO THE UMRA GUIDE"
-    var fontSize: CGFloat = 32
-    
-    var body: some View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    var text: String = "UMRA GUIDE"
+    var foregroundColor: Color = Color(red: 0.420, green: 0.447, blue: 0.502)
+
+    // Единый источник правды для шрифта — исключает расхождение между
+    // отображаемым текстом и маской шиммера.
+    private var baseText: Text {
         Text(text)
             .font(.largeTitle)
-            .fontWeight(.bold)
-            .foregroundColor(.gray)
+            .bold()
+    }
+
+    var body: some View {
+        baseText
+            .foregroundStyle(foregroundColor)
             .multilineTextAlignment(.center)
             .overlay(
+                // GeometryReader используется осознанно для размера градиента шиммера относительно текста.
                 GeometryReader { geometry in
                     ZStack {
                         let gradient = LinearGradient(
@@ -36,25 +42,25 @@ struct ShimmeringText: View {
                             .frame(width: geometry.size.width * 1.5, height: geometry.size.height * 2)
                     }
                 }
-                .mask(Text(text)
-                        .font(.largeTitle)
-                        .fontWeight(.bold))
-                        .multilineTextAlignment(.center)
+                .mask(baseText)
             )
             .onAppear {
-                withAnimation(
-                    Animation.linear(duration: 3.0)
-                        .repeatForever(autoreverses: false)
-                ) {
-                    isAnimating = true
+                guard !reduceMotion else { return }
+                // DispatchQueue.main.async выводит анимацию за пределы текущего
+                // animation context родительского вью, иначе spring-транзакция
+                // из LanguageSelectionView.onAppear перекрывает repeatForever.
+                DispatchQueue.main.async {
+                    withAnimation(
+                        Animation.linear(duration: AppAnimation.shimmerDuration)
+                            .repeatForever(autoreverses: false)
+                    ) {
+                        isAnimating = true
+                    }
                 }
             }
     }
-    
-    // Ширина эффекта мерцания для плавной анимации
-    private var shimmerWidth: CGFloat {
-        return 2.0
-    }
+
+    private var shimmerWidth: CGFloat { 2.0 }
 }
 
 #Preview {

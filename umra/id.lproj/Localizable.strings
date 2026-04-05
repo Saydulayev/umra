@@ -9,20 +9,21 @@
 
 "app_name" = "Umrah";
 "main_screen_name_string" = "UMRAH";
-"title_black_stone_screen" = "Kembali ke Hajar Aswad";
+"title_black_stone_screen" = "Hajar Aswad";
 "title_ihram_screen" = "Ihram";
 "title_place_ibrohim_stand_screen" = "Maqam Ibrahim";
 "title_round_kaaba_screen" = "Tawaf Ka'bah";
 "title_safa_and_marva_screen" = "Safa dan Marwah";
 "title_settings_screen" = "Pengaturan";
 "title_shave_head_screen" = "Mencukur Rambut";
-"title_water_zamzam_screen" = "Meminum Air Zamzam";
+"title_water_zamzam_screen" = "Zamzam";
 "title_link_book_screen" = "Buku";
 
 
 /* IHRAM */
 /* Preparation before Ihram */
-"preparation_before_ihram_title" = "Persiapan sebelum Ihram";
+"preparation_before_ihram_title" = "
+Persiapan sebelum Ihram";
 "preparation_before_ihram_text" = "Sebelum memasuki keadaan Ihram (yaitu sebelum niat dan memulai Talbiyah), disarankan:\n\nMelakukan ghusl (mandi wajib penuh), ini adalah sunnah.\n\nMerapikan diri sesuai \"fitrah\": memotong kuku, menghilangkan rambut kemaluan dan ketiak (pria juga harus memotong kumis), agar tidak perlu melakukannya saat sudah dalam Ihram.\n\nPria harus mengoleskan wewangian pada tubuh setelah ghusl (bukan pada pakaian Ihram).\n\nMemakai pakaian Ihram (pria - izaar dan rida; wanita - pakaian sederhana biasa, tanpa niqab dan sarung tangan dalam keadaan Ihram).\n\nJika sudah waktunya shalat wajib - lakukanlah, kemudian di Miqat buat niat untuk Umrah/Hajj dan ucapkan Talbiyah - dari saat ini Anda dalam Ihram, dan larangannya mulai berlaku.";
 
 "into the state of Ihram" = "
@@ -105,8 +106,7 @@ Labbayka Allahumma bi-'umrah 'an (nama orang) - «Ya Allah, aku melaksanakan umr
 
 
 /* KAABA */
-"Kaaba text1" = "
-Tawaf Ka'bah";
+"Kaaba text1" = "Tawaf Ka'bah";
 
 "Kaaba text2" = "
 Mulailah melakukan tawaf (mengelilingi Ka'bah) sebanyak tujuh putaran. 
@@ -130,8 +130,7 @@ Satu putaran dihitung mulai dari Hajar Aswad sampai kembali ke Hajar Aswad. Seti
 
 
 /* Namaz after Tawaf around the Kaaba. */
-"Prayer after Tawaf of Kaaba." = "
-Shalat setelah Tawaf Ka'bah.";
+"Prayer after Tawaf of Kaaba." = "Shalat setelah Tawaf Ka'bah.";
 
 "Having completed seven circuits around the Kaaba" = "
 Setelah menyelesaikan tawaf sebanyak tujuh putaran mengelilingi Ka'bah, laki-laki hendaknya menutup kembali pundak kanannya. Kemudian pergilah menuju Maqam Ibrahim sambil membaca:";
@@ -145,8 +144,7 @@ Jika memungkinkan, lakukanlah shalat dua rakaat di belakang Maqam Ibrahim. Jika 
 Setelah menyelesaikan shalat dua rakaat ini, pergilah menuju sumur Zamzam.";
 
 /* Drinking Zamzam water. */
-"Drinking Zamzam water." = "
-Meminum Air Zamzam.";
+"Drinking Zamzam water." = "Meminum Air Zamzam.";
 
 "Zamzam text" = "
 Minumlah air Zamzam dan siramkanlah sebagiannya ke kepala.
@@ -160,8 +158,7 @@ Asy-Syaukani berkata: “Dalam hadis ini terdapat dalil bahwa minum air Zamzam m
 Imam An-Nawawi mengatakan: “Makna hadis ini adalah bahwa siapa pun yang minum air ini dengan tujuan tertentu, maka ia akan memperolehnya. Sesungguhnya para ulama dan orang-orang saleh telah membuktikan manfaat air Zamzam dalam memenuhi kebutuhan duniawi maupun ukhrawi mereka, dan mereka memperolehnya atas rahmat Allah Ta'ala.” (Tahdzib al-Asma wal-Lughat, 3/139).";
 
 /* Return to the Black Stone. */
-"Return to the Black Stone." = "
-Kembali ke Hajar Aswad.";
+"Return to the Black Stone." = "Kembali ke Hajar Aswad.";
 
 "Return to the Black Stone, recite the Takbir." = "
 Kembalilah menuju Hajar Aswad sambil mengucapkan takbir, lalu sentuh dan ciumlah sebagaimana telah dijelaskan sebelumnya. Jika tidak memungkinkan, cukup tunjukkan ke arahnya dengan tangan sambil mengucapkan takbir. Allah Maha Besar.";
@@ -171,8 +168,7 @@ Allahu Akbar.
 ";
 
 /* Safa and Marwa */
-"Safa and Marwa" = "
-Safa dan Marwah";
+"Safa and Marwa" = "Safa dan Marwah";
 
 "Head towards the hill of Safa" = "
 Bergeraklah menuju bukit Safa untuk melaksanakan Sa'i (berjalan antara Safa dan Marwah) sebanyak tujuh kali. Mulailah Sa'i dari bukit Safa.
@@ -225,8 +221,7 @@ Doa ketika keluar dari Masjidil Haram. Setelah menyelesaikan perjalanan ketujuh 
 Ya Allah, limpahkanlah salawat dan salam kepada Nabi Muhammad! Ya Allah, sesungguhnya aku memohon kepada-Mu dari karunia-Mu!";
 
 /* Shaving of the head or trimming of the hair. */
-"Shaving the head string" = "
-Mencukur atau Memendekkan Rambut.";
+"Shaving the head string" = "Mencukur atau Memendekkan Rambut.";
 
 "Men shorten or shave their hair." = "
 Selanjutnya, laki-laki hendaknya mencukur atau merapikan rambutnya secara merata, sementara wanita cukup memotong sebagian rambutnya sepanjang sepertiga ruas jari.
@@ -260,9 +255,8 @@ Segala puji bagi Allah, Rabb semesta alam!";
     "text_button_feedback_string" = "Kirim Masukan";
     "evaluate_the_app_string" = "NILAI APLIKASI";
     "text_button_rate_the_app_string" = "Beri Nilai Aplikasi";
-    "support_the_developer_string" = "DUKUNG PENGEMBANG";
-    "text_button_support_string" = "Dukung Pengembang";
-    "select_language_settings_string" = "Pilih Bahasa";
+    "text_button_support_string" = "Dukung Aplikasi";
+    "select_language_settings_string" = "Bahasa";
     "settings_string" = "Pengaturan";
 //    <string name="select_language_string">Выберите язык</string>
 //    <string name="russian_string">Русский</string>
@@ -285,16 +279,19 @@ Segala puji bagi Allah, Rabb semesta alam!";
 
 "_donate_button" = "Dukung";
 "select_the_amount" = "Pilih jumlah:";
+"purchase_error_title" = "Kesalahan";
+"purchase_error_message" = "Pembelian gagal. Silakan coba lagi.";
 
 "Contribution to Application Development" = "Kami membuat aplikasi ini gratis agar bisa bermanfaat untuk semua orang. Jika ada keinginan di hati, Anda dapat berkontribusi dan menjadi bagian dari kebaikan ini. Donasi Anda sepenuhnya sukarela, sekali saja, dan tidak terkait dengan langganan atau fitur tambahan apa pun.";
 
 "Useful" = "Berguna";
 "soon_available_text" = "Teks ini diterjemahkan dari bahasa Rusia ke bahasa lain menggunakan AI. Jika Anda menemukan kesalahan terjemahan, mohon beri tahu kami melalui fitur masukan.";
 
-"Notification Settings" = "Pengaturan Notifikasi";
-"30-Minute Notifications" = "Notifikasi 30 menit sebelum waktu shalat";
-"Prayer Time Notifications" = "Notifikasi saat masuk waktu shalat";
-"Sunrise Notifications" = "Notifikasi waktu matahari terbit";
+"Notification Settings" = "Notifikasi";
+"Prayer Notification Settings" = "Notifikasi Shalat";
+"30-Minute Notifications" = "30 menit sebelumnya";
+"Prayer Time Notifications" = "Waktu shalat";
+"Sunrise Notifications" = "Matahari terbit";
 "Open iOS Notification Settings" = "Buka pengaturan notifikasi iOS";
 "Close" = "Tutup";
 
@@ -322,7 +319,10 @@ Segala puji bagi Allah, Rabb semesta alam!";
 "umrah_obligation_evidence" = "Dalil Kewajiban Umrah";
 "conclusion" = "Kesimpulan";
 
-
+/* Perjalanan — Sunnah perjalanan (safar) */
+"sunnahs_safar" = "Perjalanan";
+"safar_sunnahs_subtitle" = "Beberapa sunnah terkait berangkat bepergian";
+"safar_sunnahs_content" = "Beberapa sunnah terkait berangkat bepergian:\n\n1) Berdoa kepada Allah sebelum memulai perjalanan\nDiriwayatkan dari Ibn 'Umar (semoga Allah meridhai keduanya) bahwa ketika Rasulullah (semoga Allah memberkahi dan memberi salam kepadanya) menaiki untanya untuk berangkat safar, beliau mengucapkan tiga kali: «Allah Mahabesar, Allahu Akbar», lalu berkata: «Mahasuci Dzat yang telah menundukkan ini bagi kami, padahal kami tidak akan mampu menguasainya dengan kekuatan kami sendiri. Dan sungguh, kepada Tuhan kami-lah kami akan kembali. Ya Allah, sesungguhnya kami memohon kepada-Mu dalam perjalanan kami ini kebaikan dan ketakwaan, serta amal yang Engkau ridhai. Ya Allah, mudahkanlah perjalanan kami ini dan dekatkanlah bagi kami jaraknya. Ya Allah, Engkaulah Pendamping dalam perjalanan ini dan Penjaga bagi keluarga. Ya Allah, sesungguhnya aku berlindung kepada-Mu dari beratnya perjalanan, dari kesedihan karena apa yang terlihat, dan dari segala keburukan yang dapat menimpa harta dan keluarga!»\nسُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ\n\nSubhana-llazi sakhkhara lana haza, wa ma kunna lahu muqrinin, wa inna ila Rabbina la-munqalibun!\nاللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى وَمِنْ الْعَمَلِ مَا تَرْضَى اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ وَالْخَلِيفَةُ فِي الْأَهْلِ اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ وَكَآبَةِ الْمَنْظَرِ وَسُوءِ الْمُنْقَلِبِ فِي الْمَالِ وَالْأَهْلِ\n\nAllahumma, inna nas'aluka fi safarina hazal-birra, wat-taqwa, wa minal-'amali ma tarda! Allahumma, hawwin 'alayna safarana haza, watwi 'anna bu'dahu! Allahumma, Antas-sahibu fis-safari wal-khalifatu fil-ahli, Allahumma, inni a'uzu bika min wa'tha'is-safari, wa kaabatil-manzari, wa su'il-munqalabi fil-mali wal-ahli!\nKetika kembali, beliau mengulangi kata-kata ini lalu menambahkan:\nآيِبُونَ تَائِبُونَ عَابِدُونَ لِرَبِّنَا حَامِدُونَ\n\nAyibuna, taibuna, 'abiduna li-Rabbina hamidun\n«Kami kembali, kami bertaubat, kami beribadah, dan kami memuji Tuhan kami». (Sahih Muslim, 1342)\n\nDiriwayatkan bahwa 'Ali ibn Rabi'a berkata: «Suatu hari aku melihat 'Ali ibn Abi Talib didatangkan tunggangan agar beliau menaikinya. Ketika beliau meletakkan kakinya pada sanggurdi, beliau berkata:\nبِسْمِ اللَّهِ\n\n«Dengan nama Allah» (Bismi-LLAH), dan ketika beliau sudah tegak di atas tunggangan, beliau berkata:\nسُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ\n«Mahasuci Dzat yang telah menundukkan ini bagi kami, padahal kami tidak akan mampu menguasainya, dan sungguh kepada Tuhan kami-lah kami akan kembali». Kemudian beliau mengucapkan tiga kali: «Segala puji bagi Allah» (الْحَمْدُ لِلَّهِ) dan «Allah Mahabesar» (الله أكبر), lalu berkata:\n«Mahasuci Engkau! Sungguh aku telah menzalimi diriku sendiri, maka ampunilah aku, karena tidak ada yang mengampuni dosa selain Engkau!»\nسُبْحَانَكَ إِنِّي قَدْ ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ\n\nSubhana-ka! Inni zalamtu nafsi, faghfir li, fa-innahu la yaghfiru adh-dhunuba illa Ant!\nSetelah itu beliau tertawa. Lalu ditanya: «Wahai Amirul Mukminin, mengapa engkau tertawa?» Beliau menjawab: «Aku melihat Nabi (semoga Allah memberkahi dan memberi salam kepadanya) melakukan persis seperti yang baru saja aku lakukan, lalu beliau tertawa. Maka aku bertanya: ‘Wahai Rasulullah, mengapa engkau tertawa?’ Beliau bersabda: ‘Sesungguhnya Tuhanmu menyukai ketika hamba-Nya mengucapkan:\nرَبِّ اغْفِرْ لِي ذُنُوبِي إِنَّهُ لَا يَغْفِرُ الذُّنُوبَ غَيْرُك\n\n‘Tuhanku, ampunilah dosa-dosaku, karena tidak ada yang mengampuni dosa selain Engkau!’\nRabbi ighfir li dhunubi, innahu la yaghfiru adh-dhunuba ghayruk!\n- lalu Allah berfirman: ‘Ia mengetahui bahwa tidak ada yang mengampuni dosa selain Aku’.» (Sunan at-Tirmidhi, 3446; dinilai sahih oleh Syaikh al-Albani)\n\n2) Berangkat pada hari Kamis; bepergian pada malam hari\nDiriwayatkan dari Ka'b ibn Malik (semoga Allah meridhainya) bahwa «Nabi (semoga Allah memberkahi dan memberi salam kepadanya) berangkat ke Tabuk pada hari Kamis, dan beliau umumnya suka berangkat pada hari Kamis». (Sahih al-Bukhari, 2949)\nDiriwayatkan dari Anas bahwa Rasulullah (semoga Allah memberkahi dan memberi salam kepadanya) bersabda: «Hendaklah kalian bepergian pada malam hari, karena bumi seakan dilipat pada malam hari». (Sahih al-Jami', 4064)\n\n3) Mencari teman perjalanan dan menunjuk salah satu sebagai pemimpin\nDiriwayatkan dari Ibn 'Umar bahwa Rasulullah (semoga Allah memberkahi dan memberi salam kepadanya) bersabda: «Seandainya manusia mengetahui apa yang aku ketahui tentang bepergian sendirian, tidak seorang penunggang pun akan bepergian sendirian pada malam hari». (Al-Bukhari, 2998)\nDiriwayatkan dari Abu Sa'id dan Abu Hurayrah bahwa Rasulullah (semoga Allah memberkahi dan memberi salam kepadanya) bersabda: «Jika tiga orang berangkat safar, hendaklah mereka menunjuk salah seorang dari mereka sebagai pemimpin». (Sahih al-Jami', 500)\n\n4) Bertakbir ketika naik ketinggian dan bertasbih ketika turun ke lembah\nDiriwayatkan bahwa Jabir ibn 'Abdullah (semoga Allah meridhai keduanya) berkata: «Ketika kami mendaki, kami mengucapkan ‘Allahu Akbar’, dan ketika kami menurun, kami mengucapkan ‘Subhanallah’». (Sahih al-Bukhari, 2993)\n\n5) Menjamak dan mengqashar salat\nDiriwayatkan dari Anas (semoga Allah meridhainya): «Rasulullah (semoga Allah memberkahi dan memberi salam kepadanya) menjamak salat Maghrib dan 'Isya ketika dalam perjalanan». (Sahih al-Bukhari, 1108)\nJuga diriwayatkan dari Anas (semoga Allah meridhainya): «Kami berangkat bersama Nabi (semoga Allah memberkahi dan memberi salam kepadanya) dari Madinah ke Makkah, dan beliau salat dua rakaat hingga kami kembali ke Madinah». (Sahih al-Bukhari, 1081)\n\n6) Meninggalkan salat sunnah, kecuali witir, duha, dan 2 rakaat sebelum Fajr\nAbu Qatadah meriwayatkan bahwa «Rasulullah (semoga Allah memberkahi dan memberi salam kepadanya) dalam safar salat dua rakaat sebelum salat Fajr wajib». (Muslim, 680)\nUmmu Hani juga meriwayatkan bahwa «pada hari penaklukan Makkah, Nabi (semoga Allah memberkahi dan memberi salam kepadanya) salat Duha 8 rakaat». Saat itu beliau sedang dalam perjalanan. (Al-Bukhari, 357; Muslim, 336)\nIbn 'Umar juga meriwayatkan bahwa «Nabi (semoga Allah memberkahi dan memberi salam kepadanya) dalam safar salat Witir sambil duduk di atas tunggangan». (Al-Bukhari, 1000)\n\n7) Melaksanakan salat sunnah sambil duduk di atas tunggangan atau transportasi\nIbn 'Umar meriwayatkan bahwa «Nabi (semoga Allah memberkahi dan memberi salam kepadanya) dalam safar salat Witir sambil duduk di atas tunggangan». (Al-Bukhari, 1000)\n\n8) Memperbanyak doa kepada Allah dalam perjalanan\nRasulullah (semoga Allah memberkahi dan memberi salam kepadanya) bersabda: «Tiga doa yang dikabulkan: doa orang yang dizalimi, doa musafir, dan doa orang tua terhadap anaknya». (Al-Bukhari, 481)\n\n9) Menyingkirkan sesuatu yang membahayakan musafir di jalan\nDiriwayatkan dari Abu Hurayrah (semoga Allah meridhainya) bahwa Rasulullah (semoga Allah memberkahi dan memberi salam kepadanya) bersabda: «Iman memiliki lebih dari tujuh puluh (atau enam puluh) cabang. Yang paling utama adalah ucapan ‘Tidak ada sesembahan yang berhak disembah selain Allah’, dan yang paling rendah adalah menyingkirkan gangguan dari jalan. Rasa malu (haya') juga termasuk cabang iman». (Mukhtasar Sahih Muslim, 31)\n\n10) Doa ketika singgah di suatu tempat\nDiriwayatkan bahwa Khawlah bint Hakim berkata: «Aku mendengar Rasulullah (semoga Allah memberkahi dan memberi salam kepadanya) bersabda: ‘Siapa yang singgah di suatu tempat lalu mengucapkan:\n‘Aku berlindung dengan kalimat-kalimat Allah yang sempurna dari kejahatan makhluk yang Dia ciptakan!’\nأَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ\nA'uzu bikalimati-LLahi-t-tammati min sharri ma khalaq! - maka tidak ada sesuatu pun yang akan membahayakannya sampai ia meninggalkan tempat itu.’» (Muslim, 2708)\n\n11) Segera kembali setelah tujuan perjalanan tercapai\nDiriwayatkan dari Abu Hurayrah bahwa Rasulullah (semoga Allah memberkahi dan memberi salam kepadanya) bersabda: «Perjalanan adalah bagian dari kesulitan; ia mengurangi kenyamanan makan, minum, dan tidur. Maka jika salah seorang dari kalian telah menyelesaikan urusannya, hendaklah ia segera kembali kepada keluarganya». (Al-Bukhari, 1804; Muslim, 1927)\n\n12) Kembali kepada keluarga pada siang hari\nDiriwayatkan bahwa Anas berkata: «Rasulullah (semoga Allah memberkahi dan memberi salam kepadanya) tidak kembali kepada keluarganya pada malam hari; biasanya beliau kembali pada pagi atau sore hari». (Al-Bukhari, 1800; Muslim, 1928)\n\n13) Salat 2 rakaat setelah kembali dari perjalanan\nDiriwayatkan bahwa Ka'b ibn Malik (semoga Allah meridhainya) berkata: «Ketika Rasulullah (semoga Allah memberkahi dan memberi salam kepadanya) kembali (ke Madinah) dari suatu perjalanan, beliau biasanya terlebih dahulu datang ke masjid, salat dua rakaat, lalu duduk bersama orang-orang sejenak». (Sahih al-Bukhari, 4418)\n";
 
 /* Texts for Etiquette Manners */
 "etiquette_manners_text1" = "Hal terpenting yang wajib dimiliki oleh seseorang yang melaksanakan haji dan umrah adalah keikhlasan kepada Allah. Ia harus membersihkan niatnya dari riya dan keinginan untuk terkenal, agar amal haji dan umrahnya diterima dan diberi ganjaran oleh Allah.
@@ -426,7 +426,7 @@ Setelah menyebutkan hadis ini, Ibnu Khuzaimah (semoga Allah merahmatinya) berkat
 
 "title_janaza_guide" = "Panduan Sholat Jenazah";
 "basic_rules" = "Panduan Dasar Sholat Jenazah";
-"janaza_basic_rules" = "📌 Tata cara dasar sholat jenazah (shalat untuk mayit).
+"janaza_basic_rules" = "Tata cara dasar sholat jenazah (shalat untuk mayit).
 
 Sholat ini dilakukan dalam posisi berdiri, tanpa ruku' dan sujud, dan terdiri dari empat kali takbir (mengucap ‘Allahu Akbar’).
 
@@ -479,35 +479,35 @@ Allahummaghfir lahu, warhamhu, wa 'afihi, wa'fu 'anhu, wa akrim nuzulahu, wa was
 "translate_third_takbir_text" = "Auf bin Malik meriwayatkan: “Rasulullah ﷺ melaksanakan shalat jenazah, dan aku menghafal doanya: «Ya Allah! Ampunilah dia, rahmatilah dia, bebaskan dia, muliakan tempat tinggalnya, lapangkan kuburnya, mandikan dia dengan air, salju dan embun. Bersihkan dia dari dosa sebagaimana Engkau membersihkan kain putih dari kotoran. Gantikan untuknya rumah yang lebih baik, keluarga yang lebih baik, pasangan yang lebih baik. Masukkan dia ke surga dan lindungi dia dari siksa kubur dan api neraka.»” (HR. Muslim, 2/663)";
 
 "dua_variations_title" = "Variasi Doa Sesuai Jenazah";
-"dua_variations_text" = "📌 Jika jenazah satu laki-laki:
+"dua_variations_text" = "Jika jenazah satu laki-laki:
 - Gunakan bentuk: لَهُ (lahu)
 
 اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
 
 (Allahummaghfir lahu, warhamhu.)
 
-📌 Jika jenazah satu perempuan:
+Jika jenazah satu perempuan:
 - Ganti semua bentuk maskulin dengan feminin: لَهَا (laha)
 
 اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،
 
 (Allahummaghfir laha, warhamha.)
 
-📌 Jika jenazah beberapa orang laki-laki:
+Jika jenazah beberapa orang laki-laki:
 - Gunakan bentuk jamak maskulin: لَهُمْ (lahum)
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
 
 (Allahummaghfir lahum, warhamhum.)
 
-📌 Jika jenazah beberapa perempuan:
+Jika jenazah beberapa perempuan:
 - Gunakan bentuk jamak feminin: لَهُنَّ (lahunna)
 
 اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،
 
 (Allahummaghfir lahunna, warhamhunna.)
 
-📌 Jika tidak diketahui jenis kelamin atau jenazah campuran:
+Jika tidak diketahui jenis kelamin atau jenazah campuran:
 - Gunakan bentuk umum: لَهُمْ (lahum)
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
@@ -526,19 +526,23 @@ Boleh membaca doa tambahan, namun tidak wajib.";
 Diriwayatkan bahwa ‘Abdullah bin Abi Awfa ketika melaksanakan shalat jenazah atas putrinya, beliau mengucapkan empat takbir. Setelah takbir keempat, beliau berdiri selama waktu yang sama antara dua takbir sebelumnya sambil berdoa memohonkan ampunan untuk putrinya. Lalu ia berkata: “Demikianlah yang dilakukan oleh Rasulullah ﷺ.” (HR. Al-Hakim, 1/512; Lihat Shahih Sunan Ibnu Majah, 1220)";
 
 "taslim_title" = "Penyelesaian Sholat (Taslim)";
-"taslim_text" = "📌 Taslim bisa dilakukan sekali ke kanan, atau dua kali (ke kanan dan ke kiri).
+"taslim_text" = "Taslim bisa dilakukan sekali ke kanan, atau dua kali (ke kanan dan ke kiri).
 
 Rasulullah ﷺ dalam shalat jenazah terkadang memberi salam sekali, dan terkadang dua kali. Namun, yang lebih sering beliau lakukan adalah salam sekali.";
 
 /* Lokalisasi Tema */
-"theme_app_title" = "Tema Aplikasi";
+"theme_app_title" = "Tampilan";
 "theme_select_title" = "Pilih Tema Aplikasi";
-"theme_heavenly" = "Langit";
-"theme_oasis" = "Oasis";
-"theme_gold" = "Emas";
-"theme_turquoise" = "Laut";
-"theme_dark" = "Malam";
+"theme_auto" = "Otomatis";
+"theme_auto_subtitle" = "Mengikuti tema sistem";
+"theme_nur" = "Terang";
+"theme_layl" = "Gelap";
+"theme_emerald" = "Zamrud";
+"theme_nur_subtitle" = "Cahaya dan ketenangan";
+"theme_layl_subtitle" = "Kenyamanan malam";
+"theme_emerald_subtitle" = "Pijar lembut berwarna";
 "done_button" = "Selesai";
+"select_font" = "Pilih font";
 
 /* Lokalisasi Tab */
 "tab_umra" = "Umrah";
@@ -705,3 +709,103 @@ Perhatian: tawaf ini dilakukan dengan langkah biasa dari awal hingga akhir. Sa�
 
 
 Semoga Allah Yang Mahatinggi menerima ibadah haji Anda!";
+
+
+/* Langkah — judul dan label */
+"step_prefix" = "LANGKAH";
+"steps_count_one" = "Langkah";
+"steps_count_few" = "Langkah";
+"steps_count_many" = "Langkah";
+"order_label" = "Urutan";
+"umra_title" = "Umrah";
+"hajj_title" = "Haji";
+
+"info_button_label" = "for
+id.lproj
+.lproj";
+
+"info_button_label" = "Informasi";
+
+/* Tab */
+"tab_dua" = "Doa";
+
+/* Buku Doa — Navigasi & Kategori */
+"dua_book_nav_title" = "Buku Doa";
+"dua_category_umrah" = "Umrah";
+"dua_category_hajj" = "Haji";
+
+/* Buku Doa — Label */
+"dua_detail_translit_label" = "Transliterasi";
+"dua_detail_trans_label" = "Terjemahan";
+
+/* Buku Doa — Doa Umrah */
+
+"dua_niyyah_umrah_title" = "Niat Umrah";
+"dua_niyyah_umrah_trans" = "Aku memenuhi panggilan-Mu, ya Allah, [untuk menunaikan] umrah.";
+"dua_niyyah_umrah_translit" = "Labbayk Allahumma bi 'Umrah.";
+
+
+"dua_ihram_umrah_title" = "Doa Ihram (Umrah)";
+"dua_ihram_umrah_trans" = "Ya Allah, Umrah ini tidak ada unsur riya (pamer) di dalamnya dan tidak pula untuk mencari ketenaran!";
+"dua_ihram_umrah_translit" = "Allahumma hadzihil 'Umrata la riyaa-a fiiha wa laa sum'ah.";
+
+
+"dua_talbiyah_title" = "Talbiyah";
+"dua_talbiyah_trans" = "Aku memenuhi panggilan-Mu, ya Allah! Aku memenuhi panggilan-Mu! Aku memenuhi panggilan-Mu, tiada sekutu bagi-Mu! Aku memenuhi panggilan-Mu! Sesungguhnya segala puji, nikmat, dan kekuasaan hanya milik-Mu. Tiada sekutu bagi-Mu!";
+"dua_talbiyah_translit" = "Labbayk Allahumma labbayk! Labbayka laa syariika laka labbayk! Innal hamda wan-ni'mata laka wal-mulk, laa syariika lak.";
+
+
+"dua_masjid_enter_title" = "Doa Masuk Masjid";
+"dua_masjid_enter_trans" = "Ya Allah, limpahkanlah salawat dan salam kepada Nabi Muhammad! Ya Allah, bukakanlah untukku pintu-pintu rahmat-Mu!";
+"dua_masjid_enter_translit" = "Allahumma shalli 'alaa Muhammadin wa sallim! Allahummaftah lii abwaaba rahmatik!";
+
+
+"dua_condition_title" = "Doa Persyaratan";
+"dua_condition_trans" = "Ya Allah, tempat bertahallul-ku adalah di mana saja Engkau menahanku.";
+"dua_condition_translit" = "Allahumma mahilli haitsu habastani";
+
+
+"dua_allahu_akbar_title" = "Takbir (Tawaf)";
+"dua_allahu_akbar_trans" = "Allah Maha Besar!";
+"dua_allahu_akbar_translit" = "Allahu Akbar";
+
+
+"dua_rabbana_title" = "Doa Antara Dua Sudut";
+"dua_rabbana_trans" = "Ya Tuhan kami, berilah kami kebaikan di dunia dan kebaikan di akhirat, serta lindungilah kami dari siksa api neraka!";
+"dua_rabbana_translit" = "Rabbanaa aatina fid-dunyaa hasanah wa fil-aakhirati hasanah wa qinaa 'adzaaban-naar";
+
+
+"dua_maqam_ibrahim_title" = "Ayat Maqam Ibrahim";
+"dua_maqam_ibrahim_trans" = "Jadikanlah Maqam Ibrahim sebagai tempat shalat. (QS. Al-Baqarah [2]: 125).";
+"dua_maqam_ibrahim_translit" = "Wat-takhidzu mim-maqaami Ibraahiima mushallaa.";
+
+
+"dua_safa_ayah_title" = "Ayat Safa dan Marwah";
+"dua_safa_ayah_trans" = "Sesungguhnya Safa dan Marwah adalah sebagian dari syi’ar-syi’ar Allah. Maka barangsiapa beribadah haji ke Baitullah atau berumrah, maka tidak ada dosa baginya mengerjakan Sa'i antara keduanya. Barangsiapa yang dengan sukarela mengerjakan kebajikan, maka sesungguhnya Allah Maha Mensyukuri lagi Maha Mengetahui. (QS. Al-Baqarah [2]: 158)";
+"dua_safa_ayah_translit" = "Innaṣ-ṣafā wal-marwata min sya‘ā`irillāh, faman ḥajja l-baita awi'-tamara falā junāḥa ‘alaihi ay-yaṭṭawwafa bihimā, wa man taṭawwa‘a khairan fa innallāha syākirun ‘alīm.";
+
+
+"dua_nabdau_title" = "Kami Memulai dengan Apa yang Dimulai Allah";
+"dua_nabdau_trans" = "Kami memulai dengan apa yang telah dimulai oleh Allah.";
+"dua_nabdau_translit" = "Nabda`u bimā bada`allāhu bihi.";
+
+
+"dua_zikr_safa_title" = "Dzikir di Safa dan Marwah";
+"dua_zikr_safa_trans" = "Allah Maha Besar, Allah Maha Besar, Allah Maha Besar! Tiada Tuhan selain Allah semata, tiada sekutu bagi-Nya! Milik-Nya segala kerajaan dan pujian. Dia yang menghidupkan dan mematikan, dan Dia Maha Kuasa atas segala sesuatu! Tiada Tuhan selain Allah semata, tiada sekutu bagi-Nya! Dialah yang menepati janji-Nya, menolong hamba-Nya, dan menghancurkan golongan musuh sendirian.";
+"dua_zikr_safa_translit" = "Allāhu akbar! Allāhu akbar! Allāhu akbar! Lā ilāha illallāhu waḥdahu lā syarīka lah. Lahul-mulku wa lahul-ḥamdu yuḥyī wa yumītu wa huwa ‘alā kulli syai’in qadīr. Lā ilāha illallāhu waḥdahu lā syarīka lah, anjaza wa‘dah, wa naṣara ‘abdah, wa hazamal-aḥzāba waḥdah.";
+
+
+"dua_rabbi_ighfir_title" = "Doa Saat Sa'i";
+"dua_rabbi_ighfir_trans" = "Ya Rabb, ampunilah dan rahmatilah aku, sesungguhnya Engkaulah Yang Maha Perkasa lagi Maha Mulia.";
+"dua_rabbi_ighfir_translit" = "Rabbighfir warḥam, innaka antal-a‘azzul-akram.";
+
+
+"dua_masjid_exit_title" = "Doa Keluar Masjid";
+"dua_masjid_exit_trans" = "Ya Allah, limpahkanlah salawat dan salam kepada Nabi Muhammad! Ya Allah, sesungguhnya aku memohon kepada-Mu dari karunia-Mu!";
+"dua_masjid_exit_translit" = "Allāhumma ṣalli ‘alā Muḥammadin wa sallim! Allāhumma innī as'aluka min faḍlik!";
+
+/* Buku Doa — Doa Haji (hanya judul) */
+"dua_niyyah_hajj_title" = "Niat Haji";
+"dua_niyyah_hajj_trans" = "Aku memenuhi panggilan-Mu, ya Allah, [untuk menunaikan] haji.";
+"dua_ihram_hajj_title" = "Doa Ihram (Haji)";
+"dua_arafat_title" = "Doa di Arafah";

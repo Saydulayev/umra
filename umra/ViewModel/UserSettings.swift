@@ -7,186 +7,257 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 
 // MARK: - Theme System
 enum AppTheme: String, CaseIterable, Sendable {
-    case blue = "blue"
-    case green = "green"
-    case gold = "gold"
-    case turquoise = "turquoise"
+    case auto = "auto"
+    case light = "light"
     case dark = "dark"
+    case emerald = "emerald"
+    
+    var colorScheme: ColorScheme {
+        switch self {
+        case .auto, .light: return .light
+        case .dark, .emerald: return .dark
+        }
+    }
+
+    var isDarkAppearance: Bool {
+        switch self {
+        case .auto, .light:
+            return false
+        case .dark, .emerald:
+            return true
+        }
+    }
+
+    var usesTintedArabicCards: Bool {
+        self == .emerald
+    }
     
     func displayName(bundle: Bundle) -> String {
         switch self {
-        case .blue:
-            return NSLocalizedString("theme_heavenly", bundle: bundle, comment: "Heavenly theme")
-        case .green:
-            return NSLocalizedString("theme_oasis", bundle: bundle, comment: "Oasis theme")
-        case .gold:
-            return NSLocalizedString("theme_gold", bundle: bundle, comment: "Gold theme")
-        case .turquoise:
-            return NSLocalizedString("theme_turquoise", bundle: bundle, comment: "Turquoise theme")
+        case .auto:
+            return NSLocalizedString("theme_auto", bundle: bundle, comment: "Automatic theme")
+        case .light:
+            return NSLocalizedString("theme_nur", bundle: bundle, comment: "Light theme — Nur")
         case .dark:
-            return NSLocalizedString("theme_dark", bundle: bundle, comment: "Dark theme")
+            return NSLocalizedString("theme_layl", bundle: bundle, comment: "Dark theme — Layl")
+        case .emerald:
+            return NSLocalizedString("theme_emerald", bundle: bundle, comment: "Emerald theme")
         }
     }
+
+    var subtitleKey: String {
+        switch self {
+        case .auto:
+            return "theme_auto_subtitle"
+        case .light:
+            return "theme_nur_subtitle"
+        case .dark:
+            return "theme_layl_subtitle"
+        case .emerald:
+            return "theme_emerald_subtitle"
+        }
+    }
+
+    var iconName: String {
+        switch self {
+        case .auto:
+            return "circle.lefthalf.filled"
+        case .light:
+            return "sun.max.fill"
+        case .dark:
+            return "moon.stars.fill"
+        case .emerald:
+            return "sparkles"
+        }
+    }
+    
+    // MARK: - Primary Accent (Emerald Green)
     
     var primaryColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - более яркий голубой для лучшей видимости обводки
-            return Color(#colorLiteral(red: 0.3, green: 0.6, blue: 0.9, alpha: 1))
-        case .green:
-            // Оазис тема - более яркий зеленый для лучшей видимости обводки
-            return Color(#colorLiteral(red: 0.2, green: 0.7, blue: 0.3, alpha: 1))
-        case .gold:
-            // Золотая тема - золотой цвет для видимости иконок, но светлее для одинакового контраста фона
-            return Color(#colorLiteral(red: 0.7, green: 0.55, blue: 0.25, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - более яркий бирюзовый для лучшей видимости обводки
-            return Color(#colorLiteral(red: 0.1, green: 0.7, blue: 0.7, alpha: 1))
+        case .auto:
+            return Color(red: 0.125, green: 0.639, blue: 0.553)
+        case .light:
+            return Color(red: 0.063, green: 0.725, blue: 0.506)  // #10B981
         case .dark:
-            // Темная тема - светло-серый для акцентов
-            return Color(#colorLiteral(red: 0.7, green: 0.7, blue: 0.7, alpha: 1))
+            return Color(red: 0.204, green: 0.827, blue: 0.600)  // #34D399
+        case .emerald:
+            return Color(red: 0.196, green: 0.776, blue: 0.592)  // #32C698
         }
     }
     
+    // MARK: - Secondary Accent (Premium Gold)
+    
+    var secondaryColor: Color {
+        switch self {
+        case .auto:
+            return Color(red: 0.612, green: 0.675, blue: 0.827)
+        case .light:
+            return Color(red: 0.812, green: 0.686, blue: 0.353)  // #CFAF5A
+        case .dark:
+            return Color(red: 0.902, green: 0.784, blue: 0.471)  // #E6C878
+        case .emerald:
+            return Color(red: 0.847, green: 0.710, blue: 0.396)  // #D8B565
+        }
+    }
+    
+    // MARK: - Gradients
+    
     var gradientTopColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - светлый голубой градиент
-            return Color(#colorLiteral(red: 0.94, green: 0.97, blue: 1.0, alpha: 1))
-        case .green:
-            // Оазис тема - светлый зеленый градиент
-            return Color(#colorLiteral(red: 0.95, green: 0.98, blue: 0.95, alpha: 1))
-        case .gold:
-            // Золотая тема - более светлый кремовый градиент для одинакового контраста
-            return Color(#colorLiteral(red: 0.99, green: 0.97, blue: 0.95, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - светлый бирюзовый градиент
-            return Color(#colorLiteral(red: 0.95, green: 0.98, blue: 0.98, alpha: 1))
+        case .auto, .light:
+            return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
-            // Темная тема - темно-серый градиент
-            return Color(#colorLiteral(red: 0.2, green: 0.2, blue: 0.25, alpha: 1))
+            return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
+        case .emerald:
+            return Color(red: 13/255, green: 17/255, blue: 16/255)  // #0d1110
         }
     }
     
     var gradientBottomColor: Color {
         switch self {
+        case .auto, .light:
+            return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
-            // Темная тема - еще более темный цвет для градиента
-            return Color(#colorLiteral(red: 0.12, green: 0.12, blue: 0.18, alpha: 1))
-        default:
-            // Для светлых тем - белый
-            return Color.white
+            return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
+        case .emerald:
+            return Color(red: 11/255, green: 14/255, blue: 13/255)  // #0b0e0d
         }
     }
     
+    // MARK: - Backgrounds
+    
     var backgroundColor: Color {
         switch self {
-        case .blue:
-            return Color(UIColor(red: 0.898, green: 0.933, blue: 1, alpha: 1))
-        case .green:
-            return Color(UIColor(red: 0.9, green: 0.95, blue: 0.9, alpha: 1))
-        case .gold:
-            return Color(UIColor(red: 0.98, green: 0.96, blue: 0.94, alpha: 1))
-        case .turquoise:
-            return Color(UIColor(red: 0.9, green: 0.95, blue: 0.95, alpha: 1))
+        case .auto, .light:
+            return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
-            // Темная тема - не слишком черный, темно-серый
-            return Color(UIColor(red: 0.15, green: 0.15, blue: 0.2, alpha: 1))
+            return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
+        case .emerald:
+            return Color(red: 12/255, green: 15/255, blue: 14/255)  // #0c0f0e
         }
     }
     
     var lightBackgroundColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - очень светлый голубой с легким оттенком
-            return Color(UIColor(red: 0.99, green: 0.995, blue: 1.0, alpha: 1))
-        case .green:
-            // Оазис тема - очень светлый зеленый с легким оттенком
-            return Color(UIColor(red: 0.99, green: 1.0, blue: 0.99, alpha: 1))
-        case .gold:
-            // Золотая тема - очень светлый теплый кремовый
-            return Color(UIColor(red: 1.0, green: 0.995, blue: 0.98, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - очень светлый бирюзовый с легким оттенком
-            return Color(UIColor(red: 0.99, green: 1.0, blue: 1.0, alpha: 1))
+        case .auto, .light:
+            return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
-            // Темная тема - немного светлее основного фона
-            return Color(UIColor(red: 0.18, green: 0.18, blue: 0.23, alpha: 1))
+            return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
+        case .emerald:
+            return Color(red: 12/255, green: 15/255, blue: 14/255)  // #0c0f0e
         }
     }
     
     var textBackgroundColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - светлый голубой с хорошим контрастом
-            return Color(#colorLiteral(red: 0.92, green: 0.96, blue: 0.98, alpha: 1))
-        case .green:
-            // Оазис тема - светлый зеленый с хорошим контрастом
-            return Color(#colorLiteral(red: 0.94, green: 0.98, blue: 0.94, alpha: 1))
-        case .gold:
-            // Золотая тема - светлый теплый кремовый с хорошим контрастом
-            return Color(#colorLiteral(red: 0.98, green: 0.96, blue: 0.92, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - светлый бирюзовый с хорошим контрастом
-            return Color(#colorLiteral(red: 0.94, green: 0.98, blue: 0.98, alpha: 1))
+        case .auto, .light:
+            return Color(red: 247/255, green: 247/255, blue: 247/255)  // #f7f7f7
         case .dark:
-            // Темная тема - темно-серый фон для текста
-            return Color(#colorLiteral(red: 0.22, green: 0.22, blue: 0.27, alpha: 1))
+            return Color(red: 16/255, green: 16/255, blue: 16/255)  // #101010
+        case .emerald:
+            return Color(red: 12/255, green: 15/255, blue: 14/255)  // #0c0f0e
         }
     }
     
-    // Мягкие цвета для превью в выборе темы
+    var cardColor: Color {
+        switch self {
+        case .auto, .light:
+            return Color(red: 1.0, green: 1.0, blue: 1.0)        // #ffffff
+        case .dark:
+            return Color(red: 26/255, green: 26/255, blue: 26/255)  // #1a1a1a
+        case .emerald:
+            return Color(red: 22/255, green: 24/255, blue: 24/255)  // #161818
+        }
+    }
+    
+    var cardBorderColor: Color {
+        switch self {
+        case .auto, .light:
+            return Color.black.opacity(0.14)
+        case .dark:
+            return Color.white.opacity(0.12)
+        case .emerald:
+            return Color.white.opacity(0.13)
+        }
+    }
+    
+    var cardFrameShadowColor: Color {
+        switch self {
+        case .auto, .light:
+            return Color.black.opacity(0.08)
+        case .dark:
+            return Color.black.opacity(0.18)
+        case .emerald:
+            return Color.black.opacity(0.28)
+        }
+    }
+
+    var cardShadowColor: Color {
+        switch self {
+        case .auto, .light:
+            return Color.black.opacity(0.10)
+        case .dark:
+            return Color.black.opacity(0.45)
+        case .emerald:
+            return Color.black.opacity(0.52)
+        }
+    }
+    
+    /// Нейтральная подсветка карточки (вместо зелёного оттенка primaryColor)
+    var cardTintColor: Color {
+        switch self {
+        case .auto, .light:
+            return Color.white.opacity(0.6)
+        case .dark:
+            return Color.white.opacity(0.06)
+        case .emerald:
+            return Color(red: 0.83, green: 0.93, blue: 0.88).opacity(0.10)
+        }
+    }
+    
+    // MARK: - Preview & Buttons
+    
     var previewColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - мягкий голубой для превью
-            return Color(#colorLiteral(red: 0.5, green: 0.7, blue: 0.9, alpha: 1))
-        case .green:
-            // Оазис тема - мягкий зеленый для превью
-            return Color(#colorLiteral(red: 0.4, green: 0.7, blue: 0.5, alpha: 1))
-        case .gold:
-            // Золотая тема - мягкий золотой для превью
-            return Color(#colorLiteral(red: 0.8, green: 0.7, blue: 0.3, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - мягкий бирюзовый для превью
-            return Color(#colorLiteral(red: 0.3, green: 0.7, blue: 0.7, alpha: 1))
+        case .auto:
+            return Color(red: 0.125, green: 0.639, blue: 0.553).opacity(0.14)
+        case .light:
+            return Color(red: 0.063, green: 0.725, blue: 0.506).opacity(0.12)  // Emerald tint
         case .dark:
-            // Темная тема - темно-серый для превью
-            return Color(#colorLiteral(red: 0.3, green: 0.3, blue: 0.35, alpha: 1))
+            return Color(red: 0.204, green: 0.827, blue: 0.600).opacity(0.12)  // Emerald tint
+        case .emerald:
+            return Color(red: 0.196, green: 0.776, blue: 0.592).opacity(0.18)
         }
     }
     
-    // Яркие цвета для активных кнопок плеера
     var activeButtonColor: Color {
         switch self {
-        case .blue:
-            // Небесная тема - яркий синий для активных кнопок
-            return Color(#colorLiteral(red: 0.0, green: 0.5, blue: 1.0, alpha: 1))
-        case .green:
-            // Оазис тема - яркий зеленый для активных кнопок
-            return Color(#colorLiteral(red: 0.0, green: 0.8, blue: 0.0, alpha: 1))
-        case .gold:
-            // Золотая тема - яркий золотой для активных кнопок
-            return Color(#colorLiteral(red: 1.0, green: 0.8, blue: 0.0, alpha: 1))
-        case .turquoise:
-            // Бирюзовая тема - яркий бирюзовый для активных кнопок
-            return Color(#colorLiteral(red: 0.0, green: 0.8, blue: 0.8, alpha: 1))
+        case .auto:
+            return Color(red: 0.125, green: 0.639, blue: 0.553)
+        case .light:
+            return Color(red: 0.063, green: 0.725, blue: 0.506)  // #10B981
         case .dark:
-            // Темная тема - светло-серый для активных кнопок
-            return Color(#colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1))
+            return Color(red: 0.204, green: 0.827, blue: 0.600)  // #34D399
+        case .emerald:
+            return Color(red: 0.196, green: 0.776, blue: 0.592)  // #32C698
         }
     }
     
-    // Цвет текста - белый для темной темы, черный для остальных
+    // MARK: - Text
+    
     var textColor: Color {
         switch self {
+        case .auto, .light:
+            return Color(red: 0.110, green: 0.110, blue: 0.118)  // #1C1C1E
         case .dark:
-            return .white
-        default:
-            return .black
+            return Color(red: 0.918, green: 0.918, blue: 0.925)  // #EAEAEC
+        case .emerald:
+            return Color(red: 0.932, green: 0.944, blue: 0.938)  // #eef1ef
         }
     }
 }
@@ -203,14 +274,64 @@ extension String {
 @MainActor
 @Observable
 class ThemeManager {
-    var selectedTheme: AppTheme {
+    private(set) var selectedTheme: AppTheme
+
+    var themePreference: AppTheme {
         didSet {
-            UserDefaults.standard.set(selectedTheme.rawValue, forKey: UserDefaultsKey.selectedTheme)
+            UserDefaults.standard.set(themePreference.rawValue, forKey: UserDefaultsKey.selectedTheme)
+            selectedTheme = Self.resolveTheme(preference: themePreference, systemColorScheme: systemColorScheme)
         }
     }
+
+    private var systemColorScheme: ColorScheme
     
     init() {
-        selectedTheme = AppTheme(rawValue: UserDefaults.standard.string(forKey: UserDefaultsKey.selectedTheme) ?? "blue") ?? .blue
+        let saved = UserDefaults.standard.string(forKey: UserDefaultsKey.selectedTheme) ?? AppTheme.auto.rawValue
+        let resolvedSavedTheme = AppTheme(rawValue: saved) ?? ((saved == AppTheme.dark.rawValue) ? .dark : .auto)
+        let initialSystemColorScheme = Self.currentSystemColorScheme()
+
+        systemColorScheme = initialSystemColorScheme
+        themePreference = resolvedSavedTheme
+        selectedTheme = Self.resolveTheme(preference: resolvedSavedTheme, systemColorScheme: initialSystemColorScheme)
+
+        if AppTheme(rawValue: saved) == nil {
+            UserDefaults.standard.set(themePreference.rawValue, forKey: UserDefaultsKey.selectedTheme)
+        }
+    }
+
+    var preferredColorScheme: ColorScheme? {
+        switch themePreference {
+        case .auto:
+            return nil
+        case .light:
+            return .light
+        case .dark, .emerald:
+            return .dark
+        }
+    }
+
+    func updateSystemColorScheme(_ colorScheme: ColorScheme) {
+        guard systemColorScheme != colorScheme else { return }
+        systemColorScheme = colorScheme
+        selectedTheme = Self.resolveTheme(preference: themePreference, systemColorScheme: colorScheme)
+    }
+
+    private static func resolveTheme(preference: AppTheme, systemColorScheme: ColorScheme) -> AppTheme {
+        switch preference {
+        case .auto:
+            return systemColorScheme == .dark ? .dark : .light
+        case .light, .dark, .emerald:
+            return preference
+        }
+    }
+
+    private static func currentSystemColorScheme() -> ColorScheme {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .dark:
+            return .dark
+        default:
+            return .light
+        }
     }
 }
 
@@ -247,6 +368,45 @@ class LocalizationManager {
         }
         bundle = resultBundle
     }
+
+    func localized(_ key: String) -> String {
+        NSLocalizedString(key, bundle: bundle ?? .main, comment: "")
+    }
+
+    /// Извлекает только заголовок без даты из строки локализации (разделители: « — », « - », « – »).
+    func extractTitleOnly(from key: String) -> String {
+        let fullText = localized(key)
+        let separators = [" — ", " - ", " – ", " —"]
+        for separator in separators {
+            let components = fullText.components(separatedBy: separator)
+            if components.count == 2 {
+                let title = components[1].trimmingCharacters(in: .whitespaces)
+                if !title.isEmpty {
+                    return title
+                }
+            }
+        }
+        return fullText
+    }
+
+    /// Разбивает строку локализации на (name, date?) компоненты.
+    /// Разделитель: « — », « - », « – » — дата слева, название справа.
+    /// Если разделителя нет — возвращает (fullText, nil).
+    func parseTitleComponents(from key: String) -> (name: String, date: String?) {
+        let fullText = localized(key)
+        let separators = [" — ", " - ", " – ", " —"]
+        for separator in separators {
+            let components = fullText.components(separatedBy: separator)
+            if components.count == 2 {
+                let date = components[0].trimmingCharacters(in: .whitespaces)
+                let name = components[1].trimmingCharacters(in: .whitespaces)
+                if !date.isEmpty && !name.isEmpty {
+                    return (name: name, date: date)
+                }
+            }
+        }
+        return (name: fullText, date: nil)
+    }
 }
 
 // MARK: - User Preferences Manager
@@ -259,12 +419,6 @@ class UserPreferences {
         }
     }
     
-    var isGridView: Bool {
-        didSet {
-            UserDefaults.standard.set(isGridView, forKey: UserDefaultsKey.isGridView)
-        }
-    }
-    
     var hasRatedApp: Bool {
         didSet {
             UserDefaults.standard.set(hasRatedApp, forKey: UserDefaultsKey.hasRatedApp)
@@ -273,10 +427,6 @@ class UserPreferences {
     
     init() {
         hasSelectedLanguage = UserDefaults.standard.bool(forKey: UserDefaultsKey.hasSelectedLanguage)
-        isGridView = UserDefaults.standard.bool(forKey: UserDefaultsKey.isGridView) || UIDevice.current.userInterfaceIdiom == .pad
         hasRatedApp = UserDefaults.standard.bool(forKey: UserDefaultsKey.hasRatedApp)
     }
 }
-
-
-

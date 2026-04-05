@@ -9,20 +9,21 @@
 
 "app_name" = "Umra";
 "main_screen_name_string" = "العمرة";
-"title_black_stone_screen" = "العودة إلى الحجر الأسود";
+"title_black_stone_screen" = "الحجر الأسود";
 "title_ihram_screen" = "الإحرام";
 "title_place_ibrohim_stand_screen" = "مقام إبراهيم";
 "title_round_kaaba_screen" = "الطواف حول الكعبة";
 "title_safa_and_marva_screen" = "الصفا والمروة";
 "title_settings_screen" = "الإعدادات";
 "title_shave_head_screen" = "حلق الرأس";
-"title_water_zamzam_screen" = "شرب ماء زمزم";
+"title_water_zamzam_screen" = "زمزم";
 "title_link_book_screen" = "الكتب";
 
 
 /* IHRAM */
 /* Подготовка к ихраму */
-"preparation_before_ihram_title" = "التحضير للإحرام";
+"preparation_before_ihram_title" = "
+التحضير للإحرام";
 "preparation_before_ihram_text" = "يُستحب قبل الدخول في الإحرام (أي قبل النية وبدء التلبية) ما يلي:\n\nالاغتسال (غُسل كامل)، وهو من السنّة.\n\nالاعتناء بالنفس وفق سنن الفطرة: تقليم الأظافر، إزالة شعر العانة وتحت الإبطين (وللرجل كذلك تقصير الشارب)، حتى لا يضطر إلى فعل ذلك وهو في حالة الإحرام.\n\nأن يضع الرجل الطيب على جسده بعد الغُسل (وليس على لباس الإحرام).\n\nلبس لباس الإحرام (للرجل: الإزار والرداء؛ وللمرأة: لباسها المحتشم المعتاد دون نقاب ولا قفازين في حال الإحرام).\n\nإذا دخل وقت الصلاة المفروضة — يؤديها، ثم عند الميقات ينوي العمرة/الحج وينطق بالتلبية — ومنذ تلك اللحظة يكون في الإحرام وتبدأ محظوراته بالسريان.";
 
 "into the state of Ihram" = "
@@ -86,8 +87,7 @@
 
 
 /* KAABA */
-"Kaaba text1" = "
-الطواف حول الكعبة";
+"Kaaba text1" = "الطواف حول الكعبة";
 "Kaaba text2" = "
 ابدأ الطواف حول الكعبة سبعة أشواط (الطواف).
 منذ بداية هذا الطواف وحتى انتهائه، يكشف الرجال عن الكتف الأيمن.
@@ -107,8 +107,7 @@
 
 
 /* Namaz after Tawaf around the Kaaba. */
-"Prayer after Tawaf of Kaaba." = "
-الصلاة بعد الطواف حول الكعبة.";
+"Prayer after Tawaf of Kaaba." = "الصلاة بعد الطواف حول الكعبة.";
 
 "Having completed seven circuits around the Kaaba" = "
 بعد إتمام الطواف سبعة أشواط حول الكعبة، يُغطي الرجل كتفه الأيمن. ثم توجّهوا إلى مقام إبراهيم وقولوا:
@@ -122,8 +121,7 @@
 وبعد الانتهاء من الصلاة، توجّهوا إلى موضع ماء زمزم.";
 
 /* Drinking Zamzam water. */
-"Drinking Zamzam water." = "
-شرب ماء زمزم.";
+"Drinking Zamzam water." = "شرب ماء زمزم.";
 "Zamzam text" = "
 اشرب من ماء زمزم وصبّ منه على رأسك.
     
@@ -142,8 +140,7 @@
 ";
 
 /* Return to the Black Stone. */
-"Return to the Black Stone." = "
-العودة إلى الحجر الأسود.";
+"Return to the Black Stone." = "العودة إلى الحجر الأسود.";
 "Return to the Black Stone, recite the Takbir." = "
 ارجعوا إلى الحجر الأسود، وكبّروا والمسوه كما سبق بيانه، أو أشاروا إليه باليد وكبّروا. الله أكبر.";
 "Allah is great." = "
@@ -151,8 +148,7 @@
 ";
 
 /* Safa and Marwa */
-"Safa and Marwa" = "
-الصفا والمروة";
+"Safa and Marwa" = "الصفا والمروة";
 "Head towards the hill of Safa" = "
 توجّهوا إلى جبل الصفا لأداء السعي سبعة أشواط بين الصفا والمروة (السعي). وابدؤوا السعي من جبل الصفا.
     
@@ -185,8 +181,7 @@
 "Du'a upon exiting the Sacred Mosque." = "";
 
 /* Shaving of the head or trimming of the hair. */
-"Shaving the head string" = "
-حلق الرأس أو تقصير الشعر.";
+"Shaving the head string" = "حلق الرأس أو تقصير الشعر.";
 "Men shorten or shave their hair." = "
 ثم يقوم الرجل بتقصير شعر رأسه كله بالتساوي أو بحلقه، أما المرأة فتقصّ خصلة من شعرها بطول قدر أنملة.
 
@@ -221,9 +216,8 @@
 "text_button_feedback_string" = "التواصل";
 "evaluate_the_app_string" = "تقييم التطبيق";
 "text_button_rate_the_app_string" = "تقييم التطبيق";
-"support_the_developer_string" = "دعم المطوّر";
-"text_button_support_string" = "دعم المطوّر";
-"select_language_settings_string" = "اختيار اللغة";
+"text_button_support_string" = "دعم التطبيق";
+"select_language_settings_string" = "اللغة";
 "settings_string" = "الإعدادات";
 //    <string name="select_language_string">Выберите язык</string>
 //    <string name="russian_string">Русский</string>
@@ -246,13 +240,16 @@
 
 "_donate_button" = "دعم";
 "select_the_amount" = "اختر المبلغ:";
+"purchase_error_title" = "خطأ";
+"purchase_error_message" = "فشلت عملية الشراء. يرجى المحاولة مرة أخرى.";
 
 "Contribution to Application Development" = "لقد جعلنا هذا التطبيق مجانيًا ليكون نافعًا للجميع. وإذا رغبت، يمكنك المساهمة وأن تكون جزءًا من هذا الخير. تبرعك اختياري تمامًا، ولمرة واحدة، ولا يرتبط باشتراك أو بميزات إضافية.";
 
 "Useful" = "مفيد";
 "soon_available_text" = "تمت ترجمة هذا النص من اللغة الروسية إلى لغات أخرى باستخدام الذكاء الاصطناعي. إذا لاحظت خطأً في الترجمة، فيُرجى إبلاغنا عبر قسم الملاحظات.";
 
-"Notification Settings" = "إعدادات الإشعارات";
+"Notification Settings" = "الإشعارات";
+"Prayer Notification Settings" = "إشعارات الصلاة";
 "30-Minute Notifications" = "قبل 30 دقيقة";
 "Prayer Time Notifications" = "وقت الصلاة";
 "Sunrise Notifications" = "الشروق";
@@ -284,7 +281,10 @@
 "umrah_obligation_evidence" = "أدلة وجوب العمرة";
 "conclusion" = "الخاتمة";
 
-
+/* السفر — سنن الخروج إلى السفر */
+"sunnahs_safar" = "السفر";
+"safar_sunnahs_subtitle" = "بعض سنن الخروج إلى السفر";
+"safar_sunnahs_content" = "يمكن وضع نص عن سنن السفر هنا: الدعاء عند الخروج والدخول، قصر الصلاة، الجمع، التيمم في السفر، إلخ. استبدل هذا النص في Localizable.strings (المفتاح safar_sunnahs_content).";
 
 /* Texts for Etiquette Manners */
 "etiquette_manners_text1" = "Самым важным из того, чем обязан человек, совершающий хадж и ’умру, является искренность перед Аллахом. Он должен избавиться от показухи и желания славы, дабы получить вознаграждение за этот хадж и эту ’умру.\n\nСообщается со слов Абу Хурейры, да будет доволен им Аллах, что посланник Аллаха, да благословит его Аллах и приветствует, сказал: «Аллах Всевышний сказал: \"Я совершенно не нуждаюсь в том, чтобы Мне придавали сотоварищей, если же кто-то совершит что-либо не только ради Меня, но и ради кого-то другого, Я откажусь и от него, и от его многобожия!\"». Муслим, 2985.\n\nТакже сообщается, что посланник Аллаха, да благословит его Аллах и приветствует, сказал: «О Аллах, (сделай этот) хадж таким, в котором нет ни показухи, ни желания славы!» ибн Маджах, 2890.";
@@ -322,7 +322,7 @@
 
 "title_janaza_guide" = "صلاة الجنازة";
 "basic_rules" = "دليل صلاة الجنازة";
-"janaza_basic_rules" = "📌 القواعد الأساسية لصلاة الجنازة.
+"janaza_basic_rules" = "القواعد الأساسية لصلاة الجنازة.
 
 تُؤدّى الصلاة قيامًا دون ركوع ولا سجود، وتتكوّن من أربعة تكبيرات (قول «الله أكبر»).
 
@@ -378,31 +378,31 @@
 رواه مسلم.";
 
 "dua_variations_title" = "صيغ الدعاء بحسب حال الميت";
-"dua_variations_text" = "📌 إذا كان الميت رجلًا واحدًا  
+"dua_variations_text" = "إذا كان الميت رجلًا واحدًا  
 – تُستعمل صيغة المذكر: لَهُ  
 
 اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
 
 
-📌 إذا كانت الميتة امرأة واحدة  
+إذا كانت الميتة امرأة واحدة  
 – تُحوَّل الصيغ إلى المؤنث: لَهَا  
 
 اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،
 
 
-📌 إذا كان الموتى عدة رجال  
+إذا كان الموتى عدة رجال  
 – تُستعمل صيغة جمع المذكر: لَهُمْ  
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
 
 
-📌 إذا كان الموتى عدة نساء  
+إذا كان الموتى عدة نساء  
 – تُستعمل صيغة جمع المؤنث: لَهُنَّ  
 
 اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،
 
 
-📌 إذا لم يُعلم جنس الميت، أو كانوا رجالًا ونساءً معًا  
+إذا لم يُعلم جنس الميت، أو كانوا رجالًا ونساءً معًا  
 – تُستعمل الصيغة العامة: لَهُمْ  
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
@@ -421,19 +421,23 @@
 رواه الحاكم (1/512)، وصححه الألباني في «صحيح سنن ابن ماجه» (1220).";
 
 "taslim_title" = "اختتام الصلاة (التسليم)";
-"taslim_text" = "📌 يجوز التسليم مرة واحدة عن اليمين، أو مرتين (عن اليمين وعن اليسار).
+"taslim_text" = "يجوز التسليم مرة واحدة عن اليمين، أو مرتين (عن اليمين وعن اليسار).
 
 وكان رسول الله ﷺ في صلاة الجنازة يفعل هذا وهذا، غير أنه كان يسلّم مرة واحدة في الغالب.";
 
 /* Локализация тем */
-"theme_app_title" = "سمة التطبيق";
+"theme_app_title" = "المظهر";
 "theme_select_title" = "اختر سمة التطبيق";
-"theme_heavenly" = "السماء";
-"theme_oasis" = "الواحة";
-"theme_gold" = "الذهب";
-"theme_turquoise" = "البحر";
-"theme_dark" = "الليل";
+"theme_auto" = "تلقائي";
+"theme_auto_subtitle" = "يتبع مظهر النظام";
+"theme_nur" = "فاتح";
+"theme_layl" = "داكن";
+"theme_emerald" = "زمرد";
+"theme_nur_subtitle" = "نور وسكينة";
+"theme_layl_subtitle" = "راحة الليل";
+"theme_emerald_subtitle" = "وهج هادئ ملوّن";
 "done_button" = "تم";
+"select_font" = "اختر الخط";
 
 /* Локализация табов и экранов */
 "tab_umra" = "العمرة";
@@ -601,3 +605,93 @@
 
 
 تقبّل الله منكم حجّكم!";
+
+
+/* الخطوات — العناوين والتسميات */
+"step_prefix" = "خطوة";
+"steps_count_one" = "خطوة";
+"steps_count_few" = "خطوات";
+"steps_count_many" = "خطوات";
+"order_label" = "الترتيب";
+"umra_title" = "العمرة";
+"hajj_title" = "الحج";
+
+"info_button_label" = "for
+ar.lproj
+.lproj";
+
+"info_button_label" = "معلومات";
+
+/* Tab */
+"tab_dua" = "دعاء";
+
+/* كتاب الدعاء — التنقل والفئات */
+"dua_book_nav_title" = "كتاب الدعاء";
+"dua_category_umrah" = "العمرة";
+"dua_category_hajj" = "الحج";
+
+/* كتاب الدعاء — التسميات */
+"dua_detail_translit_label" = "النطق";
+"dua_detail_trans_label" = "المعنى";
+
+/* كتاب الدعاء — أدعية العمرة */
+"dua_niyyah_umrah_title" = "نية العمرة";
+"dua_niyyah_umrah_trans" = "لبيك اللهم بعمرة.";
+
+"dua_ihram_umrah_title" = "دعاء الإحرام (عمرة)";
+"dua_ihram_umrah_trans" = "اللهم هذه عمرة لا رياء فيها ولا سمعة!";
+
+"dua_talbiyah_title" = "التلبية";
+"dua_talbiyah_trans" = "لبيك اللهم لبيك! لبيك لا شريك لك لبيك! إن الحمد والنعمة لك والملك، لا شريك لك!";
+
+"dua_masjid_enter_title" = "دعاء دخول المسجد";
+"dua_masjid_enter_trans" = "اللهم صل على محمد وسلم! اللهم افتح لي أبواب رحمتك!";
+
+"dua_condition_title" = "دعاء الاشتراط";
+"dua_condition_trans" = "اللهم محلي حيث حبستني.";
+
+"dua_allahu_akbar_title" = "التكبير (الطواف)";
+"dua_allahu_akbar_trans" = "الله أكبر!";
+
+"dua_rabbana_title" = "دعاء بين الركنين";
+"dua_rabbana_trans" = "ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار!";
+
+"dua_maqam_ibrahim_title" = "آية مقام إبراهيم";
+"dua_maqam_ibrahim_trans" = "«وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى» (البقرة: ١٢٥)";
+
+"dua_safa_ayah_title" = "آية الصفا والمروة";
+"dua_safa_ayah_trans" = "«إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا وَمَن تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ» (البقرة: ١٥٨)";
+
+"dua_nabdau_title" = "نبدأ بما بدأ الله به";
+"dua_nabdau_trans" = "نبدأ بما بدأ الله به.";
+
+"dua_zikr_safa_title" = "ذكر الصفا والمروة";
+"dua_zikr_safa_trans" = "الله أكبر! الله أكبر! الله أكبر! لا إله إلا الله وحده لا شريك له، له الملك وله الحمد، يحيي ويميت وهو على كل شيء قدير. لا إله إلا الله وحده لا شريك له، أنجز وعده، ونصر عبده، وهزم الأحزاب وحده.";
+
+"dua_rabbi_ighfir_title" = "دعاء السعي";
+"dua_rabbi_ighfir_trans" = "ربِّ اغفر وارحم، إنك أنت الأعز الأكرم!";
+
+"dua_masjid_exit_title" = "دعاء الخروج من المسجد";
+"dua_masjid_exit_trans" = "اللهم صل على محمد وسلم! اللهم إني أسألك من فضلك!";
+
+"dua_niyyah_umrah_translit" = "Labbayka Allāhumma bi-ʿumrah";
+"dua_ihram_umrah_translit" = "Allāhumma hādhihi ʿumratun lā riyāʾa fī-hā wa lā sumʿah";
+"dua_talbiyah_translit" = "Labbayka Allāhumma labbayk! Labbayka lā sharīka laka labbayk!\nInna l-ḥamda, wa n-niʿmata, laka wa l-mulk, lā sharīka lak";
+"dua_masjid_enter_translit" = "Allāhumma ṣalli ʿalā Muḥammadin wa sallim!\nAllāhumma ftaḥ lī abwāba raḥmatik";
+"dua_condition_translit" = "Allāhumma maḥillī ḥaythu ḥabastanī";
+"dua_rabbana_translit" = "Rabbanā ātinā fi d-dunyā ḥasanatan wa fi l-ākhirati ḥasanatan\nwa qinā ʿadhāba n-nār";
+"dua_maqam_ibrahim_translit" = "Wa-ttakhidhū min maqāmi Ibrāhīma muṣallā";
+"dua_safa_ayah_translit" = "Inna ṣ-Ṣafā wa l-Marwata min shaʿāʾiri Llāh, fa-man ḥajja l-bayta\nawi ʿtamara fa-lā junāḥa ʿalayhi an yaṭṭawwafa bi-himā,\nwa man taṭawwaʿa khayran fa-inna Llāha shākirun ʿalīm";
+"dua_nabdau_translit" = "Nabdaʾu bi-mā badaʾa Llāhu bihi";
+"dua_zikr_safa_translit" = "Allāhu Akbar! Allāhu Akbar! Allāhu Akbar!\nLā ilāha illa Llāhu waḥdahu lā sharīka lahu,\nlahu l-mulku wa lahu l-ḥamdu, yuḥyī wa yumītu,\nwa huwa ʿalā kulli shayʾin qadīr.\nLā ilāha illa Llāhu waḥdahu lā sharīka lahu,\nanjaza waʿdahu, wa naṣara ʿabdahu, wa hazama l-aḥzāba waḥdah";
+"dua_rabbi_ighfir_translit" = "Rabbi ghfir wa rḥam, innaka anta l-Aʿazzu l-Akram";
+"dua_masjid_exit_translit" = "Allāhumma ṣalli ʿalā Muḥammadin wa sallim!\nAllāhumma innī asʾaluka min faḍlik";
+"dua_niyyah_hajj_translit" = "Labbayka Allāhumma bi-ḥajj";
+"dua_ihram_hajj_translit" = "Allāhumma hādhihi ḥijjatun lā riyāʾa fī-hā wa lā sumʿah";
+"dua_arafat_translit" = "Lā ilāha illa Llāhu waḥdahu lā sharīka lahu,\nlahu l-mulku wa lahu l-ḥamdu,\nwa huwa ʿalā kulli shayʾin qadīr";
+
+/* كتاب الدعاء — أدعية الحج (العناوين فقط) */
+"dua_niyyah_hajj_title" = "نية الحج";
+"dua_niyyah_hajj_trans" = "لَبَّيْكَ اللَّهُمَّ بِحَجٍّ";
+"dua_ihram_hajj_title" = "دعاء الإحرام (حج)";
+"dua_arafat_title" = "دعاء عرفة";

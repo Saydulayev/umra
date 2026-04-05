@@ -8,136 +8,106 @@
 import SwiftUI
 
 struct Step1: View {
-    @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(FontManager.self) private var fontManager
-    
+
     var body: some View {
-        ZStack {
-            themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
-            
-            ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-                    // Секция: Подготовка к ихраму
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("preparation_before_ihram_title", bundle: localizationManager.bundle)
-                            .font(.custom("Lato-Black", size: 26))
-                            .padding(.top, 8)
-                        
-                        Text("preparation_before_ihram_text", bundle: localizationManager.bundle)
-                            .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
-                    }
-                    
-                    Divider()
-                        .padding(.vertical, 8)
-                    
-                    Text("into the state of Ihram", bundle: localizationManager.bundle)
-                        .font(.custom("Lato-Black", size: 26))
-                    
-                    Group {
-                        Text("When entering the state of Ihram, say:", bundle: localizationManager.bundle)
-                        
-                        Text("""
+        StepScrollView {
+            // Секция: Подготовка к ихраму
+            Group {
+                Text("preparation_before_ihram_title", bundle: localizationManager.bundle)
+                    .font(fontManager.sectionTitleFont)
+
+                Text("preparation_before_ihram_text", bundle: localizationManager.bundle)
+                    .font(fontManager.bodyFont)
+
+                Text("into the state of Ihram", bundle: localizationManager.bundle)
+                    .font(fontManager.sectionTitleFont)
+                
+                Text("When entering the state of Ihram, say:", bundle: localizationManager.bundle)
+
+                Text("""
    لَبَّيْكَ اللَّهُمَّ بِعُمْرَةَ
    """)
-                        .customTextforArabic()
-                        
-                        PlayerView(fileName: "1")
-                        
-                        Text("Turn your face towards the Qiblah and say:", bundle: localizationManager.bundle)
-                        
-                        Text("""
-                        اَللَّهُمَّ هَذِهِ عُمْرَةٌ لَا رِيَاءَ فِيهَا وَلَا سُمْعَةَ
+                .customTextforArabic()
+
+                PlayerView(fileName: "1")
+
+                Text("Turn your face towards the Qiblah and say:", bundle: localizationManager.bundle)
+
+                Text("""
+                        اَللَّهُمَّ هَذِهِ عُمْرَةٌ لَا رِيَاءَ فِيهَا وَلَا سُمْعَةَ
                         """)
-                        .customTextforArabic()
-                        
-                        PlayerView(fileName: "2")
-                        
-                        Text("O Allah, this Umrah is without any ostentation or fame", bundle: localizationManager.bundle)
-                    }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
-                    
-                    Group {
-                        Text("""
+                .customTextforArabic()
+
+                PlayerView(fileName: "2")
+
+                Text("O Allah, this Umrah is without any ostentation or fame", bundle: localizationManager.bundle)
+            }
+            .font(fontManager.bodyFont)
+
+            Group {
+                Text("""
 لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ،
 إِنَّ الْحَمْدَ، وَالنِّعْمَةَ، لَكَ وَالْمُلْكَ، لاَ شَرِيكَ لَكَ
 """)
-                        .customTextforArabic()
-                        
-                        PlayerView(fileName: "3")
-                        
-                        Text("Labbayka Allahumma labbayk", bundle: localizationManager.bundle)
-                        
-                        Text("Entering the Sacred Mosque from the right foot", bundle: localizationManager.bundle)
-                        
-                        Group {
-                            Text("""
+                .customTextforArabic()
+
+                PlayerView(fileName: "3")
+
+                Text("Labbayka Allahumma labbayk", bundle: localizationManager.bundle)
+
+                Text("Entering the Sacred Mosque from the right foot", bundle: localizationManager.bundle)
+
+                Group {
+                    Text("""
 اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَ سَلِّمْ،اَللَّهُمَّ افْتَحْ لِي اَبْوَابَ رَحْمَتِكَ
 """)
-                            .customTextforArabic()
-                            
-                            PlayerView(fileName: "4")
-                            
-                            Text("entering the Sacred Mosque", bundle: localizationManager.bundle)
-                            
-                            Text("Conditioning for Hajj or Umrah.", bundle: localizationManager.bundle)
-                                .font(.custom("Lato-Black", size: 26))
-                            
-                            Text("If a pilgrim fears that some reason may prevent them from completing the Hajj", bundle: localizationManager.bundle)
-                            
-                            Text("""
+                    .customTextforArabic()
+
+                    PlayerView(fileName: "4")
+
+                    Text("entering the Sacred Mosque", bundle: localizationManager.bundle)
+
+                    Text("Conditioning for Hajj or Umrah.", bundle: localizationManager.bundle)
+                        .font(fontManager.sectionTitleFont)
+
+                    Text("If a pilgrim fears that some reason may prevent them from completing the Hajj", bundle: localizationManager.bundle)
+
+                    Text("""
 اَللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي
 """)
-                            .customTextforArabic()
-                            
-                            PlayerView(fileName: "5")
-                        }
-                        
-                        Text("Ihram text1", bundle: localizationManager.bundle)
-                        
-                        Group {
-                            Text("Umrah for parents", bundle: localizationManager.bundle)
-                                .font(.custom("Lato-Black", size: 26))
-                            
-                            Text("Umrah for parents explanation", bundle: localizationManager.bundle)
-                            
-                            Text("Umrah for father arabic", bundle: localizationManager.bundle)
-                                .customTextforArabic()
-                            
-                            Text("Umrah for father", bundle: localizationManager.bundle)
-                            
-                            Text("Umrah for mother arabic", bundle: localizationManager.bundle)
-                                .customTextforArabic()
-                            
-                            Text("Umrah for mother", bundle: localizationManager.bundle)
-                            
-                            Text("Umrah for other person arabic", bundle: localizationManager.bundle)
-                                .customTextforArabic()
-                            
-                            Text("Umrah for other person", bundle: localizationManager.bundle)
-                        }
-                        
-                    }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
+                    .customTextforArabic()
+
+                    PlayerView(fileName: "5")
                 }
-                .foregroundStyle(themeManager.selectedTheme.textColor)
-                .padding(.horizontal, 10)
-                LanguageView()
-                    .hidden()
-                    .navigationTitle(Text("title_ihram_screen", bundle: localizationManager.bundle))
-                    .navigationBarTitleDisplayMode(.inline)
-            }
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    CustomToolbar(
-                        selectedFont: Bindable(fontManager).selectedFont,
-                        fonts: fontManager.fonts
-                    )
-                    .environment(themeManager)
+
+                Text("Ihram text1", bundle: localizationManager.bundle)
+
+                Group {
+                    Text("Umrah for parents", bundle: localizationManager.bundle)
+                        .font(fontManager.sectionTitleFont)
+
+                    Text("Umrah for parents explanation", bundle: localizationManager.bundle)
+
+                    Text("Umrah for father arabic", bundle: localizationManager.bundle)
+                        .customTextforArabic()
+
+                    Text("Umrah for father", bundle: localizationManager.bundle)
+
+                    Text("Umrah for mother arabic", bundle: localizationManager.bundle)
+                        .customTextforArabic()
+
+                    Text("Umrah for mother", bundle: localizationManager.bundle)
+
+                    Text("Umrah for other person arabic", bundle: localizationManager.bundle)
+                        .customTextforArabic()
+
+                    Text("Umrah for other person", bundle: localizationManager.bundle)
                 }
+
             }
-            .toolbar(.hidden, for: .tabBar)
+            .font(fontManager.bodyFont)
         }
     }
 }

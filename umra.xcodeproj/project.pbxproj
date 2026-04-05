@@ -16,7 +16,6 @@
 		C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC882997AD040000FD8E /* Lato-Bold.ttf */; };
 		C036BC8B2997AD350000FD8E /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C036BC8A2997AD350000FD8E /* Lato-Black.ttf */; };
 		C041C7A02BB06739007381FB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C041C79F2BB06739007381FB /* .gitignore */; };
-		C05648EF2BB5AA8700E12230 /* hadj_proroka.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C05648EE2BB5AA8700E12230 /* hadj_proroka.pdf */; };
 		C063ADE329DF2E5B00746D2E /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063ADE229DF2E5B00746D2E /* PlayerView.swift */; };
 		C063ADF229DF2FC700746D2E /* 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE529DF2FC400746D2E /* 5.mp3 */; };
 		C063ADF329DF2FC700746D2E /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADE629DF2FC500746D2E /* 2.mp3 */; };
@@ -33,14 +32,13 @@
 		C063ADFE29DF2FC700746D2E /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C063ADF129DF2FC700746D2E /* 8.mp3 */; };
 		C077B4782B20D41D00086594 /* StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077B4772B20D41D00086594 /* StoreKit.swift */; };
 		C079318C2B246BAE00B38D01 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C079318B2B246BAE00B38D01 /* StoreKit.framework */; };
-		C07BE9072AA3474600BA3A15 /* hadj_i_umra.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */; };
 		C07BE9262AA34B8900BA3A15 /* CounterTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */; };
 		C07BE92B2AA34B8900BA3A15 /* TawafCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BE92A2AA34B8900BA3A15 /* TawafCounterView.swift */; };
 		C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08EAFD22AF91CFB00C847AC /* textFont.swift */; };
 		C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DDB29829F8A00458ACB /* umraApp.swift */; };
 		C0908DE029829F8A00458ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DDF29829F8A00458ACB /* Assets.xcassets */; };
 		C0908DE329829F8A00458ACB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0908DE229829F8A00458ACB /* Preview Assets.xcassets */; };
-		C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */; };
+		C0908DEC2982A02E00458ACB /* CustomModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEB2982A02E00458ACB /* CustomModifierView.swift */; };
 		C0908DEF2982A07900458ACB /* Step 1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DEE2982A07900458ACB /* Step 1.swift */; };
 		C0908DF12982A08B00458ACB /* Step 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF02982A08B00458ACB /* Step 2.swift */; };
 		C0908DF32982A09400458ACB /* Step 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DF22982A09400458ACB /* Step 3.swift */; };
@@ -50,16 +48,20 @@
 		C0908DFB2982A0BC00458ACB /* Step 7.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0908DFA2982A0BC00458ACB /* Step 7.swift */; };
 		C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */; };
 		C0BG00012CFF1F3C005F3ED9 /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BG00022CFF1F3C005F3ED9 /* BackgroundTaskManager.swift */; };
+		C21550242F61CE3700216322 /* KFGQPC Uthman Taha Naskh Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C21550232F61CE3700216322 /* KFGQPC Uthman Taha Naskh Regular.ttf */; };
 		C22958FD2E87F4B2006762B3 /* GlassIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = C22958FC2E87F4B2006762B3 /* GlassIcon.icon */; };
 		C24508EA2C9CD39D003E3E58 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508E92C9CD39D003E3E58 /* 1.png */; };
 		C24508EC2C9CD3A6003E3E58 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508EB2C9CD3A6003E3E58 /* 2.png */; };
 		C24508EE2C9CD3AD003E3E58 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C24508ED2C9CD3AD003E3E58 /* 3.png */; };
+		C285B1E62F7B341A009A5DD9 /* DuaBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = C285B1E52F7B341A009A5DD9 /* DuaBook.swift */; };
+		C285B1E82F7B342D009A5DD9 /* DuaBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C285B1E72F7B342D009A5DD9 /* DuaBookView.swift */; };
 		C2A68D362CFF1E3C005F3ED8 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A68D352CFF1E3C005F3ED8 /* UserSettings.swift */; };
 		C2B3FBFD2EF83C5A0012B449 /* 14.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2B3FBFC2EF83C5A0012B449 /* 14.mp3 */; };
 		C2B3FBFE2EF83C5A0012B449 /* 16.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2B3FBFB2EF83C5A0012B449 /* 16.mp3 */; };
 		C2B3FBFF2EF83C5A0012B449 /* 15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2B3FBFA2EF83C5A0012B449 /* 15.mp3 */; };
 		C2E1173C2C999B31002DC520 /* UsefulInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */; };
 		C2H4JJV22E87F4B2006762B4 /* HajjView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2H4JJV12E87F4B2006762B3 /* HajjView.swift */; };
+		C2HJPGV22E87F4B2006762BA /* HajjPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJPGV12E87F4B2006762BA /* HajjPageView.swift */; };
 		C2HJST112E87F4B2006762B7 /* HajjStep1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJST102E87F4B2006762B8 /* HajjStep1.swift */; };
 		C2HJST212E87F4B2006762B9 /* HajjStep2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJST202E87F4B2006762C0 /* HajjStep2.swift */; };
 		C2HJST312E87F4B2006762C1 /* HajjStep3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2HJST302E87F4B2006762C2 /* HajjStep3.swift */; };
@@ -77,7 +79,6 @@
 		C036BC882997AD040000FD8E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		C036BC8A2997AD350000FD8E /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		C041C79F2BB06739007381FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		C05648EE2BB5AA8700E12230 /* hadj_proroka.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hadj_proroka.pdf; sourceTree = "<group>"; };
 		C063ADE229DF2E5B00746D2E /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C063ADE529DF2FC400746D2E /* 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5.mp3; sourceTree = "<group>"; };
 		C063ADE629DF2FC500746D2E /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		C077B4772B20D41D00086594 /* StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKit.swift; sourceTree = "<group>"; };
 		C07931892B24627100B38D01 /* InAppPurchase.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = InAppPurchase.storekit; sourceTree = "<group>"; };
 		C079318B2B246BAE00B38D01 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = hadj_i_umra.pdf; sourceTree = "<group>"; };
 		C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTapView.swift; sourceTree = "<group>"; };
 		C07BE92A2AA34B8900BA3A15 /* TawafCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TawafCounterView.swift; sourceTree = "<group>"; };
 		C08EAFD22AF91CFB00C847AC /* textFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFont.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		C0908DDB29829F8A00458ACB /* umraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = umraApp.swift; sourceTree = "<group>"; };
 		C0908DDF29829F8A00458ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0908DE229829F8A00458ACB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMidifierView.swift; sourceTree = "<group>"; };
+		C0908DEB2982A02E00458ACB /* CustomModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifierView.swift; sourceTree = "<group>"; };
 		C0908DEE2982A07900458ACB /* Step 1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 1.swift"; sourceTree = "<group>"; };
 		C0908DF02982A08B00458ACB /* Step 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 2.swift"; sourceTree = "<group>"; };
 		C0908DF22982A09400458ACB /* Step 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step 3.swift"; sourceTree = "<group>"; };
@@ -117,11 +117,14 @@
 		C0BG00022CFF1F3C005F3ED9 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		C0DC35E12A0687DF002527D7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C0DC35E22A068F21002527D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C21550232F61CE3700216322 /* KFGQPC Uthman Taha Naskh Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KFGQPC Uthman Taha Naskh Regular.ttf"; sourceTree = "<group>"; };
 		C22958FC2E87F4B2006762B3 /* GlassIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = GlassIcon.icon; sourceTree = "<group>"; };
 		C24508E92C9CD39D003E3E58 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		C24508EB2C9CD3A6003E3E58 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		C24508ED2C9CD3AD003E3E58 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		C2561DF52D5A467800097793 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C285B1E52F7B341A009A5DD9 /* DuaBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaBook.swift; sourceTree = "<group>"; };
+		C285B1E72F7B342D009A5DD9 /* DuaBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaBookView.swift; sourceTree = "<group>"; };
 		C2884B4D2DE37E8600A3975D /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2A0EDB72F4B556C00A1DE67 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2A68D352CFF1E3C005F3ED8 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 		C2B3FBFC2EF83C5A0012B449 /* 14.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 14.mp3; sourceTree = "<group>"; };
 		C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulInfoView.swift; sourceTree = "<group>"; };
 		C2H4JJV12E87F4B2006762B3 /* HajjView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjView.swift; sourceTree = "<group>"; };
+		C2HJPGV12E87F4B2006762BA /* HajjPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjPageView.swift; sourceTree = "<group>"; };
 		C2HJST102E87F4B2006762B8 /* HajjStep1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjStep1.swift; sourceTree = "<group>"; };
 		C2HJST202E87F4B2006762C0 /* HajjStep2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjStep2.swift; sourceTree = "<group>"; };
 		C2HJST302E87F4B2006762C2 /* HajjStep3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HajjStep3.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 		C008900129E1AE0C00031176 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C285B1E72F7B342D009A5DD9 /* DuaBookView.swift */,
 				C24AC7BA2D65CB0C007F5E5A /* ContentView */,
 				C063ADE229DF2E5B00746D2E /* PlayerView.swift */,
 				C008900229E1B09400031176 /* SettingsView.swift */,
@@ -169,11 +174,12 @@
 				C07BE9252AA34B8900BA3A15 /* CounterTapView.swift */,
 				C07BE92A2AA34B8900BA3A15 /* TawafCounterView.swift */,
 				C24AC7BF2D65D366007F5E5A /* DonationView */,
-				C0908DEB2982A02E00458ACB /* CustomMidifierView.swift */,
+				C0908DEB2982A02E00458ACB /* CustomModifierView.swift */,
 				C0B443832AFA5CD4008513F9 /* CustomToolbar.swift */,
 				C024683E2BDF972600CE5A6B /* PrayerTimeView.swift */,
 				C2E1173B2C999B31002DC520 /* UsefulInfoView.swift */,
 				C2H4JJV12E87F4B2006762B3 /* HajjView.swift */,
+				C2HJPGV12E87F4B2006762BA /* HajjPageView.swift */,
 				C2M4INT2B2E87F4B2006762B5 /* MainTabView.swift */,
 				C0908DED2982A05B00458ACB /* All Step´s */,
 			);
@@ -193,6 +199,7 @@
 		C024683D2BDF961100CE5A6B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C285B1E52F7B341A009A5DD9 /* DuaBook.swift */,
 				C356ADBE64C524FC1934C6C7 /* Constants.swift */,
 				C08EAFD22AF91CFB00C847AC /* textFont.swift */,
 				C24AC7C42D65E4F3007F5E5A /* UsefulText */,
@@ -203,6 +210,7 @@
 		C036BC802997A5190000FD8E /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				C21550232F61CE3700216322 /* KFGQPC Uthman Taha Naskh Regular.ttf */,
 				C036BC8A2997AD350000FD8E /* Lato-Black.ttf */,
 				C036BC842997A8E40000FD8E /* Lato-Italic.ttf */,
 				C036BC862997AAFA0000FD8E /* Lato-BlackItalic.ttf */,
@@ -232,15 +240,6 @@
 				C2B3FBFB2EF83C5A0012B449 /* 16.mp3 */,
 			);
 			path = MP3Voice;
-			sourceTree = "<group>";
-		};
-		C075CB1B2A137ED600D4C842 /* PDF */ = {
-			isa = PBXGroup;
-			children = (
-				C07BE9062AA3474600BA3A15 /* hadj_i_umra.pdf */,
-				C05648EE2BB5AA8700E12230 /* hadj_proroka.pdf */,
-			);
-			path = PDF;
 			sourceTree = "<group>";
 		};
 		C079318A2B246BAE00B38D01 /* Frameworks */ = {
@@ -290,7 +289,6 @@
 				C025CE9B2A03E4300052188D /* Localizable.strings */,
 				C036BC802997A5190000FD8E /* Font */,
 				C063ADE429DF2ED500746D2E /* MP3Voice */,
-				C075CB1B2A137ED600D4C842 /* PDF */,
 				C07BE9082AA3477E00BA3A15 /* Screensh. */,
 				C0908DDF29829F8A00458ACB /* Assets.xcassets */,
 				C22958FC2E87F4B2006762B3 /* GlassIcon.icon */,
@@ -416,12 +414,11 @@
 				C2B3FBFF2EF83C5A0012B449 /* 15.mp3 in Resources */,
 				C063ADFA29DF2FC700746D2E /* 13.mp3 in Resources */,
 				C24508EA2C9CD39D003E3E58 /* 1.png in Resources */,
+				C21550242F61CE3700216322 /* KFGQPC Uthman Taha Naskh Regular.ttf in Resources */,
 				C063ADF429DF2FC700746D2E /* 12.mp3 in Resources */,
 				C036BC892997AD040000FD8E /* Lato-Bold.ttf in Resources */,
 				C24508EC2C9CD3A6003E3E58 /* 2.png in Resources */,
-				C05648EF2BB5AA8700E12230 /* hadj_proroka.pdf in Resources */,
 				C063ADF729DF2FC700746D2E /* 7.mp3 in Resources */,
-				C07BE9072AA3474600BA3A15 /* hadj_i_umra.pdf in Resources */,
 				C036BC872997AAFA0000FD8E /* Lato-BlackItalic.ttf in Resources */,
 				C063ADF629DF2FC700746D2E /* 10.mp3 in Resources */,
 				C063ADF829DF2FC700746D2E /* 6.mp3 in Resources */,
@@ -457,13 +454,16 @@
 				C0B443842AFA5CD4008513F9 /* CustomToolbar.swift in Sources */,
 				C077B4782B20D41D00086594 /* StoreKit.swift in Sources */,
 				C0908DDC29829F8A00458ACB /* umraApp.swift in Sources */,
-				C0908DEC2982A02E00458ACB /* CustomMidifierView.swift in Sources */,
+				C0908DEC2982A02E00458ACB /* CustomModifierView.swift in Sources */,
 				C356ADBE74C524FC1934C6C8 /* Constants.swift in Sources */,
 				C08EAFD32AF91CFB00C847AC /* textFont.swift in Sources */,
+				C285B1E62F7B341A009A5DD9 /* DuaBook.swift in Sources */,
 				C2A68D362CFF1E3C005F3ED8 /* UserSettings.swift in Sources */,
 				C0908DF52982A09E00458ACB /* Step 4.swift in Sources */,
 				C0BG00012CFF1F3C005F3ED9 /* BackgroundTaskManager.swift in Sources */,
 				C2H4JJV22E87F4B2006762B4 /* HajjView.swift in Sources */,
+				C285B1E82F7B342D009A5DD9 /* DuaBookView.swift in Sources */,
+				C2HJPGV22E87F4B2006762BA /* HajjPageView.swift in Sources */,
 				C2M4INT2C2E87F4B2006762B6 /* MainTabView.swift in Sources */,
 				C2HJST112E87F4B2006762B7 /* HajjStep1.swift in Sources */,
 				C2HJST212E87F4B2006762B9 /* HajjStep2.swift in Sources */,
@@ -627,7 +627,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = GlassIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"umra/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -641,7 +641,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 4.3.2;
+				MARKETING_VERSION = 4.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "saydulayev.wien-gmail.com.umra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -662,7 +662,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"umra/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -676,7 +676,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 4.3.2;
+				MARKETING_VERSION = 4.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "saydulayev.wien-gmail.com.umra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

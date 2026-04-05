@@ -24,7 +24,7 @@ struct umraApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            ThemeRootView()
                 .environment(purchaseManager)
                 .environment(themeManager)
                 .environment(localizationManager)
@@ -33,6 +33,38 @@ struct umraApp: App {
                 .environment(backgroundTaskManager)
                 .environment(audioManager)
         }
+    }
+}
+
+private struct ThemeRootView: View {
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(\.colorScheme) private var systemColorScheme
+
+    var body: some View {
+        MainTabView()
+            .onAppear {
+                themeManager.updateSystemColorScheme(systemColorScheme)
+                applyWindowInterfaceStyle()
+            }
+            .onChange(of: systemColorScheme) { _, newValue in
+                themeManager.updateSystemColorScheme(newValue)
+            }
+            .onChange(of: themeManager.themePreference) {
+                applyWindowInterfaceStyle()
+            }
+            .preferredColorScheme(themeManager.preferredColorScheme)
+    }
+
+    private func applyWindowInterfaceStyle() {
+        let style: UIUserInterfaceStyle = switch themeManager.themePreference {
+        case .auto:           .unspecified
+        case .light:          .light
+        case .dark, .emerald: .dark
+        }
+        UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .forEach { $0.overrideUserInterfaceStyle = style }
     }
 }
 
@@ -75,4 +107,3 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         task.setTaskCompleted(success: true)
     }
 }
-

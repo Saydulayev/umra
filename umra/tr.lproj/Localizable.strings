@@ -9,20 +9,21 @@
 
 "app_name" = "Umre";
 "main_screen_name_string" = "UMRE";
-"title_black_stone_screen" = "Hacerü'l-Esved'e Dönüş";
+"title_black_stone_screen" = "Hacerü'l-Esved";
 "title_ihram_screen" = "Ihram";
-"title_place_ibrohim_stand_screen" = "Makâm-ı İbrahim";
+"title_place_ibrohim_stand_screen" = "Makam İbrahim";
 "title_round_kaaba_screen" = "Kâbe'yi Tavaf";
 "title_safa_and_marva_screen" = "Safa ve Merve";
 "title_settings_screen" = "Ayarlar";
 "title_shave_head_screen" = "Saç Tıraşı";
-"title_water_zamzam_screen" = "Zemzem İçme";
+"title_water_zamzam_screen" = "Zemzem";
 "title_link_book_screen" = "Kitaplar";
 
 
 /* IHRAM */
 /* Preparation before Ihram */
-"preparation_before_ihram_title" = "İhramdan Önce Hazırlık";
+"preparation_before_ihram_title" = "
+İhramdan Önce Hazırlık";
 "preparation_before_ihram_text" = "İhrama girmeden önce (yani niyet etmeden ve telbiyeye başlamadan önce) şunlar tavsiye edilir:\n\nGusül (tam abdest) almak, bu sünnettir.\n\nFıtrata göre kendini düzenlemek: tırnakları kesmek, kasık ve koltuk altı kıllarını temizlemek (erkekler ayrıca bıyığı da kesmelidir), böylece bunu ihramdayken yapmak zorunda kalmazsınız.\n\nErkekler gusülden sonra vücuda koku sürmelidir (ihram kıyafetine değil).\n\nİhram kıyafetini giymek (erkek - izaar ve rida; kadın - normal mütevazı kıyafet, ihram durumunda nikap ve eldiven olmadan).\n\nFarz namaz vakti geldiyse - onu kılın, sonra Mikat'ta Umre/Hac için niyet edin ve telbiyeyi söyleyin - bu andan itibaren ihramdasınız ve yasakları geçerli olmaya başlar.";
 
 "into the state of Ihram" = "
@@ -106,8 +107,7 @@ Labbayka Allahumma bi-'umrah 'an (kişi adı) - «Ey Allah'ım! (kişi adı) iç
 
 
 /* KAABA */
-"Kaaba text1" = "
-Kâbe’yi Tavaf";
+"Kaaba text1" = "Kâbe’yi Tavaf";
 "Kaaba text2" = "
 Kâbe etrafında yedi kez tavaf etmeye başlayın (Tavaf).
 Bu tavafın başlangıcından bitimine kadar erkekler sağ omuzlarını açık bırakmalıdır.
@@ -127,8 +127,7 @@ Eğer Kara Taş’a dokunmak ve öpmek mümkün değilse, o zaman ona yönelin, 
 
 
 /* Namaz after Tawaf around the Kaaba. */
-"Prayer after Tawaf of Kaaba." = "
-Kâbe'yi tavaf ettikten sonra namaz";
+"Prayer after Tawaf of Kaaba." = "Kâbe'yi tavaf ettikten sonra namaz";
 
 "Having completed seven circuits around the Kaaba" = "
 Kâbe etrafında yedi turu tamamladıktan sonra, erkekler sağ omuzlarını kapatır. Sonra İbrahim makamına yönelin ve şunu söyleyin:
@@ -146,8 +145,7 @@ Namazı tamamladıktan sonra Zemzem suyu kaynağına yönelin.";
 
 
 /* Drinking Zamzam water. */
-"Drinking Zamzam water." = "
-Zemzem Suyu İçme.";
+"Drinking Zamzam water." = "Zemzem Suyu İçme.";
 
 "Zamzam text" = "
 Suyu için ve başınıza dökün.
@@ -163,8 +161,7 @@ en-Nevevî şöyle demiştir: “Bu hadisin anlamı şudur ki, bir kişi Zemzem 
 
 
 /* Return to the Black Stone. */
-"Return to the Black Stone." = "
-Hacerü'l-Esved'e Dönüş.";
+"Return to the Black Stone." = "Hacerü'l-Esved'e Dönüş.";
 
 "Return to the Black Stone, recite the Takbir." = "
 Hacerü'l-Esved'e dönün, tekbir getirin ve daha önce açıklandığı gibi ona dokunun. Veya ona elinizle işaret edin ve tekbir getirin. Allah en büyüktür.";
@@ -173,8 +170,7 @@ Hacerü'l-Esved'e dönün, tekbir getirin ve daha önce açıklandığı gibi on
 Allahu Akbar.";
 
 /* Safa and Marwa */
-"Safa and Marwa" = "
-Safa ve Merve";
+"Safa and Marwa" = "Safa ve Merve";
 
 "Head towards the hill of Safa" = "
 Safa ve Merve tepeleri arasında yedi kez gerçekleştirilen sa‘y ibadetini yerine getirmek için Safa tepesine gidin. Sa‘y ibadetine Safa tepesinden başlayın.
@@ -228,8 +224,7 @@ Mescid-i Haram’dan çıkarken yapılan dua: Yedinci turun sonunda Merve tepesi
 
 
 /* Shaving of the head or trimming of the hair. */
-"Shaving the head string" = "
-Başı tıraş etmek veya saçları kısaltmak.";
+"Shaving the head string" = "Başı tıraş etmek veya saçları kısaltmak.";
 
 "Men shorten or shave their hair." = "
 Daha sonra erkekler başındaki saçları eşit şekilde kısaltır veya tamamen tıraş eder, kadınlar ise saçlarından bir parmak boğumu kadar keser.
@@ -267,9 +262,8 @@ Alemlerin Rabbi olan Allah’a hamdolsun!";
 "text_button_feedback_string" = "Geri Bildirim";
 "evaluate_the_app_string" = "UYGULAMAYI DEĞERLENDİRİN";
 "text_button_rate_the_app_string" = "Uygulamayı Değerlendir";
-"support_the_developer_string" = "GELİŞTİRİCİYİ DESTEKLEYİN";
-"text_button_support_string" = "Geliştiriciyi Destekle";
-"select_language_settings_string" = "Dili Seç";
+"text_button_support_string" = "Uygulamayı Destekle";
+"select_language_settings_string" = "Dil";
 "settings_string" = "Ayarlar";
 //    <string name="select_language_string">Выберите язык</string>
 //    <string name="russian_string">Русский</string>
@@ -292,16 +286,19 @@ Alemlerin Rabbi olan Allah’a hamdolsun!";
 
 "_donate_button" = "Destekle";
 "select_the_amount" = "Miktarı seçin:";
+"purchase_error_title" = "Hata";
+"purchase_error_message" = "Satın alma başarısız oldu. Lütfen tekrar deneyin.";
 
 "Contribution to Application Development" = "Bu uygulamayı herkes faydalansın diye ücretsiz yaptık. Eğer içinizde bir istek olursa, katkıda bulunabilir ve bu hayrın bir parçası olabilirsiniz. Bağışınız tamamen gönüllüdür, tek seferliktir ve herhangi bir abonelikle veya ek özelliklerle bağlantılı değildir.";
 
 "Useful" = "Faydalı";
 "soon_available_text" = "Bu metin yapay zeka kullanılarak Rusçadan diğer dillere çevrildi. Çeviride bir hata fark ederseniz, lütfen geri bildirim yoluyla bize bildirin.";
 
-"Notification Settings" = "Bildirim Ayarları";
-"30-Minute Notifications" = "Namazdan 30 dakika önce bildirim gönder";
-"Prayer Time Notifications" = "Namaz vakti bildirimi gönder";
-"Sunrise Notifications" = "Güneş doğuşu bildirimi gönder";
+"Notification Settings" = "Bildirimler";
+"Prayer Notification Settings" = "Namaz Bildirimleri";
+"30-Minute Notifications" = "30 dakika önce";
+"Prayer Time Notifications" = "Namaz vakti";
+"Sunrise Notifications" = "Güneş doğuşu";
 "Open iOS Notification Settings" = "iOS Bildirim Ayarlarını Aç";
 "Close" = "Kapat";
 
@@ -330,7 +327,10 @@ Alemlerin Rabbi olan Allah’a hamdolsun!";
 "umrah_obligation_evidence" = "Umrenin Farz Olduğuna Dair Deliller";
 "conclusion" = "Sonuç";
 
-
+/* Yolculuk — Yola çıkış sünnetleri */
+"sunnahs_safar" = "Yolculuk";
+"safar_sunnahs_subtitle" = "Yola çıkışla ilgili bazı sünnetler";
+"safar_sunnahs_content" = "Yola çıkışla ilgili bazı sünnetler:\n\n1) Yola çıkmadan önce Allah'a dua etmek\nİbn 'Umar'dan (Allah ikisinden de razı olsun) rivayet edildiğine göre, Allah Resulü (Allah'ın salat ve selamı onun üzerine olsun) yolculuğa çıkarken devesine bindiğinde üç defa «Allah en büyüktür, Allahu Ekber» der, sonra şöyle derdi: «Bunu bize boyun eğdiren Allah'ı tesbih ederiz; yoksa bizim buna gücümüz yetmezdi. Şüphesiz biz Rabbimize döneceğiz. Allah'ım, bu yolculuğumuzda senden iyilik ve takva, ayrıca razı olacağın amelleri isteriz. Allah'ım, bu yolculuğu bize kolaylaştır ve uzaklığını bize kısalt. Allah'ım, bu yolculukta Sen yoldaş, ailede ise vekilsin. Allah'ım, yolculuğun zorluğundan, görülen şeylerin verdiği kederden, mal ve aileye gelebilecek her türlü kötülükten Sana sığınırım!»\nسُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ\n\nSubhana-llazi sakhkhara lana haza, wa ma kunna lahu muqrinin, wa inna ila Rabbina la-munqalibun!\nاللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى وَمِنْ الْعَمَلِ مَا تَرْضَى اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ وَالْخَلِيفَةُ فِي الْأَهْلِ اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ وَكَآبَةِ الْمَنْظَرِ وَسُوءِ الْمُنْقَلِبِ فِي الْمَالِ وَالْأَهْلِ\n\nAllahumma, inna nas'aluka fi safarina hazal-birra, wat-taqwa, wa minal-'amali ma tarda! Allahumma, hawwin 'alayna safarana haza, watwi 'anna bu'dahu! Allahumma, Antas-sahibu fis-safari wal-khalifatu fil-ahli, Allahumma, inni a'uzu bika min wa'tha'is-safari, wa kaabatil-manzari, wa su'il-munqalabi fil-mali wal-ahli!\nDönerken bu sözleri tekrar eder ve şunu eklerdi:\nآيِبُونَ تَائِبُونَ عَابِدُونَ لِرَبِّنَا حَامِدُونَ\n\nAyibuna, taibuna, 'abiduna li-Rabbina hamidun\n«Dönüyoruz, tevbe ediyoruz, ibadet ediyoruz ve Rabbimize hamd ediyoruz». (Sahih Muslim, 1342)\n\n'Ali ibn Rabi'a'nın şöyle dediği rivayet edilir: «Bir gün 'Ali ibn Ebu Talib'e binmesi için bir binek getirildiğini gördüm. Ayağını üzengiye koyunca şöyle dedi:\nبِسْمِ اللَّهِ\n\n«Allah'ın adıyla» (Bismi-LLAH), doğrulup yerine oturunca da şöyle dedi:\nسُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ\n«Bunu bize boyun eğdiren Allah'ı tesbih ederiz; yoksa buna gücümüz yetmezdi. Şüphesiz biz Rabbimize döneceğiz.» Sonra üç defa «Elhamdülillah» (الْحَمْدُ لِلَّهِ) ve «Allahu Ekber» (الله أكبر) dedi, ardından şöyle dedi:\n«Seni tesbih ederim! Şüphesiz ben nefsime zulmettim; beni bağışla. Çünkü günahları Senden başka bağışlayan yoktur!»\nسُبْحَانَكَ إِنِّي قَدْ ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ\n\nSubhana-ka! Inni zalamtu nafsi, faghfir li, fa-innahu la yaghfiru adh-dhunuba illa Ant!\nBundan sonra güldü. Kendisine: «Ey müminlerin emiri, neden gülüyorsun?» diye sorulunca şöyle dedi: «Peygamberin (Allah'ın salat ve selamı onun üzerine olsun) benim az önce yaptığımı yaptığını ve sonra güldüğünü gördüm. Ben de ona: ‘Ey Allah'ın Resulü, neden gülüyorsun?’ diye sordum. O da şöyle buyurdu: ‘Şüphesiz Rabbin, kulunun şöyle demesini sever:\nرَبِّ اغْفِرْ لِي ذُنُوبِي إِنَّهُ لَا يَغْفِرُ الذُّنُوبَ غَيْرُك\n\n‘Rabbim, günahlarımı bağışla; çünkü günahları Senden başka bağışlayan yoktur!’\nRabbi ighfir li dhunubi, innahu la yaghfiru adh-dhunuba ghayruk!\n- ve Allah şöyle der: ‘O, günahları Benden başka kimsenin bağışlamayacağını bilir.’» (Sünen et-Tirmizi, 3446; Şeyh el-Albani tarafından sahih kabul edilmiştir)\n\n2) Perşembe günü yola çıkmak; gece yolculuk yapmak\nKa'b ibn Malik'ten (Allah ondan razı olsun) rivayet edildiğine göre «Peygamber (Allah'ın salat ve selamı onun üzerine olsun) Tebük seferine perşembe günü çıktı ve genel olarak yolculuğa perşembe günleri çıkmayı severdi». (Sahih el-Buhari, 2949)\nEnes'ten rivayet edildiğine göre Allah Resulü (Allah'ın salat ve selamı onun üzerine olsun) şöyle buyurdu: «Gece yolculuğa çıkın; çünkü yeryüzü geceleyin dürülür.» (Sahih el-Cami', 4064)\n\n3) Yol arkadaşı edinmek ve içlerinden birini yönetici tayin etmek\nİbn 'Umar'dan rivayet edildiğine göre Allah Resulü (Allah'ın salat ve selamı onun üzerine olsun) şöyle buyurdu: «İnsanlar tek başına yolculuk hakkında benim bildiğimi bilselerdi, hiçbir binici gece tek başına yola çıkmazdı.» (el-Buhari, 2998)\nEbu Sa'id ve Ebu Hureyre'den rivayet edildiğine göre Allah Resulü (Allah'ın salat ve selamı onun üzerine olsun) şöyle buyurdu: «Üç kişi yolculuğa çıkarsa, içlerinden birini başkan tayin etsinler.» (Sahih el-Cami', 500)\n\n4) Yükselirken Allah'ı tekbir etmek, inerken tesbih etmek\nCabir ibn 'Abdullah'ın (Allah ikisinden de razı olsun) şöyle dediği rivayet edilmiştir: «Yokuş çıkarken ‘Allahu Ekber’ derdik, inerken ise ‘Sübhânallah’ derdik.» (Sahih el-Buhari, 2993)\n\n5) Namazları birleştirmek ve kısaltmak\nEnes'ten (Allah ondan razı olsun) rivayet edildiğine göre: «Allah Resulü (Allah'ın salat ve selamı onun üzerine olsun), yolculukta akşam ile yatsı namazını birleştirirdi.» (Sahih el-Buhari, 1108)\nYine Enes'ten (Allah ondan razı olsun) rivayet edildiğine göre: «Peygamberle (Allah'ın salat ve selamı onun üzerine olsun) Medine'den Mekke'ye çıktık; Medine'ye dönene kadar namazları ikişer rek'at kıldı.» (Sahih el-Buhari, 1081)\n\n6) Nafile namazları terk etmek; sadece vitir, duha ve sabah farzından önceki 2 rek'at hariç\nEbu Katade şöyle rivayet etmiştir: «Allah Resulü (Allah'ın salat ve selamı onun üzerine olsun) yolculukta sabah farzından önce iki rek'at kılardı.» (Müslim, 680)\nÜmmü Hani de şöyle rivayet etmiştir: «Mekke'nin fethedildiği gün Peygamber (Allah'ın salat ve selamı onun üzerine olsun) 8 rek'at duha namazı kıldı.» O sırada seferdeydi. (el-Buhari, 357; Müslim, 336)\nİbn 'Umar da şöyle rivayet etmiştir: «Peygamber (Allah'ın salat ve selamı onun üzerine olsun) yolculukta bineği üzerinde oturarak vitir namazı kılardı.» (el-Buhari, 1000)\n\n7) Nafile namazları binek veya ulaşım aracında oturarak kılmak\nİbn 'Umar şöyle rivayet etmiştir: «Peygamber (Allah'ın salat ve selamı onun üzerine olsun) yolculukta bineği üzerinde oturarak vitir namazı kılardı.» (el-Buhari, 1000)\n\n8) Yolculukta duayı artırmak\nAllah Resulü (Allah'ın salat ve selamı onun üzerine olsun) şöyle buyurdu: «Üç duanın kabulü kesindir: mazlumun duası, yolcunun duası ve anne-babanın evladına karşı duası.» (el-Buhari, 481)\n\n9) Yolculara zarar veren şeyleri yoldan kaldırmak\nEbu Hureyre'den (Allah ondan razı olsun) rivayet edildiğine göre Allah Resulü (Allah'ın salat ve selamı onun üzerine olsun) şöyle buyurdu: «İman, yetmişten (veya altmıştan) fazla şubedir. En üstünü ‘Allah'tan başka ibadete layık ilah yoktur’ sözüdür; en altı ise yoldan eziyet vereni kaldırmaktır. Haya da imanın bir şubesidir.» (Muhtasar Sahih Müslim, 31)\n\n10) Bir yerde konaklandığında okunacak dua\nHavle bint Hakim'in şöyle dediği rivayet edilir: «Allah Resulü'nü (Allah'ın salat ve selamı onun üzerine olsun) şöyle derken işittim: ‘Kim bir yerde konaklar ve şöyle derse:\n‘Allah'ın eksiksiz sözlerine, O'nun yarattıklarının şerrinden sığınırım!’\nأَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ\nA'uzu bikalimati-LLahi-t-tammati min sharri ma khalaq! - oradan ayrılıncaya kadar ona hiçbir şey zarar vermez.’» (Müslim, 2708)\n\n11) Yolculuk amacı gerçekleşince hızlıca dönmek\nEbu Hureyre'den rivayet edildiğine göre Allah Resulü (Allah'ın salat ve selamı onun üzerine olsun) şöyle buyurdu: «Yolculuk bir çeşit meşakkattir; kişiyi yeme, içme ve uykudan alıkoyar. Sizden biri yolculuk amacını tamamlayınca ailesine dönüşü çabuklaştırsın.» (el-Buhari, 1804; Müslim, 1927)\n\n12) Aileye gündüz vakti dönmek\nEnes'in şöyle dediği rivayet edilir: «Allah Resulü (Allah'ın salat ve selamı onun üzerine olsun) ailesine gece vakti dönmezdi; genellikle sabah veya akşam vakti dönerdi.» (el-Buhari, 1800; Müslim, 1928)\n\n13) Yolculuktan döndükten sonra 2 rek'at namaz kılmak\nKa'b ibn Malik'in (Allah ondan razı olsun) şöyle dediği rivayet edilir: «Allah Resulü (Allah'ın salat ve selamı onun üzerine olsun) bir yolculuktan (Medine'ye) döndüğünde önce mescide gelir, iki rek'at namaz kılar, sonra da bir süre insanlarla birlikte otururdu.» (Sahih el-Buhari, 4418)\n";
 
 /* Texts for Etiquette Manners */
 "etiquette_manners_text1" = "Hac ve umre yapan kişinin en önemli vazifesi, Allah'a karşı ihlaslı olmaktır. O, riyadan ve şöhret arzusundan arınmalı, böylece bu hac ve umre ibadetinin mükafatını almalıdır.\n\nEbu Hureyre'den (radıyallahu anh) rivayet edildiğine göre, Resulullah (sallallahu aleyhi ve sellem) şöyle buyurdu: «Allah Teâlâ buyurdu ki: 'Ben, ortak koşulmasından en fazla müstağni olanım. Kim bir amel işler ve onda Beni başkasıyla ortak kılarsa, onu da, o şirkini de reddederim!'». (Müslim, 2985)\n\nAyrıca, Resulullah (sallallahu aleyhi ve sellem) şöyle dua etmiştir: «Allah’ım! Riyadan ve gösterişten uzak bir hac nasip eyle!» (İbn Mâce, 2890).";
@@ -373,7 +373,7 @@ Alemlerin Rabbi olan Allah’a hamdolsun!";
 
 "title_janaza_guide" = "Cenaze Namazı";
 "basic_rules" = "Cenaze Namazı Kılavuzu";
-"janaza_basic_rules" = "📌 Cenaze namazının temel kuralları.
+"janaza_basic_rules" = "Cenaze namazının temel kuralları.
 
 Namaz ayakta kılınır, rükû ve secde yapılmaz. Dört tekbirden («Allahu Ekber») oluşur.
 
@@ -431,35 +431,35 @@ Allahumma ighfir lahu, warhamhu, wa ‘afihi, wa‘fu ‘anhu, wa akrim nuzulahu
 
 
 "dua_variations_title" = "Merhuma Göre Dua Çeşitleri";
-"dua_variations_text" = "📌 Eğer vefat eden kişi bir erkekse  
+"dua_variations_text" = "Eğer vefat eden kişi bir erkekse  
 - Aşağıdaki formu kullanın: لَهُ (lahu)  
 
 اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،  
 
 (Allahumma ighfir lahu, warhamhu.)  
 
-📌 Eğer vefat eden kişi bir kadınsa  
+Eğer vefat eden kişi bir kadınsa  
 - Erkek formunun yerine kadın formunu kullanın: لَهَا (laha)  
 
 اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،  
 
 (Allahumma ighfir laha, warhamha.)  
 
-📌 Eğer vefat edenler birden fazla erkekse  
+Eğer vefat edenler birden fazla erkekse  
 - Erkek çoğul formunu kullanın: لَهُمْ (lahum)  
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،  
 
 (Allahumma ighfir lahum, warhamhum.)  
 
-📌 Eğer vefat edenler birden fazla kadınsa  
+Eğer vefat edenler birden fazla kadınsa  
 - Kadın çoğul formunu kullanın: لَهُنَّ (lahunna)  
 
 اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،  
 
 (Allahumma ighfir lahunna, warhamhunna.)  
 
-📌 Eğer vefat eden kişinin cinsiyeti bilinmiyorsa veya vefat edenler birden fazla olup hem erkekler hem kadınlar varsa, şu formu kullanın: لَهُمْ (lahum). 
+Eğer vefat eden kişinin cinsiyeti bilinmiyorsa veya vefat edenler birden fazla olup hem erkekler hem kadınlar varsa, şu formu kullanın: لَهُمْ (lahum). 
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،  
 
@@ -476,19 +476,23 @@ Bir dua yapılabilir, ancak zorunlu değildir.";
 Rivayet edilir ki, Abdullah ibn Abi Awfa kızının cenaze namazını kıldığında dört kez tekbir getirmiştir. Dördüncü tekbirden sonra, iki tekbir arasındaki süre kadar bekleyerek kızının bağışlanması için Allah’a dua etmiş ve onun için niyazda bulunmuştur. Daha sonra şöyle demiştir: «Resulullah (Allah’ın selamı ve bereketi onun üzerine olsun) da böyle yapardı.» (al-Hakim 1/512. Bkz. “Sahih Sunan İbn Mace” 1220.)";
 
 "taslim_title" = "Namazın Sonlandırılması (Teslim)";
-"taslim_text" = "📌 Teslim, sağ tarafa bir kez veya sağa ve sola iki kez verilebilir.  
+"taslim_text" = "Teslim, sağ tarafa bir kez veya sağa ve sola iki kez verilebilir.  
 
 Resulullah (Allah'ın selamı ve bereketi onun üzerine olsun) cenaze namazında bazen bir, bazen de iki selam verirdi, ancak çoğunlukla tek selamla bitirirdi.";
 
 /* Tema Yerelleştirmesi */
-"theme_app_title" = "Uygulama Teması";
+"theme_app_title" = "Görünüm";
 "theme_select_title" = "Uygulama Teması Seçin";
-"theme_heavenly" = "Gök";
-"theme_oasis" = "Vaha";
-"theme_gold" = "Altın";
-"theme_turquoise" = "Deniz";
-"theme_dark" = "Gece";
+"theme_auto" = "Otomatik";
+"theme_auto_subtitle" = "Sistem temasını takip eder";
+"theme_nur" = "Açık";
+"theme_layl" = "Koyu";
+"theme_emerald" = "Zümrüt";
+"theme_nur_subtitle" = "Işık ve huzur";
+"theme_layl_subtitle" = "Gece huzuru";
+"theme_emerald_subtitle" = "Yumuşak tonlu ışıltı";
 "done_button" = "Tamam";
+"select_font" = "Yazı tipi seç";
 
 /* Sekme Yerelleştirme */
 "tab_umra" = "Umre";
@@ -655,3 +659,102 @@ Dikkat: Bu tavaf, başından sonuna kadar normal yürüyüş temposuyla yapılı
 
 
 Yüce Allah haccınızı kabul etsin!";
+
+/* Adımlar — başlıklar ve etiketler */
+"step_prefix" = "ADIM";
+"steps_count_one" = "Adım";
+"steps_count_few" = "Adım";
+"steps_count_many" = "Adım";
+"order_label" = "Sıra";
+"umra_title" = "Umre";
+"hajj_title" = "Hac";
+
+"info_button_label" = "for
+tr.lproj
+.lproj";
+
+"info_button_label" = "Bilgi";
+
+/* Sekme */
+"tab_dua" = "Dualar";
+
+/* Dua Kitabı — Gezinme & Kategoriler */
+"dua_book_nav_title" = "Dua Kitabı";
+"dua_category_umrah" = "Umre";
+"dua_category_hajj" = "Hac";
+
+/* Dua Kitabı — Etiketler */
+"dua_detail_translit_label" = "Okunuş";
+"dua_detail_trans_label" = "Anlam";
+
+/* Dua Kitabı — Umre Duaları */
+
+"dua_niyyah_umrah_title" = "Umre Niyeti";
+"dua_niyyah_umrah_trans" = "Buyur, ey Allah’ım, huzurundayım, [umre yapmak üzere].";
+"dua_niyyah_umrah_translit" = "Labbayka Allahumma bi-´umrah.";
+
+
+"dua_ihram_umrah_title" = "İhram Duası (Umre)";
+"dua_ihram_umrah_trans" = "Ey Allah’ım! Bu umre, gösteriş ve şöhret için değildir!";
+"dua_ihram_umrah_translit" = "Allahumma hazihi 'umrah, la riya'a fiha wa la sum'ah.";
+
+
+"dua_talbiyah_title" = "Telbiye";
+"dua_talbiyah_trans" = "Buyur Allah’ım, buyur! Buyur, Senin hiçbir ortağın yoktur! Buyur! Şüphesiz hamd, nimet ve mülk yalnızca Sana aittir! Senin hiçbir ortağın yoktur!";
+"dua_talbiyah_translit" = "Labbayka Allahumma labbayk! Labbayka laa shariika laka labbayka! Innal hamda wanni'mata laka wal mulk, laa shariika lak";
+
+
+"dua_masjid_enter_title" = "Mescide Giriş Duası";
+"dua_masjid_enter_trans" = "Ey Allah’ım! Muhammed’e salât ve selam eyle! Ey Allah’ım! Bana rahmet kapılarını aç!";
+"dua_masjid_enter_translit" = "Allahumma, solli ´ala Muhammadin wa sallim! Allahumma - ftah li abwaba rohmati-ka!";
+
+
+"dua_condition_title" = "Şartlandırma Duası";
+"dua_condition_trans" = "Ey Allah’ım! Eğer beni bir şey engellerse, ihramdan çıkışım burada olsun.";
+"dua_condition_translit" = "Allahumma mahilli haysu habastani";
+
+
+"dua_allahu_akbar_title" = "Tekbir (Tavaf)";
+"dua_allahu_akbar_trans" = "Allah en büyüktür!";
+"dua_allahu_akbar_translit" = "Allahu Akbar";
+
+
+"dua_rabbana_title" = "Köşeler Arası Dua";
+"dua_rabbana_trans" = "Rabbimiz! Bize dünyada iyilik ver, ahirette de iyilik ver ve bizi ateşin azabından koru!";
+"dua_rabbana_translit" = "Rabbana, atina fid-dunya hasanatan wa fil-akhiroti hasanatan wa qina azaba-n-nar";
+
+
+"dua_maqam_ibrahim_title" = "Makam-ı İbrahim Ayeti";
+"dua_maqam_ibrahim_trans" = "Ve İbrahim’in makamını namaz yeri edinin (Bakara Suresi, 125. ayet).";
+"dua_maqam_ibrahim_translit" = "Wa-ttahizu mim-maqomi Ibrohima musollya.";
+
+
+"dua_safa_ayah_title" = "Safa ve Merve Ayeti";
+"dua_safa_ayah_trans" = "Şüphesiz ki Safa ve Merve, Allah’ın sembollerindendir. Bu nedenle, kim Beytullah’a hac veya umre için gelirse, onların arasında yürüyerek geçmesinde kendisine bir günah yoktur. Kim gönülden bir iyilik yaparsa, şüphesiz Allah, şükrün karşılığını verendir, bilendir. (Bakara Suresi, 158. Ayet).";
+"dua_safa_ayah_translit" = "Inna Ssofaa wal-Marwata min sha’aaa’iril laah, faman hajjal Baita awi’tamaro falaa junaaha ‘alaihi ayyatt´owwafa bihimaa, wa man tat´owwa’a hoyron fa-inna-LLAha Shakirun ´alim.";
+
+
+"dua_nabdau_title" = "Biz Allah’ın Başladığı ile Başlıyoruz";
+"dua_nabdau_trans" = "Biz, Allah’ın başladığı ile başlıyoruz.";
+"dua_nabdau_translit" = "Nabdau bima badaa-Llahu bihi";
+
+
+"dua_zikr_safa_title" = "Safa ve Merve Zikri";
+"dua_zikr_safa_trans" = "Allah en büyüktür! Allah en büyüktür! Allah en büyüktür! Allah’tan başka ilah yoktur, O tektir ve O’nun ortağı yoktur! Mülk O’nundur, hamd O’na aittir. O, diriltir ve öldürür. O, her şeye kadirdir! Allah’tan başka ilah yoktur, O tektir ve O’nun ortağı yoktur! O, vaadini yerine getirdi, kuluna yardım etti ve düşman birliklerini tek başına mağlup etti.";
+"dua_zikr_safa_translit" = "Allahu Akbar! Allahu Akbar! Allahu Akbar! La ilaha illa-Llahu wahdahu la sharika lahu. Lahul mulku wa lahul hamdu yuhyi wa yumitu wa huwa 'ala kulli shay'in qodir. La ilaha illa-Llahu wahdahu la sharika lah, anjaza wa'dahu, wa nasaro 'abdahu, wa hazamal ahzaba wahdahu.";
+
+
+"dua_rabbi_ighfir_title" = "Sa'y Sırasında Dua";
+"dua_rabbi_ighfir_trans" = "Ey Rabbim! Beni bağışla ve merhamet et! Şüphesiz Sen, en yüce ve en cömert olansın!";
+"dua_rabbi_ighfir_translit" = "Rabbi-ghfir wa rham, innaka anta a´azzul-akram";
+
+
+"dua_masjid_exit_title" = "Mescidden Çıkış Duası";
+"dua_masjid_exit_trans" = "Ey Allah’ım! Muhammed’e salât ve selam eyle! Ey Allah’ım! Şüphesiz, Senin lütfunu diliyorum!";
+"dua_masjid_exit_translit" = "Allahumma solli 'ala Muhammadin wa sallim! Allahumma, inni as'aluka min fadlika!";
+
+/* Dua Kitabı — Hac Duaları (yalnızca başlıklar) */
+"dua_niyyah_hajj_title" = "Hac Niyeti";
+"dua_niyyah_hajj_trans" = "Buyur, ey Allah’ım, huzurundayım, [hac yapmak üzere].";
+"dua_ihram_hajj_title" = "İhram Duası (Hac)";
+"dua_arafat_title" = "Arafat Duası";

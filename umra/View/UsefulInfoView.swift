@@ -7,14 +7,17 @@
 
 import SwiftUI
 
+private let usefulInfoAccentGreen = Color(red: 0.063, green: 0.725, blue: 0.506)
 
 // MARK: - UsefulInfoView
 struct UsefulInfoView: View {
     @State private var isInfoPresented = false
+    @State private var chapters: [Chapter] = []
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
-    
-    var chapters: [Chapter] {
+    @Environment(FontManager.self) private var fontManager
+
+    private func buildChapters() -> [Chapter] {
         [
             Chapter(title: "etiquette_manners".localized(bundle: localizationManager.bundle),
                     subChapters: [
@@ -39,6 +42,8 @@ struct UsefulInfoView: View {
                         SubChapter(title: "umrah_obligation_evidence".localized(bundle: localizationManager.bundle), content: HajjUmrahObligation.evidenceUmrahObligation(bundle: localizationManager.bundle)),
                         SubChapter(title: "conclusion".localized(bundle: localizationManager.bundle), content: HajjUmrahObligation.concludingEvidence(bundle: localizationManager.bundle)),
                     ]),
+            Chapter(title: "sunnahs_safar".localized(bundle: localizationManager.bundle),
+                    subChapters: []),
             Chapter(title: "title_janaza_guide".localized(bundle: localizationManager.bundle),
                     subChapters: [
                         SubChapter(title: "basic_rules".localized(bundle: localizationManager.bundle),
@@ -47,29 +52,50 @@ struct UsefulInfoView: View {
         ]
     }
     
+    private var listPadding: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16
+    }
+
+    private var listCardCornerRadius: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 28 : 24
+    }
+    
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    ForEach(chapters) { chapter in
+                    ForEach(Array(chapters.enumerated()), id: \.element.id) { idx, chapter in
                         NavigationLink(value: chapter) {
                             HStack {
                                 Text(chapter.title)
-                                    .font(.system(size: getDynamicFontSize()))
+                                    .font(fontManager.bodyFont)
                                     .foregroundStyle(themeManager.selectedTheme.textColor)
                                 Spacer()
                                 Image(systemName: "chevron.right")
-                                    .foregroundStyle(.blue)
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
                             }
-                            .customListItemStyle(theme: themeManager.selectedTheme)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .contentShape(Rectangle())
+                            .padding(.horizontal, listPadding)
+                            .padding(.vertical, 16)
                         }
-                        .buttonStyle(PlainButtonStyle())
-                        Divider()
+                        .buttonStyle(.plain)
+
+                        if idx < chapters.count - 1 {
+                            Divider()
+                                .background(themeManager.selectedTheme.textColor.opacity(0.10))
+                                .padding(.horizontal, listPadding)
+                        }
                     }
                 }
+                .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: listCardCornerRadius)
+                .padding(.horizontal, listPadding)
+                .padding(.top, 8)
+                .padding(.bottom, 32)
             }
             
             VStack {
@@ -83,17 +109,19 @@ struct UsefulInfoView: View {
                             .resizable()
                             .frame(width: 40, height: 40)
                             .padding()
-                            .foregroundColor(.blue)
+                            .foregroundStyle(usefulInfoAccentGreen)
                     }
+                    .accessibilityLabel(Text("info_button_label", bundle: localizationManager.bundle))
                     .popover(isPresented: $isInfoPresented, attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
-                        VStack {
+                        ScrollView {
                             Text("soon_available_text".localized(bundle: localizationManager.bundle))
                                 .font(.body)
-                                .padding()
                                 .multilineTextAlignment(.center)
-                                .frame(width: 350, height: 150)
+                                .padding()
+                                .frame(width: 280)
+                                .fixedSize(horizontal: true, vertical: true)
                         }
-                        .frame(width: 350, height: 200)
+                        .frame(maxHeight: 300)
                         .presentationCompactAdaptation(.popover)
                     }
                 }
@@ -102,11 +130,19 @@ struct UsefulInfoView: View {
         .navigationTitle("useful_info_title".localized(bundle: localizationManager.bundle))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
+        .onAppear {
+            if chapters.isEmpty { chapters = buildChapters() }
+        }
+        .onChange(of: localizationManager.currentLanguage) { _, _ in
+            chapters = buildChapters()
+        }
     }
 }
 
 
 struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
+    var accentColor: Color = Color(red: 0.063, green: 0.725, blue: 0.506)
+    
     func makeBody(configuration: Configuration) -> some View {
         VStack(alignment: .leading) {
             Button(action: {
@@ -118,10 +154,11 @@ struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
                     configuration.label
                     Spacer()
                     Image(systemName: "chevron.down")
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(accentColor)
                         .rotationEffect(.degrees(configuration.isExpanded ? 180 : 0))
                 }
             }
+            .buttonStyle(.plain)
             if configuration.isExpanded {
                 configuration.content
             }
@@ -132,14 +169,17 @@ struct CustomDisclosureGroupStyle: DisclosureGroupStyle {
 struct JanazaView: View {
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     @State private var isDuaExpanded = false
     @State private var isSecondTakbirExpanded = false
     @State private var isThirdTakbirExpanded = false
 
+    private let contentPadding: CGFloat = 20
+
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
@@ -155,7 +195,7 @@ struct JanazaView: View {
                         Divider()
                         Text(JanazaPrayerGuide.secondTakbirTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
-                        Text(JanazaPrayerGuide.secondTakbirText(bundle: localizationManager.bundle))
+                        MixedArabicContentView(text: JanazaPrayerGuide.secondTakbirText(bundle: localizationManager.bundle))
                             .padding(.bottom)
                         DisclosureGroup(
                             isExpanded: $isDuaExpanded,
@@ -164,11 +204,13 @@ struct JanazaView: View {
                                     .padding(.vertical)
                             },
                             label: {
-                                Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
-                                    .foregroundStyle(.blue)
+                                Text("translate_text", bundle: localizationManager.bundle)
+                                    .font(fontManager.bodyFont)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(usefulInfoAccentGreen)
                             }
                         )
-                        .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentGreen))
                     }
 
                     Divider()
@@ -176,9 +218,9 @@ struct JanazaView: View {
                     Group {
                         Text(JanazaPrayerGuide.thirdTakbirTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
-                        Text(JanazaPrayerGuide.thirdTakbirText(bundle: localizationManager.bundle))
+                        MixedArabicContentView(text: JanazaPrayerGuide.thirdTakbirText(bundle: localizationManager.bundle))
                             .padding(.bottom)
-                        
+
                         DisclosureGroup(
                             isExpanded: $isThirdTakbirExpanded,
                             content: {
@@ -186,11 +228,13 @@ struct JanazaView: View {
                                     .padding(.vertical)
                             },
                             label: {
-                                Text("translate_text", bundle: localizationManager.bundle)            .font(.headline)
-                                    .foregroundStyle(.blue)
+                                Text("translate_text", bundle: localizationManager.bundle)
+                                    .font(fontManager.bodyFont)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(usefulInfoAccentGreen)
                             }
                         )
-                        .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                        .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentGreen))
                     }
 
                     Divider()
@@ -205,26 +249,31 @@ struct JanazaView: View {
                         Text(JanazaPrayerGuide.taslimTitle(bundle: localizationManager.bundle))
                             .fontWeight(.bold)
                         Text(JanazaPrayerGuide.taslimText(bundle: localizationManager.bundle))
+                            .font(fontManager.bodyFont)
                     }
                     Divider()
-                    
+
                     DisclosureGroup(
                         isExpanded: $isSecondTakbirExpanded,
                         content: {
                             Text(JanazaPrayerGuide.duaVariationsText(bundle: localizationManager.bundle))
+                                .font(fontManager.bodyFont)
                                 .padding(.vertical)
                         },
                         label: {
                             Text(JanazaPrayerGuide.duaVariationsTitle(bundle: localizationManager.bundle))
-                                .fontWeight(.bold)
+                                .font(fontManager.bodyFont)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(usefulInfoAccentGreen)
                         }
                     )
-                    .disclosureGroupStyle(CustomDisclosureGroupStyle())
+                    .disclosureGroupStyle(CustomDisclosureGroupStyle(accentColor: usefulInfoAccentGreen))
                 }
-                .padding()
-                .font(.system(size: getDynamicFontSize()))
+                .padding(contentPadding)
+                .font(fontManager.bodyFont)
                 .foregroundStyle(themeManager.selectedTheme.textColor)
                 .textSelection(.enabled)
+                .padding(.bottom, 32)
             }
             .navigationTitle(JanazaPrayerGuide.title(bundle: localizationManager.bundle))
             .toolbar(.hidden, for: .tabBar)
@@ -236,30 +285,52 @@ struct ChapterDetailView: View {
     let chapter: Chapter
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
+    
+    private var listPadding: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 20 : 16
+    }
+
+    private var listCardCornerRadius: CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 28 : 24
+    }
     
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    ForEach(chapter.subChapters) { subChapter in
+                    ForEach(Array(chapter.subChapters.enumerated()), id: \.element.id) { idx, subChapter in
                         NavigationLink(value: subChapter) {
                             HStack {
                                 Text(subChapter.title)
-                                    .font(.system(size: getDynamicFontSize()))
+                                    .font(fontManager.bodyFont)
                                     .foregroundStyle(themeManager.selectedTheme.textColor)
                                     .textSelection(.enabled)
                                 Spacer()
                                 Image(systemName: "chevron.right")
-                                    .foregroundStyle(.blue)
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(themeManager.selectedTheme.textColor.opacity(0.25))
                             }
-                            .customListItemStyle(theme: themeManager.selectedTheme)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .contentShape(Rectangle())
+                            .padding(.horizontal, listPadding)
+                            .padding(.vertical, 16)
                         }
-                        .buttonStyle(PlainButtonStyle())
-                        Divider()
+                        .buttonStyle(.plain)
+
+                        if idx < chapter.subChapters.count - 1 {
+                            Divider()
+                                .background(themeManager.selectedTheme.textColor.opacity(0.10))
+                                .padding(.horizontal, listPadding)
+                        }
                     }
                 }
+                .standardCardFrame(theme: themeManager.selectedTheme, cornerRadius: listCardCornerRadius)
+                .padding(.horizontal, listPadding)
+                .padding(.top, 8)
+                .padding(.bottom, 32)
             }
         }
         .navigationTitle(chapter.title)
@@ -267,21 +338,215 @@ struct ChapterDetailView: View {
     }
 }
 
+// MARK: - Formatted content (заголовки зелёные и жирные, цитаты «...» жирные)
+private struct FormattedContentBlock {
+    enum Style {
+        case heading(String)
+        case body(String)
+    }
+    let style: Style
+}
+
+private func parseFormattedContent(_ content: String) -> [FormattedContentBlock] {
+    let blocks = content.components(separatedBy: "\n\n")
+    var result: [FormattedContentBlock] = []
+    let headingPattern = try? NSRegularExpression(pattern: "^\\d+\\)", options: [])
+    
+    for block in blocks {
+        let trimmed = block.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { continue }
+        let lines = trimmed.components(separatedBy: "\n")
+        let firstLine = lines.first ?? trimmed
+        
+        let isHeading = headingPattern?.firstMatch(in: firstLine, range: NSRange(firstLine.startIndex..., in: firstLine)) != nil
+        if isHeading && !lines.isEmpty {
+            result.append(FormattedContentBlock(style: .heading(firstLine)))
+            let rest = lines.dropFirst()
+            if !rest.isEmpty {
+                result.append(FormattedContentBlock(style: .body(rest.joined(separator: "\n"))))
+            }
+        } else {
+            result.append(FormattedContentBlock(style: .body(trimmed)))
+        }
+    }
+    return result
+}
+
+private func containsArabic(_ string: String) -> Bool {
+    string.unicodeScalars.contains { scalar in
+        (0x0600...0x06FF).contains(scalar.value) || (0x0750...0x077F).contains(scalar.value)
+    }
+}
+
+private func isLongArabicText(_ text: String) -> Bool {
+    guard containsArabic(text) else { return false }
+    // Must be predominantly Arabic (>70% of non-whitespace chars)
+    let nonWhitespace = text.unicodeScalars.filter { !CharacterSet.whitespaces.contains($0) }
+    guard !nonWhitespace.isEmpty else { return false }
+    let arabicCharCount = nonWhitespace.filter {
+        (0x0600...0x06FF).contains($0.value) || (0x0750...0x077F).contains($0.value)
+    }.count
+    guard Double(arabicCharCount) / Double(nonWhitespace.count) > 0.70 else { return false }
+    // Must have more than 3 Arabic words
+    let arabicWordCount = text.components(separatedBy: .whitespaces)
+        .filter { containsArabic($0) }
+        .count
+    return arabicWordCount > 3
+}
+
+@MainActor @ViewBuilder
+private func bodyParagraphView(paragraph: String, textColor: Color, fontManager: FontManager) -> some View {
+    let lines = paragraph.components(separatedBy: "\n")
+    VStack(alignment: .leading, spacing: 6) {
+        ForEach(Array(lines.enumerated()), id: \.offset) { _, line in
+            if isLongArabicText(line) {
+                Text(line)
+                    .customTextforArabic()
+            } else {
+                let lineContent = textWithBoldQuotes(line, textColor: textColor, fontManager: fontManager)
+                    .font(containsArabic(line) ? .custom("KFGQPC Uthman Taha Naskh", size: fontManager.dynamicFontSize, relativeTo: .body) : fontManager.bodyFont)
+                    .textSelection(.enabled)
+                    .fixedSize(horizontal: false, vertical: true)
+                if containsArabic(line) {
+                    lineContent
+                        .padding(.vertical, 10)
+                } else {
+                    lineContent
+                }
+            }
+        }
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
+}
+
+@MainActor
+private func textWithBoldQuotes(_ paragraph: String, textColor: Color, fontManager: FontManager) -> Text {
+    let parts = paragraph.components(separatedBy: "«")
+    var result = Text(verbatim: "")
+    for (index, part) in parts.enumerated() {
+        if index == 0 {
+            result = result + Text(verbatim: part).foregroundStyle(textColor)
+            continue
+        }
+        let subParts = part.components(separatedBy: "»")
+        if subParts.count >= 2 {
+            result = result + Text(verbatim: "«\(subParts[0])»")
+                .foregroundStyle(textColor)
+                .font(fontManager.bodyFont.weight(.semibold))
+            result = result + Text(verbatim: subParts.dropFirst().joined(separator: "»"))
+                .foregroundStyle(textColor)
+        } else {
+            result = result + Text(verbatim: "«\(part)")
+                .foregroundStyle(textColor)
+        }
+    }
+    return result
+}
+
+private struct FormattedContentView: View {
+    let content: String
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(FontManager.self) private var fontManager
+    
+    private var headingColor: Color {
+        themeManager.selectedTheme.textColor
+    }
+    
+    var body: some View {
+        let blocks = parseFormattedContent(content)
+        let textColor = themeManager.selectedTheme.textColor
+
+        VStack(alignment: .leading, spacing: 14) {
+            ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
+                switch block.style {
+                case FormattedContentBlock.Style.heading(let text):
+                    Text(text)
+                        .font(AppConstants.isIPad ? fontManager.sectionTitleFont : .headline)
+                        .foregroundStyle(headingColor)
+                        .textSelection(.enabled)
+                        .fixedSize(horizontal: false, vertical: true)
+                case FormattedContentBlock.Style.body(let paragraph):
+                    bodyParagraphView(paragraph: paragraph, textColor: textColor, fontManager: fontManager)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+private struct MixedArabicContentView: View {
+    let text: String
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(FontManager.self) private var fontManager
+
+    var body: some View {
+        let blocks = text.components(separatedBy: "\n\n")
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+        let textColor = themeManager.selectedTheme.textColor
+
+        VStack(alignment: .leading, spacing: 12) {
+            ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
+                bodyParagraphView(paragraph: block, textColor: textColor, fontManager: fontManager)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+/// Контент раздела «Путешествие» — текст сразу внутри раздела, без подглавы
+struct JourneyContentView: View {
+    let chapter: Chapter
+    @Environment(ThemeManager.self) private var themeManager
+    @Environment(LocalizationManager.self) private var localizationManager
+    
+    private let contentPadding: CGFloat = 20
+
+    var body: some View {
+        ZStack {
+            themeManager.selectedTheme.backgroundColor
+                .ignoresSafeArea()
+            ScrollView {
+                FormattedContentView(content: SafarSunnahs.content(bundle: localizationManager.bundle))
+                    .padding(contentPadding)
+                    .padding(.bottom, 32)
+            }
+            .navigationTitle(chapter.title)
+            .toolbar(.hidden, for: .tabBar)
+        }
+    }
+}
+
 struct SubChapterDetailView: View {
     let subChapter: SubChapter
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     
+    private var useFormattedContent: Bool {
+        subChapter.content.contains("1) ") || subChapter.content.hasPrefix("1)")
+    }
+    
+    private let contentPadding: CGFloat = 20
+
     var body: some View {
         ZStack {
             themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
+                .ignoresSafeArea()
             ScrollView {
-                Text(subChapter.content)
-                    .font(.system(size: getDynamicFontSize()))
-                    .foregroundStyle(themeManager.selectedTheme.textColor)
-                    .padding()
-                    .textSelection(.enabled)
+                Group {
+                    if useFormattedContent {
+                        FormattedContentView(content: subChapter.content)
+                    } else {
+                        Text(subChapter.content)
+                            .font(fontManager.bodyFont)
+                            .foregroundStyle(themeManager.selectedTheme.textColor)
+                            .textSelection(.enabled)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(contentPadding)
+                .padding(.bottom, 32)
             }
             .navigationTitle(subChapter.title)
             .toolbar(.hidden, for: .tabBar)
@@ -289,9 +554,6 @@ struct SubChapterDetailView: View {
     }
 }
 
-func getDynamicFontSize(forPad: CGFloat = 30, forPhone: CGFloat = 20) -> CGFloat {
-    UIDevice.current.userInterfaceIdiom == .pad ? forPad : forPhone
-}
 
 struct Chapter: Identifiable, Hashable, Sendable {
     let id = UUID()
@@ -330,25 +592,6 @@ extension View {
         self
             .padding()
             .frame(maxWidth: .infinity)
-            .background(
-                ZStack {
-                    theme.primaryColor.opacity(0.1)
-                    
-                    Rectangle()
-                        .foregroundColor(.white)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    Rectangle()
-                        .fill(LinearGradient(gradient: Gradient(colors: [theme.gradientTopColor, theme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomLeading))
-                })
-            .overlay(
-                // Профессиональная темная обводка для лучшего разделения
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.black.opacity(0.1), lineWidth: 1)
-            )
-            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
-            .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 1)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .standardCardFrame(theme: theme, cornerRadius: 8)
     }
 }

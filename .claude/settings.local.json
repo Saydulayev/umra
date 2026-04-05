@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/saydulayev/.claude/skills/**)",
+      "Read(//Users/saydulayev/.agents/skills/swiftui-pro/**)",
+      "Bash(rm -rf ~/.claude/skills/swiftui-pro)",
+      "Bash(rm -rf ~/Library/Developer/Xcode/CodingAssistant/ClaudeAgentConfig/skills/swiftui-pro)",
+      "Bash(rm -rf ~/.agents/skills/swiftui-pro)",
+      "Bash(mkdir -p ~/Library/Developer/Xcode/CodingAssistant/ClaudeAgentConfig/skills)",
+      "Bash(cp -r /tmp/swiftui-agent-skill/swiftui-pro ~/Library/Developer/Xcode/CodingAssistant/ClaudeAgentConfig/skills/)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i '' 's/\\\\.navigationBarTrailing/.topBarTrailing/g' \"$f\")",
+      "Bash(sed -i '' 's/\\\\.foregroundColor\\(\\\\.primary\\)/.foregroundStyle\\(.primary\\)/g' \"$f\")",
+      "Bash(echo \"Done: $f\")",
+      "Bash(done)",
+      "Bash(cd:*)",
+      "Bash(for file:*)",
+      "Bash(echo \"=== $file ===\")",
+      "Read(//Users/saydulayev/Desktop/for GitHub/umra/**)",
+      "Bash(python3:*)",
+      "Bash(xcodebuild -project umra.xcodeproj -scheme umra -configuration Debug -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build)",
+      "Bash(find '/Users/saydulayev/Desktop/for GitHub/umra' -name *anaza* -type f)"
+    ]
+  }
+}

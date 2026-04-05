@@ -98,34 +98,44 @@ struct PlayerView: View {
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "PlayerView")
 
     // MARK: - UI Helpers
-    
-    // Цвет тени - всегда как в темной теме, независимо от системной темы
-    private func adaptiveShadowColor(intensity: Double = 0.5) -> Color {
-        let clamped = min(max(intensity, 0.0), 1.0)
-        // Всегда используем прозрачность как в темной теме (0.55)
-        return Color.black.opacity(clamped * 0.55)
+
+    private var playerControlSize: CGFloat { 70 }
+
+    private var activeControlBorderColor: Color {
+        themeManager.selectedTheme.activeButtonColor.opacity(themeManager.selectedTheme.isDarkAppearance ? 0.5 : 0.35)
+    }
+
+    private func playerControl<Content: View>(
+        isActive: Bool,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        content()
+            .foregroundStyle(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
+            .frame(width: playerControlSize, height: playerControlSize)
+            .standardCircularCardFrame(
+                theme: themeManager.selectedTheme,
+                borderWidth: isActive ? 1.5 : 1,
+                borderColor: isActive ? activeControlBorderColor : nil,
+                shadowRadius: 16,
+                shadowYOffset: 8
+            )
     }
 
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                controlButton(imageName: "repeat",
-                              isActive: self.isRepeating,
-                              backgroundColors: [.red, .gray]) {
+                playerButton(imageName: "repeat", accessibilityLabel: "Repeat", isActive: isRepeating) {
                     self.isRepeating.toggle()
                     self.audioPlayer?.numberOfLoops = self.isRepeating ? -1 : 0
                 }
 
-                controlButton(imageName: self.isPlaying ? "pause.fill" : "play.fill",
-                              isActive: self.isPlaying,
-                              backgroundColors: [.green, .gray]) {
+                playerButton(imageName: isPlaying ? "pause.fill" : "play.fill", accessibilityLabel: isPlaying ? "Pause" : "Play", isActive: isPlaying) {
                     if let player = self.audioPlayer {
                         if player.isPlaying {
                             player.pause()
                             self.isPlaying = false
                         } else {
-                            // Гарантируем старт на выбранной скорости
                             player.enableRate = true
                             player.rate = playbackRate
                             audioManager.play(audioPlayer: player)
@@ -134,9 +144,7 @@ struct PlayerView: View {
                     }
                 }
 
-                controlButtonWithText(text: "\(playbackRate)x",
-                                      isActive: playbackRate > 1.0,
-                                      backgroundColors: [.blue, .gray]) {
+                playerButtonWithText(text: "\(playbackRate)x", isActive: playbackRate > 1.0) {
                     cyclePlaybackRate()
                 }
 
@@ -157,6 +165,7 @@ struct PlayerView: View {
             )
         }
         .padding()
+        .frame(maxWidth: .infinity)
         .onAppear {
             coordinator.onFinishPlaying = {
                 self.isPlaying = false
@@ -173,65 +182,29 @@ struct PlayerView: View {
 
     // MARK: - UI Components
     
-    func controlButton(imageName: String, isActive: Bool, backgroundColors: [Color], action: @escaping () -> Void) -> some View {
-        Button(action: {
-            action()
-        }) {
-            Image(systemName: imageName)
-                .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
-                .font(.system(size: 16, weight: .bold))
-                .frame(width: 70, height: 70)
-                .background(
-                    ZStack {
-                        themeManager.selectedTheme.primaryColor.opacity(0.2)
-
-                        Circle()
-                            .foregroundColor(.white)
-                            .blur(radius: 4)
-                            .offset(x: -8, y: -8)
-
-                        Circle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .padding(2)
-                    }
-                    .clipShape(Circle())
-                    .compositingGroup()
-                    .shadow(color: adaptiveShadowColor(intensity: 0.5), radius: 20, x: 20, y: 20)
-                )
+    private func playerButton(imageName: String, accessibilityLabel: String, isActive: Bool, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            playerControl(isActive: isActive) {
+                Image(systemName: imageName)
+                    .font(.body.weight(.bold))
+            }
         }
+        .accessibilityLabel(accessibilityLabel)
         .padding()
     }
 
-    func controlButtonWithText(text: String, isActive: Bool, backgroundColors: [Color], action: @escaping () -> Void) -> some View {
-        Button(action: {
+    private func playerButtonWithText(text: String, isActive: Bool, action: @escaping () -> Void) -> some View {
+        Button {
             action()
-            let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
-            impactFeedbackGenerator.impactOccurred()
-        }) {
-            Text(text)
-                .foregroundColor(isActive ? themeManager.selectedTheme.activeButtonColor : themeManager.selectedTheme.textColor)
-                .font(.system(size: 16, weight: .bold))
-                .lineLimit(1)
-                .minimumScaleFactor(0.5)
-                .frame(width: 70, height: 70)
-                .background(
-                    ZStack {
-                        themeManager.selectedTheme.primaryColor.opacity(0.2)
-
-                        Circle()
-                            .foregroundColor(.white)
-                            .blur(radius: 4)
-                            .offset(x: -8, y: -8)
-
-                        Circle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [themeManager.selectedTheme.gradientTopColor, themeManager.selectedTheme.gradientBottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .padding(2)
-                    }
-                    .clipShape(Circle())
-                    .compositingGroup()
-                    .shadow(color: adaptiveShadowColor(intensity: 0.5), radius: 20, x: 20, y: 20)
-                )
+        } label: {
+            playerControl(isActive: isActive) {
+                Text(text)
+                    .font(.caption.weight(.bold))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+            }
         }
+        .sensoryFeedback(.impact(weight: .medium), trigger: playbackRate)
         .padding()
     }
 

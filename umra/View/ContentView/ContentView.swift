@@ -8,25 +8,13 @@
 import SwiftUI
 
 enum UmraStep: Hashable, Sendable {
-    case step1
-    case step2
-    case step3
-    case step4
-    case step5
-    case step6
-    case step7
-    case useful
+    case step1, step2, step3, step4, step5, step6, step7, useful
 }
 
 enum AppDestination: Hashable, Sendable {
     case settings
-}
-
-struct StepItem: Identifiable {
-    let id: Int
-    let imageName: String
-    let step: UmraStep
-    let titleKey: String
+    case prayerTimes
+    case duaBook
 }
 
 struct ContentView: View {
@@ -35,128 +23,75 @@ struct ContentView: View {
     @Environment(UserPreferences.self) private var userPreferences
     @Environment(FontManager.self) private var fontManager
     @Environment(PurchaseManager.self) private var purchaseManager
-    @State private var showPrayerTimes = false
+    @Environment(BackgroundTaskManager.self) private var backgroundTaskManager
+    @Environment(AudioManager.self) private var audioManager
     @State private var navigationPath = NavigationPath()
-    @State private var stepImageDescriptions: [String: String] = [
-        "img1": "title_ihram_screen",
-        "img2": "title_round_kaaba_screen",
-        "img3": "title_place_ibrohim_stand_screen",
-        "img4": "title_water_zamzam_screen",
-        "img5": "title_black_stone_screen",
-        "img6": "title_safa_and_marva_screen",
-        "img7": "title_shave_head_screen",
-        "img8": "Useful"
+
+    private let steps: [GuideStepItem] = [
+        GuideStepItem(id: 0, badgeText: "IHRAM",          titleKey: "title_ihram_screen"),
+        GuideStepItem(id: 1, badgeText: "TAWAF",          titleKey: "title_round_kaaba_screen"),
+        GuideStepItem(id: 2, badgeText: "MAQAM\nIBRAHIM", titleKey: "title_place_ibrohim_stand_screen"),
+        GuideStepItem(id: 3, badgeText: "ZAMZAM",         titleKey: "title_water_zamzam_screen"),
+        GuideStepItem(id: 4, badgeText: "ISTILAM",        titleKey: "title_black_stone_screen"),
+        GuideStepItem(id: 5, badgeText: "SA'I",           titleKey: "title_safa_and_marva_screen"),
+        GuideStepItem(id: 6, badgeText: "HALQ\nTAQSIR",  titleKey: "title_shave_head_screen"),
+        GuideStepItem(id: 7, badgeText: "INFO",           titleKey: "Useful", showStepNumber: false, symbolName: "info.circle.fill"),
     ]
-    @State private var usageTime: TimeInterval = 0
-    @State private var usageTimerTask: Task<Void, Never>?
-    @Environment(\.requestReview) var requestReview
-    
-    private let steps: [StepItem] = [
-        StepItem(id: 0, imageName: "img1", step: .step1, titleKey: "title_ihram_screen"),
-        StepItem(id: 1, imageName: "img2", step: .step2, titleKey: "title_round_kaaba_screen"),
-        StepItem(id: 2, imageName: "img3", step: .step3, titleKey: "title_place_ibrohim_stand_screen"),
-        StepItem(id: 3, imageName: "img4", step: .step4, titleKey: "title_water_zamzam_screen"),
-        StepItem(id: 4, imageName: "img5", step: .step5, titleKey: "title_black_stone_screen"),
-        StepItem(id: 5, imageName: "img6", step: .step6, titleKey: "title_safa_and_marva_screen"),
-        StepItem(id: 6, imageName: "img7", step: .step7, titleKey: "title_shave_head_screen"),
-        StepItem(id: 7, imageName: "img8", step: .useful, titleKey: "Useful")
-    ]
-    
-    // MARK: - Navigation
-    
-    /// Явно передаём environment в экраны шагов, чтобы избежать краша EnvironmentValues.subscript.getter
-    /// при навигации (особенно на iOS 18+ и в App Store сборках).
-    @ViewBuilder
-    private func destinationView(for step: UmraStep) -> some View {
-        stepView(for: step)
-            .environment(themeManager)
-            .environment(localizationManager)
-            .environment(userPreferences)
-            .environment(fontManager)
-            .environment(purchaseManager)
+
+    private let umraNavigation: [UmraStep] = [.step1, .step2, .step3, .step4, .step5, .step6, .step7, .useful]
+
+    private var numberedSteps: [GuideStepItem] {
+        steps.filter { $0.showStepNumber }
     }
 
+    // MARK: - Navigation
+
     @ViewBuilder
-    private func stepView(for step: UmraStep) -> some View {
-        switch step {
-        case .step1:
-            Step1()
-        case .step2:
-            Step2()
-        case .step3:
-            Step3()
-        case .step4:
-            Step4()
-        case .step5:
-            Step5()
-        case .step6:
-            Step6()
-        case .step7:
-            Step7()
-        case .useful:
-            UsefulInfoView()
+    private func destinationView(for step: UmraStep) -> some View {
+        Group {
+            if step == .useful {
+                UsefulInfoView()
+            } else {
+                UmrahPageView(startingAt: step)
+            }
         }
+        .environment(themeManager)
+        .environment(localizationManager)
+        .environment(userPreferences)
+        .environment(fontManager)
+        .environment(purchaseManager)
+        .environment(audioManager)
     }
-    
+
     // MARK: - Computed Properties
-    
-    /// Вычисляемое свойство для определения устройства iPad
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
-    
-    /// Динамический размер шрифта для сетки (только для iPhone)
-    private var dynamicFontSize: CGFloat {
-        10
-    }
-    
-    /// Spacing для сетки (только для iPhone)
-    private var gridSpacing: CGFloat {
-        20
-    }
-    
-    /// Адаптивный spacing для списка
-    private var listSpacing: CGFloat {
-        isIPad ? 12 : 8
-    }
-    
-    /// Адаптивный padding для списка
-    private var listPadding: CGFloat {
-        isIPad ? 16 : 8
-    }
-    
+
+    private var listPadding: CGFloat { AppConstants.isIPad ? 20 : 16 }
+    private var listCardCornerRadius: CGFloat { AppConstants.isIPad ? 28 : 24 }
+
     // MARK: - Body
-    
+
     var body: some View {
         mainContentView
-            .onAppear(perform: startTimer)
-            .onDisappear(perform: stopTimer)
+            .reviewTimer()
             .onChange(of: navigationPath.count) { oldValue, newValue in
-                // Если путь навигации пуст, значит мы вернулись на главный экран
                 if newValue == 0 && oldValue > 0 {
-                    // Сбрасываем путь навигации при возврате на главный экран
                     navigationPath = NavigationPath()
                 }
             }
     }
 
-    
-    /// Основное содержимое экрана
     private var mainContentView: some View {
         NavigationStack(path: $navigationPath) {
             ZStack {
-                // Применяем тему к фону, но сохраняем оригинальный вид
                 themeManager.selectedTheme.backgroundColor
-                    .ignoresSafeArea(edges: .bottom)
-                
+                    .ignoresSafeArea()
                 ScrollView {
                     content
                         .padding(.vertical, 8)
                 }
                 .scrollIndicators(.hidden)
-                LanguageView().hidden()
             }
-            .navigationBarTitle(Text("main_screen_name_string", bundle: localizationManager.bundle), displayMode: .inline)
+            .guideNavigation()
             .navigationDestination(for: UmraStep.self) { step in
                 destinationView(for: step)
             }
@@ -170,224 +105,87 @@ struct ContentView: View {
                     .environment(themeManager)
                     .environment(localizationManager)
             }
-            .navigationDestination(for: AppDestination.self) { destination in
-                switch destination {
-                case .settings:
-                    SettingsView()
-                        .environment(themeManager)
-                        .environment(localizationManager)
-                }
-            }
-            .toolbar {
-                if !isIPad {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        gridToggleButton
-                    }
-                }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: { showPrayerTimes = true }) {
-                        Image(systemName: "clock")
-                            .imageScale(.large)
-                            .foregroundColor(.primary)
-                    }
-                    NavigationLink(value: AppDestination.settings) {
-                        Image(systemName: "gearshape")
-                            .imageScale(.large)
-                            .foregroundColor(.primary)
-                    }
-                }
-            }
-                .fullScreenCover(isPresented: $showPrayerTimes) {
-                    PrayerTimeModalView(isPresented: $showPrayerTimes)
-                        .environment(themeManager)
-                        .environment(localizationManager)
-                }
         }
     }
-    
-    /// Кнопка для переключения между списком и сеткой (не отображается на iPad)
-    private var gridToggleButton: some View {
-        Button(action: { userPreferences.isGridView.toggle() }) {
-            Image(systemName: userPreferences.isGridView ? "list.bullet" : "square.grid.2x2")
-                .imageScale(.large)
-                .foregroundColor(.primary)
-        }
-    }
-    
+
     // MARK: - View Builders
-    
-    /// Отображение контента в виде сетки или списка
+
     @ViewBuilder
     private var content: some View {
-        // На iPad всегда используем режим списка, на iPhone - в зависимости от настройки
-        if !isIPad && userPreferences.isGridView {
-            LazyVGrid(columns: gridColumns, spacing: gridSpacing) {
-                stepsView(showIndex: true, fontSize: dynamicFontSize)
-            }
-            .padding(.horizontal, 16)
-        } else {
-            LazyVStack(spacing: listSpacing) {
-                ForEach(steps) { stepItem in
+        VStack(spacing: 0) {
+            stepsHeader
+
+            VStack(spacing: 0) {
+                ForEach(Array(numberedSteps.enumerated()), id: \.element.id) { idx, stepItem in
                     Button {
-                        navigationPath.append(stepItem.step)
+                        navigationPath.append(umraNavigation[stepItem.id])
                     } label: {
-                        StepRow(step: (stepItem.imageName, stepItem.step, stepItem.titleKey), index: stepItem.id)
+                        GuideStepRow(item: stepItem, index: stepItem.id)
                     }
-                    .buttonStyle(PlainButtonStyle())
-                    .padding(.horizontal, listPadding)
-                    .id("\(stepItem.step)-\(stepItem.id)")
+                    .pressableRowStyle()
+                    .id("\(stepItem.id)")
+
+                    if idx < numberedSteps.count - 1 {
+                        Divider()
+                            .background(themeManager.selectedTheme.textColor.opacity(0.10))
+                            .padding(.horizontal, AppConstants.isIPad ? 24 : 20)
+                    }
                 }
             }
-            .padding(.vertical, isIPad ? 16 : 10)
-        }
-    }
-    
-    /// Для сетки: отображение шагов через отдельный View StepView
-    private func stepsView(showIndex: Bool, fontSize: CGFloat) -> some View {
-        ForEach(steps) { stepItem in
-            Button {
-                navigationPath.append(stepItem.step)
-            } label: {
-                StepView(
-                    imageName: stepItem.imageName,
-                    titleKey: LocalizedStringKey(stepItem.titleKey),
-                    stringKey: stepItem.titleKey,
-                    index: showIndex ? stepItem.id : nil,
-                    fontSize: fontSize,
-                    stepsCount: steps.count,
-                    hideLastIndex: true,
-                    imageDescriptions: $stepImageDescriptions
+            .standardCardFrame(
+                theme: themeManager.selectedTheme,
+                cornerRadius: listCardCornerRadius,
+                borderWidth: 1
+            )
+            .padding(.horizontal, listPadding)
+
+            if let usefulItem = steps.first(where: { !$0.showStepNumber }) {
+                Button {
+                    navigationPath.append(UmraStep.useful)
+                } label: {
+                    GuideStepRow(item: usefulItem, index: usefulItem.id)
+                }
+                .pressableRowStyle()
+                .standardCardFrame(
+                    theme: themeManager.selectedTheme,
+                    cornerRadius: listCardCornerRadius,
+                    borderWidth: 1
                 )
+                .padding(.horizontal, listPadding)
+                .padding(.top, 16)
+            }
+
+            Spacer().frame(height: 32)
+        }
+    }
+
+    private var stepsHeader: some View {
+        HStack {
+            Text("umra_title", bundle: localizationManager.bundle)
+                .font(.largeTitle.weight(.bold))
                 .foregroundStyle(themeManager.selectedTheme.textColor)
-            }
-            .buttonStyle(PlainButtonStyle())
-            .id("\(stepItem.step)-\(stepItem.id)")
+            Spacer()
         }
-    }
-    
-    // MARK: - Grid Configuration
-    
-    /// Создание столбцов для LazyVGrid (только для iPhone)
-    private var gridColumns: [GridItem] {
-        let screenWidth = UIScreen.main.bounds.width
-        let columnCount = AppConstants.gridColumnCount
-        let spacing = AppConstants.gridColumnSpacing
-        let horizontalPadding: CGFloat = 32
-        let availableWidth = screenWidth - horizontalPadding
-        let totalSpacing = CGFloat(columnCount - 1) * spacing
-        let columnWidth = (availableWidth - totalSpacing) / CGFloat(columnCount)
-        return Array(repeating: GridItem(.fixed(columnWidth)), count: columnCount)
-    }
-    
-    // MARK: - Timer Management
-    
-    /// Запуск таймера для запроса отзыва
-    private func startTimer() {
-        guard !userPreferences.hasRatedApp else { return }
-        usageTimerTask = Task { @MainActor in
-            while !Task.isCancelled {
-                usageTime += 1
-                if usageTime >= AppConstants.reviewRequestTimeInterval {
-                    stopTimer()
-                    requestReviewIfNeeded()
-                    break
-                }
-                do {
-                    try await Task.sleep(for: .seconds(1))
-                } catch {
-                    break
-                }
-            }
-        }
-    }
-    
-    /// Остановка таймера
-    private func stopTimer() {
-        usageTimerTask?.cancel()
-        usageTimerTask = nil
-    }
-    
-    /// Запрос отзыва, если это необходимо
-    private func requestReviewIfNeeded() {
-        guard !userPreferences.hasRatedApp else { return }
-        requestReview()
-        userPreferences.hasRatedApp = true
+        .padding(.horizontal, 24)
+        .padding(.top, 12)
+        .padding(.bottom, 24)
     }
 }
 
 // MARK: - Supporting Views
 
-/// Вспомогательный view для навигации к Chapter
 private struct ChapterDestinationView: View {
     let chapter: Chapter
     @Environment(LocalizationManager.self) private var localizationManager
-    
+
     var body: some View {
         if chapter.title == "title_janaza_guide".localized(bundle: localizationManager.bundle ?? .main) {
             JanazaView()
+        } else if chapter.title == "sunnahs_safar".localized(bundle: localizationManager.bundle ?? .main) {
+            JourneyContentView(chapter: chapter)
         } else {
             ChapterDetailView(chapter: chapter)
         }
-    }
-}
-
-/// Отдельный View для отображения строки шага в списке
-private struct StepRow: View {
-    var step: (String, UmraStep, String)
-    var index: Int
-    @Environment(ThemeManager.self) private var themeManager
-    @Environment(LocalizationManager.self) private var localizationManager
-    
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
-    
-    private var imageSize: CGFloat {
-        isIPad ? 120 : 90
-    }
-    
-    private var fontSize: CGFloat {
-        isIPad ? 24 : 18
-    }
-    
-    private var spacing: CGFloat {
-        isIPad ? 20 : 15
-    }
-    
-    private var padding: CGFloat {
-        isIPad ? 20 : 12
-    }
-    
-    private var cornerRadius: CGFloat {
-        isIPad ? 20 : 16
-    }
-    
-    var body: some View {
-        HStack(spacing: spacing) {
-            Image(step.0)
-                .styledImageWithThemeColorsForList(theme: themeManager.selectedTheme, size: imageSize)
-            VStack(alignment: .leading, spacing: 6) {
-                Text(LocalizedStringKey(step.2), bundle: localizationManager.bundle)
-                    .font(.system(size: fontSize, weight: .semibold))
-                    .foregroundColor(themeManager.selectedTheme.textColor)
-            }
-            Spacer()
-            Image(systemName: "chevron.right")
-                .font(.system(size: isIPad ? 18 : 14, weight: .semibold))
-                .foregroundColor(themeManager.selectedTheme.textColor)
-                .frame(width: isIPad ? 32 : 24, height: isIPad ? 32 : 24)
-                .background(
-                    Circle()
-                        .fill(Color.blue.opacity(0.1))
-                )
-        }
-        .padding(.vertical, padding)
-        .padding(.horizontal, padding)
-        .background(
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .fill(themeManager.selectedTheme == .dark ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white)
-                .shadow(color: Color.black.opacity(0.08), radius: isIPad ? 12 : 8, x: 0, y: 2)
-        )
     }
 }
 
@@ -399,34 +197,3 @@ private struct StepRow: View {
         .environment(FontManager())
         .environment(PurchaseManager())
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

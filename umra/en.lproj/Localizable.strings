@@ -9,20 +9,21 @@
 
 "app_name" = "Umra";
 "main_screen_name_string" = "UMRAH";
-"title_black_stone_screen" = "Return to the Black Stone";
+"title_black_stone_screen" = "Black Stone";
 "title_ihram_screen" = "Ihram";
-"title_place_ibrohim_stand_screen" = "The place where Ibrahim stood";
+"title_place_ibrohim_stand_screen" = "Maqam Ibrahim";
 "title_round_kaaba_screen" = "Tawaf";
 "title_safa_and_marva_screen" = "Safa and Marwa";
 "title_settings_screen" = "Settings";
-"title_shave_head_screen" = "Shave head or cut hair";
-"title_water_zamzam_screen" = "Drinking Zamzam water";
+"title_shave_head_screen" = "Shave Head";
+"title_water_zamzam_screen" = "Zamzam";
 "title_link_book_screen" = "Books";
 
 
 /* IHRAM */
 /* Preparation before Ihram */
-"preparation_before_ihram_title" = "Preparation before Ihram";
+"preparation_before_ihram_title" = "
+Preparation before Ihram";
 "preparation_before_ihram_text" = "Before entering the state of Ihram (i.e., before the intention and beginning of Talbiyah), it is recommended:\n\nPerform ghusl (full ablution), this is sunnah.\n\nPrepare yourself according to \"fitrah\": trim nails, remove pubic and underarm hair (men should also trim their mustache), so that you don't have to do this while in Ihram.\n\nMen should apply perfume to the body after ghusl (not on Ihram clothing).\n\nPut on Ihram clothing (men - izaar and rida; women - regular modest clothing, without niqab and gloves while in Ihram).\n\nIf it is time for obligatory prayer - perform it, then at the Miqat make intention for Umrah/Hajj and recite Talbiyah - from this moment you are in Ihram, and its prohibitions begin to apply.";
 
 "into the state of Ihram" = "
@@ -96,8 +97,7 @@ Labbayka Allahumma bi-'umrah 'an (person's name) - «O Allah, I am performing 'u
 
 
 /* KAABA */
-"Kaaba text1" = "
-Circumambulation (Tawaf) around the Kaaba.";
+"Kaaba text1" = "Circumambulation (Tawaf) around the Kaaba.";
 "Kaaba text2" = "
 Begin the sevenfold circumambulation (Tawaf) around the Kaaba.
 From the beginning of this tawaf until its completion, men should bare their right shoulder.
@@ -117,8 +117,7 @@ If it is not possible to touch and kiss the Black Stone, then face it, point to 
 
 
 /* Namaz after Tawaf around the Kaaba. */
-"Prayer after Tawaf of Kaaba." = "
-Prayer after completing Tawaf around the Kaaba";
+"Prayer after Tawaf of Kaaba." = "Prayer after completing Tawaf around the Kaaba";
 
 "Having completed seven circuits around the Kaaba" = "
 Having completed the seven rounds around the Kaaba, the man covers his right shoulder. Then head towards the place of Ibrahim's standing and say:
@@ -133,8 +132,7 @@ If possible, at the Station of Ibrahim or any place in the Sacred Mosque, perfor
 In the first rak'ah after reciting Surah 1 «Al-Fatihah = The Opening», recite Surah 109 «Al-Kafirun = The Disbelievers», and in the second rak'ah after Surah «Al-Fatihah», recite Surah 112 «Al-Ikhlas = The Purity of Faith». After completing the prayer, head to the Zamzam water source.";
 
 /* Drinking Zamzam water. */
-"Drinking Zamzam water." = "
-Drinking Zamzam water.";
+"Drinking Zamzam water." = "Drinking Zamzam water.";
 "Zamzam text" = "
 Drink water and pour it over your head.
     
@@ -146,8 +144,7 @@ Ash-Shawkani said: «This hadith contains evidence that drinking Zamzam water is
 An-Nawawi said: «The meaning of this hadith is that whoever drinks this water for a specific purpose, will attain it. Truly, scholars and righteous people have tried this to achieve their needs, whether in this world or the Hereafter, and they have received it by the grace of Almighty Allah.» See «Tahzib al-asma wa al-lughat» (3/139).";
 
 /* Return to the Black Stone. */
-"Return to the Black Stone." = "
-Return to the Black Stone.";
+"Return to the Black Stone." = "Return to the Black Stone.";
 "Return to the Black Stone, recite the Takbir." = "
 Return to the Black Stone, saying takbir, and touch it with your hand as explained earlier, or point to it with your hand and say takbir. Allah is Great.";
 "Allah is great." = "
@@ -155,8 +152,7 @@ Allahu Akbar.
 ";
 
 /* Safa and Marwa */
-"Safa and Marwa" = "
-Safa and Marwa";
+"Safa and Marwa" = "Safa and Marwa";
 "Head towards the hill of Safa" = "
 Go to the hill of Safa to perform the seven rounds of the ritual walk (sa‘y) between the hills of Safa and Marwa. Begin the sa‘y at the hill of Safa.
     
@@ -201,8 +197,7 @@ Prayer upon exiting the Sacred Mosque. After completing the seventh circuit on t
 O Allah, bless Muhammad and grant him peace! O Allah, indeed, I ask You for Your Mercy!";
 
 /* Shaving of the head or trimming of the hair. */
-"Shaving the head string" = "
-Shaving the head or trimming the hair.";
+"Shaving the head string" = "Shaving the head or trimming the hair.";
 "Men shorten or shave their hair." = "
 Then the man evenly trims his hair on his head or shaves it off, while the woman cuts a lock of hair equivalent to the length of a finger joint.
 
@@ -233,9 +228,8 @@ Praise be to Allah, the Lord of the worlds!";
     "text_button_feedback_string" = "Feedback";
     "evaluate_the_app_string" = "EVALUATE THE APP";
     "text_button_rate_the_app_string" = "Evaluate the app";
-    "support_the_developer_string" = "SUPPORT THE DEVELOPER";
-    "text_button_support_string" = "Support the developer";
-    "select_language_settings_string" = "Select language";
+    "text_button_support_string" = "Support the App";
+    "select_language_settings_string" = "Language";
     "settings_string" = "Settings";
 //    <string name="select_language_string">Выберите язык</string>
 //    <string name="russian_string">Русский</string>
@@ -258,6 +252,8 @@ Praise be to Allah, the Lord of the worlds!";
 
 "_donate_button" = "Support";
 "select_the_amount" = "Select the amount:";
+"purchase_error_title" = "Error";
+"purchase_error_message" = "Purchase failed. Please try again.";
 
 "Contribution to Application Development" = "We made this app free so that it can benefit everyone. If you feel the desire, you may contribute and become part of this goodness. Your donation is entirely voluntary, one-time, and not connected to any subscription or additional features.";
 
@@ -266,10 +262,11 @@ Praise be to Allah, the Lord of the worlds!";
 "Useful" = "Helpful";
 "soon_available_text" = "This text has been translated from Russian using AI. If you notice any errors or inaccuracies, please let us know through feedback.";
 
-"Notification Settings" = "Notification Settings";
-"30-Minute Notifications" = "Notify 30 minutes before prayer";
-"Prayer Time Notifications" = "Notify at prayer time";
-"Sunrise Notifications" = "Notify at sunrise";
+"Notification Settings" = "Notifications";
+"Prayer Notification Settings" = "Prayer Notifications";
+"30-Minute Notifications" = "30 Minutes Before";
+"Prayer Time Notifications" = "At Prayer Time";
+"Sunrise Notifications" = "Sunrise";
 "Open iOS Notification Settings" = "Open iOS Notification Settings";
 "Close" = "Close";
 
@@ -298,7 +295,10 @@ Praise be to Allah, the Lord of the worlds!";
 "umrah_obligation_evidence" = "Evidence of Umrah Obligation";
 "conclusion" = "Conclusion";
 
-
+/* Journey — Sunnahs related to setting out on a journey */
+"sunnahs_safar" = "Journey";
+"safar_sunnahs_subtitle" = "Some Sunnahs related to setting out on a journey";
+"safar_sunnahs_content" = "Some Sunnahs related to setting out on a journey:\n\n1) Supplication to Allah before setting out on a journey\nIt is narrated from Ibn 'Umar (may Allah be pleased with them both) that when the Messenger of Allah (may Allah bless him and grant him peace) mounted his camel to set out on a journey, he would say three times: \"Allah is the Greatest, Allahu Akbar\", and then say: «Glory be to Him Who has subjected this to us, for we could not have done so by ourselves. And indeed, to our Lord we shall return. O Allah, indeed we ask You in this journey of ours for righteousness and piety, and for deeds that please You. O Allah, make this journey of ours easy for us and shorten its distance for us. O Allah, You will be the Companion on this journey and the Guardian over the family. O Allah, indeed I seek refuge in You from the hardship of travel, from the sorrow caused by what may be seen, and from all evil that may befall wealth and family!»\nسُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ\n\nSubhana-llazi sakhkhara lana haza, wa ma kunna lahu muqrinin, wa inna ila Rabbina la-munqalibun!\nاللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى وَمِنْ الْعَمَلِ مَا تَرْضَى اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ وَالْخَلِيفَةُ فِي الْأَهْلِ اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ وَكَآبَةِ الْمَنْظَرِ وَسُوءِ الْمُنْقَلِبِ فِي الْمَالِ وَالْأَهْلِ\n\nAllahumma, inna nas'aluka fi safarina hazal-birra, wat-taqwa, wa minal-'amali ma tarda! Allahumma, hawwin 'alayna safarana haza, watwi 'anna bu'dahu! Allahumma, Antas-sahibu fis-safari wal-khalifatu fil-ahli, Allahumma, inni a'uzu bika min wa'tha'is-safari, wa kaabatil-manzari, wa su'il-munqalabi fil-mali wal-ahli!\nWhen returning, he would repeat these words and add:\nآيِبُونَ تَائِبُونَ عَابِدُونَ لِرَبِّنَا حَامِدُونَ\n\nAyibuna, taibuna, 'abiduna li-Rabbina hamidun\n«We return, we repent, we worship, and we praise our Lord». (Sahih Muslim, 1342)\n\nIt is reported that 'Ali ibn Rabi'a said: «I once saw 'Ali ibn Abi Talib being brought a riding animal so that he could mount it. When he placed his foot in the stirrup, he said:\nبِسْمِ اللَّهِ\n\n\"In the name of Allah\" (Bismi-LLAH), and when he sat upright on it, he said:\nسُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ\n\"Glory be to Him Who has subjected this to us, for we could not have done so by ourselves, and indeed, to our Lord we shall return.\" Then he said three times: \"All praise is for Allah\" (الْحَمْدُ لِلَّهِ) and \"Allah is the Greatest\" (الله أكبر), and then said:\n\"Glory be to You! Indeed, I have wronged myself, so forgive me, for none forgives sins except You!\"\nسُبْحَانَكَ إِنِّي قَدْ ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ\n\nSubhana-ka! Inni zalamtu nafsi, faghfir li, fa-innahu la yaghfiru adh-dhunuba illa Ant!\n- after which he laughed. He was asked: \"O Commander of the Believers, why do you laugh?\" He replied: \"I saw the Prophet (may Allah bless him and grant him peace) do exactly what I have just done, then he laughed. So I asked him: 'O Messenger of Allah, why do you laugh?' He said: 'Indeed, your Lord loves when His servant says:\nرَبِّ اغْفِرْ لِي ذُنُوبِي إِنَّهُ لَا يَغْفِرُ الذُّنُوبَ غَيْرُك\n\n\"My Lord, forgive me my sins, for none forgives sins except You!\"\nRabbi ighfir li dhunubi, innahu la yaghfiru adh-dhunuba ghayruk!\n- and He says: \"He knows that none forgives sins except Me\"'.» (Sunan at-Tirmidhi, 3446; authenticated by Shaykh al-Albani as Sahih)\n\n2) Setting out on a journey on Thursday; setting out at night\nIt is narrated from Ka'b ibn Malik (may Allah be pleased with him) that «the Prophet (may Allah bless him and grant him peace) set out for Tabuk on a Thursday and generally liked to set out on journeys on Thursdays». (Sahih al-Bukhari, 2949)\nIt is narrated from Anas that the Messenger of Allah (may Allah bless him and grant him peace) said: \"You should travel at night, for the earth is folded up during the night.\" (Sahih al-Jami', 4064)\n\n3) Seeking companions and appointing one of them as a leader to whom they obey\nIt is narrated from Ibn 'Umar that the Messenger of Allah (may Allah bless him and grant him peace) said: \"If people knew what I know about traveling alone, no rider would travel alone at night.\" (Al-Bukhari, 2998)\nIt is narrated from Abu Sa'id and Abu Hurayrah that the Messenger of Allah (may Allah bless him and grant him peace) said: \"If three people set out on a journey, let them appoint one of them as their leader.\" (Sahih al-Jami', 500)\n\n4) Magnifying Allah when ascending heights and glorifying Him when descending into valleys and passes\nIt is reported that Jabir ibn 'Abdullah (may Allah be pleased with them both) said: «When we ascended, we said: \"Allah is the Greatest,\" and when we descended, we said: \"Glory be to Allah.\"» (Sahih al-Bukhari, 2993)\n\n5) Combining and shortening prayers\nIt is narrated from Anas (may Allah be pleased with him): «The Messenger of Allah (may Allah bless him and grant him peace) combined the Maghrib and 'Isha prayers while traveling.» (Sahih al-Bukhari, 1108)\nIt is narrated from Anas (may Allah be pleased with him): «We set out with the Prophet (may Allah bless him and grant him peace) from Madinah to Makkah, and he prayed two rak'ahs until we returned to Madinah.» (Sahih al-Bukhari, 1081)\n\n6) Leaving voluntary prayers except Witr, Duha, and 2 rak'ahs before the Fajr prayer\nAbu Qatadah reported that «the Messenger of Allah (may Allah bless him and grant him peace) would pray two rak'ahs before the obligatory Fajr prayer while traveling». (Muslim, 680)\nUmm Hani also reported that «on the day of the conquest of Makkah, the Prophet (may Allah bless him and grant him peace) prayed 8 rak'ahs of Duha prayer». At that time he was traveling. (Al-Bukhari, 357; Muslim, 336)\nIbn 'Umar also reported that «the Prophet (may Allah bless him and grant him peace) would pray Witr while traveling, seated on his riding animal». (Al-Bukhari, 1000)\n\n7) Performing voluntary prayers while seated on a riding animal or transport\nIbn 'Umar reported that «the Prophet (may Allah bless him and grant him peace) would pray Witr while traveling, seated on his riding animal». (Al-Bukhari, 1000)\n\n8) Increasing supplication to Allah while traveling\nThe Messenger of Allah (may Allah bless him and grant him peace) said: «Three supplications are answered: the supplication of the oppressed, the supplication of the traveler, and the supplication of a parent against his child.» (Al-Bukhari, 481)\n\n9) Removing what harms travelers from the road\nIt is narrated from Abu Hurayrah (may Allah be pleased with him) that the Messenger of Allah (may Allah bless him and grant him peace) said: «Faith has more than seventy (or sixty) branches, the best of which is saying: \"There is no deity worthy of worship except Allah,\" and the least of which is removing harm from the road. Modesty (haya') is also a branch of faith.» (Mukhtasar Sahih Muslim, 31)\n\n10) Supplication when stopping at a place\nIt is reported that Khawlah bint Hakim said: \"I heard the Messenger of Allah (may Allah bless him and grant him peace) say: 'If a person stops at any place and says:\n\"I seek refuge in the perfect words of Allah from the evil of what He created!\"\nأَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ\nA'uzu bikalimati-LLahi-t-tammati min sharri ma khalaq! - nothing will harm him until he leaves that place.'\" (Muslim, 2708)\n\n11) Returning quickly after completing the purpose of the trip\nIt is narrated from Abu Hurayrah that the Messenger of Allah (may Allah bless him and grant him peace) said: \"Travel is a part of hardship, as it prevents one of you from full comfort in eating, drinking, and sleeping; so when one of you completes the purpose of his trip, let him hasten back to his family.\" (Al-Bukhari, 1804; Muslim, 1927)\n\n12) Returning to one's family during the day\nIt is reported that Anas said: \"The Messenger of Allah (may Allah bless him and grant him peace) did not return to his family at night; he usually returned in the morning or in the evening.\" (Al-Bukhari, 1800; Muslim, 1928)\n\n13) Praying 2 rak'ahs after returning from a journey\nIt is reported that Ka'b ibn Malik (may Allah be pleased with him) said: «When the Messenger of Allah (may Allah bless him and grant him peace) returned (to Madinah) from a journey, he would first go to the mosque and pray two rak'ahs, then sit there with the people for some time». (Sahih al-Bukhari, 4418)\n";
 
 /* Texts for Etiquette Manners */
 "etiquette_manners_text1" = "The most important duty for a person performing Hajj and ‘Umrah is sincerity before Allah. One must rid themselves of ostentation and the desire for fame in order to receive the reward for this Hajj and ‘Umrah.
@@ -393,7 +393,7 @@ Commenting on this hadith, Ibn Khuzaymah, may Allah have mercy on him, said: «T
 
 "title_janaza_guide" = "Janazah Prayer";
 "basic_rules" = "Guide to Janazah Prayer";
-"janaza_basic_rules" = "📌 Essential Rules of the Janazah Prayer (Funeral Prayer).
+"janaza_basic_rules" = "Essential Rules of the Janazah Prayer (Funeral Prayer).
 
 The prayer is performed while standing, without bowing (ruku') or prostration (sujood). It consists of four takbirs (saying 'Allahu Akbar').
 
@@ -448,35 +448,35 @@ Allahumma ighfir lahu, warhamhu, wa ‘afihi, wa‘fu ‘anhu, wa akrim nuzulahu
 "Awf ibn Malik reported: 'One day, the Messenger of Allah (peace and blessings be upon him) performed the Janazah prayer, and I memorized his supplication for the deceased. He said: «O Allah! Forgive him, have mercy on him, grant him relief, and grant him a noble reception. Make his grave spacious and wash him with water, snow, and hail. Cleanse him from sins as a white garment is cleansed from dirt. Grant him a home better than his home, a family better than his family, and a spouse better than his spouse. Admit him into Paradise and protect him from the punishment of the grave and the torment of the Fire!» - Abu ‘Abdur-Rahman said: 'I even wished to be in the place of the deceased.' (Sahih Muslim 2/663)";
 
 "dua_variations_title" = "Dua variations depending on the deceased";
-"dua_variations_text" = "📌 If the deceased is one man
+"dua_variations_text" = "If the deceased is one man
 - Use the form: لَهُ (lahu)
 
 اللَّهُمَّ اغْفِرْ لَهُ، وَارْحَمْهُ،
 
 (Allahumma ghfur lahu, wa-rhamhu.)
 
-📌 If the deceased is one woman
+If the deceased is one woman
 - Replace all masculine forms with feminine: لَهَا (laha)
 
 اللَّهُمَّ اغْفِرْ لَهَا، وَارْحَمْهَا،
 
 (Allahumma ghfur laha, wa-rhamha.)
 
-📌 If there are several deceased (only men)
+If there are several deceased (only men)
 - Use the masculine plural form: لَهُمْ (lahum)
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
 
 (Allahumma ghfur lahum, wa-rhamhum.)
 
-📌 If there are several deceased (only women)
+If there are several deceased (only women)
 - Use the feminine plural form: لَهُنَّ (lahunna)
 
 اللَّهُمَّ اغْفِرْ لَهُنَّ، وَارْحَمْهُنَّ،
 
 (Allahumma ghfur lahunna, wa-rhamhunna.)
 
-📌 If the gender of the deceased is unknown, or if there are multiple deceased (both men and women), use the form: لَهُمْ (lahum).
+If the gender of the deceased is unknown, or if there are multiple deceased (both men and women), use the form: لَهُمْ (lahum).
 
 اللَّهُمَّ اغْفِرْ لَهُمْ، وَارْحَمْهُمْ،
 
@@ -494,19 +494,23 @@ You can make a supplication, but it is not obligatory.";
 It is reported that when 'Abdullah ibn Abu Awfa performed the funeral prayer over his daughter, he pronounced the takbir four times. After the fourth takbir, he stood for the same amount of time as between two takbirs, asking Allah for forgiveness for his daughter and supplicating for her, and then said: 'This is what the Messenger of Allah (peace and blessings of Allah be upon him) used to do.' Al-Hakim 1/512. See 'Sahih Sunan Ibn Majah' 1220.";
 
 "taslim_title" = "Conclusion of the prayer (taslim)";
-"taslim_text" = "📌 You can say the taslim once to the right or twice (to the right and to the left).
+"taslim_text" = "You can say the taslim once to the right or twice (to the right and to the left).
 
 The Messenger of Allah (peace and blessings of Allah be upon him), when performing the funeral prayer, did both one and two salutations, but he did one salutation more frequently.";
 
 /* Theme Localization */
-"theme_app_title" = "App Theme";
+"theme_app_title" = "Appearance";
 "theme_select_title" = "Choose App Theme";
-"theme_heavenly" = "Sky";
-"theme_oasis" = "Oasis";
-"theme_gold" = "Gold";
-"theme_turquoise" = "Sea";
-"theme_dark" = "Night";
+"theme_auto" = "Auto";
+"theme_auto_subtitle" = "Follows system appearance";
+"theme_nur" = "Light";
+"theme_layl" = "Dark";
+"theme_emerald" = "Emerald";
+"theme_nur_subtitle" = "Light and serenity";
+"theme_layl_subtitle" = "Night comfort";
+"theme_emerald_subtitle" = "Soft tinted glow";
 "done_button" = "Done";
+"select_font" = "Select Font";
 
 /* Tab Localization */
 "tab_umra" = "Umrah";
@@ -674,3 +678,101 @@ Attention: this circumambulation of the Kaaba is performed at a normal walking p
 
 May Almighty Allah accept your Hajj!";
 
+/* Steps — headers and labels */
+"step_prefix" = "STEP";
+"steps_count_one" = "Step";
+"steps_count_few" = "Steps";
+"steps_count_many" = "Steps";
+"order_label" = "Order";
+"umra_title" = "Umrah";
+"hajj_title" = "Hajj";
+
+"info_button_label" = "for
+en.lproj
+.lproj";
+
+"info_button_label" = "Information";
+
+/* Tab */
+"tab_dua" = "Duas";
+
+/* Dua Book — Navigation & Categories */
+"dua_book_nav_title" = "Du'a Book";
+"dua_category_umrah" = "Umrah";
+"dua_category_hajj" = "Hajj";
+
+/* Dua Book — Detail Labels */
+"dua_detail_translit_label" = "Transliteration";
+"dua_detail_trans_label" = "Translation";
+
+/* Dua Book — Umrah Duas */
+
+"dua_niyyah_umrah_title" = "Intention for Umrah";
+"dua_niyyah_umrah_trans" = "Here I am before You, O Allah, [performing] Umrah.";
+"dua_niyyah_umrah_translit" = "Labbayka Allahumma bi-´umrah.";
+
+
+"dua_ihram_umrah_title" = "Du'a of Ihram (Umrah)";
+"dua_ihram_umrah_trans" = "O Allah, this Umrah - there is no showing off or seeking fame in it!";
+"dua_ihram_umrah_translit" = "Allahumma hazihi 'umrah, la riya'a fiha wa la sum'ah.";
+
+
+"dua_talbiyah_title" = "Talbiyah";
+"dua_talbiyah_trans" = "Here I am, O Allah, here I am! Here I am, there is no partner for You, here I am! Verily, all praise, grace, and sovereignty belong to You. You have no partner.";
+"dua_talbiyah_translit" = "Labbayka Allahumma labbayk! Labbayka laa shariika laka labbayka! Innal hamda wanni'mata laka wal mulk, laa shariika lak";
+
+
+"dua_masjid_enter_title" = "Du'a upon Entering the Mosque";
+"dua_masjid_enter_trans" = "O Allah, bless Muhammad and grant him peace! O Allah, open for me the gates of Your mercy!";
+"dua_masjid_enter_translit" = "Allahumma, solli ´ala Muhammadin wa sallim! Allahumma - ftah li abwaba rohmati-ka!";
+
+
+"dua_condition_title" = "Du'a of Stipulation";
+"dua_condition_trans" = "O Allah, my place of entering into Ihram is wherever You have detained me.";
+"dua_condition_translit" = "Allahumma mahilli haysu habastani";
+
+
+"dua_allahu_akbar_title" = "Takbir (Tawaf)";
+"dua_allahu_akbar_trans" = "Allah is the Greatest!";
+"dua_allahu_akbar_translit" = "Allahu Akbar";
+
+
+"dua_rabbana_title" = "Du'a between the Corners";
+"dua_rabbana_trans" = "Our Lord, grant us the good of this world and the good of the Hereafter, and protect us from the torment of the Fire!";
+"dua_rabbana_translit" = "Rabbana, atina fid-dunya hasanatan wa fil-akhiroti hasanatan wa qina azaba-n-nar";
+
+
+"dua_maqam_ibrahim_title" = "Verse of Maqam Ibrahim";
+"dua_maqam_ibrahim_trans" = "And take, [O believers], from the standing place of Ibrahim a place of prayer. (Surah Al-Baqarah, verse 125).";
+"dua_maqam_ibrahim_translit" = "Wa-ttahizu mim-maqomi Ibrohima musollya.";
+
+
+"dua_safa_ayah_title" = "Verse of Safa and Marwa";
+"dua_safa_ayah_trans" = "Indeed, as-Safa and al-Marwah are among the symbols of Allah. So whoever makes Hajj to the House or performs 'umrah - there is no blame upon him for walking between them. And whoever volunteers good - then indeed, Allah is appreciative and Knowing. (Surah Al-Baqarah, verse 158).";
+"dua_safa_ayah_translit" = "Inna Ssofaa wal-Marwata min sha’aaa’iril laah, faman hajjal Baita awi’tamaro falaa junaaha ‘alaihi ayyatt´owwafa bihimaa, wa man tat´owwa’a hoyron fa-inna-LLAha Shakirun ´alim.";
+
+
+"dua_nabdau_title" = "We Begin with What Allah Began";
+"dua_nabdau_trans" = "We begin with that with which Allah began.";
+"dua_nabdau_translit" = "Nabdau bima badaa-Llahu bihi";
+
+
+"dua_zikr_safa_title" = "Dhikr on Safa and Marwa";
+"dua_zikr_safa_trans" = "Allah is the Greatest, Allah is the Greatest, Allah is the Greatest! There is no deity except Allah, the One without any partners! To Him belongs the power and to Him belongs all praise. He gives life and causes death, and He has power over all things. There is no deity except Allah, the One without any partners! He fulfilled His promise, aided His servant, and alone defeated the hostile tribes.";
+"dua_zikr_safa_translit" = "Allahu Akbar! Allahu Akbar! Allahu Akbar! La ilaha illa-Llahu wahdahu la sharika lahu. Lahul mulku wa lahul hamdu yuhyi wa yumitu wa huwa 'ala kulli shay'in qodir. La ilaha illa-Llahu wahdahu la sharika lah, anjaza wa'dahu, wa nasaro 'abdahu, wa hazamal ahzaba wahdahu";
+
+
+"dua_rabbi_ighfir_title" = "Du'a during Sa'i";
+"dua_rabbi_ighfir_trans" = "O Lord, forgive and have mercy, for You are the Most Great and Generous!";
+"dua_rabbi_ighfir_translit" = "Rabbi-ghfir wa rham, innaka anta a´azzul-akram";
+
+
+"dua_masjid_exit_title" = "Du'a upon Exiting the Mosque";
+"dua_masjid_exit_trans" = "O Allah, bless Muhammad and grant him peace! O Allah, indeed, I ask You for Your Mercy!";
+"dua_masjid_exit_translit" = "Allahumma solli 'ala Muhammadin wa sallim! Allahumma, inni as'aluka min fadlika!";
+
+/* Dua Book — Hajj Duas (titles only; translations reuse existing hajj_step keys) */
+"dua_niyyah_hajj_title" = "Intention for Hajj";
+"dua_niyyah_hajj_trans" = "Here I am before You, O Allah, [performing] Hajj.";
+"dua_ihram_hajj_title" = "Du'a of Ihram (Hajj)";
+"dua_arafat_title" = "Du'a on Arafat";

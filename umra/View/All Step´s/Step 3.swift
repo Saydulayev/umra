@@ -8,54 +8,30 @@
 import SwiftUI
 
 struct Step3: View {
-    @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
     @Environment(FontManager.self) private var fontManager
-    
+
     var body: some View {
-        ZStack {
-            themeManager.selectedTheme.backgroundColor
-                .ignoresSafeArea(edges: .bottom)
-            
-            ScrollView {
-                VStack {
-                    Text("Prayer after Tawaf of Kaaba.", bundle: localizationManager.bundle)
-                        .font(.custom("Lato-Black", size: 26))
-                    
-                    Group {
-                        Text("Having completed seven circuits around the Kaaba", bundle: localizationManager.bundle)
-                        
-                        Text("""
-                        وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّ
+        StepScrollView {
+            Text("Prayer after Tawaf of Kaaba.", bundle: localizationManager.bundle)
+                .font(fontManager.sectionTitleFont)
+
+            Group {
+                Text("Having completed seven circuits around the Kaaba", bundle: localizationManager.bundle)
+
+                Text("""
+                        وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّ
                         """)
-                        .customTextforArabic()
-                        
-                        PlayerView(fileName: "13")
-                    }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
-                    
-                    Group {
-                        Text("Place of standing of Ibrahim", bundle: localizationManager.bundle)
-                    }
-                    .font(fontManager.selectedFont == "Lato-Black" ? .system(size: fontManager.dynamicFontSize, weight: .light, design: .serif).italic() : .custom(fontManager.selectedFont, size: fontManager.dynamicFontSize))
-                }
-                .foregroundStyle(themeManager.selectedTheme.textColor)
-                .padding(.horizontal, 10)
-                LanguageView()
-                    .hidden()
-                    .navigationTitle(Text("title_place_ibrohim_stand_screen", bundle: localizationManager.bundle))
-                    .navigationBarTitleDisplayMode(.inline)
+                .customTextforArabic()
+
+                PlayerView(fileName: "13")
             }
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    CustomToolbar(
-                        selectedFont: Bindable(fontManager).selectedFont,
-                        fonts: fontManager.fonts
-                    )
-                    .environment(themeManager) 
-                }
+            .font(fontManager.bodyFont)
+
+            Group {
+                Text("Place of standing of Ibrahim", bundle: localizationManager.bundle)
             }
-            .toolbar(.hidden, for: .tabBar)
+            .font(fontManager.bodyFont)
         }
     }
 }

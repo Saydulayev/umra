@@ -16,33 +16,8 @@ struct NeumorphicBackground: ViewModifier {
     var theme: AppTheme
     
     func body(content: Content) -> some View {
-        let isDarkTheme = theme == .dark
-        let backgroundColor = isDarkTheme ? Color(UIColor(red: 0.25, green: 0.25, blue: 0.3, alpha: 1)) : Color.white
-        let gradientBottom = isDarkTheme ? theme.gradientBottomColor : Color.white
-        
         return content
-            .background(
-                ZStack {
-                    theme.primaryColor.opacity(0.1)
-                    
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .foregroundColor(backgroundColor)
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [theme.gradientTopColor, gradientBottom]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .padding(2)
-                }
-            )
-            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .standardCardFrame(theme: theme, cornerRadius: cornerRadius)
     }
 }
 
@@ -58,6 +33,7 @@ struct DonationSheetView: View {
     @Binding var isPurchased: Bool
     @Environment(ThemeManager.self) private var themeManager
     @Environment(LocalizationManager.self) private var localizationManager
+    @Environment(FontManager.self) private var fontManager
     @Environment(PurchaseManager.self) private var purchaseManager
     @State private var selectedProductID = ProductID.umrahSunnah1.rawValue
     @State private var isLoading = false
@@ -65,44 +41,29 @@ struct DonationSheetView: View {
     
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.umra.app", category: "DonationSheetView")
     
-    private var isIPad: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
-    }
-    
-    private var titleFontSize: CGFloat {
-        isIPad ? 24 : 16
-    }
     
     private var titlePadding: CGFloat {
-        isIPad ? 24 : 16
+        AppConstants.isIPad ? 24 : 16
     }
     
     private var titleCornerRadius: CGFloat {
-        isIPad ? 24 : 20
-    }
-    
-    private var pickerFontSize: CGFloat {
-        isIPad ? 28 : 20
+        AppConstants.isIPad ? 24 : 20
     }
     
     private var pickerPadding: CGFloat {
-        isIPad ? 12 : 5
+        AppConstants.isIPad ? 12 : 5
     }
     
     private var pickerContainerPadding: CGFloat {
-        isIPad ? 24 : 16
-    }
-    
-    private var buttonFontSize: CGFloat {
-        isIPad ? 24 : 18
+        AppConstants.isIPad ? 24 : 16
     }
     
     private var buttonPadding: CGFloat {
-        isIPad ? 24 : 16
+        AppConstants.isIPad ? 24 : 16
     }
     
     private var buttonCornerRadius: CGFloat {
-        isIPad ? 24 : 20
+        AppConstants.isIPad ? 24 : 20
     }
     
     private var productPrices: [String: String] {
@@ -112,103 +73,68 @@ struct DonationSheetView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                // Фоновый цвет для экрана
-                themeManager.selectedTheme.lightBackgroundColor
+                themeManager.selectedTheme.backgroundColor
                     .ignoresSafeArea()
-                
-                if isIPad {
-                    // Улучшенная структура для iPad
-                    VStack(spacing: 32) {
-                        // Заголовок
-                        Text("Contribution to Application Development", bundle: localizationManager.bundle)
-                            .font(.system(size: titleFontSize, weight: .medium))
-                            .foregroundColor(themeManager.selectedTheme.textColor)
-                            .padding(titlePadding)
-                            .frame(maxWidth: .infinity)
-                            .neumorphicBackground(cornerRadius: titleCornerRadius, theme: themeManager.selectedTheme)
-                            .padding(.horizontal, pickerContainerPadding)
-                            .padding(.top, 24)
-                        
-                        Spacer()
-                        
-                        VStack(spacing: 24) {
-                            // Выбор суммы пожертвования
-                            HStack(spacing: 16) {
-                                Text("select_the_amount", bundle: localizationManager.bundle)
-                                    .font(.system(size: titleFontSize, weight: .medium))
-                                    .foregroundStyle(themeManager.selectedTheme.textColor)
-                                
-                                Picker("Выберите сумму", selection: $selectedProductID) {
-                                    ForEach(ProductID.allCases, id: \.rawValue) { productID in
-                                        Text(productID.displayPrice)
-                                            .font(.system(size: pickerFontSize))
-                                            .tag(productID.rawValue)
-                                    }
-                                }
-                                .font(.system(size: pickerFontSize))
-                                .padding(pickerPadding)
-                                .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
-                                .accentColor(.blue)
-                                .pickerStyle(MenuPickerStyle())
-                            }
-                            .padding(.horizontal, pickerContainerPadding)
-                            
-                            // Кнопка пожертвования или индикатор загрузки
-                            if isLoading {
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                                    .frame(maxWidth: .infinity)
-                                    .padding(buttonPadding)
-                                    .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
-                                    .padding(.horizontal, pickerContainerPadding)
-                                    .padding(.bottom, 32)
-                            } else {
-                                donateButton
-                                    .padding(.bottom, 32)
-                            }
-                        }
-                    }
-                } else {
-                    // Оригинальная структура для iPhone
-                    Text("Contribution to Application Development", bundle: localizationManager.bundle)
-                        .font(.system(size: 16))
-                        .foregroundColor(themeManager.selectedTheme.textColor)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .neumorphicBackground(theme: themeManager.selectedTheme)
-                        .padding()
-                    
-                    VStack {
-                        Spacer()
-                        HStack {
-                            Text("select_the_amount", bundle: localizationManager.bundle)
+
+                GeometryReader { geo in
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            Spacer()
+
+                            Text("Contribution to Application Development", bundle: localizationManager.bundle)
+                                .font(fontManager.bodyFont.weight(.medium))
                                 .foregroundStyle(themeManager.selectedTheme.textColor)
-                            Picker("Выберите сумму", selection: $selectedProductID) {
-                                ForEach(ProductID.allCases, id: \.rawValue) { productID in
-                                    Text(productID.displayPrice).tag(productID.rawValue)
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(titlePadding)
+                                .frame(maxWidth: .infinity)
+                                .neumorphicBackground(cornerRadius: titleCornerRadius, theme: themeManager.selectedTheme)
+                                .padding(.horizontal, pickerContainerPadding)
+
+                            Spacer()
+
+                            VStack(spacing: AppConstants.isIPad ? 24 : 16) {
+                                HStack(spacing: AppConstants.isIPad ? 16 : 12) {
+                                    Text("select_the_amount", bundle: localizationManager.bundle)
+                                        .font(fontManager.bodyFont.weight(.medium))
+                                        .foregroundStyle(themeManager.selectedTheme.textColor)
+                                        .fixedSize(horizontal: false, vertical: true)
+
+                                    Picker("Выберите сумму", selection: $selectedProductID) {
+                                        ForEach(ProductID.allCases, id: \.rawValue) { productID in
+                                            Text(productID.displayPrice)
+                                                .font(.title3)
+                                                .tag(productID.rawValue)
+                                        }
+                                    }
+                                    .font(.title3)
+                                    .padding(pickerPadding)
+                                    .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
+                                    .tint(themeManager.selectedTheme.primaryColor)
+                                    .pickerStyle(MenuPickerStyle())
+                                }
+                                .padding(.horizontal, pickerContainerPadding)
+
+                                if isLoading {
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle(tint: themeManager.selectedTheme.textColor))
+                                        .frame(maxWidth: .infinity)
+                                        .padding(buttonPadding)
+                                        .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
+                                        .padding(.horizontal, pickerContainerPadding)
+                                } else {
+                                    donateButton
                                 }
                             }
-                            .font(.title)
-                            .padding(5)
-                            .neumorphicBackground(theme: themeManager.selectedTheme)
-                            .padding()
-                            .accentColor(.blue)
-                            .pickerStyle(MenuPickerStyle())
+                            .padding(.bottom, AppConstants.isIPad ? 40 : 32)
                         }
-                        
-                        if isLoading {
-                            ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                        } else {
-                            donateButtonOriginal
-                        }
+                        .frame(minHeight: geo.size.height)
                     }
+                    .scrollBounceBehavior(.basedOnSize)
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
                         isPresented = false
                     }, label: {
@@ -216,14 +142,19 @@ struct DonationSheetView: View {
                             .imageScale(.large)
                             .foregroundStyle(themeManager.selectedTheme.primaryColor)
                     })
+                    .accessibilityLabel("Close")
                 }
             }
+            .navigationTitle(Text("text_button_support_string", bundle: localizationManager.bundle))
             .navigationBarTitleDisplayMode(.inline)
         }
-        .alert(isPresented: $showError) {
-            Alert(title: Text("Ошибка"),
-                  message: Text("Покупка не удалась. Пожалуйста, попробуйте снова."),
-                  dismissButton: .default(Text("OK")))
+        .alert(
+            Text("purchase_error_title", bundle: localizationManager.bundle),
+            isPresented: $showError
+        ) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("purchase_error_message", bundle: localizationManager.bundle)
         }
     }
     
@@ -237,39 +168,12 @@ struct DonationSheetView: View {
             }
         } label: {
             Text("_donate_button", bundle: localizationManager.bundle)
-                .font(.system(size: buttonFontSize, weight: .medium))
-                .foregroundColor(themeManager.selectedTheme.textColor)
+                .font(.title3.weight(.medium))
+                .foregroundStyle(themeManager.selectedTheme.textColor)
                 .frame(maxWidth: .infinity)
                 .padding(buttonPadding)
                 .neumorphicBackground(cornerRadius: buttonCornerRadius, theme: themeManager.selectedTheme)
                 .padding(.horizontal, pickerContainerPadding)
-        }
-    }
-    
-    private var donateButtonOriginal: some View {
-        Button {
-            Task { @MainActor in
-                isLoading = true
-                await buy(productID: selectedProductID)
-                isLoading = false
-                if isPurchased { isPresented = false }
-            }
-        } label: {
-            ZStack {
-                if isLoading {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                        .padding()
-                } else {
-                    Text("_donate_button", bundle: localizationManager.bundle)
-                        .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(themeManager.selectedTheme.textColor)
-                        .padding()
-                }
-            }
-            .frame(maxWidth: .infinity)
-            .neumorphicBackground(theme: themeManager.selectedTheme)
-            .padding()
         }
     }
     
